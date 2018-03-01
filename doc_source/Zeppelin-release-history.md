@@ -1,0 +1,122 @@
+# Zeppelin Release History<a name="Zeppelin-release-history"></a>
+
+The following tables list the version of Zeppelin included in each release version of Amazon EMR, along with the components installed with the application\. For component versions in each release, see the Component Version section for your release in [Amazon EMR 5\.x Release Versions](emr-release-5x.md) or [Amazon EMR 4\.x Release Versions](emr-release-4x.md)\.
+
+
+**Zeppelin Version Information for emr\-5\.11\.0**  
+
+| Amazon EMR Release Label | Zeppelin Version | Components Installed With Zeppelin | 
+| --- | --- | --- | 
+| emr\-5\.11\.0 | Zeppelin 0\.7\.3 | aws\-sagemaker\-spark\-sdk, emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
+
+
+**Zeppelin Version Information for emr\-5\.10\.0**  
+
+| Amazon EMR Release Label | Zeppelin Version | Components Installed With Zeppelin | 
+| --- | --- | --- | 
+| emr\-5\.10\.0 | Zeppelin 0\.7\.3 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
+
+
+**Zeppelin Version Information for emr\-5\.9\.0**  
+
+| Amazon EMR Release Label | Zeppelin Version | Components Installed With Zeppelin | 
+| --- | --- | --- | 
+| emr\-5\.9\.0 | Zeppelin 0\.7\.2 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
+
+
+**Zeppelin Version Information for emr\-5\.8\.1**  
+
+| Amazon EMR Release Label | Zeppelin Version | Components Installed With Zeppelin | 
+| --- | --- | --- | 
+| emr\-5\.8\.1 | Zeppelin 0\.7\.2 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
+
+
+**Zeppelin Version Information for emr\-5\.8\.0**  
+
+| Amazon EMR Release Label | Zeppelin Version | Components Installed With Zeppelin | 
+| --- | --- | --- | 
+| emr\-5\.8\.0 | Zeppelin 0\.7\.2 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
+
+
+**Zeppelin Version Information for emr\-5\.7\.0**  
+
+| Amazon EMR Release Label | Zeppelin Version | Components Installed With Zeppelin | 
+| --- | --- | --- | 
+| emr\-5\.7\.0 | Zeppelin 0\.7\.2 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
+
+
+**Zeppelin Version Information for emr\-5\.6\.0**  
+
+| Amazon EMR Release Label | Zeppelin Version | Components Installed With Zeppelin | 
+| --- | --- | --- | 
+| emr\-5\.6\.0 | Zeppelin 0\.7\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
+
+
+**Zeppelin Version Information for emr\-5\.5\.1**  
+
+| Amazon EMR Release Label | Zeppelin Version | Components Installed With Zeppelin | 
+| --- | --- | --- | 
+| emr\-5\.5\.1 | Zeppelin 0\.7\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
+
+
+**Zeppelin Version Information for emr\-5\.5\.0**  
+
+| Amazon EMR Release Label | Zeppelin Version | Components Installed With Zeppelin | 
+| --- | --- | --- | 
+| emr\-5\.5\.0 | Zeppelin 0\.7\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
+
+
+**Zeppelin Version Information for emr\-5\.4\.0**  
+
+| Amazon EMR Release Label | Zeppelin Version | Components Installed With Zeppelin | 
+| --- | --- | --- | 
+| emr\-5\.4\.0 | Zeppelin 0\.7\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
+
+
+**Zeppelin Version Information for emr\-5\.3\.0**  
+
+| Amazon EMR Release Label | Zeppelin Version | Components Installed With Zeppelin | 
+| --- | --- | --- | 
+| emr\-5\.3\.0 | Zeppelin 0\.6\.2 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
+
+
+**Zeppelin Version Information for emr\-5\.2\.2**  
+
+| Amazon EMR Release Label | Zeppelin Version | Components Installed With Zeppelin | 
+| --- | --- | --- | 
+| emr\-5\.2\.2 | Zeppelin 0\.6\.2 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
+
+
+**Zeppelin Version Information for emr\-5\.2\.1**  
+
+| Amazon EMR Release Label | Zeppelin Version | Components Installed With Zeppelin | 
+| --- | --- | --- | 
+| emr\-5\.2\.1 | Zeppelin 0\.6\.2 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
+
+
+**Zeppelin Version Information for emr\-5\.2\.0**  
+
+| Amazon EMR Release Label | Zeppelin Version | Components Installed With Zeppelin | 
+| --- | --- | --- | 
+| emr\-5\.2\.0 | Zeppelin 0\.6\.2 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
+
+
+**Zeppelin Version Information for emr\-5\.1\.0**  
+
+| Amazon EMR Release Label | Zeppelin Version | Components Installed With Zeppelin | 
+| --- | --- | --- | 
+| emr\-5\.1\.0 | Zeppelin 0\.6\.2 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
+
+
+**Zeppelin Version Information for emr\-5\.0\.3**  
+
+| Amazon EMR Release Label | Zeppelin Version | Components Installed With Zeppelin | 
+| --- | --- | --- | 
+| emr\-5\.0\.3 | Zeppelin 0\.6\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
+
+
+**Zeppelin Version Information for emr\-5\.0\.0**  
+
+| Amazon EMR Release Label | Zeppelin Version | Components Installed With Zeppelin | 
+| --- | --- | --- | 
+| emr\-5\.0\.0 | Zeppelin 0\.6\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 

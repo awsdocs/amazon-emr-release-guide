@@ -1,0 +1,3 @@
+# Using LDAP Authentication with Presto<a name="presto-ldap"></a>
+
+Amazon EMR version 5\.5\.0 and later supports using Lightweight Directory Access Protocol \(LDAP\) authentication with Presto\. To use LDAP, you must enable HTTPS access for the Presto coordinator \(set `http-server.https.enabled=true` in `config.properties` on the master node\)\. For configuration details, see [LDAP Authentication](https://prestodb.io/docs/current/security/ldap.html) in Presto documentation\.
