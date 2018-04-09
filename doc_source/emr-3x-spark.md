@@ -3,9 +3,7 @@
 ## Use Spark Interactively or in Batch Mode<a name="emr-3x-spark-interactive-batch"></a>
 
 Amazon EMR enables you to run Spark applications in two modes: 
-
 + Interactive
-
 + Batch
 
 When you launch a long\-running cluster using the console or the AWS CLI, you can connect using SSH into the master node as the Hadoop user and use the Spark shell to develop and run your Spark applications interactively\. Using Spark interactively enables you to prototype or test Spark applications more easily than in a batch environment\. After you successfully revise the Spark application in interactive mode, you can put that application JAR or Python program in the file system local to the master node of the cluster on Amazon S3\. You can then submit the application as a batch workflow\.

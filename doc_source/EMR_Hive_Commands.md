@@ -14,7 +14,6 @@ Hive commands `DROP TABLE` and `CREATE TABLE` only act on the local tables in Hi
  You can use Hive to export data from DynamoDB\. 
 
 **To export a DynamoDB table to an Amazon S3 bucket**
-
 +  Create a Hive table that references data stored in DynamoDB\. Then you can call the INSERT OVERWRITE command to write the data to an external directory\. In the following example, *s3://bucketname/path/subpath/* is a valid path in Amazon S3\. Adjust the columns and datatypes in the CREATE command to match the values in your DynamoDB\. You can use this to create an archive of your DynamoDB data in Amazon S3\. 
 
   ```
@@ -28,7 +27,6 @@ Hive commands `DROP TABLE` and `CREATE TABLE` only act on the local tables in Hi
   ```
 
 **To export a DynamoDB table to an Amazon S3 bucket using formatting**
-
 +  Create an external table that references a location in Amazon S3\. This is shown below as s3\_export\. During the CREATE call, specify row formatting for the table\. Then, when you use INSERT OVERWRITE to export data from DynamoDB to s3\_export, the data is written out in the specified format\. In the following example, the data is written out as comma\-separated values \(CSV\)\. 
 
   ```
@@ -46,7 +44,6 @@ Hive commands `DROP TABLE` and `CREATE TABLE` only act on the local tables in Hi
   ```
 
 **To export a DynamoDB table to an Amazon S3 bucket without specifying a column mapping**
-
 +  Create a Hive table that references data stored in DynamoDB\. This is similar to the preceding example, except that you are not specifying a column mapping\. The table must have exactly one column of type `map<string, string>`\. If you then create an `EXTERNAL` table in Amazon S3 you can call the `INSERT OVERWRITE` command to write the data from DynamoDB to Amazon S3\. You can use this to create an archive of your DynamoDB data in Amazon S3\. Because there is no column mapping, you cannot query tables that are exported this way\. Exporting data without specifying a column mapping is available in Hive 0\.8\.1\.5 or later, which is supported on Amazon EMR AMI 2\.2\.*x* and later\. 
 
   ```
@@ -63,7 +60,6 @@ Hive commands `DROP TABLE` and `CREATE TABLE` only act on the local tables in Hi
   ```
 
 **To export a DynamoDB table to an Amazon S3 bucket using data compression**
-
 +  Hive provides several compression codecs you can set during your Hive session\. Doing so causes the exported data to be compressed in the specified format\. The following example compresses the exported files using the Lempel\-Ziv\-Oberhumer \(LZO\) algorithm\. 
 
   ```
@@ -85,21 +81,14 @@ Hive commands `DROP TABLE` and `CREATE TABLE` only act on the local tables in Hi
   ```
 
    The available compression codecs are: 
-
   +  org\.apache\.hadoop\.io\.compress\.GzipCodec 
-
   +  org\.apache\.hadoop\.io\.compress\.DefaultCodec 
-
   +  com\.hadoop\.compression\.lzo\.LzoCodec 
-
   +  com\.hadoop\.compression\.lzo\.LzopCodec 
-
   +  org\.apache\.hadoop\.io\.compress\.BZip2Codec 
-
   +  org\.apache\.hadoop\.io\.compress\.SnappyCodec 
 
 **To export a DynamoDB table to HDFS**
-
 +  Use the following Hive command, where *hdfs:///directoryName* is a valid HDFS path and *hiveTableName* is a table in Hive that references DynamoDB\. This export operation is faster than exporting a DynamoDB table to Amazon S3 because Hive 0\.7\.1\.1 uses HDFS as an intermediate step when exporting data to Amazon S3\. The following example also shows how to set `dynamodb.throughput.read.percent` to 1\.0 in order to increase the read request rate\. 
 
   ```
@@ -116,7 +105,6 @@ Hive commands `DROP TABLE` and `CREATE TABLE` only act on the local tables in Hi
    You can also export data to HDFS using formatting and compression as shown above for the export to Amazon S3\. To do so, simply replace the Amazon S3 directory in the examples above with an HDFS directory\. <a name="EMR_Hive_non-printable-utf8"></a>
 
 **To read non\-printable UTF\-8 character data in Hive**
-
 + You can read and write non\-printable UTF\-8 character data with Hive by using the `STORED AS SEQUENCEFILE` clause when you create the table\. A SequenceFile is Hadoop binary file format; you need to use Hadoop to read this file\. The following example shows how to export data from DynamoDB into Amazon S3\. You can use this functionality to handle non\-printable UTF\-8 encoded characters\. 
 
   ```
@@ -142,7 +130,6 @@ Hive commands `DROP TABLE` and `CREATE TABLE` only act on the local tables in Hi
  If an item with the same key exists in the target DynamoDB table, it is overwritten\. If no item with the key exists in the target DynamoDB table, the item is inserted\. 
 
 **To import a table from Amazon S3 to DynamoDB**
-
 +  You can use Amazon EMR \(Amazon EMR\) and Hive to write data from Amazon S3 to DynamoDB\. 
 
   ```
@@ -159,7 +146,6 @@ Hive commands `DROP TABLE` and `CREATE TABLE` only act on the local tables in Hi
   ```
 
 **To import a table from an Amazon S3 bucket to DynamoDB without specifying a column mapping**
-
 +  Create an `EXTERNAL` table that references data stored in Amazon S3 that was previously exported from DynamoDB\. Before importing, ensure that the table exists in DynamoDB and that it has the same key schema as the previously exported DynamoDB table\. In addition, the table must have exactly one column of type `map<string, string>`\. If you then create a Hive table that is linked to DynamoDB, you can call the `INSERT OVERWRITE` command to write the data from Amazon S3 to DynamoDB\. Because there is no column mapping, you cannot query tables that are imported this way\. Importing data without specifying a column mapping is available in Hive 0\.8\.1\.5 or later, which is supported on Amazon EMR AMI 2\.2\.3 and later\. 
 
   ```
@@ -176,7 +162,6 @@ Hive commands `DROP TABLE` and `CREATE TABLE` only act on the local tables in Hi
   ```
 
 **To import a table from HDFS to DynamoDB**
-
 +  You can use Amazon EMR and Hive to write data from HDFS to DynamoDB\. 
 
   ```
@@ -197,7 +182,6 @@ Hive commands `DROP TABLE` and `CREATE TABLE` only act on the local tables in Hi
  The following examples show the various ways you can use Amazon EMR to query data stored in DynamoDB\. 
 
 **To find the largest value for a mapped column \(`max`\)**
-
 +  Use Hive commands like the following\. In the first command, the CREATE statement creates a Hive table that references data stored in DynamoDB\. The SELECT statement then uses that table to query data stored in DynamoDB\. The following example finds the largest order placed by a given customer\. 
 
   ```
@@ -210,7 +194,6 @@ Hive commands `DROP TABLE` and `CREATE TABLE` only act on the local tables in Hi
   ```
 
 **To aggregate data using the `GROUP BY` clause**
-
 +  You can use the `GROUP BY` clause to collect data across multiple records\. This is often used with an aggregate function such as sum, count, min, or max\. The following example returns a list of the largest orders from customers who have placed more than three orders\. 
 
   ```
@@ -223,7 +206,6 @@ Hive commands `DROP TABLE` and `CREATE TABLE` only act on the local tables in Hi
   ```
 
 **To join two DynamoDB tables**
-
 +  The following example maps two Hive tables to data stored in DynamoDB\. It then calls a join across those two tables\. The join is computed on the cluster and returned\. The join does not take place in DynamoDB\. This example returns a list of customers and their purchases for customers that have placed more than two orders\. 
 
   ```
@@ -243,7 +225,6 @@ Hive commands `DROP TABLE` and `CREATE TABLE` only act on the local tables in Hi
   ```
 
 **To join two tables from different sources**
-
 +  In the following example, Customer\_S3 is a Hive table that loads a CSV file stored in Amazon S3 and hive\_purchases is a table that references data in DynamoDB\. The following example joins together customer data stored as a CSV file in Amazon S3 with order data stored in DynamoDB to return a set of data that represents orders placed by customers who have "Miller" in their name\. 
 
   ```

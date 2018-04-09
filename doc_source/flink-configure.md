@@ -20,7 +20,7 @@ You may want to configure Flink using a configuration file\. For example, the ma
 1. Next, create a cluster with the following configuration:
 
    ```
-   aws emr create-cluster --release-label emr-5.12.0 \
+   aws emr create-cluster --release-label emr-5.13.0 \
    --applications Name=Flink \
    --configurations file://./configurations.json \
    --region us-east-1 \
@@ -41,11 +41,7 @@ As the owner of your application, you know best what resources should be assigne
 ## Configurable Files<a name="flink-configurable-files"></a>
 
 Currently, the files that are configurable within the Amazon EMR configuration API are:
-
 + `flink-conf.yaml`
-
 + `log4j.properties`
-
 + `log4j-yarn-session.properties`
-
 + `log4j-cli.properties`

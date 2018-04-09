@@ -14,11 +14,10 @@ Search bind searches usernames in all directory subtrees beginning at the base d
 When direct bind is used with Active Directory, the exact `nt_domain` or `ldap_username_pattern` must be used to authenticate\. When direct bind is used, if the nt domain \(defined by the `nt_domain` configuration setting\) attribute is defined, a user distinguished name template is created using the form: `<login username>@nt_domain`\. This template is used to search all directory subtrees beginning at the base distinguished name\. If the nt domain is not configured, Hue searches for an exact distinguished name pattern for the user \(defined by the `ldap_username_pattern` configuration setting\)\. In this instance, the server searches for a matching `ldap_username_pattern` value in all directory subtrees beginning at the base distinguished name\.
 
 **To Launch a cluster with LDAP properties for Hue using the AWS CLI**
-
 + To specify LDAP properties for `hue-ini`, create a cluster with Hue installed and reference a json file with configuration properties for LDAP\. An example command is shown below, which references a configuration file `myConfig.json` stored in Amazon S3\.
 
   ```
-  aws emr create-cluster --release-label emr-5.12.0 --applications Name=Hue Name=Spark Name=Hive \
+  aws emr create-cluster --release-label emr-5.13.0 --applications Name=Hue Name=Spark Name=Hive \
   --instance-type m3.xlarge --instance-count 3 --configurations https://s3.amazonaws.com/mybucket/myfolder/myConfig.json.
   ```
 

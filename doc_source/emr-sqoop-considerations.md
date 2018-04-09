@@ -9,15 +9,10 @@ Sqoop on Amazon EMR supports [Sqoop\-HCatalog Integration](https://sqoop.apache.
 ## Sqoop JDBC and Database Support<a name="sqoop-supported-drivers-databases"></a>
 
 By default, Sqoop has a MariaDB and PostgresSQL driver installed\. The PostgresSQL driver installed for Sqoop only works for PostgreSQL 8\.4\. To install an alternate set of JDBC connectors for Sqoop, connect to the cluster master node and install them in `/usr/lib/sqoop/lib`\. The following are links for various JDBC connectors:
-
 + MariaDB: [About MariaDB Connector/J](https://mariadb.com/kb/en/mariadb/about-mariadb-connector-j/)\.
-
 + PostgreSQL: [PostgreSQL JDBC Driver](https://jdbc.postgresql.org/)\.
-
 + SQLServer: [Download Microsoft JDBC Driver for SQL Server](https://docs.microsoft.com/en-us/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server)\.
-
 + MySQL: [Download Connector/J](https://dev.mysql.com/downloads/connector/j/)
-
 + Oracle: [Get Oracle JDBC drivers and UCP from the Oracle Maven Repository](http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html)
 
 Sqoop's supported databases are listed at the following url, http://sqoop\.apache\.org/docs/*version*/SqoopUserGuide\.html\#\_supported\_databases, where *version* is the version of Sqoop you are using, for example 1\.4\.6\. If the JDBC connect string does not match those in this list, you must specify a driver\. 

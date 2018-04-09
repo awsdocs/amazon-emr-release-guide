@@ -50,7 +50,7 @@ If you supply sensitive information, such as passwords, to the Amazon EMR config
 Linux line continuation characters \(\\\) are included for readability\. They can be removed or used in Linux commands\. For Windows, remove them or replace with a caret \(^\)\.
 
      ```
-     aws emr create-cluster --release-label emr-5.12.0 --instance-type m3.xlarge --instance-count 2 \
+     aws emr create-cluster --release-label emr-5.13.0 --instance-type m3.xlarge --instance-count 2 \
      --applications Name=Hive --configurations ./hiveConfiguration.json --use-default-roles
      ```
 

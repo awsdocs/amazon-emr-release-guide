@@ -12,16 +12,16 @@ To view a machine learning example using Spark on Amazon EMR, see the [Large\-Sc
 
 The following table lists the version of Spark included in the latest release of Amazon EMR, along with the components that Amazon EMR installs with Spark\.
 
-For the version of components installed with Spark in this release, see [Release 5\.12\.0 Component Versions](emr-release-5x.md#emr-5120-release)\.
+For the version of components installed with Spark in this release, see [Release 5\.13\.0 Component Versions](emr-release-5x.md#emr-5130-release)\.
 
 
-**Spark Version Information for emr\-5\.12\.0**  
+**Spark Version Information for emr\-5\.13\.0**  
 
 | Amazon EMR Release Label | Spark Version | Components Installed With Spark | 
 | --- | --- | --- | 
-| emr\-5\.12\.0 | Spark 2\.2\.1 | aws\-sagemaker\-spark\-sdk, emrfs, emr\-goodies, emr\-ddb, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, livy\-server, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave | 
+| emr\-5\.13\.0 | Spark 2\.3\.0 | aws\-sagemaker\-spark\-sdk, emrfs, emr\-goodies, emr\-ddb, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, livy\-server, r, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave | 
 
-
+**Topics**
 + [Create a Cluster With Spark](emr-spark-launch.md)
 + [Using the AWS Glue Data Catalog as the Metastore for Spark SQL](emr-spark-glue.md)
 + [Configure Spark](emr-spark-configure.md)

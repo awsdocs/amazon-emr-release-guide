@@ -17,13 +17,12 @@ The following procedure creates a cluster with HCatalog installed\. For more inf
 1.  Select other options as necessary and then choose **Create cluster**\.
 
 **To launch a cluster with HCatalog using the AWS CLI**
-
 + Create the cluster with the following command:
 **Note**  
 Linux line continuation characters \(\\\) are included for readability\. They can be removed or used in Linux commands\. For Windows, remove them or replace with a caret \(^\)\.
 
   ```
-  aws emr create-cluster --name "Cluster with Hcat" --release-label emr-5.12.0 \
+  aws emr create-cluster --name "Cluster with Hcat" --release-label emr-5.13.0 \
   --applications Name=HCatalog --ec2-attributes KeyName=myKey \
   --instance-type m3.xlarge --instance-count 3 --use-default-roles
   ```

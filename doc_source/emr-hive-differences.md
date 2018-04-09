@@ -25,21 +25,14 @@ ACID \(Atomicity, Consistency, Isolation, Durability\) transactions are supporte
 This section covers differences to consider before you migrate a Hive implementation from Hive version 1\.0\.0 on Amazon EMR release 4\.x to Hive 2\.x on Amazon EMR release 5\.x\.
 
 ### Operational Differences and Considerations<a name="emr-hive-diffs-ops"></a>
-
 + **Support added for [ACID \(Atomicity, Consistency, Isolation, and Durability\)transactions](https://cwiki.apache.org/confluence/display/Hive/Hive+Transactions):** This difference between Hive 1\.0\.0 on Amazon EMR 4\.x and default Apache Hive has been eliminated\.
-
 + **Direct writes to Amazon S3 eliminated:** This difference between Hive 1\.0\.0 on Amazon EMR and the default Apache Hive has been eliminated\. Hive 2\.1\.0 on Amazon EMR release 5\.x now creates, reads from, and writes to temporary files stored in Amazon S3\. As a result, to read from and write to the same table you no longer have to create a temporary table in the cluster's local HDFS file system as a workaround\. If you use versioned buckets, be sure to manage these temporary files as described below\.
-
 + **Manage temp files when using Amazon S3 versioned buckets:** When you run Hive queries where the destination of generated data is Amazon S3, many temporary files and directories are created\. This is new behavior as described earlier\. If you use versioned S3 buckets, these temp files clutter Amazon S3 and incur cost if they're not deleted\. Adjust your lifecycle rules so that data with a `/_tmp` prefix is deleted after a short period, such as five days\. See [Specifying a Lifecycle Configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-set-lifecycle-configuration-intro.html) for more information\.
-
 + **Log4j updated to log4j 2:** If you use log4j, you may need to change your logging configuration because of this upgrade\. See [Apache log4j 2](http://logging.apache.org/log4j/2.x/) for details\.
 
 ### Performance differences and considerations<a name="emr-hive-diffs-perf"></a>
-
 + **Performance differences with Tez:** With Amazon EMR release 5\.x , Tez is the default execution engine for Hive instead of MapReduce\. Tez provides improved performance for most workflows\.
-
 + **ORC file performance:** Query performance may be slower than expected for ORC files\.
-
 + **Tables with many partitions:** Queries that generate a large number of dynamic partitions may fail, and queries that select from tables with many partitions may take longer than expected to execute\. For example, a select from 100,000 partitions may take 10 minutes or more\.
 
 ## Additional Features of Hive on Amazon EMR<a name="emr-hive-additional-features"></a>
@@ -78,13 +71,12 @@ add jar ${LIB}/jsonserde.jar
 **To pass variable values into Hive steps using the AWS CLI**
 
 To pass variable values into Hive steps using the AWS CLI, use the `--steps` parameter and include an arguments list\.
-
 + 
 **Note**  
 Linux line continuation characters \(\\\) are included for readability\. They can be removed or used in Linux commands\. For Windows, remove them or replace with a caret \(^\)\.
 
   ```
-  aws emr create-cluster --name "Test cluster" --release-label emr-5.12.0 \
+  aws emr create-cluster --name "Test cluster" --release-label emr-5.13.0 \
   --applications Name=Hive Name=Pig --use-default-roles --ec2-attributes KeyName=myKey --instance-type m3.xlarge --instance-count 3 \
   --steps Type=Hive,Name="Hive Program",ActionOnFailure=CONTINUE,Args=[-f,s3://elasticmapreduce/samples/hive-ads/libs/response-time-stats.q,-d,INPUT=s3://elasticmapreduce/samples/hive-ads/tables,-d,OUTPUT=s3://mybucket/hive-ads/output/,-d,SAMPLE=s3://elasticmapreduce/samples/hive-ads/]
   ```
@@ -92,7 +84,6 @@ Linux line continuation characters \(\\\) are included for readability\. They ca
   For more information on using Amazon EMR commands in the AWS CLI, see [http://docs.aws.amazon.com/cli/latest/reference/emr](http://docs.aws.amazon.com/cli/latest/reference/emr)\.
 
 **To pass variable values into Hive steps using the Java SDK**
-
 + The following example demonstrates how to pass variables into steps using the SDK\. For more information, see [Class StepFactory](http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/elasticmapreduce/util/StepFactory.html) in the *AWS SDK for Java API Reference*\. 
 
   ```
@@ -110,11 +101,8 @@ Linux line continuation characters \(\\\) are included for readability\. They ca
 Amazon EMR Hive provides maximum flexibility when querying DynamoDB tables by allowing you to specify a subset of columns on which you can filter data, rather than requiring your query to include all columns\. This partial schema query technique is effective when you have a sparse database schema and want to filter records based on a few columns, such as filtering on time stamps\. 
 
  The following example shows how to use a Hive query to: 
-
 + Create a DynamoDB table\.
-
 + Select a subset of items \(rows\) in DynamoDB and further narrow the data to certain columns\.
-
 + Copy the resulting data to Amazon S3\. 
 
 ```

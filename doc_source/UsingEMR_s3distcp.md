@@ -50,15 +50,11 @@ You can call S3DistCp by adding it as a step in your cluster\. Steps can be adde
 **To add an S3DistCp step to a running cluster using the AWS CLI**
 
 For more information on using Amazon EMR commands in the AWS CLI, see [http://docs.aws.amazon.com/cli/latest/reference/emr](http://docs.aws.amazon.com/cli/latest/reference/emr)\.
-
 + To add a step to a cluster that calls S3DistCp, pass the parameters that specify how S3DistCp should perform the copy operation as arguments\. 
 
   The following example copies daemon logs from Amazon S3 to `hdfs:///output`\. In the following command:
-
   + `--cluster-id` specifies the cluster 
-
   + `Jar` is the location of the S3DistCp JAR file 
-
   + `Args` is a comma\-separated list of the option name\-value pairs to pass in to S3DistCp\. For a complete list of the available options, see [S3DistCp Options](#UsingEMR_s3distcp.options)\. 
 
   To add an S3DistCp copy step to a running cluster, put the following in a JSON file saved in Amazon S3 or your local file system as `myStep.json` for this example\. Replace *j\-3GYXXXXXX9IOK* with your cluster ID and replace *mybucket* with your Amazon S3 bucket name\.

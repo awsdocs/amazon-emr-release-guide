@@ -15,11 +15,10 @@ Clusters can be launched using the AWS Management Console, AWS CLI, or an AWS SD
 1.  Select other options as necessary and choose **Create cluster**\.
 
 **To launch a cluster with Flink using the AWS CLI**
-
 + Create the cluster with the following command:
 
   ```
-  aws emr create-cluster --name "Cluster with Flink" --release-label emr-5.12.0 \
+  aws emr create-cluster --name "Cluster with Flink" --release-label emr-5.13.0 \
   --applications Name=Flink --ec2-attributes KeyName=myKey \
   --instance-type m3.xlarge --instance-count 3 --use-default-roles
   ```

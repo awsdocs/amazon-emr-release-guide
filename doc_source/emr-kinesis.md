@@ -5,11 +5,8 @@ Amazon EMR clusters can read and process Amazon Kinesis streams directly, using 
 ## What Can I Do With Amazon EMR and Amazon Kinesis Integration?<a name="kinesis-use-cases"></a>
 
  Integration between Amazon EMR and Amazon Kinesis makes certain scenarios much easier; for example: 
-
 + **Streaming log analysis**–You can analyze streaming web logs to generate a list of top 10 error types every few minutes by region, browser, and access domain\. 
-
 + **Customer engagement**–You can write queries that join clickstream data from Amazon Kinesis with advertising campaign information stored in a DynamoDB table to identify the most effective categories of ads that are displayed on particular websites\. 
-
 + **Ad\-hoc interactive queries**–You can periodically load data from Amazon Kinesis streams into HDFS and make it available as a local Impala table for fast, interactive, analytic queries\.
 
 ## Checkpointed Analysis of Amazon Kinesis Streams<a name="kinesis-checkpoint"></a>
@@ -19,9 +16,7 @@ Users can run periodic, batched analysis of Amazon Kinesis streams in what are c
 If an iteration was checkpointed and the job failed processing an iteration, Amazon EMR attempts to reprocess the records in that iteration, provided that the data records have not reached the 24\-hour limit for Amazon Kinesis streams\. 
 
 Checkpointing is a feature that allows you to: 
-
 + Start data processing after a sequence number processed by a previous query that ran on same stream and logical name
-
 + Re\-process the same batch of data from Kinesis that was processed by an earlier query
 
  To enable checkpointing, set the `kinesis.checkpoint.enabled` parameter to `true` in your scripts\. Also, configure the following parameters:

@@ -13,13 +13,12 @@
 **To add Ganglia to a cluster using the AWS CLI**
 
 In the AWS CLI, you can add Ganglia to a cluster by using `create-cluster` with the `--applications` parameter\. If you specify only Ganglia using the `--applications` parameter, Ganglia is the only application installed\.
-
 + Type the following command to add Ganglia when you create a cluster and replace *myKey* with the name of your EC2 key pair\.
 **Note**  
 Linux line continuation characters \(\\\) are included for readability\. They can be removed or used in Linux commands\. For Windows, remove them or replace with a caret \(^\)\.
 
   ```
-  aws emr create-cluster --name "Spark cluster with Ganglia" --release-label emr-5.12.0 \
+  aws emr create-cluster --name "Spark cluster with Ganglia" --release-label emr-5.13.0 \
   --applications Name=Spark Name=Ganglia \
   --ec2-attributes KeyName=myKey --instance-type m3.xlarge \
   --instance-count 3 --use-default-roles

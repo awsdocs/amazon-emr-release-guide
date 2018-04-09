@@ -16,21 +16,14 @@ If you choose to deploy work to Spark using the client deploy mode, your applica
 1. Scroll to the **Steps** section and expand it, then choose **Add step**\.
 
 1. In the **Add Step** dialog box:
-
    + For **Step type**, choose **Spark application**\.
-
    + For **Name**, accept the default name \(Spark application\) or type a new name\.
-
    + For **Deploy mode**, choose **Cluster** or **Client** mode\. Cluster mode launches your driver program on the cluster \(for JVM\-based programs, this is `main()`\), while client mode launches the driver program locally\. For more information, see [Cluster Mode Overview](https://spark.apache.org/docs/latest/cluster-overview.html) in the Apache Spark documentation\.
 **Note**  
 Cluster mode allows you to submit work using S3 URIs\. Client mode requires that you put the application in the local file system on the cluster master node\. 
-
    + Specify the desired **Spark\-submit options**\. For more information about `spark-submit` options, see [Launching Applications with spark\-submit](https://spark.apache.org/docs/latest/submitting-applications.html#launching-applications-with-spark-submit)\.
-
    +  For **Application location**, specify the local or S3 URI path of the application\.
-
    + For **Arguments**, leave the field blank\.
-
    + For **Action on failure**, accept the default option \(**Continue**\)\.
 
 1. Choose **Add**\. The step appears in the console with a status of Pending\. 
@@ -48,7 +41,7 @@ Submit a step when you create the cluster or use the `aws emr add-steps` subcomm
 Linux line continuation characters \(\\\) are included for readability\. They can be removed or used in Linux commands\. For Windows, remove them or replace with a caret \(^\)\.
 
    ```
-   aws emr create-cluster --name "Add Spark Step Cluster" --release-label emr-5.12.0 --applications Name=Spark \
+   aws emr create-cluster --name "Add Spark Step Cluster" --release-label emr-5.13.0 --applications Name=Spark \
    --ec2-attributes KeyName=myKey --instance-type m3.xlarge --instance-count 3 \
    --steps Type=Spark,Name="Spark Program",ActionOnFailure=CONTINUE,Args=[--class,org.apache.spark.examples.SparkPi,/usr/lib/spark/lib/spark-examples.jar,10] --use-default-roles
    ```
@@ -56,7 +49,7 @@ Linux line continuation characters \(\\\) are included for readability\. They ca
    As an alternative, you can use `command-runner.jar` as shown in the following example\.
 
    ```
-   aws emr create-cluster --name "Add Spark Step Cluster" --release-label emr-5.12.0 \
+   aws emr create-cluster --name "Add Spark Step Cluster" --release-label emr-5.13.0 \
    --applications Name=Spark --ec2-attributes KeyName=myKey --instance-type m3.xlarge --instance-count 3 \
    --steps Type=CUSTOM_JAR,Name="Spark Program",Jar="command-runner.jar",ActionOnFailure=CONTINUE,Args=[spark-example,SparkPi,10] --use-default-roles
    ```
@@ -76,7 +69,6 @@ Linux line continuation characters \(\\\) are included for readability\. They ca
    ```
 
 **To submit work to Spark using the SDK for Java**
-
 + 
 
   ```

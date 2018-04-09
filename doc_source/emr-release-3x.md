@@ -11,7 +11,7 @@ The scope of differences between the 2\.x and 3\.x series release versions and r
 
 This section attempts to cover the most significant differences for Amazon EMR, as well as specific application configuration and management differences\. It is not comprehensive\. If you create and use clusters in the 2\.x or 3\.x series, you may encounter differences not covered in this section\.
 
-
+**Topics**
 + [Creating a Cluster With Earlier AMI Versions of Amazon EMR](emr-3x-create.md)
 + [Installing Applications with Earlier AMI Versions of Amazon EMR](emr-3x-install-apps.md)
 + [Customizing Cluster and Application Configuration With Earlier AMI Versions of Amazon EMR](emr-3x-customizeappconfig.md)

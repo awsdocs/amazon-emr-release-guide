@@ -20,11 +20,10 @@ Linux line continuation characters \(\\\) are included for readability\. They ca
 The following example launches a cluster with Phoenix installed using default configuration settings\.
 
 **To launch a cluster with Phoenix and HBase using the AWS CLI**
-
 + Create the cluster with the following command:
 
   ```
-  aws emr create-cluster --name "Cluster with Phoenix" --release-label emr-5.12.0 \
+  aws emr create-cluster --name "Cluster with Phoenix" --release-label emr-5.13.0 \
   --applications Name=Phoenix Name=HBase --ec2-attributes KeyName=myKey \
   --instance-type m3.xlarge --instance-count 3 --use-default-roles
   ```
@@ -53,7 +52,7 @@ The contents of the JSON file saved to /mybucket/myfolder/myconfig\.json is the 
 The `create cluster` command that references the JSON file is shown in the following example\.
 
 ```
-aws emr create-cluster --release-label emr-5.12.0 --applications Name=Phoenix \
+aws emr create-cluster --release-label emr-5.13.0 --applications Name=Phoenix \
 Name=HBase --instance-type m3.xlarge --instance-count 2 \
 --configurations https://s3.amazonaws.com/mybucket/myfolder/myconfig.json
 ```

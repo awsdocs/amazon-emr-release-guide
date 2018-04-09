@@ -1,11 +1,8 @@
 # HBase on Amazon S3 \(Amazon S3 Storage Mode\)<a name="emr-hbase-s3"></a>
 
 When you run HBase on Amazon EMR version 5\.2\.0 or later, you can enable HBase on Amazon S3, which offers the following advantages:
-
 + The HBase root directory is stored in Amazon S3, including HBase store files and table metadata\. This data is persistent outside of the cluster, available across Amazon EC2 Availability Zones, and you don't need to recover using snapshots or other methods\.
-
 + With store files in Amazon S3, you can size your Amazon EMR cluster for your compute requirements instead of data requirements, with 3x replication in HDFS\.
-
 + Using Amazon EMR version 5\.7\.0 or later, you can set up a read\-replica cluster, which allows you to maintain read\-only copies of data in Amazon S3\. You can access the data from the read\-replica cluster to perform read operations simultaneously, and in the event that the primary cluster becomes unavailable\.
 
 The following illustration shows the HBase components relevant to HBase on Amazon S3\. 
@@ -59,15 +56,10 @@ For example, given the JSON classification for the primary cluster as shown earl
 ### Synchronizing the Read Replica When You Add Data<a name="w3ab1c22c21c13c10"></a>
 
 Because the read\-replica uses HBase StoreFiles and metadata that the primary cluster writes to Amazon S3, the read\-replica is only as current as the Amazon S3 data store\. The following guidance can help minimize the lag time between the primary cluster and the read\-replica when you write data\.
-
 + Bulk load data on the primary cluster whenever possible\. For more information, see [Bulk Loading](http://hbase.apache.org/0.94/book/arch.bulk.load.html) in Apache HBase documentation\.
-
 + A flush that writes store files to Amazon S3 should occur as soon as possible after data is added\. Either flush manually or tune flush settings to minimize lag time\.
-
 + If compactions might run automatically, run a manual compaction to avoid inconsistencies when compactions are triggered\.
-
 + On the read\-replica cluster, when any metadata has changed—for example, when HBase region split or compactions occur, or when tables are added or removed—run the `refresh_meta` command\.
-
 + On the read\-replica cluster, run the `refresh_hfiles` command when records are added to or changed in a table\.
 
 ![\[Synchronizing data with an HBase read-replica\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/hbase-read-replica.png)
@@ -83,11 +75,8 @@ For writes, the frequency of MemStore flushes and the number of StoreFiles prese
 Tables can take a significant amount of time to drop on Amazon S3 because large directories need to be renamed\. Consider disabling tables instead of dropping\.
 
 There is an HBase cleaner process that cleans up old WAL files and store files\. The cleaner operation can affect query performance when running heavy workloads, so we recommend you enable the cleaner only during off\-peak times\. The cleaner has the following HBase shell commands:
-
 + `cleaner_enabled` queries whether the cleaner is enabled\.
-
 + `cleaner_run` manually runs the cleaner to remove files\.
-
 + `cleaner_switch` enables or disables the cleaner and returns the previous state of the cleaner\. For example, `cleaner-switch true` enables the cleaner\.
 
 ### Properties for HBase on Amazon S3 Performance Tuning<a name="emr-hbase-s3-properties"></a>

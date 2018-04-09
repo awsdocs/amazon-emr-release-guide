@@ -150,11 +150,8 @@ To connect to Hive via JDBC requires you to download the JDBC driver and install
 **To download JDBC drivers**
 
 1. Download and extract the drivers appropriate to the versions of Hive that you want to access\. The Hive version differs depending on the AMI that you choose when you create an Amazon EMR cluster\.
-
    + Hive 0\.13\.1 JDBC drivers: [https://amazon\-odbc\-jdbc\-drivers\.s3\.amazonaws\.com/public/AmazonHiveJDBC\_1\.0\.4\.1004\.zip](https://amazon-odbc-jdbc-drivers.s3.amazonaws.com/public/AmazonHiveJDBC_1.0.4.1004.zip)
-
    + Hive 0\.11\.0 JDBC drivers: [https://mvnrepository.com/artifact/org.apache.hive/hive-jdbc/0.11.0](https://mvnrepository.com/artifact/org.apache.hive/hive-jdbc/0.11.0)
-
    + Hive 0\.8\.1 JDBC drivers: [https://mvnrepository.com/artifact/org.apache.hive/hive-jdbc/0.8.1](https://mvnrepository.com/artifact/org.apache.hive/hive-jdbc/0.8.1)
 
 1. Install SQL Workbench/J\. For more information, see [Installing and starting SQL Workbench/J](http://www.sql-workbench.net/manual/install.html) in the SQL Workbench/J Manual User's Manual\.

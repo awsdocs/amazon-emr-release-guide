@@ -26,11 +26,10 @@ The `flink-yarn-session` command was added in Amazon EMR version 5\.5\.0 as a wr
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/flink-long-running.png)
 
 **To submit a long\-running Flink job using the AWS CLI**
-
 + To launch a long\-running Flink cluster within EMR, use the `create-cluster` command:
 
   ```
-  aws emr create-cluster --release-label emr-5.12.0 \
+  aws emr create-cluster --release-label emr-5.13.0 \
   --applications Name=Flink \
   --configurations file://./configurations.json \
   --region us-east-1 \

@@ -1,15 +1,10 @@
 # Sandbox Applications<a name="emr-sandbox-apps-4x"></a>
 
 When using Amazon EMR 4\.x release versions, some applications are considered *sandbox* applications\. Sandbox applications are early versions of the application that we made available at the time of the initial Amazon EMR release because of demand\. You can use the console, AWS CLI, or API to have Amazon EMR install sandbox applications in the same way as native applications, but sandbox applications have limited support and documentation\. Sandbox applications became native, fully supported applications in Amazon EMR release version 5\.0\.0 and later\. The following are sandbox applications in Amazon EMR 4\.x release versions:
-
 + Oozie
-
 + Presto
-
 + Sqoop
-
 + Zeppelin
-
 + Zookeeper
 
 When you install sandbox applications, the application names are denoted with the suffix `-sandbox`\. For example, to install the sandbox version of *Presto*, use `Presto-sandbox`\. Installation may take longer than it does for a fully supported application\. The version numbers listed for each application in this section correspond to the community version of the application\.

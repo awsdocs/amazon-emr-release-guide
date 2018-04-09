@@ -28,19 +28,12 @@ This example describes how to use the Amazon EMR console to add a Pig step to a 
 1. Scroll to the **Steps** section and expand it, then choose **Add step**\.
 
 1. In the **Add Step** dialog:
-
    + For **Step type**, choose **Pig program**\.
-
    + For **Name**, accept the default name \(Pig program\) or type a new name\.
-
    + For **Script S3 location**, type the location of the Pig script\. For example: **s3://elasticmapreduce/samples/pig\-apache/do\-reports2\.pig**\.
-
    + For **Input S3 location**, type the location of the input data\. For example: **s3://elasticmapreduce/samples/pig\-apache/input**\.
-
    + For **Output S3 location**, type or browse to the name of your Amazon S3 output bucket\.
-
    + For **Arguments**, leave the field blank\.
-
    + For **Action on failure**, accept the default option \(**Continue**\)\.
 
 1. Choose **Add**\. The step appears in the console with a status of Pending\. 
@@ -52,13 +45,11 @@ This example describes how to use the Amazon EMR console to add a Pig step to a 
 **To submit a Pig step using the AWS CLI**
 
 When you launch a cluster using the AWS CLI, use the `--applications` parameter to install Pig\. To submit a Pig step, use the `--steps` parameter\. 
-
 + To launch a cluster with Pig installed and to submit a Pig step, type the following command, replace *myKey* with the name of your EC2 key pair, and replace *mybucket* with the name of your Amazon S3 bucket\.
-
   + 
 
     ```
-    aws emr create-cluster --name "Test cluster" --release-label emr-5.12.0 --applications Name=Pig \
+    aws emr create-cluster --name "Test cluster" --release-label emr-5.13.0 --applications Name=Pig \
     --use-default-roles --ec2-attributes KeyName=myKey --instance-type m3.xlarge --instance-count 3 \
     --steps Type=PIG,Name="Pig Program",ActionOnFailure=CONTINUE,Args=[-f,s3://elasticmapreduce/samples/pig-apache/do-reports2.pig,-p,INPUT=s3://elasticmapreduce/samples/pig-apache/input,-p,OUTPUT=s3://mybucket/pig-apache/output]
     ```

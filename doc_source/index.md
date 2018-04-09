@@ -140,7 +140,7 @@ Amazon's trademarks and trade dress may not be used in
    + [Considerations When Using Zeppelin on Amazon EMR](zeppelin-considerations.md)
    + [Zeppelin Release History](Zeppelin-release-history.md)
 + [Apache ZooKeeper](emr-zookeeper.md)
-   + [ZooKeeper Release Information](ZooKeeper-release-info.md)
+   + [ZooKeeper Release Information](ZooKeeper-release-history.md)
 + [Connectors and Utilities](emr-connectors.md)
    + [Export, Import, Query, and Join Tables in DynamoDB Using Amazon EMR](EMRforDynamoDB.md)
       + [Set Up a Hive Table to Run Hive Commands](EMR_Interactive_Hive.md)
@@ -149,3 +149,4 @@ Amazon's trademarks and trade dress may not be used in
    + [Kinesis](emr-kinesis.md)
    + [S3DistCp (s3-dist-cp)](UsingEMR_s3distcp.md)
 + [Command Runner](emr-commandrunner.md)
++ [AWS Glossary](glossary.md)

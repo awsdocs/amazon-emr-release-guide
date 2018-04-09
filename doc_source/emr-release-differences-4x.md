@@ -4,7 +4,7 @@ Documentation for Amazon EMR features in the *Amazon EMR Management Guide* speci
 
 Beginning with Amazon EMR release version 5\.0\.0, some applications got a significant version upgrade that changed installation or operational details, and others were promoted from sandbox applications to native applications\. Each topic in this section provides notable application\-specific differences when using Amazon EMR 4\.x release versions\.
 
-
+**Topics**
 + [Sandbox Applications](emr-sandbox-apps-4x.md)
 + [Considerations for Using Hive on Amazon EMR 4\.x](emr-Hive-4x.md)
 + [Considerations for Using Pig on Amazon EMR 4\.x](emr-Pig-4x.md)

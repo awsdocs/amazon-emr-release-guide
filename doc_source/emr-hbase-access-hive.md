@@ -30,7 +30,6 @@ You can only connect a Hive cluster to a single HBase cluster\.
 1. Proceed to run Hive queries on your HBase data as desired or see the next procedure\.
 
 **To access HBase data from Hive**
-
 + After the connection between the Hive and HBase clusters has been made \(as shown in the previous procedure\), you can access the data stored on the HBase cluster by creating an external table in Hive\. 
 
   The following example, when run from the Hive prompt on the master node, creates an external table that references data stored in an HBase table called `inputTable`\. You can then reference `inputTable` in Hive statements to query and modify data stored in the HBase cluster\. 

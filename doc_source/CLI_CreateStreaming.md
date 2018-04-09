@@ -17,21 +17,13 @@ This example describes how to use the Amazon EMR console to submit a Streaming s
 1. Scroll to the **Steps** section and expand it, then choose **Add step**\.
 
 1. In the **Add Step** dialog box:
-
    + For **Step type**, choose **Streaming program**\.
-
    + For **Name**, accept the default name \(Streaming program\) or type a new name\.
-
    + For **Mapper**, type or browse to the location of your mapper class in Hadoop, or an S3 bucket where the mapper executable, such as a Python program, resides\. The path value must be in the form *BucketName*/*path*/*MapperExecutable*\.
-
    + For **Reducer**, type or browse to the location of your reducer class in Hadoop, or an S3 bucket where the reducer executable, such as a Python program, resides\. The path value must be in the form *BucketName*/*path*/*MapperExecutable*\. Amazon EMR supports the special *aggregate* keyword\. For more information, go to the Aggregate library supplied by Hadoop\.
-
    + For **Input S3 location**, type or browse to the location of your input data\. 
-
    + For **Output S3 location**, type or browse to the name of your Amazon S3 output bucket\.
-
    + For **Arguments**, leave the field blank\.
-
    + For **Action on failure**, accept the default option \(**Continue**\)\.
 
 1. Choose **Add**\. The step appears in the console with a status of Pending\. 
@@ -43,11 +35,10 @@ This example describes how to use the Amazon EMR console to submit a Streaming s
 These examples demonstrate how to use the AWS CLI to create a cluster and submit a Streaming step\. 
 
 **To create a cluster and submit a Streaming step using the AWS CLI**
-
 + To create a cluster and submit a Streaming step using the AWS CLI, type the following command and replace *myKey* with the name of your EC2 key pair\.
 
   ```
-  aws emr create-cluster --name "Test cluster" --release-label emr-5.12.0 --applications Name=Hue Name=Hive Name=Pig --use-default-roles \
+  aws emr create-cluster --name "Test cluster" --release-label emr-5.13.0 --applications Name=Hue Name=Hive Name=Pig --use-default-roles \
   --ec2-attributes KeyName=myKey --instance-type m3.xlarge --instance-count 3 \
   --steps Type=STREAMING,Name="Streaming Program",ActionOnFailure=CONTINUE,Args=[--files,pathtoscripts,-mapper,mapperscript,-reducer,reducerscript,aggregate,-input,pathtoinputdata,-output,pathtooutputbucket]
   ```

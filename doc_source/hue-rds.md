@@ -25,13 +25,12 @@ First create the remote database for Hue\.
 To specify an external MySQL database for Hue when launching a cluster using the AWS CLI, use the information you noted when creating your RDS instance for configuring `hue.ini` with a configuration object
 **Note**  
 You can create multiple clusters that use the same external database, but each cluster will share query history and user information\.
-
 + Using the AWS CLI, create a cluster with Hue installed, using the external database you created, and referencing a configuration file with a configuration classification for Hue that specifies the database properties\. The following example creates a cluster with Hue installed, referencing a configuration file in Amazon S3, `myConfig.json`, that specifies the database configuration\.
 **Note**  
 Linux line continuation characters \(\\\) are included for readability\. They can be removed or used in Linux commands\. For Windows, remove them or replace with a caret \(^\)\.
 
   ```
-  aws emr create-cluster --release-label emr-5.12.0 --applications Name=Hue Name=Spark Name=Hive \
+  aws emr create-cluster --release-label emr-5.13.0 --applications Name=Hue Name=Spark Name=Hive \
   --instance-type m3.xlarge --instance-count 3 \
   --configurations https://s3.amazonaws.com/mybucket/myfolder/myConfig.json --use-default-roles
   ```
@@ -69,9 +68,6 @@ Linux line continuation characters \(\\\) are included for readability\. They ca
 
 **In the event of Amazon RDS failover**  
 It is possible users may encounter delays when running a query because the Hue database instance is non\-responsive or is in the process of failover\. The following are some facts and guidelines for this issue: 
-
 + If you login to the Amazon RDS console, you can search for failover events\. For example, to see if a failover is in process or has occurred, look for events such as "Multi\-AZ instance failover started" and "Multi\-AZ instance failover completed\."
-
 + It takes about 30 seconds for an RDS instance to complete a failover\.
-
 + If you are experiencing longer\-than\-normal responses for queries in Hue, try to re\-execute the query\.

@@ -19,7 +19,10 @@ Depending on the version of Amazon EMR that you use, some Presto deployment conf
 
 With Amazon EMR release version 5\.12\.0 and later, Presto can use EMRFS, and this is the default configuration\. For more information, see [Using EMR File System \(EMRFS\)](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-fs.html) in the *Amazon EMR Management Guide*\. With earlier release versions, PrestoS3FileSystem is the only option\.
 
-Using EMRFS has benefits\. You can use a security configuration to set up encryption for EMRFS data in Amazon S3\. You can also use EMRFS authorization\. For more information, see [Understanding Encryption Options](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-data-encryption-options.html) and [EMRFS Authorization for Data in Amazon S3](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-emrfs-authz.html) in the *Amazon EMR Management Guide*\.
+Using EMRFS has benefits\. You can use a security configuration to set up encryption for EMRFS data in Amazon S3\. You can also use IAM roles for EMRFS requests to Amazon S3\. For more information, see [Understanding Encryption Options](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-data-encryption-options.html) and [Configure IAM Roles for EMRFS Requests to Amazon S3](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-emrfs-iam-roles.html) in the *Amazon EMR Management Guide*\.
+
+**Note**  
+A configuration issue can cause Presto errors when querying underlying data in Amazon S3 with Amazon EMR release version 5\.12\.0\. This is because Presto fails to pick up configuration classification values from `emrfs-site.xml`\. As a workaround, create an `emrfs` subdirectory under `usr/lib/presto/plugins/hive-hadoop2/`, create a symlink in `usr/lib/presto/plugins/hive-hadoop2/emrfs` to the existing `/usr/share/aws/emr/emrfs/conf/emrfs-site.xml` file, and then restart the presto\-server process \(`sudo presto-server stop` followed by `sudo presto-server start`\)\.
 
 You can override the EMRFS default and use the PrestoS3FileSystem instead\. To do this, use the `presto-connector-hive` configuration classification to set `hive.s3-file-system-type` to `PRESTO` as shown in the following example\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 

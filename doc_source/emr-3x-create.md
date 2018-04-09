@@ -38,7 +38,7 @@ The following `RunJobFlowRequest` call uses a release label instead:
 ```
 RunJobFlowRequest request = new RunJobFlowRequest()
 			.withName("ReleaseLabel Cluster")
-			.withReleaseLabel("emr-5.12.0")
+			.withReleaseLabel("emr-5.13.0")
 			.withInstances(new JobFlowInstancesConfig()
 				.withEc2KeyName("myKeyPair")
 				.withInstanceCount(1)
@@ -50,15 +50,11 @@ RunJobFlowRequest request = new RunJobFlowRequest()
 ## Configuring Cluster Size<a name="emr-3x-cluster-size"></a>
 
 When your cluster runs, Hadoop determines the number of mapper and reducer tasks needed to process the data\. Larger clusters should have more tasks for better resource use and shorter processing time\. Typically, an EMR cluster remains the same size during the entire cluster; you set the number of tasks when you create the cluster\. When you resize a running cluster, you can vary the processing during the cluster execution\. Therefore, instead of using a fixed number of tasks, you can vary the number of tasks during the life of the cluster\. There are two configuration options to help set the ideal number of tasks:
-
 + `mapred.map.tasksperslot`
-
 + `mapred.reduce.tasksperslot`
 
 You can set both options in the `mapred-conf.xml` file\. When you submit a job to the cluster, the job client checks the current total number of map and reduce slots available clusterwide\. The job client then uses the following equations to set the number of tasks: 
-
 + `mapred.map.tasks` =` mapred.map.tasksperslot` \* map slots in cluster
-
 + `mapred.reduce.tasks` = `mapred.reduce.tasksperslot` \* reduce slots in cluster
 
 The job client only reads the `tasksperslot` parameter if the number of tasks is not configured\. You can override the number of tasks at any time, either for all clusters via a bootstrap action or individually per job by adding a step to change the configuration\. 

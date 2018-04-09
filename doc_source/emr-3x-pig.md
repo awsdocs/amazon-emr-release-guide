@@ -62,9 +62,7 @@ The Amazon EMR team has applied the following patches to the Amazon EMR version 
 ## Interactive and Batch Pig Clusters<a name="emr-3x-pig-interactive-batch"></a>
 
 Amazon EMR enables you to run Pig scripts in two modes:
-
 + Interactive
-
 + Batch
 
 When you launch a long\-running cluster using the console or the AWS CLI, you can connect using ssh into the master node as the Hadoop user and use the Grunt shell to develop and run your Pig scripts interactively\. Using Pig interactively enables you to revise the Pig script more easily than batch mode\. After you successfully revise the Pig script in interactive mode, you can upload the script to Amazon S3 and use batch mode to run the script in production\. You can also submit Pig commands interactively on a running cluster to analyze and transform data as needed\.

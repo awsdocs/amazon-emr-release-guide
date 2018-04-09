@@ -3,6 +3,27 @@
 The following tables list the version of Sqoop included in each release version of Amazon EMR, along with the components installed with the application\. For component versions in each release, see the Component Version section for your release in [Amazon EMR 5\.x Release Versions](emr-release-5x.md) or [Amazon EMR 4\.x Release Versions](emr-release-4x.md)\.
 
 
+**Sqoop Version Information for emr\-5\.12\.1**  
+
+| Amazon EMR Release Label | Sqoop Version | Components Installed With Sqoop | 
+| --- | --- | --- | 
+| emr\-5\.12\.1 | Sqoop 1\.4\.6 | emrfs, emr\-ddb, emr\-goodies, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mysql\-server, sqoop\-client | 
+
+
+**Sqoop Version Information for emr\-5\.12\.0**  
+
+| Amazon EMR Release Label | Sqoop Version | Components Installed With Sqoop | 
+| --- | --- | --- | 
+| emr\-5\.12\.0 | Sqoop 1\.4\.6 | emrfs, emr\-ddb, emr\-goodies, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mysql\-server, sqoop\-client | 
+
+
+**Sqoop Version Information for emr\-5\.11\.1**  
+
+| Amazon EMR Release Label | Sqoop Version | Components Installed With Sqoop | 
+| --- | --- | --- | 
+| emr\-5\.11\.1 | Sqoop 1\.4\.6 | emrfs, emr\-ddb, emr\-goodies, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mysql\-server, sqoop\-client | 
+
+
 **Sqoop Version Information for emr\-5\.11\.0**  
 
 | Amazon EMR Release Label | Sqoop Version | Components Installed With Sqoop | 
@@ -22,6 +43,13 @@ The following tables list the version of Sqoop included in each release version 
 | Amazon EMR Release Label | Sqoop Version | Components Installed With Sqoop | 
 | --- | --- | --- | 
 | emr\-5\.9\.0 | Sqoop 1\.4\.6 | emrfs, emr\-ddb, emr\-goodies, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mysql\-server, sqoop\-client | 
+
+
+**Sqoop Version Information for emr\-5\.8\.2**  
+
+| Amazon EMR Release Label | Sqoop Version | Components Installed With Sqoop | 
+| --- | --- | --- | 
+| emr\-5\.8\.2 | Sqoop 1\.4\.6 | emrfs, emr\-ddb, emr\-goodies, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mysql\-server, sqoop\-client | 
 
 
 **Sqoop Version Information for emr\-5\.8\.1**  
@@ -50,6 +78,13 @@ The following tables list the version of Sqoop included in each release version 
 | Amazon EMR Release Label | Sqoop Version | Components Installed With Sqoop | 
 | --- | --- | --- | 
 | emr\-5\.6\.0 | Sqoop 1\.4\.6 | emrfs, emr\-ddb, emr\-goodies, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mysql\-server, sqoop\-client | 
+
+
+**Sqoop Version Information for emr\-5\.5\.2**  
+
+| Amazon EMR Release Label | Sqoop Version | Components Installed With Sqoop | 
+| --- | --- | --- | 
+| emr\-5\.5\.2 | Sqoop 1\.4\.6 | emrfs, emr\-ddb, emr\-goodies, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, mysql\-server, sqoop\-client | 
 
 
 **Sqoop Version Information for emr\-5\.5\.1**  

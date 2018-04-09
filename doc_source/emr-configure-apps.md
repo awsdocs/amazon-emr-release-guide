@@ -94,13 +94,13 @@ To supply a configuration, you navigate to the **Create cluster** page and choos
 You can provide a configuration to create\-cluster by supplying a path to a JSON file stored locally or in Amazon S3\. The following example assumes you are using default roles for Amazon EMR and the roles have been created\. If you need to create the roles, run `aws emr create-default-roles` first\.
 
 ```
-aws emr create-cluster --use-default-roles --release-label emr-5.12.0 --instance-type m3.xlarge --instance-count 2 --applications Name=Hive --configurations https://s3.amazonaws.com/mybucket/myfolder/myConfig.json
+aws emr create-cluster --use-default-roles --release-label emr-5.13.0 --instance-type m3.xlarge --instance-count 2 --applications Name=Hive --configurations https://s3.amazonaws.com/mybucket/myfolder/myConfig.json
 ```
 
 If you configuration is in your local directory, you can use the following:
 
 ```
-aws emr create-cluster --use-default-roles --release-label emr-5.12.0 --applications Name=Hive \
+aws emr create-cluster --use-default-roles --release-label emr-5.13.0 --applications Name=Hive \
 --instance-type m3.xlarge --instance-count 3 --configurations file://./configurations.json
 ```
 
@@ -121,7 +121,7 @@ Configuration myHiveConfig = new Configuration()
 
 RunJobFlowRequest request = new RunJobFlowRequest()
 	.withName("Create cluster with ReleaseLabel")
-	.withReleaseLabel("emr-5.12.0")
+	.withReleaseLabel("emr-5.13.0")
 	.withApplications(hive)
 	.withConfigurations(myHiveConfig)
 	.withServiceRole("EMR_DefaultRole")

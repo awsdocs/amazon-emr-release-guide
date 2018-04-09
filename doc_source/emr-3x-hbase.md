@@ -12,19 +12,12 @@
 ## HBase Cluster Prerequisites<a name="emr-3x-hbase-prerequisites"></a>
 
 A cluster created using Amazon EMR AMI versions 2\.x and 3\.x should meet the following requirements for HBase\.
-
 + The AWS CLI \(optional\)—To interact with HBase using the command line, download and install the latest version of the AWS CLI\. For more information, see [Installing the AWS Command Line Interface](http://docs.aws.amazon.com/cli/latest/userguide//installing.html) in the *AWS Command Line Interface User Guide*\.
-
 + At least two instances \(optional\)—The cluster's master node runs the HBase master server and Zookeeper, and task nodes run the HBase region servers\. For best performance, HBase clusters should run on at least two EC2 instances, but you can run HBase on a single node for evaluation purposes\. 
-
 + Long\-running cluster—HBase only runs on long\-running clusters\. By default, the CLI and Amazon EMR console create long\-running clusters\. 
-
 + An Amazon EC2 key pair set \(recommended\)—To use the Secure Shell \(SSH\) network protocol to connect with the master node and run HBase shell commands, you must use an Amazon EC2 key pair when you create the cluster\. 
-
 + The correct AMI and Hadoop versions—HBase clusters are currently supported only on Hadoop 20\.205 or later\. 
-
 + Ganglia \(optional\)—To monitor HBase performance metrics, install Ganglia when you create the cluster\. 
-
 + An Amazon S3 bucket for logs \(optional\)—The logs for HBase are available on the master node\. If you'd like these logs copied to Amazon S3, specify an S3 bucket to receive log files when you create the cluster\. 
 
 ## Creating a Cluster with HBase<a name="emr-3x-hbase-launch"></a>
@@ -79,9 +72,7 @@ add jar lib/emr-metrics-1.0.jar ;
 ## Customizing HBase Configuration<a name="emr-3x-hbase-customize"></a>
 
 Although the default settings should work for most applications, you have the flexibility to modify your HBase configuration settings\. To do this, run one of two bootstrap action scripts: 
-
 + **configure\-hbase\-daemons**—Configures properties of the master, regionserver, and zookeeper daemons\. These properties include heap size and options to pass to the Java Virtual Machine \(JVM\) when the HBase daemon starts\. You set these properties as arguments in the bootstrap action\. This bootstrap action modifies the /home/hadoop/conf/hbase\-user\-env\.sh configuration file on the HBase cluster\. 
-
 + **configure\-hbase**—Configures HBase site\-specific settings such as the port the HBase master should bind to and the maximum number of times the client CLI client should retry an action\. You can set these one\-by\-one, as arguments in the bootstrap action, or you can specify the location of an XML configuration file in Amazon S3\. This bootstrap action modifies the /home/hadoop/conf/hbase\-site\.xml configuration file on the HBase cluster\. 
 
 **Note**  
@@ -134,7 +125,6 @@ For more information about the HBase site settings that you can configure, see [
 Set the `configure-hbase` bootstrap action when you launch the HBase cluster and specify the values in `hbase-site.xml` to change\.
 
 **To specify individual HBase site settings using the AWS CLI**
-
 + To change the `hbase.hregion.max.filesize` setting, type the following command and replace *myKey* with the name of your Amazon EC2 key pair\.
 **Note**  
 Linux line continuation characters \(\\\) are included for readability\. They can be removed or used in Linux commands\. For Windows, remove them or replace with a caret \(^\)\.
@@ -205,8 +195,7 @@ The console provides the ability to launch a new cluster and populate it with da
 
 1. For **Backup Location**, specify the location of the backup yto load into the new HBase cluster\. This should be an Amazon S3 URL of the form `s3://myawsbucket/backups/`\. 
 
-1. For **Backup Version**, you have the option to specify the name of a backup version to load by setting a value\. If you do not set a value for **Backup Version**, Amazon EMR loads the latest backup in the specified location\.   
-![\[Restore HBase from backup\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/../shared/images/hbase-restore-options.png)
+1. For **Backup Version**, you have the option to specify the name of a backup version to load by setting a value\. If you do not set a value for **Backup Version**, Amazon EMR loads the latest backup in the specified location\. 
 
 1. Choose **Add** and proceed to create the cluster with other options as desired\.
 
@@ -222,8 +211,7 @@ The console provides the ability to launch a new cluster and populate it with da
 
 1. Specify the location in Amazon S3 where the backups should be stored\. Each HBase cluster should be backed up to a separate location in Amazon S3 to ensure that incremental backups are calculated correctly\. 
 
-1. Specify when the first backup should occur by setting a value for **Backup Start Time**\. You can set this to `now`, which causes the first backup to start as soon as the cluster is running, or enter a date and time in [ISO format](http://www.w3.org/TR/NOTE-datetime)\. For example, 2013\-09\-26T20:00Z, sets the start time to September 26, 2013 at 8PM UTC\.   
-![\[Configure HBase backups\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/../shared/images/hbase-backup-automated.png)
+1. Specify when the first backup should occur by setting a value for **Backup Start Time**\. You can set this to `now`, which causes the first backup to start as soon as the cluster is running, or enter a date and time in [ISO format](http://www.w3.org/TR/NOTE-datetime)\. For example, 2013\-09\-26T20:00Z, sets the start time to September 26, 2013 at 8PM UTC\. 
 
 1. Choose **Add**\.
 

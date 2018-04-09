@@ -31,7 +31,6 @@ The option to use AWS Glue Data Catalog is also available with Zeppelin because 
 1. Choose other options for your cluster as appropriate, choose **Next**, and then configure other cluster options as appropriate for your application\.
 
 **To specify the AWS Glue Data Catalog as the metastore using the AWS CLI or Amazon EMR API**
-
 + Specify the value for `hive.metastore.client.factory.class` using the `spark-hive-site` classification as shown in the following example\. For more information, see [Configuring Applications](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html)\.  
 **Example Example Configuration JSON for Using the AWS Glue Data Catalog**  
 
@@ -53,31 +52,18 @@ The `EMR_EC2_DefaultRole` must be allowed IAM permissions for AWS Glue actions\.
 ## Considerations When Using AWS Glue Data Catalog<a name="emr-hive-glue-considerations-hive"></a>
 
 Consider the following items when using AWS Glue Data Catalog as a metastore with Spark:
-
 + Having a default database without a location URI causes failures when you create a table\. As a workaround, use the `LOCATION` clause to specify a bucket location, such as `s3://mybucket`, when you use `CREATE TABLE`\. Alternatively create tables within a database other than the default database\.
-
 + Renaming tables from within AWS Glue is not supported\.
-
 + When you create a Hive table without specifying a `LOCATION`, the table definition is stored in the location specified by the `hive.metastore.warehouse.dir` property\. By default, this is a location in HDFS\. If another cluster needs to access the table, it fails unless it has adequate permissions to the cluster that created the table\. Furthermore, because HDFS storage is transient, if the cluster terminates, the table definition is lost, and the table must be recreated\. We recommend that you specify a `LOCATION` in Amazon S3 when you create a Hive table using AWS Glue\. Alternatively, you can use the `hive-site` configuration classification to specify a location in Amazon S3 for `hive.metastore.warehouse.dir`, which applies to all Hive tables\. If a table is created in an HDFS location and the cluster that created it is still running, you can update the table location to Amazon S3 from within AWS Glue\. For more information, see [Working with Tables on the AWS Glue Console](http://docs.aws.amazon.com/glue/latest/dg/console-tables.html) in the *AWS Glue Developer Guide*\. 
-
 + Partition values containing quotes and apostrophes are not supported \(for example, `PARTITION (owner="Doe's").`
-
 + [Table and partition statistics](https://cwiki.apache.org/confluence/display/Hive/StatsDev#StatsDev-TableandPartitionStatistics) are not supported\.
-
 + Using [Hive authorization](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Authorization) is not supported\.
-
 + [Hive constraints](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-Constraints) are not supported\.
-
 + Setting `hive.metastore.partition.inherit.table.properties` is not supported\. 
-
 + Using the following metastore constants is not supported: `BUCKET_COUNT, BUCKET_FIELD_NAME, DDL_TIME, FIELD_TO_DIMENSION, FILE_INPUT_FORMAT, FILE_OUTPUT_FORMAT, HIVE_FILTER_FIELD_LAST_ACCESS, HIVE_FILTER_FIELD_OWNER, HIVE_FILTER_FIELD_PARAMS, IS_ARCHIVED, META_TABLE_COLUMNS, META_TABLE_COLUMN_TYPES, META_TABLE_DB, META_TABLE_LOCATION, META_TABLE_NAME, META_TABLE_PARTITION_COLUMNS, META_TABLE_SERDE, META_TABLE_STORAGE, ORIGINAL_LOCATION`\.
-
 + When you use a predicate expression, explicit values must be on the right side of the comparison operator, or queries might fail\.
-
   + **Correct**: `SELECT * FROM mytable WHERE time > 11`
-
   + **Incorrect**: `SELECT * FROM mytable WHERE 11 > time`
-
 + We do not recommend using user\-defined functions \(UDFs\) in predicate expressions\. Queries may fail because of the way Hive tries to optimize query execution\.
-
 + [Temporary tables](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-TemporaryTables) are not supported\.
++ We recommend creating tables using applications through Amazon EMR rather than creating them directly using AWS Glue\. Creating a table through AWS Glue may cause required fields to be missing and cause query exceptions\.

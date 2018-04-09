@@ -53,9 +53,7 @@ For example, suppose that you have provisioned 100 units of read capacity for yo
 The only way to decrease the time required would be to adjust the read capacity units on the source DynamoDB table\. Adding more Amazon EMR nodes will not help\.
 
 In the Hive output, the completion percentage is updated when one or more mapper processes are finished\. For a large DynamoDB table with a low provisioned read capacity setting, the completion percentage output might not be updated for a long time; in the case above, the job will appear to be 0% complete for several hours\. For more detailed status on your job's progress, go to the Amazon EMR console; you will be able to view the individual mapper task status, and statistics for data reads\. You can also log on to Hadoop interface on the master node and see the Hadoop statistics\. This will show you the individual map task status and some data read statistics\. For more information, see the following topics:
-
 + [Web Interfaces Hosted on the Master Node](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-web-interfaces.html)
-
 + [View the Hadoop Web Interfaces](http://docs.aws.amazon.com/emr/latest/ManagementGuide/UsingtheHadoopUserInterface.html)
 
 For more information about sample HiveQL statements to perform tasks such as exporting or importing data from DynamoDB and joining tables, see [Hive Command Examples for Exporting, Importing, and Querying Data in DynamoDB](EMR_Hive_Commands.md)\.<a name="EMR_Hive_Cancel"></a>

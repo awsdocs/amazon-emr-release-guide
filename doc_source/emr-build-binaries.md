@@ -17,7 +17,6 @@ The following table outlines the steps involved to build and test your applicati
 The details for each of these steps are covered in the sections that follow\. 
 
 **To connect to the master node of the cluster**
-
 + Follow the instructions at [Connect to the Master Node Using SSH](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-connect-master-node-ssh.html) in the *Amazon EMR Management Guide*\.
 
 **To copy source files to the master node**
@@ -40,7 +39,6 @@ The details for each of these steps are covered in the sections that follow\.
 How you build your binaries depends on many factors\. Follow the instructions for your specific build tools to setup and configure your environment\. You can use Hadoop system specification commands to obtain cluster information to determine how to install your build environment\.
 
 **To identify system specifications**
-
 + Use the following commands to verify the architecture you are using to build your binaries\.
 
   1. To view the version of Debian, enter the following command:
@@ -86,7 +84,6 @@ How you build your binaries depends on many factors\. Follow the instructions fo
 Once your binaries are built, you can copy the files to Amazon S3\.
 
 **To copy binaries from the master node to Amazon S3**
-
 + Type the following command to copy the binaries to your Amazon S3 bucket:
 
   ```

@@ -15,13 +15,12 @@ Install Tez by choosing that application when you create the cluster\.<a name="e
 1.  Select other options as necessary and then choose **Create cluster**\.
 
 **To create a cluster with Tez using the AWS CLI**
-
 + Use the `create-cluster` command along with the `-- applications` option to specify **Tez**\. The following example creates a cluster with Tez installed\.
 **Note**  
 Linux line continuation characters \(\\\) are included for readability\. They can be removed or used in Linux commands\. For Windows, remove them or replace with a caret \(^\)\.
 
   ```
-  aws emr create-cluster --name "Cluster with Tez" --release-label emr-5.12.0 \
+  aws emr create-cluster --name "Cluster with Tez" --release-label emr-5.13.0 \
   --applications Name=Tez --ec2-attributes KeyName=myKey \
   --instance-type m3.xlarge --instance-count 3 --use-default-roles
   ```

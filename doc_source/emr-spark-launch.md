@@ -8,7 +8,7 @@ The following procedure creates a cluster with Spark installed using **Quick Opt
 
 1. Choose **Create cluster** to use **Quick Create**\.
 
-1.  For **Software Configuration**, choose **Amazon Release Version emr\-5\.12\.0** or later\.
+1.  For **Software Configuration**, choose **Amazon Release Version emr\-5\.13\.0** or later\.
 
 1.  For **Select Applications**, choose either **All Applications** or **Spark**\.
 
@@ -17,11 +17,10 @@ The following procedure creates a cluster with Spark installed using **Quick Opt
 To configure Spark when you are creating the cluster, see [Configure Spark](emr-spark-configure.md)\.
 
 **To launch a cluster with Spark installed using the AWS CLI**
-
 + Create the cluster with the following command:
 
   ```
-  aws emr create-cluster --name "Spark cluster" --release-label emr-5.12.0 --applications Name=Spark \
+  aws emr create-cluster --name "Spark cluster" --release-label emr-5.13.0 --applications Name=Spark \
   --ec2-attributes KeyName=myKey --instance-type m3.xlarge --instance-count 3 --use-default-roles
   ```
 
@@ -31,7 +30,6 @@ Linux line continuation characters \(\\\) are included for readability\. They ca
 **To launch a cluster with Spark installed using the SDK for Java**
 
 Specify Spark as an application with `SupportedProductConfig` used in `RunJobFlowRequest`\.
-
 + The following example shows how to create a cluster with Spark using Java\.
 
   ```
@@ -45,7 +43,7 @@ Specify Spark as an application with `SupportedProductConfig` used in `RunJobFlo
   RunJobFlowRequest request = new RunJobFlowRequest()
       .withName("Spark Cluster")
       .withApplications(myApps)
-      .withReleaseLabel("emr-5.12.0")
+      .withReleaseLabel("emr-5.13.0")
       .withInstances(new JobFlowInstancesConfig()
       .withEc2KeyName("myKeyName")
       .withInstanceCount(1)

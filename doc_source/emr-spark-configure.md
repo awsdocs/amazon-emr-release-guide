@@ -5,9 +5,7 @@ You can configure [Spark on Amazon EMR](https://aws.amazon.com/elasticmapreduce/
 ## Spark Defaults Set By Amazon EMR<a name="spark-defaults"></a>
 
 The following defaults are set by Amazon EMR regardless of whether other settings are set to true, such as `spark.dynamicAllocation.enabled` or `maximizeResourceAllocation`\.
-
 + spark\.executor\.memory
-
 + spark\.executor\.cores
 
 **Note**  
@@ -70,11 +68,10 @@ You change the defaults in `spark-defaults.conf` using the `spark-defaults` conf
 The following procedures show how to modify settings using the CLI or console\.
 
 **To create a cluster with spark\.executor\.memory set to 2G using the CLI**
-
 + Create a cluster with Spark installed and `spark.executor.memory` set to 2G, using the following command, which references a file, `myConfig.json` stored in Amazon S3\.
 
   ```
-  aws emr create-cluster --release-label emr-5.12.0 --applications Name=Spark \
+  aws emr create-cluster --release-label emr-5.13.0 --applications Name=Spark \
   --instance-type m3.xlarge --instance-count 2 --service-role EMR_DefaultRole --ec2-attributes InstanceProfile=EMR_EC2_DefaultRole --configurations https://s3.amazonaws.com/mybucket/myfolder/myConfig.json
   ```
 **Note**  
@@ -110,11 +107,10 @@ Linux line continuation characters \(\\\) are included for readability\. They ca
 1. Select other options, choose **** and then choose **Create cluster**\.
 
 **To set maximizeResourceAllocation**
-
 + Create a cluster with Spark installed and `maximizeResourceAllocation` set to true using the AWS CLI, referencing a file, `myConfig.json`, stored in Amazon S3\.
 
   ```
-  aws emr create-cluster --release-label emr-5.12.0 --applications Name=Spark \
+  aws emr create-cluster --release-label emr-5.13.0 --applications Name=Spark \
   --instance-type m3.xlarge --instance-count 2 --service-role EMR_DefaultRole --ec2-attributes InstanceProfile=EMR_EC2_DefaultRole --configurations https://s3.amazonaws.com/mybucket/myfolder/myConfig.json
   ```
 **Note**  
