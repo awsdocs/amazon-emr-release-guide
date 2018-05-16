@@ -2,6 +2,13 @@
 
 Consider the following differences and limitations when you run Presto on Amazon EMR\.
 
+## Presto Command Line Executable<a name="emr-presto-command-line-cli"></a>
+
+In EMR the Presto command line executable is presto-cli.
+```
+presto-cli --catalog hive
+```
+
 ## Some Presto Deployment Properties not Configurable<a name="emr-presto-deployment-config"></a>
 
 Depending on the version of Amazon EMR that you use, some Presto deployment configurations may not be available\. For more information about these properties, see [Deploying Presto](https://prestodb.io/docs/current/installation/deployment.html) in Presto Documentation\. The following table shows the configuration status for Presto `properties` files\.
