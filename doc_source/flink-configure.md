@@ -20,12 +20,12 @@ You may want to configure Flink using a configuration file\. For example, the ma
 1. Next, create a cluster with the following configuration:
 
    ```
-   aws emr create-cluster --release-label emr-5.13.0 \
+   aws emr create-cluster --release-label emr-5.14.0 \
    --applications Name=Flink \
    --configurations file://./configurations.json \
    --region us-east-1 \
    --log-uri s3://myLogUri \
-   --instance-type m3.xlarge \
+   --instance-type m4.large \
    --instance-count 2 \
    --service-role EMR_DefaultRole \ 
    --ec2-attributes KeyName=YourKeyName,InstanceProfile=EMR_EC2_DefaultRole

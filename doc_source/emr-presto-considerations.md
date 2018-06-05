@@ -1,10 +1,11 @@
 # Considerations with Presto on Amazon EMR<a name="emr-presto-considerations"></a>
 
-Consider the following differences and limitations when you run Presto on Amazon EMR\.
+Consider the following differences and limitations when you run [Presto](https://aws.amazon.com/big-data/what-is-presto/) on Amazon EMR\.
 
 ## Presto Command Line Executable<a name="emr-presto-command-line-cli"></a>
 
-In EMR the Presto command line executable is presto-cli.
+In Amazon EMR, the Presto command line executable is `presto-cli`\. For example:
+
 ```
 presto-cli --catalog hive
 ```

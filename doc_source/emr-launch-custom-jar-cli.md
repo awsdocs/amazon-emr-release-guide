@@ -33,9 +33,9 @@ To launch a cluster and submit a custom JAR step using the AWS CLI, type the `cr
 + To launch a cluster and submit a custom JAR step, type the following command, replace *myKey* with the name of your EC2 key pair, and replace *mybucket* with your bucket name\.
 
   ```
-  aws emr create-cluster --name "Test cluster" --release-label emr-5.13.0 \
+  aws emr create-cluster --name "Test cluster" --release-label emr-5.14.0 \
   --applications Name=Hue Name=Hive Name=Pig --use-default-roles \
-  --ec2-attributes KeyName=myKey --instance-type m3.xlarge --instance-count 3 \
+  --ec2-attributes KeyName=myKey --instance-type m4.large --instance-count 3 \
   --steps Type=CUSTOM_JAR,Name="Custom JAR Step",ActionOnFailure=CONTINUE,Jar=pathtojarfile,Args=["pathtoinputdata","pathtooutputbucket","arg1","arg2"]
   ```
 **Note**  
@@ -54,9 +54,9 @@ Sometimes it may be necessary to include in the MapReduce classpath JARs for use
 + Launch the cluster with a modified `mapreduce.application.classpath` setting in `mapred-site.xml` using the `mapred-site` configuration classificiation\. To create the cluster with the step using AWS CLI, this would look like the following:
 
   ```
-  aws emr create-cluster --release-label emr-5.13.0 \
+  aws emr create-cluster --release-label emr-5.14.0 \
   --applications Name=Hue Name=Hive Name=Pig --use-default-roles \
-  --instance-type m3.xlarge --instance-count 2  --ec2-attributes KeyName=myKey \
+  --instance-type m4.large --instance-count 2  --ec2-attributes KeyName=myKey \
   --steps Type=CUSTOM_JAR,Name="Custom JAR Step",ActionOnFailure=CONTINUE,Jar=pathtojarfile,Args=["pathtoinputdata","pathtooutputbucket","arg1","arg2"] \
   --configurations https://s3.amazonaws.com/mybucket/myfolder/myConfig.json
   ```

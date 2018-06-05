@@ -23,9 +23,9 @@ The following example launches a cluster with Phoenix installed using default co
 + Create the cluster with the following command:
 
   ```
-  aws emr create-cluster --name "Cluster with Phoenix" --release-label emr-5.13.0 \
+  aws emr create-cluster --name "Cluster with Phoenix" --release-label emr-5.14.0 \
   --applications Name=Phoenix Name=HBase --ec2-attributes KeyName=myKey \
-  --instance-type m3.xlarge --instance-count 3 --use-default-roles
+  --instance-type m4.large --instance-count 3 --use-default-roles
   ```
 
 ## Customizing Phoenix Configurations When Creating a Cluster<a name="phoenix-custom-config"></a>
@@ -52,7 +52,7 @@ The contents of the JSON file saved to /mybucket/myfolder/myconfig\.json is the 
 The `create cluster` command that references the JSON file is shown in the following example\.
 
 ```
-aws emr create-cluster --release-label emr-5.13.0 --applications Name=Phoenix \
-Name=HBase --instance-type m3.xlarge --instance-count 2 \
+aws emr create-cluster --release-label emr-5.14.0 --applications Name=Phoenix \
+Name=HBase --instance-type m4.large --instance-count 2 \
 --configurations https://s3.amazonaws.com/mybucket/myfolder/myconfig.json
 ```

@@ -14,7 +14,7 @@ Apache Hive merges small files at the end of a map\-only job if `hive.merge.mapf
 
 ### ACID Transactions and Amazon S3<a name="emr-hive-acid"></a>
 
-ACID \(Atomicity, Consistency, Isolation, Durability\) transactions are supported with Hive data stored in Amazon S3 only when using Amazon EMR release version 5\.0 or later\. If you attempt to create a transactional table in Amazon S3, this will cause an exception\. 
+ACID \(Atomicity, Consistency, Isolation, Durability\) transactions are not supported with Hive data stored in Amazon S3\. Trying to create a transactional table in Amazon S3 causes an exception\. 
 
 ### Hive Live Long and Process \(LLAP\)<a name="emr-hive-LLAP"></a>
 
@@ -76,8 +76,8 @@ To pass variable values into Hive steps using the AWS CLI, use the `--steps` par
 Linux line continuation characters \(\\\) are included for readability\. They can be removed or used in Linux commands\. For Windows, remove them or replace with a caret \(^\)\.
 
   ```
-  aws emr create-cluster --name "Test cluster" --release-label emr-5.13.0 \
-  --applications Name=Hive Name=Pig --use-default-roles --ec2-attributes KeyName=myKey --instance-type m3.xlarge --instance-count 3 \
+  aws emr create-cluster --name "Test cluster" --release-label emr-5.14.0 \
+  --applications Name=Hive Name=Pig --use-default-roles --ec2-attributes KeyName=myKey --instance-type m4.large --instance-count 3 \
   --steps Type=Hive,Name="Hive Program",ActionOnFailure=CONTINUE,Args=[-f,s3://elasticmapreduce/samples/hive-ads/libs/response-time-stats.q,-d,INPUT=s3://elasticmapreduce/samples/hive-ads/tables,-d,OUTPUT=s3://mybucket/hive-ads/output/,-d,SAMPLE=s3://elasticmapreduce/samples/hive-ads/]
   ```
 

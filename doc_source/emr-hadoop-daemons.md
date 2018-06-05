@@ -437,7 +437,7 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_DATANODE\_HEAPSIZE  | 384 | 
 
 
-**m3\.xlarge**  
+**m4\.large**  
 
 | Parameter | Value | 
 | --- | --- | 

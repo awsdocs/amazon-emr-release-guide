@@ -1,17 +1,18 @@
 # Configure Spark<a name="emr-spark-configure"></a>
 
-You can configure [Spark on Amazon EMR](https://aws.amazon.com/elasticmapreduce/details/spark/) using the `spark-defaults` configuration classification\. For more information about the options, see the [Spark Configuration](https://spark.apache.org/docs/latest/configuration.html) topic in the Apache Spark documentation\. You can also configure Spark dynamically at the time of each application submission\. For more information, see [Enabling Dynamic Allocation of Executors](#spark-dynamic-allocation)\.
+You can configure [Spark on Amazon EMR](https://aws.amazon.com/elasticmapreduce/details/spark/) using configuration classifications when you create a cluster\. For more information about using configuration classifications, see [Configuring Applications](emr-configure-apps.md)\.
+
+Configuration classifications for Spark on Amazon EMR include the following:
++ `spark`—Sets the `maximizeResourceAllocation` property to true or false\. When true, Amazon EMR automatically configures `spark-default` properties based on cluster hardware configuration\. For more information, see [Using maximizeResourceAllocation](#emr-spark-maximizeresourceallocation)\.
++ `spark-defaults`—Sets values in the `spark-defaults.conf` file\. For more information, see [Spark Configuration](https://spark.apache.org/docs/latest/configuration.html) in the Spark documentation\.
++ `spark-env`—Sets values in the `spark-env.sh` file\. For more information, see [Environment Variables](https://spark.apache.org/docs/latest/configuration.html#environment-variables) in the Spark documentation\.
++ `spark-hive-site`—Sets values in the `hive-site.xml` for Spark\.
++ `spark-log4j`—Sets values in the `log4j.properties` file\. For settings and more information, see the [log4j\.properties\.template](https://github.com/apache/spark/blob/master/conf/log4j.properties.template) file on Github\.
++ `spark-metrics`—Sets values in the `metrics.properties` file\. For settings and more information, see the [metrics\.properties\.template](https://github.com/apache/spark/blob/master/conf/metrics.properties.template) file on Github, and [Metrics](https://spark.apache.org/docs/latest/monitoring.html#metrics) in Spark documentation\.
 
 ## Spark Defaults Set By Amazon EMR<a name="spark-defaults"></a>
 
-The following defaults are set by Amazon EMR regardless of whether other settings are set to true, such as `spark.dynamicAllocation.enabled` or `maximizeResourceAllocation`\.
-+ spark\.executor\.memory
-+ spark\.executor\.cores
-
-**Note**  
-Using Amazon EMR release version 4\.4\.0 and later, `spark.dynamicAllocation.enabled` is set to true by default\.
-
-The following table shows how Spark defaults that affect applications are set\.
+The following table shows how Amazon EMR sets default values in `spark-default` that affect applications\.
 
 
 **Spark defaults set by Amazon EMR**  
@@ -22,10 +23,23 @@ The following table shows how Spark defaults that affect applications are set\.
 | spark\.executor\.cores | The number of cores to use on each executor\.  | Setting is configured based on the slave instance types in the cluster\.  | 
 | spark\.dynamicAllocation\.enabled | Whether to use dynamic resource allocation, which scales the number of executors registered with an application up and down based on the workload\. |  true \(emr\-4\.4\.0 or greater\)  Spark Shuffle Service is automatically configured by Amazon EMR\.   | 
 
-You can configure your executors to utilize the maximum resources possible on each node in a cluster by enabling the `maximizeResourceAllocation` option when creating the cluster\. This option calculates the maximum compute and memory resources available for an executor on a node in the core node group and sets the corresponding `spark-defaults` settings with this information\. 
+## Using maximizeResourceAllocation<a name="emr-spark-maximizeresourceallocation"></a>
+
+You can configure your executors to utilize the maximum resources possible on each node in a cluster by using the `spark` configuration classification to set `maximizeResourceAllocation` option to true when you create a cluster\. This EMR\-specific option calculates the maximum compute and memory resources available for an executor on an instance in the core instance group\. It then sets the corresponding `spark-defaults` settings based on this information\.
+
+```
+[
+  {
+    "Classification": "spark",
+    "Properties": {
+      "maximizeResourceAllocation": "true"
+    }
+  }
+]
+```
 
 
-**Spark defaults set when maximizeResourceAllocation is enabled**  
+**Settings configured in `spark-defaults` when `maximizeResourceAllocation `is enabled**  
 
 | Setting | Description | Value | 
 | --- | --- | --- | 
@@ -37,7 +51,7 @@ You can configure your executors to utilize the maximum resources possible on ea
 
 ## Enabling Dynamic Allocation of Executors<a name="spark-dynamic-allocation"></a>
 
-Spark on YARN has the ability to scale the number of executors used for a Spark application dynamically\. In releases 4\.4\.0 or greater, this is the default behavior\. To learn more about dynamic allocation, see the [Dynamic Allocation](https://spark.apache.org/docs/latest/configuration.html#dynamic-allocation) topic in the Apache Spark documentation\.
+Spark on YARN has the ability to scale the number of executors used for a Spark application dynamically\. Using Amazon EMR release version 4\.4\.0 and later, dynamic allocation is enabled by default\. For more information, see [Dynamic Resource Allocation](https://spark.apache.org/docs/1.6.1/job-scheduling.html#dynamic-resource-allocation) and the properties for [Dynamic Allocation](https://spark.apache.org/docs/latest/configuration.html#dynamic-allocation) in the Spark documentation\.
 
 ## Configuring Node Decommissioning Behavior<a name="spark-decommissioning"></a>
 
@@ -71,8 +85,8 @@ The following procedures show how to modify settings using the CLI or console\.
 + Create a cluster with Spark installed and `spark.executor.memory` set to 2G, using the following command, which references a file, `myConfig.json` stored in Amazon S3\.
 
   ```
-  aws emr create-cluster --release-label emr-5.13.0 --applications Name=Spark \
-  --instance-type m3.xlarge --instance-count 2 --service-role EMR_DefaultRole --ec2-attributes InstanceProfile=EMR_EC2_DefaultRole --configurations https://s3.amazonaws.com/mybucket/myfolder/myConfig.json
+  aws emr create-cluster --release-label emr-5.14.0 --applications Name=Spark \
+  --instance-type m4.large --instance-count 2 --service-role EMR_DefaultRole --ec2-attributes InstanceProfile=EMR_EC2_DefaultRole --configurations https://s3.amazonaws.com/mybucket/myfolder/myConfig.json
   ```
 **Note**  
 Linux line continuation characters \(\\\) are included for readability\. They can be removed or used in Linux commands\. For Windows, remove them or replace with a caret \(^\)\.
@@ -110,8 +124,8 @@ Linux line continuation characters \(\\\) are included for readability\. They ca
 + Create a cluster with Spark installed and `maximizeResourceAllocation` set to true using the AWS CLI, referencing a file, `myConfig.json`, stored in Amazon S3\.
 
   ```
-  aws emr create-cluster --release-label emr-5.13.0 --applications Name=Spark \
-  --instance-type m3.xlarge --instance-count 2 --service-role EMR_DefaultRole --ec2-attributes InstanceProfile=EMR_EC2_DefaultRole --configurations https://s3.amazonaws.com/mybucket/myfolder/myConfig.json
+  aws emr create-cluster --release-label emr-5.14.0 --applications Name=Spark \
+  --instance-type m4.large --instance-count 2 --service-role EMR_DefaultRole --ec2-attributes InstanceProfile=EMR_EC2_DefaultRole --configurations https://s3.amazonaws.com/mybucket/myfolder/myConfig.json
   ```
 **Note**  
 Linux line continuation characters \(\\\) are included for readability\. They can be removed or used in Linux commands\. For Windows, remove them or replace with a caret \(^\)\.

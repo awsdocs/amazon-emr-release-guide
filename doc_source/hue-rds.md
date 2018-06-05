@@ -30,8 +30,8 @@ You can create multiple clusters that use the same external database, but each c
 Linux line continuation characters \(\\\) are included for readability\. They can be removed or used in Linux commands\. For Windows, remove them or replace with a caret \(^\)\.
 
   ```
-  aws emr create-cluster --release-label emr-5.13.0 --applications Name=Hue Name=Spark Name=Hive \
-  --instance-type m3.xlarge --instance-count 3 \
+  aws emr create-cluster --release-label emr-5.14.0 --applications Name=Hue Name=Spark Name=Hive \
+  --instance-type m4.large --instance-count 3 \
   --configurations https://s3.amazonaws.com/mybucket/myfolder/myConfig.json --use-default-roles
   ```
 

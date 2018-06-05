@@ -6,14 +6,14 @@ If you upgrade from an earlier version of Amazon EMR to Amazon EMR release versi
 
 The following table lists the version of Phoenix included in the latest release of Amazon EMR, along with the components that Amazon EMR installs with Phoenix\.
 
-For the version of components installed with Phoenix in this release, see [Release 5\.13\.0 Component Versions](emr-release-5x.md#emr-5130-release)\.
+For the version of components installed with Phoenix in this release, see [Release 5\.14\.0 Component Versions](emr-release-5x.md#emr-5140-release)\.
 
 
-**Phoenix Version Information for emr\-5\.13\.0**  
+**Phoenix Version Information for emr\-5\.14\.0**  
 
 | Amazon EMR Release Label | Phoenix Version | Components Installed With Phoenix | 
 | --- | --- | --- | 
-| emr\-5\.13\.0 | Phoenix 4\.13\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-mapred, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hbase\-hmaster, hbase\-client, hbase\-region\-server, phoenix\-library, phoenix\-query\-server, zookeeper\-client, zookeeper\-server | 
+| emr\-5\.14\.0 | Phoenix 4\.13\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-mapred, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hbase\-hmaster, hbase\-client, hbase\-region\-server, phoenix\-library, phoenix\-query\-server, zookeeper\-client, zookeeper\-server | 
 
 **Topics**
 + [Creating a Cluster with Phoenix](phoenix-create-cluster.md)

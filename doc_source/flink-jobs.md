@@ -29,12 +29,12 @@ The `flink-yarn-session` command was added in Amazon EMR version 5\.5\.0 as a wr
 + To launch a long\-running Flink cluster within EMR, use the `create-cluster` command:
 
   ```
-  aws emr create-cluster --release-label emr-5.13.0 \
+  aws emr create-cluster --release-label emr-5.14.0 \
   --applications Name=Flink \
   --configurations file://./configurations.json \
   --region us-east-1 \
   --log-uri s3://myLogUri \
-  --instance-type m3.xlarge \
+  --instance-type m4.large \
   --instance-count 2 \
   --service-role EMR_DefaultRole \ 
   --ec2-attributes KeyName=MyKeyName,InstanceProfile=EMR_EC2_DefaultRole \
@@ -144,8 +144,8 @@ AddJobFlowStepsResult res = emr.addJobFlowSteps(new AddJobFlowStepsRequest()
       .withLogUri("s3://myLogBucket")
       .withInstances(
           new JobFlowInstancesConfig().withEc2KeyName("myKeyName").withInstanceCount(2)
-              .withKeepJobFlowAliveWhenNoSteps(false).withMasterInstanceType("m3.xlarge")
-              .withSlaveInstanceType("m3.xlarge"))
+              .withKeepJobFlowAliveWhenNoSteps(false).withMasterInstanceType("m4.large")
+              .withSlaveInstanceType("m4.large"))
       .withSteps(stepConfigs);
     
     RunJobFlowResult result = emr.runJobFlow(request);
@@ -172,7 +172,7 @@ aws emr create-cluster --release-label emr-5.2.1 \
 --region us-east-1 \
 --log-uri s3://myLogUri \
 --auto-terminate
---instance-type m3.xlarge \
+--instance-type m4.large \
 --instance-count 2 \
 --service-role EMR_DefaultRole \ 
 --ec2-attributes KeyName=YourKeyName,InstanceProfile=EMR_EC2_DefaultRole \

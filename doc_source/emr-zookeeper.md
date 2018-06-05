@@ -4,14 +4,14 @@ Apache ZooKeeper is a centralized service for maintaining configuration informat
 
 The following table lists the version of ZooKeeper included in the latest release of Amazon EMR, along with the components that Amazon EMR installs with ZooKeeper\.
 
-For the version of components installed with ZooKeeper in this release, see [Release 5\.13\.0 Component Versions](emr-release-5x.md#emr-5130-release)\.
+For the version of components installed with ZooKeeper in this release, see [Release 5\.14\.0 Component Versions](emr-release-5x.md#emr-5140-release)\.
 
 
-**ZooKeeper Version Information for emr\-5\.13\.0**  
+**ZooKeeper Version Information for emr\-5\.14\.0**  
 
 | Amazon EMR Release Label | ZooKeeper Version | Components Installed With ZooKeeper | 
 | --- | --- | --- | 
-| emr\-5\.13\.0 | ZooKeeper 3\.4\.10 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, zookeeper\-client, zookeeper\-server | 
+| emr\-5\.14\.0 | ZooKeeper 3\.4\.10 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, zookeeper\-client, zookeeper\-server | 
 
 **Topics**
-+ [ZooKeeper Release Information](ZooKeeper-release-history.md)
++ [ZooKeeper Release History](ZooKeeper-release-history.md)

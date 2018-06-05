@@ -25,7 +25,7 @@ When you use the `create-cluster` command from the AWS CLI, you can then referen
 Linux line continuation characters \(\\\) are included for readability\. They can be removed or used in Linux commands\. For Windows, remove them or replace with a caret \(^\)\.
 
 ```
-aws emr create-cluster --release-label emr-5.13.0 --instance-type m3.xlarge \
+aws emr create-cluster --release-label emr-5.14.0 --instance-type m4.large \
 --instance-count 3 --applications Name=Hadoop --configurations https://s3.amazonaws.com/mybucket/myfolder/myConfig.json \
 --use-default-roles
 ```
@@ -539,7 +539,7 @@ You can change default values listed below using the `mapred-site` configuration
 | yarn\.nodemanager\.resource\.memory\-mb | 61440 | 30720 | 
 
 
-**m3\.xlarge**  
+**m4\.large**  
 
 | Configuration Option | Default Value | With HBase Installed | 
 | --- | --- | --- | 

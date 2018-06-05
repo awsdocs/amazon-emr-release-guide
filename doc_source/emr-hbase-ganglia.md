@@ -4,15 +4,15 @@ The Ganglia open\-source project is a scalable, distributed system designed to m
 
 After the cluster is launched with Ganglia configured, you can access the Ganglia graphs and reports using the graphical interface running on the master node\. 
 
-Ganglia also stores log files on the server at `/var/log/ganglia/rrds`\. If you configured your cluster to persist log files to an Amazon S3 bucket, the Ganglia log files are persisted there as well\. 
+Ganglia stores log files on the master node in the `/mnt/var/lib/ganglia/rrds/` directory\. Earlier release versions of Amazon EMR may store log files in the `/var/log/ganglia/rrds/` directory\.
 
 **To configure a cluster for Ganglia and HBase using the AWS CLI**
 + Use a `create-cluster` command similar to the following:
 
   ```
-  aws emr create-cluster --name "Test cluster" --release-label emr-5.13.0 \
+  aws emr create-cluster --name "Test cluster" --release-label emr-5.14.0 \
   --applications Name=HBase Name=Ganglia --use-default-roles \
-  --ec2-attributes KeyName=myKey --instance-type m3.xlarge \
+  --ec2-attributes KeyName=myKey --instance-type m4.large \
   --instance-count 3 --use-default-roles
   ```
 **Note**  

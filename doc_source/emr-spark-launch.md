@@ -1,6 +1,6 @@
 # Create a Cluster With Spark<a name="emr-spark-launch"></a>
 
-The following procedure creates a cluster with Spark installed using **Quick Options** in the EMR console\. Use **Advanced Options** to further customize your cluster setup, and use Step execution mode to programmatically install applications and then execute custom applications that you submit as steps\. With either of these advanced options, you can choose to use AWS Glue as your Spark SQL metastore\. See [Using the AWS Glue Data Catalog as the Metastore for Spark SQL](emr-spark-glue.md) for more information\.
+The following procedure creates a cluster with [Spark](https://aws.amazon.com/big-data/what-is-spark/) installed using **Quick Options** in the EMR console\. Use **Advanced Options** to further customize your cluster setup, and use Step execution mode to programmatically install applications and then execute custom applications that you submit as steps\. With either of these advanced options, you can choose to use AWS Glue as your Spark SQL metastore\. See [Using the AWS Glue Data Catalog as the Metastore for Spark SQL](emr-spark-glue.md) for more information\.
 
 **To launch a cluster with Spark installed**
 
@@ -8,7 +8,7 @@ The following procedure creates a cluster with Spark installed using **Quick Opt
 
 1. Choose **Create cluster** to use **Quick Create**\.
 
-1.  For **Software Configuration**, choose **Amazon Release Version emr\-5\.13\.0** or later\.
+1.  For **Software Configuration**, choose **Amazon Release Version emr\-5\.14\.0** or later\.
 
 1.  For **Select Applications**, choose either **All Applications** or **Spark**\.
 
@@ -20,8 +20,8 @@ To configure Spark when you are creating the cluster, see [Configure Spark](emr-
 + Create the cluster with the following command:
 
   ```
-  aws emr create-cluster --name "Spark cluster" --release-label emr-5.13.0 --applications Name=Spark \
-  --ec2-attributes KeyName=myKey --instance-type m3.xlarge --instance-count 3 --use-default-roles
+  aws emr create-cluster --name "Spark cluster" --release-label emr-5.14.0 --applications Name=Spark \
+  --ec2-attributes KeyName=myKey --instance-type m4.large --instance-count 3 --use-default-roles
   ```
 
 **Note**  
@@ -43,13 +43,13 @@ Specify Spark as an application with `SupportedProductConfig` used in `RunJobFlo
   RunJobFlowRequest request = new RunJobFlowRequest()
       .withName("Spark Cluster")
       .withApplications(myApps)
-      .withReleaseLabel("emr-5.13.0")
+      .withReleaseLabel("emr-5.14.0")
       .withInstances(new JobFlowInstancesConfig()
       .withEc2KeyName("myKeyName")
       .withInstanceCount(1)
           .withKeepJobFlowAliveWhenNoSteps(true)
-          .withMasterInstanceType("m3.xlarge")
-          .withSlaveInstanceType("m3.xlarge")
+          .withMasterInstanceType("m4.large")
+          .withSlaveInstanceType("m4.large")
       );			
   RunJobFlowResult result = emr.runJobFlow(request);
   ```
