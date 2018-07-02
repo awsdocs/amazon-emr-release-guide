@@ -25,7 +25,7 @@ When you use the `create-cluster` command from the AWS CLI, you can then referen
 Linux line continuation characters \(\\\) are included for readability\. They can be removed or used in Linux commands\. For Windows, remove them or replace with a caret \(^\)\.
 
 ```
-aws emr create-cluster --release-label emr-5.14.0 --instance-type m4.large \
+aws emr create-cluster --release-label emr-5.15.0 --instance-type m4.large \
 --instance-count 3 --applications Name=Hadoop --configurations https://s3.amazonaws.com/mybucket/myfolder/myConfig.json \
 --use-default-roles
 ```
@@ -537,20 +537,6 @@ You can change default values listed below using the `mapred-site` configuration
 | yarn\.scheduler\.minimum\-allocation\-mb | 256 | 32 | 
 | yarn\.scheduler\.maximum\-allocation\-mb | 8192 | 30720 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 61440 | 30720 | 
-
-
-**m4\.large**  
-
-| Configuration Option | Default Value | With HBase Installed | 
-| --- | --- | --- | 
-| mapreduce\.map\.java\.opts | \-Xmx1152m | \-Xmx1152m | 
-| mapreduce\.reduce\.java\.opts | \-Xmx2304m | \-Xmx2304m | 
-| mapreduce\.map\.memory\.mb | 1440 | 1440 | 
-| mapreduce\.reduce\.memory\.mb | 2880 | 2880 | 
-| yarn\.app\.mapreduce\.am\.resource\.mb | 2880 | 2880 | 
-| yarn\.scheduler\.minimum\-allocation\-mb | 32 | 32 | 
-| yarn\.scheduler\.maximum\-allocation\-mb | 11520 | 5760 | 
-| yarn\.nodemanager\.resource\.memory\-mb | 11520 | 5760 | 
 
 
 **m3\.2xlarge**  

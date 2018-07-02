@@ -102,6 +102,7 @@ Amazon's trademarks and trade dress may not be used in
       + [Using PAM Authentication](emr-jupyterhub-pam-users.md)
       + [Using LDAP Authentication](emr-jupyterhub-ldap-users.md)
    + [Installing Additional Kernels and Libraries](emr-jupyterhub-install-kernels-libs.md)
+   + [JupyterHub Release History](JupyterHub-release-history.md)
 + [Apache Livy](emr-livy.md)
    + [Livy Release History](Livy-release-history.md)
 + [Apache Mahout](emr-mahout.md)

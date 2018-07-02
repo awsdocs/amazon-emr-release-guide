@@ -3,6 +3,13 @@
 The following tables list the version of Spark included in each release version of Amazon EMR, along with the components installed with the application\. For component versions in each release, see the Component Version section for your release in [Amazon EMR 5\.x Release Versions](emr-release-5x.md) or [Amazon EMR 4\.x Release Versions](emr-release-4x.md)\.
 
 
+**Spark Version Information for emr\-5\.14\.0**  
+
+| Amazon EMR Release Label | Spark Version | Components Installed With Spark | 
+| --- | --- | --- | 
+| emr\-5\.14\.0 | Spark 2\.3\.0 | aws\-sagemaker\-spark\-sdk, emrfs, emr\-goodies, emr\-ddb, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, livy\-server, r, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave | 
+
+
 **Spark Version Information for emr\-5\.13\.0**  
 
 | Amazon EMR Release Label | Spark Version | Components Installed With Spark | 

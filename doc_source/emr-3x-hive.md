@@ -92,7 +92,7 @@ The following procedure shows you how to override the default configuration valu
 
 1. Modify your security groups to allow JDBC connections between your database and the **ElasticMapReduce\-Master** security group\.
 
-   For information about how to modify your security groups for access, see [Amazon RDS Security Groups](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.RDSSecurityGroups.html) in the *Amazon Relational Database Service User Guide*\.
+   For information about how to modify your security groups for access, see [Amazon RDS Security Groups](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.RDSSecurityGroups.html) in the *Amazon RDS User Guide*\.
 
 1. Set the JDBC configuration values in `hive-site.xml`:
 
@@ -118,7 +118,7 @@ The following procedure shows you how to override the default configuration valu
       </configuration>
       ```
 
-      *hostname* is the DNS address of the Amazon RDS instance running the database\. *username* and *password* are the credentials for your database\. For more information about connecting to MySQL and Aurora database instances, see [Connecting to a DB Instance Running the MySQL Database Engine](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ConnectToInstance.html) and [Connecting to an Aurora DB Cluster](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Connecting.html) in the *Amazon Relational Database Service User Guide*\.
+      *hostname* is the DNS address of the Amazon RDS instance running the database\. *username* and *password* are the credentials for your database\. For more information about connecting to MySQL and Aurora database instances, see [Connecting to a DB Instance Running the MySQL Database Engine](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ConnectToInstance.html) and [Connecting to an Aurora DB Cluster](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Connecting.html) in the *Amazon RDS User Guide*\.
 
       The JDBC drivers are installed by Amazon EMR\. 
 **Note**  

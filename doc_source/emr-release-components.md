@@ -4,10 +4,12 @@ An Amazon EMR release is a set of open\-source applications from the big\-data e
 
 For more information about getting started and working with Amazon EMR, see the [Amazon EMR Management Guide](http://docs.aws.amazon.com/emr/latest/ManagementGuide/)\.
 
-When you launch a cluster, you can choose from multiple release versions of Amazon EMR\. This allows you to test and use application versions that fit your solution's compatibility requirements\. For more information about each Amazon EMR release, see the following topics in this guide\.
+When you launch a cluster, you can choose from multiple release versions of Amazon EMR\. This allows you to test and use application versions that fit your compatibility requirements\. You specify the release version using the *release label*\. Release labels are in the form `emr-x.x.x. For example, emr-5.15.0.`
+
+Subscribe to the RSS feed for Amazon EMR release notes at [http://docs.aws.amazon.com/emr/latest/ReleaseGuide/amazon-emr-release-notes.rss](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/amazon-emr-release-notes.rss) to receive updates when a new Amazon EMR release version is available\.
 
 **Latest Amazon EMR release** details, including application versions, release notes, components, and configuration classifications:
-+ [Amazon EMR Release 5\.14\.0](emr-release-5x.md#emr-5140-release)
++ [Amazon EMR Release 5\.15\.0](emr-release-5x.md#emr-5150-release)
 
 **Release notes** for the latest Amazon EMR releases and a history of all releases:
 + [What's New?](emr-whatsnew.md)

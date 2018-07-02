@@ -4,8 +4,222 @@ Each tab below lists application versions, release notes, component versions, an
 
 For a comprehensive diagram of application versions in every release, see [Application Versions in Amazon EMR 5\.x Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)\.
 
+When you launch a cluster, you can choose from multiple release versions of Amazon EMR\. This allows you to test and use application versions that fit your compatibility requirements\. You specify the release version using the *release label*\. Release labels are in the form `emr-x.x.x. For example, emr-5.15.0.`
+
 ------
-#### [ 5\.14\.0 \(Latest\) ]<a name="emr-5140-release"></a>
+#### [ 5\.15\.0 \(Latest\) ]<a name="emr-5150-release"></a>
+
+**Amazon EMR Release 5\.15\.0**
++ [Application Versions](#emr-5150-app-versions)
++ [Release Notes](#emr-5150-relnotes)
++ [Component Versions](#emr-5150-components)
++ [Configuration Classifications](#emr-5150-class)
+
+**5\.15\.0 Application Versions**
+
+The following applications are supported in this release: [Flink](https://flink.apache.org/), [Ganglia](http://ganglia.info), [Hadoop](http://hadoop.apache.org/docs/current/), [HBase](http://hbase.apache.org/), [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), [Hive](http://hive.apache.org/), [Hue](http://gethue.com/), [JupyterHub](https://jupyterhub.readthedocs.io/en/latest/#), [Livy](https://livy.incubator.apache.org/), [Mahout](http://mahout.apache.org/), [MXNet](https://mxnet.incubator.apache.org/), [Oozie](http://oozie.apache.org/), [Phoenix](https://phoenix.apache.org/), [Pig](http://pig.apache.org/), [Presto](https://prestodb.io/), [Spark](https://spark.apache.org/docs/latest/), [Sqoop](http://sqoop.apache.org/), [Tez](https://tez.apache.org/), [Zeppelin](https://zeppelin.incubator.apache.org/), and [ZooKeeper](https://zookeeper.apache.org)\.
+
+The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
+
+For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
+
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.15.0.png)
+
+**5\.15\.0 Release Notes**
+
+The following release notes include information for Amazon EMR release version 5\.15\.0\. Changes are relative to 5\.14\.0\.
+
+Initial release date: June 21, 2018
+
+**Upgrades**
++ Upgraded HBase to 1\.4\.4
++ Upgraded Hive to 2\.3\.3
++ Upgraded Hue to 4\.2\.0
++ Upgraded Oozie to 5\.0\.0
++ Upgraded Zookeeper to 3\.4\.12
++ Upgraded AWS SDK to 1\.11\.333
+
+**Changes, Enhancements, and Resolved Issues**
++ Hive
+  + Backported [HIVE\-18069](https://issues.apache.org/jira/browse/HIVE-18069)
++ Hue
+  + Updated Hue to correctly authenticate with Livy when Kerberos is enabled\. Livy is now supported when using Kerberos with Amazon EMR\.
++ JupyterHub
+  + Updated JupyterHub so that Amazon EMR installs LDAP client libraries by default\.
+  + Fixed an error in the script that generates self\-signed certificates\. For more information about the issue, see [Release Notes](#emr-5140-relnotes)
+
+**5\.15\.0 Component Versions**
+
+The components that Amazon EMR installs with this release are listed below\. Some are installed as part of big\-data application packages\. Others are unique to Amazon EMR and installed for system processes and features\. These typically start with `emr` or `aws`\. Big\-data application packages in the most recent Amazon EMR release are usually the latest version found in the community\. We make community releases available in Amazon EMR as quickly as possible\.
+
+Some components need changes from community versions for Amazon EMR\. These components have a version label in the form `CommunityVersion-amzn-EmrVersion`\. For example, if a big\-data community component named `myapp-component` of version 2\.2 has been modified three times for inclusion in different Amazon EMR release versions, its release version is listed as `2.2-amzn-3`\.
+
+
+| Component | Version | Description | 
+| --- | --- | --- | 
+| aws\-sagemaker\-spark\-sdk | 1\.0\.1 | Amazon SageMaker Spark SDK | 
+| emr\-ddb | 4\.5\.0 | Amazon DynamoDB connector for Hadoop ecosystem applications\. | 
+| emr\-goodies | 2\.4\.0 | Extra convenience libraries for the Hadoop ecosystem\. | 
+| emr\-kinesis | 3\.4\.0 | Amazon Kinesis connector for Hadoop ecosystem applications\. | 
+| emr\-s3\-dist\-cp | 2\.10\.0 | Distributed copy application optimized for Amazon S3\. | 
+| emrfs | 2\.24\.0 | Amazon S3 connector for Hadoop ecosystem applications\. | 
+| flink\-client | 1\.4\.2 | Apache Flink command line client scripts and applications\. | 
+| ganglia\-monitor | 3\.7\.2 | Embedded Ganglia agent for Hadoop ecosystem applications along with the Ganglia monitoring agent\. | 
+| ganglia\-metadata\-collector | 3\.7\.2 | Ganglia metadata collector for aggregating metrics from Ganglia monitoring agents\. | 
+| ganglia\-web | 3\.7\.1 | Web application for viewing metrics collected by the Ganglia metadata collector\. | 
+| hadoop\-client | 2\.8\.3\-amzn\-1 | Hadoop command\-line clients such as 'hdfs', 'hadoop', or 'yarn'\. | 
+| hadoop\-hdfs\-datanode | 2\.8\.3\-amzn\-1 | HDFS node\-level service for storing blocks\. | 
+| hadoop\-hdfs\-library | 2\.8\.3\-amzn\-1 | HDFS command\-line client and library | 
+| hadoop\-hdfs\-namenode | 2\.8\.3\-amzn\-1 | HDFS service for tracking file names and block locations\. | 
+| hadoop\-httpfs\-server | 2\.8\.3\-amzn\-1 | HTTP endpoint for HDFS operations\. | 
+| hadoop\-kms\-server | 2\.8\.3\-amzn\-1 | Cryptographic key management server based on Hadoop's KeyProvider API\. | 
+| hadoop\-mapred | 2\.8\.3\-amzn\-1 | MapReduce execution engine libraries for running a MapReduce application\. | 
+| hadoop\-yarn\-nodemanager | 2\.8\.3\-amzn\-1 | YARN service for managing containers on an individual node\. | 
+| hadoop\-yarn\-resourcemanager | 2\.8\.3\-amzn\-1 | YARN service for allocating and managing cluster resources and distributed applications\. | 
+| hadoop\-yarn\-timeline\-server | 2\.8\.3\-amzn\-1 | Service for retrieving current and historical information for YARN applications\. | 
+| hbase\-hmaster | 1\.4\.4 | Service for an HBase cluster responsible for coordination of Regions and execution of administrative commands\. | 
+| hbase\-region\-server | 1\.4\.4 | Service for serving one or more HBase regions\. | 
+| hbase\-client | 1\.4\.4 | HBase command\-line client\. | 
+| hbase\-rest\-server | 1\.4\.4 | Service providing a RESTful HTTP endpoint for HBase\. | 
+| hbase\-thrift\-server | 1\.4\.4 | Service providing a Thrift endpoint to HBase\. | 
+| hcatalog\-client | 2\.3\.3\-amzn\-0 | The 'hcat' command line client for manipulating hcatalog\-server\. | 
+| hcatalog\-server | 2\.3\.3\-amzn\-0 | Service providing HCatalog, a table and storage management layer for distributed applications\. | 
+| hcatalog\-webhcat\-server | 2\.3\.3\-amzn\-0 | HTTP endpoint providing a REST interface to HCatalog\. | 
+| hive\-client | 2\.3\.3\-amzn\-0 | Hive command line client\. | 
+| hive\-hbase | 2\.3\.3\-amzn\-0 | Hive\-hbase client\. | 
+| hive\-metastore\-server | 2\.3\.3\-amzn\-0 | Service for accessing the Hive metastore, a semantic repository storing metadata for SQL on Hadoop operations\. | 
+| hive\-server2 | 2\.3\.3\-amzn\-0 | Service for accepting Hive queries as web requests\. | 
+| hue\-server | 4\.2\.0 | Web application for analyzing data using Hadoop ecosystem applications | 
+| jupyterhub | 0\.8\.1 | Multi\-user server for Jupyter notebooks | 
+| livy\-server | 0\.4\.0\-incubating | REST interface for interacting with Apache Spark | 
+| mahout\-client | 0\.13\.0 | Library for machine learning\. | 
+| mxnet | 1\.1\.0 | A flexible, scalable, and efficient library for deep learning\. | 
+| mysql\-server | 5\.5\.54\+ | MySQL database server\. | 
+| oozie\-client | 5\.0\.0 | Oozie command\-line client\. | 
+| oozie\-server | 5\.0\.0 | Service for accepting Oozie workflow requests\. | 
+| opencv | 3\.4\.0 | Open Source Computer Vision Library\. | 
+| phoenix\-library | 4\.13\.0\-HBase\-1\.4 | The phoenix libraries for server and client | 
+| phoenix\-query\-server | 4\.13\.0\-HBase\-1\.4 | A light weight server providing JDBC access as well as Protocol Buffers and JSON format access to the Avatica API  | 
+| presto\-coordinator | 0\.194 | Service for accepting queries and managing query execution among presto\-workers\. | 
+| presto\-worker | 0\.194 | Service for executing pieces of a query\. | 
+| pig\-client | 0\.17\.0 | Pig command\-line client\. | 
+| r | 3\.4\.1 | The R Project for Statistical Computing | 
+| spark\-client | 2\.3\.0 | Spark command\-line clients\. | 
+| spark\-history\-server | 2\.3\.0 | Web UI for viewing logged events for the lifetime of a completed Spark application\. | 
+| spark\-on\-yarn | 2\.3\.0 | In\-memory execution engine for YARN\. | 
+| spark\-yarn\-slave | 2\.3\.0 | Apache Spark libraries needed by YARN slaves\. | 
+| sqoop\-client | 1\.4\.7 | Apache Sqoop command\-line client\. | 
+| tez\-on\-yarn | 0\.8\.4 | The tez YARN application and libraries\. | 
+| webserver | 2\.4\.25\+ | Apache HTTP server\. | 
+| zeppelin\-server | 0\.7\.3 | Web\-based notebook that enables interactive data analytics\. | 
+| zookeeper\-server | 3\.4\.12 | Centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services\. | 
+| zookeeper\-client | 3\.4\.12 | ZooKeeper command line client\. | 
+
+**5\.15\.0 Configuration Classifications**
+
+Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+
+
+**emr\-5\.15\.0 Classifications**  
+
+| Classifications | Description | 
+| --- | --- | 
+| capacity\-scheduler | Change values in Hadoop's capacity\-scheduler\.xml file\. | 
+| container\-log4j | Change values in Hadoop YARN's container\-log4j\.properties file\. | 
+| core\-site | Change values in Hadoop's core\-site\.xml file\. | 
+| emrfs\-site | Change EMRFS settings\. | 
+| flink\-conf | Change flink\-conf\.yaml settings\. | 
+| flink\-log4j | Change Flink log4j\.properties settings\. | 
+| flink\-log4j\-yarn\-session | Change Flink log4j\-yarn\-session\.properties settings\. | 
+| flink\-log4j\-cli | Change Flink log4j\-cli\.properties settings\. | 
+| hadoop\-env | Change values in the Hadoop environment for all Hadoop components\. | 
+| hadoop\-log4j | Change values in Hadoop's log4j\.properties file\. | 
+| hadoop\-ssl\-server | Change hadoop ssl server configuration | 
+| hadoop\-ssl\-client | Change hadoop ssl client configuration | 
+| hbase | Amazon EMR\-curated settings for Apache HBase\. | 
+| hbase\-env | Change values in HBase's environment\. | 
+| hbase\-log4j | Change values in HBase's hbase\-log4j\.properties file\. | 
+| hbase\-metrics | Change values in HBase's hadoop\-metrics2\-hbase\.properties file\. | 
+| hbase\-policy | Change values in HBase's hbase\-policy\.xml file\. | 
+| hbase\-site | Change values in HBase's hbase\-site\.xml file\. | 
+| hdfs\-encryption\-zones | Configure HDFS encryption zones\. | 
+| hdfs\-site | Change values in HDFS's hdfs\-site\.xml\. | 
+| hcatalog\-env | Change values in HCatalog's environment\. | 
+| hcatalog\-server\-jndi | Change values in HCatalog's jndi\.properties\. | 
+| hcatalog\-server\-proto\-hive\-site | Change values in HCatalog's proto\-hive\-site\.xml\. | 
+| hcatalog\-webhcat\-env | Change values in HCatalog WebHCat's environment\. | 
+| hcatalog\-webhcat\-log4j2 | Change values in HCatalog WebHCat's log4j2\.properties\. | 
+| hcatalog\-webhcat\-site | Change values in HCatalog WebHCat's webhcat\-site\.xml file\. | 
+| hive\-beeline\-log4j2 | Change values in Hive's beeline\-log4j2\.properties file\. | 
+| hive\-parquet\-logging | Change values in Hive's parquet\-logging\.properties file\. | 
+| hive\-env | Change values in the Hive environment\. | 
+| hive\-exec\-log4j2 | Change values in Hive's hive\-exec\-log4j2\.properties file\. | 
+| hive\-llap\-daemon\-log4j2 | Change values in Hive's llap\-daemon\-log4j2\.properties file\. | 
+| hive\-log4j2 | Change values in Hive's hive\-log4j2\.properties file\. | 
+| hive\-site | Change values in Hive's hive\-site\.xml file | 
+| hiveserver2\-site | Change values in Hive Server2's hiveserver2\-site\.xml file | 
+| hue\-ini | Change values in Hue's ini file | 
+| httpfs\-env | Change values in the HTTPFS environment\. | 
+| httpfs\-site | Change values in Hadoop's httpfs\-site\.xml file\. | 
+| hadoop\-kms\-acls | Change values in Hadoop's kms\-acls\.xml file\. | 
+| hadoop\-kms\-env | Change values in the Hadoop KMS environment\. | 
+| hadoop\-kms\-log4j | Change values in Hadoop's kms\-log4j\.properties file\. | 
+| hadoop\-kms\-site | Change values in Hadoop's kms\-site\.xml file\. | 
+| jupyter\-notebook\-conf | Change values in Jupyter Notebook's jupyter\_notebook\_config\.py file\. | 
+| jupyter\-hub\-conf | Change values in JupyterHubs's jupyterhub\_config\.py file\. | 
+| jupyter\-sparkmagic\-conf | Change values in Sparkmagic's config\.json file\. | 
+| livy\-conf | Change values in Livy's livy\.conf file\. | 
+| livy\-env | Change values in the Livy environment\. | 
+| livy\-log4j | Change Livy log4j\.properties settings\. | 
+| mapred\-env | Change values in the MapReduce application's environment\. | 
+| mapred\-site | Change values in the MapReduce application's mapred\-site\.xml file\. | 
+| oozie\-env | Change values in Oozie's environment\. | 
+| oozie\-log4j | Change values in Oozie's oozie\-log4j\.properties file\. | 
+| oozie\-site | Change values in Oozie's oozie\-site\.xml file\. | 
+| phoenix\-hbase\-metrics | Change values in Phoenix's hadoop\-metrics2\-hbase\.properties file\. | 
+| phoenix\-hbase\-site | Change values in Phoenix's hbase\-site\.xml file\. | 
+| phoenix\-log4j | Change values in Phoenix's log4j\.properties file\. | 
+| phoenix\-metrics | Change values in Phoenix's hadoop\-metrics2\-phoenix\.properties file\. | 
+| pig\-env | Change values in the Pig environment\. | 
+| pig\-properties | Change values in Pig's pig\.properties file\. | 
+| pig\-log4j | Change values in Pig's log4j\.properties file\. | 
+| presto\-log | Change values in Presto's log\.properties file\. | 
+| presto\-config | Change values in Presto's config\.properties file\. | 
+| presto\-env | Change values in Presto's presto\-env\.sh file\. | 
+| presto\-node | Change values in Presto's node\.properties file\. | 
+| presto\-connector\-blackhole | Change values in Presto's blackhole\.properties file\. | 
+| presto\-connector\-cassandra | Change values in Presto's cassandra\.properties file\. | 
+| presto\-connector\-hive | Change values in Presto's hive\.properties file\. | 
+| presto\-connector\-jmx | Change values in Presto's jmx\.properties file\. | 
+| presto\-connector\-kafka | Change values in Presto's kafka\.properties file\. | 
+| presto\-connector\-localfile | Change values in Presto's localfile\.properties file\. | 
+| presto\-connector\-mongodb | Change values in Presto's mongodb\.properties file\. | 
+| presto\-connector\-mysql | Change values in Presto's mysql\.properties file\. | 
+| presto\-connector\-postgresql | Change values in Presto's postgresql\.properties file\. | 
+| presto\-connector\-raptor | Change values in Presto's raptor\.properties file\. | 
+| presto\-connector\-redis | Change values in Presto's redis\.properties file\. | 
+| presto\-connector\-redshift | Change values in Presto's redshift\.properties file\. | 
+| presto\-connector\-tpch | Change values in Presto's tpch\.properties file\. | 
+| spark | Amazon EMR\-curated settings for Apache Spark\. | 
+| spark\-defaults | Change values in Spark's spark\-defaults\.conf file\. | 
+| spark\-env | Change values in the Spark environment\. | 
+| spark\-hive\-site | Change values in Spark's hive\-site\.xml file | 
+| spark\-log4j | Change values in Spark's log4j\.properties file\. | 
+| spark\-metrics | Change values in Spark's metrics\.properties file\. | 
+| sqoop\-env | Change values in Sqoop's environment\. | 
+| sqoop\-oraoop\-site | Change values in Sqoop OraOop's oraoop\-site\.xml file\. | 
+| sqoop\-site | Change values in Sqoop's sqoop\-site\.xml file\. | 
+| tez\-site | Change values in Tez's tez\-site\.xml file\. | 
+| yarn\-env | Change values in the YARN environment\. | 
+| yarn\-site | Change values in YARN's yarn\-site\.xml file\. | 
+| zeppelin\-env | Change values in the Zeppelin environment\. | 
+| zookeeper\-config | Change values in ZooKeeper's zoo\.cfg file\. | 
+| zookeeper\-log4j | Change values in ZooKeeper's log4j\.properties file\. | 
+
+------
+#### [ 5\.14\.0 ]<a name="emr-5140-release"></a>
 
 **Amazon EMR Release 5\.14\.0**
 + [Application Versions](#emr-5140-app-versions)
@@ -42,6 +256,8 @@ Initial release date: June 4, 2018
 **Changes, Enhancements, and Resolved Issues**
 + EMRFS
   + The userAgent string in requests to Amazon S3 has been updated to contain the user and group information of the invoking principal\. This can be used with AWS CloudTrail logs for more comprehensive request tracking\.
++ HBase
+  +  Included [HBASE\-20447](https://issues.apache.org/jira/browse/HBASE-20447), which addresses an issue that could cause cache issues, especially with split regions\. 
 + MXnet
   + Added OpenCV libraries\.
 + Spark
@@ -51,7 +267,46 @@ Initial release date: June 4, 2018
     + Applications that use other output formats, such as text or csv, that already use EMRFS direct write\.
 
 **Known Issues**
-+ Using configuration classifications to set up JupyterHub and individual Jupyter notebooks when you create a cluster is not supported\. Edit the jupyterhub\_config\.py file and jupyter\_notebook\_config\.py files for each user manually\. For more information, see [Configuring JupyterHub](emr-jupyterhub-configure.md)\.
++ JupyterHub
+  + Using configuration classifications to set up JupyterHub and individual Jupyter notebooks when you create a cluster is not supported\. Edit the jupyterhub\_config\.py file and jupyter\_notebook\_config\.py files for each user manually\. For more information, see [Configuring JupyterHub](emr-jupyterhub-configure.md)\.
+  + JupyterHub fails to start on clusters within a private subnet, failing with the message `Error: ENOENT: no such file or directory, open '/etc/jupyter/conf/server.crt' `\. This is caused by an error in the script that generates self\-signed certificates\. Use the following workaround to generate self\-signed certificates\. All commands are executed while connected to the master node\.
+
+    1. Copy the certificate generation script from the container to the master node:
+
+       ```
+       sudo docker cp jupyterhub:/tmp/gen_self_signed_cert.sh ./
+       ```
+
+    1. Use a text editor to change line 23 to change public hostname to local hostname as shown below:
+
+       ```
+       local hostname=$(curl -s $EC2_METADATA_SERVICE_URI/local-hostname)
+       ```
+
+    1. Run the script to generate self\-signed certificates:
+
+       ```
+       sudo bash ./gen_self_signed_cert.sh
+       ```
+
+    1. Move the certificate files that the script generates to the `/etc/jupyter/conf/` directory:
+
+       ```
+       sudo mv /tmp/server.crt /tmp/server.key /etc/jupyter/conf/
+       ```
+
+    You can `tail` the `jupyter.log` file to verify that JupyterHub restarted and is returning a 200 response code\. For example:
+
+    ```
+    tail -f /var/log/jupyter/jupyter.log
+    ```
+
+    This should return a response similar to the following:
+
+    ```
+    # [I 2018-06-14 18:56:51.356 JupyterHub app:1581] JupyterHub is now running at https://:9443/
+    # 19:01:51.359 - info: [ConfigProxy] 200 GET /api/routes
+    ```
 
 **5\.14\.0 Component Versions**
 
@@ -170,6 +425,8 @@ Configuration classifications allow you to customize applications when you creat
 | hadoop\-kms\-env | Change values in the Hadoop KMS environment\. | 
 | hadoop\-kms\-log4j | Change values in Hadoop's kms\-log4j\.properties file\. | 
 | hadoop\-kms\-site | Change values in Hadoop's kms\-site\.xml file\. | 
+| jupyter\-notebook\-conf | Change values in Jupyter Notebook's jupyter\_notebook\_config\.py file\. | 
+| jupyter\-hub\-conf | Change values in JupyterHubs's jupyterhub\_config\.py file\. | 
 | jupyter\-sparkmagic\-conf | Change values in Sparkmagic's config\.json file\. | 
 | livy\-conf | Change values in Livy's livy\.conf file\. | 
 | livy\-env | Change values in the Livy environment\. | 

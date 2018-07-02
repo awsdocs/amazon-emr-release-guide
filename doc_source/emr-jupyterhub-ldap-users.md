@@ -35,7 +35,7 @@ bindpw admin
 
 ## Enable LDAP Authenticator Plugin for JupyterHub<a name="emr-jupyterhub-ldap-plugin"></a>
 
-Use a text editor to modify the `/etc/jupyter/conf/jupterhub_config.py` file and add [ldapauthenticator](https://github.com/jupyterhub/ldapauthenticator) properties similar to the following\. Replace *host* with the IP address or resolvable host name of the LDAP server\. The example assumes that the user objects are within an organizational unit \(ou\) named *people*, and uses the distinguished name components that you established earlier using `ldap.conf`\.
+Use a text editor to modify the `/etc/jupyter/conf/jupyterhub_config.py` file and add [ldapauthenticator](https://github.com/jupyterhub/ldapauthenticator) properties similar to the following\. Replace *host* with the IP address or resolvable host name of the LDAP server\. The example assumes that the user objects are within an organizational unit \(ou\) named *people*, and uses the distinguished name components that you established earlier using `ldap.conf`\.
 
 ```
 c.JupyterHub.authenticator_class = 'ldapauthenticator.LDAPAuthenticator'
@@ -51,12 +51,13 @@ Use a text editor to create a bash script with the following contents:
 ```
 #!/bin/bash
 
-# install ldap client libs
-sudo docker exec jupyterhub bash -c "sudo apt-get update"
+
+# Uncomment the following lines to install LDAP client libraries only if
+# using Amazon EMR release version 5.14.0. Later versions install libraries by default.
+# sudo docker exec jupyterhub bash -c "sudo apt-get update"
+# sudo docker exec jupyterhub bash -c "sudo apt-get -y install libnss-ldap libpam-ldap ldap-utils nscd"
  
-sudo docker exec jupyterhub bash -c "sudo apt-get -y install libnss-ldap libpam-ldap ldap-utils nscd"
- 
-# copy ldap.conf
+# Copy ldap.conf
 sudo docker cp ldap.conf jupyterhub:/etc/
 sudo docker exec jupyterhub bash -c "cat /etc/ldap.conf"
  
