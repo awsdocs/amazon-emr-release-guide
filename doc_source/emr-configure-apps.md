@@ -100,7 +100,7 @@ You can provide a configuration to create\-cluster by supplying a path to a JSON
 aws emr create-cluster --use-default-roles --release-label emr-5.15.0 --instance-type m4.large --instance-count 2 --applications Name=Hive --configurations https://s3.amazonaws.com/mybucket/myfolder/myConfig.json
 ```
 
-If you configuration is in your local directory, you can use the following:
+If your configuration is in your local directory, you can use the following:
 
 ```
 aws emr create-cluster --use-default-roles --release-label emr-5.15.0 --applications Name=Hive \
