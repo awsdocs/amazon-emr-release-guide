@@ -142,7 +142,7 @@ result: 0 Success
 # numEntries: 3
 ```
 
-Using information from the response, run commands within the containter to create a home directory for each user common name \(`cn`\)\. Use the `uidNumber` and `gidNumber` to fix ownership for the home directory for that user\. The following example commands do this for the user *shirley*\.
+Using information from the response, run commands within the container to create a home directory for each user common name \(`cn`\)\. Use the `uidNumber` and `gidNumber` to fix ownership for the home directory for that user\. The following example commands do this for the user *shirley*\.
 
 ```
 sudo docker container exec jupyterhub bash -c "mkdir /home/shirley"
@@ -150,37 +150,11 @@ sudo docker container exec jupyterhub bash -c "chown -R $uidNumber /home/shirley
 sudo docker container exec jupyterhub bash -c "sudo chgrp -R $gidNumber /home/shirley"
 ```
 
-## Restart JupyterHub<a name="emr-jupyterhub-ldap-restart"></a>
+## Restart the Jupyterhub Container<a name="emr-jupyterhub-ldap-restart"></a>
 
-Create a bash script with the following contents, save it to the master node, and run it\. The script uses REST API commands to restart JupyterHub\.
+Run the following commands to restart the `jupyterhub` container:
 
 ```
-#!/bin/bash
-
-CURL="curl --silent -k"
-HOST=$(curl -s http://169.254.169.254/latest/meta-data/public-hostname)
-
-admin_token() {
-    local user=jovyan
-    local pwd=jupyter
-    local token=$($CURL https://$HOST:9443/hub/api/authorizations/token \
-        -d "{\"username\":\"$user\", \"password\":\"$pwd\"}" | jq ".token")
-    if [[ $token != null ]]; then
-        token=$(echo $token | sed 's/"//g')
-    else
-        echo "Unable to get Jupyter API Token."
-        exit 1
-    fi
-    echo $token
-}
-
-shutdown_jupyter() {
- local admin_token=$(admin_token)
- $CURL -XPOST https://$HOST:9443/hub/api/shutdown \
-  -H "Authorization: token $admin_token" \
-  -d "{\"servers\": true}"
-}
-
-# shutdown jupyter
-shutdown_jupyter
+sudo docker stop jupyterhub
+sudo docker start jupyterhub
 ```

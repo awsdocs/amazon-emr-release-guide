@@ -1,30 +1,32 @@
 # What's New?<a name="emr-whatsnew"></a>
 
-This topic covers features and issues resolved in the current release of Amazon EMR\. These release notes are also available on the [Release 5\.15\.0 Tab](emr-release-5x.md#emr-5150-release), along with the application versions, component versions, and available configuration classifications for this release\.
+This topic covers features and issues resolved in the current release of Amazon EMR\. These release notes are also available on the [Release 5\.17\.0 Tab](emr-release-5x.md#emr-5170-release), along with the application versions, component versions, and available configuration classifications for this release\.
 
 Subscribe to the RSS feed for Amazon EMR release notes at [http://docs.aws.amazon.com/emr/latest/ReleaseGuide/amazon-emr-release-notes.rss](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/amazon-emr-release-notes.rss) to receive updates when a new Amazon EMR release version is available\.
 
 For earlier\-version release notes back to release version 4\.2\.0, see [Amazon EMR What's New History](emr-whatsnew-history.md)\.
 
-## Release 5\.15\.0 \(Latest\)<a name="emr-5150-whatsnew"></a>
+## Release 5\.17\.0 \(Latest\)<a name="emr-5170-whatsnew"></a>
 
-The following release notes include information for Amazon EMR release version 5\.15\.0\. Changes are relative to 5\.14\.0\.
+New Amazon EMR release versions are made available in different regions over a period of several days, beginning with the first region on the initial release date\. The latest release version may not be available in your region during this period\.
 
-Initial release date: June 21, 2018
+The following release notes include information for Amazon EMR release version 5\.17\.0\. Changes are relative to 5\.16\.0\.
+
+Initial release date: August 30, 2018
 
 **Upgrades**
-+ Upgraded HBase to 1\.4\.4
-+ Upgraded Hive to 2\.3\.3
-+ Upgraded Hue to 4\.2\.0
-+ Upgraded Oozie to 5\.0\.0
-+ Upgraded Zookeeper to 3\.4\.12
-+ Upgraded AWS SDK to 1\.11\.333
++ Flink 1\.5\.2
++ HBase 1\.4\.6
++ Presto 0\.206
+
+**New Features**
++ Added support for Tensorflow\. For more information, see [TensorFlow](emr-tensorflow.md)\.
 
 **Changes, Enhancements, and Resolved Issues**
-+ Hive
-  + Backported [HIVE\-18069](https://issues.apache.org/jira/browse/HIVE-18069)
-+ Hue
-  + Updated Hue to correctly authenticate with Livy when Kerberos is enabled\. Livy is now supported when using Kerberos with Amazon EMR\.
 + JupyterHub
-  + Updated JupyterHub so that Amazon EMR installs LDAP client libraries by default\.
-  + Fixed an error in the script that generates self\-signed certificates\. For more information about the issue, see [Release Notes](emr-release-5x.md#emr-5140-relnotes)
+  + Added support for notebook persistence in Amazon S3\. For more information, see [Configuring Persistence for Notebooks in Amazon S3](emr-jupyterhub-s3.md)\.
++ Spark
+  + Added support for [S3 Select](aws.amazon.comblogs/aws/s3-glacier-select/)\. For more information, see [Using S3 Select with Spark to Improve Performance](emr-spark-s3select.md)\.
+
+**Known Issues**
++ When you create a kerberized cluster with Livy installed, Livy fails with an error that simple authentication is not enabled\. Rebooting the Livy server resolves the issue\. As a workaround, add a step during cluster creation that runs `sudo restart livy-server` on the master node\.

@@ -65,7 +65,7 @@ Save the script to a location in Amazon S3 such as `s3://mybucket/createjupyteru
 Linux line continuation characters \(\\\) are included for readability\. They can be removed or used in Linux commands\. For Windows, remove them or replace with a caret \(^\)\.
 
 ```
-aws emr create-cluster --name="MyJupyterHubCluster" --release-label emr-5.15.0 \
+aws emr create-cluster --name="MyJupyterHubCluster" --release-label emr-5.17.0 \
 --applications Name=JupyterHub --log-uri s3://MyBucket/MyJupyterClusterLogs \
 --use-default-roles --instance-type m4.large --instance-count 2 --ec2-attributes KeyName=MyKeyPair \
 --steps Type=CUSTOM_JAR,Name=CustomJAR,ActionOnFailure=CONTINUE,\

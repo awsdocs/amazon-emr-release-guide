@@ -25,7 +25,7 @@ When you use the `create-cluster` command from the AWS CLI, you can then referen
 Linux line continuation characters \(\\\) are included for readability\. They can be removed or used in Linux commands\. For Windows, remove them or replace with a caret \(^\)\.
 
 ```
-aws emr create-cluster --release-label emr-5.15.0 --instance-type m4.large \
+aws emr create-cluster --release-label emr-5.17.0 --instance-type m4.large \
 --instance-count 3 --applications Name=Hadoop --configurations https://s3.amazonaws.com/mybucket/myfolder/myConfig.json \
 --use-default-roles
 ```

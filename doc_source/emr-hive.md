@@ -8,14 +8,14 @@ Hive extends the SQL paradigm by including serialization formats\. You can also 
 
 The following table lists the version of Hive included in the latest release of Amazon EMR, along with the components that Amazon EMR installs with Hive\.
 
-For the version of components installed with Hive in this release, see [Release 5\.15\.0 Component Versions](emr-release-5x.md#emr-5150-release)\.
+For the version of components installed with Hive in this release, see [Release 5\.17\.0 Component Versions](emr-release-5x.md#emr-5170-release)\.
 
 
-**Hive Version Information for emr\-5\.15\.0**  
+**Hive Version Information for emr\-5\.17\.0**  
 
 | Amazon EMR Release Label | Hive Version | Components Installed With Hive | 
 | --- | --- | --- | 
-| emr\-5\.15\.0 | Hive 2\.3\.3 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hive\-client, hive\-hbase, hcatalog\-server, hive\-server2, mysql\-server, tez\-on\-yarn | 
+| emr\-5\.17\.0 | Hive 2\.3\.3 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, emr\-s3\-select, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hive\-client, hive\-hbase, hcatalog\-server, hive\-server2, mysql\-server, tez\-on\-yarn | 
 
 **Topics**
 + [Differences and Considerations for Hive on Amazon EMR](emr-hive-differences.md)

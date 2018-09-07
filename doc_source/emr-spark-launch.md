@@ -8,7 +8,7 @@ The following procedure creates a cluster with [Spark](https://aws.amazon.com/bi
 
 1. Choose **Create cluster** to use **Quick Create**\.
 
-1.  For **Software Configuration**, choose **Amazon Release Version emr\-5\.15\.0** or later\.
+1.  For **Software Configuration**, choose **Amazon Release Version emr\-5\.17\.0** or later\.
 
 1.  For **Select Applications**, choose either **All Applications** or **Spark**\.
 
@@ -20,7 +20,7 @@ To configure Spark when you are creating the cluster, see [Configure Spark](emr-
 + Create the cluster with the following command:
 
   ```
-  aws emr create-cluster --name "Spark cluster" --release-label emr-5.15.0 --applications Name=Spark \
+  aws emr create-cluster --name "Spark cluster" --release-label emr-5.17.0 --applications Name=Spark \
   --ec2-attributes KeyName=myKey --instance-type m4.large --instance-count 3 --use-default-roles
   ```
 
@@ -43,7 +43,7 @@ Specify Spark as an application with `SupportedProductConfig` used in `RunJobFlo
   RunJobFlowRequest request = new RunJobFlowRequest()
       .withName("Spark Cluster")
       .withApplications(myApps)
-      .withReleaseLabel("emr-5.15.0")
+      .withReleaseLabel("emr-5.17.0")
       .withInstances(new JobFlowInstancesConfig()
       .withEc2KeyName("myKeyName")
       .withInstanceCount(1)

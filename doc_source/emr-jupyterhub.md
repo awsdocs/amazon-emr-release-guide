@@ -10,14 +10,14 @@ The following diagram depicts the components of JupyterHub on Amazon EMR with co
 
 The following table lists the version of JupyterHub included in the latest release of Amazon EMR, along with the components that Amazon EMR installs with JupyterHub\.
 
-For the version of components installed with JupyterHub in this release, see [Release 5\.15\.0 Component Versions](emr-release-5x.md#emr-5150-release)\.
+For the version of components installed with JupyterHub in this release, see [Release 5\.17\.0 Component Versions](emr-release-5x.md#emr-5170-release)\.
 
 
-**JupyterHub Version Information for emr\-5\.15\.0**  
+**JupyterHub Version Information for emr\-5\.17\.0**  
 
 | Amazon EMR Release Label | JupyterHub Version | Components Installed With JupyterHub | 
 | --- | --- | --- | 
-| emr\-5\.15\.0 | JupyterHub 0\.8\.1 | aws\-sagemaker\-spark\-sdk, emrfs, emr\-goodies, emr\-ddb, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, r, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, livy\-server, jupyterhub | 
+| emr\-5\.17\.0 | JupyterHub 0\.8\.1 | aws\-sagemaker\-spark\-sdk, emrfs, emr\-goodies, emr\-ddb, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, r, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, livy\-server, jupyterhub | 
 
 The Python 3 kernel included with JupyterHub on Amazon EMR is 3\.6\.4\.
 
@@ -41,6 +41,7 @@ The libraries installed within the `jupyterhub` container may vary between Amazo
 + [Create a Cluster With JupyterHub](emr-jupyterhub-launch.md)
 + [Considerations When Using JupyterHub on Amazon EMR](emr-jupyterhub-considerations.md)
 + [Configuring JupyterHub](emr-jupyterhub-configure.md)
++ [Configuring Persistence for Notebooks in Amazon S3](emr-jupyterhub-s3.md)
 + [Connecting to the Master Node and Notebook Servers](emr-jupyterhub-connect.md)
 + [JupyterHub Configuration and Administration](emr-jupyterhub-administer.md)
 + [Adding Jupyter Notebook Users and Administrators](emr-jupyterhub-user-access.md)

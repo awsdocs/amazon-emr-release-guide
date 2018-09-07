@@ -41,7 +41,7 @@ Submit a step when you create the cluster or use the `aws emr add-steps` subcomm
 Linux line continuation characters \(\\\) are included for readability\. They can be removed or used in Linux commands\. For Windows, remove them or replace with a caret \(^\)\.
 
    ```
-   aws emr create-cluster --name "Add Spark Step Cluster" --release-label emr-5.15.0 --applications Name=Spark \
+   aws emr create-cluster --name "Add Spark Step Cluster" --release-label emr-5.17.0 --applications Name=Spark \
    --ec2-attributes KeyName=myKey --instance-type m4.large --instance-count 3 \
    --steps Type=Spark,Name="Spark Program",ActionOnFailure=CONTINUE,Args=[--class,org.apache.spark.examples.SparkPi,/usr/lib/spark/lib/spark-examples.jar,10] --use-default-roles
    ```
@@ -49,7 +49,7 @@ Linux line continuation characters \(\\\) are included for readability\. They ca
    As an alternative, you can use `command-runner.jar` as shown in the following example\.
 
    ```
-   aws emr create-cluster --name "Add Spark Step Cluster" --release-label emr-5.15.0 \
+   aws emr create-cluster --name "Add Spark Step Cluster" --release-label emr-5.17.0 \
    --applications Name=Spark --ec2-attributes KeyName=myKey --instance-type m4.large --instance-count 3 \
    --steps Type=CUSTOM_JAR,Name="Spark Program",Jar="command-runner.jar",ActionOnFailure=CONTINUE,Args=[spark-example,SparkPi,10] --use-default-roles
    ```

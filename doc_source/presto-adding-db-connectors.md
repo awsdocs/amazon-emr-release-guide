@@ -35,7 +35,7 @@ To launch a cluster with the PostgreSQL connector installed and configured, crea
 Use the following command to create the cluster:  
 
 ```
-aws emr create-cluster --name PrestoConnector --release-label emr-5.15.0 --instance-type m4.large \
+aws emr create-cluster --name PrestoConnector --release-label emr-5.17.0 --instance-type m4.large \
 --instance-count 2 --applications Name=Hadoop Name=Hive Name=Pig Name=Presto \
 --use-default-roles --no-auto-terminate --ec2-attributes KeyName=myKey \
 --log-uri s3://my-bucket/logs --enable-debugging \

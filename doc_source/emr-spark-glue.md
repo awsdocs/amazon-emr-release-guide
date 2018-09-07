@@ -26,7 +26,7 @@ The option to use AWS Glue Data Catalog is also available with Zeppelin because 
 
 1. Under **Release**, select **Spark** or **Zeppelin**\.
 
-1. Under **AWS Glue Data Catalog settings**, select **Use for Hive table metadata**\.
+1. Under **AWS Glue Data Catalog settings**, select **Use for Spark table metadata**\.
 
 1. Choose other options for your cluster as appropriate, choose **Next**, and then configure other cluster options as appropriate for your application\.
 
@@ -47,7 +47,36 @@ The option to use AWS Glue Data Catalog is also available with Zeppelin because 
 
 ## IAM Permissions<a name="emr-hive-glue-permissions"></a>
 
-The `EMR_EC2_DefaultRole` must be allowed IAM permissions for AWS Glue actions\. This is only a concern if you don't use the default `AmazonElasticMapReduceforEC2Role` managed policy and you attach a customer\-managed policy to the role\. In this case, you need to configure the policy to allow permission to perform AWS Glue actions\. Open the IAM console \([https://console\.aws\.amazon\.com/iam/](https://console.aws.amazon.com/iam/)\) and view the contents of the `AmazonElasticMapReduceforEC2Role` managed policy to see the required AWS Glue actions to allow\.
+The EC2 instance profile for a cluster must have IAM permissions for AWS Glue actions\. In addition, if you enable encryption for AWS Glue Data Catalog objects, the role must also be allowed to encrypt, decrypt and generate the customer master key \(CMK\) used for encryption\.
+
+### Permissions for AWS Glue Actions<a name="w3aac46c25c17b5"></a>
+
+The default `AmazonElasticMapReduceforEC2Role` managed policy attached to `EMR_EC2_DefaultRole` allows the required AWS Glue actions\. If you use the default EC2 instance profile, no action is required\. However, if you specify a custom EC2 instance profile and permissions when you create a cluster, ensure that the appropriate AWS Glue actions are allowed\. Use the `AmazonElasticMapReduceforEC2Role` managed policy as a starting point\. For a listing of AWS Glue actions, see [Default Contents of AmazonElasticMapReduceforEC2Role Permissions Policy](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-iam-roles-defaultroles.html#emr-iam-contents-ec2role) in the *Amazon EMR Management Guide*\.
+
+### Permissions for Encrypting and Decrypting AWS Glue Data Catalog<a name="w3aac46c25c17b7"></a>
+
+This section is about the encryption feature of the AWS Glue Data Catalog\. For more information about AWS Glue Data Catalog encryption, see [Encrypting Your Data Catalog](http://docs.aws.amazon.com/glue/latest/dg/encrypt-glue-data-catalog.html) in the *AWS Glue Developer Guide*\.
+
+If you enable encryption for AWS Glue Data Catalog objects using AWS managed CMKs for AWS Glue, and the cluster that accesses the AWS Glue Data Catalog is within the same AWS account, you don't need to update the permissions policy attached to the EC2 instance profile\. If you use a customer managed CMK, or if the cluster is in a different AWS account, you must update the permissions policy so that the EC2 instance profile has permission to encrypt and decrypt using the key\. The contents of the following policy statement needs to be added regardless of whether you use the default permissions policy, `AmazonElasticMapReduceforEC2Role`, or you use a custom permissions policy attached to a custom EC2 instance profile\. 
+
+```
+[
+    {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "kms:Decrypt",
+                    "kms:Encrypt",
+                    "kms:GenerateDataKey"
+                ],
+                "Resource": "arn:aws:kms:region:acct-id:key/12345678-1234-1234-1234-123456789012"
+            }
+        ]
+    }
+]
+```
 
 ## Considerations When Using AWS Glue Data Catalog<a name="emr-hive-glue-considerations-hive"></a>
 

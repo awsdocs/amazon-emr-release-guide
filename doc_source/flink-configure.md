@@ -20,7 +20,7 @@ You may want to configure Flink using a configuration file\. For example, the ma
 1. Next, create a cluster with the following configuration:
 
    ```
-   aws emr create-cluster --release-label emr-5.15.0 \
+   aws emr create-cluster --release-label emr-5.17.0 \
    --applications Name=Flink \
    --configurations file://./configurations.json \
    --region us-east-1 \

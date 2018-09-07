@@ -4,7 +4,7 @@ Apache DistCp is an open\-source tool you can use to copy large amounts of data\
 
 For specific commands that demonstrate the flexibility of S3DistCP in real\-world scenarios, see [Seven Tips for Using S3DistCp](http://aws.amazon.com/blogs/big-data/seven-tips-for-using-s3distcp-on-amazon-emr-to-move-data-efficiently-between-hdfs-and-amazon-s3/) on the AWS Big Data blog\.
 
-Like DistCp, S3DistCp uses MapReduce to copy in a distributed manner, sharing the copy, error handling, recovery, and reporting tasks across several servers\. For more information about the Apache DistCp open source project, see the [DistCp Guide](http://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html)in Apache Hadoop documentation\.
+Like DistCp, S3DistCp uses MapReduce to copy in a distributed manner\. It shares the copy, error handling, recovery, and reporting tasks across several servers\. For more information about the Apache DistCp open source project, see the [DistCp Guide](http://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) in the Apache Hadoop documentation\.
 
 During a copy operation, S3DistCp stages a temporary copy of the output in HDFS on the cluster\. There must be enough free space in HDFS to stage the data, otherwise the copy operation fails\. In addition, if S3DistCp fails, it does not clean the temporary HDFS directory, so you must purge the temporary files manually\. For example, if you copy 500 GB of data from HDFS to S3, S3DistCp copies the entire 500 GB into a temporary directory in HDFS, then uploads the data to Amazon S3 from the temporary directory\. When the copy is complete, S3DistCp removes the files from the temporary directory\. If you only have 250 GB of space remaining in HDFS prior to the copy, the copy operation fails\. 
 

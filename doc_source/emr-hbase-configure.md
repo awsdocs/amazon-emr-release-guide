@@ -8,7 +8,7 @@ The following example creates a cluster with an alternate HBase root directory b
 Linux line continuation characters \(\\\) are included for readability\. They can be removed or used in Linux commands\. For Windows, remove them or replace with a caret \(^\)\.
 
 ```
-aws emr create-cluster --release-label emr-5.15.0 --applications Name=HBase \
+aws emr create-cluster --release-label emr-5.17.0 --applications Name=HBase \
 --instance-type m4.large --instance-count 3 --configurations https://s3.amazonaws.com/mybucket/myfolder/myConfig.json
 ```
 
@@ -88,7 +88,7 @@ This defines the number of threads the region server keeps open to serve request
 
 ### hbase\.hregion\.max\.filesize<a name="emr-hbase-hbase.hregion.max.filesize"></a>
 
-This parameter governs the size, in bytes, of the individual regions\. By default, it is set to 256 MB\. If you are writing a lot of data into your HBase cluster and it's causing frequent splitting, you can increase this size to make individual regions bigger\. It reduces splitting but takes more time to load balance regions from one server to another\. 
+This parameter governs the size, in bytes, of the individual regions\. By default, it is set to `1073741824`\. If you are writing a lot of data into your HBase cluster, and it's causing frequent splitting, you can increase this size to make individual regions bigger\. It reduces splitting but takes more time to load\-balance regions from one server to another\. 
 
 ```
 [
@@ -103,7 +103,7 @@ This parameter governs the size, in bytes, of the individual regions\. By defaul
 
 ### hbase\.hregion\.memstore\.flush\.size<a name="emr-hbase-hbase.hregion.memstore.flush.size"></a>
 
-This parameter governs the maximum size of memstore, in bytes, before it is flushed to disk\. By default, it is 64 MB\. If your workload consists of short bursts of write operations, you might want to increase this limit so all writes stay in memory during the burst and get flushed to disk later\. This can boost performance during bursts\. 
+This parameter governs the maximum size of memstore, in bytes, before it is flushed to disk\. By default, it is `134217728`\. If your workload consists of short bursts of write operations, you might want to increase this limit so that all writes stay in memory during the burst and get flushed to disk later\. This can boost performance during bursts\. 
 
 ```
 [

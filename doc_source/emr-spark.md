@@ -10,16 +10,19 @@ For an example tutorial of setting up an EMR cluster with Spark and analyzing a 
 
 To view a machine learning example using Spark on Amazon EMR, see the [Large\-Scale Machine Learning with Spark on Amazon EMR](http://aws.amazon.com/blogs/big-data/large-scale-machine-learning-with-spark-on-amazon-emr/) on the AWS Big Data blog\.
 
+**Important**  
+Apache Spark version 2\.3\.1, available beginning with Amazon EMR release version 5\.16\.0, addresses [CVE\-2018\-8024](https://nvd.nist.gov/vuln/detail/CVE-2018-8024) and [CVE\-2018\-1334](https://nvd.nist.gov/vuln/detail/CVE-2018-1334)\. We recommend that you migrate earlier versions of Spark to Spark version 2\.3\.1 or later\.
+
 The following table lists the version of Spark included in the latest release of Amazon EMR, along with the components that Amazon EMR installs with Spark\.
 
-For the version of components installed with Spark in this release, see [Release 5\.15\.0 Component Versions](emr-release-5x.md#emr-5150-release)\.
+For the version of components installed with Spark in this release, see [Release 5\.17\.0 Component Versions](emr-release-5x.md#emr-5170-release)\.
 
 
-**Spark Version Information for emr\-5\.15\.0**  
+**Spark Version Information for emr\-5\.17\.0**  
 
 | Amazon EMR Release Label | Spark Version | Components Installed With Spark | 
 | --- | --- | --- | 
-| emr\-5\.15\.0 | Spark 2\.3\.0 | aws\-sagemaker\-spark\-sdk, emrfs, emr\-goodies, emr\-ddb, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, livy\-server, r, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave | 
+| emr\-5\.17\.0 | Spark 2\.3\.1 | aws\-sagemaker\-spark\-sdk, emrfs, emr\-goodies, emr\-ddb, emr\-s3\-select, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, livy\-server, r, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave | 
 
 **Topics**
 + [Create a Cluster With Spark](emr-spark-launch.md)
@@ -28,6 +31,7 @@ For the version of components installed with Spark in this release, see [Release
 + [Access the Spark Shell](emr-spark-shell.md)
 + [Using Amazon SageMaker Spark for Machine Learning](emr-spark-sagemaker.md)
 + [Write a Spark Application](emr-spark-application.md)
++ [Using S3 Select with Spark to Improve Performance](emr-spark-s3select.md)
 + [Adding a Spark Step](emr-spark-submit-step.md)
 + [View Spark Application History](emr-spark-application-history.md)
 + [Accessing the Spark Web UIs](emr-spark-webui.md)

@@ -5,7 +5,7 @@ The Amazon EMR\-DynamoDB Connector is open\-sourced on GitHub\. For more informa
 
 DynamoDB is a fully managed NoSQL database service that provides fast and predictable performance with seamless scalability\. Developers can create a database table and grow its request traffic or storage without limit\. DynamoDB automatically spreads the data and traffic for the table over a sufficient number of servers to handle the request capacity specified by the customer and the amount of data stored, while maintaining consistent, fast performance\. Using Amazon EMR and Hive you can quickly and efficiently process large amounts of data, such as data stored in DynamoDB\. For more information about DynamoDB go to the [DynamoDB Developer Guide](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html)\. 
 
- Apache Hive is a software layer that you can use to query map reduce clusters using a simplified, SQL\-like query language called HiveQL\. It runs on top of the Hadoop architecture\. For more information about Hive and HiveQL, go to the [HiveQL Language Manual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)\. For more information about Hive and Amazon EMR, see [Apache Hive](emr-hive.md) 
+Apache Hive is a software layer that you can use to query map reduce clusters using a simplified, SQL\-like query language called HiveQL\. It runs on top of the Hadoop architecture\. For more information about Hive and HiveQL, go to the [HiveQL Language Manual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)\. For more information about Hive and Amazon EMR, see [Apache Hive](emr-hive.md) \.
 
  You can use Amazon EMR with a customized version of Hive that includes connectivity to DynamoDB to perform operations on data stored in DynamoDB:
 + Loading DynamoDB data into the Hadoop Distributed File System \(HDFS\) and using it as input into an Amazon EMR cluster\.
@@ -16,7 +16,7 @@ DynamoDB is a fully managed NoSQL database service that provides fast and predic
 
  To perform each of the following tasks, you'll launch an Amazon EMR cluster, specify the location of the data in DynamoDB, and issue Hive commands to manipulate the data in DynamoDB\. 
 
- There are several ways to launch an Amazon EMR cluster: you can use the Amazon EMR console, the command line interface \(CLI\), or you can program your cluster using an AWS SDK or the Amazon EMR API\. You can also choose whether to run a Hive cluster interactively or from a script\. In this section, we will show you how to launch an interactive Hive cluster from the Amazon EMR console and the CLI\. 
+There are several ways to launch an Amazon EMR cluster: you can use the Amazon EMR console, the command line interface \(CLI\), or you can program your cluster using an AWS SDK or the Amazon EMR API\. You can also choose whether to run a Hive cluster interactively or from a script\. In this section, we will show you how to launch an interactive Hive cluster from the Amazon EMR console and the CLI\. 
 
  Using Hive interactively is a great way to test query performance and tune your application\. After you have established a set of Hive commands that will run on a regular basis, consider creating a Hive script that Amazon EMR can run for you\. 
 
