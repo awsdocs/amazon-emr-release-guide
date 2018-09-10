@@ -47,7 +47,7 @@ Initial release date: August 30, 2018
 + JupyterHub
   + Added support for notebook persistence in Amazon S3\. For more information, see [Configuring Persistence for Notebooks in Amazon S3](emr-jupyterhub-s3.md)\.
 + Spark
-  + Added support for [S3 Select](aws.amazon.comblogs/aws/s3-glacier-select/)\. For more information, see [Using S3 Select with Spark to Improve Performance](emr-spark-s3select.md)\.
+  + Added support for [S3 Select](https://aws.amazon.com/blogs/aws/s3-glacier-select/)\. For more information, see [Using S3 Select with Spark to Improve Performance](emr-spark-s3select.md)\.
 
 **Known Issues**
 + When you create a kerberized cluster with Livy installed, Livy fails with an error that simple authentication is not enabled\. Rebooting the Livy server resolves the issue\. As a workaround, add a step during cluster creation that runs `sudo restart livy-server` on the master node\.
