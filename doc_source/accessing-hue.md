@@ -4,7 +4,7 @@ Launching Hue is the same as connecting to any HTTP interface hosted on the mast
 
 **To launch the Hue web interface**
 
-1. Follow these instructions to [Set Up an SSH TUnnel to the Master Node Using Dynamic Port Forwarding](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-ssh-tunnel.html) in the *Amazon EMR Management Guide*\.
+1. Follow these instructions to [Set Up an SSH Tunnel to the Master Node Using Dynamic Port Forwarding](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-ssh-tunnel.html) in the *Amazon EMR Management Guide*\.
 
 1. Type the following address in your browser to open the **Hue** web interface: `http://master public DNS:8888` where *master public dns* is the public DNS name of your cluster master node, for example `ec2-11-22-333-44.compute-1.amazonaws.com`\.
 
