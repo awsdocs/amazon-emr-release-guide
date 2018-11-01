@@ -4,7 +4,7 @@ The following examples use Hive commands to perform operations such as exporting
 
 Operations on a Hive table reference data stored in DynamoDB\. Hive commands are subject to the DynamoDB table's provisioned throughput settings, and the data retrieved includes the data written to the DynamoDB table at the time the Hive operation request is processed by DynamoDB\. If the data retrieval process takes a long time, some data returned by the Hive command may have been updated in DynamoDB since the Hive command began\. 
 
-Hive commands `DROP TABLE` and `CREATE TABLE` only act on the local tables in Hive and do not create or drop tables in DynamoDB\. If your Hive query references a table in DynamoDB, that table must already exist before you run the query\. For more information about creating and deleting tables in DynamoDB, see [Working with Tables in DynamoDB](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide//WorkingWithTables.html) in the *Amazon DynamoDB Developer Guide*\. 
+Hive commands `DROP TABLE` and `CREATE TABLE` only act on the local tables in Hive and do not create or drop tables in DynamoDB\. If your Hive query references a table in DynamoDB, that table must already exist before you run the query\. For more information about creating and deleting tables in DynamoDB, see [Working with Tables in DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide//WorkingWithTables.html) in the *Amazon DynamoDB Developer Guide*\. 
 
 **Note**  
  When you map a Hive table to a location in Amazon S3, do not map it to the root path of the bucket, s3://mybucket, as this may cause errors when Hive writes the data to Amazon S3\. Instead map the table to a subpath of the bucket, s3://mybucket/mypath\. 

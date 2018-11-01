@@ -1,6 +1,6 @@
 # Creating a Cluster with Phoenix<a name="phoenix-create-cluster"></a>
 
-You install Phoenix by choosing the application when you create a cluster in the console or using the AWS CLI\. The following procedures and examples show how to create a cluster with Phoenix and HBase\. For more information about creating clusters using the console, including **Advanced Options** see [Plan and Configure Clusters](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan.html) in the *Amazon EMR Management Guide*\.
+You install Phoenix by choosing the application when you create a cluster in the console or using the AWS CLI\. The following procedures and examples show how to create a cluster with Phoenix and HBase\. For more information about creating clusters using the console, including **Advanced Options** see [Plan and Configure Clusters](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan.html) in the *Amazon EMR Management Guide*\.
 
 **To launch a cluster with Phoenix installed using **Quick Options** for creating a cluster in the console**
 
@@ -23,7 +23,7 @@ The following example launches a cluster with Phoenix installed using default co
 + Create the cluster with the following command:
 
   ```
-  aws emr create-cluster --name "Cluster with Phoenix" --release-label emr-5.17.0 \
+  aws emr create-cluster --name "Cluster with Phoenix" --release-label emr-5.18.0 \
   --applications Name=Phoenix Name=HBase --ec2-attributes KeyName=myKey \
   --instance-type m4.large --instance-count 3 --use-default-roles
   ```
@@ -52,7 +52,7 @@ The contents of the JSON file saved to /mybucket/myfolder/myconfig\.json is the 
 The `create cluster` command that references the JSON file is shown in the following example\.
 
 ```
-aws emr create-cluster --release-label emr-5.17.0 --applications Name=Phoenix \
+aws emr create-cluster --release-label emr-5.18.0 --applications Name=Phoenix \
 Name=HBase --instance-type m4.large --instance-count 2 \
 --configurations https://s3.amazonaws.com/mybucket/myfolder/myconfig.json
 ```

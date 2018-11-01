@@ -15,7 +15,7 @@ sudo docker exec jupyterhub conda install keras
 
 ## Administration by Submitting Steps<a name="emr-jupyterhub-administer-steps"></a>
 
-Steps are a way to submit work to a cluster\. You can submit steps when you launch a cluster, or you can submit steps to a running cluster\. Commands that you run on the command line can be submitted as steps using `command-runner.jar`\. For more information, see [Work with Steps Using the CLI and Console](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-work-with-steps.html) in the *Amazon EMR Management Guide* and [Command Runner](emr-commandrunner.md)\.
+Steps are a way to submit work to a cluster\. You can submit steps when you launch a cluster, or you can submit steps to a running cluster\. Commands that you run on the command line can be submitted as steps using `command-runner.jar`\. For more information, see [Work with Steps Using the CLI and Console](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-work-with-steps.html) in the *Amazon EMR Management Guide* and [Command Runner](emr-commandrunner.md)\.
 
 For example, you could use the following AWS CLI command on a local computer to install Keras in the same way that you did from the command line of the master node in the earlier example:
 

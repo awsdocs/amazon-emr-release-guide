@@ -2,7 +2,7 @@
 
 Amazon EMR 2\.x and 3\.x releases are referenced by AMI version\. With Amazon EMR release 4\.0\.0 and later, releases are referenced by release version, using a release label such as `emr-5.11.0`\. This change is most apparent when you create a cluster using the AWS CLI or programmatically\.
 
-When you use the AWS CLI to create a cluster using an AMI release version, use the `--ami-version` option, for example, `--ami-version 3.11.0`\. Many options, features, and applications introduced in Amazon EMR 4\.0\.0 and later are not available when you specify an `--ami-version`\. For more information, see [create\-cluster](http://docs.aws.amazon.com/cli/latest/reference/emr/create-cluster.html) in the *AWS CLI Command Reference*\. 
+When you use the AWS CLI to create a cluster using an AMI release version, use the `--ami-version` option, for example, `--ami-version 3.11.0`\. Many options, features, and applications introduced in Amazon EMR 4\.0\.0 and later are not available when you specify an `--ami-version`\. For more information, see [create\-cluster](https://docs.aws.amazon.com/cli/latest/reference/emr/create-cluster.html) in the *AWS CLI Command Reference*\. 
 
 The following example AWS CLI command launches a cluster using an AMI version\.
 
@@ -38,7 +38,7 @@ The following `RunJobFlowRequest` call uses a release label instead:
 ```
 RunJobFlowRequest request = new RunJobFlowRequest()
 			.withName("ReleaseLabel Cluster")
-			.withReleaseLabel("emr-5.17.0")
+			.withReleaseLabel("emr-5.18.0")
 			.withInstances(new JobFlowInstancesConfig()
 				.withEc2KeyName("myKeyPair")
 				.withInstanceCount(1)

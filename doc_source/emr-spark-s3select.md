@@ -11,10 +11,10 @@ We recommend that you benchmark your applications with and without S3 Select to 
 Use the following guidelines to determine if your application is a candidate for using S3 Select:
 + Your query filters out more than half of the original data set\.
 + Your network connection between Amazon S3 and the Amazon EMR cluster has good transfer speed and available bandwidth\. Amazon S3 does not compress HTTP responses, so the response size is likely to increase for compressed input files\.
-+ Your cluster is small in comparison to the number of input files, and input files are relatively small\. A good guideline to use: consider S3 Select if the number of files is greater than the number of executors in your cluster\. This is because S3 Select does not support range get\. Input files are not splittable, and only one Spark task executes per file, rather than multiple parallel tasks for each file\. Retries need to select each file from the beginning, which could degrade performance with very large files\.
 
-## Considerations and Limitations When Using S3 Select with Spark on Amazon EMR<a name="emr-spark-s3select-considerations"></a>
-+ Amazon S3 client\-side encryption \(CSE\) is not supported\.
+## Considerations and Limitations<a name="emr-spark-s3select-considerations"></a>
++ Amazon S3 server\-side encryption with customer\-provided encryption keys \(SSE\-C\) and client\-side encryption are not supported\. 
++ The `AllowQuotedRecordDelimiters` property is not supported\. If this property is specified, the query fails\.
 + Only CSV and JSON files in UTF\-8 format are supported\. Multi\-line CSVs are not supported\.
 + Only uncompressed or gzip files are supported\.
 + Spark CSV and JSON options such as `nanValue`, `positiveInf`, `negativeInf`, and options related to corrupt records \(for example, failfast and dropmalformed mode\) are not supported\.
@@ -26,13 +26,33 @@ Use the following guidelines to determine if your application is a candidate for
   + Filters that `CAST()` an attribute\. For example, `CAST(stringColumn as INT) = 1`\.
   + Filters with an attribute that is an object or is complex\. For example, `intArray[1] = 1, objectColumn.objectNumber = 1`\.
   + Filters for which the value is not a literal value\. For example, `intColumn1 = intColumn2`
-  + Only [S3 Select Supported Data Types](http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference-data-types.html) are supported with the documented limitations\.
+  + Only [S3 Select Supported Data Types](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference-data-types.html) are supported with the documented limitations\.
 
 ## Specifying S3 Select in Your Code<a name="emr-spark-s3select-specify"></a>
 
 The following examples demonstrate how to specify S3 Select for CSV using Scala, SQL, R, and PySpark\. You can use S3 Select for JSON in the same way\. For a listing of options, their default values, and limitations, see [Options](#emr-spark-s3select-specify-options)\.
 
-### Scala<a name="emr-spark-s3select-specify-scala"></a>
+------
+#### [ PySpark ]
+
+```
+spark
+  .read
+  .format("s3selectCSV") // "s3selectJson" for Json
+  .schema(...) // optional, but recommended
+  .options(...) // optional
+  .load("s3://path/to/my/datafiles")
+```
+
+------
+#### [ R ]
+
+```
+read.df("s3://path/to/my/datafiles", "s3selectCSV", schema, header = "true", delimiter = "\t")
+```
+
+------
+#### [ Scala ]
 
 ```
 spark
@@ -45,28 +65,14 @@ spark
   .load("s3://path/to/my/datafiles")
 ```
 
-### SQL<a name="emr-spark-s3select-specify-sql"></a>
+------
+#### [ SQL ]
 
 ```
 CREATE TEMPORARY VIEW MyView (number INT, name STRING) USING s3selectCSV OPTIONS (path "s3://path/to/my/datafiles", header "true", delimiter "\t")
 ```
 
-### R<a name="emr-spark-s3select-specify-r"></a>
-
-```
-read.df("s3://path/to/my/datafiles", "s3selectCSV", schema, header = "true", delimiter = "\t")
-```
-
-### PySpark<a name="emr-spark-s3select-specify-pyspark"></a>
-
-```
-spark
-  .read
-  .format("s3selectCSV") // "s3selectJson" for Json
-  .schema(...) // optional, but recommended
-  .options(...) // optional
-  .load("s3://path/to/my/datafiles")
-```
+------
 
 ### Options<a name="emr-spark-s3select-specify-options"></a>
 

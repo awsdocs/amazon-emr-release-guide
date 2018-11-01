@@ -35,6 +35,6 @@ If you are using Secure Socket Layer encryption to access your database, you nee
 sqoop export --connect jdbc:mariadb://$HOSTNAME:3306/mydb?verifyServerCertificate=false&useSSL=true&requireSSL=true --table mysqoopexport --export-dir s3://mybucket/myinputfiles/ --driver org.mariadb.jdbc.Driver --username master --password Mymasterpass1
 ```
 
-For more information about SSL encryption in RDS, see [Using SSL to Encrypt a Connection to a DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/) in the Amazon RDS User Guide\.
+For more information about SSL encryption in RDS, see [Using SSL to Encrypt a Connection to a DB Instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/) in the Amazon RDS User Guide\.
 
 For more information, see the [Apache Sqoop](http://sqoop.apache.org) documentation\.

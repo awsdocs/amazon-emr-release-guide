@@ -68,7 +68,7 @@ aws emr create-cluster --name "Spark cluster" --ami-version 3.11.0 \
 
 ### Submit Work to Spark<a name="emr-3x-spark-submit-work"></a>
 
-To submit work to a cluster, use a step to run the `spark-submit` script on your EMR cluster\. Add the step using the `addJobFlowSteps` method in [AmazonElasticMapReduceClient](http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/elasticmapreduce/AmazonElasticMapReduceClient.html):
+To submit work to a cluster, use a step to run the `spark-submit` script on your EMR cluster\. Add the step using the `addJobFlowSteps` method in [AmazonElasticMapReduceClient](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/elasticmapreduce/AmazonElasticMapReduceClient.html):
 
 ```
 AWSCredentials credentials = new BasicAWSCredentials(accessKey, secretKey);

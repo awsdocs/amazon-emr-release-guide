@@ -4,7 +4,7 @@ After you create an HBase cluster, the next step is to connect to HBase so you c
 
 **To open the HBase shell**
 
-1. Use SSH to connect to the master server in the HBase cluster\. For information about how to connect to the master node using SSH, see [Connect to the Master Node Using SSH](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-connect-master-node-ssh.html) in the *Amazon EMR Management Guide*\. 
+1. Use SSH to connect to the master server in the HBase cluster\. For information about how to connect to the master node using SSH, see [Connect to the Master Node Using SSH](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-connect-master-node-ssh.html) in the *Amazon EMR Management Guide*\. 
 
 1. Run `hbase shell`\. The HBase shell opens with a prompt similar to the following example: 
 

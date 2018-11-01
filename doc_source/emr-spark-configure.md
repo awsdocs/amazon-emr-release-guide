@@ -19,8 +19,8 @@ The following table shows how Amazon EMR sets default values in `spark-default` 
 
 | Setting | Description | Value | 
 | --- | --- | --- | 
-| spark\.executor\.memory | Amount of memory to use per executor process\. \(for example, 1g, 2g\) |  Setting is configured based on the slave instance types in the cluster\.   | 
-| spark\.executor\.cores | The number of cores to use on each executor\.  | Setting is configured based on the slave instance types in the cluster\.  | 
+| spark\.executor\.memory | Amount of memory to use per executor process\. \(for example, 1g, 2g\) |  Setting is configured based on the core and task instance types in the cluster\.   | 
+| spark\.executor\.cores | The number of cores to use on each executor\.  | Setting is configured based on the core and task instance types in the cluster\.  | 
 | spark\.dynamicAllocation\.enabled | Whether to use dynamic resource allocation, which scales the number of executors registered with an application up and down based on the workload\. |  true \(emr\-4\.4\.0 or greater\)  Spark Shuffle Service is automatically configured by Amazon EMR\.   | 
 
 ## Using maximizeResourceAllocation<a name="emr-spark-maximizeresourceallocation"></a>
@@ -45,9 +45,9 @@ You can configure your executors to utilize the maximum resources possible on ea
 | --- | --- | --- | 
 | spark\.default\.parallelism | Default number of partitions in RDDs returned by transformations like join, reduceByKey, and parallelize when not set by user\. |  2X number of CPU cores available to YARN containers\.  | 
 | spark\.driver\.memory | Amount of memory to use for the driver process, i\.e\. where SparkContext is initialized\. \(for example, 1g, 2g\)\. |  Setting is configured based on the instance types in the cluster\. However, because the Spark driver application may run on either the master or one of the core instances \(for example, in YARN client and cluster modes, respectively\), this is set based on the smaller of the instance types in these two instance groups\.  | 
-| spark\.executor\.memory | Amount of memory to use per executor process\. \(for example, 1g, 2g\) |  Setting is configured based on the slave instance types in the cluster\.   | 
-| spark\.executor\.cores | The number of cores to use on each executor\.  | Setting is configured based on the slave instance types in the cluster\.  | 
-| spark\.executor\.instances |  The number of executors\. |  Setting is configured based on the slave instance types in the cluster\. Set unless `spark.dynamicAllocation.enabled` explicitly set to true at the same time\.  | 
+| spark\.executor\.memory | Amount of memory to use per executor process\. \(for example, 1g, 2g\) |  Setting is configured based on the core and task instance types in the cluster\.   | 
+| spark\.executor\.cores | The number of cores to use on each executor\.  | Setting is configured based on the core and task instance types in the cluster\.  | 
+| spark\.executor\.instances |  The number of executors\. |  Setting is configured based on the core and task instance types in the cluster\. Set unless `spark.dynamicAllocation.enabled` explicitly set to true at the same time\.  | 
 
 ## Enabling Dynamic Allocation of Executors<a name="spark-dynamic-allocation"></a>
 
@@ -85,7 +85,7 @@ The following procedures show how to modify settings using the CLI or console\.
 + Create a cluster with Spark installed and `spark.executor.memory` set to 2G, using the following command, which references a file, `myConfig.json` stored in Amazon S3\.
 
   ```
-  aws emr create-cluster --release-label emr-5.17.0 --applications Name=Spark \
+  aws emr create-cluster --release-label emr-5.18.0 --applications Name=Spark \
   --instance-type m4.large --instance-count 2 --service-role EMR_DefaultRole --ec2-attributes InstanceProfile=EMR_EC2_DefaultRole --configurations https://s3.amazonaws.com/mybucket/myfolder/myConfig.json
   ```
 **Note**  
@@ -124,7 +124,7 @@ Linux line continuation characters \(\\\) are included for readability\. They ca
 + Create a cluster with Spark installed and `maximizeResourceAllocation` set to true using the AWS CLI, referencing a file, `myConfig.json`, stored in Amazon S3\.
 
   ```
-  aws emr create-cluster --release-label emr-5.17.0 --applications Name=Spark \
+  aws emr create-cluster --release-label emr-5.18.0 --applications Name=Spark \
   --instance-type m4.large --instance-count 2 --service-role EMR_DefaultRole --ec2-attributes InstanceProfile=EMR_EC2_DefaultRole --configurations https://s3.amazonaws.com/mybucket/myfolder/myConfig.json
   ```
 **Note**  

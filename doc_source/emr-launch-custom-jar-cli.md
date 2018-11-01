@@ -33,7 +33,7 @@ To launch a cluster and submit a custom JAR step using the AWS CLI, type the `cr
 + To launch a cluster and submit a custom JAR step, type the following command, replace *myKey* with the name of your EC2 key pair, and replace *mybucket* with your bucket name\.
 
   ```
-  aws emr create-cluster --name "Test cluster" --release-label emr-5.17.0 \
+  aws emr create-cluster --name "Test cluster" --release-label emr-5.18.0 \
   --applications Name=Hue Name=Hive Name=Pig --use-default-roles \
   --ec2-attributes KeyName=myKey --instance-type m4.large --instance-count 3 \
   --steps Type=CUSTOM_JAR,Name="Custom JAR Step",ActionOnFailure=CONTINUE,Jar=pathtojarfile,Args=["pathtoinputdata","pathtooutputbucket","arg1","arg2"]
@@ -45,7 +45,7 @@ Linux line continuation characters \(\\\) are included for readability\. They ca
 **Note**  
 If you have not previously created the default Amazon EMR service role and EC2 instance profile, type `aws emr create-default-roles` to create them before typing the `create-cluster` subcommand\.
 
-  For more information on using Amazon EMR commands in the AWS CLI, see [http://docs.aws.amazon.com/cli/latest/reference/emr](http://docs.aws.amazon.com/cli/latest/reference/emr)\.
+  For more information on using Amazon EMR commands in the AWS CLI, see [https://docs.aws.amazon.com/cli/latest/reference/emr](https://docs.aws.amazon.com/cli/latest/reference/emr)\.
 
 ## Third\-party dependencies<a name="emr-custom-jar-dependency"></a>
 
@@ -54,7 +54,7 @@ Sometimes it may be necessary to include in the MapReduce classpath JARs for use
 + Launch the cluster with a modified `mapreduce.application.classpath` setting in `mapred-site.xml` using the `mapred-site` configuration classificiation\. To create the cluster with the step using AWS CLI, this would look like the following:
 
   ```
-  aws emr create-cluster --release-label emr-5.17.0 \
+  aws emr create-cluster --release-label emr-5.18.0 \
   --applications Name=Hue Name=Hive Name=Pig --use-default-roles \
   --instance-type m4.large --instance-count 2  --ec2-attributes KeyName=myKey \
   --steps Type=CUSTOM_JAR,Name="Custom JAR Step",ActionOnFailure=CONTINUE,Jar=pathtojarfile,Args=["pathtoinputdata","pathtooutputbucket","arg1","arg2"] \

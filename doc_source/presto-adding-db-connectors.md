@@ -1,23 +1,10 @@
 # Adding Database Connectors<a name="presto-adding-db-connectors"></a>
 
-You can add JDBC connectors at cluster launch using the configuration classifications\. For more information about connectors, see [https://prestodb\.io/docs/current/connector\.html](https://prestodb.io/docs/current/connector.html)\. 
+You can use configuration classifications to configure JDBC connector properties when you create a cluster\. Configuration classifications begin with `presto-connector`, for example, `presto-connector-postgresql`\. The available configuration classifications depend on the Amazon EMR release version\. For the configuration classifications available with the most recent release version, see [Configuration Classifications](emr-release-5x.md#emr-5180-class) for Amazon EMR 5\.18\.0\. If you are using a different version of Amazon EMR, see [Amazon EMR 5\.x Release Versions](emr-release-5x.md) for the configuration classifications\. For more information about the properties that can be configured with each connector, see [https://prestodb\.io/docs/current/connector\.html](https://prestodb.io/docs/current/connector.html)\. 
 
-These classifications are named as follows:
-+ presto\-connector\-blackhole
-+ presto\-connector\-cassandra
-+ presto\-connector\-hive
-+ presto\-connector\-jmx
-+ presto\-connector\-kafka
-+ presto\-connector\-localfile
-+ presto\-connector\-mongodb
-+ presto\-connector\-mysql
-+ presto\-connector\-postgresql
-+ presto\-connector\-raptor
-+ presto\-connector\-redis
-+ presto\-connector\-tpch
-
-**Example Configuring a Cluster with the PostgreSQL JDBC**  
-To launch a cluster with the PostgreSQL connector installed and configured, create a file, `myConfig.json`, with the following content:  
+**Example —Configuring a Cluster with the PostgreSQL JDBC Connector**  
+To launch a cluster with the PostgreSQL connector installed and configured, first create a JSON file that specifies the configuration classification—for example, `myConfig.json`—with the following content, and save it locally\.  
+Replace the connection properties as appropriate for your setup and as shown in the [PostgreSQL Connector](https://prestodb.io/docs/current/connector/postgresql.html) topic in Presto Documentation\.  
 
 ```
 [
@@ -32,12 +19,12 @@ To launch a cluster with the PostgreSQL connector installed and configured, crea
   }
 ]
 ```
-Use the following command to create the cluster:  
+When you create the cluster, reference the path to the JSON file using the `--configurations` option as shown in the following example, where `myConfig.json` is in the same directory where you run the command:  
 
 ```
-aws emr create-cluster --name PrestoConnector --release-label emr-5.17.0 --instance-type m4.large \
+aws emr create-cluster --name PrestoConnector --release-label emr-5.18.0 --instance-type m4.large \
 --instance-count 2 --applications Name=Hadoop Name=Hive Name=Pig Name=Presto \
---use-default-roles --no-auto-terminate --ec2-attributes KeyName=myKey \
+--use-default-roles --ec2-attributes KeyName=myKey \
 --log-uri s3://my-bucket/logs --enable-debugging \
---configurations file://./myConfig.json
+--configurations file://myConfig.json
 ```
