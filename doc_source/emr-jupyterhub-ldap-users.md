@@ -97,11 +97,11 @@ And run the script:
 
 The JupyterHub docker container requires some user attributes in your Active Directory to find the user and create the appropriate entry in the database. 
 
-homeDirectory
-gidNumber
-uidNumber
-objectClass posixAccount
-uid
+homeDirectory - location where to the user's directory, usually /home/[user]
+gidNumber - a value higher than 60000 that is not already in use by another user, check your /etc/passwd file
+uidNumber - a value higher than 60000 that is not already in use by another user, check your /etc/group file
+objectClass - posixAccount
+uid - same as the user name
 
 ## Create User Home Directories<a name="emr-jupyterhub-ldap-directories"></a>
 
