@@ -93,6 +93,16 @@ And run the script:
 ./configure_ldap_client.sh
 ```
 
+## Add Attributes to Active Directory <a name="emr-jupyterhub-ldap-directories"></a>
+
+The JupyterHub docker container requires some user attributes in your Active Directory to find the user and create the appropriate entry in the database. 
+
+homeDirectory
+gidNumber
+uidNumber
+objectClass posixAccount
+uid
+
 ## Create User Home Directories<a name="emr-jupyterhub-ldap-directories"></a>
 
 JupyterHub needs home directories within the container to authenticate LDAP users and store instance data\. The following example demonstrates two users, *shirley* and *diego*, in the LDAP directory\.
