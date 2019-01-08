@@ -101,7 +101,7 @@ The format of the `presto-config `configuration classification is slightly diffe
                 "Properties": {
                         "http-server.authentication.type": "LDAP",
                         "authentication.ldap.url": "ldaps://ip-xxx-xxx-xxx-xxx.ec2.internal:636",
-                        "ldap.user-bind-pattern": "uid=${USER},ou=admins,dc=ec2,dc=internal:uid=${USER},ou=datascientists,dc=ec2,dc=internal",
+                        "authentication.ldap.user-bind-pattern": "uid=${USER},ou=admins,dc=ec2,dc=internal:uid=${USER},ou=datascientists,dc=ec2,dc=internal",
                         "internal-communication.authentication.ldap.user": "presto",
                         "internal-communication.authentication.ldap.password": "123456"
                 }
