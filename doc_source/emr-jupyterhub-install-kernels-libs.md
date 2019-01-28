@@ -43,7 +43,7 @@ sudo easy_install-3.4 pip
 sudo /usr/local/bin/pip3 install paramiko nltk scipy scikit-learn pandas
 ```
 
-After you create the script, upload it to a location in Amazon S3, for example, `s3://mybucket/install-my-jupyter-libraries.sh`\. For more information, see [How do I Upload Files and Folders to an S3 Bucket](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/upload-objects.html) in the *Amazon Simple Storage Service Console User Guide* so that you can use it in your bootstrap action or in your Python program\.
+After you create the script, upload it to a location in Amazon S3, for example, `s3://mybucket/install-my-jupyter-libraries.sh`\. For more information, see [How do I Upload Files and Folders to an S3 Bucket](http://docs.aws.amazon.com/AmazonS3/latest/user-guide/upload-objects.html) in the *Amazon Simple Storage Service Console User Guide* so that you can use it in your bootstrap action or in your Python program\.
 
 **To specify a bootstrap action that installs libraries on all nodes when you create a cluster using the AWS CLI**
 
@@ -54,7 +54,7 @@ After you create the script, upload it to a location in Amazon S3, for example, 
 Linux line continuation characters \(\\\) are included for readability\. They can be removed or used in Linux commands\. For Windows, remove them or replace with a caret \(^\)\.
 
    ```
-   aws emr create-cluster --name="MyJupyterHubCluster" --release-label emr-5.18.0 \
+   aws emr create-cluster --name="MyJupyterHubCluster" --release-label emr-5.20.0 \
    --applications Name=JupyterHub --log-uri s3://MyBucket/MyJupyterClusterLogs \
    --use-default-roles --instance-type m4.large --instance-count 2 --ec2-attributes KeyName=MyKeyPair \
    --bootstrap-actions Path=s3://mybucket/install-my-jupyter-libraries.sh,Name=InstallJupyterLibs

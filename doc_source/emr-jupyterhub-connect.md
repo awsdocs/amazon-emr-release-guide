@@ -1,6 +1,6 @@
 # Connecting to the Master Node and Notebook Servers<a name="emr-jupyterhub-connect"></a>
 
-JupyterHub administrators and notebook users must connect to the cluster master node using an SSH tunnel and then connecting to web interfaces served by JupyterHub on the master node\. For more information about configuring an SSH tunnel and using the tunnel to proxy Web connections, see [Connect to the Cluster](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-connect-master-node.html) in the *Amazon EMR Management Guide*\.
+JupyterHub administrators and notebook users must connect to the cluster master node using an SSH tunnel and then connecting to web interfaces served by JupyterHub on the master node\. For more information about configuring an SSH tunnel and using the tunnel to proxy Web connections, see [Connect to the Cluster](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-connect-master-node.html) in the *Amazon EMR Management Guide*\.
 
 By default, JupyterHub on Amazon EMR is available through **port 9443** on the master node\. The internal JupyterHub proxy also serves notebook instances through port 9443\. JupyterHub and Jupyter web interfaces can be accessed using a URL with the following pattern:
 

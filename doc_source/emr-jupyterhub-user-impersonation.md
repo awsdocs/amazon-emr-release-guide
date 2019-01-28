@@ -13,7 +13,7 @@ This configuration is only supported when calls from Sparkmagic to Livy are unau
 
 ## Step 1: Configure Livy<a name="Step1-UserImpersonation"></a>
 
-You use the `livy-conf` and `core-site` configuration classifications when you create a cluster to enable Livy user impersonation as shown in the following example\. Save the configuration classification as a JSON and then reference it when you create the cluster, or specify the configuratino classification inline\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+You use the `livy-conf` and `core-site` configuration classifications when you create a cluster to enable Livy user impersonation as shown in the following example\. Save the configuration classification as a JSON and then reference it when you create the cluster, or specify the configuration classification inline\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 ```
 [
@@ -35,7 +35,7 @@ You use the `livy-conf` and `core-site` configuration classifications when you c
 
 ## Step 2: Add users<a name="Step2-UserImpersonation"></a>
 
-Add JupyterHub users using PAM or LDAP\. For more information, see [Using PAM Authentication](emr-jupyterhub-pam-users.md) and [Using PAM Authentication](emr-jupyterhub-pam-users.md)\.
+Add JupyterHub users using PAM or LDAP\. For more information, see [Using PAM Authentication](emr-jupyterhub-pam-users.md) and [Using LDAP Authentication](emr-jupyterhub-ldap-users.md)\.
 
 ## Step 3: Create HDFS home directories for users<a name="Step3-UserImpersonation"></a>
 

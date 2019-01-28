@@ -93,6 +93,10 @@ And run the script:
 ./configure_ldap_client.sh
 ```
 
+## Add Attributes to Active Directory<a name="emr-jupyterhub-ldap-adproperties"></a>
+
+When using Microsoft Active Directory, the JupyterHub D
+
 ## Create User Home Directories<a name="emr-jupyterhub-ldap-directories"></a>
 
 JupyterHub needs home directories within the container to authenticate LDAP users and store instance data\. The following example demonstrates two users, *shirley* and *diego*, in the LDAP directory\.

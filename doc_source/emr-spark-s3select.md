@@ -1,4 +1,4 @@
-# Using S3 Select with Spark to Improve Performance<a name="emr-spark-s3select"></a>
+# Using S3 Select with Spark to Improve Query Performance<a name="emr-spark-s3select"></a>
 
 With Amazon EMR release version 5\.17\.0 and later, you can use [S3 Select](https://aws.amazon.com/blogs/aws/s3-glacier-select/) with Spark on Amazon EMR\. S3 Select allows applications to retrieve only a subset of data from an object\. For Amazon EMR, the computational work of filtering large data sets for processing is "pushed down" from the cluster to Amazon S3, which can improve performance in some applications and reduces the amount of data transferred between Amazon EMR and Amazon S3\.
 
@@ -26,7 +26,7 @@ Use the following guidelines to determine if your application is a candidate for
   + Filters that `CAST()` an attribute\. For example, `CAST(stringColumn as INT) = 1`\.
   + Filters with an attribute that is an object or is complex\. For example, `intArray[1] = 1, objectColumn.objectNumber = 1`\.
   + Filters for which the value is not a literal value\. For example, `intColumn1 = intColumn2`
-  + Only [S3 Select Supported Data Types](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference-data-types.html) are supported with the documented limitations\.
+  + Only [S3 Select Supported Data Types](http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference-data-types.html) are supported with the documented limitations\.
 
 ## Specifying S3 Select in Your Code<a name="emr-spark-s3select-specify"></a>
 

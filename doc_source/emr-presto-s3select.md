@@ -8,7 +8,7 @@ We recommend that you benchmark your applications with and without S3 Select Pus
 
 Use the following guidelines to determine if your application is a candidate for using S3 Select:
 + Your query filters out more than half of the original data set\.
-+ Your query filter predicates use columns that have a data type supported by Presto and S3 Select\. The timestamp, real, and double data types are not supported by S3 Select Pushdown\. We recommend using the decimal data type for numerical data\. For more information about supported data types for S3 Select, see [Data Types](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference-data-types.html) in the *Amazon Simple Storage Service Developer Guide*\.
++ Your query filter predicates use columns that have a data type supported by Presto and S3 Select\. The timestamp, real, and double data types are not supported by S3 Select Pushdown\. We recommend using the decimal data type for numerical data\. For more information about supported data types for S3 Select, see [Data Types](http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference-data-types.html) in the *Amazon Simple Storage Service Developer Guide*\.
 + Your network connection between Amazon S3 and the Amazon EMR cluster has good transfer speed and available bandwidth\. Amazon S3 does not compress HTTP responses, so the response size is likely to increase for compressed input files\.
 
 ## Considerations and Limitations<a name="emr-presto-s3select-considerations"></a>
@@ -35,6 +35,6 @@ To enable S3 Select Pushdown for Presto on Amazon EMR, use the `presto-connector
 
 ### Understanding and tuning hive\.s3select\-pushdown\.max\-connections<a name="emr-presto-s3select-max"></a>
 
-By default, Presto uses EMRFS as its file system, and the setting `fs.s3.maxConnections` in the `emrfs-site` configuration classification specifies the maximum allowable client connections to Amazon S3 through EMRFS\. By default, this is 5000\. S3 Select Pushdown bypasses EMRFS when accessing Amazon S3 for predicate operations\. In this case, the value of `hive.s3select-pushdown.max-connections` determines the maximum number of client connections allowed for those operations from worker nodes\. However, any requests to Amazon S3 that Presto initiates that are not pushed down—for example, GET operations—continue to be governed by the value of `fs.s3.maxConnections`\.
+By default, Presto uses EMRFS as its file system\. The setting `fs.s3.maxConnections` in the `emrfs-site` configuration classification specifies the maximum allowable client connections to Amazon S3 through EMRFS for Presto\. By default, this is 500\. S3 Select Pushdown bypasses EMRFS when accessing Amazon S3 for predicate operations\. In this case, the value of `hive.s3select-pushdown.max-connections` determines the maximum number of client connections allowed for those operations from worker nodes\. However, any requests to Amazon S3 that Presto initiates that are not pushed down—for example, GET operations—continue to be governed by the value of `fs.s3.maxConnections`\.
 
 If your application experiences the error "Timeout waiting for connection from pool," increase the value of both `hive.s3select-pushdown.max-connections` and `fs.s3.maxConnections`\.

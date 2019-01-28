@@ -11,4 +11,4 @@ Amazon EMR collects information from YARN applications on your cluster and keeps
 
 1. Expand a row to see basic diagnostic information for the application or select the **Application ID** to view additional details\.
 
-For more information, see [View Application History](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-cluster-application-history.html) in the *Amazon EMR Management Guide*\.
+For more information, see [View Application History](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-cluster-application-history.html) in the *Amazon EMR Management Guide*\.

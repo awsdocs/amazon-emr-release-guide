@@ -30,7 +30,7 @@ Because Pig in written in Java, it uses the Jython script engine to parse Python
 
 1. Start a Pig cluster\. If you are accessing Pig from the Grunt shell, run an interactive cluster\. If you are running Pig commands from a script, start a scripted Pig cluster\. This example starts an interactive cluster\. For more information about how to create a Pig cluster, see [Submit Pig Work](emr-pig-launch.md)\. 
 
-1. For an interactive cluster, use SSH to connect into the master node and run the Grunt shell\. For more information, see [SSH into the Master Node](https://docs.aws.amazon.com/emr/latest/DeveloperGuide/EMR_SetUp_SSH.html)\. 
+1. For an interactive cluster, use SSH to connect into the master node and run the Grunt shell\. For more information, see [SSH into the Master Node](http://docs.aws.amazon.com/emr/latest/DeveloperGuide/EMR_SetUp_SSH.html)\. 
 
 1. Run the Grunt shell for Pig by typing `pig` at the command line: 
 

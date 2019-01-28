@@ -12,7 +12,7 @@
 ## HBase Cluster Prerequisites<a name="emr-3x-hbase-prerequisites"></a>
 
 A cluster created using Amazon EMR AMI versions 2\.x and 3\.x should meet the following requirements for HBase\.
-+ The AWS CLI \(optional\)—To interact with HBase using the command line, download and install the latest version of the AWS CLI\. For more information, see [Installing the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide//installing.html) in the *AWS Command Line Interface User Guide*\.
++ The AWS CLI \(optional\)—To interact with HBase using the command line, download and install the latest version of the AWS CLI\. For more information, see [Installing the AWS Command Line Interface](http://docs.aws.amazon.com/cli/latest/userguide//installing.html) in the *AWS Command Line Interface User Guide*\.
 + At least two instances \(optional\)—The cluster's master node runs the HBase master server and Zookeeper, and task nodes run the HBase region servers\. For best performance, HBase clusters should run on at least two EC2 instances, but you can run HBase on a single node for evaluation purposes\. 
 + Long\-running cluster—HBase only runs on long\-running clusters\. By default, the CLI and Amazon EMR console create long\-running clusters\. 
 + An Amazon EC2 key pair set \(recommended\)—To use the Secure Shell \(SSH\) network protocol to connect with the master node and run HBase shell commands, you must use an Amazon EC2 key pair when you create the cluster\. 

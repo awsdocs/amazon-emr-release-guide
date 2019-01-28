@@ -4,6 +4,43 @@ Hadoop daemon settings are different depending on the EC2 instance type that a c
 
 To customize these settings, use the `hadoop-env` configuration classification\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
+**Topics**
++ [c1 Instances](#emr-hadoop-daemons-c1)
++ [c3 Instances](#emr-hadoop-daemons-c3)
++ [c4 Instances](#emr-hadoop-daemons-c4)
++ [c5 Instances](#emr-hadoop-daemons-c5)
++ [c5d Instances](#emr-hadoop-daemons-c5d)
++ [c5n Instances](#emr-hadoop-daemons-c5n)
++ [cc2 Instances](#emr-hadoop-daemons-cc2)
++ [cg1 Instances](#emr-hadoop-daemons-cg1)
++ [cr1 Instances](#emr-hadoop-daemons-cr1)
++ [d2 Instances](#emr-hadoop-daemons-d2)
++ [g2 Instances](#emr-hadoop-daemons-g2)
++ [g3 Instances](#emr-hadoop-daemons-g3)
++ [g3s Instances](#emr-hadoop-daemons-g3s)
++ [h1 Instances](#emr-hadoop-daemons-h1)
++ [hi1 Instances](#emr-hadoop-daemons-hi1)
++ [hs1 Instances](#emr-hadoop-daemons-hs1)
++ [i2 Instances](#emr-hadoop-daemons-i2)
++ [i3 Instances](#emr-hadoop-daemons-i3)
++ [m1 Instances](#emr-hadoop-daemons-m1)
++ [m2 Instances](#emr-hadoop-daemons-m2)
++ [m3 Instances](#emr-hadoop-daemons-m3)
++ [m4 Instances](#emr-hadoop-daemons-m4)
++ [m5 Instances](#emr-hadoop-daemons-m5)
++ [m5a Instances](#emr-hadoop-daemons-m5a)
++ [m5d Instances](#emr-hadoop-daemons-m5d)
++ [p2 Instances](#emr-hadoop-daemons-p2)
++ [p3 Instances](#emr-hadoop-daemons-p3)
++ [r3 Instances](#emr-hadoop-daemons-r3)
++ [r4 Instances](#emr-hadoop-daemons-r4)
++ [r5 Instances](#emr-hadoop-daemons-r5)
++ [r5a Instances](#emr-hadoop-daemons-r5a)
++ [r5d Instances](#emr-hadoop-daemons-r5d)
++ [z1d Instances](#emr-hadoop-daemons-z1d)
+
+## c1 Instances<a name="emr-hadoop-daemons-c1"></a>
+
 
 **c1\.medium**  
 
@@ -27,6 +64,8 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 512 | 
 | HADOOP\_NAMENODE\_HEAPSIZE  | 768 | 
 | HADOOP\_DATANODE\_HEAPSIZE  | 384 | 
+
+## c3 Instances<a name="emr-hadoop-daemons-c3"></a>
 
 
 **c3\.xlarge**  
@@ -75,6 +114,8 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 3317 | 
 | HADOOP\_NAMENODE\_HEAPSIZE  | 6348 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 1679 | 
+
+## c4 Instances<a name="emr-hadoop-daemons-c4"></a>
 
 
 **c4\.large**  
@@ -136,6 +177,194 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 6348 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 1679 | 
 
+## c5 Instances<a name="emr-hadoop-daemons-c5"></a>
+
+
+**c5\.xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 2252 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 2252 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 2252 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 1024 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 614 | 
+
+
+**c5\.2xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 2416 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 2416 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 2416 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 1843 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 778 | 
+
+
+**c5\.4xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 2744 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 2744 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 2744 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 3481 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 1105 | 
+
+
+**c5\.9xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 3563 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 3563 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 3563 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 7577 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 1925 | 
+
+
+**c5\.18xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 5038 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 5038 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 5038 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 14950 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 3399 | 
+
+## c5d Instances<a name="emr-hadoop-daemons-c5d"></a>
+
+
+**c5d\.xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 2252 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 2252 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 2252 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 1024 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 614 | 
+
+
+**c5d\.2xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 2416 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 2416 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 2416 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 1843 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 778 | 
+
+
+**c5d\.4xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 2744 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 2744 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 2744 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 3481 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 1105 | 
+
+
+**c5d\.9xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 3563 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 3563 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 3563 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 7577 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 1925 | 
+
+
+**c5d\.18xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 5038 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 5038 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 5038 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 14950 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 3399 | 
+
+## c5n Instances<a name="emr-hadoop-daemons-c5n"></a>
+
+
+**c5n\.xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 2304 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 2304 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 2304 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 1280 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 665 | 
+
+
+**c5n\.2xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 2519 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 2519 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 2519 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 2355 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 880 | 
+
+
+**c5n\.4xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 2949 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 2949 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 2949 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 4505 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 1310 | 
+
+
+**c5n\.9xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 4055 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 4055 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 4055 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 10035 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 2416 | 
+
+
+**c5n\.18xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 6021 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 6021 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 6021 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 19865 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
+
+## cc2 Instances<a name="emr-hadoop-daemons-cc2"></a>
+
 
 **cc2\.8xlarge**  
 
@@ -147,6 +376,8 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 1536 | 
 | HADOOP\_NAMENODE\_HEAPSIZE  | 12288 | 
 | HADOOP\_DATANODE\_HEAPSIZE  | 384 | 
+
+## cg1 Instances<a name="emr-hadoop-daemons-cg1"></a>
 
 
 **cg1\.4xlarge**  
@@ -160,6 +391,8 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 3840 | 
 | HADOOP\_DATANODE\_HEAPSIZE  | 384 | 
 
+## cr1 Instances<a name="emr-hadoop-daemons-cr1"></a>
+
 
 **cr1\.8xlarge**  
 
@@ -171,6 +404,8 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 7086 | 
 | HADOOP\_NAMENODE\_HEAPSIZE  | 25190 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
+
+## d2 Instances<a name="emr-hadoop-daemons-d2"></a>
 
 
 **d2\.xlarge**  
@@ -220,6 +455,8 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 25190 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
 
+## g2 Instances<a name="emr-hadoop-daemons-g2"></a>
+
 
 **g2\.2xlarge**  
 
@@ -231,6 +468,110 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 1024 | 
 | HADOOP\_NAMENODE\_HEAPSIZE  | 2304 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 384 | 
+
+## g3 Instances<a name="emr-hadoop-daemons-g3"></a>
+
+
+**g3\.4xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 4587 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 4587 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 4587 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 12697 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 2949 | 
+
+
+**g3\.8xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 7086 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 7086 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 7086 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 25190 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
+
+
+**g3\.16xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 12083 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 12083 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 12083 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 50176 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
+
+## g3s Instances<a name="emr-hadoop-daemons-g3s"></a>
+
+
+**g3s\.xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 2713 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 2713 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 2713 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 3328 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 1075 | 
+
+## h1 Instances<a name="emr-hadoop-daemons-h1"></a>
+
+
+**h1\.2xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 2744 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 2744 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 2744 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 3481 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 1105 | 
+
+
+**h1\.4xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 3399 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 3399 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 3399 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 6758 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 1761 | 
+
+
+**h1\.8xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 4710 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 4710 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 4710 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 13312 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 3072 | 
+
+
+**h1\.16xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 7331 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 7331 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 7331 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 26419 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
+
+## hi1 Instances<a name="emr-hadoop-daemons-hi1"></a>
 
 
 **hi1\.4xlarge**  
@@ -244,6 +585,8 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 6400 | 
 | HADOOP\_DATANODE\_HEAPSIZE  | 1689 | 
 
+## hs1 Instances<a name="emr-hadoop-daemons-hs1"></a>
+
 
 **hs1\.8xlarge**  
 
@@ -255,6 +598,8 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 1536 | 
 | HADOOP\_NAMENODE\_HEAPSIZE  | 12288 | 
 | HADOOP\_DATANODE\_HEAPSIZE  | 384 | 
+
+## i2 Instances<a name="emr-hadoop-daemons-i2"></a>
 
 
 **i2\.xlarge**  
@@ -303,6 +648,8 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 7086 | 
 | HADOOP\_NAMENODE\_HEAPSIZE  | 25190 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
+
+## i3 Instances<a name="emr-hadoop-daemons-i3"></a>
 
 
 **i3\.xlarge**  
@@ -364,6 +711,8 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 12083 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 1699 | 
 
+## m1 Instances<a name="emr-hadoop-daemons-m1"></a>
+
 
 **m1\.medium**  
 
@@ -399,6 +748,8 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 1024 | 
 | HADOOP\_NAMENODE\_HEAPSIZE  | 2304 | 
 | HADOOP\_DATANODE\_HEAPSIZE  | 384 | 
+
+## m2 Instances<a name="emr-hadoop-daemons-m2"></a>
 
 
 **m2\.xlarge**  
@@ -436,17 +787,7 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 12288 | 
 | HADOOP\_DATANODE\_HEAPSIZE  | 384 | 
 
-
-**m4\.large**  
-
-| Parameter | Value | 
-| --- | --- | 
-| YARN\_RESOURCEMANAGER\_HEAPSIZE | 2396 | 
-| YARN\_PROXYSERVER\_HEAPSIZE | 2396 | 
-| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
-| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 2396 | 
-| HADOOP\_NAMENODE\_HEAPSIZE  | 1740 | 
-| HADOOP\_DATANODE\_HEAPSIZE | 757 | 
+## m3 Instances<a name="emr-hadoop-daemons-m3"></a>
 
 
 **m3\.2xlarge**  
@@ -459,6 +800,8 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 2703 | 
 | HADOOP\_NAMENODE\_HEAPSIZE  | 3276 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 1064 | 
+
+## m4 Instances<a name="emr-hadoop-daemons-m4"></a>
 
 
 **m4\.large**  
@@ -532,6 +875,194 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 26419 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
 
+## m5 Instances<a name="emr-hadoop-daemons-m5"></a>
+
+
+**m5\.xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 2416 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 2416 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 2416 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 1843 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 778 | 
+
+
+**m5\.2xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 2744 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 2744 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 2744 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 3481 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 1105 | 
+
+
+**m5\.4xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 3399 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 3399 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 3399 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 6758 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 1761 | 
+
+
+**m5\.12xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 6021 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 6021 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 6021 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 19865 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
+
+
+**m5\.24xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 9953 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 9953 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 9953 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 39526 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
+
+## m5a Instances<a name="emr-hadoop-daemons-m5a"></a>
+
+
+**m5a\.xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 2416 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 2416 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 2416 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 1843 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 778 | 
+
+
+**m5a\.2xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 2744 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 2744 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 2744 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 3481 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 1105 | 
+
+
+**m5a\.4xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 3399 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 3399 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 3399 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 6758 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 1761 | 
+
+
+**m5a\.12xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 6021 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 6021 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 6021 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 19865 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
+
+
+**m5a\.24xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 9953 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 9953 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 9953 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 39526 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
+
+## m5d Instances<a name="emr-hadoop-daemons-m5d"></a>
+
+
+**m5d\.xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 2416 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 2416 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 2416 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 1843 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 778 | 
+
+
+**m5d\.2xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 2744 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 2744 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 2744 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 3481 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 1105 | 
+
+
+**m5d\.4xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 3399 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 3399 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 3399 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 6758 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 1761 | 
+
+
+**m5d\.12xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 6021 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 6021 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 6021 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 19865 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
+
+
+**m5d\.24xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 9953 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 9953 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 9953 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 39526 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
+
+## p2 Instances<a name="emr-hadoop-daemons-p2"></a>
+
 
 **p2\.xlarge**  
 
@@ -568,6 +1099,8 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 75161 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
 
+## p3 Instances<a name="emr-hadoop-daemons-p3"></a>
+
 
 **p3\.2xlarge**  
 
@@ -603,6 +1136,8 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 7086 | 
 | HADOOP\_NAMENODE\_HEAPSIZE  | 25190 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
+
+## r3 Instances<a name="emr-hadoop-daemons-r3"></a>
 
 
 **r3\.xlarge**  
@@ -651,6 +1186,8 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 7086 | 
 | HADOOP\_NAMENODE\_HEAPSIZE  | 25190 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
+
+## r4 Instances<a name="emr-hadoop-daemons-r4"></a>
 
 **Note**  
 R4 instances are available only in version 5\.4\.0 and later\.
@@ -713,4 +1250,240 @@ R4 instances are available only in version 5\.4\.0 and later\.
 | YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
 | HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 12083 | 
 | HADOOP\_NAMENODE\_HEAPSIZE  | 50176 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
+
+## r5 Instances<a name="emr-hadoop-daemons-r5"></a>
+
+
+**r5\.xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 2744 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 2744 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 2744 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 3481 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 1105 | 
+
+
+**r5\.2xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 3399 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 3399 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 3399 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 6758 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 1761 | 
+
+
+**r5\.4xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 4710 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 4710 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 4710 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 13312 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 3072 | 
+
+
+**r5\.12xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 9953 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 9953 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 9953 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 39526 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
+
+## r5a Instances<a name="emr-hadoop-daemons-r5a"></a>
+
+
+**r5a\.xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 2744 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 2744 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 2744 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 3481 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 1105 | 
+
+
+**r5a\.2xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 3399 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 3399 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 3399 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 6758 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 1761 | 
+
+
+**r5a\.4xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 4710 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 4710 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 4710 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 13312 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 3072 | 
+
+
+**r5a\.12xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 9953 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 9953 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 9953 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 39526 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
+
+
+**r5a\.24xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 17817 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 17817 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 17817 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 78848 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
+
+## r5d Instances<a name="emr-hadoop-daemons-r5d"></a>
+
+
+**r5d\.xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 2744 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 2744 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 2744 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 3481 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 1105 | 
+
+
+**r5d\.2xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 3399 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 3399 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 3399 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 6758 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 1761 | 
+
+
+**r5d\.4xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 4710 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 4710 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 4710 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 13312 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 3072 | 
+
+
+**r5d\.12xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 9953 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 9953 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 9953 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 39526 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
+
+
+**r5d\.24xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 17817 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 17817 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 17817 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 78848 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
+
+## z1d Instances<a name="emr-hadoop-daemons-z1d"></a>
+
+
+**z1d\.xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 2744 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 2744 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 2744 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 3481 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 1105 | 
+
+
+**z1d\.2xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 3399 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 3399 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 3399 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 6758 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 1761 | 
+
+
+**z1d\.3xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 4055 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 4055 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 4055 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 10035 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 2416 | 
+
+
+**z1d\.6xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 6021 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 6021 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 6021 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 19865 | 
+| HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
+
+
+**z1d\.12xlarge**  
+
+| Parameter | Value | 
+| --- | --- | 
+| YARN\_RESOURCEMANAGER\_HEAPSIZE | 9953 | 
+| YARN\_PROXYSERVER\_HEAPSIZE | 9953 | 
+| YARN\_NODEMANAGER\_HEAPSIZE | 2048 | 
+| HADOOP\_JOB\_HISTORYSERVER\_HEAPSIZE | 9953 | 
+| HADOOP\_NAMENODE\_HEAPSIZE  | 39526 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 4096 | 

@@ -2,7 +2,7 @@
 
 You can use popular business intelligence tools like Microsoft Excel, MicroStrategy, QlikView, and Tableau with Amazon EMR to explore and visualize your data\. Many of these tools require Java Database Connectivity \(JDBC\) driver or an Open Database Connectivity \(ODBC\) driver\. Amazon EMR supports both JDBC and ODBC connectivity\.
 
-The example below demonstrates using SQL Workbench/J as a SQL client to connect to a Hive cluster in Amazon EMR\. For additional drivers, see [Use Business Intelligence Tools with Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-bi-tools.html)\.
+The example below demonstrates using SQL Workbench/J as a SQL client to connect to a Hive cluster in Amazon EMR\. For additional drivers, see [Use Business Intelligence Tools with Amazon EMR](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-bi-tools.html)\.
 
 Before you install and work with SQL Workbench/J, download the driver package and install the driver\. The drivers included in the package support the Hive versions available in Amazon EMR release versions 4\.0 and later\. For detailed release notes and documentation, see the PDF documentation included in the package\.
 + **JDBC Driver Package Download**

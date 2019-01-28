@@ -2,7 +2,7 @@
 
 Transparent encryption is implemented through the use of HDFS *encryption zones*, which are HDFS paths that you define\. Each encryption zone has its own key, which is stored in the key server specified using the `hdfs-site` configuration classification\.
 
-Beginning with Amazon EMR release version 4\.8\.0, you can use Amazon EMR security configurations to configure data encryption settings for clusters more easily\. Security configurations offer settings to enable security for data in\-transit and data at\-rest in Amazon Elastic Block Store \(Amazon EBS\) storage volumes and EMRFS data in Amazon S3\. For more information, see [Encrypt Data in Transit and At Rest](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-data-encryption.html) in the *Amazon EMR Management Guide*\.
+Beginning with Amazon EMR release version 4\.8\.0, you can use Amazon EMR security configurations to configure data encryption settings for clusters more easily\. Security configurations offer settings to enable security for data in\-transit and data at\-rest in Amazon Elastic Block Store \(Amazon EBS\) storage volumes and EMRFS data in Amazon S3\. For more information, see [Encrypt Data in Transit and At Rest](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-data-encryption.html) in the *Amazon EMR Management Guide*\.
 
 Amazon EMR uses the Hadoop KMS by default; however, you can use another KMS that implements the KeyProvider API operation\. Each file in an HDFS encryption zone has its own unique *data encryption key*, which is encrypted by the encryption zone key\. HDFS data is encrypted end\-to\-end \(at\-rest and in\-transit\) when data is written to an encryption zone because encryption and decryption activities only occur in the client\.
 
@@ -31,7 +31,7 @@ The hdfs\-encryption\-zones classification in the configuration API operation al
 + Create a cluster with the following command:
 
   ```
-  aws emr create-cluster --release-label emr-5.18.0 --instance-type m4.large --instance-count 2 \
+  aws emr create-cluster --release-label emr-5.20.0 --instance-type m4.large --instance-count 2 \
   --applications Name=App1 Name=App2 --configurations https://s3.amazonaws.com/mybucket/myfolder/myConfig.json
   ```
 **Note**  
@@ -132,7 +132,7 @@ You can configure Hadoop KMS at cluster creation time using the configuration AP
 + Create a cluster with Hadoop KMS with ACLs using the following command:
 
   ```
-  aws emr create-cluster --release-label emr-5.18.0 --instance-type m4.large --instance-count 2 \
+  aws emr create-cluster --release-label emr-5.20.0 --instance-type m4.large --instance-count 2 \
   --applications Name=App1 Name=App2 --configurations https://s3.amazonaws.com/mybucket/myfolder/myConfig.json
   ```
 **Note**  
@@ -156,7 +156,7 @@ Linux line continuation characters \(\\\) are included for readability\. They ca
 + Create a cluster with Hadoop KMS `hadoop.kms.cache.enable` set to `false`, using the following command:
 
   ```
-  aws emr create-cluster --release-label emr-5.18.0 --instance-type m4.large --instance-count 2 \
+  aws emr create-cluster --release-label emr-5.20.0 --instance-type m4.large --instance-count 2 \
   --applications Name=App1 Name=App2 --configurations https://s3.amazonaws.com/mybucket/myfolder/myConfig.json
   ```
 **Note**  
@@ -179,7 +179,7 @@ Linux line continuation characters \(\\\) are included for readability\. They ca
 + Change settings in `kms-env.sh` via the `hadoop-kms-env` configuration\. Create a cluster with Hadoop KMS using the following command:
 
   ```
-  aws emr create-cluster --release-label emr-5.18.0 --instance-type m4.large --instance-count 2 \
+  aws emr create-cluster --release-label emr-5.20.0 --instance-type m4.large --instance-count 2 \
   --applications Name=App1 Name=App2 --configurations https://s3.amazonaws.com/mybucket/myfolder/myConfig.json
   ```
 **Note**  

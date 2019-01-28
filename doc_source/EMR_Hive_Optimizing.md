@@ -16,7 +16,7 @@
 
  In the Hive output, the completion percentage is updated when one or more mapper processes are finished\. For a large DynamoDB table with a low provisioned Read Capacity setting, the completion percentage output might not be updated for a long time; in the case above, the job will appear to be 0% complete for several hours\. For more detailed status on your job's progress, go to the Amazon EMR console; you will be able to view the individual mapper task status, and statistics for data reads\. 
 
- You can also log on to Hadoop interface on the master node and see the Hadoop statistics\. This shows you the individual map task status and some data read statistics\. For more information, see [Web Interfaces Hosted on the Master Node](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-web-interfaces.html) in the *Amazon EMR Management Guide*\.
+ You can also log on to Hadoop interface on the master node and see the Hadoop statistics\. This shows you the individual map task status and some data read statistics\. For more information, see [Web Interfaces Hosted on the Master Node](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-web-interfaces.html) in the *Amazon EMR Management Guide*\.
 
 ## Read Percent Setting<a name="ReadPercent"></a>
 

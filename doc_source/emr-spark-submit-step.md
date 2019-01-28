@@ -1,6 +1,6 @@
 # Adding a Spark Step<a name="emr-spark-submit-step"></a>
 
-You can use Amazon EMR steps to submit work to the Spark framework installed on an EMR cluster\. For more information, see [Steps](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-overview.html#emr-overview-data-processing) in the Amazon EMR Management Guide\. In the console and CLI, you do this using a Spark application step, which runs the `spark-submit` script as a step on your behalf\. With the API, you use a step to invoke `spark-submit` using `command-runner.jar`\.
+You can use Amazon EMR steps to submit work to the Spark framework installed on an EMR cluster\. For more information, see [Steps](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-overview.html#emr-overview-data-processing) in the Amazon EMR Management Guide\. In the console and CLI, you do this using a Spark application step, which runs the `spark-submit` script as a step on your behalf\. With the API, you use a step to invoke `spark-submit` using `command-runner.jar`\.
 
 For more information about submitting applications to Spark, see the [Submitting Applications](https://spark.apache.org/docs/latest/submitting-applications.html) topic in the Apache Spark documentation\.
 
@@ -41,7 +41,7 @@ Submit a step when you create the cluster or use the `aws emr add-steps` subcomm
 Linux line continuation characters \(\\\) are included for readability\. They can be removed or used in Linux commands\. For Windows, remove them or replace with a caret \(^\)\.
 
    ```
-   aws emr create-cluster --name "Add Spark Step Cluster" --release-label emr-5.18.0 --applications Name=Spark \
+   aws emr create-cluster --name "Add Spark Step Cluster" --release-label emr-5.20.0 --applications Name=Spark \
    --ec2-attributes KeyName=myKey --instance-type m4.large --instance-count 3 \
    --steps Type=Spark,Name="Spark Program",ActionOnFailure=CONTINUE,Args=[--class,org.apache.spark.examples.SparkPi,/usr/lib/spark/lib/spark-examples.jar,10] --use-default-roles
    ```
@@ -49,7 +49,7 @@ Linux line continuation characters \(\\\) are included for readability\. They ca
    As an alternative, you can use `command-runner.jar` as shown in the following example\.
 
    ```
-   aws emr create-cluster --name "Add Spark Step Cluster" --release-label emr-5.18.0 \
+   aws emr create-cluster --name "Add Spark Step Cluster" --release-label emr-5.20.0 \
    --applications Name=Spark --ec2-attributes KeyName=myKey --instance-type m4.large --instance-count 3 \
    --steps Type=CUSTOM_JAR,Name="Spark Program",Jar="command-runner.jar",ActionOnFailure=CONTINUE,Args=[spark-example,SparkPi,10] --use-default-roles
    ```

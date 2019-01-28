@@ -4,7 +4,7 @@ Although HCatalog is included in the Hive project, you must install it as its ow
 
 **To launch a cluster with HCatalog installed using the console**
 
-The following procedure creates a cluster with HCatalog installed\. For more information about creating clusters using the console, including **Advanced Options** see [Plan and Configure Clusters](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan.html) in the *Amazon EMR Management Guide*\.
+The following procedure creates a cluster with HCatalog installed\. For more information about creating clusters using the console, including **Advanced Options** see [Plan and Configure Clusters](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan.html) in the *Amazon EMR Management Guide*\.
 
 1. Open the Amazon EMR console at [https://console\.aws\.amazon\.com/elasticmapreduce/](https://console.aws.amazon.com/elasticmapreduce/)\.
 
@@ -22,7 +22,7 @@ The following procedure creates a cluster with HCatalog installed\. For more inf
 Linux line continuation characters \(\\\) are included for readability\. They can be removed or used in Linux commands\. For Windows, remove them or replace with a caret \(^\)\.
 
   ```
-  aws emr create-cluster --name "Cluster with Hcat" --release-label emr-5.18.0 \
+  aws emr create-cluster --name "Cluster with Hcat" --release-label emr-5.20.0 \
   --applications Name=HCatalog --ec2-attributes KeyName=myKey \
   --instance-type m4.large --instance-count 3 --use-default-roles
   ```

@@ -4,7 +4,7 @@ Currently, the Flink Scala shell for EMR clusters is only configured to start ne
 
 **Using the Flink Scala shell on the master node**
 
-1. Log in to the master node using SSH as described in [Connect to the Master Node using SSH](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-connect-master-node-ssh.html)\.
+1. Log in to the master node using SSH as described in [Connect to the Master Node using SSH](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-connect-master-node-ssh.html)\.
 
 1. Type the following to start a shell:
 

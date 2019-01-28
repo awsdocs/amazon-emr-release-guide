@@ -4,9 +4,9 @@ HBase provides a web\-based user interface that you can use to monitor your HBas
 
 **To view the HBase User Interface**
 
-1. Use SSH to tunnel into the master node and create a secure connection\. For more information, see [Option 2, Part 1: Set Up an SSH Tunnel to the Master Node Using Dynamic Port Forwarding](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-ssh-tunnel.html) in the *Amazon EMR Management Guide*\. 
+1. Use SSH to tunnel into the master node and create a secure connection\. For more information, see [Option 2, Part 1: Set Up an SSH Tunnel to the Master Node Using Dynamic Port Forwarding](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-ssh-tunnel.html) in the *Amazon EMR Management Guide*\. 
 
-1. Install a web browser with a proxy tool, such as the FoxyProxy plug\-in for Firefox, to create a SOCKS proxy for AWS domains\. For more information, see [Option 2, Part 2: Configure Proxy Settings to View Websites Hosted on the Master Node](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-connect-master-node-proxy.html) in the *Amazon EMR Management Guide*\. 
+1. Install a web browser with a proxy tool, such as the FoxyProxy plug\-in for Firefox, to create a SOCKS proxy for AWS domains\. For more information, see [Option 2, Part 2: Configure Proxy Settings to View Websites Hosted on the Master Node](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-connect-master-node-proxy.html) in the *Amazon EMR Management Guide*\. 
 
 1. With the proxy set and the SSH connection open, you can view the HBase UI by opening a browser window with **http://*master\-public\-dns\-name*:16010/master\-status**, where *master\-public\-dns\-name* is the public DNS address of the cluster's master node\. 
 
