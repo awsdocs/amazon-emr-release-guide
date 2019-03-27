@@ -4,7 +4,7 @@ Apache Hive is a data warehouse application you can use to query data contained 
 
 The following procedure assumes you have already created a cluster and specified an Amazon EC2 key pair\. To learn how to get started creating clusters, see [Step 3: Launch an Amazon EMR Cluster](http://docs.aws.amazon.com/emr/latest/ManagementGuide/gsg-launch-cluster.html) in the *Amazon EMR Management Guide*\.
 
-## Configure Hive to Use MapReduce<a name="w3ab1c62b7c25b7"></a>
+## Configure Hive to Use MapReduce<a name="w3ab1c63b7c25b7"></a>
 
 When use Hive on Amazon EMR to query DynamoDB tables, errors can occur if Hive is using the default execution engine, Tez\. For this reason, when you create a cluster with Hive that integrates with DynamoDB as described in this section, we recommend that you use a configuration classification that sets Hive to use MapReduce\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 

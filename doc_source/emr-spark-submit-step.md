@@ -41,7 +41,7 @@ Submit a step when you create the cluster or use the `aws emr add-steps` subcomm
 Linux line continuation characters \(\\\) are included for readability\. They can be removed or used in Linux commands\. For Windows, remove them or replace with a caret \(^\)\.
 
    ```
-   aws emr create-cluster --name "Add Spark Step Cluster" --release-label emr-5.20.0 --applications Name=Spark \
+   aws emr create-cluster --name "Add Spark Step Cluster" --release-label emr-5.22.0 --applications Name=Spark \
    --ec2-attributes KeyName=myKey --instance-type m4.large --instance-count 3 \
    --steps Type=Spark,Name="Spark Program",ActionOnFailure=CONTINUE,Args=[--class,org.apache.spark.examples.SparkPi,/usr/lib/spark/lib/spark-examples.jar,10] --use-default-roles
    ```
@@ -49,7 +49,7 @@ Linux line continuation characters \(\\\) are included for readability\. They ca
    As an alternative, you can use `command-runner.jar` as shown in the following example\.
 
    ```
-   aws emr create-cluster --name "Add Spark Step Cluster" --release-label emr-5.20.0 \
+   aws emr create-cluster --name "Add Spark Step Cluster" --release-label emr-5.22.0 \
    --applications Name=Spark --ec2-attributes KeyName=myKey --instance-type m4.large --instance-count 3 \
    --steps Type=CUSTOM_JAR,Name="Spark Program",Jar="command-runner.jar",ActionOnFailure=CONTINUE,Args=[spark-example,SparkPi,10] --use-default-roles
    ```
@@ -103,13 +103,13 @@ View the results of the step by examining the logs for the step\. You can do thi
 You may want to override Spark default configuration values on a per\-application basis\. You can do this when you submit applications using a step, which essentially passes options to `spark-submit`\. For example, you may wish to change the memory allocated to an executor process by changing `spark.executor.memory`\. You would supply the `--executor-memory` switch with an argument like the following:
 
 ```
-spark-submit --executor-memory 1g --class org.apache.spark.examples.SparkPi /usr/lib/spark/lib/spark-examples.jar 10
+spark-submit --executor-memory 1g --class org.apache.spark.examples.SparkPi /usr/lib/spark/examples/jars/spark-examples.jar 10
 ```
 
 Similarly, you can tune `--executor-cores` and `--driver-memory`\. In a step, you would provide the following arguments to the step:
 
 ```
---executor-memory 1g --class org.apache.spark.examples.SparkPi /usr/lib/spark/lib/spark-examples.jar 10
+--executor-memory 1g --class org.apache.spark.examples.SparkPi /usr/lib/spark/examples/jars/spark-examples.jar 10
 ```
 
 You can also tune settings that may not have a built\-in switch using the `--conf` option\. For more information about other settings that are tunable, see the [Dynamically Loading Spark Properties](https://spark.apache.org/docs/latest/configuration.html#dynamically-loading-spark-properties) topic in the Apache Spark documentation\.

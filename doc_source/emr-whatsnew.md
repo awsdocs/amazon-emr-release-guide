@@ -1,42 +1,34 @@
 # What's New?<a name="emr-whatsnew"></a>
 
-This topic covers features and issues resolved in the current release of Amazon EMR\. These release notes are also available on the [Release 5\.20\.0 Tab](emr-release-5x.md#emr-5200-release), along with the application versions, component versions, and available configuration classifications for this release\.
+This topic covers features and issues resolved in the current release of Amazon EMR\. These release notes are also available on the [Release 5\.22\.0 Tab](emr-release-5x.md#emr-5220-release), along with the application versions, component versions, and available configuration classifications for this release\.
 
 Subscribe to the RSS feed for Amazon EMR release notes at [http://docs.aws.amazon.com/emr/latest/ReleaseGuide/amazon-emr-release-notes.rss](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/amazon-emr-release-notes.rss) to receive updates when a new Amazon EMR release version is available\.
 
-For earlier\-version release notes back to release version 4\.2\.0, see [Amazon EMR What's New History](emr-whatsnew-history.md)\.
+For earlier release notes going back to release version 4\.2\.0, see [Amazon EMR What's New History](emr-whatsnew-history.md)\.
 
-## Release 5\.20\.0 \(Latest\)<a name="emr-5200-whatsnew"></a>
+## Release 5\.22\.0 \(Latest\)<a name="emr-5220-whatsnew"></a>
 
 New Amazon EMR release versions are made available in different regions over a period of several days, beginning with the first region on the initial release date\. The latest release version may not be available in your region during this period\.
 
-The following release notes include information for Amazon EMR release version 5\.20\.0\. Changes are relative to 5\.19\.0\.
+The following release notes include information for Amazon EMR release version 5\.22\.0\. Changes are relative to 5\.21\.0\.
 
-Initial release date: December 18, 2018
-
-Last updated date: January 22, 2019
+Initial release date: March 20, 2019
 
 **Upgrades**
-+ Flink 1\.6\.2
-+ HBase 1\.4\.8
-+ Hive 2\.3\.4
-+ Hue 4\.3\.0
-+ MXNet 1\.3\.1
-+ Presto 0\.214
-+ Spark 2\.4\.0
-+ TensorFlow 1\.12\.0
-+ Tez 0\.9\.1
-+ AWS SDK for Java 1\.11\.461
++ Flink 1\.7\.1
++ HBase 1\.4\.9
++ Oozie 5\.1\.0
++ Phoenix 4\.14\.1
++ Zeppelin 0\.8\.1
++ Connectors and drivers:
+  + DynamoDB Connector 4\.8\.0
+  + MariaDB Connector 2\.2\.6
+  + Amazon Redshift JDBC Driver 1\.2\.20\.1043
 
 **New Features**
-+ \(January 22, 2019\) Kerberos in Amazon EMR has been improved to support authenticating principals from an external KDC\. This centralizes principal management because multiple clusters can share a single, external KDC\. In addition, the external KDC can have a cross\-realm trust with an Active Directory domain\. This allows all clusters to authenticate principals from Active Directory\. For more information, see [Use Kerberos Authentication](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html) in the *Amazon EMR Management Guide*\.
++ Modified the default EBS configuration for EC2 instance types with EBS\-only storage\. When you create a cluster using Amazon EMR release version 5\.22\.0 and later, the default amount of EBS storage increases based on the size of the instance\. In addition, we split increased storage across multiple volumes, giving increased IOPS performance\. If you want to use a different EBS instance storage configuration, you can specify it when you create an EMR cluster or add nodes to an existing cluster\. For more information about the amount of storage and number of volumes allocated by default for each instance type, see [Default EBS Storage for Instances](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-storage.html#emr-plan-storage-ebs-storage-default) in the *Amazon EMR Management Guide*\.
 
 **Changes, Enhancements, and Resolved Issues**
-+ Default Amazon Linux AMI for Amazon EMR
-  + Python3 package was upgraded from python 3\.4 to 3\.6\.
-+ The EMRFS S3\-optimized committer 
-  + The EMRFS S3\-optimized committer is now enabled by default, which improves write performance\. For more information, see [Using the EMRFS S3\-optimized Committer](emr-spark-s3-optimized-committer.md)\.
-+ Hive
-  + Backported [HIVE\-16686](https://issues.apache.org/jira/browse/HIVE-16686)\.
-+ Glue with Spark and Hive
-  + In EMR 5\.20\.0 or later, parallel partition pruning is enabled automatically for Spark and Hive when AWS Glue Data Catalog is used as the metastore\. This change significantly reduces query planning time by executing multiple requests in parallel to retrieve partitions\. The total number of segments that can be executed concurrently range between 1 and 10\. The default value is 5, which is a recommended setting\. You can change it by specifying the property `aws.glue.partition.num.segments` in `hive-site` configuration classification\. If throttling occurs, you can turn off the feature by changing the value to 1\. For more information, see [AWS Glue Segment Structure](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-partitions.html#aws-glue-api-catalog-partitions-Segment)\.
++ Spark
+  + Introduced a new configuration property for Spark on YARN, `spark.yarn.executor.memoryOverheadFactor`\. The value of this property is a scale factor that sets the value of memory overhead to a percentage of executor memory, with a minimum of 384 MB\. If memory overhead is set explicitly using `spark.yarn.executor.memoryOverhead`, this property has no effect\. The default value is `0.1875`, representing 18\.75%\. This default for Amazon EMR leaves more space in YARN containers for executor memory overhead than the 10% default set internally by Spark\. The Amazon EMR default of 18\.75% empirically showed fewer memory\-related failures in TPC\-DS benchmarks\.
+  + Backported [SPARK\-26316](https://issues.apache.org/jira/browse/SPARK-26316) to improve performance\.

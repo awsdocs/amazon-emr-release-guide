@@ -3,6 +3,20 @@
 The following tables list the version of Flink included in each release version of Amazon EMR, along with the components installed with the application\. For component versions in each release, see the Component Version section for your release in [Amazon EMR 5\.x Release Versions](emr-release-5x.md) or [Amazon EMR 4\.x Release Versions](emr-release-4x.md)\.
 
 
+**Flink Version Information for emr\-5\.21\.0**  
+
+| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
+| --- | --- | --- | 
+| emr\-5\.21\.0 | Flink 1\.7\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+
+
+**Flink Version Information for emr\-5\.20\.0**  
+
+| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
+| --- | --- | --- | 
+| emr\-5\.20\.0 | Flink 1\.6\.2 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+
+
 **Flink Version Information for emr\-5\.19\.0**  
 
 | Amazon EMR Release Label | Flink Version | Components Installed With Flink | 

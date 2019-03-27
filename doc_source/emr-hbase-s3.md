@@ -53,7 +53,7 @@ For example, given the JSON classification for the primary cluster as shown earl
 }
 ```
 
-### Synchronizing the Read Replica When You Add Data<a name="w3ab1c24c21c13c10"></a>
+### Synchronizing the Read Replica When You Add Data<a name="w3ab1c25c21c13c10"></a>
 
 Because the read\-replica uses HBase StoreFiles and metadata that the primary cluster writes to Amazon S3, the read\-replica is only as current as the Amazon S3 data store\. The following guidance can help minimize the lag time between the primary cluster and the read\-replica when you write data\.
 + Bulk load data on the primary cluster whenever possible\. For more information, see [Bulk Loading](http://hbase.apache.org/0.94/book/arch.bulk.load.html) in Apache HBase documentation\.
@@ -70,13 +70,7 @@ HBase region servers use BlockCache to store data reads in memory and BucketCach
 
 To improve performance, we recommend that you cache as much of your dataset as possible in EC2 instance storage\. Because the BucketCache uses the region server's EC2 instance storage, you can choose an EC2 instance type with a sufficient instance store and add Amazon EBS storage to accommodate the required cache size\. You can also increase the BucketCache size on attached instance stores and EBS volumes using the `hbase.bucketcache.size` property\. The default setting is 8,192 MB\.
 
-For writes, the frequency of MemStore flushes and the number of StoreFiles present during minor and major compactions can contribute significantly to an increase in region server response times\. For optimal performance, consider increasing the size of the MemStore flush and HRegion block multiplier, which increases the elapsed time between major compactions, but also increases the lag in consistency if you use a read\-replica\. In some cases, you may get better performance using larger file block sizes \(but less than 5 GB\) to trigger Amazon S3 multipart upload functionality in EMRFS\. Amazon EMR's block size default 128 MB\. For more information, see [ HDFS Configuration  The following table describes the default Hadoop Distributed File System \(HDFS\) parameters and their settings\. You can change these values using the `hdfs-site` configuration classification\. For more information, see [Configuring Applications](emr-configure-apps.md)\. 
-
-
-| Parameter | Definition | Default value | 
-| --- | --- | --- | 
-| dfs\.block\.size | The size of HDFS blocks\. When operating on data stored in HDFS, the split size is generally the size of an HDFS block\. Larger numbers provide less task granularity, but also put less strain on the cluster NameNode\. | 134217728 \(128 MB\) | 
-| dfs\.replication | The number of copies of each block to store for durability\. For small clusters, set this to 2 because the cluster is small and easy to restart in case of data loss\. You can change the setting to 1, 2, or 3 as your needs dictate\. Amazon EMR automatically calculates the replication factor based on cluster size\. To overwrite the default value, use the hdfs\-site classification\. |  1 for clusters < four nodes 2 for clusters < ten nodes 3 for all other clusters  |  ](emr-hdfs-config.md)\. We rarely see customers who exceed 1 GB block size while benchmarking performance with flushes and compactions\. Additionally, HBase compactions and region servers perform optimally when fewer StoreFiles need to be compacted\.
+For writes, the frequency of MemStore flushes and the number of StoreFiles present during minor and major compactions can contribute significantly to an increase in region server response times\. For optimal performance, consider increasing the size of the MemStore flush and HRegion block multiplier, which increases the elapsed time between major compactions, but also increases the lag in consistency if you use a read\-replica\. In some cases, you may get better performance using larger file block sizes \(but less than 5 GB\) to trigger Amazon S3 multipart upload functionality in EMRFS\. Amazon EMR's block size default 128 MB\. For more information, see [HDFS Configuration](emr-hdfs-config.md)\. We rarely see customers who exceed 1 GB block size while benchmarking performance with flushes and compactions\. Additionally, HBase compactions and region servers perform optimally when fewer StoreFiles need to be compacted\.
 
 Tables can take a significant amount of time to drop on Amazon S3 because large directories need to be renamed\. Consider disabling tables instead of dropping\.
 

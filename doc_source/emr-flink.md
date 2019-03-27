@@ -18,14 +18,14 @@ Support for the `FlinkKinesisConsumer` class was added in Amazon EMR release ver
 
 The following table lists the version of Flink included in the latest release of Amazon EMR, along with the components that Amazon EMR installs with Flink\.
 
-For the version of components installed with Flink in this release, see [Release 5\.20\.0 Component Versions](emr-release-5x.md#emr-5200-release)\.
+For the version of components installed with Flink in this release, see [Release 5\.22\.0 Component Versions](emr-release-5x.md#emr-5220-release)\.
 
 
-**Flink Version Information for emr\-5\.20\.0**  
+**Flink Version Information for emr\-5\.22\.0**  
 
 | Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
 | --- | --- | --- | 
-| emr\-5\.20\.0 | Flink 1\.6\.2 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.22\.0 | Flink 1\.7\.1 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
 
 **Topics**
 + [Creating a Cluster with Flink](flink-create-cluster.md)

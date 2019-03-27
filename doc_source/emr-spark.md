@@ -15,14 +15,14 @@ Apache Spark version 2\.3\.1, available beginning with Amazon EMR release versio
 
 The following table lists the version of Spark included in the latest release of Amazon EMR, along with the components that Amazon EMR installs with Spark\.
 
-For the version of components installed with Spark in this release, see [Release 5\.20\.0 Component Versions](emr-release-5x.md#emr-5200-release)\.
+For the version of components installed with Spark in this release, see [Release 5\.22\.0 Component Versions](emr-release-5x.md#emr-5220-release)\.
 
 
-**Spark Version Information for emr\-5\.20\.0**  
+**Spark Version Information for emr\-5\.22\.0**  
 
 | Amazon EMR Release Label | Spark Version | Components Installed With Spark | 
 | --- | --- | --- | 
-| emr\-5\.20\.0 | Spark 2\.4\.0 | aws\-sagemaker\-spark\-sdk, emrfs, emr\-goodies, emr\-ddb, emr\-s3\-select, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, livy\-server, nginx, r, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave | 
+| emr\-5\.22\.0 | Spark 2\.4\.0 | aws\-sagemaker\-spark\-sdk, emrfs, emr\-goodies, emr\-ddb, emr\-s3\-select, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, livy\-server, nginx, r, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave | 
 
 **Topics**
 + [Create a Cluster With Spark](emr-spark-launch.md)
