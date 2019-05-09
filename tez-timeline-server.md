@@ -1,0 +1,3 @@
+# Timeline Server<a name="tez-timeline-server"></a>
+
+The YARN Timeline Service is configured to run when Tez is installed\. To view jobs submitted through Tez or MapReduce execution engines using the timeline service, view the web UI using the URL `http://master-public-DNS:8188`\. For more information, see [View Web Interfaces Hosted on Amazon EMR Clusters](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-web-interfaces.html) in the *Amazon EMR Management Guide*\.
