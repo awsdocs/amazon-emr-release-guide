@@ -13,7 +13,7 @@ You can only connect a Hive cluster to a single HBase cluster\.
 
 1. If you are using separate clusters, modify your security groups so that HBase and Hive ports are open between these two master nodes\.
 
-1. Use SSH to connect to the master node for the cluster with Hive installed\. For more information, see [Connect to the Master Node Using SSH](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-connect-master-node-ssh.html) in the *Amazon EMR Management Guide*\.
+1. Use SSH to connect to the master node for the cluster with Hive installed\. For more information, see [Connect to the Master Node Using SSH](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-connect-master-node-ssh.html) in the *Amazon EMR Management Guide*\.
 
 1. Launch the Hive shell with the following command\. 
 

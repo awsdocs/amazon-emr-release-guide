@@ -18,7 +18,7 @@ In the AWS CLI, you can add Ganglia to a cluster by using `create-cluster` with 
 Linux line continuation characters \(\\\) are included for readability\. They can be removed or used in Linux commands\. For Windows, remove them or replace with a caret \(^\)\.
 
   ```
-  aws emr create-cluster --name "Spark cluster with Ganglia" --release-label emr-5.22.0 \
+  aws emr create-cluster --name "Spark cluster with Ganglia" --release-label emr-5.26.0 \
   --applications Name=Spark Name=Ganglia \
   --ec2-attributes KeyName=myKey --instance-type m4.large \
   --instance-count 3 --use-default-roles
@@ -28,4 +28,4 @@ Linux line continuation characters \(\\\) are included for readability\. They ca
 **Note**  
 If you have not previously created the default EMR service role and EC2 instance profile, type aws `emr create-default-roles` to create them before typing the `create-cluster` subcommand\.
 
-  For more information about using Amazon EMR commands in the AWS CLI, see [http://docs.aws.amazon.com/cli/latest/reference/emr](http://docs.aws.amazon.com/cli/latest/reference/emr)\.
+  For more information about using Amazon EMR commands in the AWS CLI, see [https://docs.aws.amazon.com/cli/latest/reference/emr](https://docs.aws.amazon.com/cli/latest/reference/emr)\.

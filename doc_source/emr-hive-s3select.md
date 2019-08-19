@@ -10,7 +10,7 @@ We recommend that you benchmark your applications with and without S3 Select to 
 
 Use the following guidelines to determine if your application is a candidate for using S3 Select:
 + Your query filters out more than half of the original data set\.
-+ Your query filter predicates use columns that have a data type supported by Amazon S3 Select\. For more information, see [Data Types](http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference-data-types.html) in the *Amazon Simple Storage Service Developer Guide*\.
++ Your query filter predicates use columns that have a data type supported by Amazon S3 Select\. For more information, see [Data Types](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference-data-types.html) in the *Amazon Simple Storage Service Developer Guide*\.
 + Your network connection between Amazon S3 and the Amazon EMR cluster has good transfer speed and available bandwidth\. Amazon S3 does not compress HTTP responses, so the response size is likely to increase for compressed input files\.
 
 ## Considerations and Limitations<a name="emr-hive-s3select-considerations"></a>
@@ -20,7 +20,7 @@ Use the following guidelines to determine if your application is a candidate for
 + Only uncompressed or gzip or bzip2 files are supported\.
 + Comment characters in the last line are not supported\.
 + Empty lines at the end of a file are not processed\.
-+ Hive on Amazon EMR supports the primitive data types that S3 Select supports\. For more information, see [Data Types](http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference-data-types.html) in the *Amazon Simple Storage Service Developer Guide*\.
++ Hive on Amazon EMR supports the primitive data types that S3 Select supports\. For more information, see [Data Types](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference-data-types.html) in the *Amazon Simple Storage Service Developer Guide*\.
 
 ## Specifying S3 Select in Your Code<a name="emr-hive-s3select-specify"></a>
 

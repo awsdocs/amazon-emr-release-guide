@@ -11,4 +11,4 @@
 + AWS Samples—There are several "ready\-to\-run" examples that process sample data from various AWS services using applications in Hue\. When you log in to Hue, you are taken to the Hue Home application where the samples are pre\-installed\.
 + Livy Server is supported only in Amazon EMR version 5\.9\.0 and later\.
 + To use the Hue Notebook for Spark, you must install Hue with Livy and Spark\.
-+ Hue Catalog, Editor and Scheduler are supported however Hue Dashboard is not supported\.
++ The Hue Dashboard is not supported\.

@@ -27,7 +27,7 @@ This section covers differences to consider before you migrate a Hive implementa
 ### Operational Differences and Considerations<a name="emr-hive-diffs-ops"></a>
 + **Support added for [ACID \(Atomicity, Consistency, Isolation, and Durability\)transactions](https://cwiki.apache.org/confluence/display/Hive/Hive+Transactions):** This difference between Hive 1\.0\.0 on Amazon EMR 4\.x and default Apache Hive has been eliminated\.
 + **Direct writes to Amazon S3 eliminated:** This difference between Hive 1\.0\.0 on Amazon EMR and the default Apache Hive has been eliminated\. Hive 2\.1\.0 on Amazon EMR release 5\.x now creates, reads from, and writes to temporary files stored in Amazon S3\. As a result, to read from and write to the same table you no longer have to create a temporary table in the cluster's local HDFS file system as a workaround\. If you use versioned buckets, be sure to manage these temporary files as described below\.
-+ **Manage temp files when using Amazon S3 versioned buckets:** When you run Hive queries where the destination of generated data is Amazon S3, many temporary files and directories are created\. This is new behavior as described earlier\. If you use versioned S3 buckets, these temp files clutter Amazon S3 and incur cost if they're not deleted\. Adjust your lifecycle rules so that data with a `/_tmp` prefix is deleted after a short period, such as five days\. See [Specifying a Lifecycle Configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-set-lifecycle-configuration-intro.html) for more information\.
++ **Manage temp files when using Amazon S3 versioned buckets:** When you run Hive queries where the destination of generated data is Amazon S3, many temporary files and directories are created\. This is new behavior as described earlier\. If you use versioned S3 buckets, these temp files clutter Amazon S3 and incur cost if they're not deleted\. Adjust your lifecycle rules so that data with a `/_tmp` prefix is deleted after a short period, such as five days\. See [Specifying a Lifecycle Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-set-lifecycle-configuration-intro.html) for more information\.
 + **Log4j updated to log4j 2:** If you use log4j, you may need to change your logging configuration because of this upgrade\. See [Apache log4j 2](http://logging.apache.org/log4j/2.x/) for details\.
 
 ### Performance differences and considerations<a name="emr-hive-diffs-perf"></a>
@@ -76,15 +76,15 @@ To pass variable values into Hive steps using the AWS CLI, use the `--steps` par
 Linux line continuation characters \(\\\) are included for readability\. They can be removed or used in Linux commands\. For Windows, remove them or replace with a caret \(^\)\.
 
   ```
-  aws emr create-cluster --name "Test cluster" --release-label emr-5.22.0 \
+  aws emr create-cluster --name "Test cluster" --release-label emr-5.26.0 \
   --applications Name=Hive Name=Pig --use-default-roles --ec2-attributes KeyName=myKey --instance-type m4.large --instance-count 3 \
   --steps Type=Hive,Name="Hive Program",ActionOnFailure=CONTINUE,Args=[-f,s3://elasticmapreduce/samples/hive-ads/libs/response-time-stats.q,-d,INPUT=s3://elasticmapreduce/samples/hive-ads/tables,-d,OUTPUT=s3://mybucket/hive-ads/output/,-d,SAMPLE=s3://elasticmapreduce/samples/hive-ads/]
   ```
 
-  For more information on using Amazon EMR commands in the AWS CLI, see [http://docs.aws.amazon.com/cli/latest/reference/emr](http://docs.aws.amazon.com/cli/latest/reference/emr)\.
+  For more information on using Amazon EMR commands in the AWS CLI, see [https://docs.aws.amazon.com/cli/latest/reference/emr](https://docs.aws.amazon.com/cli/latest/reference/emr)\.
 
 **To pass variable values into Hive steps using the Java SDK**
-+ The following example demonstrates how to pass variables into steps using the SDK\. For more information, see [Class StepFactory](http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/elasticmapreduce/util/StepFactory.html) in the *AWS SDK for Java API Reference*\. 
++ The following example demonstrates how to pass variables into steps using the SDK\. For more information, see [Class StepFactory](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/elasticmapreduce/util/StepFactory.html) in the *AWS SDK for Java API Reference*\. 
 
   ```
   StepFactory stepFactory = new StepFactory();
@@ -154,7 +154,7 @@ CREATE EXTERNAL TABLE dynamodb(hashKey STRING, recordTimeStamp BIGINT, map<Strin
 
 ### Set DynamoDB Throughput Values Per Table<a name="emr-hive-set-ddb-throughput"></a>
 
-Amazon EMR Hive enables you to set the DynamoDB readThroughputPercent and writeThroughputPercent settings on a per table basis in the table definition\. The following Amazon EMR Hive script shows how to set the throughput values\. For more information about DynamoDB throughput values, see [Specifying Read and Write Requirements for Tables](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithDDTables.html#ProvisionedThroughput)\. 
+Amazon EMR Hive enables you to set the DynamoDB readThroughputPercent and writeThroughputPercent settings on a per table basis in the table definition\. The following Amazon EMR Hive script shows how to set the throughput values\. For more information about DynamoDB throughput values, see [Specifying Read and Write Requirements for Tables](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithDDTables.html#ProvisionedThroughput)\. 
 
 ```
 CREATE EXTERNAL TABLE dynamodb(hashKey STRING, recordTimeStamp BIGINT, map<String, String> fullColumn)

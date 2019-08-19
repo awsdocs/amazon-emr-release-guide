@@ -26,7 +26,7 @@ Use the following guidelines to determine if your application is a candidate for
   + Filters that `CAST()` an attribute\. For example, `CAST(stringColumn as INT) = 1`\.
   + Filters with an attribute that is an object or is complex\. For example, `intArray[1] = 1, objectColumn.objectNumber = 1`\.
   + Filters for which the value is not a literal value\. For example, `intColumn1 = intColumn2`
-  + Only [S3 Select Supported Data Types](http://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference-data-types.html) are supported with the documented limitations\.
+  + Only [S3 Select Supported Data Types](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference-data-types.html) are supported with the documented limitations\.
 
 ## Specifying S3 Select in Your Code<a name="emr-spark-s3select-specify"></a>
 

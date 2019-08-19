@@ -1,6 +1,6 @@
 # Build Binaries Using Amazon EMR<a name="emr-build-binaries"></a>
 
-You can use Amazon EMR as a build environment to compile programs for use in your cluster\. Programs that you use with Amazon EMR must be compiled on a system running the same version of Linux used by Amazon EMR\. For a 32\-bit version, you should have compiled on a 32\-bit machine or with 32\-bit cross compilation options turned on\. For a 64\-bit version, you need to have compiled on a 64\-bit machine or with 64\-bit cross compilation options turned\. For more information about EC2 instance versions, see [Plan and Configure EC2 Instances](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-ec2-instances.html) in the *Amazon EMR Management Guide*\. Supported programming languages include C\+\+, Cython, and C\#\. 
+You can use Amazon EMR as a build environment to compile programs for use in your cluster\. Programs that you use with Amazon EMR must be compiled on a system running the same version of Linux used by Amazon EMR\. For a 32\-bit version, you should have compiled on a 32\-bit machine or with 32\-bit cross compilation options turned on\. For a 64\-bit version, you need to have compiled on a 64\-bit machine or with 64\-bit cross compilation options turned\. For more information about EC2 instance versions, see [Plan and Configure EC2 Instances](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-ec2-instances.html) in the *Amazon EMR Management Guide*\. Supported programming languages include C\+\+, Cython, and C\#\. 
 
 The following table outlines the steps involved to build and test your application using Amazon EMR\.
 
@@ -17,11 +17,11 @@ The following table outlines the steps involved to build and test your applicati
 The details for each of these steps are covered in the sections that follow\. 
 
 **To connect to the master node of the cluster**
-+ Follow the instructions at [Connect to the Master Node Using SSH](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-connect-master-node-ssh.html) in the *Amazon EMR Management Guide*\.
++ Follow the instructions at [Connect to the Master Node Using SSH](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-connect-master-node-ssh.html) in the *Amazon EMR Management Guide*\.
 
 **To copy source files to the master node**
 
-1. Put your source files in an Amazon S3 bucket\. To learn how to create buckets and how to move data into Amazon S3, see the [Amazon Simple Storage Service Getting Started Guide](http://docs.aws.amazon.com/AmazonS3/latest/gsg/)\.
+1. Put your source files in an Amazon S3 bucket\. To learn how to create buckets and how to move data into Amazon S3, see the [Amazon Simple Storage Service Getting Started Guide](https://docs.aws.amazon.com/AmazonS3/latest/gsg/)\.
 
 1. Create a folder on your Hadoop cluster for your source files by entering a command similar to the following:
 

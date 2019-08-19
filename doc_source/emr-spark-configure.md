@@ -1,6 +1,6 @@
 # Configure Spark<a name="emr-spark-configure"></a>
 
-You can configure [Spark on Amazon EMR](https://aws.amazon.com/elasticmapreduce/details/spark/) using configuration classifications when you create a cluster\. For more information about using configuration classifications, see [Configuring Applications](emr-configure-apps.md)\.
+You can configure [Spark on Amazon EMR](https://aws.amazon.com/elasticmapreduce/details/spark/) using configuration classifications\. For more information about using configuration classifications, see [Configuring Applications](emr-configure-apps.md)\.
 
 Configuration classifications for Spark on Amazon EMR include the following:
 + `spark`—Sets the `maximizeResourceAllocation` property to true or false\. When true, Amazon EMR automatically configures `spark-default` properties based on cluster hardware configuration\. For more information, see [Using maximizeResourceAllocation](#emr-spark-maximizeresourceallocation)\.
@@ -25,7 +25,7 @@ The following table shows how Amazon EMR sets default values in `spark-default` 
 
 ## Using maximizeResourceAllocation<a name="emr-spark-maximizeresourceallocation"></a>
 
-You can configure your executors to utilize the maximum resources possible on each node in a cluster by using the `spark` configuration classification to set `maximizeResourceAllocation` option to true when you create a cluster\. This EMR\-specific option calculates the maximum compute and memory resources available for an executor on an instance in the core instance group\. It then sets the corresponding `spark-defaults` settings based on this information\.
+You can configure your executors to utilize the maximum resources possible on each node in a cluster by using the `spark` configuration classification to set `maximizeResourceAllocation` option to true\. This EMR\-specific option calculates the maximum compute and memory resources available for an executor on an instance in the core instance group\. It then sets the corresponding `spark-defaults` settings based on this information\.
 
 ```
 [
@@ -66,7 +66,7 @@ The `spark.decommissioning.timeout.threshold` setting was added in Amazon EMR re
 | Setting | Description | Default Value | 
 | --- | --- | --- | 
 | `spark.blacklist.decommissioning.enabled` | When set to `true`, Spark blacklists nodes that are in the `decommissioning` state in YARN\. Spark does not schedule new tasks on executors running on that node\. Tasks already running are allowed to complete\. | `true` | 
-| `spark.blacklist.decommissioning.timeout` | The amount of time that a node in the `decommissioning` state is blacklisted\. By default, this value is set to one hour, which is also the default for `yarn.resourcemanager.decomissioning.timeout`\. To ensure that a node is blacklisted for its entire decommissioning period, set this value equal to or greater than `yarn.resourcemanager.decommissioning.timeout`\. After the decommissioning timeout expires, the node transitions to a `decommissioned` state, and Amazon EMR can terminate the node's EC2 instance\. If any tasks are still running after the timeout expires, they are lost or killed and rescheduled on executors running on other nodes\. | `1h` | 
+| `spark.blacklist.decommissioning.timeout` | The amount of time that a node in the `decommissioning` state is blacklisted\. By default, this value is set to one hour, which is also the default for `yarn.resourcemanager.decommissioning.timeout`\. To ensure that a node is blacklisted for its entire decommissioning period, set this value equal to or greater than `yarn.resourcemanager.decommissioning.timeout`\. After the decommissioning timeout expires, the node transitions to a `decommissioned` state, and Amazon EMR can terminate the node's EC2 instance\. If any tasks are still running after the timeout expires, they are lost or killed and rescheduled on executors running on other nodes\. | `1h` | 
 | `spark.decommissioning.timeout.threshold` | Available in Amazon EMR release version 5\.11\.0 or later\. Specified in seconds\. When a node transitions to the decommissioning state, if the host will decommission within a time period equal to or less than this value, Amazon EMR not only blacklists the node, but also cleans up the host state \(as specified by `spark.resourceManager.cleanupExpiredHost`\) without waiting for the node to transition to a decommissioned state\. This allows Spark to handle Spot instance terminations better because Spot instances decommission within a 20\-second timeout regardless of the value of `yarn.resourcemager.decommissioning.timeout`, which may not provide other nodes enough time to read shuffle files\. | `20s` | 
 | `spark.resourceManager.cleanupExpiredHost` | When set to `true`, Spark unregisters all cached data and shuffle blocks that are stored in executors on nodes that are in the `decommissioned` state\. This speeds up the recovery process\. | `true` | 
 | `spark.stage.attempt.ignoreOnDecommissionFetchFailure` | When set to `true`, helps prevent Spark from failing stages and eventually failing the job because of too many failed fetches from decommissioned nodes\. Failed fetches of shuffle blocks from a node in the `decommissioned` state will not count toward the maximum number of consecutive fetch failures\. | true | 
@@ -77,7 +77,7 @@ Spark sets the Hive Thrift Server Port environment variable, `HIVE_SERVER2_THRIF
 
 ## Changing Spark Default Settings<a name="spark-change-defaults"></a>
 
-You change the defaults in `spark-defaults.conf` using the `spark-defaults` configuration classification when you create the cluster or the `maximizeResourceAllocation` setting in the `spark` configuration classification\.
+You change the defaults in `spark-defaults.conf` using the `spark-defaults` configuration classification or the `maximizeResourceAllocation` setting in the `spark` configuration classification\.
 
 The following procedures show how to modify settings using the CLI or console\.
 
@@ -85,7 +85,7 @@ The following procedures show how to modify settings using the CLI or console\.
 + Create a cluster with Spark installed and `spark.executor.memory` set to 2G, using the following command, which references a file, `myConfig.json` stored in Amazon S3\.
 
   ```
-  aws emr create-cluster --release-label emr-5.22.0 --applications Name=Spark \
+  aws emr create-cluster --release-label emr-5.26.0 --applications Name=Spark \
   --instance-type m4.large --instance-count 2 --service-role EMR_DefaultRole --ec2-attributes InstanceProfile=EMR_EC2_DefaultRole --configurations https://s3.amazonaws.com/mybucket/myfolder/myConfig.json
   ```
 **Note**  
@@ -124,7 +124,7 @@ Linux line continuation characters \(\\\) are included for readability\. They ca
 + Create a cluster with Spark installed and `maximizeResourceAllocation` set to true using the AWS CLI, referencing a file, `myConfig.json`, stored in Amazon S3\.
 
   ```
-  aws emr create-cluster --release-label emr-5.22.0 --applications Name=Spark \
+  aws emr create-cluster --release-label emr-5.26.0 --applications Name=Spark \
   --instance-type m4.large --instance-count 2 --service-role EMR_DefaultRole --ec2-attributes InstanceProfile=EMR_EC2_DefaultRole --configurations https://s3.amazonaws.com/mybucket/myfolder/myConfig.json
   ```
 **Note**  
@@ -142,3 +142,6 @@ Linux line continuation characters \(\\\) are included for readability\. They ca
     }
   ]
   ```
+
+**Note**  
+With Amazon EMR version 5\.21\.0 and later, you can override cluster configurations and specify additional configuration classifications for each instance group in a running cluster\. You do this by using the Amazon EMR console, the AWS Command Line Interface \(AWS CLI\), or the AWS SDK\. For more information, see [Supplying a Configuration for an Instance Group in a Running Cluster](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps-running-cluster.html)\.

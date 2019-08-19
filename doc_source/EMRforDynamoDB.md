@@ -15,7 +15,7 @@ Apache Hive is a software layer that you can use to query map reduce clusters us
 + Importing data stored in Amazon S3 to DynamoDB\.
 
 **Note**  
-The Amazon EMR\-DynamoDB Connector does not support clusters configured to use [Kerberos authentication](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html)\.
+The Amazon EMR\-DynamoDB Connector does not support clusters configured to use [Kerberos authentication](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html)\.
 
  To perform each of the following tasks, you'll launch an Amazon EMR cluster, specify the location of the data in DynamoDB, and issue Hive commands to manipulate the data in DynamoDB\. 
 

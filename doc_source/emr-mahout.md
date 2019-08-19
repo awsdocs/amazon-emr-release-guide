@@ -11,14 +11,14 @@ Only Mahout version 0\.13\.0 and later are compatible with Spark version 2\.x in
 
 The following table lists the version of Mahout included in the latest release of Amazon EMR, along with the components that Amazon EMR installs with Mahout\.
 
-For the version of components installed with Mahout in this release, see [Release 5\.22\.0 Component Versions](emr-release-5x.md#emr-5220-release)\.
+For the version of components installed with Mahout in this release, see [Release 5\.26\.0 Component Versions](emr-release-5x.md#emr-5260-release)\.
 
 
-**Mahout Version Information for emr\-5\.22\.0**  
+**Mahout Version Information for emr\-5\.26\.0**  
 
 | Amazon EMR Release Label | Mahout Version | Components Installed With Mahout | 
 | --- | --- | --- | 
-| emr\-5\.22\.0 | Mahout 0\.13\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mahout\-client | 
+| emr\-5\.26\.0 | Mahout 0\.13\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mahout\-client | 
 
 **Topics**
 + [Mahout Release History](Mahout-release-history.md)

@@ -2,11 +2,1166 @@
 
 Each tab below lists application versions, release notes, component versions, and configuration classifications available in each Amazon EMR 5\.x release version\.
 
-For a comprehensive diagram of application versions in every release, see [Application Versions in Amazon EMR 5\.x Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)\.
+For a comprehensive diagram of application versions in every release, see [Application Versions in Amazon EMR 5\.x Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)\.
 
-When you launch a cluster, you can choose from multiple release versions of Amazon EMR\. This allows you to test and use application versions that fit your compatibility requirements\. You specify the release version using the *release label*\. Release labels are in the form `emr-x.x.x. For example, emr-5.22.0.`
+When you launch a cluster, you can choose from multiple release versions of Amazon EMR\. This allows you to test and use application versions that fit your compatibility requirements\. You specify the release version using the *release label*\. Release labels are in the form `emr-x.x.x. For example, emr-5.26.0.`
 
 New Amazon EMR release versions are made available in different regions over a period of several days, beginning with the first region on the initial release date\. The latest release version may not be available in your region during this period\.
+
+------
+#### [ 5\.26\.0 ]<a name="emr-5260-release"></a>
+
+**Amazon EMR Release 5\.26\.0**
++ [Application Versions](#emr-5260-app-versions)
++ [Release Notes](#emr-5260-relnotes)
++ [Component Versions](#emr-5260-components)
++ [Configuration Classifications](#emr-5260-class)
+
+**5\.26\.0 Application Versions**
+
+The following applications are supported in this release: [Flink](https://flink.apache.org/), [Ganglia](http://ganglia.info), [Hadoop](http://hadoop.apache.org/docs/current/), [HBase](http://hbase.apache.org/), [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), [Hive](http://hive.apache.org/), [Hue](http://gethue.com/), [JupyterHub](https://jupyterhub.readthedocs.io/en/latest/#), [Livy](https://livy.incubator.apache.org/), [Mahout](http://mahout.apache.org/), [MXNet](https://mxnet.incubator.apache.org/), [Oozie](http://oozie.apache.org/), [Phoenix](https://phoenix.apache.org/), [Pig](http://pig.apache.org/), [Presto](https://prestodb.io/), [Spark](https://spark.apache.org/docs/latest/), [Sqoop](http://sqoop.apache.org/), [TensorFlow](https://www.tensorflow.org/), [Tez](https://tez.apache.org/), [Zeppelin](https://zeppelin.incubator.apache.org/), and [ZooKeeper](https://zookeeper.apache.org)\.
+
+The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
+
+For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
+
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.26.0.png)
+
+**5\.26\.0 Release Notes**
+
+The following release notes include information for Amazon EMR release version 5\.26\.0\. Changes are relative to 5\.25\.0\.
+
+Initial release date: Aug 8, 2019
+
+Last updated date: Aug 19, 2019
+
+**Upgrades**
++ AWS SDK for Java 1\.11\.595
++ HBase 1\.4\.10
++ Phoenix 4\.14\.2
++ Connectors and drivers:
+  + DynamoDB Connector 4\.11\.0
+  + MariaDB Connector 2\.4\.2
+  + Amazon Redshift JDBC Driver 1\.2\.32\.1056
+
+**New Features**
++ \(Beta\) With Amazon EMR 5\.26\.0, you can launch a cluster that integrates with Lake Formation\. This integration provides fine\-grained, column\-level access to databases and tables in the AWS Glue Data Catalog\. It also enables federated single sign\-on to EMR Notebooks or Apache Zeppelin from an enterprise identity system\. For more information, see [Integrating Amazon EMR with AWS Lake Formation \(Beta\)](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-lake-formation.html)\.
++ \(Aug 19, 2019\) Amazon EMR block public access is now available with all Amazon EMR releases that support security groups\. Block public access is an account\-wide setting applied to each AWS Region\. Block public access prevents a cluster from launching when any security group associated with the cluster has a rule that allows inbound traffic from IPv4 0\.0\.0\.0/0 or IPv6 ::/0 \(public access\) on a port, unless a port is specified as an exception\. Port 22 is an exception by default\. For more information, see [Using Amazon EMR Block Public Access](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-block-public-access.html) in the *Amazon EMR Management Guide*\.
+
+**Changes, Enhancements, and Resolved Issues**
++ EMR Notebooks
+  + With EMR 5\.26\.0 and later, EMR Notebooks supports notebook\-scoped Python libraries in addition to the default Python libraries\. You can install notebook\-scoped libraries from within the notebook editor without having to re\-create a cluster or re\-attach a notebook to a cluster\. Notebook\-scoped libraries are created in a Python virtual environment, so they apply only to the current notebook session\. This allows you to isolate notebook dependencies\. For more information, see [Using Notebook Scoped Libraries](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-scoped-libraries.html) in the *Amazon EMR Management Guide*\.
++ EMRFS
+  + You can enable an ETag verification feature \(Beta\) by setting `fs.s3.consistent.metadata.etag.verification.enabled` to `true`\. With this feature, EMRFS uses Amazon S3 ETags to verify that objects being read are the latest available version\. This feature is helpful for read\-after\-update use cases in which files on Amazon S3 are overwritten while retaining the same name\. This ETag verification capability currently does not work with S3 Select\. For more information, see [Configure Consistent View](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emrfs-configure-consistent-view.html)\.
++ Spark
+  + The following optimizations are now enabled by default: dynamic partition pruning, DISTINCT before INTERSECT, improvements in SQL plan statistics inference for JOIN followed by DISTINCT queries, flattening scalar subqueries, optimized join reorder, and bloom filter join\. For more information, see [Optimizing Spark Performance](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-spark-performance.html)\.
+  + Improved whole stage code generation for Sort Merge Join\.
+  + Improved query fragment and subquery reuse\.
+  + Improvements to pre\-allocate executors on Spark start up\.
+  + Bloom filter joins are no longer applied when the smaller side of the join includes a broadcast hint\.
++ Tez
+  + Resolved an issue with Tez\. Tez UI now works on an EMR cluster with multiple master nodes\.
+
+**Known Issues**
++ The improved whole stage code generation capabilities for Sort Merge Join can increase memory pressure when enabled\. This optimization improves performance, but may result in job retries or failures if the `spark.yarn.executor.memoryOverheadFactor` is not tuned to provide enough memory\. To disable this feature, set `spark.sql.sortMergeJoinExec.extendedCodegen.enabled` to false\.
+
+**5\.26\.0 Component Versions**
+
+The components that Amazon EMR installs with this release are listed below\. Some are installed as part of big\-data application packages\. Others are unique to Amazon EMR and installed for system processes and features\. These typically start with `emr` or `aws`\. Big\-data application packages in the most recent Amazon EMR release are usually the latest version found in the community\. We make community releases available in Amazon EMR as quickly as possible\.
+
+Some components need changes from community versions for Amazon EMR\. These components have a version label in the form `CommunityVersion-amzn-EmrVersion`\. For example, if a big\-data community component named `myapp-component` of version 2\.2 has been modified three times for inclusion in different Amazon EMR release versions, its release version is listed as `2.2-amzn-3`\.
+
+
+| Component | Version | Description | 
+| --- | --- | --- | 
+| aws\-sagemaker\-spark\-sdk | 1\.2\.4 | Amazon SageMaker Spark SDK | 
+| emr\-ddb | 4\.11\.0 | Amazon DynamoDB connector for Hadoop ecosystem applications\. | 
+| emr\-goodies | 2\.10\.0 | Extra convenience libraries for the Hadoop ecosystem\. | 
+| emr\-kinesis | 3\.4\.0 | Amazon Kinesis connector for Hadoop ecosystem applications\. | 
+| emr\-s3\-dist\-cp | 2\.12\.0 | Distributed copy application optimized for Amazon S3\. | 
+| emr\-s3\-select | 1\.3\.0 | EMR S3Select Connector | 
+| emrfs | 2\.35\.0 | Amazon S3 connector for Hadoop ecosystem applications\. | 
+| flink\-client | 1\.8\.0 | Apache Flink command line client scripts and applications\. | 
+| ganglia\-monitor | 3\.7\.2 | Embedded Ganglia agent for Hadoop ecosystem applications along with the Ganglia monitoring agent\. | 
+| ganglia\-metadata\-collector | 3\.7\.2 | Ganglia metadata collector for aggregating metrics from Ganglia monitoring agents\. | 
+| ganglia\-web | 3\.7\.1 | Web application for viewing metrics collected by the Ganglia metadata collector\. | 
+| hadoop\-client | 2\.8\.5\-amzn\-4 | Hadoop command\-line clients such as 'hdfs', 'hadoop', or 'yarn'\. | 
+| hadoop\-hdfs\-datanode | 2\.8\.5\-amzn\-4 | HDFS node\-level service for storing blocks\. | 
+| hadoop\-hdfs\-library | 2\.8\.5\-amzn\-4 | HDFS command\-line client and library | 
+| hadoop\-hdfs\-namenode | 2\.8\.5\-amzn\-4 | HDFS service for tracking file names and block locations\. | 
+| hadoop\-hdfs\-journalnode | 2\.8\.5\-amzn\-4 | HDFS service for managing the Hadoop filesystem journal on HA clusters\. | 
+| hadoop\-httpfs\-server | 2\.8\.5\-amzn\-4 | HTTP endpoint for HDFS operations\. | 
+| hadoop\-kms\-server | 2\.8\.5\-amzn\-4 | Cryptographic key management server based on Hadoop's KeyProvider API\. | 
+| hadoop\-mapred | 2\.8\.5\-amzn\-4 | MapReduce execution engine libraries for running a MapReduce application\. | 
+| hadoop\-yarn\-nodemanager | 2\.8\.5\-amzn\-4 | YARN service for managing containers on an individual node\. | 
+| hadoop\-yarn\-resourcemanager | 2\.8\.5\-amzn\-4 | YARN service for allocating and managing cluster resources and distributed applications\. | 
+| hadoop\-yarn\-timeline\-server | 2\.8\.5\-amzn\-4 | Service for retrieving current and historical information for YARN applications\. | 
+| hbase\-hmaster | 1\.4\.10 | Service for an HBase cluster responsible for coordination of Regions and execution of administrative commands\. | 
+| hbase\-region\-server | 1\.4\.10 | Service for serving one or more HBase regions\. | 
+| hbase\-client | 1\.4\.10 | HBase command\-line client\. | 
+| hbase\-rest\-server | 1\.4\.10 | Service providing a RESTful HTTP endpoint for HBase\. | 
+| hbase\-thrift\-server | 1\.4\.10 | Service providing a Thrift endpoint to HBase\. | 
+| hcatalog\-client | 2\.3\.5\-amzn\-0 | The 'hcat' command line client for manipulating hcatalog\-server\. | 
+| hcatalog\-server | 2\.3\.5\-amzn\-0 | Service providing HCatalog, a table and storage management layer for distributed applications\. | 
+| hcatalog\-webhcat\-server | 2\.3\.5\-amzn\-0 | HTTP endpoint providing a REST interface to HCatalog\. | 
+| hive\-client | 2\.3\.5\-amzn\-0 | Hive command line client\. | 
+| hive\-hbase | 2\.3\.5\-amzn\-0 | Hive\-hbase client\. | 
+| hive\-metastore\-server | 2\.3\.5\-amzn\-0 | Service for accessing the Hive metastore, a semantic repository storing metadata for SQL on Hadoop operations\. | 
+| hive\-server2 | 2\.3\.5\-amzn\-0 | Service for accepting Hive queries as web requests\. | 
+| hue\-server | 4\.4\.0 | Web application for analyzing data using Hadoop ecosystem applications | 
+| jupyterhub | 0\.9\.6 | Multi\-user server for Jupyter notebooks | 
+| livy\-server | 0\.6\.0\-incubating | REST interface for interacting with Apache Spark | 
+| nginx | 1\.12\.1 | nginx \[engine x\] is an HTTP and reverse proxy server | 
+| mahout\-client | 0\.13\.0 | Library for machine learning\. | 
+| mxnet | 1\.4\.0 | A flexible, scalable, and efficient library for deep learning\. | 
+| mysql\-server | 5\.5\.54\+ | MySQL database server\. | 
+| nvidia\-cuda | 9\.2\.88 | Nvidia drivers and Cuda toolkit | 
+| oozie\-client | 5\.1\.0 | Oozie command\-line client\. | 
+| oozie\-server | 5\.1\.0 | Service for accepting Oozie workflow requests\. | 
+| opencv | 3\.4\.0 | Open Source Computer Vision Library\. | 
+| phoenix\-library | 4\.14\.2\-HBase\-1\.4 | The phoenix libraries for server and client | 
+| phoenix\-query\-server | 4\.14\.2\-HBase\-1\.4 | A light weight server providing JDBC access as well as Protocol Buffers and JSON format access to the Avatica API  | 
+| presto\-coordinator | 0\.220 | Service for accepting queries and managing query execution among presto\-workers\. | 
+| presto\-worker | 0\.220 | Service for executing pieces of a query\. | 
+| pig\-client | 0\.17\.0 | Pig command\-line client\. | 
+| r | 3\.4\.1 | The R Project for Statistical Computing | 
+| spark\-client | 2\.4\.3 | Spark command\-line clients\. | 
+| spark\-history\-server | 2\.4\.3 | Web UI for viewing logged events for the lifetime of a completed Spark application\. | 
+| spark\-on\-yarn | 2\.4\.3 | In\-memory execution engine for YARN\. | 
+| spark\-yarn\-slave | 2\.4\.3 | Apache Spark libraries needed by YARN slaves\. | 
+| sqoop\-client | 1\.4\.7 | Apache Sqoop command\-line client\. | 
+| tensorflow | 1\.13\.1 | TensorFlow open source software library for high performance numerical computation\. | 
+| tez\-on\-yarn | 0\.9\.2 | The tez YARN application and libraries\. | 
+| webserver | 2\.4\.25\+ | Apache HTTP server\. | 
+| zeppelin\-server | 0\.8\.1 | Web\-based notebook that enables interactive data analytics\. | 
+| zookeeper\-server | 3\.4\.14 | Centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services\. | 
+| zookeeper\-client | 3\.4\.14 | ZooKeeper command line client\. | 
+
+**5\.26\.0 Configuration Classifications**
+
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+
+
+**emr\-5\.26\.0 Classifications**  
+
+| Classifications | Description | 
+| --- | --- | 
+| capacity\-scheduler | Change values in Hadoop's capacity\-scheduler\.xml file\. | 
+| container\-log4j | Change values in Hadoop YARN's container\-log4j\.properties file\. | 
+| core\-site | Change values in Hadoop's core\-site\.xml file\. | 
+| emrfs\-site | Change EMRFS settings\. | 
+| flink\-conf | Change flink\-conf\.yaml settings\. | 
+| flink\-log4j | Change Flink log4j\.properties settings\. | 
+| flink\-log4j\-yarn\-session | Change Flink log4j\-yarn\-session\.properties settings\. | 
+| flink\-log4j\-cli | Change Flink log4j\-cli\.properties settings\. | 
+| hadoop\-env | Change values in the Hadoop environment for all Hadoop components\. | 
+| hadoop\-log4j | Change values in Hadoop's log4j\.properties file\. | 
+| hadoop\-ssl\-server | Change hadoop ssl server configuration | 
+| hadoop\-ssl\-client | Change hadoop ssl client configuration | 
+| hbase | Amazon EMR\-curated settings for Apache HBase\. | 
+| hbase\-env | Change values in HBase's environment\. | 
+| hbase\-log4j | Change values in HBase's hbase\-log4j\.properties file\. | 
+| hbase\-metrics | Change values in HBase's hadoop\-metrics2\-hbase\.properties file\. | 
+| hbase\-policy | Change values in HBase's hbase\-policy\.xml file\. | 
+| hbase\-site | Change values in HBase's hbase\-site\.xml file\. | 
+| hdfs\-encryption\-zones | Configure HDFS encryption zones\. | 
+| hdfs\-site | Change values in HDFS's hdfs\-site\.xml\. | 
+| hcatalog\-env | Change values in HCatalog's environment\. | 
+| hcatalog\-server\-jndi | Change values in HCatalog's jndi\.properties\. | 
+| hcatalog\-server\-proto\-hive\-site | Change values in HCatalog's proto\-hive\-site\.xml\. | 
+| hcatalog\-webhcat\-env | Change values in HCatalog WebHCat's environment\. | 
+| hcatalog\-webhcat\-log4j2 | Change values in HCatalog WebHCat's log4j2\.properties\. | 
+| hcatalog\-webhcat\-site | Change values in HCatalog WebHCat's webhcat\-site\.xml file\. | 
+| hive\-beeline\-log4j2 | Change values in Hive's beeline\-log4j2\.properties file\. | 
+| hive\-parquet\-logging | Change values in Hive's parquet\-logging\.properties file\. | 
+| hive\-env | Change values in the Hive environment\. | 
+| hive\-exec\-log4j2 | Change values in Hive's hive\-exec\-log4j2\.properties file\. | 
+| hive\-llap\-daemon\-log4j2 | Change values in Hive's llap\-daemon\-log4j2\.properties file\. | 
+| hive\-log4j2 | Change values in Hive's hive\-log4j2\.properties file\. | 
+| hive\-site | Change values in Hive's hive\-site\.xml file | 
+| hiveserver2\-site | Change values in Hive Server2's hiveserver2\-site\.xml file | 
+| hue\-ini | Change values in Hue's ini file | 
+| httpfs\-env | Change values in the HTTPFS environment\. | 
+| httpfs\-site | Change values in Hadoop's httpfs\-site\.xml file\. | 
+| hadoop\-kms\-acls | Change values in Hadoop's kms\-acls\.xml file\. | 
+| hadoop\-kms\-env | Change values in the Hadoop KMS environment\. | 
+| hadoop\-kms\-log4j | Change values in Hadoop's kms\-log4j\.properties file\. | 
+| hadoop\-kms\-site | Change values in Hadoop's kms\-site\.xml file\. | 
+| jupyter\-notebook\-conf | Change values in Jupyter Notebook's jupyter\_notebook\_config\.py file\. | 
+| jupyter\-hub\-conf | Change values in JupyterHubs's jupyterhub\_config\.py file\. | 
+| jupyter\-s3\-conf | Configure Jupyter Notebook S3 persistence\. | 
+| jupyter\-sparkmagic\-conf | Change values in Sparkmagic's config\.json file\. | 
+| livy\-conf | Change values in Livy's livy\.conf file\. | 
+| livy\-env | Change values in the Livy environment\. | 
+| livy\-log4j | Change Livy log4j\.properties settings\. | 
+| mapred\-env | Change values in the MapReduce application's environment\. | 
+| mapred\-site | Change values in the MapReduce application's mapred\-site\.xml file\. | 
+| oozie\-env | Change values in Oozie's environment\. | 
+| oozie\-log4j | Change values in Oozie's oozie\-log4j\.properties file\. | 
+| oozie\-site | Change values in Oozie's oozie\-site\.xml file\. | 
+| phoenix\-hbase\-metrics | Change values in Phoenix's hadoop\-metrics2\-hbase\.properties file\. | 
+| phoenix\-hbase\-site | Change values in Phoenix's hbase\-site\.xml file\. | 
+| phoenix\-log4j | Change values in Phoenix's log4j\.properties file\. | 
+| phoenix\-metrics | Change values in Phoenix's hadoop\-metrics2\-phoenix\.properties file\. | 
+| pig\-env | Change values in the Pig environment\. | 
+| pig\-properties | Change values in Pig's pig\.properties file\. | 
+| pig\-log4j | Change values in Pig's log4j\.properties file\. | 
+| presto\-log | Change values in Presto's log\.properties file\. | 
+| presto\-config | Change values in Presto's config\.properties file\. | 
+| presto\-password\-authenticator | Change values in Presto's password\-authenticator\.properties file\. | 
+| presto\-env | Change values in Presto's presto\-env\.sh file\. | 
+| presto\-node | Change values in Presto's node\.properties file\. | 
+| presto\-connector\-blackhole | Change values in Presto's blackhole\.properties file\. | 
+| presto\-connector\-cassandra | Change values in Presto's cassandra\.properties file\. | 
+| presto\-connector\-hive | Change values in Presto's hive\.properties file\. | 
+| presto\-connector\-jmx | Change values in Presto's jmx\.properties file\. | 
+| presto\-connector\-kafka | Change values in Presto's kafka\.properties file\. | 
+| presto\-connector\-localfile | Change values in Presto's localfile\.properties file\. | 
+| presto\-connector\-memory | Change values in Presto's memory\.properties file\. | 
+| presto\-connector\-mongodb | Change values in Presto's mongodb\.properties file\. | 
+| presto\-connector\-mysql | Change values in Presto's mysql\.properties file\. | 
+| presto\-connector\-postgresql | Change values in Presto's postgresql\.properties file\. | 
+| presto\-connector\-raptor | Change values in Presto's raptor\.properties file\. | 
+| presto\-connector\-redis | Change values in Presto's redis\.properties file\. | 
+| presto\-connector\-redshift | Change values in Presto's redshift\.properties file\. | 
+| presto\-connector\-tpch | Change values in Presto's tpch\.properties file\. | 
+| presto\-connector\-tpcds | Change values in Presto's tpcds\.properties file\. | 
+| recordserver\-env | Change values in the EMR RecordServer environment\. | 
+| recordserver\-conf | Change values in EMR RecordServer's erver\.properties file\. | 
+| recordserver\-log4j | Change values in EMR RecordServer's log4j\.properties file\. | 
+| spark | Amazon EMR\-curated settings for Apache Spark\. | 
+| spark\-defaults | Change values in Spark's spark\-defaults\.conf file\. | 
+| spark\-env | Change values in the Spark environment\. | 
+| spark\-hive\-site | Change values in Spark's hive\-site\.xml file | 
+| spark\-log4j | Change values in Spark's log4j\.properties file\. | 
+| spark\-metrics | Change values in Spark's metrics\.properties file\. | 
+| sqoop\-env | Change values in Sqoop's environment\. | 
+| sqoop\-oraoop\-site | Change values in Sqoop OraOop's oraoop\-site\.xml file\. | 
+| sqoop\-site | Change values in Sqoop's sqoop\-site\.xml file\. | 
+| tez\-site | Change values in Tez's tez\-site\.xml file\. | 
+| yarn\-env | Change values in the YARN environment\. | 
+| yarn\-site | Change values in YARN's yarn\-site\.xml file\. | 
+| zeppelin\-env | Change values in the Zeppelin environment\. | 
+| zookeeper\-config | Change values in ZooKeeper's zoo\.cfg file\. | 
+| zookeeper\-log4j | Change values in ZooKeeper's log4j\.properties file\. | 
+
+------
+#### [ 5\.25\.0 ]<a name="emr-5250-release"></a>
+
+**Amazon EMR Release 5\.25\.0**
++ [Application Versions](#emr-5250-app-versions)
++ [Release Notes](#emr-5250-relnotes)
++ [Component Versions](#emr-5250-components)
++ [Configuration Classifications](#emr-5250-class)
+
+**5\.25\.0 Application Versions**
+
+The following applications are supported in this release: [Flink](https://flink.apache.org/), [Ganglia](http://ganglia.info), [Hadoop](http://hadoop.apache.org/docs/current/), [HBase](http://hbase.apache.org/), [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), [Hive](http://hive.apache.org/), [Hue](http://gethue.com/), [JupyterHub](https://jupyterhub.readthedocs.io/en/latest/#), [Livy](https://livy.incubator.apache.org/), [Mahout](http://mahout.apache.org/), [MXNet](https://mxnet.incubator.apache.org/), [Oozie](http://oozie.apache.org/), [Phoenix](https://phoenix.apache.org/), [Pig](http://pig.apache.org/), [Presto](https://prestodb.io/), [Spark](https://spark.apache.org/docs/latest/), [Sqoop](http://sqoop.apache.org/), [TensorFlow](https://www.tensorflow.org/), [Tez](https://tez.apache.org/), [Zeppelin](https://zeppelin.incubator.apache.org/), and [ZooKeeper](https://zookeeper.apache.org)\.
+
+The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
+
+For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
+
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.25.0.png)
+
+**5\.25\.0 Release Notes**
+
+The following release notes include information for Amazon EMR release version 5\.25\.0\. Changes are relative to 5\.24\.1\.
+
+Initial release date: July 17, 2019
+
+Last updated date: August 5, 2019
+
+**Amazon EMR 5\.25\.0**
+
+**Upgrades**
++ AWS SDK for Java 1\.11\.566
++ Hive 2\.3\.5
++ Presto 0\.220
++ Spark 2\.4\.3
++ TensorFlow 1\.13\.1
++ Tez 0\.9\.2
++ Zookeeper 3\.4\.14
+
+**Changes, Enhancements, and Resolved Issues**
++ Spark
+  + Improved the performance of some joins by using Bloom filters to pre\-filter inputs\. The optimization is disabled by default and can be enabled by setting the Spark configuration parameter `spark.sql.bloomFilterJoin.enabled` to `true`\.
+  + Improved the performance of grouping by string type columns\.
+  + Improved the default Spark executor memory and cores configuration of R4 instance types for clusters without HBase installed\.
+  + Resolved a previous issue with the dynamic partition pruning feature where the pruned table has to be on the left side of the join\.
+  + Improved DISTINCT before INTERSECT optimization to apply to additional cases involving aliases\.
+  + Improved SQL plan statistics inference for JOIN followed by DISTINCT queries\. This improvement is disabled by default and can be enabled by setting the Spark configuration parameter `spark.sql.statsImprovements.enabled` to `true`\. This optimization is required by the Distinct before Intersect feature and will be enabled automatically when `spark.sql.optimizer.distinctBeforeIntersect.enabled` is set to `true`\.
+  + Optimized join order based on table size and filters\. This optimization is disabled by default and can be enabled by setting the Spark configuration parameter `spark.sql.optimizer.sizeBasedJoinReorder.enabled` to `true`\.
+
+  For more information, see [Optimizing Spark Performance](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-spark-performance.html)\.
++ EMRFS
+  + The EMRFS setting, `fs.s3.buckets.create.enabled`, is now disabled by default\. With testing, we found that disabling this setting improves performance and prevents unintentional creation of S3 buckets\. If your application relies on this functionality, you can enable it by setting the property `fs.s3.buckets.create.enabled` to `true` in the `emrfs-site` configuration classification\. For information, see [Supplying a Configuration when Creating a Cluster](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps-create-cluster.html)\.
++ Local Disk Encryption and S3 Encryption Improvements in Security Configurations \(August 5, 2019\)
+  + Separated Amazon S3 encryption settings from local disk encryption settings in security configuration setup\.
+  + Added an option to enable EBS encryption with release 5\.24\.0 and later\. Selecting this option encrypts the root device volume in addition to storage volumes\. Previous versions required using a custom AMI to encrypt the root device volume\.
+  + For more information, see [Encryption Options](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-data-encryption-options.html) in the *Amazon EMR Management Guide*\.
+
+**5\.25\.0 Component Versions**
+
+The components that Amazon EMR installs with this release are listed below\. Some are installed as part of big\-data application packages\. Others are unique to Amazon EMR and installed for system processes and features\. These typically start with `emr` or `aws`\. Big\-data application packages in the most recent Amazon EMR release are usually the latest version found in the community\. We make community releases available in Amazon EMR as quickly as possible\.
+
+Some components need changes from community versions for Amazon EMR\. These components have a version label in the form `CommunityVersion-amzn-EmrVersion`\. For example, if a big\-data community component named `myapp-component` of version 2\.2 has been modified three times for inclusion in different Amazon EMR release versions, its release version is listed as `2.2-amzn-3`\.
+
+
+| Component | Version | Description | 
+| --- | --- | --- | 
+| aws\-sagemaker\-spark\-sdk | 1\.2\.4 | Amazon SageMaker Spark SDK | 
+| emr\-ddb | 4\.10\.0 | Amazon DynamoDB connector for Hadoop ecosystem applications\. | 
+| emr\-goodies | 2\.9\.0 | Extra convenience libraries for the Hadoop ecosystem\. | 
+| emr\-kinesis | 3\.4\.0 | Amazon Kinesis connector for Hadoop ecosystem applications\. | 
+| emr\-s3\-dist\-cp | 2\.11\.0 | Distributed copy application optimized for Amazon S3\. | 
+| emr\-s3\-select | 1\.3\.0 | EMR S3Select Connector | 
+| emrfs | 2\.34\.0 | Amazon S3 connector for Hadoop ecosystem applications\. | 
+| flink\-client | 1\.8\.0 | Apache Flink command line client scripts and applications\. | 
+| ganglia\-monitor | 3\.7\.2 | Embedded Ganglia agent for Hadoop ecosystem applications along with the Ganglia monitoring agent\. | 
+| ganglia\-metadata\-collector | 3\.7\.2 | Ganglia metadata collector for aggregating metrics from Ganglia monitoring agents\. | 
+| ganglia\-web | 3\.7\.1 | Web application for viewing metrics collected by the Ganglia metadata collector\. | 
+| hadoop\-client | 2\.8\.5\-amzn\-4 | Hadoop command\-line clients such as 'hdfs', 'hadoop', or 'yarn'\. | 
+| hadoop\-hdfs\-datanode | 2\.8\.5\-amzn\-4 | HDFS node\-level service for storing blocks\. | 
+| hadoop\-hdfs\-library | 2\.8\.5\-amzn\-4 | HDFS command\-line client and library | 
+| hadoop\-hdfs\-namenode | 2\.8\.5\-amzn\-4 | HDFS service for tracking file names and block locations\. | 
+| hadoop\-hdfs\-journalnode | 2\.8\.5\-amzn\-4 | HDFS service for managing the Hadoop filesystem journal on HA clusters\. | 
+| hadoop\-httpfs\-server | 2\.8\.5\-amzn\-4 | HTTP endpoint for HDFS operations\. | 
+| hadoop\-kms\-server | 2\.8\.5\-amzn\-4 | Cryptographic key management server based on Hadoop's KeyProvider API\. | 
+| hadoop\-mapred | 2\.8\.5\-amzn\-4 | MapReduce execution engine libraries for running a MapReduce application\. | 
+| hadoop\-yarn\-nodemanager | 2\.8\.5\-amzn\-4 | YARN service for managing containers on an individual node\. | 
+| hadoop\-yarn\-resourcemanager | 2\.8\.5\-amzn\-4 | YARN service for allocating and managing cluster resources and distributed applications\. | 
+| hadoop\-yarn\-timeline\-server | 2\.8\.5\-amzn\-4 | Service for retrieving current and historical information for YARN applications\. | 
+| hbase\-hmaster | 1\.4\.9 | Service for an HBase cluster responsible for coordination of Regions and execution of administrative commands\. | 
+| hbase\-region\-server | 1\.4\.9 | Service for serving one or more HBase regions\. | 
+| hbase\-client | 1\.4\.9 | HBase command\-line client\. | 
+| hbase\-rest\-server | 1\.4\.9 | Service providing a RESTful HTTP endpoint for HBase\. | 
+| hbase\-thrift\-server | 1\.4\.9 | Service providing a Thrift endpoint to HBase\. | 
+| hcatalog\-client | 2\.3\.5\-amzn\-0 | The 'hcat' command line client for manipulating hcatalog\-server\. | 
+| hcatalog\-server | 2\.3\.5\-amzn\-0 | Service providing HCatalog, a table and storage management layer for distributed applications\. | 
+| hcatalog\-webhcat\-server | 2\.3\.5\-amzn\-0 | HTTP endpoint providing a REST interface to HCatalog\. | 
+| hive\-client | 2\.3\.5\-amzn\-0 | Hive command line client\. | 
+| hive\-hbase | 2\.3\.5\-amzn\-0 | Hive\-hbase client\. | 
+| hive\-metastore\-server | 2\.3\.5\-amzn\-0 | Service for accessing the Hive metastore, a semantic repository storing metadata for SQL on Hadoop operations\. | 
+| hive\-server2 | 2\.3\.5\-amzn\-0 | Service for accepting Hive queries as web requests\. | 
+| hue\-server | 4\.4\.0 | Web application for analyzing data using Hadoop ecosystem applications | 
+| jupyterhub | 0\.9\.6 | Multi\-user server for Jupyter notebooks | 
+| livy\-server | 0\.6\.0\-incubating | REST interface for interacting with Apache Spark | 
+| nginx | 1\.12\.1 | nginx \[engine x\] is an HTTP and reverse proxy server | 
+| mahout\-client | 0\.13\.0 | Library for machine learning\. | 
+| mxnet | 1\.4\.0 | A flexible, scalable, and efficient library for deep learning\. | 
+| mysql\-server | 5\.5\.54\+ | MySQL database server\. | 
+| nvidia\-cuda | 9\.2\.88 | Nvidia drivers and Cuda toolkit | 
+| oozie\-client | 5\.1\.0 | Oozie command\-line client\. | 
+| oozie\-server | 5\.1\.0 | Service for accepting Oozie workflow requests\. | 
+| opencv | 3\.4\.0 | Open Source Computer Vision Library\. | 
+| phoenix\-library | 4\.14\.1\-HBase\-1\.4 | The phoenix libraries for server and client | 
+| phoenix\-query\-server | 4\.14\.1\-HBase\-1\.4 | A light weight server providing JDBC access as well as Protocol Buffers and JSON format access to the Avatica API  | 
+| presto\-coordinator | 0\.220 | Service for accepting queries and managing query execution among presto\-workers\. | 
+| presto\-worker | 0\.220 | Service for executing pieces of a query\. | 
+| pig\-client | 0\.17\.0 | Pig command\-line client\. | 
+| r | 3\.4\.1 | The R Project for Statistical Computing | 
+| spark\-client | 2\.4\.3 | Spark command\-line clients\. | 
+| spark\-history\-server | 2\.4\.3 | Web UI for viewing logged events for the lifetime of a completed Spark application\. | 
+| spark\-on\-yarn | 2\.4\.3 | In\-memory execution engine for YARN\. | 
+| spark\-yarn\-slave | 2\.4\.3 | Apache Spark libraries needed by YARN slaves\. | 
+| sqoop\-client | 1\.4\.7 | Apache Sqoop command\-line client\. | 
+| tensorflow | 1\.13\.1 | TensorFlow open source software library for high performance numerical computation\. | 
+| tez\-on\-yarn | 0\.9\.2 | The tez YARN application and libraries\. | 
+| webserver | 2\.4\.25\+ | Apache HTTP server\. | 
+| zeppelin\-server | 0\.8\.1 | Web\-based notebook that enables interactive data analytics\. | 
+| zookeeper\-server | 3\.4\.14 | Centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services\. | 
+| zookeeper\-client | 3\.4\.14 | ZooKeeper command line client\. | 
+
+**5\.25\.0 Configuration Classifications**
+
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+
+
+**emr\-5\.25\.0 Classifications**  
+
+| Classifications | Description | 
+| --- | --- | 
+| capacity\-scheduler | Change values in Hadoop's capacity\-scheduler\.xml file\. | 
+| container\-log4j | Change values in Hadoop YARN's container\-log4j\.properties file\. | 
+| core\-site | Change values in Hadoop's core\-site\.xml file\. | 
+| emrfs\-site | Change EMRFS settings\. | 
+| flink\-conf | Change flink\-conf\.yaml settings\. | 
+| flink\-log4j | Change Flink log4j\.properties settings\. | 
+| flink\-log4j\-yarn\-session | Change Flink log4j\-yarn\-session\.properties settings\. | 
+| flink\-log4j\-cli | Change Flink log4j\-cli\.properties settings\. | 
+| hadoop\-env | Change values in the Hadoop environment for all Hadoop components\. | 
+| hadoop\-log4j | Change values in Hadoop's log4j\.properties file\. | 
+| hadoop\-ssl\-server | Change hadoop ssl server configuration | 
+| hadoop\-ssl\-client | Change hadoop ssl client configuration | 
+| hbase | Amazon EMR\-curated settings for Apache HBase\. | 
+| hbase\-env | Change values in HBase's environment\. | 
+| hbase\-log4j | Change values in HBase's hbase\-log4j\.properties file\. | 
+| hbase\-metrics | Change values in HBase's hadoop\-metrics2\-hbase\.properties file\. | 
+| hbase\-policy | Change values in HBase's hbase\-policy\.xml file\. | 
+| hbase\-site | Change values in HBase's hbase\-site\.xml file\. | 
+| hdfs\-encryption\-zones | Configure HDFS encryption zones\. | 
+| hdfs\-site | Change values in HDFS's hdfs\-site\.xml\. | 
+| hcatalog\-env | Change values in HCatalog's environment\. | 
+| hcatalog\-server\-jndi | Change values in HCatalog's jndi\.properties\. | 
+| hcatalog\-server\-proto\-hive\-site | Change values in HCatalog's proto\-hive\-site\.xml\. | 
+| hcatalog\-webhcat\-env | Change values in HCatalog WebHCat's environment\. | 
+| hcatalog\-webhcat\-log4j2 | Change values in HCatalog WebHCat's log4j2\.properties\. | 
+| hcatalog\-webhcat\-site | Change values in HCatalog WebHCat's webhcat\-site\.xml file\. | 
+| hive\-beeline\-log4j2 | Change values in Hive's beeline\-log4j2\.properties file\. | 
+| hive\-parquet\-logging | Change values in Hive's parquet\-logging\.properties file\. | 
+| hive\-env | Change values in the Hive environment\. | 
+| hive\-exec\-log4j2 | Change values in Hive's hive\-exec\-log4j2\.properties file\. | 
+| hive\-llap\-daemon\-log4j2 | Change values in Hive's llap\-daemon\-log4j2\.properties file\. | 
+| hive\-log4j2 | Change values in Hive's hive\-log4j2\.properties file\. | 
+| hive\-site | Change values in Hive's hive\-site\.xml file | 
+| hiveserver2\-site | Change values in Hive Server2's hiveserver2\-site\.xml file | 
+| hue\-ini | Change values in Hue's ini file | 
+| httpfs\-env | Change values in the HTTPFS environment\. | 
+| httpfs\-site | Change values in Hadoop's httpfs\-site\.xml file\. | 
+| hadoop\-kms\-acls | Change values in Hadoop's kms\-acls\.xml file\. | 
+| hadoop\-kms\-env | Change values in the Hadoop KMS environment\. | 
+| hadoop\-kms\-log4j | Change values in Hadoop's kms\-log4j\.properties file\. | 
+| hadoop\-kms\-site | Change values in Hadoop's kms\-site\.xml file\. | 
+| jupyter\-notebook\-conf | Change values in Jupyter Notebook's jupyter\_notebook\_config\.py file\. | 
+| jupyter\-hub\-conf | Change values in JupyterHubs's jupyterhub\_config\.py file\. | 
+| jupyter\-s3\-conf | Configure Jupyter Notebook S3 persistence\. | 
+| jupyter\-sparkmagic\-conf | Change values in Sparkmagic's config\.json file\. | 
+| livy\-conf | Change values in Livy's livy\.conf file\. | 
+| livy\-env | Change values in the Livy environment\. | 
+| livy\-log4j | Change Livy log4j\.properties settings\. | 
+| mapred\-env | Change values in the MapReduce application's environment\. | 
+| mapred\-site | Change values in the MapReduce application's mapred\-site\.xml file\. | 
+| oozie\-env | Change values in Oozie's environment\. | 
+| oozie\-log4j | Change values in Oozie's oozie\-log4j\.properties file\. | 
+| oozie\-site | Change values in Oozie's oozie\-site\.xml file\. | 
+| phoenix\-hbase\-metrics | Change values in Phoenix's hadoop\-metrics2\-hbase\.properties file\. | 
+| phoenix\-hbase\-site | Change values in Phoenix's hbase\-site\.xml file\. | 
+| phoenix\-log4j | Change values in Phoenix's log4j\.properties file\. | 
+| phoenix\-metrics | Change values in Phoenix's hadoop\-metrics2\-phoenix\.properties file\. | 
+| pig\-env | Change values in the Pig environment\. | 
+| pig\-properties | Change values in Pig's pig\.properties file\. | 
+| pig\-log4j | Change values in Pig's log4j\.properties file\. | 
+| presto\-log | Change values in Presto's log\.properties file\. | 
+| presto\-config | Change values in Presto's config\.properties file\. | 
+| presto\-password\-authenticator | Change values in Presto's password\-authenticator\.properties file\. | 
+| presto\-env | Change values in Presto's presto\-env\.sh file\. | 
+| presto\-node | Change values in Presto's node\.properties file\. | 
+| presto\-connector\-blackhole | Change values in Presto's blackhole\.properties file\. | 
+| presto\-connector\-cassandra | Change values in Presto's cassandra\.properties file\. | 
+| presto\-connector\-hive | Change values in Presto's hive\.properties file\. | 
+| presto\-connector\-jmx | Change values in Presto's jmx\.properties file\. | 
+| presto\-connector\-kafka | Change values in Presto's kafka\.properties file\. | 
+| presto\-connector\-localfile | Change values in Presto's localfile\.properties file\. | 
+| presto\-connector\-memory | Change values in Presto's memory\.properties file\. | 
+| presto\-connector\-mongodb | Change values in Presto's mongodb\.properties file\. | 
+| presto\-connector\-mysql | Change values in Presto's mysql\.properties file\. | 
+| presto\-connector\-postgresql | Change values in Presto's postgresql\.properties file\. | 
+| presto\-connector\-raptor | Change values in Presto's raptor\.properties file\. | 
+| presto\-connector\-redis | Change values in Presto's redis\.properties file\. | 
+| presto\-connector\-redshift | Change values in Presto's redshift\.properties file\. | 
+| presto\-connector\-tpch | Change values in Presto's tpch\.properties file\. | 
+| presto\-connector\-tpcds | Change values in Presto's tpcds\.properties file\. | 
+| recordserver\-env | Change values in the EMR RecordServer environment\. | 
+| recordserver\-conf | Change values in EMR RecordServer's erver\.properties file\. | 
+| recordserver\-log4j | Change values in EMR RecordServer's log4j\.properties file\. | 
+| spark | Amazon EMR\-curated settings for Apache Spark\. | 
+| spark\-defaults | Change values in Spark's spark\-defaults\.conf file\. | 
+| spark\-env | Change values in the Spark environment\. | 
+| spark\-hive\-site | Change values in Spark's hive\-site\.xml file | 
+| spark\-log4j | Change values in Spark's log4j\.properties file\. | 
+| spark\-metrics | Change values in Spark's metrics\.properties file\. | 
+| sqoop\-env | Change values in Sqoop's environment\. | 
+| sqoop\-oraoop\-site | Change values in Sqoop OraOop's oraoop\-site\.xml file\. | 
+| sqoop\-site | Change values in Sqoop's sqoop\-site\.xml file\. | 
+| tez\-site | Change values in Tez's tez\-site\.xml file\. | 
+| yarn\-env | Change values in the YARN environment\. | 
+| yarn\-site | Change values in YARN's yarn\-site\.xml file\. | 
+| zeppelin\-env | Change values in the Zeppelin environment\. | 
+| zookeeper\-config | Change values in ZooKeeper's zoo\.cfg file\. | 
+| zookeeper\-log4j | Change values in ZooKeeper's log4j\.properties file\. | 
+
+------
+#### [ 5\.24\.x ]<a name="emr-524x-releases"></a>
+
+There are multiple releases within the 5\.24 series\. Choose a link below to see information for a specific release within this tab\.
+
+**[5.24.1](#emr-5241-release) \(Latest\) \| [5.24.0](#emr-5240-release)**
+
+**Amazon EMR Release 5\.24\.1**
++ [Application Versions](#emr-5241-app-versions)
++ [Release Notes](#emr-5241-relnotes)
++ [Component Versions](#emr-5241-components)
++ [Configuration Classifications](#emr-5241-class)
+
+**Release 5\.24\.1 Application Versions**
+
+The following applications are supported in this release: [Flink](https://flink.apache.org/), [Ganglia](http://ganglia.info), [Hadoop](http://hadoop.apache.org/docs/current/), [HBase](http://hbase.apache.org/), [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), [Hive](http://hive.apache.org/), [Hue](http://gethue.com/), [JupyterHub](https://jupyterhub.readthedocs.io/en/latest/#), [Livy](https://livy.incubator.apache.org/), [Mahout](http://mahout.apache.org/), [MXNet](https://mxnet.incubator.apache.org/), [Oozie](http://oozie.apache.org/), [Phoenix](https://phoenix.apache.org/), [Pig](http://pig.apache.org/), [Presto](https://prestodb.io/), [Spark](https://spark.apache.org/docs/latest/), [Sqoop](http://sqoop.apache.org/), [TensorFlow](https://www.tensorflow.org/), [Tez](https://tez.apache.org/), [Zeppelin](https://zeppelin.incubator.apache.org/), and [ZooKeeper](https://zookeeper.apache.org)\.
+
+The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
+
+For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
+
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.24.1.png)
+
+**Release 5\.24\.1 Release Notes**
+
+The following release notes include information for Amazon EMR release version 5\.24\.1\. Changes are relative to 5\.24\.0\.
+
+Initial release date: June 26, 2019
+
+**Changes, Enhancements, and Resolved Issues**
++ Updated the default Amazon Linux AMI for EMR to include important Linux kernel security updates, including the TCP SACK Denial of Service Issue \([AWS\-2019\-005](http://aws.amazon.com/security/security-bulletins/AWS-2019-005/)\)\.
+
+**Release 5\.24\.1 Component Versions**
+
+The components that Amazon EMR installs with this release are listed below\. Some are installed as part of big\-data application packages\. Others are unique to Amazon EMR and installed for system processes and features\. These typically start with `emr` or `aws`\. Big\-data application packages in the most recent Amazon EMR release are usually the latest version found in the community\. We make community releases available in Amazon EMR as quickly as possible\.
+
+Some components need changes from community versions for Amazon EMR\. These components have a version label in the form `CommunityVersion-amzn-EmrVersion`\. For example, if a big\-data community component named `myapp-component` of version 2\.2 has been modified three times for inclusion in different Amazon EMR release versions, its release version is listed as `2.2-amzn-3`\.
+
+
+| Component | Version | Description | 
+| --- | --- | --- | 
+| aws\-sagemaker\-spark\-sdk | 1\.2\.1 | Amazon SageMaker Spark SDK | 
+| emr\-ddb | 4\.9\.0 | Amazon DynamoDB connector for Hadoop ecosystem applications\. | 
+| emr\-goodies | 2\.8\.0 | Extra convenience libraries for the Hadoop ecosystem\. | 
+| emr\-kinesis | 3\.4\.0 | Amazon Kinesis connector for Hadoop ecosystem applications\. | 
+| emr\-s3\-dist\-cp | 2\.11\.0 | Distributed copy application optimized for Amazon S3\. | 
+| emr\-s3\-select | 1\.3\.0 | EMR S3Select Connector | 
+| emrfs | 2\.33\.0 | Amazon S3 connector for Hadoop ecosystem applications\. | 
+| flink\-client | 1\.8\.0 | Apache Flink command line client scripts and applications\. | 
+| ganglia\-monitor | 3\.7\.2 | Embedded Ganglia agent for Hadoop ecosystem applications along with the Ganglia monitoring agent\. | 
+| ganglia\-metadata\-collector | 3\.7\.2 | Ganglia metadata collector for aggregating metrics from Ganglia monitoring agents\. | 
+| ganglia\-web | 3\.7\.1 | Web application for viewing metrics collected by the Ganglia metadata collector\. | 
+| hadoop\-client | 2\.8\.5\-amzn\-4 | Hadoop command\-line clients such as 'hdfs', 'hadoop', or 'yarn'\. | 
+| hadoop\-hdfs\-datanode | 2\.8\.5\-amzn\-4 | HDFS node\-level service for storing blocks\. | 
+| hadoop\-hdfs\-library | 2\.8\.5\-amzn\-4 | HDFS command\-line client and library | 
+| hadoop\-hdfs\-namenode | 2\.8\.5\-amzn\-4 | HDFS service for tracking file names and block locations\. | 
+| hadoop\-hdfs\-journalnode | 2\.8\.5\-amzn\-4 | HDFS service for managing the Hadoop filesystem journal on HA clusters\. | 
+| hadoop\-httpfs\-server | 2\.8\.5\-amzn\-4 | HTTP endpoint for HDFS operations\. | 
+| hadoop\-kms\-server | 2\.8\.5\-amzn\-4 | Cryptographic key management server based on Hadoop's KeyProvider API\. | 
+| hadoop\-mapred | 2\.8\.5\-amzn\-4 | MapReduce execution engine libraries for running a MapReduce application\. | 
+| hadoop\-yarn\-nodemanager | 2\.8\.5\-amzn\-4 | YARN service for managing containers on an individual node\. | 
+| hadoop\-yarn\-resourcemanager | 2\.8\.5\-amzn\-4 | YARN service for allocating and managing cluster resources and distributed applications\. | 
+| hadoop\-yarn\-timeline\-server | 2\.8\.5\-amzn\-4 | Service for retrieving current and historical information for YARN applications\. | 
+| hbase\-hmaster | 1\.4\.9 | Service for an HBase cluster responsible for coordination of Regions and execution of administrative commands\. | 
+| hbase\-region\-server | 1\.4\.9 | Service for serving one or more HBase regions\. | 
+| hbase\-client | 1\.4\.9 | HBase command\-line client\. | 
+| hbase\-rest\-server | 1\.4\.9 | Service providing a RESTful HTTP endpoint for HBase\. | 
+| hbase\-thrift\-server | 1\.4\.9 | Service providing a Thrift endpoint to HBase\. | 
+| hcatalog\-client | 2\.3\.4\-amzn\-2 | The 'hcat' command line client for manipulating hcatalog\-server\. | 
+| hcatalog\-server | 2\.3\.4\-amzn\-2 | Service providing HCatalog, a table and storage management layer for distributed applications\. | 
+| hcatalog\-webhcat\-server | 2\.3\.4\-amzn\-2 | HTTP endpoint providing a REST interface to HCatalog\. | 
+| hive\-client | 2\.3\.4\-amzn\-2 | Hive command line client\. | 
+| hive\-hbase | 2\.3\.4\-amzn\-2 | Hive\-hbase client\. | 
+| hive\-metastore\-server | 2\.3\.4\-amzn\-2 | Service for accessing the Hive metastore, a semantic repository storing metadata for SQL on Hadoop operations\. | 
+| hive\-server2 | 2\.3\.4\-amzn\-2 | Service for accepting Hive queries as web requests\. | 
+| hue\-server | 4\.4\.0 | Web application for analyzing data using Hadoop ecosystem applications | 
+| jupyterhub | 0\.9\.6 | Multi\-user server for Jupyter notebooks | 
+| livy\-server | 0\.6\.0\-incubating | REST interface for interacting with Apache Spark | 
+| nginx | 1\.12\.1 | nginx \[engine x\] is an HTTP and reverse proxy server | 
+| mahout\-client | 0\.13\.0 | Library for machine learning\. | 
+| mxnet | 1\.4\.0 | A flexible, scalable, and efficient library for deep learning\. | 
+| mysql\-server | 5\.5\.54\+ | MySQL database server\. | 
+| nvidia\-cuda | 9\.2\.88 | Nvidia drivers and Cuda toolkit | 
+| oozie\-client | 5\.1\.0 | Oozie command\-line client\. | 
+| oozie\-server | 5\.1\.0 | Service for accepting Oozie workflow requests\. | 
+| opencv | 3\.4\.0 | Open Source Computer Vision Library\. | 
+| phoenix\-library | 4\.14\.1\-HBase\-1\.4 | The phoenix libraries for server and client | 
+| phoenix\-query\-server | 4\.14\.1\-HBase\-1\.4 | A light weight server providing JDBC access as well as Protocol Buffers and JSON format access to the Avatica API  | 
+| presto\-coordinator | 0\.219 | Service for accepting queries and managing query execution among presto\-workers\. | 
+| presto\-worker | 0\.219 | Service for executing pieces of a query\. | 
+| pig\-client | 0\.17\.0 | Pig command\-line client\. | 
+| r | 3\.4\.1 | The R Project for Statistical Computing | 
+| spark\-client | 2\.4\.2 | Spark command\-line clients\. | 
+| spark\-history\-server | 2\.4\.2 | Web UI for viewing logged events for the lifetime of a completed Spark application\. | 
+| spark\-on\-yarn | 2\.4\.2 | In\-memory execution engine for YARN\. | 
+| spark\-yarn\-slave | 2\.4\.2 | Apache Spark libraries needed by YARN slaves\. | 
+| sqoop\-client | 1\.4\.7 | Apache Sqoop command\-line client\. | 
+| tensorflow | 1\.12\.0 | TensorFlow open source software library for high performance numerical computation\. | 
+| tez\-on\-yarn | 0\.9\.1 | The tez YARN application and libraries\. | 
+| webserver | 2\.4\.25\+ | Apache HTTP server\. | 
+| zeppelin\-server | 0\.8\.1 | Web\-based notebook that enables interactive data analytics\. | 
+| zookeeper\-server | 3\.4\.13 | Centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services\. | 
+| zookeeper\-client | 3\.4\.13 | ZooKeeper command line client\. | 
+
+**Release 5\.24\.1 Configuration Classifications**
+
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+
+
+**emr\-5\.24\.1 Classifications**  
+
+| Classifications | Description | 
+| --- | --- | 
+| capacity\-scheduler | Change values in Hadoop's capacity\-scheduler\.xml file\. | 
+| container\-log4j | Change values in Hadoop YARN's container\-log4j\.properties file\. | 
+| core\-site | Change values in Hadoop's core\-site\.xml file\. | 
+| emrfs\-site | Change EMRFS settings\. | 
+| flink\-conf | Change flink\-conf\.yaml settings\. | 
+| flink\-log4j | Change Flink log4j\.properties settings\. | 
+| flink\-log4j\-yarn\-session | Change Flink log4j\-yarn\-session\.properties settings\. | 
+| flink\-log4j\-cli | Change Flink log4j\-cli\.properties settings\. | 
+| hadoop\-env | Change values in the Hadoop environment for all Hadoop components\. | 
+| hadoop\-log4j | Change values in Hadoop's log4j\.properties file\. | 
+| hadoop\-ssl\-server | Change hadoop ssl server configuration | 
+| hadoop\-ssl\-client | Change hadoop ssl client configuration | 
+| hbase | Amazon EMR\-curated settings for Apache HBase\. | 
+| hbase\-env | Change values in HBase's environment\. | 
+| hbase\-log4j | Change values in HBase's hbase\-log4j\.properties file\. | 
+| hbase\-metrics | Change values in HBase's hadoop\-metrics2\-hbase\.properties file\. | 
+| hbase\-policy | Change values in HBase's hbase\-policy\.xml file\. | 
+| hbase\-site | Change values in HBase's hbase\-site\.xml file\. | 
+| hdfs\-encryption\-zones | Configure HDFS encryption zones\. | 
+| hdfs\-site | Change values in HDFS's hdfs\-site\.xml\. | 
+| hcatalog\-env | Change values in HCatalog's environment\. | 
+| hcatalog\-server\-jndi | Change values in HCatalog's jndi\.properties\. | 
+| hcatalog\-server\-proto\-hive\-site | Change values in HCatalog's proto\-hive\-site\.xml\. | 
+| hcatalog\-webhcat\-env | Change values in HCatalog WebHCat's environment\. | 
+| hcatalog\-webhcat\-log4j2 | Change values in HCatalog WebHCat's log4j2\.properties\. | 
+| hcatalog\-webhcat\-site | Change values in HCatalog WebHCat's webhcat\-site\.xml file\. | 
+| hive\-beeline\-log4j2 | Change values in Hive's beeline\-log4j2\.properties file\. | 
+| hive\-parquet\-logging | Change values in Hive's parquet\-logging\.properties file\. | 
+| hive\-env | Change values in the Hive environment\. | 
+| hive\-exec\-log4j2 | Change values in Hive's hive\-exec\-log4j2\.properties file\. | 
+| hive\-llap\-daemon\-log4j2 | Change values in Hive's llap\-daemon\-log4j2\.properties file\. | 
+| hive\-log4j2 | Change values in Hive's hive\-log4j2\.properties file\. | 
+| hive\-site | Change values in Hive's hive\-site\.xml file | 
+| hiveserver2\-site | Change values in Hive Server2's hiveserver2\-site\.xml file | 
+| hue\-ini | Change values in Hue's ini file | 
+| httpfs\-env | Change values in the HTTPFS environment\. | 
+| httpfs\-site | Change values in Hadoop's httpfs\-site\.xml file\. | 
+| hadoop\-kms\-acls | Change values in Hadoop's kms\-acls\.xml file\. | 
+| hadoop\-kms\-env | Change values in the Hadoop KMS environment\. | 
+| hadoop\-kms\-log4j | Change values in Hadoop's kms\-log4j\.properties file\. | 
+| hadoop\-kms\-site | Change values in Hadoop's kms\-site\.xml file\. | 
+| jupyter\-notebook\-conf | Change values in Jupyter Notebook's jupyter\_notebook\_config\.py file\. | 
+| jupyter\-hub\-conf | Change values in JupyterHubs's jupyterhub\_config\.py file\. | 
+| jupyter\-s3\-conf | Configure Jupyter Notebook S3 persistence\. | 
+| jupyter\-sparkmagic\-conf | Change values in Sparkmagic's config\.json file\. | 
+| livy\-conf | Change values in Livy's livy\.conf file\. | 
+| livy\-env | Change values in the Livy environment\. | 
+| livy\-log4j | Change Livy log4j\.properties settings\. | 
+| mapred\-env | Change values in the MapReduce application's environment\. | 
+| mapred\-site | Change values in the MapReduce application's mapred\-site\.xml file\. | 
+| oozie\-env | Change values in Oozie's environment\. | 
+| oozie\-log4j | Change values in Oozie's oozie\-log4j\.properties file\. | 
+| oozie\-site | Change values in Oozie's oozie\-site\.xml file\. | 
+| phoenix\-hbase\-metrics | Change values in Phoenix's hadoop\-metrics2\-hbase\.properties file\. | 
+| phoenix\-hbase\-site | Change values in Phoenix's hbase\-site\.xml file\. | 
+| phoenix\-log4j | Change values in Phoenix's log4j\.properties file\. | 
+| phoenix\-metrics | Change values in Phoenix's hadoop\-metrics2\-phoenix\.properties file\. | 
+| pig\-env | Change values in the Pig environment\. | 
+| pig\-properties | Change values in Pig's pig\.properties file\. | 
+| pig\-log4j | Change values in Pig's log4j\.properties file\. | 
+| presto\-log | Change values in Presto's log\.properties file\. | 
+| presto\-config | Change values in Presto's config\.properties file\. | 
+| presto\-password\-authenticator | Change values in Presto's password\-authenticator\.properties file\. | 
+| presto\-env | Change values in Presto's presto\-env\.sh file\. | 
+| presto\-node | Change values in Presto's node\.properties file\. | 
+| presto\-connector\-blackhole | Change values in Presto's blackhole\.properties file\. | 
+| presto\-connector\-cassandra | Change values in Presto's cassandra\.properties file\. | 
+| presto\-connector\-hive | Change values in Presto's hive\.properties file\. | 
+| presto\-connector\-jmx | Change values in Presto's jmx\.properties file\. | 
+| presto\-connector\-kafka | Change values in Presto's kafka\.properties file\. | 
+| presto\-connector\-localfile | Change values in Presto's localfile\.properties file\. | 
+| presto\-connector\-memory | Change values in Presto's memory\.properties file\. | 
+| presto\-connector\-mongodb | Change values in Presto's mongodb\.properties file\. | 
+| presto\-connector\-mysql | Change values in Presto's mysql\.properties file\. | 
+| presto\-connector\-postgresql | Change values in Presto's postgresql\.properties file\. | 
+| presto\-connector\-raptor | Change values in Presto's raptor\.properties file\. | 
+| presto\-connector\-redis | Change values in Presto's redis\.properties file\. | 
+| presto\-connector\-redshift | Change values in Presto's redshift\.properties file\. | 
+| presto\-connector\-tpch | Change values in Presto's tpch\.properties file\. | 
+| presto\-connector\-tpcds | Change values in Presto's tpcds\.properties file\. | 
+| spark | Amazon EMR\-curated settings for Apache Spark\. | 
+| spark\-defaults | Change values in Spark's spark\-defaults\.conf file\. | 
+| spark\-env | Change values in the Spark environment\. | 
+| spark\-hive\-site | Change values in Spark's hive\-site\.xml file | 
+| spark\-log4j | Change values in Spark's log4j\.properties file\. | 
+| spark\-metrics | Change values in Spark's metrics\.properties file\. | 
+| sqoop\-env | Change values in Sqoop's environment\. | 
+| sqoop\-oraoop\-site | Change values in Sqoop OraOop's oraoop\-site\.xml file\. | 
+| sqoop\-site | Change values in Sqoop's sqoop\-site\.xml file\. | 
+| tez\-site | Change values in Tez's tez\-site\.xml file\. | 
+| yarn\-env | Change values in the YARN environment\. | 
+| yarn\-site | Change values in YARN's yarn\-site\.xml file\. | 
+| zeppelin\-env | Change values in the Zeppelin environment\. | 
+| zookeeper\-config | Change values in ZooKeeper's zoo\.cfg file\. | 
+| zookeeper\-log4j | Change values in ZooKeeper's log4j\.properties file\. | 
+
+**Amazon EMR Release 5\.24\.0**
++ [Application Versions](#emr-5240-app-versions)
++ [Release Notes](#emr-5240-relnotes)
++ [Component Versions](#emr-5240-components)
++ [Configuration Classifications](#emr-5240-class)
+
+**Release 5\.24\.0 Application Versions**
+
+The following applications are supported in this release: [Flink](https://flink.apache.org/), [Ganglia](http://ganglia.info), [Hadoop](http://hadoop.apache.org/docs/current/), [HBase](http://hbase.apache.org/), [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), [Hive](http://hive.apache.org/), [Hue](http://gethue.com/), [JupyterHub](https://jupyterhub.readthedocs.io/en/latest/#), [Livy](https://livy.incubator.apache.org/), [Mahout](http://mahout.apache.org/), [MXNet](https://mxnet.incubator.apache.org/), [Oozie](http://oozie.apache.org/), [Phoenix](https://phoenix.apache.org/), [Pig](http://pig.apache.org/), [Presto](https://prestodb.io/), [Spark](https://spark.apache.org/docs/latest/), [Sqoop](http://sqoop.apache.org/), [TensorFlow](https://www.tensorflow.org/), [Tez](https://tez.apache.org/), [Zeppelin](https://zeppelin.incubator.apache.org/), and [ZooKeeper](https://zookeeper.apache.org)\.
+
+The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
+
+For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
+
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.24.0.png)
+
+**Release 5\.24\.0 Release Notes**
+
+The following release notes include information for Amazon EMR release version 5\.24\.0\. Changes are relative to 5\.23\.0\.
+
+Initial release date: June 11, 2019
+
+Last updated date: August 5, 2019
+
+**Upgrades**
++ Flink 1\.8\.0
++ Hue 4\.4\.0
++ JupyterHub 0\.9\.6
++ Livy 0\.6\.0
++ MxNet 1\.4\.0
++ Presto 0\.219
++ Spark 2\.4\.2
++ AWS SDK for Java 1\.11\.546
++ Connectors and drivers:
+  + DynamoDB Connector 4\.9\.0
+  + MariaDB Connector 2\.4\.1
+  + Amazon Redshift JDBC Driver 1\.2\.27\.1051
+
+**Changes, Enhancements, and Resolved Issues**
++ Spark
+  + Added optimization to dynamically prune partitions\. The optimization is disabled by default\. To enable it, set the Spark configuration parameter `spark.sql.dynamicPartitionPruning.enabled` to `true`\.
+  + Improved performance of `INTERSECT` queries\. This optimization is disabled by default\. To enable it, set the Spark configuration parameter `spark.sql.optimizer.distinctBeforeIntersect.enabled` to `true`\.
+  + Added optimization to flatten scalar subqueries with aggregates that use the same relation\. The optimization is disabled by default\. To enable it, set the Spark configuration parameter `spark.sql.optimizer.flattenScalarSubqueriesWithAggregates.enabled` to `true`\.
+  + Improved whole stage code generation\.
+
+  For more information, see [Optimizing Spark Performance](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-spark-performance.html)\.
++ Local Disk Encryption and S3 Encryption Improvements in Security Configurations \(August 5, 2019\)
+  + Separated Amazon S3 encryption settings from local disk encryption settings in security configuration setup\.
+  + Added an option to enable EBS encryption\. Selecting this option encrypts the root device volume in addition to storage volumes\. Previous versions required using a custom AMI to encrypt the root device volume\.
+  + For more information, see [Encryption Options](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-data-encryption-options.html) in the *Amazon EMR Management Guide*\.
+
+**Release 5\.24\.0 Component Versions**
+
+
+| Component | Version | Description | 
+| --- | --- | --- | 
+| aws\-sagemaker\-spark\-sdk | 1\.2\.1 | Amazon SageMaker Spark SDK | 
+| emr\-ddb | 4\.9\.0 | Amazon DynamoDB connector for Hadoop ecosystem applications\. | 
+| emr\-goodies | 2\.8\.0 | Extra convenience libraries for the Hadoop ecosystem\. | 
+| emr\-kinesis | 3\.4\.0 | Amazon Kinesis connector for Hadoop ecosystem applications\. | 
+| emr\-s3\-dist\-cp | 2\.11\.0 | Distributed copy application optimized for Amazon S3\. | 
+| emr\-s3\-select | 1\.3\.0 | EMR S3Select Connector | 
+| emrfs | 2\.33\.0 | Amazon S3 connector for Hadoop ecosystem applications\. | 
+| flink\-client | 1\.8\.0 | Apache Flink command line client scripts and applications\. | 
+| ganglia\-monitor | 3\.7\.2 | Embedded Ganglia agent for Hadoop ecosystem applications along with the Ganglia monitoring agent\. | 
+| ganglia\-metadata\-collector | 3\.7\.2 | Ganglia metadata collector for aggregating metrics from Ganglia monitoring agents\. | 
+| ganglia\-web | 3\.7\.1 | Web application for viewing metrics collected by the Ganglia metadata collector\. | 
+| hadoop\-client | 2\.8\.5\-amzn\-4 | Hadoop command\-line clients such as 'hdfs', 'hadoop', or 'yarn'\. | 
+| hadoop\-hdfs\-datanode | 2\.8\.5\-amzn\-4 | HDFS node\-level service for storing blocks\. | 
+| hadoop\-hdfs\-library | 2\.8\.5\-amzn\-4 | HDFS command\-line client and library | 
+| hadoop\-hdfs\-namenode | 2\.8\.5\-amzn\-4 | HDFS service for tracking file names and block locations\. | 
+| hadoop\-hdfs\-journalnode | 2\.8\.5\-amzn\-4 | HDFS service for managing the Hadoop filesystem journal on HA clusters\. | 
+| hadoop\-httpfs\-server | 2\.8\.5\-amzn\-4 | HTTP endpoint for HDFS operations\. | 
+| hadoop\-kms\-server | 2\.8\.5\-amzn\-4 | Cryptographic key management server based on Hadoop's KeyProvider API\. | 
+| hadoop\-mapred | 2\.8\.5\-amzn\-4 | MapReduce execution engine libraries for running a MapReduce application\. | 
+| hadoop\-yarn\-nodemanager | 2\.8\.5\-amzn\-4 | YARN service for managing containers on an individual node\. | 
+| hadoop\-yarn\-resourcemanager | 2\.8\.5\-amzn\-4 | YARN service for allocating and managing cluster resources and distributed applications\. | 
+| hadoop\-yarn\-timeline\-server | 2\.8\.5\-amzn\-4 | Service for retrieving current and historical information for YARN applications\. | 
+| hbase\-hmaster | 1\.4\.9 | Service for an HBase cluster responsible for coordination of Regions and execution of administrative commands\. | 
+| hbase\-region\-server | 1\.4\.9 | Service for serving one or more HBase regions\. | 
+| hbase\-client | 1\.4\.9 | HBase command\-line client\. | 
+| hbase\-rest\-server | 1\.4\.9 | Service providing a RESTful HTTP endpoint for HBase\. | 
+| hbase\-thrift\-server | 1\.4\.9 | Service providing a Thrift endpoint to HBase\. | 
+| hcatalog\-client | 2\.3\.4\-amzn\-2 | The 'hcat' command line client for manipulating hcatalog\-server\. | 
+| hcatalog\-server | 2\.3\.4\-amzn\-2 | Service providing HCatalog, a table and storage management layer for distributed applications\. | 
+| hcatalog\-webhcat\-server | 2\.3\.4\-amzn\-2 | HTTP endpoint providing a REST interface to HCatalog\. | 
+| hive\-client | 2\.3\.4\-amzn\-2 | Hive command line client\. | 
+| hive\-hbase | 2\.3\.4\-amzn\-2 | Hive\-hbase client\. | 
+| hive\-metastore\-server | 2\.3\.4\-amzn\-2 | Service for accessing the Hive metastore, a semantic repository storing metadata for SQL on Hadoop operations\. | 
+| hive\-server2 | 2\.3\.4\-amzn\-2 | Service for accepting Hive queries as web requests\. | 
+| hue\-server | 4\.4\.0 | Web application for analyzing data using Hadoop ecosystem applications | 
+| jupyterhub | 0\.9\.6 | Multi\-user server for Jupyter notebooks | 
+| livy\-server | 0\.6\.0\-incubating | REST interface for interacting with Apache Spark | 
+| nginx | 1\.12\.1 | nginx \[engine x\] is an HTTP and reverse proxy server | 
+| mahout\-client | 0\.13\.0 | Library for machine learning\. | 
+| mxnet | 1\.4\.0 | A flexible, scalable, and efficient library for deep learning\. | 
+| mysql\-server | 5\.5\.54\+ | MySQL database server\. | 
+| nvidia\-cuda | 9\.2\.88 | Nvidia drivers and Cuda toolkit | 
+| oozie\-client | 5\.1\.0 | Oozie command\-line client\. | 
+| oozie\-server | 5\.1\.0 | Service for accepting Oozie workflow requests\. | 
+| opencv | 3\.4\.0 | Open Source Computer Vision Library\. | 
+| phoenix\-library | 4\.14\.1\-HBase\-1\.4 | The phoenix libraries for server and client | 
+| phoenix\-query\-server | 4\.14\.1\-HBase\-1\.4 | A light weight server providing JDBC access as well as Protocol Buffers and JSON format access to the Avatica API  | 
+| presto\-coordinator | 0\.219 | Service for accepting queries and managing query execution among presto\-workers\. | 
+| presto\-worker | 0\.219 | Service for executing pieces of a query\. | 
+| pig\-client | 0\.17\.0 | Pig command\-line client\. | 
+| r | 3\.4\.1 | The R Project for Statistical Computing | 
+| spark\-client | 2\.4\.2 | Spark command\-line clients\. | 
+| spark\-history\-server | 2\.4\.2 | Web UI for viewing logged events for the lifetime of a completed Spark application\. | 
+| spark\-on\-yarn | 2\.4\.2 | In\-memory execution engine for YARN\. | 
+| spark\-yarn\-slave | 2\.4\.2 | Apache Spark libraries needed by YARN slaves\. | 
+| sqoop\-client | 1\.4\.7 | Apache Sqoop command\-line client\. | 
+| tensorflow | 1\.12\.0 | TensorFlow open source software library for high performance numerical computation\. | 
+| tez\-on\-yarn | 0\.9\.1 | The tez YARN application and libraries\. | 
+| webserver | 2\.4\.25\+ | Apache HTTP server\. | 
+| zeppelin\-server | 0\.8\.1 | Web\-based notebook that enables interactive data analytics\. | 
+| zookeeper\-server | 3\.4\.13 | Centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services\. | 
+| zookeeper\-client | 3\.4\.13 | ZooKeeper command line client\. | 
+
+**Release 5\.24\.0 Configuration Classifications**
+
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+
+
+**emr\-5\.24\.0 Classifications**  
+
+| Classifications | Description | 
+| --- | --- | 
+| capacity\-scheduler | Change values in Hadoop's capacity\-scheduler\.xml file\. | 
+| container\-log4j | Change values in Hadoop YARN's container\-log4j\.properties file\. | 
+| core\-site | Change values in Hadoop's core\-site\.xml file\. | 
+| emrfs\-site | Change EMRFS settings\. | 
+| flink\-conf | Change flink\-conf\.yaml settings\. | 
+| flink\-log4j | Change Flink log4j\.properties settings\. | 
+| flink\-log4j\-yarn\-session | Change Flink log4j\-yarn\-session\.properties settings\. | 
+| flink\-log4j\-cli | Change Flink log4j\-cli\.properties settings\. | 
+| hadoop\-env | Change values in the Hadoop environment for all Hadoop components\. | 
+| hadoop\-log4j | Change values in Hadoop's log4j\.properties file\. | 
+| hadoop\-ssl\-server | Change hadoop ssl server configuration | 
+| hadoop\-ssl\-client | Change hadoop ssl client configuration | 
+| hbase | Amazon EMR\-curated settings for Apache HBase\. | 
+| hbase\-env | Change values in HBase's environment\. | 
+| hbase\-log4j | Change values in HBase's hbase\-log4j\.properties file\. | 
+| hbase\-metrics | Change values in HBase's hadoop\-metrics2\-hbase\.properties file\. | 
+| hbase\-policy | Change values in HBase's hbase\-policy\.xml file\. | 
+| hbase\-site | Change values in HBase's hbase\-site\.xml file\. | 
+| hdfs\-encryption\-zones | Configure HDFS encryption zones\. | 
+| hdfs\-site | Change values in HDFS's hdfs\-site\.xml\. | 
+| hcatalog\-env | Change values in HCatalog's environment\. | 
+| hcatalog\-server\-jndi | Change values in HCatalog's jndi\.properties\. | 
+| hcatalog\-server\-proto\-hive\-site | Change values in HCatalog's proto\-hive\-site\.xml\. | 
+| hcatalog\-webhcat\-env | Change values in HCatalog WebHCat's environment\. | 
+| hcatalog\-webhcat\-log4j2 | Change values in HCatalog WebHCat's log4j2\.properties\. | 
+| hcatalog\-webhcat\-site | Change values in HCatalog WebHCat's webhcat\-site\.xml file\. | 
+| hive\-beeline\-log4j2 | Change values in Hive's beeline\-log4j2\.properties file\. | 
+| hive\-parquet\-logging | Change values in Hive's parquet\-logging\.properties file\. | 
+| hive\-env | Change values in the Hive environment\. | 
+| hive\-exec\-log4j2 | Change values in Hive's hive\-exec\-log4j2\.properties file\. | 
+| hive\-llap\-daemon\-log4j2 | Change values in Hive's llap\-daemon\-log4j2\.properties file\. | 
+| hive\-log4j2 | Change values in Hive's hive\-log4j2\.properties file\. | 
+| hive\-site | Change values in Hive's hive\-site\.xml file | 
+| hiveserver2\-site | Change values in Hive Server2's hiveserver2\-site\.xml file | 
+| hue\-ini | Change values in Hue's ini file | 
+| httpfs\-env | Change values in the HTTPFS environment\. | 
+| httpfs\-site | Change values in Hadoop's httpfs\-site\.xml file\. | 
+| hadoop\-kms\-acls | Change values in Hadoop's kms\-acls\.xml file\. | 
+| hadoop\-kms\-env | Change values in the Hadoop KMS environment\. | 
+| hadoop\-kms\-log4j | Change values in Hadoop's kms\-log4j\.properties file\. | 
+| hadoop\-kms\-site | Change values in Hadoop's kms\-site\.xml file\. | 
+| jupyter\-notebook\-conf | Change values in Jupyter Notebook's jupyter\_notebook\_config\.py file\. | 
+| jupyter\-hub\-conf | Change values in JupyterHubs's jupyterhub\_config\.py file\. | 
+| jupyter\-s3\-conf | Configure Jupyter Notebook S3 persistence\. | 
+| jupyter\-sparkmagic\-conf | Change values in Sparkmagic's config\.json file\. | 
+| livy\-conf | Change values in Livy's livy\.conf file\. | 
+| livy\-env | Change values in the Livy environment\. | 
+| livy\-log4j | Change Livy log4j\.properties settings\. | 
+| mapred\-env | Change values in the MapReduce application's environment\. | 
+| mapred\-site | Change values in the MapReduce application's mapred\-site\.xml file\. | 
+| oozie\-env | Change values in Oozie's environment\. | 
+| oozie\-log4j | Change values in Oozie's oozie\-log4j\.properties file\. | 
+| oozie\-site | Change values in Oozie's oozie\-site\.xml file\. | 
+| phoenix\-hbase\-metrics | Change values in Phoenix's hadoop\-metrics2\-hbase\.properties file\. | 
+| phoenix\-hbase\-site | Change values in Phoenix's hbase\-site\.xml file\. | 
+| phoenix\-log4j | Change values in Phoenix's log4j\.properties file\. | 
+| phoenix\-metrics | Change values in Phoenix's hadoop\-metrics2\-phoenix\.properties file\. | 
+| pig\-env | Change values in the Pig environment\. | 
+| pig\-properties | Change values in Pig's pig\.properties file\. | 
+| pig\-log4j | Change values in Pig's log4j\.properties file\. | 
+| presto\-log | Change values in Presto's log\.properties file\. | 
+| presto\-config | Change values in Presto's config\.properties file\. | 
+| presto\-password\-authenticator | Change values in Presto's password\-authenticator\.properties file\. | 
+| presto\-env | Change values in Presto's presto\-env\.sh file\. | 
+| presto\-node | Change values in Presto's node\.properties file\. | 
+| presto\-connector\-blackhole | Change values in Presto's blackhole\.properties file\. | 
+| presto\-connector\-cassandra | Change values in Presto's cassandra\.properties file\. | 
+| presto\-connector\-hive | Change values in Presto's hive\.properties file\. | 
+| presto\-connector\-jmx | Change values in Presto's jmx\.properties file\. | 
+| presto\-connector\-kafka | Change values in Presto's kafka\.properties file\. | 
+| presto\-connector\-localfile | Change values in Presto's localfile\.properties file\. | 
+| presto\-connector\-memory | Change values in Presto's memory\.properties file\. | 
+| presto\-connector\-mongodb | Change values in Presto's mongodb\.properties file\. | 
+| presto\-connector\-mysql | Change values in Presto's mysql\.properties file\. | 
+| presto\-connector\-postgresql | Change values in Presto's postgresql\.properties file\. | 
+| presto\-connector\-raptor | Change values in Presto's raptor\.properties file\. | 
+| presto\-connector\-redis | Change values in Presto's redis\.properties file\. | 
+| presto\-connector\-redshift | Change values in Presto's redshift\.properties file\. | 
+| presto\-connector\-tpch | Change values in Presto's tpch\.properties file\. | 
+| presto\-connector\-tpcds | Change values in Presto's tpcds\.properties file\. | 
+| spark | Amazon EMR\-curated settings for Apache Spark\. | 
+| spark\-defaults | Change values in Spark's spark\-defaults\.conf file\. | 
+| spark\-env | Change values in the Spark environment\. | 
+| spark\-hive\-site | Change values in Spark's hive\-site\.xml file | 
+| spark\-log4j | Change values in Spark's log4j\.properties file\. | 
+| spark\-metrics | Change values in Spark's metrics\.properties file\. | 
+| sqoop\-env | Change values in Sqoop's environment\. | 
+| sqoop\-oraoop\-site | Change values in Sqoop OraOop's oraoop\-site\.xml file\. | 
+| sqoop\-site | Change values in Sqoop's sqoop\-site\.xml file\. | 
+| tez\-site | Change values in Tez's tez\-site\.xml file\. | 
+| yarn\-env | Change values in the YARN environment\. | 
+| yarn\-site | Change values in YARN's yarn\-site\.xml file\. | 
+| zeppelin\-env | Change values in the Zeppelin environment\. | 
+| zookeeper\-config | Change values in ZooKeeper's zoo\.cfg file\. | 
+| zookeeper\-log4j | Change values in ZooKeeper's log4j\.properties file\. | 
+
+------
+#### [ 5\.23\.0 ]<a name="emr-5230-release"></a>
+
+**Amazon EMR Release 5\.23\.0**
++ [Application Versions](#emr-5230-app-versions)
++ [Release Notes](#emr-5230-relnotes)
++ [Component Versions](#emr-5230-components)
++ [Configuration Classifications](#emr-5230-class)
+
+**5\.23\.0 Application Versions**
+
+The following applications are supported in this release: [Flink](https://flink.apache.org/), [Ganglia](http://ganglia.info), [Hadoop](http://hadoop.apache.org/docs/current/), [HBase](http://hbase.apache.org/), [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), [Hive](http://hive.apache.org/), [Hue](http://gethue.com/), [JupyterHub](https://jupyterhub.readthedocs.io/en/latest/#), [Livy](https://livy.incubator.apache.org/), [Mahout](http://mahout.apache.org/), [MXNet](https://mxnet.incubator.apache.org/), [Oozie](http://oozie.apache.org/), [Phoenix](https://phoenix.apache.org/), [Pig](http://pig.apache.org/), [Presto](https://prestodb.io/), [Spark](https://spark.apache.org/docs/latest/), [Sqoop](http://sqoop.apache.org/), [TensorFlow](https://www.tensorflow.org/), [Tez](https://tez.apache.org/), [Zeppelin](https://zeppelin.incubator.apache.org/), and [ZooKeeper](https://zookeeper.apache.org)\.
+
+The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
+
+For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
+
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.23.0.png)
+
+**5\.23\.0 Release Notes**
+
+The following release notes include information for Amazon EMR release version 5\.23\.0\. Changes are relative to 5\.22\.0\.
+
+Initial release date: April 01, 2019
+
+Last updated date: April 30, 2019
+
+**Upgrades**
++ AWS SDK for Java 1\.11\.519
+
+**New Features**
++ \(April 30, 2019\) With Amazon EMR 5\.23\.0 and later, you can launch a cluster with three master nodes to support high availability of applications like YARN Resource Manager, HDFS Name Node, Spark, Hive, and Ganglia\. The master node is no longer a potential single point of failure with this feature\. If one of the master nodes fails, Amazon EMR automatically fails over to a standby master node and replaces the failed master node with a new one with the same configuration and bootstrap actions\. For more information, see [Plan and Configure Master Nodes](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-ha.html)\.
+
+**Known Issues**
++ Tez UI \(Fixed in Amazon EMR release version 5\.26\.0\)
+
+  Tez UI does not work on an EMR cluster with multiple master nodes\. 
++ Hue \(Fixed in Amazon EMR release version 5\.24\.0\)
+  + Hue running on Amazon EMR does not support Solr\. Beginning with Amazon EMR release version 5\.20\.0, a misconfiguration issue causes Solr to be enabled and a harmless error message to appear similar to the following:
+
+    `Solr server could not be contacted properly: HTTPConnectionPool('host=ip-xx-xx-xx-xx.ec2.internal', port=1978): Max retries exceeded with url: /solr/admin/info/system?user.name=hue&doAs=administrator&wt=json (Caused by NewConnectionError(': Failed to establish a new connection: [Errno 111] Connection refused',))`
+
+    **To prevent the Solr error message from appearing:**
+
+    1. Connect to the master node command line using SSH\.
+
+    1. Use a text editor to open the `hue.ini` file\. For example:
+
+       `sudo vim /etc/hue/conf/hue.ini`
+
+    1. Search for the term "appblacklist" and modify the line to the following:
+
+       ```
+       appblacklist = search
+       ```
+
+    1. Save your changes and restart Hue as shown in the following example:
+
+       ```
+       sudo stop hue; sudo start hue
+       ```
+
+**5\.23\.0 Component Versions**
+
+The components that Amazon EMR installs with this release are listed below\. Some are installed as part of big\-data application packages\. Others are unique to Amazon EMR and installed for system processes and features\. These typically start with `emr` or `aws`\. Big\-data application packages in the most recent Amazon EMR release are usually the latest version found in the community\. We make community releases available in Amazon EMR as quickly as possible\.
+
+Some components need changes from community versions for Amazon EMR\. These components have a version label in the form `CommunityVersion-amzn-EmrVersion`\. For example, if a big\-data community component named `myapp-component` of version 2\.2 has been modified three times for inclusion in different Amazon EMR release versions, its release version is listed as `2.2-amzn-3`\.
+
+
+| Component | Version | Description | 
+| --- | --- | --- | 
+| aws\-sagemaker\-spark\-sdk | 1\.2\.1 | Amazon SageMaker Spark SDK | 
+| emr\-ddb | 4\.8\.0 | Amazon DynamoDB connector for Hadoop ecosystem applications\. | 
+| emr\-goodies | 2\.7\.0 | Extra convenience libraries for the Hadoop ecosystem\. | 
+| emr\-kinesis | 3\.4\.0 | Amazon Kinesis connector for Hadoop ecosystem applications\. | 
+| emr\-s3\-dist\-cp | 2\.11\.0 | Distributed copy application optimized for Amazon S3\. | 
+| emr\-s3\-select | 1\.2\.0 | EMR S3Select Connector | 
+| emrfs | 2\.32\.0 | Amazon S3 connector for Hadoop ecosystem applications\. | 
+| flink\-client | 1\.7\.1 | Apache Flink command line client scripts and applications\. | 
+| ganglia\-monitor | 3\.7\.2 | Embedded Ganglia agent for Hadoop ecosystem applications along with the Ganglia monitoring agent\. | 
+| ganglia\-metadata\-collector | 3\.7\.2 | Ganglia metadata collector for aggregating metrics from Ganglia monitoring agents\. | 
+| ganglia\-web | 3\.7\.1 | Web application for viewing metrics collected by the Ganglia metadata collector\. | 
+| hadoop\-client | 2\.8\.5\-amzn\-3 | Hadoop command\-line clients such as 'hdfs', 'hadoop', or 'yarn'\. | 
+| hadoop\-hdfs\-datanode | 2\.8\.5\-amzn\-3 | HDFS node\-level service for storing blocks\. | 
+| hadoop\-hdfs\-library | 2\.8\.5\-amzn\-3 | HDFS command\-line client and library | 
+| hadoop\-hdfs\-namenode | 2\.8\.5\-amzn\-3 | HDFS service for tracking file names and block locations\. | 
+| hadoop\-hdfs\-journalnode | 2\.8\.5\-amzn\-3 | HDFS service for managing the Hadoop filesystem journal on HA clusters\. | 
+| hadoop\-httpfs\-server | 2\.8\.5\-amzn\-3 | HTTP endpoint for HDFS operations\. | 
+| hadoop\-kms\-server | 2\.8\.5\-amzn\-3 | Cryptographic key management server based on Hadoop's KeyProvider API\. | 
+| hadoop\-mapred | 2\.8\.5\-amzn\-3 | MapReduce execution engine libraries for running a MapReduce application\. | 
+| hadoop\-yarn\-nodemanager | 2\.8\.5\-amzn\-3 | YARN service for managing containers on an individual node\. | 
+| hadoop\-yarn\-resourcemanager | 2\.8\.5\-amzn\-3 | YARN service for allocating and managing cluster resources and distributed applications\. | 
+| hadoop\-yarn\-timeline\-server | 2\.8\.5\-amzn\-3 | Service for retrieving current and historical information for YARN applications\. | 
+| hbase\-hmaster | 1\.4\.9 | Service for an HBase cluster responsible for coordination of Regions and execution of administrative commands\. | 
+| hbase\-region\-server | 1\.4\.9 | Service for serving one or more HBase regions\. | 
+| hbase\-client | 1\.4\.9 | HBase command\-line client\. | 
+| hbase\-rest\-server | 1\.4\.9 | Service providing a RESTful HTTP endpoint for HBase\. | 
+| hbase\-thrift\-server | 1\.4\.9 | Service providing a Thrift endpoint to HBase\. | 
+| hcatalog\-client | 2\.3\.4\-amzn\-1 | The 'hcat' command line client for manipulating hcatalog\-server\. | 
+| hcatalog\-server | 2\.3\.4\-amzn\-1 | Service providing HCatalog, a table and storage management layer for distributed applications\. | 
+| hcatalog\-webhcat\-server | 2\.3\.4\-amzn\-1 | HTTP endpoint providing a REST interface to HCatalog\. | 
+| hive\-client | 2\.3\.4\-amzn\-1 | Hive command line client\. | 
+| hive\-hbase | 2\.3\.4\-amzn\-1 | Hive\-hbase client\. | 
+| hive\-metastore\-server | 2\.3\.4\-amzn\-1 | Service for accessing the Hive metastore, a semantic repository storing metadata for SQL on Hadoop operations\. | 
+| hive\-server2 | 2\.3\.4\-amzn\-1 | Service for accepting Hive queries as web requests\. | 
+| hue\-server | 4\.3\.0 | Web application for analyzing data using Hadoop ecosystem applications | 
+| jupyterhub | 0\.9\.4 | Multi\-user server for Jupyter notebooks | 
+| livy\-server | 0\.5\.0\-incubating | REST interface for interacting with Apache Spark | 
+| nginx | 1\.12\.1 | nginx \[engine x\] is an HTTP and reverse proxy server | 
+| mahout\-client | 0\.13\.0 | Library for machine learning\. | 
+| mxnet | 1\.3\.1 | A flexible, scalable, and efficient library for deep learning\. | 
+| mysql\-server | 5\.5\.54\+ | MySQL database server\. | 
+| nvidia\-cuda | 9\.2\.88 | Nvidia drivers and Cuda toolkit | 
+| oozie\-client | 5\.1\.0 | Oozie command\-line client\. | 
+| oozie\-server | 5\.1\.0 | Service for accepting Oozie workflow requests\. | 
+| opencv | 3\.4\.0 | Open Source Computer Vision Library\. | 
+| phoenix\-library | 4\.14\.1\-HBase\-1\.4 | The phoenix libraries for server and client | 
+| phoenix\-query\-server | 4\.14\.1\-HBase\-1\.4 | A light weight server providing JDBC access as well as Protocol Buffers and JSON format access to the Avatica API  | 
+| presto\-coordinator | 0\.215 | Service for accepting queries and managing query execution among presto\-workers\. | 
+| presto\-worker | 0\.215 | Service for executing pieces of a query\. | 
+| pig\-client | 0\.17\.0 | Pig command\-line client\. | 
+| r | 3\.4\.1 | The R Project for Statistical Computing | 
+| spark\-client | 2\.4\.0 | Spark command\-line clients\. | 
+| spark\-history\-server | 2\.4\.0 | Web UI for viewing logged events for the lifetime of a completed Spark application\. | 
+| spark\-on\-yarn | 2\.4\.0 | In\-memory execution engine for YARN\. | 
+| spark\-yarn\-slave | 2\.4\.0 | Apache Spark libraries needed by YARN slaves\. | 
+| sqoop\-client | 1\.4\.7 | Apache Sqoop command\-line client\. | 
+| tensorflow | 1\.12\.0 | TensorFlow open source software library for high performance numerical computation\. | 
+| tez\-on\-yarn | 0\.9\.1 | The tez YARN application and libraries\. | 
+| webserver | 2\.4\.25\+ | Apache HTTP server\. | 
+| zeppelin\-server | 0\.8\.1 | Web\-based notebook that enables interactive data analytics\. | 
+| zookeeper\-server | 3\.4\.13 | Centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services\. | 
+| zookeeper\-client | 3\.4\.13 | ZooKeeper command line client\. | 
+
+**5\.23\.0 Configuration Classifications**
+
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+
+
+**emr\-5\.23\.0 Classifications**  
+
+| Classifications | Description | 
+| --- | --- | 
+| capacity\-scheduler | Change values in Hadoop's capacity\-scheduler\.xml file\. | 
+| container\-log4j | Change values in Hadoop YARN's container\-log4j\.properties file\. | 
+| core\-site | Change values in Hadoop's core\-site\.xml file\. | 
+| emrfs\-site | Change EMRFS settings\. | 
+| flink\-conf | Change flink\-conf\.yaml settings\. | 
+| flink\-log4j | Change Flink log4j\.properties settings\. | 
+| flink\-log4j\-yarn\-session | Change Flink log4j\-yarn\-session\.properties settings\. | 
+| flink\-log4j\-cli | Change Flink log4j\-cli\.properties settings\. | 
+| hadoop\-env | Change values in the Hadoop environment for all Hadoop components\. | 
+| hadoop\-log4j | Change values in Hadoop's log4j\.properties file\. | 
+| hadoop\-ssl\-server | Change hadoop ssl server configuration | 
+| hadoop\-ssl\-client | Change hadoop ssl client configuration | 
+| hbase | Amazon EMR\-curated settings for Apache HBase\. | 
+| hbase\-env | Change values in HBase's environment\. | 
+| hbase\-log4j | Change values in HBase's hbase\-log4j\.properties file\. | 
+| hbase\-metrics | Change values in HBase's hadoop\-metrics2\-hbase\.properties file\. | 
+| hbase\-policy | Change values in HBase's hbase\-policy\.xml file\. | 
+| hbase\-site | Change values in HBase's hbase\-site\.xml file\. | 
+| hdfs\-encryption\-zones | Configure HDFS encryption zones\. | 
+| hdfs\-site | Change values in HDFS's hdfs\-site\.xml\. | 
+| hcatalog\-env | Change values in HCatalog's environment\. | 
+| hcatalog\-server\-jndi | Change values in HCatalog's jndi\.properties\. | 
+| hcatalog\-server\-proto\-hive\-site | Change values in HCatalog's proto\-hive\-site\.xml\. | 
+| hcatalog\-webhcat\-env | Change values in HCatalog WebHCat's environment\. | 
+| hcatalog\-webhcat\-log4j2 | Change values in HCatalog WebHCat's log4j2\.properties\. | 
+| hcatalog\-webhcat\-site | Change values in HCatalog WebHCat's webhcat\-site\.xml file\. | 
+| hive\-beeline\-log4j2 | Change values in Hive's beeline\-log4j2\.properties file\. | 
+| hive\-parquet\-logging | Change values in Hive's parquet\-logging\.properties file\. | 
+| hive\-env | Change values in the Hive environment\. | 
+| hive\-exec\-log4j2 | Change values in Hive's hive\-exec\-log4j2\.properties file\. | 
+| hive\-llap\-daemon\-log4j2 | Change values in Hive's llap\-daemon\-log4j2\.properties file\. | 
+| hive\-log4j2 | Change values in Hive's hive\-log4j2\.properties file\. | 
+| hive\-site | Change values in Hive's hive\-site\.xml file | 
+| hiveserver2\-site | Change values in Hive Server2's hiveserver2\-site\.xml file | 
+| hue\-ini | Change values in Hue's ini file | 
+| httpfs\-env | Change values in the HTTPFS environment\. | 
+| httpfs\-site | Change values in Hadoop's httpfs\-site\.xml file\. | 
+| hadoop\-kms\-acls | Change values in Hadoop's kms\-acls\.xml file\. | 
+| hadoop\-kms\-env | Change values in the Hadoop KMS environment\. | 
+| hadoop\-kms\-log4j | Change values in Hadoop's kms\-log4j\.properties file\. | 
+| hadoop\-kms\-site | Change values in Hadoop's kms\-site\.xml file\. | 
+| jupyter\-notebook\-conf | Change values in Jupyter Notebook's jupyter\_notebook\_config\.py file\. | 
+| jupyter\-hub\-conf | Change values in JupyterHubs's jupyterhub\_config\.py file\. | 
+| jupyter\-s3\-conf | Configure Jupyter Notebook S3 persistence\. | 
+| jupyter\-sparkmagic\-conf | Change values in Sparkmagic's config\.json file\. | 
+| livy\-conf | Change values in Livy's livy\.conf file\. | 
+| livy\-env | Change values in the Livy environment\. | 
+| livy\-log4j | Change Livy log4j\.properties settings\. | 
+| mapred\-env | Change values in the MapReduce application's environment\. | 
+| mapred\-site | Change values in the MapReduce application's mapred\-site\.xml file\. | 
+| oozie\-env | Change values in Oozie's environment\. | 
+| oozie\-log4j | Change values in Oozie's oozie\-log4j\.properties file\. | 
+| oozie\-site | Change values in Oozie's oozie\-site\.xml file\. | 
+| phoenix\-hbase\-metrics | Change values in Phoenix's hadoop\-metrics2\-hbase\.properties file\. | 
+| phoenix\-hbase\-site | Change values in Phoenix's hbase\-site\.xml file\. | 
+| phoenix\-log4j | Change values in Phoenix's log4j\.properties file\. | 
+| phoenix\-metrics | Change values in Phoenix's hadoop\-metrics2\-phoenix\.properties file\. | 
+| pig\-env | Change values in the Pig environment\. | 
+| pig\-properties | Change values in Pig's pig\.properties file\. | 
+| pig\-log4j | Change values in Pig's log4j\.properties file\. | 
+| presto\-log | Change values in Presto's log\.properties file\. | 
+| presto\-config | Change values in Presto's config\.properties file\. | 
+| presto\-password\-authenticator | Change values in Presto's password\-authenticator\.properties file\. | 
+| presto\-env | Change values in Presto's presto\-env\.sh file\. | 
+| presto\-node | Change values in Presto's node\.properties file\. | 
+| presto\-connector\-blackhole | Change values in Presto's blackhole\.properties file\. | 
+| presto\-connector\-cassandra | Change values in Presto's cassandra\.properties file\. | 
+| presto\-connector\-hive | Change values in Presto's hive\.properties file\. | 
+| presto\-connector\-jmx | Change values in Presto's jmx\.properties file\. | 
+| presto\-connector\-kafka | Change values in Presto's kafka\.properties file\. | 
+| presto\-connector\-localfile | Change values in Presto's localfile\.properties file\. | 
+| presto\-connector\-memory | Change values in Presto's memory\.properties file\. | 
+| presto\-connector\-mongodb | Change values in Presto's mongodb\.properties file\. | 
+| presto\-connector\-mysql | Change values in Presto's mysql\.properties file\. | 
+| presto\-connector\-postgresql | Change values in Presto's postgresql\.properties file\. | 
+| presto\-connector\-raptor | Change values in Presto's raptor\.properties file\. | 
+| presto\-connector\-redis | Change values in Presto's redis\.properties file\. | 
+| presto\-connector\-redshift | Change values in Presto's redshift\.properties file\. | 
+| presto\-connector\-tpch | Change values in Presto's tpch\.properties file\. | 
+| presto\-connector\-tpcds | Change values in Presto's tpcds\.properties file\. | 
+| spark | Amazon EMR\-curated settings for Apache Spark\. | 
+| spark\-defaults | Change values in Spark's spark\-defaults\.conf file\. | 
+| spark\-env | Change values in the Spark environment\. | 
+| spark\-hive\-site | Change values in Spark's hive\-site\.xml file | 
+| spark\-log4j | Change values in Spark's log4j\.properties file\. | 
+| spark\-metrics | Change values in Spark's metrics\.properties file\. | 
+| sqoop\-env | Change values in Sqoop's environment\. | 
+| sqoop\-oraoop\-site | Change values in Sqoop OraOop's oraoop\-site\.xml file\. | 
+| sqoop\-site | Change values in Sqoop's sqoop\-site\.xml file\. | 
+| tez\-site | Change values in Tez's tez\-site\.xml file\. | 
+| yarn\-env | Change values in the YARN environment\. | 
+| yarn\-site | Change values in YARN's yarn\-site\.xml file\. | 
+| zeppelin\-env | Change values in the Zeppelin environment\. | 
+| zookeeper\-config | Change values in ZooKeeper's zoo\.cfg file\. | 
+| zookeeper\-log4j | Change values in ZooKeeper's log4j\.properties file\. | 
 
 ------
 #### [ 5\.22\.0 ]<a name="emr-5220-release"></a>
@@ -24,14 +1179,17 @@ The following applications are supported in this release: [Flink](https://flink.
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.22.0.png)
 
 **5\.22\.0 Release Notes**
 
 The following release notes include information for Amazon EMR release version 5\.22\.0\. Changes are relative to 5\.21\.0\.
+
+**Important**  
+Beginning with Amazon EMR release version 5\.22\.0, Amazon EMR uses AWS Signature Version 4 exclusively to authenticate requests to Amazon S3\. Earlier Amazon EMR release versions use AWS Signature Version 2 in some cases, unless the release notes indicate that Signature Version 4 is used exclusively\. For more information, see [Authenticating Requests \(AWS Signature Version 4\)](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html) and [Authenticating Requests \(AWS Signature Version 2\)](https://docs.aws.amazon.com/AmazonS3/latest/API/auth-request-sig-v2.html) in the *Amazon Simple Storage Service Developer Guide*\.
 
 Initial release date: March 20, 2019
 
@@ -47,12 +1205,38 @@ Initial release date: March 20, 2019
   + Amazon Redshift JDBC Driver 1\.2\.20\.1043
 
 **New Features**
-+ Modified the default EBS configuration for EC2 instance types with EBS\-only storage\. When you create a cluster using Amazon EMR release version 5\.22\.0 and later, the default amount of EBS storage increases based on the size of the instance\. In addition, we split increased storage across multiple volumes, giving increased IOPS performance\. If you want to use a different EBS instance storage configuration, you can specify it when you create an EMR cluster or add nodes to an existing cluster\. For more information about the amount of storage and number of volumes allocated by default for each instance type, see [Default EBS Storage for Instances](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-storage.html#emr-plan-storage-ebs-storage-default) in the *Amazon EMR Management Guide*\.
++ Modified the default EBS configuration for EC2 instance types with EBS\-only storage\. When you create a cluster using Amazon EMR release version 5\.22\.0 and later, the default amount of EBS storage increases based on the size of the instance\. In addition, we split increased storage across multiple volumes, giving increased IOPS performance\. If you want to use a different EBS instance storage configuration, you can specify it when you create an EMR cluster or add nodes to an existing cluster\. For more information about the amount of storage and number of volumes allocated by default for each instance type, see [Default EBS Storage for Instances](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-storage.html#emr-plan-storage-ebs-storage-default) in the *Amazon EMR Management Guide*\.
 
 **Changes, Enhancements, and Resolved Issues**
 + Spark
   + Introduced a new configuration property for Spark on YARN, `spark.yarn.executor.memoryOverheadFactor`\. The value of this property is a scale factor that sets the value of memory overhead to a percentage of executor memory, with a minimum of 384 MB\. If memory overhead is set explicitly using `spark.yarn.executor.memoryOverhead`, this property has no effect\. The default value is `0.1875`, representing 18\.75%\. This default for Amazon EMR leaves more space in YARN containers for executor memory overhead than the 10% default set internally by Spark\. The Amazon EMR default of 18\.75% empirically showed fewer memory\-related failures in TPC\-DS benchmarks\.
   + Backported [SPARK\-26316](https://issues.apache.org/jira/browse/SPARK-26316) to improve performance\.
+
+**Known Issues**
++ Hue \(Fixed in Amazon EMR release version 5\.24\.0\)
+  + Hue running on Amazon EMR does not support Solr\. Beginning with Amazon EMR release version 5\.20\.0, a misconfiguration issue causes Solr to be enabled and a harmless error message to appear similar to the following:
+
+    `Solr server could not be contacted properly: HTTPConnectionPool('host=ip-xx-xx-xx-xx.ec2.internal', port=1978): Max retries exceeded with url: /solr/admin/info/system?user.name=hue&doAs=administrator&wt=json (Caused by NewConnectionError(': Failed to establish a new connection: [Errno 111] Connection refused',))`
+
+    **To prevent the Solr error message from appearing:**
+
+    1. Connect to the master node command line using SSH\.
+
+    1. Use a text editor to open the `hue.ini` file\. For example:
+
+       `sudo vim /etc/hue/conf/hue.ini`
+
+    1. Search for the term "appblacklist" and modify the line to the following:
+
+       ```
+       appblacklist = search
+       ```
+
+    1. Save your changes and restart Hue as shown in the following example:
+
+       ```
+       sudo stop hue; sudo start hue
+       ```
 
 **5\.22\.0 Component Versions**
 
@@ -127,7 +1311,7 @@ Some components need changes from community versions for Amazon EMR\. These comp
 
 **5\.22\.0 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-5\.22\.0 Classifications**  
@@ -231,50 +1415,40 @@ Configuration classifications allow you to customize applications when you creat
 | zookeeper\-log4j | Change values in ZooKeeper's log4j\.properties file\. | 
 
 ------
-#### [ 5\.21\.0 ]<a name="emr-5210-release"></a>
+#### [ 5\.21\.x ]<a name="emr-521x-releases"></a>
 
-**Amazon EMR Release 5\.21\.0**
-+ [Application Versions](#emr-5210-app-versions)
-+ [Release Notes](#emr-5210-relnotes)
-+ [Component Versions](#emr-5210-components)
-+ [Configuration Classifications](#emr-5210-class)
+There are multiple releases within the 5\.21 series\. Choose a link below to see information for a specific release within this tab\.
 
-**5\.21\.0 Application Versions**
+**[5.21.1](#emr-5211-release) \(Latest\) \| [5.21.0](#emr-5210-release)**
+
+**Amazon EMR Release 5\.21\.1**
++ [Application Versions](#emr-5211-app-versions)
++ [Release Notes](#emr-5211-relnotes)
++ [Component Versions](#emr-5211-components)
++ [Configuration Classifications](#emr-5211-class)
+
+**Release 5\.21\.1 Application Versions**
 
 The following applications are supported in this release: [Flink](https://flink.apache.org/), [Ganglia](http://ganglia.info), [Hadoop](http://hadoop.apache.org/docs/current/), [HBase](http://hbase.apache.org/), [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), [Hive](http://hive.apache.org/), [Hue](http://gethue.com/), [JupyterHub](https://jupyterhub.readthedocs.io/en/latest/#), [Livy](https://livy.incubator.apache.org/), [Mahout](http://mahout.apache.org/), [MXNet](https://mxnet.incubator.apache.org/), [Oozie](http://oozie.apache.org/), [Phoenix](https://phoenix.apache.org/), [Pig](http://pig.apache.org/), [Presto](https://prestodb.io/), [Spark](https://spark.apache.org/docs/latest/), [Sqoop](http://sqoop.apache.org/), [TensorFlow](https://www.tensorflow.org/), [Tez](https://tez.apache.org/), [Zeppelin](https://zeppelin.incubator.apache.org/), and [ZooKeeper](https://zookeeper.apache.org)\.
 
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.21.0.png)
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.21.1.png)
 
-**5\.21\.0 Release Notes**
+**Release 5\.21\.1 Release Notes**
 
-The following release notes include information for Amazon EMR release version 5\.21\.0\. Changes are relative to 5\.20\.0\.
+The following release notes include information for Amazon EMR release version 5\.21\.1\. Changes are relative to 5\.21\.0\.
 
-Initial release date: February 18, 2019
-
-**Upgrades**
-+ Flink 1\.7\.0
-+ Presto 0\.215
-+ AWS SDK for Java 1\.11\.479
+Initial release date: July 18, 2019
 
 **Changes, Enhancements, and Resolved Issues**
-+ Zeppelin
-  + Backported [ZEPPELIN\-3878](https://issues.apache.org/jira/browse/ZEPPELIN-3878)\.
++ Updated the default Amazon Linux AMI for EMR to include important Linux kernel security updates, including the TCP SACK Denial of Service Issue \([AWS\-2019\-005](http://aws.amazon.com/security/security-bulletins/AWS-2019-005/)\)\.
 
-**Known Issues**
-+ Tez
-  + This issue was fixed in Amazon EMR 5\.22\.0\.
-
-    When you connect to the Tez UI at http://*MasterDNS*:8080/tez\-ui through an SSH connection to the cluster master node, the error "Adapter operation failed \- Timeline server \(ATS\) is out of reach\. Either it is down, or CORS is not enabled" appears, or tasks unexpectedly show N/A\.
-
-    This is caused by the Tez UI making requests to the YARN Timeline Server using `localhost` rather than the host name of the master node\. As a workaround, a script is available to run as a bootstrap action or step\. The script updates the host name in the Tez `configs.env` file\. For more information and the location of the script, see the [Bootstrap Instructions](http://awssupportdatasvcs.com/bootstrap-actions/fix_tez_ui_0-9-1/)\.
-
-**5\.21\.0 Component Versions**
+**Release 5\.21\.1 Component Versions**
 
 The components that Amazon EMR installs with this release are listed below\. Some are installed as part of big\-data application packages\. Others are unique to Amazon EMR and installed for system processes and features\. These typically start with `emr` or `aws`\. Big\-data application packages in the most recent Amazon EMR release are usually the latest version found in the community\. We make community releases available in Amazon EMR as quickly as possible\.
 
@@ -345,9 +1519,251 @@ Some components need changes from community versions for Amazon EMR\. These comp
 | zookeeper\-server | 3\.4\.13 | Centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services\. | 
 | zookeeper\-client | 3\.4\.13 | ZooKeeper command line client\. | 
 
-**5\.21\.0 Configuration Classifications**
+**Release 5\.21\.1 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+
+
+**emr\-5\.21\.1 Classifications**  
+
+| Classifications | Description | 
+| --- | --- | 
+| capacity\-scheduler | Change values in Hadoop's capacity\-scheduler\.xml file\. | 
+| container\-log4j | Change values in Hadoop YARN's container\-log4j\.properties file\. | 
+| core\-site | Change values in Hadoop's core\-site\.xml file\. | 
+| emrfs\-site | Change EMRFS settings\. | 
+| flink\-conf | Change flink\-conf\.yaml settings\. | 
+| flink\-log4j | Change Flink log4j\.properties settings\. | 
+| flink\-log4j\-yarn\-session | Change Flink log4j\-yarn\-session\.properties settings\. | 
+| flink\-log4j\-cli | Change Flink log4j\-cli\.properties settings\. | 
+| hadoop\-env | Change values in the Hadoop environment for all Hadoop components\. | 
+| hadoop\-log4j | Change values in Hadoop's log4j\.properties file\. | 
+| hadoop\-ssl\-server | Change hadoop ssl server configuration | 
+| hadoop\-ssl\-client | Change hadoop ssl client configuration | 
+| hbase | Amazon EMR\-curated settings for Apache HBase\. | 
+| hbase\-env | Change values in HBase's environment\. | 
+| hbase\-log4j | Change values in HBase's hbase\-log4j\.properties file\. | 
+| hbase\-metrics | Change values in HBase's hadoop\-metrics2\-hbase\.properties file\. | 
+| hbase\-policy | Change values in HBase's hbase\-policy\.xml file\. | 
+| hbase\-site | Change values in HBase's hbase\-site\.xml file\. | 
+| hdfs\-encryption\-zones | Configure HDFS encryption zones\. | 
+| hdfs\-site | Change values in HDFS's hdfs\-site\.xml\. | 
+| hcatalog\-env | Change values in HCatalog's environment\. | 
+| hcatalog\-server\-jndi | Change values in HCatalog's jndi\.properties\. | 
+| hcatalog\-server\-proto\-hive\-site | Change values in HCatalog's proto\-hive\-site\.xml\. | 
+| hcatalog\-webhcat\-env | Change values in HCatalog WebHCat's environment\. | 
+| hcatalog\-webhcat\-log4j2 | Change values in HCatalog WebHCat's log4j2\.properties\. | 
+| hcatalog\-webhcat\-site | Change values in HCatalog WebHCat's webhcat\-site\.xml file\. | 
+| hive\-beeline\-log4j2 | Change values in Hive's beeline\-log4j2\.properties file\. | 
+| hive\-parquet\-logging | Change values in Hive's parquet\-logging\.properties file\. | 
+| hive\-env | Change values in the Hive environment\. | 
+| hive\-exec\-log4j2 | Change values in Hive's hive\-exec\-log4j2\.properties file\. | 
+| hive\-llap\-daemon\-log4j2 | Change values in Hive's llap\-daemon\-log4j2\.properties file\. | 
+| hive\-log4j2 | Change values in Hive's hive\-log4j2\.properties file\. | 
+| hive\-site | Change values in Hive's hive\-site\.xml file | 
+| hiveserver2\-site | Change values in Hive Server2's hiveserver2\-site\.xml file | 
+| hue\-ini | Change values in Hue's ini file | 
+| httpfs\-env | Change values in the HTTPFS environment\. | 
+| httpfs\-site | Change values in Hadoop's httpfs\-site\.xml file\. | 
+| hadoop\-kms\-acls | Change values in Hadoop's kms\-acls\.xml file\. | 
+| hadoop\-kms\-env | Change values in the Hadoop KMS environment\. | 
+| hadoop\-kms\-log4j | Change values in Hadoop's kms\-log4j\.properties file\. | 
+| hadoop\-kms\-site | Change values in Hadoop's kms\-site\.xml file\. | 
+| jupyter\-notebook\-conf | Change values in Jupyter Notebook's jupyter\_notebook\_config\.py file\. | 
+| jupyter\-hub\-conf | Change values in JupyterHubs's jupyterhub\_config\.py file\. | 
+| jupyter\-s3\-conf | Configure Jupyter Notebook S3 persistence\. | 
+| jupyter\-sparkmagic\-conf | Change values in Sparkmagic's config\.json file\. | 
+| livy\-conf | Change values in Livy's livy\.conf file\. | 
+| livy\-env | Change values in the Livy environment\. | 
+| livy\-log4j | Change Livy log4j\.properties settings\. | 
+| mapred\-env | Change values in the MapReduce application's environment\. | 
+| mapred\-site | Change values in the MapReduce application's mapred\-site\.xml file\. | 
+| oozie\-env | Change values in Oozie's environment\. | 
+| oozie\-log4j | Change values in Oozie's oozie\-log4j\.properties file\. | 
+| oozie\-site | Change values in Oozie's oozie\-site\.xml file\. | 
+| phoenix\-hbase\-metrics | Change values in Phoenix's hadoop\-metrics2\-hbase\.properties file\. | 
+| phoenix\-hbase\-site | Change values in Phoenix's hbase\-site\.xml file\. | 
+| phoenix\-log4j | Change values in Phoenix's log4j\.properties file\. | 
+| phoenix\-metrics | Change values in Phoenix's hadoop\-metrics2\-phoenix\.properties file\. | 
+| pig\-env | Change values in the Pig environment\. | 
+| pig\-properties | Change values in Pig's pig\.properties file\. | 
+| pig\-log4j | Change values in Pig's log4j\.properties file\. | 
+| presto\-log | Change values in Presto's log\.properties file\. | 
+| presto\-config | Change values in Presto's config\.properties file\. | 
+| presto\-password\-authenticator | Change values in Presto's password\-authenticator\.properties file\. | 
+| presto\-env | Change values in Presto's presto\-env\.sh file\. | 
+| presto\-node | Change values in Presto's node\.properties file\. | 
+| presto\-connector\-blackhole | Change values in Presto's blackhole\.properties file\. | 
+| presto\-connector\-cassandra | Change values in Presto's cassandra\.properties file\. | 
+| presto\-connector\-hive | Change values in Presto's hive\.properties file\. | 
+| presto\-connector\-jmx | Change values in Presto's jmx\.properties file\. | 
+| presto\-connector\-kafka | Change values in Presto's kafka\.properties file\. | 
+| presto\-connector\-localfile | Change values in Presto's localfile\.properties file\. | 
+| presto\-connector\-memory | Change values in Presto's memory\.properties file\. | 
+| presto\-connector\-mongodb | Change values in Presto's mongodb\.properties file\. | 
+| presto\-connector\-mysql | Change values in Presto's mysql\.properties file\. | 
+| presto\-connector\-postgresql | Change values in Presto's postgresql\.properties file\. | 
+| presto\-connector\-raptor | Change values in Presto's raptor\.properties file\. | 
+| presto\-connector\-redis | Change values in Presto's redis\.properties file\. | 
+| presto\-connector\-redshift | Change values in Presto's redshift\.properties file\. | 
+| presto\-connector\-tpch | Change values in Presto's tpch\.properties file\. | 
+| presto\-connector\-tpcds | Change values in Presto's tpcds\.properties file\. | 
+| spark | Amazon EMR\-curated settings for Apache Spark\. | 
+| spark\-defaults | Change values in Spark's spark\-defaults\.conf file\. | 
+| spark\-env | Change values in the Spark environment\. | 
+| spark\-hive\-site | Change values in Spark's hive\-site\.xml file | 
+| spark\-log4j | Change values in Spark's log4j\.properties file\. | 
+| spark\-metrics | Change values in Spark's metrics\.properties file\. | 
+| sqoop\-env | Change values in Sqoop's environment\. | 
+| sqoop\-oraoop\-site | Change values in Sqoop OraOop's oraoop\-site\.xml file\. | 
+| sqoop\-site | Change values in Sqoop's sqoop\-site\.xml file\. | 
+| tez\-site | Change values in Tez's tez\-site\.xml file\. | 
+| yarn\-env | Change values in the YARN environment\. | 
+| yarn\-site | Change values in YARN's yarn\-site\.xml file\. | 
+| zeppelin\-env | Change values in the Zeppelin environment\. | 
+| zookeeper\-config | Change values in ZooKeeper's zoo\.cfg file\. | 
+| zookeeper\-log4j | Change values in ZooKeeper's log4j\.properties file\. | 
+
+**Amazon EMR Release 5\.21\.0**
++ [Application Versions](#emr-5210-app-versions)
++ [Release Notes](#emr-5210-relnotes)
++ [Component Versions](#emr-5210-components)
++ [Configuration Classifications](#emr-5210-class)
+
+**Release 5\.21\.0 Application Versions**
+
+The following applications are supported in this release: [Flink](https://flink.apache.org/), [Ganglia](http://ganglia.info), [Hadoop](http://hadoop.apache.org/docs/current/), [HBase](http://hbase.apache.org/), [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), [Hive](http://hive.apache.org/), [Hue](http://gethue.com/), [JupyterHub](https://jupyterhub.readthedocs.io/en/latest/#), [Livy](https://livy.incubator.apache.org/), [Mahout](http://mahout.apache.org/), [MXNet](https://mxnet.incubator.apache.org/), [Oozie](http://oozie.apache.org/), [Phoenix](https://phoenix.apache.org/), [Pig](http://pig.apache.org/), [Presto](https://prestodb.io/), [Spark](https://spark.apache.org/docs/latest/), [Sqoop](http://sqoop.apache.org/), [TensorFlow](https://www.tensorflow.org/), [Tez](https://tez.apache.org/), [Zeppelin](https://zeppelin.incubator.apache.org/), and [ZooKeeper](https://zookeeper.apache.org)\.
+
+The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
+
+For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
+
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.21.0.png)
+
+**Release 5\.21\.0 Release Notes**
+
+The following release notes include information for Amazon EMR release version 5\.21\.0\. Changes are relative to 5\.20\.0\.
+
+Initial release date: February 18, 2019
+
+Last updated date: April 3, 2019
+
+**Upgrades**
++ Flink 1\.7\.0
++ Presto 0\.215
++ AWS SDK for Java 1\.11\.479
+
+**New Features**
++ \(April 3, 2019\) With Amazon EMR version 5\.21\.0 and later, you can override cluster configurations and specify additional configuration classifications for each instance group in a running cluster\. You do this by using the Amazon EMR console, the AWS Command Line Interface \(AWS CLI\), or the AWS SDK\. For more information, see [Supplying a Configuration for an Instance Group in a Running Cluster](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps-running-cluster.html)\.
+
+**Changes, Enhancements, and Resolved Issues**
++ Zeppelin
+  + Backported [ZEPPELIN\-3878](https://issues.apache.org/jira/browse/ZEPPELIN-3878)\.
+
+**Known Issues**
++ Hue \(Fixed in Amazon EMR release version 5\.24\.0\)
+  + Hue running on Amazon EMR does not support Solr\. Beginning with Amazon EMR release version 5\.20\.0, a misconfiguration issue causes Solr to be enabled and a harmless error message to appear similar to the following:
+
+    `Solr server could not be contacted properly: HTTPConnectionPool('host=ip-xx-xx-xx-xx.ec2.internal', port=1978): Max retries exceeded with url: /solr/admin/info/system?user.name=hue&doAs=administrator&wt=json (Caused by NewConnectionError(': Failed to establish a new connection: [Errno 111] Connection refused',))`
+
+    **To prevent the Solr error message from appearing:**
+
+    1. Connect to the master node command line using SSH\.
+
+    1. Use a text editor to open the `hue.ini` file\. For example:
+
+       `sudo vim /etc/hue/conf/hue.ini`
+
+    1. Search for the term "appblacklist" and modify the line to the following:
+
+       ```
+       appblacklist = search
+       ```
+
+    1. Save your changes and restart Hue as shown in the following example:
+
+       ```
+       sudo stop hue; sudo start hue
+       ```
++ Tez
+  + This issue was fixed in Amazon EMR 5\.22\.0\.
+
+    When you connect to the Tez UI at http://*MasterDNS*:8080/tez\-ui through an SSH connection to the cluster master node, the error "Adapter operation failed \- Timeline server \(ATS\) is out of reach\. Either it is down, or CORS is not enabled" appears, or tasks unexpectedly show N/A\.
+
+    This is caused by the Tez UI making requests to the YARN Timeline Server using `localhost` rather than the host name of the master node\. As a workaround, a script is available to run as a bootstrap action or step\. The script updates the host name in the Tez `configs.env` file\. For more information and the location of the script, see the [Bootstrap Instructions](http://awssupportdatasvcs.com/bootstrap-actions/fix_tez_ui_0-9-1/)\.
+
+**Release 5\.21\.0 Component Versions**
+
+
+| Component | Version | Description | 
+| --- | --- | --- | 
+| aws\-sagemaker\-spark\-sdk | 1\.2\.1 | Amazon SageMaker Spark SDK | 
+| emr\-ddb | 4\.7\.0 | Amazon DynamoDB connector for Hadoop ecosystem applications\. | 
+| emr\-goodies | 2\.5\.1 | Extra convenience libraries for the Hadoop ecosystem\. | 
+| emr\-kinesis | 3\.4\.0 | Amazon Kinesis connector for Hadoop ecosystem applications\. | 
+| emr\-s3\-dist\-cp | 2\.11\.0 | Distributed copy application optimized for Amazon S3\. | 
+| emr\-s3\-select | 1\.2\.0 | EMR S3Select Connector | 
+| emrfs | 2\.30\.0 | Amazon S3 connector for Hadoop ecosystem applications\. | 
+| flink\-client | 1\.7\.0 | Apache Flink command line client scripts and applications\. | 
+| ganglia\-monitor | 3\.7\.2 | Embedded Ganglia agent for Hadoop ecosystem applications along with the Ganglia monitoring agent\. | 
+| ganglia\-metadata\-collector | 3\.7\.2 | Ganglia metadata collector for aggregating metrics from Ganglia monitoring agents\. | 
+| ganglia\-web | 3\.7\.1 | Web application for viewing metrics collected by the Ganglia metadata collector\. | 
+| hadoop\-client | 2\.8\.5\-amzn\-1 | Hadoop command\-line clients such as 'hdfs', 'hadoop', or 'yarn'\. | 
+| hadoop\-hdfs\-datanode | 2\.8\.5\-amzn\-1 | HDFS node\-level service for storing blocks\. | 
+| hadoop\-hdfs\-library | 2\.8\.5\-amzn\-1 | HDFS command\-line client and library | 
+| hadoop\-hdfs\-namenode | 2\.8\.5\-amzn\-1 | HDFS service for tracking file names and block locations\. | 
+| hadoop\-httpfs\-server | 2\.8\.5\-amzn\-1 | HTTP endpoint for HDFS operations\. | 
+| hadoop\-kms\-server | 2\.8\.5\-amzn\-1 | Cryptographic key management server based on Hadoop's KeyProvider API\. | 
+| hadoop\-mapred | 2\.8\.5\-amzn\-1 | MapReduce execution engine libraries for running a MapReduce application\. | 
+| hadoop\-yarn\-nodemanager | 2\.8\.5\-amzn\-1 | YARN service for managing containers on an individual node\. | 
+| hadoop\-yarn\-resourcemanager | 2\.8\.5\-amzn\-1 | YARN service for allocating and managing cluster resources and distributed applications\. | 
+| hadoop\-yarn\-timeline\-server | 2\.8\.5\-amzn\-1 | Service for retrieving current and historical information for YARN applications\. | 
+| hbase\-hmaster | 1\.4\.8 | Service for an HBase cluster responsible for coordination of Regions and execution of administrative commands\. | 
+| hbase\-region\-server | 1\.4\.8 | Service for serving one or more HBase regions\. | 
+| hbase\-client | 1\.4\.8 | HBase command\-line client\. | 
+| hbase\-rest\-server | 1\.4\.8 | Service providing a RESTful HTTP endpoint for HBase\. | 
+| hbase\-thrift\-server | 1\.4\.8 | Service providing a Thrift endpoint to HBase\. | 
+| hcatalog\-client | 2\.3\.4\-amzn\-0 | The 'hcat' command line client for manipulating hcatalog\-server\. | 
+| hcatalog\-server | 2\.3\.4\-amzn\-0 | Service providing HCatalog, a table and storage management layer for distributed applications\. | 
+| hcatalog\-webhcat\-server | 2\.3\.4\-amzn\-0 | HTTP endpoint providing a REST interface to HCatalog\. | 
+| hive\-client | 2\.3\.4\-amzn\-0 | Hive command line client\. | 
+| hive\-hbase | 2\.3\.4\-amzn\-0 | Hive\-hbase client\. | 
+| hive\-metastore\-server | 2\.3\.4\-amzn\-0 | Service for accessing the Hive metastore, a semantic repository storing metadata for SQL on Hadoop operations\. | 
+| hive\-server2 | 2\.3\.4\-amzn\-0 | Service for accepting Hive queries as web requests\. | 
+| hue\-server | 4\.3\.0 | Web application for analyzing data using Hadoop ecosystem applications | 
+| jupyterhub | 0\.9\.4 | Multi\-user server for Jupyter notebooks | 
+| livy\-server | 0\.5\.0\-incubating | REST interface for interacting with Apache Spark | 
+| nginx | 1\.12\.1 | nginx \[engine x\] is an HTTP and reverse proxy server | 
+| mahout\-client | 0\.13\.0 | Library for machine learning\. | 
+| mxnet | 1\.3\.1 | A flexible, scalable, and efficient library for deep learning\. | 
+| mysql\-server | 5\.5\.54\+ | MySQL database server\. | 
+| nvidia\-cuda | 9\.2\.88 | Nvidia drivers and Cuda toolkit | 
+| oozie\-client | 5\.0\.0 | Oozie command\-line client\. | 
+| oozie\-server | 5\.0\.0 | Service for accepting Oozie workflow requests\. | 
+| opencv | 3\.4\.0 | Open Source Computer Vision Library\. | 
+| phoenix\-library | 4\.14\.0\-HBase\-1\.4 | The phoenix libraries for server and client | 
+| phoenix\-query\-server | 4\.14\.0\-HBase\-1\.4 | A light weight server providing JDBC access as well as Protocol Buffers and JSON format access to the Avatica API  | 
+| presto\-coordinator | 0\.215 | Service for accepting queries and managing query execution among presto\-workers\. | 
+| presto\-worker | 0\.215 | Service for executing pieces of a query\. | 
+| pig\-client | 0\.17\.0 | Pig command\-line client\. | 
+| r | 3\.4\.1 | The R Project for Statistical Computing | 
+| spark\-client | 2\.4\.0 | Spark command\-line clients\. | 
+| spark\-history\-server | 2\.4\.0 | Web UI for viewing logged events for the lifetime of a completed Spark application\. | 
+| spark\-on\-yarn | 2\.4\.0 | In\-memory execution engine for YARN\. | 
+| spark\-yarn\-slave | 2\.4\.0 | Apache Spark libraries needed by YARN slaves\. | 
+| sqoop\-client | 1\.4\.7 | Apache Sqoop command\-line client\. | 
+| tensorflow | 1\.12\.0 | TensorFlow open source software library for high performance numerical computation\. | 
+| tez\-on\-yarn | 0\.9\.1 | The tez YARN application and libraries\. | 
+| webserver | 2\.4\.25\+ | Apache HTTP server\. | 
+| zeppelin\-server | 0\.8\.0 | Web\-based notebook that enables interactive data analytics\. | 
+| zookeeper\-server | 3\.4\.13 | Centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services\. | 
+| zookeeper\-client | 3\.4\.13 | ZooKeeper command line client\. | 
+
+**Release 5\.21\.0 Configuration Classifications**
+
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-5\.21\.0 Classifications**  
@@ -466,8 +1882,8 @@ The following applications are supported in this release: [Flink](https://flink.
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.20.0.png)
 
@@ -492,7 +1908,7 @@ Last updated date: January 22, 2019
 + AWS SDK for Java 1\.11\.461
 
 **New Features**
-+ \(January 22, 2019\) Kerberos in Amazon EMR has been improved to support authenticating principals from an external KDC\. This centralizes principal management because multiple clusters can share a single, external KDC\. In addition, the external KDC can have a cross\-realm trust with an Active Directory domain\. This allows all clusters to authenticate principals from Active Directory\. For more information, see [Use Kerberos Authentication](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html) in the *Amazon EMR Management Guide*\.
++ \(January 22, 2019\) Kerberos in Amazon EMR has been improved to support authenticating principals from an external KDC\. This centralizes principal management because multiple clusters can share a single, external KDC\. In addition, the external KDC can have a cross\-realm trust with an Active Directory domain\. This allows all clusters to authenticate principals from Active Directory\. For more information, see [Use Kerberos Authentication](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html) in the *Amazon EMR Management Guide*\.
 
 **Changes, Enhancements, and Resolved Issues**
 + Default Amazon Linux AMI for Amazon EMR
@@ -502,9 +1918,33 @@ Last updated date: January 22, 2019
 + Hive
   + Backported [HIVE\-16686](https://issues.apache.org/jira/browse/HIVE-16686)\.
 + Glue with Spark and Hive
-  + In EMR 5\.20\.0 or later, parallel partition pruning is enabled automatically for Spark and Hive when AWS Glue Data Catalog is used as the metastore\. This change significantly reduces query planning time by executing multiple requests in parallel to retrieve partitions\. The total number of segments that can be executed concurrently range between 1 and 10\. The default value is 5, which is a recommended setting\. You can change it by specifying the property `aws.glue.partition.num.segments` in `hive-site` configuration classification\. If throttling occurs, you can turn off the feature by changing the value to 1\. For more information, see [AWS Glue Segment Structure](http://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-partitions.html#aws-glue-api-catalog-partitions-Segment)\.
+  + In EMR 5\.20\.0 or later, parallel partition pruning is enabled automatically for Spark and Hive when AWS Glue Data Catalog is used as the metastore\. This change significantly reduces query planning time by executing multiple requests in parallel to retrieve partitions\. The total number of segments that can be executed concurrently range between 1 and 10\. The default value is 5, which is a recommended setting\. You can change it by specifying the property `aws.glue.partition.num.segments` in `hive-site` configuration classification\. If throttling occurs, you can turn off the feature by changing the value to 1\. For more information, see [AWS Glue Segment Structure](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-partitions.html#aws-glue-api-catalog-partitions-Segment)\.
 
 **Known Issues**
++ Hue \(Fixed in Amazon EMR release version 5\.24\.0\)
+  + Hue running on Amazon EMR does not support Solr\. Beginning with Amazon EMR release version 5\.20\.0, a misconfiguration issue causes Solr to be enabled and a harmless error message to appear similar to the following:
+
+    `Solr server could not be contacted properly: HTTPConnectionPool('host=ip-xx-xx-xx-xx.ec2.internal', port=1978): Max retries exceeded with url: /solr/admin/info/system?user.name=hue&doAs=administrator&wt=json (Caused by NewConnectionError(': Failed to establish a new connection: [Errno 111] Connection refused',))`
+
+    **To prevent the Solr error message from appearing:**
+
+    1. Connect to the master node command line using SSH\.
+
+    1. Use a text editor to open the `hue.ini` file\. For example:
+
+       `sudo vim /etc/hue/conf/hue.ini`
+
+    1. Search for the term "appblacklist" and modify the line to the following:
+
+       ```
+       appblacklist = search
+       ```
+
+    1. Save your changes and restart Hue as shown in the following example:
+
+       ```
+       sudo stop hue; sudo start hue
+       ```
 + Tez
   + This issue was fixed in Amazon EMR 5\.22\.0\.
 
@@ -585,7 +2025,7 @@ Some components need changes from community versions for Amazon EMR\. These comp
 
 **5\.20\.0 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-5\.20\.0 Classifications**  
@@ -704,8 +2144,8 @@ The following applications are supported in this release: [Flink](https://flink.
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.19.0.png)
 
@@ -728,12 +2168,12 @@ Last updated date: November 19, 2018
 + AWS SDK for Java 1\.11\.433
 
 **New Features**
-+ \(Nov\. 19, 2018\) EMR Notebooks is a managed environment based on Jupyter Notebook\. It supports Spark magic kernels for PySpark, Spark SQL, Spark R, and Scala\. EMR Notebooks can be used with clusters created using Amazon EMR release version 5\.18\.0 and later\. For more information, see [Using EMR Notebooks](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks.html) in the *Amazon EMR Management Guide*\.
++ \(Nov\. 19, 2018\) EMR Notebooks is a managed environment based on Jupyter Notebook\. It supports Spark magic kernels for PySpark, Spark SQL, Spark R, and Scala\. EMR Notebooks can be used with clusters created using Amazon EMR release version 5\.18\.0 and later\. For more information, see [Using EMR Notebooks](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks.html) in the *Amazon EMR Management Guide*\.
 + The EMRFS S3\-optimized committer is available when writing Parquet files using Spark and EMRFS\. This committer improves write performance\. For more information, see [Using the EMRFS S3\-optimized Committer](emr-spark-s3-optimized-committer.md)\.
 
 **Changes, Enhancements, and Resolved Issues**
 + YARN
-  + Modified the logic that limits the application master process to running on core nodes\. This functionality now uses the YARN node labels feature and properties in the `yarn-site` and `capacity-scheduler` configuration classifications\. For information, see [http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-instances-guidelines.html#emr-plan-spot-YARN.](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-instances-guidelines.html#emr-plan-spot-YARN.)
+  + Modified the logic that limits the application master process to running on core nodes\. This functionality now uses the YARN node labels feature and properties in the `yarn-site` and `capacity-scheduler` configuration classifications\. For information, see [https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-instances-guidelines.html#emr-plan-spot-YARN.](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-instances-guidelines.html#emr-plan-spot-YARN.)
 + Default Amazon Linux AMI for Amazon EMR
   + `ruby18`, `php56`, and `gcc48` are no longer installed by default\. These can be installed if desired using `yum`\.
   + The aws\-java\-sdk ruby gem is no longer installed by default\. It can be installed using `gem install aws-java-sdk`, if desired\. Specific components can also be installed\. For example, `gem install aws-java-sdk-s3`\.
@@ -814,7 +2254,7 @@ Some components need changes from community versions for Amazon EMR\. These comp
 
 **5\.19\.0 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-5\.19\.0 Classifications**  
@@ -933,8 +2373,8 @@ The following applications are supported in this release: [Flink](https://flink.
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.18.0.png)
 
@@ -1035,7 +2475,7 @@ Some components need changes from community versions for Amazon EMR\. These comp
 
 **5\.18\.0 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-5\.18\.0 Classifications**  
@@ -1137,55 +2577,40 @@ Configuration classifications allow you to customize applications when you creat
 | zookeeper\-log4j | Change values in ZooKeeper's log4j\.properties file\. | 
 
 ------
-#### [ 5\.17\.0 ]<a name="emr-5170-release"></a>
+#### [ 5\.17\.x ]<a name="emr-517x-releases"></a>
 
-**Amazon EMR Release 5\.17\.0**
-+ [Application Versions](#emr-5170-app-versions)
-+ [Release Notes](#emr-5170-relnotes)
-+ [Component Versions](#emr-5170-components)
-+ [Configuration Classifications](#emr-5170-class)
+There are multiple releases within the 5\.17 series\. Choose a link below to see information for a specific release within this tab\.
 
-**5\.17\.0 Application Versions**
+**[5.17.1](#emr-5171-release) \(Latest\) \| [5.17.0](#emr-5170-release)**
+
+**Amazon EMR Release 5\.17\.1**
++ [Application Versions](#emr-5171-app-versions)
++ [Release Notes](#emr-5171-relnotes)
++ [Component Versions](#emr-5171-components)
++ [Configuration Classifications](#emr-5171-class)
+
+**Release 5\.17\.1 Application Versions**
 
 The following applications are supported in this release: [Flink](https://flink.apache.org/), [Ganglia](http://ganglia.info), [Hadoop](http://hadoop.apache.org/docs/current/), [HBase](http://hbase.apache.org/), [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), [Hive](http://hive.apache.org/), [Hue](http://gethue.com/), [JupyterHub](https://jupyterhub.readthedocs.io/en/latest/#), [Livy](https://livy.incubator.apache.org/), [Mahout](http://mahout.apache.org/), [MXNet](https://mxnet.incubator.apache.org/), [Oozie](http://oozie.apache.org/), [Phoenix](https://phoenix.apache.org/), [Pig](http://pig.apache.org/), [Presto](https://prestodb.io/), [Spark](https://spark.apache.org/docs/latest/), [Sqoop](http://sqoop.apache.org/), [TensorFlow](https://www.tensorflow.org/), [Tez](https://tez.apache.org/), [Zeppelin](https://zeppelin.incubator.apache.org/), and [ZooKeeper](https://zookeeper.apache.org)\.
 
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
-![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.17.0.png)
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.17.1.png)
 
-**5\.17\.0 Release Notes**
+**Release 5\.17\.1 Release Notes**
 
-The following release notes include information for Amazon EMR release version 5\.17\.0\. Changes are relative to 5\.16\.0\.
+The following release notes include information for Amazon EMR release version 5\.17\.1\. Changes are relative to 5\.17\.0\.
 
-Initial release date: August 30, 2018
-
-**Upgrades**
-+ Flink 1\.5\.2
-+ HBase 1\.4\.6
-+ Presto 0\.206
-
-**New Features**
-+ Added support for Tensorflow\. For more information, see [TensorFlow](emr-tensorflow.md)\.
+Initial release date: July 18, 2019
 
 **Changes, Enhancements, and Resolved Issues**
-+ JupyterHub
-  + Added support for notebook persistence in Amazon S3\. For more information, see [Configuring Persistence for Notebooks in Amazon S3](emr-jupyterhub-s3.md)\.
-+ Spark
-  + Added support for [S3 Select](http://aws.amazon.com/blogs/aws/s3-glacier-select/)\. For more information, see [Using S3 Select with Spark to Improve Query Performance](emr-spark-s3select.md)\.
++ Updated the default Amazon Linux AMI for EMR to include important Linux kernel security updates, including the TCP SACK Denial of Service Issue \([AWS\-2019\-005](http://aws.amazon.com/security/security-bulletins/AWS-2019-005/)\)\.
 
-**Known Issues**
-+ When you create a kerberized cluster with Livy installed, Livy fails with an error that simple authentication is not enabled\. Rebooting the Livy server resolves the issue\. As a workaround, add a step during cluster creation that runs `sudo restart livy-server` on the master node\.
-+ If you use a custom Amazon Linux AMI based on an Amazon Linux AMI with a creation date of 2018\-08\-11, the Oozie server fails to start\. If you use Oozie, create a custom AMI based on an Amazon Linux AMI ID with a different creation date\. You can use the following AWS CLI command to return a list of Image IDs for all HVM Amazon Linux AMIs with a 2018\.03 version, along with the release date, so that you can choose an appropriate Amazon Linux AMI as your base\. Replace MyRegion with your region identifier, such as us\-west\-2\.
-
-  ```
-  aws ec2 --region MyRegion describe-images --owner amazon --query 'Images[?Name!=`null`]|[?starts_with(Name, `amzn-ami-hvm-2018.03`) == `true`].[CreationDate,ImageId,Name]' --output text | sort -rk1
-  ```
-
-**5\.17\.0 Component Versions**
+**Release 5\.17\.1 Component Versions**
 
 The components that Amazon EMR installs with this release are listed below\. Some are installed as part of big\-data application packages\. Others are unique to Amazon EMR and installed for system processes and features\. These typically start with `emr` or `aws`\. Big\-data application packages in the most recent Amazon EMR release are usually the latest version found in the community\. We make community releases available in Amazon EMR as quickly as possible\.
 
@@ -1255,9 +2680,224 @@ Some components need changes from community versions for Amazon EMR\. These comp
 | zookeeper\-server | 3\.4\.12 | Centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services\. | 
 | zookeeper\-client | 3\.4\.12 | ZooKeeper command line client\. | 
 
-**5\.17\.0 Configuration Classifications**
+**Release 5\.17\.1 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+
+
+**emr\-5\.17\.1 Classifications**  
+
+| Classifications | Description | 
+| --- | --- | 
+| capacity\-scheduler | Change values in Hadoop's capacity\-scheduler\.xml file\. | 
+| container\-log4j | Change values in Hadoop YARN's container\-log4j\.properties file\. | 
+| core\-site | Change values in Hadoop's core\-site\.xml file\. | 
+| emrfs\-site | Change EMRFS settings\. | 
+| flink\-conf | Change flink\-conf\.yaml settings\. | 
+| flink\-log4j | Change Flink log4j\.properties settings\. | 
+| flink\-log4j\-yarn\-session | Change Flink log4j\-yarn\-session\.properties settings\. | 
+| flink\-log4j\-cli | Change Flink log4j\-cli\.properties settings\. | 
+| hadoop\-env | Change values in the Hadoop environment for all Hadoop components\. | 
+| hadoop\-log4j | Change values in Hadoop's log4j\.properties file\. | 
+| hadoop\-ssl\-server | Change hadoop ssl server configuration | 
+| hadoop\-ssl\-client | Change hadoop ssl client configuration | 
+| hbase | Amazon EMR\-curated settings for Apache HBase\. | 
+| hbase\-env | Change values in HBase's environment\. | 
+| hbase\-log4j | Change values in HBase's hbase\-log4j\.properties file\. | 
+| hbase\-metrics | Change values in HBase's hadoop\-metrics2\-hbase\.properties file\. | 
+| hbase\-policy | Change values in HBase's hbase\-policy\.xml file\. | 
+| hbase\-site | Change values in HBase's hbase\-site\.xml file\. | 
+| hdfs\-encryption\-zones | Configure HDFS encryption zones\. | 
+| hdfs\-site | Change values in HDFS's hdfs\-site\.xml\. | 
+| hcatalog\-env | Change values in HCatalog's environment\. | 
+| hcatalog\-server\-jndi | Change values in HCatalog's jndi\.properties\. | 
+| hcatalog\-server\-proto\-hive\-site | Change values in HCatalog's proto\-hive\-site\.xml\. | 
+| hcatalog\-webhcat\-env | Change values in HCatalog WebHCat's environment\. | 
+| hcatalog\-webhcat\-log4j2 | Change values in HCatalog WebHCat's log4j2\.properties\. | 
+| hcatalog\-webhcat\-site | Change values in HCatalog WebHCat's webhcat\-site\.xml file\. | 
+| hive\-beeline\-log4j2 | Change values in Hive's beeline\-log4j2\.properties file\. | 
+| hive\-parquet\-logging | Change values in Hive's parquet\-logging\.properties file\. | 
+| hive\-env | Change values in the Hive environment\. | 
+| hive\-exec\-log4j2 | Change values in Hive's hive\-exec\-log4j2\.properties file\. | 
+| hive\-llap\-daemon\-log4j2 | Change values in Hive's llap\-daemon\-log4j2\.properties file\. | 
+| hive\-log4j2 | Change values in Hive's hive\-log4j2\.properties file\. | 
+| hive\-site | Change values in Hive's hive\-site\.xml file | 
+| hiveserver2\-site | Change values in Hive Server2's hiveserver2\-site\.xml file | 
+| hue\-ini | Change values in Hue's ini file | 
+| httpfs\-env | Change values in the HTTPFS environment\. | 
+| httpfs\-site | Change values in Hadoop's httpfs\-site\.xml file\. | 
+| hadoop\-kms\-acls | Change values in Hadoop's kms\-acls\.xml file\. | 
+| hadoop\-kms\-env | Change values in the Hadoop KMS environment\. | 
+| hadoop\-kms\-log4j | Change values in Hadoop's kms\-log4j\.properties file\. | 
+| hadoop\-kms\-site | Change values in Hadoop's kms\-site\.xml file\. | 
+| jupyter\-notebook\-conf | Change values in Jupyter Notebook's jupyter\_notebook\_config\.py file\. | 
+| jupyter\-hub\-conf | Change values in JupyterHubs's jupyterhub\_config\.py file\. | 
+| jupyter\-s3\-conf | Configure Jupyter Notebook S3 persistence\. | 
+| jupyter\-sparkmagic\-conf | Change values in Sparkmagic's config\.json file\. | 
+| livy\-conf | Change values in Livy's livy\.conf file\. | 
+| livy\-env | Change values in the Livy environment\. | 
+| livy\-log4j | Change Livy log4j\.properties settings\. | 
+| mapred\-env | Change values in the MapReduce application's environment\. | 
+| mapred\-site | Change values in the MapReduce application's mapred\-site\.xml file\. | 
+| oozie\-env | Change values in Oozie's environment\. | 
+| oozie\-log4j | Change values in Oozie's oozie\-log4j\.properties file\. | 
+| oozie\-site | Change values in Oozie's oozie\-site\.xml file\. | 
+| phoenix\-hbase\-metrics | Change values in Phoenix's hadoop\-metrics2\-hbase\.properties file\. | 
+| phoenix\-hbase\-site | Change values in Phoenix's hbase\-site\.xml file\. | 
+| phoenix\-log4j | Change values in Phoenix's log4j\.properties file\. | 
+| phoenix\-metrics | Change values in Phoenix's hadoop\-metrics2\-phoenix\.properties file\. | 
+| pig\-env | Change values in the Pig environment\. | 
+| pig\-properties | Change values in Pig's pig\.properties file\. | 
+| pig\-log4j | Change values in Pig's log4j\.properties file\. | 
+| presto\-log | Change values in Presto's log\.properties file\. | 
+| presto\-config | Change values in Presto's config\.properties file\. | 
+| presto\-password\-authenticator | Change values in Presto's password\-authenticator\.properties file\. | 
+| presto\-env | Change values in Presto's presto\-env\.sh file\. | 
+| presto\-node | Change values in Presto's node\.properties file\. | 
+| presto\-connector\-blackhole | Change values in Presto's blackhole\.properties file\. | 
+| presto\-connector\-cassandra | Change values in Presto's cassandra\.properties file\. | 
+| presto\-connector\-hive | Change values in Presto's hive\.properties file\. | 
+| presto\-connector\-jmx | Change values in Presto's jmx\.properties file\. | 
+| presto\-connector\-kafka | Change values in Presto's kafka\.properties file\. | 
+| presto\-connector\-localfile | Change values in Presto's localfile\.properties file\. | 
+| presto\-connector\-mongodb | Change values in Presto's mongodb\.properties file\. | 
+| presto\-connector\-mysql | Change values in Presto's mysql\.properties file\. | 
+| presto\-connector\-postgresql | Change values in Presto's postgresql\.properties file\. | 
+| presto\-connector\-raptor | Change values in Presto's raptor\.properties file\. | 
+| presto\-connector\-redis | Change values in Presto's redis\.properties file\. | 
+| presto\-connector\-redshift | Change values in Presto's redshift\.properties file\. | 
+| presto\-connector\-tpch | Change values in Presto's tpch\.properties file\. | 
+| spark | Amazon EMR\-curated settings for Apache Spark\. | 
+| spark\-defaults | Change values in Spark's spark\-defaults\.conf file\. | 
+| spark\-env | Change values in the Spark environment\. | 
+| spark\-hive\-site | Change values in Spark's hive\-site\.xml file | 
+| spark\-log4j | Change values in Spark's log4j\.properties file\. | 
+| spark\-metrics | Change values in Spark's metrics\.properties file\. | 
+| sqoop\-env | Change values in Sqoop's environment\. | 
+| sqoop\-oraoop\-site | Change values in Sqoop OraOop's oraoop\-site\.xml file\. | 
+| sqoop\-site | Change values in Sqoop's sqoop\-site\.xml file\. | 
+| tez\-site | Change values in Tez's tez\-site\.xml file\. | 
+| yarn\-env | Change values in the YARN environment\. | 
+| yarn\-site | Change values in YARN's yarn\-site\.xml file\. | 
+| zeppelin\-env | Change values in the Zeppelin environment\. | 
+| zookeeper\-config | Change values in ZooKeeper's zoo\.cfg file\. | 
+| zookeeper\-log4j | Change values in ZooKeeper's log4j\.properties file\. | 
+
+**Amazon EMR Release 5\.17\.0**
++ [Application Versions](#emr-5170-app-versions)
++ [Release Notes](#emr-5170-relnotes)
++ [Component Versions](#emr-5170-components)
++ [Configuration Classifications](#emr-5170-class)
+
+**Release 5\.17\.0 Application Versions**
+
+The following applications are supported in this release: [Flink](https://flink.apache.org/), [Ganglia](http://ganglia.info), [Hadoop](http://hadoop.apache.org/docs/current/), [HBase](http://hbase.apache.org/), [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), [Hive](http://hive.apache.org/), [Hue](http://gethue.com/), [JupyterHub](https://jupyterhub.readthedocs.io/en/latest/#), [Livy](https://livy.incubator.apache.org/), [Mahout](http://mahout.apache.org/), [MXNet](https://mxnet.incubator.apache.org/), [Oozie](http://oozie.apache.org/), [Phoenix](https://phoenix.apache.org/), [Pig](http://pig.apache.org/), [Presto](https://prestodb.io/), [Spark](https://spark.apache.org/docs/latest/), [Sqoop](http://sqoop.apache.org/), [TensorFlow](https://www.tensorflow.org/), [Tez](https://tez.apache.org/), [Zeppelin](https://zeppelin.incubator.apache.org/), and [ZooKeeper](https://zookeeper.apache.org)\.
+
+The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
+
+For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
+
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.17.0.png)
+
+**Release 5\.17\.0 Release Notes**
+
+The following release notes include information for Amazon EMR release version 5\.17\.0\. Changes are relative to 5\.16\.0\.
+
+Initial release date: August 30, 2018
+
+**Upgrades**
++ Flink 1\.5\.2
++ HBase 1\.4\.6
++ Presto 0\.206
+
+**New Features**
++ Added support for Tensorflow\. For more information, see [TensorFlow](emr-tensorflow.md)\.
+
+**Changes, Enhancements, and Resolved Issues**
++ JupyterHub
+  + Added support for notebook persistence in Amazon S3\. For more information, see [Configuring Persistence for Notebooks in Amazon S3](emr-jupyterhub-s3.md)\.
++ Spark
+  + Added support for [S3 Select](http://aws.amazon.com/blogs/aws/s3-glacier-select/)\. For more information, see [Using S3 Select with Spark to Improve Query Performance](emr-spark-s3select.md)\.
+
+**Known Issues**
++ When you create a kerberized cluster with Livy installed, Livy fails with an error that simple authentication is not enabled\. Rebooting the Livy server resolves the issue\. As a workaround, add a step during cluster creation that runs `sudo restart livy-server` on the master node\.
++ If you use a custom Amazon Linux AMI based on an Amazon Linux AMI with a creation date of 2018\-08\-11, the Oozie server fails to start\. If you use Oozie, create a custom AMI based on an Amazon Linux AMI ID with a different creation date\. You can use the following AWS CLI command to return a list of Image IDs for all HVM Amazon Linux AMIs with a 2018\.03 version, along with the release date, so that you can choose an appropriate Amazon Linux AMI as your base\. Replace MyRegion with your region identifier, such as us\-west\-2\.
+
+  ```
+  aws ec2 --region MyRegion describe-images --owner amazon --query 'Images[?Name!=`null`]|[?starts_with(Name, `amzn-ami-hvm-2018.03`) == `true`].[CreationDate,ImageId,Name]' --output text | sort -rk1
+  ```
+
+**Release 5\.17\.0 Component Versions**
+
+
+| Component | Version | Description | 
+| --- | --- | --- | 
+| aws\-sagemaker\-spark\-sdk | 1\.1\.3 | Amazon SageMaker Spark SDK | 
+| emr\-ddb | 4\.6\.0 | Amazon DynamoDB connector for Hadoop ecosystem applications\. | 
+| emr\-goodies | 2\.5\.0 | Extra convenience libraries for the Hadoop ecosystem\. | 
+| emr\-kinesis | 3\.4\.0 | Amazon Kinesis connector for Hadoop ecosystem applications\. | 
+| emr\-s3\-dist\-cp | 2\.10\.0 | Distributed copy application optimized for Amazon S3\. | 
+| emr\-s3\-select | 1\.0\.0 | EMR S3Select Connector | 
+| emrfs | 2\.26\.0 | Amazon S3 connector for Hadoop ecosystem applications\. | 
+| flink\-client | 1\.5\.2 | Apache Flink command line client scripts and applications\. | 
+| ganglia\-monitor | 3\.7\.2 | Embedded Ganglia agent for Hadoop ecosystem applications along with the Ganglia monitoring agent\. | 
+| ganglia\-metadata\-collector | 3\.7\.2 | Ganglia metadata collector for aggregating metrics from Ganglia monitoring agents\. | 
+| ganglia\-web | 3\.7\.1 | Web application for viewing metrics collected by the Ganglia metadata collector\. | 
+| hadoop\-client | 2\.8\.4\-amzn\-1 | Hadoop command\-line clients such as 'hdfs', 'hadoop', or 'yarn'\. | 
+| hadoop\-hdfs\-datanode | 2\.8\.4\-amzn\-1 | HDFS node\-level service for storing blocks\. | 
+| hadoop\-hdfs\-library | 2\.8\.4\-amzn\-1 | HDFS command\-line client and library | 
+| hadoop\-hdfs\-namenode | 2\.8\.4\-amzn\-1 | HDFS service for tracking file names and block locations\. | 
+| hadoop\-httpfs\-server | 2\.8\.4\-amzn\-1 | HTTP endpoint for HDFS operations\. | 
+| hadoop\-kms\-server | 2\.8\.4\-amzn\-1 | Cryptographic key management server based on Hadoop's KeyProvider API\. | 
+| hadoop\-mapred | 2\.8\.4\-amzn\-1 | MapReduce execution engine libraries for running a MapReduce application\. | 
+| hadoop\-yarn\-nodemanager | 2\.8\.4\-amzn\-1 | YARN service for managing containers on an individual node\. | 
+| hadoop\-yarn\-resourcemanager | 2\.8\.4\-amzn\-1 | YARN service for allocating and managing cluster resources and distributed applications\. | 
+| hadoop\-yarn\-timeline\-server | 2\.8\.4\-amzn\-1 | Service for retrieving current and historical information for YARN applications\. | 
+| hbase\-hmaster | 1\.4\.6 | Service for an HBase cluster responsible for coordination of Regions and execution of administrative commands\. | 
+| hbase\-region\-server | 1\.4\.6 | Service for serving one or more HBase regions\. | 
+| hbase\-client | 1\.4\.6 | HBase command\-line client\. | 
+| hbase\-rest\-server | 1\.4\.6 | Service providing a RESTful HTTP endpoint for HBase\. | 
+| hbase\-thrift\-server | 1\.4\.6 | Service providing a Thrift endpoint to HBase\. | 
+| hcatalog\-client | 2\.3\.3\-amzn\-1 | The 'hcat' command line client for manipulating hcatalog\-server\. | 
+| hcatalog\-server | 2\.3\.3\-amzn\-1 | Service providing HCatalog, a table and storage management layer for distributed applications\. | 
+| hcatalog\-webhcat\-server | 2\.3\.3\-amzn\-1 | HTTP endpoint providing a REST interface to HCatalog\. | 
+| hive\-client | 2\.3\.3\-amzn\-1 | Hive command line client\. | 
+| hive\-hbase | 2\.3\.3\-amzn\-1 | Hive\-hbase client\. | 
+| hive\-metastore\-server | 2\.3\.3\-amzn\-1 | Service for accessing the Hive metastore, a semantic repository storing metadata for SQL on Hadoop operations\. | 
+| hive\-server2 | 2\.3\.3\-amzn\-1 | Service for accepting Hive queries as web requests\. | 
+| hue\-server | 4\.2\.0 | Web application for analyzing data using Hadoop ecosystem applications | 
+| jupyterhub | 0\.8\.1 | Multi\-user server for Jupyter notebooks | 
+| livy\-server | 0\.5\.0\-incubating | REST interface for interacting with Apache Spark | 
+| mahout\-client | 0\.13\.0 | Library for machine learning\. | 
+| mxnet | 1\.2\.0 | A flexible, scalable, and efficient library for deep learning\. | 
+| mysql\-server | 5\.5\.54\+ | MySQL database server\. | 
+| nvidia\-cuda | 9\.2\.88 | Nvidia drivers and Cuda toolkit | 
+| oozie\-client | 5\.0\.0 | Oozie command\-line client\. | 
+| oozie\-server | 5\.0\.0 | Service for accepting Oozie workflow requests\. | 
+| opencv | 3\.4\.0 | Open Source Computer Vision Library\. | 
+| phoenix\-library | 4\.14\.0\-HBase\-1\.4 | The phoenix libraries for server and client | 
+| phoenix\-query\-server | 4\.14\.0\-HBase\-1\.4 | A light weight server providing JDBC access as well as Protocol Buffers and JSON format access to the Avatica API  | 
+| presto\-coordinator | 0\.206 | Service for accepting queries and managing query execution among presto\-workers\. | 
+| presto\-worker | 0\.206 | Service for executing pieces of a query\. | 
+| pig\-client | 0\.17\.0 | Pig command\-line client\. | 
+| r | 3\.4\.1 | The R Project for Statistical Computing | 
+| spark\-client | 2\.3\.1 | Spark command\-line clients\. | 
+| spark\-history\-server | 2\.3\.1 | Web UI for viewing logged events for the lifetime of a completed Spark application\. | 
+| spark\-on\-yarn | 2\.3\.1 | In\-memory execution engine for YARN\. | 
+| spark\-yarn\-slave | 2\.3\.1 | Apache Spark libraries needed by YARN slaves\. | 
+| sqoop\-client | 1\.4\.7 | Apache Sqoop command\-line client\. | 
+| tensorflow | 1\.9\.0 | TensorFlow open source software library for high performance numerical computation\. | 
+| tez\-on\-yarn | 0\.8\.4 | The tez YARN application and libraries\. | 
+| webserver | 2\.4\.25\+ | Apache HTTP server\. | 
+| zeppelin\-server | 0\.7\.3 | Web\-based notebook that enables interactive data analytics\. | 
+| zookeeper\-server | 3\.4\.12 | Centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services\. | 
+| zookeeper\-client | 3\.4\.12 | ZooKeeper command line client\. | 
+
+**Release 5\.17\.0 Configuration Classifications**
+
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-5\.17\.0 Classifications**  
@@ -1374,8 +3014,8 @@ The following applications are supported in this release: [Flink](https://flink.
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.16.0.png)
 
@@ -1479,7 +3119,7 @@ Some components need changes from community versions for Amazon EMR\. These comp
 
 **5\.16\.0 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-5\.16\.0 Classifications**  
@@ -1595,8 +3235,8 @@ The following applications are supported in this release: [Flink](https://flink.
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.15.0.png)
 
@@ -1696,7 +3336,7 @@ Some components need changes from community versions for Amazon EMR\. These comp
 
 **5\.15\.0 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-5\.15\.0 Classifications**  
@@ -1796,7 +3436,206 @@ Configuration classifications allow you to customize applications when you creat
 | zookeeper\-log4j | Change values in ZooKeeper's log4j\.properties file\. | 
 
 ------
-#### [ 5\.14\.0 ]<a name="emr-5140-release"></a>
+#### [ 5\.14\.x ]<a name="emr-514x-releases"></a>
+
+There are multiple releases within the 5\.14 series\. Choose a link below to see information for a specific release within this tab\.
+
+**[5.14.1](#emr-5141-release) \(Latest\) \| [5.14.0](#emr-5140-release)**
+
+**Amazon EMR Release 5\.14\.1**
++ [Application Versions](#emr-5141-app-versions)
++ [Release Notes](#emr-5141-relnotes)
++ [Component Versions](#emr-5141-components)
++ [Configuration Classifications](#emr-5141-class)
+
+**Release 5\.14\.1 Application Versions**
+
+The following applications are supported in this release: [Flink](https://flink.apache.org/), [Ganglia](http://ganglia.info), [Hadoop](http://hadoop.apache.org/docs/current/), [HBase](http://hbase.apache.org/), [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), [Hive](http://hive.apache.org/), [Hue](http://gethue.com/), [JupyterHub](https://jupyterhub.readthedocs.io/en/latest/#), [Livy](https://livy.incubator.apache.org/), [Mahout](http://mahout.apache.org/), [MXNet](https://mxnet.incubator.apache.org/), [Oozie](http://oozie.apache.org/), [Phoenix](https://phoenix.apache.org/), [Pig](http://pig.apache.org/), [Presto](https://prestodb.io/), [Spark](https://spark.apache.org/docs/latest/), [Sqoop](http://sqoop.apache.org/), [Tez](https://tez.apache.org/), [Zeppelin](https://zeppelin.incubator.apache.org/), and [ZooKeeper](https://zookeeper.apache.org)\.
+
+The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
+
+For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
+
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.14.1.png)
+
+**Release 5\.14\.1 Release Notes**
+
+The following release notes include information for Amazon EMR release version 5\.14\.1\. Changes are relative to 5\.14\.0\.
+
+Initial release date: October 17, 2018
+
+Updated the default AMI for Amazon EMR to address potential security vulnerabilities\.
+
+**Release 5\.14\.1 Component Versions**
+
+The components that Amazon EMR installs with this release are listed below\. Some are installed as part of big\-data application packages\. Others are unique to Amazon EMR and installed for system processes and features\. These typically start with `emr` or `aws`\. Big\-data application packages in the most recent Amazon EMR release are usually the latest version found in the community\. We make community releases available in Amazon EMR as quickly as possible\.
+
+Some components need changes from community versions for Amazon EMR\. These components have a version label in the form `CommunityVersion-amzn-EmrVersion`\. For example, if a big\-data community component named `myapp-component` of version 2\.2 has been modified three times for inclusion in different Amazon EMR release versions, its release version is listed as `2.2-amzn-3`\.
+
+
+| Component | Version | Description | 
+| --- | --- | --- | 
+| aws\-sagemaker\-spark\-sdk | 1\.0\.1 | Amazon SageMaker Spark SDK | 
+| emr\-ddb | 4\.5\.0 | Amazon DynamoDB connector for Hadoop ecosystem applications\. | 
+| emr\-goodies | 2\.4\.0 | Extra convenience libraries for the Hadoop ecosystem\. | 
+| emr\-kinesis | 3\.4\.0 | Amazon Kinesis connector for Hadoop ecosystem applications\. | 
+| emr\-s3\-dist\-cp | 2\.10\.0 | Distributed copy application optimized for Amazon S3\. | 
+| emrfs | 2\.23\.0 | Amazon S3 connector for Hadoop ecosystem applications\. | 
+| flink\-client | 1\.4\.2 | Apache Flink command line client scripts and applications\. | 
+| ganglia\-monitor | 3\.7\.2 | Embedded Ganglia agent for Hadoop ecosystem applications along with the Ganglia monitoring agent\. | 
+| ganglia\-metadata\-collector | 3\.7\.2 | Ganglia metadata collector for aggregating metrics from Ganglia monitoring agents\. | 
+| ganglia\-web | 3\.7\.1 | Web application for viewing metrics collected by the Ganglia metadata collector\. | 
+| hadoop\-client | 2\.8\.3\-amzn\-1 | Hadoop command\-line clients such as 'hdfs', 'hadoop', or 'yarn'\. | 
+| hadoop\-hdfs\-datanode | 2\.8\.3\-amzn\-1 | HDFS node\-level service for storing blocks\. | 
+| hadoop\-hdfs\-library | 2\.8\.3\-amzn\-1 | HDFS command\-line client and library | 
+| hadoop\-hdfs\-namenode | 2\.8\.3\-amzn\-1 | HDFS service for tracking file names and block locations\. | 
+| hadoop\-httpfs\-server | 2\.8\.3\-amzn\-1 | HTTP endpoint for HDFS operations\. | 
+| hadoop\-kms\-server | 2\.8\.3\-amzn\-1 | Cryptographic key management server based on Hadoop's KeyProvider API\. | 
+| hadoop\-mapred | 2\.8\.3\-amzn\-1 | MapReduce execution engine libraries for running a MapReduce application\. | 
+| hadoop\-yarn\-nodemanager | 2\.8\.3\-amzn\-1 | YARN service for managing containers on an individual node\. | 
+| hadoop\-yarn\-resourcemanager | 2\.8\.3\-amzn\-1 | YARN service for allocating and managing cluster resources and distributed applications\. | 
+| hadoop\-yarn\-timeline\-server | 2\.8\.3\-amzn\-1 | Service for retrieving current and historical information for YARN applications\. | 
+| hbase\-hmaster | 1\.4\.2 | Service for an HBase cluster responsible for coordination of Regions and execution of administrative commands\. | 
+| hbase\-region\-server | 1\.4\.2 | Service for serving one or more HBase regions\. | 
+| hbase\-client | 1\.4\.2 | HBase command\-line client\. | 
+| hbase\-rest\-server | 1\.4\.2 | Service providing a RESTful HTTP endpoint for HBase\. | 
+| hbase\-thrift\-server | 1\.4\.2 | Service providing a Thrift endpoint to HBase\. | 
+| hcatalog\-client | 2\.3\.2\-amzn\-2 | The 'hcat' command line client for manipulating hcatalog\-server\. | 
+| hcatalog\-server | 2\.3\.2\-amzn\-2 | Service providing HCatalog, a table and storage management layer for distributed applications\. | 
+| hcatalog\-webhcat\-server | 2\.3\.2\-amzn\-2 | HTTP endpoint providing a REST interface to HCatalog\. | 
+| hive\-client | 2\.3\.2\-amzn\-2 | Hive command line client\. | 
+| hive\-hbase | 2\.3\.2\-amzn\-2 | Hive\-hbase client\. | 
+| hive\-metastore\-server | 2\.3\.2\-amzn\-2 | Service for accessing the Hive metastore, a semantic repository storing metadata for SQL on Hadoop operations\. | 
+| hive\-server2 | 2\.3\.2\-amzn\-2 | Service for accepting Hive queries as web requests\. | 
+| hue\-server | 4\.1\.0 | Web application for analyzing data using Hadoop ecosystem applications | 
+| jupyterhub | 0\.8\.1 | Multi\-user server for Jupyter notebooks | 
+| livy\-server | 0\.4\.0\-incubating | REST interface for interacting with Apache Spark | 
+| mahout\-client | 0\.13\.0 | Library for machine learning\. | 
+| mxnet | 1\.1\.0 | A flexible, scalable, and efficient library for deep learning\. | 
+| mysql\-server | 5\.5\.54\+ | MySQL database server\. | 
+| nvidia\-cuda | 9\.1\.85 | Nvidia drivers and Cuda toolkit | 
+| oozie\-client | 4\.3\.0 | Oozie command\-line client\. | 
+| oozie\-server | 4\.3\.0 | Service for accepting Oozie workflow requests\. | 
+| opencv | 3\.4\.0 | Open Source Computer Vision Library\. | 
+| phoenix\-library | 4\.13\.0\-HBase\-1\.4 | The phoenix libraries for server and client | 
+| phoenix\-query\-server | 4\.13\.0\-HBase\-1\.4 | A light weight server providing JDBC access as well as Protocol Buffers and JSON format access to the Avatica API  | 
+| presto\-coordinator | 0\.194 | Service for accepting queries and managing query execution among presto\-workers\. | 
+| presto\-worker | 0\.194 | Service for executing pieces of a query\. | 
+| pig\-client | 0\.17\.0 | Pig command\-line client\. | 
+| r | 3\.4\.1 | The R Project for Statistical Computing | 
+| spark\-client | 2\.3\.0 | Spark command\-line clients\. | 
+| spark\-history\-server | 2\.3\.0 | Web UI for viewing logged events for the lifetime of a completed Spark application\. | 
+| spark\-on\-yarn | 2\.3\.0 | In\-memory execution engine for YARN\. | 
+| spark\-yarn\-slave | 2\.3\.0 | Apache Spark libraries needed by YARN slaves\. | 
+| sqoop\-client | 1\.4\.7 | Apache Sqoop command\-line client\. | 
+| tez\-on\-yarn | 0\.8\.4 | The tez YARN application and libraries\. | 
+| webserver | 2\.4\.25\+ | Apache HTTP server\. | 
+| zeppelin\-server | 0\.7\.3 | Web\-based notebook that enables interactive data analytics\. | 
+| zookeeper\-server | 3\.4\.10 | Centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services\. | 
+| zookeeper\-client | 3\.4\.10 | ZooKeeper command line client\. | 
+
+**Release 5\.14\.1 Configuration Classifications**
+
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+
+
+**emr\-5\.14\.1 Classifications**  
+
+| Classifications | Description | 
+| --- | --- | 
+| capacity\-scheduler | Change values in Hadoop's capacity\-scheduler\.xml file\. | 
+| container\-log4j | Change values in Hadoop YARN's container\-log4j\.properties file\. | 
+| core\-site | Change values in Hadoop's core\-site\.xml file\. | 
+| emrfs\-site | Change EMRFS settings\. | 
+| flink\-conf | Change flink\-conf\.yaml settings\. | 
+| flink\-log4j | Change Flink log4j\.properties settings\. | 
+| flink\-log4j\-yarn\-session | Change Flink log4j\-yarn\-session\.properties settings\. | 
+| flink\-log4j\-cli | Change Flink log4j\-cli\.properties settings\. | 
+| hadoop\-env | Change values in the Hadoop environment for all Hadoop components\. | 
+| hadoop\-log4j | Change values in Hadoop's log4j\.properties file\. | 
+| hadoop\-ssl\-server | Change hadoop ssl server configuration | 
+| hadoop\-ssl\-client | Change hadoop ssl client configuration | 
+| hbase | Amazon EMR\-curated settings for Apache HBase\. | 
+| hbase\-env | Change values in HBase's environment\. | 
+| hbase\-log4j | Change values in HBase's hbase\-log4j\.properties file\. | 
+| hbase\-metrics | Change values in HBase's hadoop\-metrics2\-hbase\.properties file\. | 
+| hbase\-policy | Change values in HBase's hbase\-policy\.xml file\. | 
+| hbase\-site | Change values in HBase's hbase\-site\.xml file\. | 
+| hdfs\-encryption\-zones | Configure HDFS encryption zones\. | 
+| hdfs\-site | Change values in HDFS's hdfs\-site\.xml\. | 
+| hcatalog\-env | Change values in HCatalog's environment\. | 
+| hcatalog\-server\-jndi | Change values in HCatalog's jndi\.properties\. | 
+| hcatalog\-server\-proto\-hive\-site | Change values in HCatalog's proto\-hive\-site\.xml\. | 
+| hcatalog\-webhcat\-env | Change values in HCatalog WebHCat's environment\. | 
+| hcatalog\-webhcat\-log4j2 | Change values in HCatalog WebHCat's log4j2\.properties\. | 
+| hcatalog\-webhcat\-site | Change values in HCatalog WebHCat's webhcat\-site\.xml file\. | 
+| hive\-beeline\-log4j2 | Change values in Hive's beeline\-log4j2\.properties file\. | 
+| hive\-parquet\-logging | Change values in Hive's parquet\-logging\.properties file\. | 
+| hive\-env | Change values in the Hive environment\. | 
+| hive\-exec\-log4j2 | Change values in Hive's hive\-exec\-log4j2\.properties file\. | 
+| hive\-llap\-daemon\-log4j2 | Change values in Hive's llap\-daemon\-log4j2\.properties file\. | 
+| hive\-log4j2 | Change values in Hive's hive\-log4j2\.properties file\. | 
+| hive\-site | Change values in Hive's hive\-site\.xml file | 
+| hiveserver2\-site | Change values in Hive Server2's hiveserver2\-site\.xml file | 
+| hue\-ini | Change values in Hue's ini file | 
+| httpfs\-env | Change values in the HTTPFS environment\. | 
+| httpfs\-site | Change values in Hadoop's httpfs\-site\.xml file\. | 
+| hadoop\-kms\-acls | Change values in Hadoop's kms\-acls\.xml file\. | 
+| hadoop\-kms\-env | Change values in the Hadoop KMS environment\. | 
+| hadoop\-kms\-log4j | Change values in Hadoop's kms\-log4j\.properties file\. | 
+| hadoop\-kms\-site | Change values in Hadoop's kms\-site\.xml file\. | 
+| jupyter\-notebook\-conf | Change values in Jupyter Notebook's jupyter\_notebook\_config\.py file\. | 
+| jupyter\-hub\-conf | Change values in JupyterHubs's jupyterhub\_config\.py file\. | 
+| jupyter\-sparkmagic\-conf | Change values in Sparkmagic's config\.json file\. | 
+| livy\-conf | Change values in Livy's livy\.conf file\. | 
+| livy\-env | Change values in the Livy environment\. | 
+| livy\-log4j | Change Livy log4j\.properties settings\. | 
+| mapred\-env | Change values in the MapReduce application's environment\. | 
+| mapred\-site | Change values in the MapReduce application's mapred\-site\.xml file\. | 
+| oozie\-env | Change values in Oozie's environment\. | 
+| oozie\-log4j | Change values in Oozie's oozie\-log4j\.properties file\. | 
+| oozie\-site | Change values in Oozie's oozie\-site\.xml file\. | 
+| phoenix\-hbase\-metrics | Change values in Phoenix's hadoop\-metrics2\-hbase\.properties file\. | 
+| phoenix\-hbase\-site | Change values in Phoenix's hbase\-site\.xml file\. | 
+| phoenix\-log4j | Change values in Phoenix's log4j\.properties file\. | 
+| phoenix\-metrics | Change values in Phoenix's hadoop\-metrics2\-phoenix\.properties file\. | 
+| pig\-env | Change values in the Pig environment\. | 
+| pig\-properties | Change values in Pig's pig\.properties file\. | 
+| pig\-log4j | Change values in Pig's log4j\.properties file\. | 
+| presto\-log | Change values in Presto's log\.properties file\. | 
+| presto\-config | Change values in Presto's config\.properties file\. | 
+| presto\-env | Change values in Presto's presto\-env\.sh file\. | 
+| presto\-node | Change values in Presto's node\.properties file\. | 
+| presto\-connector\-blackhole | Change values in Presto's blackhole\.properties file\. | 
+| presto\-connector\-cassandra | Change values in Presto's cassandra\.properties file\. | 
+| presto\-connector\-hive | Change values in Presto's hive\.properties file\. | 
+| presto\-connector\-jmx | Change values in Presto's jmx\.properties file\. | 
+| presto\-connector\-kafka | Change values in Presto's kafka\.properties file\. | 
+| presto\-connector\-localfile | Change values in Presto's localfile\.properties file\. | 
+| presto\-connector\-mongodb | Change values in Presto's mongodb\.properties file\. | 
+| presto\-connector\-mysql | Change values in Presto's mysql\.properties file\. | 
+| presto\-connector\-postgresql | Change values in Presto's postgresql\.properties file\. | 
+| presto\-connector\-raptor | Change values in Presto's raptor\.properties file\. | 
+| presto\-connector\-redis | Change values in Presto's redis\.properties file\. | 
+| presto\-connector\-redshift | Change values in Presto's redshift\.properties file\. | 
+| presto\-connector\-tpch | Change values in Presto's tpch\.properties file\. | 
+| spark | Amazon EMR\-curated settings for Apache Spark\. | 
+| spark\-defaults | Change values in Spark's spark\-defaults\.conf file\. | 
+| spark\-env | Change values in the Spark environment\. | 
+| spark\-hive\-site | Change values in Spark's hive\-site\.xml file | 
+| spark\-log4j | Change values in Spark's log4j\.properties file\. | 
+| spark\-metrics | Change values in Spark's metrics\.properties file\. | 
+| sqoop\-env | Change values in Sqoop's environment\. | 
+| sqoop\-oraoop\-site | Change values in Sqoop OraOop's oraoop\-site\.xml file\. | 
+| sqoop\-site | Change values in Sqoop's sqoop\-site\.xml file\. | 
+| tez\-site | Change values in Tez's tez\-site\.xml file\. | 
+| yarn\-env | Change values in the YARN environment\. | 
+| yarn\-site | Change values in YARN's yarn\-site\.xml file\. | 
+| zeppelin\-env | Change values in the Zeppelin environment\. | 
+| zookeeper\-config | Change values in ZooKeeper's zoo\.cfg file\. | 
+| zookeeper\-log4j | Change values in ZooKeeper's log4j\.properties file\. | 
 
 **Amazon EMR Release 5\.14\.0**
 + [Application Versions](#emr-5140-app-versions)
@@ -1804,19 +3643,19 @@ Configuration classifications allow you to customize applications when you creat
 + [Component Versions](#emr-5140-components)
 + [Configuration Classifications](#emr-5140-class)
 
-**5\.14\.0 Application Versions**
+**Release 5\.14\.0 Application Versions**
 
 The following applications are supported in this release: [Flink](https://flink.apache.org/), [Ganglia](http://ganglia.info), [Hadoop](http://hadoop.apache.org/docs/current/), [HBase](http://hbase.apache.org/), [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), [Hive](http://hive.apache.org/), [Hue](http://gethue.com/), [JupyterHub](https://jupyterhub.readthedocs.io/en/latest/#), [Livy](https://livy.incubator.apache.org/), [Mahout](http://mahout.apache.org/), [MXNet](https://mxnet.incubator.apache.org/), [Oozie](http://oozie.apache.org/), [Phoenix](https://phoenix.apache.org/), [Pig](http://pig.apache.org/), [Presto](https://prestodb.io/), [Spark](https://spark.apache.org/docs/latest/), [Sqoop](http://sqoop.apache.org/), [Tez](https://tez.apache.org/), [Zeppelin](https://zeppelin.incubator.apache.org/), and [ZooKeeper](https://zookeeper.apache.org)\.
 
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.14.0.png)
 
-**5\.14\.0 Release Notes**
+**Release 5\.14\.0 Release Notes**
 
 The following release notes include information for Amazon EMR release version 5\.14\.0\. Changes are relative to 5\.13\.0\.
 
@@ -1885,11 +3724,7 @@ Initial release date: June 4, 2018
     # 19:01:51.359 - info: [ConfigProxy] 200 GET /api/routes
     ```
 
-**5\.14\.0 Component Versions**
-
-The components that Amazon EMR installs with this release are listed below\. Some are installed as part of big\-data application packages\. Others are unique to Amazon EMR and installed for system processes and features\. These typically start with `emr` or `aws`\. Big\-data application packages in the most recent Amazon EMR release are usually the latest version found in the community\. We make community releases available in Amazon EMR as quickly as possible\.
-
-Some components need changes from community versions for Amazon EMR\. These components have a version label in the form `CommunityVersion-amzn-EmrVersion`\. For example, if a big\-data community component named `myapp-component` of version 2\.2 has been modified three times for inclusion in different Amazon EMR release versions, its release version is listed as `2.2-amzn-3`\.
+**Release 5\.14\.0 Component Versions**
 
 
 | Component | Version | Description | 
@@ -1953,9 +3788,9 @@ Some components need changes from community versions for Amazon EMR\. These comp
 | zookeeper\-server | 3\.4\.10 | Centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services\. | 
 | zookeeper\-client | 3\.4\.10 | ZooKeeper command line client\. | 
 
-**5\.14\.0 Configuration Classifications**
+**Release 5\.14\.0 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-5\.14\.0 Classifications**  
@@ -2070,8 +3905,8 @@ The following applications are supported in this release: [Flink](https://flink.
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.13.0.png)
 
@@ -2160,7 +3995,7 @@ Some components need changes from community versions for Amazon EMR\. These comp
 
 **5\.13\.0 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-5\.13\.0 Classifications**  
@@ -2275,8 +4110,8 @@ The following applications are supported in this release: [Flink](https://flink.
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.12.2.png)
 
@@ -2356,7 +4191,7 @@ Some components need changes from community versions for Amazon EMR\. These comp
 
 **Release 5\.12\.2 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-5\.12\.2 Classifications**  
@@ -2464,8 +4299,8 @@ The following applications are supported in this release: [Flink](https://flink.
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.12.1.png)
 
@@ -2545,7 +4380,7 @@ Some components need changes from community versions for Amazon EMR\. These comp
 
 **Release 5\.12\.1 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-5\.12\.1 Classifications**  
@@ -2653,8 +4488,8 @@ The following applications are supported in this release: [Flink](https://flink.
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.12.0.png)
 
@@ -2673,7 +4508,7 @@ The following release notes include information for the Amazon EMR release versi
 
 **Changes, Enhancements, and Resolved Issues**
 + **Hadoop**
-  + The `yarn.resourcemanager.decommissioning.timeout` property has changed to `yarn.resourcemanager.nodemanager-graceful-decommission-timeout-secs`\. You can use this property to customize cluster scale\-down\. For more information, see [Cluster Scale\-Down](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-scaledown-behavior.html) in the *Amazon EMR Management Guide*\.
+  + The `yarn.resourcemanager.decommissioning.timeout` property has changed to `yarn.resourcemanager.nodemanager-graceful-decommission-timeout-secs`\. You can use this property to customize cluster scale\-down\. For more information, see [Cluster Scale\-Down](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-scaledown-behavior.html) in the *Amazon EMR Management Guide*\.
   + The Hadoop CLI added the `-d` option to the `cp` \(copy\) command, which specifies direct copy\. You can use this to avoid creating an intermediary `.COPYING` file, which makes copying data between Amazon S3 faster\. For more information, see [HADOOP\-12384](https://issues.apache.org/jira/browse/HADOOP-12384)\.
 + **Pig**
   + Added the `pig-env` configuration classification, which simplifies the configuration of Pig environment properties\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
@@ -2752,7 +4587,7 @@ A configuration issue can cause Presto errors when querying underlying data in A
 
 **Release 5\.12\.0 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-5\.12\.0 Classifications**  
@@ -2852,7 +4687,194 @@ Configuration classifications allow you to customize applications when you creat
 
 There are multiple releases within the 5\.11 series\. Choose a link below to see information for a specific release within this tab\.
 
-**[5.11.2](#emr-5112-release) \| [5.11.1](#emr-5111-release) \| [5.11.0](#emr-5110-release)**
+**[5.11.3](#emr-5113-release) \| [5.11.2](#emr-5112-release) \| [5.11.1](#emr-5111-release) \| [5.11.0](#emr-5110-release)**
+
+**Amazon EMR Release 5\.11\.3**
++ [Application Versions](#emr-5113-app-versions)
++ [Release Notes](#emr-5113-relnotes)
++ [Component Versions](#emr-5113-components)
++ [Configuration Classifications](#emr-5113-class)
+
+**Release 5\.11\.3 Application Versions**
+
+The following applications are supported in this release: [Flink](https://flink.apache.org/), [Ganglia](http://ganglia.info), [Hadoop](http://hadoop.apache.org/docs/current/), [HBase](http://hbase.apache.org/), [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), [Hive](http://hive.apache.org/), [Hue](http://gethue.com/), [Livy](https://livy.incubator.apache.org/), [Mahout](http://mahout.apache.org/), [MXNet](https://mxnet.incubator.apache.org/), [Oozie](http://oozie.apache.org/), [Phoenix](https://phoenix.apache.org/), [Pig](http://pig.apache.org/), [Presto](https://prestodb.io/), [Spark](https://spark.apache.org/docs/latest/), [Sqoop](http://sqoop.apache.org/), [Tez](https://tez.apache.org/), [Zeppelin](https://zeppelin.incubator.apache.org/), and [ZooKeeper](https://zookeeper.apache.org)\.
+
+The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
+
+For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
+
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.11.3.png)
+
+**Release 5\.11\.3 Release Notes**
+
+The following release notes include information for Amazon EMR release version 5\.11\.3\. Changes are relative to 5\.11\.2\.
+
+Initial release date: July 18, 2019
+
+**Changes, Enhancements, and Resolved Issues**
++ Updated the default Amazon Linux AMI for EMR to include important Linux kernel security updates, including the TCP SACK Denial of Service Issue \([AWS\-2019\-005](http://aws.amazon.com/security/security-bulletins/AWS-2019-005/)\)\.
+
+**Release 5\.11\.3 Component Versions**
+
+The components that Amazon EMR installs with this release are listed below\. Some are installed as part of big\-data application packages\. Others are unique to Amazon EMR and installed for system processes and features\. These typically start with `emr` or `aws`\. Big\-data application packages in the most recent Amazon EMR release are usually the latest version found in the community\. We make community releases available in Amazon EMR as quickly as possible\.
+
+Some components need changes from community versions for Amazon EMR\. These components have a version label in the form `CommunityVersion-amzn-EmrVersion`\. For example, if a big\-data community component named `myapp-component` of version 2\.2 has been modified three times for inclusion in different Amazon EMR release versions, its release version is listed as `2.2-amzn-3`\.
+
+
+| Component | Version | Description | 
+| --- | --- | --- | 
+| aws\-sagemaker\-spark\-sdk | 1\.0 | Amazon SageMaker Spark SDK | 
+| emr\-ddb | 4\.5\.0 | Amazon DynamoDB connector for Hadoop ecosystem applications\. | 
+| emr\-goodies | 2\.4\.0 | Extra convenience libraries for the Hadoop ecosystem\. | 
+| emr\-kinesis | 3\.4\.0 | Amazon Kinesis connector for Hadoop ecosystem applications\. | 
+| emr\-s3\-dist\-cp | 2\.8\.0 | Distributed copy application optimized for Amazon S3\. | 
+| emrfs | 2\.20\.0 | Amazon S3 connector for Hadoop ecosystem applications\. | 
+| flink\-client | 1\.3\.2 | Apache Flink command line client scripts and applications\. | 
+| ganglia\-monitor | 3\.7\.2 | Embedded Ganglia agent for Hadoop ecosystem applications along with the Ganglia monitoring agent\. | 
+| ganglia\-metadata\-collector | 3\.7\.2 | Ganglia metadata collector for aggregating metrics from Ganglia monitoring agents\. | 
+| ganglia\-web | 3\.7\.1 | Web application for viewing metrics collected by the Ganglia metadata collector\. | 
+| hadoop\-client | 2\.7\.3\-amzn\-6 | Hadoop command\-line clients such as 'hdfs', 'hadoop', or 'yarn'\. | 
+| hadoop\-hdfs\-datanode | 2\.7\.3\-amzn\-6 | HDFS node\-level service for storing blocks\. | 
+| hadoop\-hdfs\-library | 2\.7\.3\-amzn\-6 | HDFS command\-line client and library | 
+| hadoop\-hdfs\-namenode | 2\.7\.3\-amzn\-6 | HDFS service for tracking file names and block locations\. | 
+| hadoop\-httpfs\-server | 2\.7\.3\-amzn\-6 | HTTP endpoint for HDFS operations\. | 
+| hadoop\-kms\-server | 2\.7\.3\-amzn\-6 | Cryptographic key management server based on Hadoop's KeyProvider API\. | 
+| hadoop\-mapred | 2\.7\.3\-amzn\-6 | MapReduce execution engine libraries for running a MapReduce application\. | 
+| hadoop\-yarn\-nodemanager | 2\.7\.3\-amzn\-6 | YARN service for managing containers on an individual node\. | 
+| hadoop\-yarn\-resourcemanager | 2\.7\.3\-amzn\-6 | YARN service for allocating and managing cluster resources and distributed applications\. | 
+| hadoop\-yarn\-timeline\-server | 2\.7\.3\-amzn\-6 | Service for retrieving current and historical information for YARN applications\. | 
+| hbase\-hmaster | 1\.3\.1 | Service for an HBase cluster responsible for coordination of Regions and execution of administrative commands\. | 
+| hbase\-region\-server | 1\.3\.1 | Service for serving one or more HBase regions\. | 
+| hbase\-client | 1\.3\.1 | HBase command\-line client\. | 
+| hbase\-rest\-server | 1\.3\.1 | Service providing a RESTful HTTP endpoint for HBase\. | 
+| hbase\-thrift\-server | 1\.3\.1 | Service providing a Thrift endpoint to HBase\. | 
+| hcatalog\-client | 2\.3\.2\-amzn\-0 | The 'hcat' command line client for manipulating hcatalog\-server\. | 
+| hcatalog\-server | 2\.3\.2\-amzn\-0 | Service providing HCatalog, a table and storage management layer for distributed applications\. | 
+| hcatalog\-webhcat\-server | 2\.3\.2\-amzn\-0 | HTTP endpoint providing a REST interface to HCatalog\. | 
+| hive\-client | 2\.3\.2\-amzn\-0 | Hive command line client\. | 
+| hive\-hbase | 2\.3\.2\-amzn\-0 | Hive\-hbase client\. | 
+| hive\-metastore\-server | 2\.3\.2\-amzn\-0 | Service for accessing the Hive metastore, a semantic repository storing metadata for SQL on Hadoop operations\. | 
+| hive\-server2 | 2\.3\.2\-amzn\-0 | Service for accepting Hive queries as web requests\. | 
+| hue\-server | 4\.0\.1 | Web application for analyzing data using Hadoop ecosystem applications | 
+| livy\-server | 0\.4\.0\-incubating | REST interface for interacting with Apache Spark | 
+| mahout\-client | 0\.13\.0 | Library for machine learning\. | 
+| mxnet | 0\.12\.0 | A flexible, scalable, and efficient library for deep learning\. | 
+| mysql\-server | 5\.5\.54\+ | MySQL database server\. | 
+| nvidia\-cuda | 9\.0\.176 | Nvidia drivers and Cuda toolkit | 
+| oozie\-client | 4\.3\.0 | Oozie command\-line client\. | 
+| oozie\-server | 4\.3\.0 | Service for accepting Oozie workflow requests\. | 
+| phoenix\-library | 4\.11\.0\-HBase\-1\.3 | The phoenix libraries for server and client | 
+| phoenix\-query\-server | 4\.11\.0\-HBase\-1\.3 | A light weight server providing JDBC access as well as Protocol Buffers and JSON format access to the Avatica API  | 
+| presto\-coordinator | 0\.187 | Service for accepting queries and managing query execution among presto\-workers\. | 
+| presto\-worker | 0\.187 | Service for executing pieces of a query\. | 
+| pig\-client | 0\.17\.0 | Pig command\-line client\. | 
+| spark\-client | 2\.2\.1 | Spark command\-line clients\. | 
+| spark\-history\-server | 2\.2\.1 | Web UI for viewing logged events for the lifetime of a completed Spark application\. | 
+| spark\-on\-yarn | 2\.2\.1 | In\-memory execution engine for YARN\. | 
+| spark\-yarn\-slave | 2\.2\.1 | Apache Spark libraries needed by YARN slaves\. | 
+| sqoop\-client | 1\.4\.6 | Apache Sqoop command\-line client\. | 
+| tez\-on\-yarn | 0\.8\.4 | The tez YARN application and libraries\. | 
+| webserver | 2\.4\.25\+ | Apache HTTP server\. | 
+| zeppelin\-server | 0\.7\.3 | Web\-based notebook that enables interactive data analytics\. | 
+| zookeeper\-server | 3\.4\.10 | Centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services\. | 
+| zookeeper\-client | 3\.4\.10 | ZooKeeper command line client\. | 
+
+**Release 5\.11\.3 Configuration Classifications**
+
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+
+
+**emr\-5\.11\.3 Classifications**  
+
+| Classifications | Description | 
+| --- | --- | 
+| capacity\-scheduler | Change values in Hadoop's capacity\-scheduler\.xml file\. | 
+| core\-site | Change values in Hadoop's core\-site\.xml file\. | 
+| emrfs\-site | Change EMRFS settings\. | 
+| flink\-conf | Change flink\-conf\.yaml settings\. | 
+| flink\-log4j | Change Flink log4j\.properties settings\. | 
+| flink\-log4j\-yarn\-session | Change Flink log4j\-yarn\-session\.properties settings\. | 
+| flink\-log4j\-cli | Change Flink log4j\-cli\.properties settings\. | 
+| hadoop\-env | Change values in the Hadoop environment for all Hadoop components\. | 
+| hadoop\-log4j | Change values in Hadoop's log4j\.properties file\. | 
+| hadoop\-ssl\-server | Change hadoop ssl server configuration | 
+| hadoop\-ssl\-client | Change hadoop ssl client configuration | 
+| hbase | Amazon EMR\-curated settings for Apache HBase\. | 
+| hbase\-env | Change values in HBase's environment\. | 
+| hbase\-log4j | Change values in HBase's hbase\-log4j\.properties file\. | 
+| hbase\-metrics | Change values in HBase's hadoop\-metrics2\-hbase\.properties file\. | 
+| hbase\-policy | Change values in HBase's hbase\-policy\.xml file\. | 
+| hbase\-site | Change values in HBase's hbase\-site\.xml file\. | 
+| hdfs\-encryption\-zones | Configure HDFS encryption zones\. | 
+| hdfs\-site | Change values in HDFS's hdfs\-site\.xml\. | 
+| hcatalog\-env | Change values in HCatalog's environment\. | 
+| hcatalog\-server\-jndi | Change values in HCatalog's jndi\.properties\. | 
+| hcatalog\-server\-proto\-hive\-site | Change values in HCatalog's proto\-hive\-site\.xml\. | 
+| hcatalog\-webhcat\-env | Change values in HCatalog WebHCat's environment\. | 
+| hcatalog\-webhcat\-log4j2 | Change values in HCatalog WebHCat's log4j2\.properties\. | 
+| hcatalog\-webhcat\-site | Change values in HCatalog WebHCat's webhcat\-site\.xml file\. | 
+| hive\-beeline\-log4j2 | Change values in Hive's beeline\-log4j2\.properties file\. | 
+| hive\-parquet\-logging | Change values in Hive's parquet\-logging\.properties file\. | 
+| hive\-env | Change values in the Hive environment\. | 
+| hive\-exec\-log4j2 | Change values in Hive's hive\-exec\-log4j2\.properties file\. | 
+| hive\-llap\-daemon\-log4j2 | Change values in Hive's llap\-daemon\-log4j2\.properties file\. | 
+| hive\-log4j2 | Change values in Hive's hive\-log4j2\.properties file\. | 
+| hive\-site | Change values in Hive's hive\-site\.xml file | 
+| hiveserver2\-site | Change values in Hive Server2's hiveserver2\-site\.xml file | 
+| hue\-ini | Change values in Hue's ini file | 
+| httpfs\-env | Change values in the HTTPFS environment\. | 
+| httpfs\-site | Change values in Hadoop's httpfs\-site\.xml file\. | 
+| hadoop\-kms\-acls | Change values in Hadoop's kms\-acls\.xml file\. | 
+| hadoop\-kms\-env | Change values in the Hadoop KMS environment\. | 
+| hadoop\-kms\-log4j | Change values in Hadoop's kms\-log4j\.properties file\. | 
+| hadoop\-kms\-site | Change values in Hadoop's kms\-site\.xml file\. | 
+| livy\-conf | Change values in Livy's livy\.conf file\. | 
+| livy\-env | Change values in the Livy environment\. | 
+| livy\-log4j | Change Livy log4j\.properties settings\. | 
+| mapred\-env | Change values in the MapReduce application's environment\. | 
+| mapred\-site | Change values in the MapReduce application's mapred\-site\.xml file\. | 
+| oozie\-env | Change values in Oozie's environment\. | 
+| oozie\-log4j | Change values in Oozie's oozie\-log4j\.properties file\. | 
+| oozie\-site | Change values in Oozie's oozie\-site\.xml file\. | 
+| phoenix\-hbase\-metrics | Change values in Phoenix's hadoop\-metrics2\-hbase\.properties file\. | 
+| phoenix\-hbase\-site | Change values in Phoenix's hbase\-site\.xml file\. | 
+| phoenix\-log4j | Change values in Phoenix's log4j\.properties file\. | 
+| phoenix\-metrics | Change values in Phoenix's hadoop\-metrics2\-phoenix\.properties file\. | 
+| pig\-properties | Change values in Pig's pig\.properties file\. | 
+| pig\-log4j | Change values in Pig's log4j\.properties file\. | 
+| presto\-log | Change values in Presto's log\.properties file\. | 
+| presto\-config | Change values in Presto's config\.properties file\. | 
+| presto\-env | Change values in Presto's presto\-env\.sh file\. | 
+| presto\-node | Change values in Presto's node\.properties file\. | 
+| presto\-connector\-blackhole | Change values in Presto's blackhole\.properties file\. | 
+| presto\-connector\-cassandra | Change values in Presto's cassandra\.properties file\. | 
+| presto\-connector\-hive | Change values in Presto's hive\.properties file\. | 
+| presto\-connector\-jmx | Change values in Presto's jmx\.properties file\. | 
+| presto\-connector\-kafka | Change values in Presto's kafka\.properties file\. | 
+| presto\-connector\-localfile | Change values in Presto's localfile\.properties file\. | 
+| presto\-connector\-mongodb | Change values in Presto's mongodb\.properties file\. | 
+| presto\-connector\-mysql | Change values in Presto's mysql\.properties file\. | 
+| presto\-connector\-postgresql | Change values in Presto's postgresql\.properties file\. | 
+| presto\-connector\-raptor | Change values in Presto's raptor\.properties file\. | 
+| presto\-connector\-redis | Change values in Presto's redis\.properties file\. | 
+| presto\-connector\-tpch | Change values in Presto's tpch\.properties file\. | 
+| spark | Amazon EMR\-curated settings for Apache Spark\. | 
+| spark\-defaults | Change values in Spark's spark\-defaults\.conf file\. | 
+| spark\-env | Change values in the Spark environment\. | 
+| spark\-hive\-site | Change values in Spark's hive\-site\.xml file | 
+| spark\-log4j | Change values in Spark's log4j\.properties file\. | 
+| spark\-metrics | Change values in Spark's metrics\.properties file\. | 
+| sqoop\-env | Change values in Sqoop's environment\. | 
+| sqoop\-oraoop\-site | Change values in Sqoop OraOop's oraoop\-site\.xml file\. | 
+| sqoop\-site | Change values in Sqoop's sqoop\-site\.xml file\. | 
+| tez\-site | Change values in Tez's tez\-site\.xml file\. | 
+| yarn\-env | Change values in the YARN environment\. | 
+| yarn\-site | Change values in YARN's yarn\-site\.xml file\. | 
+| zeppelin\-env | Change values in the Zeppelin environment\. | 
+| zookeeper\-config | Change values in ZooKeeper's zoo\.cfg file\. | 
+| zookeeper\-log4j | Change values in ZooKeeper's log4j\.properties file\. | 
 
 **Amazon EMR Release 5\.11\.2**
 + [Application Versions](#emr-5112-app-versions)
@@ -2867,8 +4889,8 @@ The following applications are supported in this release: [Flink](https://flink.
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.11.2.png)
 
@@ -2948,7 +4970,7 @@ Some components need changes from community versions for Amazon EMR\. These comp
 
 **Release 5\.11\.2 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-5\.11\.2 Classifications**  
@@ -3054,8 +5076,8 @@ The following applications are supported in this release: [Flink](https://flink.
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.11.1.png)
 
@@ -3135,7 +5157,7 @@ Some components need changes from community versions for Amazon EMR\. These comp
 
 **Release 5\.11\.1 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-5\.11\.1 Classifications**  
@@ -3241,8 +5263,8 @@ The following applications are supported in this release: [Flink](https://flink.
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.11.0.png)
 
@@ -3258,7 +5280,7 @@ The following release notes include information for the Amazon EMR release versi
 **New Features**
 + Spark
   + Added `spark.decommissioning.timeout.threshold` setting, which improves Spark decommissioning behavior when using Spot Instances\. For more information, see [Configuring Node Decommissioning Behavior](emr-spark-configure.md#spark-decommissioning)\.
-  + Added the `aws-sagemaker-spark-sdk` component to Spark, which installs Amazon SageMaker Spark and associated dependencies for Spark integration with [Amazon SageMaker](https://aws.amazon.com/sagemaker/)\. You can use Amazon SageMaker Spark to construct Spark machine learning \(ML\) pipelines using Amazon SageMaker stages\. For more information, see the [SageMaker Spark Readme](https://github.com/aws/sagemaker-spark/blob/master/README.md) on GitHub and [Using Apache Spark with Amazon SageMaker](http://docs.aws.amazon.com/sagemaker/latest/dg/apache-spark.html) in the *Amazon SageMaker Developer Guide*\.
+  + Added the `aws-sagemaker-spark-sdk` component to Spark, which installs Amazon SageMaker Spark and associated dependencies for Spark integration with [Amazon SageMaker](https://aws.amazon.com/sagemaker/)\. You can use Amazon SageMaker Spark to construct Spark machine learning \(ML\) pipelines using Amazon SageMaker stages\. For more information, see the [SageMaker Spark Readme](https://github.com/aws/sagemaker-spark/blob/master/README.md) on GitHub and [Using Apache Spark with Amazon SageMaker](https://docs.aws.amazon.com/sagemaker/latest/dg/apache-spark.html) in the *Amazon SageMaker Developer Guide*\.
 
 **Known Issues**
 + MXNet does not include OpenCV libraries\.
@@ -3329,7 +5351,7 @@ The following release notes include information for the Amazon EMR release versi
 
 **Release 5\.11\.0 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-5\.11\.0 Classifications**  
@@ -3438,8 +5460,8 @@ The following applications are supported in this release: [Flink](https://flink.
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.10.0.png)
 
@@ -3453,14 +5475,14 @@ The following release notes include information for the Amazon EMR version 5\.10
 + Presto 0\.187
 
 **New Features**
-+ Added support for Kerberos authentication\. For more information, see [Use Kerberos Authentication](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html) in the *Amazon EMR Management Guide*
-+ Added support for IAM roles for EMRFS\. For more information, see [Configure IAM Roles for EMRFS Requests to Amazon S3](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-emrfs-iam-role.html) in the *Amazon EMR Management Guide*
++ Added support for Kerberos authentication\. For more information, see [Use Kerberos Authentication](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-kerberos.html) in the *Amazon EMR Management Guide*
++ Added support for IAM roles for EMRFS\. For more information, see [Configure IAM Roles for EMRFS Requests to Amazon S3](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-emrfs-iam-role.html) in the *Amazon EMR Management Guide*
 + Added support for GPU\-based P2 and P3 instance types\. For more information, see [Amazon EC2 P2 Instances](https://aws.amazon.com/ec2/instance-types/p2/) and [Amazon EC2 P3 Instances](https://aws.amazon.com/ec2/instance-types/p3/)\. NVIDIA driver 384\.81 and CUDA driver 9\.0\.176 are installed on these instance types by default\.
 + Added support for [Apache MXNet](emr-mxnet.md)\.
 
 **Changes, Enhancements, and Resolved Issues**
 + Presto
-  + Added support for using the AWS Glue Data Catalog as the default Hive metastore\. For more information, see [Using Presto with the AWS Glue Data Catalog](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-presto.html#emr-presto-glue)\.
+  + Added support for using the AWS Glue Data Catalog as the default Hive metastore\. For more information, see [Using Presto with the AWS Glue Data Catalog](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-presto.html#emr-presto-glue)\.
   + Added support for [geospatial functions](https://prestodb.io/docs/current/functions/geospatial.html)\.
   + Added [spill to disk](https://prestodb.io/docs/current/admin/spill.html) support for joins\.
   + Added support for the [Redshift connector](https://prestodb.io/docs/current/connector/redshift.html)\.
@@ -3470,7 +5492,7 @@ The following release notes include information for the Amazon EMR version 5\.10
 + Backported [Hadoop\-13270](https://issues.apache.org/jira/browse/HADOOP-13270)
 + The Numpy, Scipy, and Matplotlib libraries have been removed from the base Amazon EMR AMI\. If these libraries are required for your application, they are available in the application repository, so you can use a bootstrap action to install them on all nodes using `yum install`\.
 + The Amazon EMR base AMI no longer has application RPM packages included, so the RPM packages are no longer present on cluster nodes\. Custom AMIs and the Amazon EMR base AMI now reference the RPM package repository in Amazon S3\.
-+ Because of the introduction of per\-second billing in Amazon EC2, the default **Scale down behavior** is now **Terminate at task completion** rather than **Terminate at instance hour**\. For more information, see [Configure Cluster Scale\-Down](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-scaledown-behavior.html)\.
++ Because of the introduction of per\-second billing in Amazon EC2, the default **Scale down behavior** is now **Terminate at task completion** rather than **Terminate at instance hour**\. For more information, see [Configure Cluster Scale\-Down](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-scaledown-behavior.html)\.
 
 **Known Issues**
 + MXNet does not include OpenCV libraries\.
@@ -3544,7 +5566,7 @@ Some components need changes from community versions for Amazon EMR\. These comp
 
 **Release 5\.10\.0 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-5\.10\.0 Classifications**  
@@ -3653,8 +5675,8 @@ The following applications are supported in this release: [Flink](https://flink.
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.9.0.png)
 
@@ -3762,7 +5784,7 @@ Some components need changes from community versions for Amazon EMR\. These comp
 
 **Release 5\.9\.0 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-5\.9\.0 Classifications**  
@@ -3875,8 +5897,8 @@ The following applications are supported in this release: [Flink](https://flink.
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.8.2.png)
 
@@ -3952,7 +5974,7 @@ Some components need changes from community versions for Amazon EMR\. These comp
 
 **Release 5\.8\.2 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-5\.8\.2 Classifications**  
@@ -4055,8 +6077,8 @@ The following applications are supported in this release: [Flink](https://flink.
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.8.1.png)
 
@@ -4132,7 +6154,7 @@ Some components need changes from community versions for Amazon EMR\. These comp
 
 **Release 5\.8\.1 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-5\.8\.1 Classifications**  
@@ -4235,8 +6257,8 @@ The following applications are supported in this release: [Flink](https://flink.
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.8.0.png)
 
@@ -4255,12 +6277,12 @@ Latest feature update: September 25, 2017
 + Spark 2\.2\.0\. For more information, see [Release Notes](https://spark.apache.org/releases/spark-release-2-2-0.html) on the Apache Spark site\.
 
 **New Features**
-+ Added support for viewing application history \(September 25, 2017\)\. For more information, see [Viewing Application History](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-cluster-application-history.html) in the *Amazon EMR Management Guide*\.
++ Added support for viewing application history \(September 25, 2017\)\. For more information, see [Viewing Application History](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-cluster-application-history.html) in the *Amazon EMR Management Guide*\.
 
 **Changes, Enhancements, and Resolved Issues**
 + **Integration with AWS Glue Data Catalog**
   + Added ability for Hive and Spark SQL to use AWS Glue Data Catalog as the Hive metadata store\. For more information, see [Using the AWS Glue Data Catalog as the Metastore for Hive](emr-hive-metastore-glue.md) and [Using the AWS Glue Data Catalog as the Metastore for Spark SQL](emr-spark-glue.md)\.
-+ Added **Application history** to cluster details, which allows you to view historical data for YARN applications and additional details for Spark applications\. For more information, see [View Application History](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-cluster-application-history.html) in the *Amazon EMR Management Guide*\.
++ Added **Application history** to cluster details, which allows you to view historical data for YARN applications and additional details for Spark applications\. For more information, see [View Application History](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-cluster-application-history.html) in the *Amazon EMR Management Guide*\.
 + **Oozie**
   + Backported [OOZIE\-2748](https://issues.apache.org/jira/browse/OOZIE-2748)\.
 + **Hue**
@@ -4338,7 +6360,7 @@ Latest feature update: September 25, 2017
 
 **Release 5\.8\.0 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-5\.8\.0 Classifications**  
@@ -4444,8 +6466,8 @@ The following applications are supported in this release: [Flink](https://flink.
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.7.0.png)
 
@@ -4461,11 +6483,11 @@ Release date: July 13, 2017
 + Zeppelin 0\.7\.2
 
 **New Features**
-+ Added the ability to specify a custom Amazon Linux AMI when you create a cluster\. For more information, see [Using a Custom AMI](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-custom-ami.html)\.
++ Added the ability to specify a custom Amazon Linux AMI when you create a cluster\. For more information, see [Using a Custom AMI](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-custom-ami.html)\.
 
 **Changes, Enhancements, and Resolved Issues**
 + **HBase**
-  + Added capability to configure HBase read\-replica clusters\. See [Using a Read\-Replica Cluster\.](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-hbase-s3.html#emr-hbase-s3-read-replica)
+  + Added capability to configure HBase read\-replica clusters\. See [Using a Read\-Replica Cluster\.](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-hbase-s3.html#emr-hbase-s3-read-replica)
   + Multiple bug fixes and enhancements
 + **Presto**—added ability to configure `node.properties`\.
 + **YARN**—added ability to configure `container-log4j.properties`
@@ -4534,7 +6556,7 @@ Some components need changes from community versions for Amazon EMR\. These comp
 
 **Release 5\.7\.0 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-5\.7\.0 Classifications**  
@@ -4640,8 +6662,8 @@ The following applications are supported in this release: [Flink](https://flink.
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.6.0.png)
 
@@ -4659,7 +6681,7 @@ Release date: June 5, 2017
 
 **Changes, Enhancements, and Resolved Issues**
 + **Presto**
-  + Added the ability to enable SSL/TLS secured communication between Presto nodes by enabling in\-transit encryption using a security configuration\. For more information, see [In\-transit Data Encryption](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-data-encryption-options.html#emr-encryption-intransit)\.
+  + Added the ability to enable SSL/TLS secured communication between Presto nodes by enabling in\-transit encryption using a security configuration\. For more information, see [In\-transit Data Encryption](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-data-encryption-options.html#emr-encryption-intransit)\.
   + Backported [Presto 7661](https://github.com/prestodb/presto/pull/7661/commits), which adds the `VERBOSE` option to the `EXPLAIN ANALYZE` statement to report more detailed, low\-level statistics about a query plan\.
 
 **Release 5\.6\.0 Component Versions**
@@ -4725,7 +6747,7 @@ Some components need changes from community versions for Amazon EMR\. These comp
 
 **Release 5\.6\.0 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-5\.6\.0 Classifications**  
@@ -4835,8 +6857,8 @@ The following applications are supported in this release: [Flink](https://flink.
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.5.3.png)
 
@@ -4912,7 +6934,7 @@ Some components need changes from community versions for Amazon EMR\. These comp
 
 **Release 5\.5\.3 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-5\.5\.3 Classifications**  
@@ -5013,8 +7035,8 @@ The following applications are supported in this release: [Flink](https://flink.
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.5.2.png)
 
@@ -5090,7 +7112,7 @@ Some components need changes from community versions for Amazon EMR\. These comp
 
 **Release 5\.5\.2 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-5\.5\.2 Classifications**  
@@ -5191,8 +7213,8 @@ The following applications are supported in this release: [Flink](https://flink.
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.5.1.png)
 
@@ -5268,7 +7290,7 @@ Some components need changes from community versions for Amazon EMR\. These comp
 
 **Release 5\.5\.1 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-5\.5\.1 Classifications**  
@@ -5369,8 +7391,8 @@ The following applications are supported in this release: [Flink](https://flink.
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.5.0.png)
 
@@ -5461,7 +7483,7 @@ Release date: April 26, 2017
 
 **Release 5\.5\.0 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-5\.5\.0 Classifications**  
@@ -5565,8 +7587,8 @@ The following applications are supported in this release: [Flink](https://flink.
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.4.0.png)
 
@@ -5651,7 +7673,7 @@ Some components need changes from community versions for Amazon EMR\. These comp
 
 **Release 5\.4\.0 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-5\.4\.0 Classifications**  
@@ -5740,7 +7762,187 @@ Configuration classifications allow you to customize applications when you creat
 | zookeeper\-log4j | Change values in ZooKeeper's log4j\.properties file\. | 
 
 ------
-#### [ 5\.3\.0 ]
+#### [ 5\.3\.x ]<a name="emr-53x-releases"></a>
+
+There are multiple releases within the 5\.3 series\. Choose a link below to see information for a specific release within this tab\.
+
+**[5.3.1](#emr-531-release) \(Latest\) \| [5.3.0](#emr-530-release)**
+
+**Amazon EMR Release 5\.3\.1**
++ [Application Versions](#emr-531-app-versions)
++ [Release Notes](#emr-531-relnotes)
++ [Component Versions](#emr-531-components)
++ [Configuration Classifications](#emr-531-class)
+
+**Release 5\.3\.1 Application Versions**
+
+The following applications are supported in this release: [Flink](https://flink.apache.org/), [Ganglia](http://ganglia.info), [Hadoop](http://hadoop.apache.org/docs/current/), [HBase](http://hbase.apache.org/), [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), [Hive](http://hive.apache.org/), [Hue](http://gethue.com/), [Mahout](http://mahout.apache.org/), [Oozie](http://oozie.apache.org/), [Phoenix](https://phoenix.apache.org/), [Pig](http://pig.apache.org/), [Presto](https://prestodb.io/), [Spark](https://spark.apache.org/docs/latest/), [Sqoop](http://sqoop.apache.org/), [Tez](https://tez.apache.org/), [Zeppelin](https://zeppelin.incubator.apache.org/), and [ZooKeeper](https://zookeeper.apache.org)\.
+
+The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
+
+For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
+
+![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.3.1.png)
+
+**Release 5\.3\.1 Release Notes**
+
+The following release notes include information for the Amazon EMR 5\.3\.1 release\. Changes are relative to the Amazon EMR 5\.3\.0 release\.
+
+Release date: February 7, 2017
+
+Minor changes to backport Zeppelin patches and update the default AMI for Amazon EMR\.
+
+**Release 5\.3\.1 Component Versions**
+
+The components that Amazon EMR installs with this release are listed below\. Some are installed as part of big\-data application packages\. Others are unique to Amazon EMR and installed for system processes and features\. These typically start with `emr` or `aws`\. Big\-data application packages in the most recent Amazon EMR release are usually the latest version found in the community\. We make community releases available in Amazon EMR as quickly as possible\.
+
+Some components need changes from community versions for Amazon EMR\. These components have a version label in the form `CommunityVersion-amzn-EmrVersion`\. For example, if a big\-data community component named `myapp-component` of version 2\.2 has been modified three times for inclusion in different Amazon EMR release versions, its release version is listed as `2.2-amzn-3`\.
+
+
+| Component | Version | Description | 
+| --- | --- | --- | 
+| emr\-ddb | 4\.2\.0 | Amazon DynamoDB connector for Hadoop ecosystem applications\. | 
+| emr\-goodies | 2\.2\.0 | Extra convenience libraries for the Hadoop ecosystem\. | 
+| emr\-kinesis | 3\.2\.0 | Amazon Kinesis connector for Hadoop ecosystem applications\. | 
+| emr\-s3\-dist\-cp | 2\.4\.0 | Distributed copy application optimized for Amazon S3\. | 
+| emrfs | 2\.14\.0 | Amazon S3 connector for Hadoop ecosystem applications\. | 
+| flink\-client | 1\.1\.4 | Apache Flink command line client scripts and applications\. | 
+| ganglia\-monitor | 3\.7\.2 | Embedded Ganglia agent for Hadoop ecosystem applications along with the Ganglia monitoring agent\. | 
+| ganglia\-metadata\-collector | 3\.7\.2 | Ganglia metadata collector for aggregating metrics from Ganglia monitoring agents\. | 
+| ganglia\-web | 3\.7\.1 | Web application for viewing metrics collected by the Ganglia metadata collector\. | 
+| hadoop\-client | 2\.7\.3\-amzn\-1 | Hadoop command\-line clients such as 'hdfs', 'hadoop', or 'yarn'\. | 
+| hadoop\-hdfs\-datanode | 2\.7\.3\-amzn\-1 | HDFS node\-level service for storing blocks\. | 
+| hadoop\-hdfs\-library | 2\.7\.3\-amzn\-1 | HDFS command\-line client and library | 
+| hadoop\-hdfs\-namenode | 2\.7\.3\-amzn\-1 | HDFS service for tracking file names and block locations\. | 
+| hadoop\-httpfs\-server | 2\.7\.3\-amzn\-1 | HTTP endpoint for HDFS operations\. | 
+| hadoop\-kms\-server | 2\.7\.3\-amzn\-1 | Cryptographic key management server based on Hadoop's KeyProvider API\. | 
+| hadoop\-mapred | 2\.7\.3\-amzn\-1 | MapReduce execution engine libraries for running a MapReduce application\. | 
+| hadoop\-yarn\-nodemanager | 2\.7\.3\-amzn\-1 | YARN service for managing containers on an individual node\. | 
+| hadoop\-yarn\-resourcemanager | 2\.7\.3\-amzn\-1 | YARN service for allocating and managing cluster resources and distributed applications\. | 
+| hadoop\-yarn\-timeline\-server | 2\.7\.3\-amzn\-1 | Service for retrieving current and historical information for YARN applications\. | 
+| hbase\-hmaster | 1\.2\.3 | Service for an HBase cluster responsible for coordination of Regions and execution of administrative commands\. | 
+| hbase\-region\-server | 1\.2\.3 | Service for serving one or more HBase regions\. | 
+| hbase\-client | 1\.2\.3 | HBase command\-line client\. | 
+| hbase\-rest\-server | 1\.2\.3 | Service providing a RESTful HTTP endpoint for HBase\. | 
+| hbase\-thrift\-server | 1\.2\.3 | Service providing a Thrift endpoint to HBase\. | 
+| hcatalog\-client | 2\.1\.1\-amzn\-0 | The 'hcat' command line client for manipulating hcatalog\-server\. | 
+| hcatalog\-server | 2\.1\.1\-amzn\-0 | Service providing HCatalog, a table and storage management layer for distributed applications\. | 
+| hcatalog\-webhcat\-server | 2\.1\.1\-amzn\-0 | HTTP endpoint providing a REST interface to HCatalog\. | 
+| hive\-client | 2\.1\.1\-amzn\-0 | Hive command line client\. | 
+| hive\-metastore\-server | 2\.1\.1\-amzn\-0 | Service for accessing the Hive metastore, a semantic repository storing metadata for SQL on Hadoop operations\. | 
+| hive\-server | 2\.1\.1\-amzn\-0 | Service for accepting Hive queries as web requests\. | 
+| hue\-server | 3\.11\.0 | Web application for analyzing data using Hadoop ecosystem applications | 
+| mahout\-client | 0\.12\.2 | Library for machine learning\. | 
+| mysql\-server | 5\.5\.54\+ | MySQL database server\. | 
+| oozie\-client | 4\.3\.0 | Oozie command\-line client\. | 
+| oozie\-server | 4\.3\.0 | Service for accepting Oozie workflow requests\. | 
+| phoenix\-library | 4\.7\.0\-HBase\-1\.2 | The phoenix libraries for server and client | 
+| phoenix\-query\-server | 4\.7\.0\-HBase\-1\.2 | A light weight server providing JDBC access as well as Protocol Buffers and JSON format access to the Avatica API  | 
+| presto\-coordinator | 0\.157\.1 | Service for accepting queries and managing query execution among presto\-workers\. | 
+| presto\-worker | 0\.157\.1 | Service for executing pieces of a query\. | 
+| pig\-client | 0\.16\.0\-amzn\-0 | Pig command\-line client\. | 
+| spark\-client | 2\.1\.0 | Spark command\-line clients\. | 
+| spark\-history\-server | 2\.1\.0 | Web UI for viewing logged events for the lifetime of a completed Spark application\. | 
+| spark\-on\-yarn | 2\.1\.0 | In\-memory execution engine for YARN\. | 
+| spark\-yarn\-slave | 2\.1\.0 | Apache Spark libraries needed by YARN slaves\. | 
+| sqoop\-client | 1\.4\.6 | Apache Sqoop command\-line client\. | 
+| tez\-on\-yarn | 0\.8\.4 | The tez YARN application and libraries\. | 
+| webserver | 2\.4\.25\+ | Apache HTTP server\. | 
+| zeppelin\-server | 0\.6\.2 | Web\-based notebook that enables interactive data analytics\. | 
+| zookeeper\-server | 3\.4\.9 | Centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services\. | 
+| zookeeper\-client | 3\.4\.9 | ZooKeeper command line client\. | 
+
+**Release 5\.3\.1 Configuration Classifications**
+
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+
+
+**emr\-5\.3\.1 Classifications**  
+
+| Classifications | Description | 
+| --- | --- | 
+| capacity\-scheduler | Change values in Hadoop's capacity\-scheduler\.xml file\. | 
+| core\-site | Change values in Hadoop's core\-site\.xml file\. | 
+| emrfs\-site | Change EMRFS settings\. | 
+| flink\-conf | Change flink\-conf\.yaml settings\. | 
+| flink\-log4j | Change Flink log4j\.properties settings\. | 
+| flink\-log4j\-yarn\-session | Change Flink log4j\-yarn\-session\.properties settings\. | 
+| flink\-log4j\-cli | Change Flink log4j\-cli\.properties settings\. | 
+| hadoop\-env | Change values in the Hadoop environment for all Hadoop components\. | 
+| hadoop\-log4j | Change values in Hadoop's log4j\.properties file\. | 
+| hadoop\-ssl\-server | Change hadoop ssl server configuration | 
+| hadoop\-ssl\-client | Change hadoop ssl client configuration | 
+| hbase | Amazon EMR\-curated settings for Apache HBase\. | 
+| hbase\-env | Change values in HBase's environment\. | 
+| hbase\-log4j | Change values in HBase's hbase\-log4j\.properties file\. | 
+| hbase\-metrics | Change values in HBase's hadoop\-metrics2\-hbaase\.properties file\. | 
+| hbase\-policy | Change values in HBase's hbase\-policy\.xml file\. | 
+| hbase\-site | Change values in HBase's hbase\-site\.xml file\. | 
+| hdfs\-encryption\-zones | Configure HDFS encryption zones\. | 
+| hdfs\-site | Change values in HDFS's hdfs\-site\.xml\. | 
+| hcatalog\-env | Change values in HCatalog's environment\. | 
+| hcatalog\-server\-jndi | Change values in HCatalog's jndi\.properties\. | 
+| hcatalog\-server\-proto\-hive\-site | Change values in HCatalog's proto\-hive\-site\.xml\. | 
+| hcatalog\-webhcat\-env | Change values in HCatalog WebHCat's environment\. | 
+| hcatalog\-webhcat\-log4j2 | Change values in HCatalog WebHCat's log4j2\.properties\. | 
+| hcatalog\-webhcat\-site | Change values in HCatalog WebHCat's webhcat\-site\.xml file\. | 
+| hive\-beeline\-log4j2 | Change values in Hive's beeline\-log4j2\.properties file\. | 
+| hive\-parquet\-logging | Change values in Hive's parquet\-logging\.properties file\. | 
+| hive\-env | Change values in the Hive environment\. | 
+| hive\-exec\-log4j2 | Change values in Hive's hive\-exec\-log4j2\.properties file\. | 
+| hive\-llap\-daemon\-log4j2 | Change values in Hive's llap\-daemon\-log4j2\.properties file\. | 
+| hive\-log4j2 | Change values in Hive's hive\-log4j2\.properties file\. | 
+| hive\-site | Change values in Hive's hive\-site\.xml file | 
+| hiveserver2\-site | Change values in Hive Server2's hiveserver2\-site\.xml file | 
+| hue\-ini | Change values in Hue's ini file | 
+| httpfs\-env | Change values in the HTTPFS environment\. | 
+| httpfs\-site | Change values in Hadoop's httpfs\-site\.xml file\. | 
+| hadoop\-kms\-acls | Change values in Hadoop's kms\-acls\.xml file\. | 
+| hadoop\-kms\-env | Change values in the Hadoop KMS environment\. | 
+| hadoop\-kms\-log4j | Change values in Hadoop's kms\-log4j\.properties file\. | 
+| hadoop\-kms\-site | Change values in Hadoop's kms\-site\.xml file\. | 
+| mapred\-env | Change values in the MapReduce application's environment\. | 
+| mapred\-site | Change values in the MapReduce application's mapred\-site\.xml file\. | 
+| oozie\-env | Change values in Oozie's environment\. | 
+| oozie\-log4j | Change values in Oozie's oozie\-log4j\.properties file\. | 
+| oozie\-site | Change values in Oozie's oozie\-site\.xml file\. | 
+| phoenix\-hbase\-metrics | Change values in Phoenix's hadoop\-metrics2\-hbase\.properties file\. | 
+| phoenix\-hbase\-site | Change values in Phoenix's hbase\-site\.xml file\. | 
+| phoenix\-log4j | Change values in Phoenix's log4j\.properties file\. | 
+| phoenix\-metrics | Change values in Phoenix's hadoop\-metrics2\-phoenix\.properties file\. | 
+| pig\-properties | Change values in Pig's pig\.properties file\. | 
+| pig\-log4j | Change values in Pig's log4j\.properties file\. | 
+| presto\-log | Change values in Presto's log\.properties file\. | 
+| presto\-config | Change values in Presto's config\.properties file\. | 
+| presto\-connector\-blackhole | Change values in Presto's blackhole\.properties file\. | 
+| presto\-connector\-cassandra | Change values in Presto's cassandra\.properties file\. | 
+| presto\-connector\-hive | Change values in Presto's hive\.properties file\. | 
+| presto\-connector\-jmx | Change values in Presto's jmx\.properties file\. | 
+| presto\-connector\-kafka | Change values in Presto's kafka\.properties file\. | 
+| presto\-connector\-localfile | Change values in Presto's localfile\.properties file\. | 
+| presto\-connector\-mongodb | Change values in Presto's mongodb\.properties file\. | 
+| presto\-connector\-mysql | Change values in Presto's mysql\.properties file\. | 
+| presto\-connector\-postgresql | Change values in Presto's postgresql\.properties file\. | 
+| presto\-connector\-raptor | Change values in Presto's raptor\.properties file\. | 
+| presto\-connector\-redis | Change values in Presto's redis\.properties file\. | 
+| presto\-connector\-tpch | Change values in Presto's tpch\.properties file\. | 
+| spark | Amazon EMR\-curated settings for Apache Spark\. | 
+| spark\-defaults | Change values in Spark's spark\-defaults\.conf file\. | 
+| spark\-env | Change values in the Spark environment\. | 
+| spark\-hive\-site | Change values in Spark's hive\-site\.xml file | 
+| spark\-log4j | Change values in Spark's log4j\.properties file\. | 
+| spark\-metrics | Change values in Spark's metrics\.properties file\. | 
+| sqoop\-env | Change values in Sqoop's environment\. | 
+| sqoop\-oraoop\-site | Change values in Sqoop OraOop's oraoop\-site\.xml file\. | 
+| sqoop\-site | Change values in Sqoop's sqoop\-site\.xml file\. | 
+| tez\-site | Change values in Tez's tez\-site\.xml file\. | 
+| yarn\-env | Change values in the YARN environment\. | 
+| yarn\-site | Change values in YARN's yarn\-site\.xml file\. | 
+| zeppelin\-env | Change values in the Zeppelin environment\. | 
+| zookeeper\-config | Change values in ZooKeeper's zoo\.cfg file\. | 
+| zookeeper\-log4j | Change values in ZooKeeper's log4j\.properties file\. | 
 
 **Amazon EMR Release 5\.3\.0**
 + [Application Versions](#emr-530-app-versions)
@@ -5755,8 +7957,8 @@ The following applications are supported in this release: [Flink](https://flink.
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.3.0.png)
 
@@ -5778,10 +7980,6 @@ Release date: January 26, 2017
 + Added the `hive-parquet-logging` configuration classification, which you can use to configure values in the Hive `parquet-logging.properties` file\.
 
 **Release 5\.3\.0 Component Versions**
-
-The components that Amazon EMR installs with this release are listed below\. Some are installed as part of big\-data application packages\. Others are unique to Amazon EMR and installed for system processes and features\. These typically start with `emr` or `aws`\. Big\-data application packages in the most recent Amazon EMR release are usually the latest version found in the community\. We make community releases available in Amazon EMR as quickly as possible\.
-
-Some components need changes from community versions for Amazon EMR\. These components have a version label in the form `CommunityVersion-amzn-EmrVersion`\. For example, if a big\-data community component named `myapp-component` of version 2\.2 has been modified three times for inclusion in different Amazon EMR release versions, its release version is listed as `2.2-amzn-3`\.
 
 
 | Component | Version | Description | 
@@ -5839,7 +8037,7 @@ Some components need changes from community versions for Amazon EMR\. These comp
 
 **Release 5\.3\.0 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-5\.3\.0 Classifications**  
@@ -5947,8 +8145,8 @@ The following applications are supported in this release: [Flink](https://flink.
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.2.2.png)
 
@@ -6023,7 +8221,7 @@ Some components need changes from community versions for Amazon EMR\. These comp
 
 **Release 5\.2\.2 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-5\.2\.2 Classifications**  
@@ -6123,8 +8321,8 @@ The following applications are supported in this release: [Flink](https://flink.
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.2.1.png)
 
@@ -6210,7 +8408,7 @@ Some components need changes from community versions for Amazon EMR\. These comp
 
 **Release 5\.2\.1 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-5\.2\.1 Classifications**  
@@ -6310,8 +8508,8 @@ The following applications are supported in this release: [Flink](https://flink.
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.2.0.png)
 
@@ -6323,7 +8521,7 @@ Release date: November 21, 2016
 
 **Changes and enhancements**
 + Added Amazon S3 storage mode for HBase\.
-+  Enables you to specify an Amazon S3 location for the HBase rootdir\. For more information, see [HBase on Amazon S3](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-hbase-s3.html)\.
++  Enables you to specify an Amazon S3 location for the HBase rootdir\. For more information, see [HBase on Amazon S3](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-hbase-s3.html)\.
 
 **Upgrades**
 + Upgraded to Spark 2\.0\.2
@@ -6394,7 +8592,7 @@ Some components need changes from community versions for Amazon EMR\. These comp
 
 **Release 5\.2\.0 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-5\.2\.0 Classifications**  
@@ -6497,8 +8695,8 @@ The following applications are supported in this release: [Flink](https://flink.
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.1.0.png)
 
@@ -6581,7 +8779,7 @@ Some components need changes from community versions for Amazon EMR\. These comp
 
 **Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-5\.1\.0 Classifications**  
@@ -6687,8 +8885,8 @@ The following applications are supported in this release: [Ganglia](http://gangl
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.0.3.png)
 
@@ -6765,7 +8963,7 @@ Some components need changes from community versions for Amazon EMR\. These comp
 
 **Release 5\.0\.3 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-5\.0\.3 Classifications**  
@@ -6860,8 +9058,8 @@ The following applications are supported in this release: [Ganglia](http://gangl
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-5.0.0.png)
 
@@ -6879,16 +9077,16 @@ For a comprehensive history of application versions for each release of Amazon E
 + Upgraded to Zeppelin 0\.6\.1
 
 **Changes and Enhancements**
-+ Amazon EMR supports the latest open\-source versions of Hive \(version 2\.1\) and Pig \(version 0\.16\.0\)\. If you have used Hive or Pig on Amazon EMR in the past, this may affect some use cases\. For more information, see [Hive](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-hive.html) and [Pig](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-pig.html)\.
++ Amazon EMR supports the latest open\-source versions of Hive \(version 2\.1\) and Pig \(version 0\.16\.0\)\. If you have used Hive or Pig on Amazon EMR in the past, this may affect some use cases\. For more information, see [Hive](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-hive.html) and [Pig](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-pig.html)\.
 + The default execution engine for Hive and Pig is now Tez\. To change this, you would edit the appropriate values in the `hive-site` and `pig-properties` configuration classifications, respectively\.
-+ An enhanced step debugging feature was added, which allows you to see the root cause of step failures if the service can determine the cause\. For more information, see [ Enhanced Step Debugging](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-enhanced-step-debugging.html) in the Amazon EMR Management Guide\.
++ An enhanced step debugging feature was added, which allows you to see the root cause of step failures if the service can determine the cause\. For more information, see [ Enhanced Step Debugging](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-enhanced-step-debugging.html) in the Amazon EMR Management Guide\.
 + Applications that previously ended with "\-Sandbox" no longer have that suffix\. This may break your automation, for example, if you are using scripts to launch clusters with these applications\. The following table shows application names in Amazon EMR 4\.7\.2 versus Amazon EMR 5\.0\.0\.   
 **Application name changes**    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-5x.html)
 + Spark is now compiled for Scala 2\.11\.
 + Java 8 is now the default JVM\. All applications run using the Java 8 runtime\. There are no changes to any application’s byte code target\. Most applications continue to target Java 7\.
-+ Zeppelin now includes authentication features\. For more information, see [Zeppelin](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-zeppelin.html)\.
-+ Added support for security configurations, which allow you to create and apply encryption options more easily\. For more information, see [Data Encryption](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-data-encryption.html)\.
++ Zeppelin now includes authentication features\. For more information, see [Zeppelin](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-zeppelin.html)\.
++ Added support for security configurations, which allow you to create and apply encryption options more easily\. For more information, see [Data Encryption](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-data-encryption.html)\.
 
 **Release 5\.0\.0 Component Versions**
 
@@ -6951,7 +9149,7 @@ Some components need changes from community versions for Amazon EMR\. These comp
 
 **Release 5\.0\.0 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-5\.0\.0 Classifications**  

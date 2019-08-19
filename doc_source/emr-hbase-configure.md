@@ -1,6 +1,6 @@
 # Configure HBase<a name="emr-hbase-configure"></a>
 
-Although the default settings should work for most applications, you have the flexibility to modify your HBase configuration settings\. To do this, use properties of HBase configuration classifications when you create the cluster\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Although the default settings should work for most applications, you have the flexibility to modify your HBase configuration settings\. To do this, use properties of HBase configuration classifications\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 The following example creates a cluster with an alternate HBase root directory based on a configuration file, `myConfig.json`, stored in Amazon S3\.
 
@@ -8,7 +8,7 @@ The following example creates a cluster with an alternate HBase root directory b
 Linux line continuation characters \(\\\) are included for readability\. They can be removed or used in Linux commands\. For Windows, remove them or replace with a caret \(^\)\.
 
 ```
-aws emr create-cluster --release-label emr-5.22.0 --applications Name=HBase \
+aws emr create-cluster --release-label emr-5.26.0 --applications Name=HBase \
 --instance-type m4.large --instance-count 3 --configurations https://s3.amazonaws.com/mybucket/myfolder/myConfig.json
 ```
 
@@ -24,6 +24,9 @@ The `myConfig.json` file specifies the `hbase.rootdir` property for the `hbase-s
   }
 ]
 ```
+
+**Note**  
+With Amazon EMR version 5\.21\.0 and later, you can override cluster configurations and specify additional configuration classifications for each instance group in a running cluster\. You do this by using the Amazon EMR console, the AWS Command Line Interface \(AWS CLI\), or the AWS SDK\. For more information, see [Supplying a Configuration for an Instance Group in a Running Cluster](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps-running-cluster.html)\.
 
 ## Changes to Memory Allocation in YARN<a name="emr-hbase-configure-yarn"></a>
 

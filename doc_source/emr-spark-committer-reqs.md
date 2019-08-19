@@ -42,7 +42,7 @@ dataset.write.mode("overwrite")
 In this example, instead of using the EMRFS S3\-optimized committer or any configured output committer, Spark executes a different commit algorithm that uses Spark's staging directory, which is a temporary directory created under the output location that starts with `.spark-staging`\. The algorithm results in sequential renames of partition directories, which may negatively impact performance\.  
 The algorithm in Spark 2\.4\.0 follows these steps:  
 
-1. Task attempts write their output to partition directories under Spark's staging directory—for example, `${outputLocaton}/spark-staging-${jobID}/k1=v1/k2=v2/`\.
+1. Task attempts write their output to partition directories under Spark's staging directory—for example, `${outputLocation}/spark-staging-${jobID}/k1=v1/k2=v2/`\.
 
 1. For each partition written, the task attempt keeps track of relative partition paths—for example, `k1=v1/k2=v2`\.
 

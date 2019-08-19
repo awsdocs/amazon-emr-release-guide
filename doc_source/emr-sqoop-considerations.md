@@ -8,7 +8,7 @@ Sqoop on Amazon EMR supports [Sqoop\-HCatalog Integration](https://sqoop.apache.
 
 ## Sqoop JDBC and Database Support<a name="sqoop-supported-drivers-databases"></a>
 
-By default, Sqoop has a MariaDB and PostgresSQL driver installed\. The PostgresSQL driver installed for Sqoop only works for PostgreSQL 8\.4\. To install an alternate set of JDBC connectors for Sqoop, connect to the cluster master node and install them in `/usr/lib/sqoop/lib`\. The following are links for various JDBC connectors:
+By default, Sqoop has a MariaDB and PostgreSQL driver installed\. The PostgreSQL driver installed for Sqoop only works for PostgreSQL 8\.4\. To install an alternate set of JDBC connectors for Sqoop, connect to the cluster master node and install them in `/usr/lib/sqoop/lib`\. The following are links for various JDBC connectors:
 + MariaDB: [About MariaDB Connector/J](https://mariadb.com/kb/en/mariadb/about-mariadb-connector-j/)\.
 + PostgreSQL: [PostgreSQL JDBC Driver](https://jdbc.postgresql.org/)\.
 + SQLServer: [Download Microsoft JDBC Driver for SQL Server](https://docs.microsoft.com/en-us/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server)\.
@@ -35,6 +35,6 @@ If you are using Secure Socket Layer encryption to access your database, you nee
 sqoop export --connect jdbc:mariadb://$HOSTNAME:3306/mydb?verifyServerCertificate=false&useSSL=true&requireSSL=true --table mysqoopexport --export-dir s3://mybucket/myinputfiles/ --driver org.mariadb.jdbc.Driver --username master --password Mymasterpass1
 ```
 
-For more information about SSL encryption in RDS, see [Using SSL to Encrypt a Connection to a DB Instance](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the Amazon Relational Database Service User Guide\.
+For more information about SSL encryption in RDS, see [Using SSL to Encrypt a Connection to a DB Instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html) in the Amazon RDS User Guide\.
 
 For more information, see the [Apache Sqoop](http://sqoop.apache.org) documentation\.

@@ -2,7 +2,7 @@
 		
 
 -----
-*****Copyright &copy; 2018 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
+*****Copyright &copy; 2019 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
 Amazon's trademarks and trade dress may not be used in 
@@ -35,6 +35,9 @@ Amazon's trademarks and trade dress may not be used in
 + [What's New?](emr-whatsnew.md)
    + [Amazon EMR What's New History](emr-whatsnew-history.md)
 + [Configuring Applications](emr-configure-apps.md)
+   + [Supplying a Configuration when Creating a Cluster](emr-configure-apps-create-cluster.md)
+   + [Supplying a Configuration for an Instance Group in a Running Cluster](emr-configure-apps-running-cluster.md)
+   + [Configuring Applications to Use a Specific Java Virtual Machine](configuring-java8.md)
 + [Checking Dependencies Using the Amazon EMR Artifact Repository](emr-artifact-repository.md)
 + [Apache Hadoop](emr-hadoop.md)
    + [Configure Hadoop](emr-hadoop-config.md)
@@ -137,6 +140,7 @@ Amazon's trademarks and trade dress may not be used in
    + [Create a Cluster With Spark](emr-spark-launch.md)
    + [Using the AWS Glue Data Catalog as the Metastore for Spark SQL](emr-spark-glue.md)
    + [Configure Spark](emr-spark-configure.md)
+   + [Optimizing Spark Performance](emr-spark-performance.md)
    + [Access the Spark Shell](emr-spark-shell.md)
    + [Using Amazon SageMaker Spark for Machine Learning](emr-spark-sagemaker.md)
    + [Write a Spark Application](emr-spark-application.md)

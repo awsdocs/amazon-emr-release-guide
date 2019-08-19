@@ -4,14 +4,14 @@
 
 The following table lists the version of Presto included in the latest release of Amazon EMR, along with the components that Amazon EMR installs with Presto\.
 
-For the version of components installed with Presto in this release, see [Release 5\.22\.0 Component Versions](emr-release-5x.md#emr-5220-release)\.
+For the version of components installed with Presto in this release, see [Release 5\.26\.0 Component Versions](emr-release-5x.md#emr-5260-release)\.
 
 
-**Presto Version Information for emr\-5\.22\.0**  
+**Presto Version Information for emr\-5\.26\.0**  
 
 | Amazon EMR Release Label | Presto Version | Components Installed With Presto | 
 | --- | --- | --- | 
-| emr\-5\.22\.0 | Presto 0\.215 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hive\-client, hcatalog\-server, mysql\-server, presto\-coordinator, presto\-worker | 
+| emr\-5\.26\.0 | Presto 0\.220 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hive\-client, hcatalog\-server, mysql\-server, presto\-coordinator, presto\-worker | 
 
 **Topics**
 + [Considerations with Presto on Amazon EMR](emr-presto-considerations.md)

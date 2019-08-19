@@ -19,18 +19,20 @@ For example, to set the value of `mapred.job.jvm.num.tasks` to \-1 you can creat
   ]
 ```
 
-When you use the `create-cluster` command from the AWS CLI, you can then reference the JSON configuration file\. In the following example, the configuration file is saved as `myConfig.json` and stored in Amazon S3\.
+When you use the `create-cluster` command or `modify-instance-groups` command from the AWS CLI, you can then reference the JSON configuration file\. In the following example, the configuration file is saved as `myConfig.json` and stored in Amazon S3\.
 
 **Note**  
 Linux line continuation characters \(\\\) are included for readability\. They can be removed or used in Linux commands\. For Windows, remove them or replace with a caret \(^\)\.
 
 ```
-aws emr create-cluster --release-label emr-5.22.0 --instance-type m4.large \
+aws emr create-cluster --release-label emr-5.26.0 --instance-type m4.large \
 --instance-count 3 --applications Name=Hadoop --configurations https://s3.amazonaws.com/mybucket/myfolder/myConfig.json \
 --use-default-roles
 ```
 
 You can change default values listed below using the `mapred-site` configuration classification in the same way, and set multiple values and multiple configuration classifications using a single JSON file\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+
+With Amazon EMR version 5\.21\.0 and later, you can override cluster configurations and specify additional configuration classifications for each instance group in a running cluster\. You do this by using the Amazon EMR console, the AWS Command Line Interface \(AWS CLI\), or the AWS SDK\. For more information, see [Supplying a Configuration for an Instance Group in a Running Cluster](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps-running-cluster.html)\.
 
 ## Default Values for Task Configuration Settings<a name="emr-hadoop-task-jvm"></a>
 

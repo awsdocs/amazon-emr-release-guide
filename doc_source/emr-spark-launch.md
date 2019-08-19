@@ -8,7 +8,7 @@ The following procedure creates a cluster with [Spark](https://aws.amazon.com/bi
 
 1. Choose **Create cluster** to use **Quick Create**\.
 
-1.  For **Software Configuration**, choose **Amazon Release Version *emr\-5\.22\.0*** or later\.
+1.  For **Software Configuration**, choose **Amazon Release Version *emr\-5\.26\.0*** or later\.
 
 1.  For **Select Applications**, choose either **All Applications** or **Spark**\.
 
@@ -20,7 +20,7 @@ To configure Spark when you are creating the cluster, see [Configure Spark](emr-
 + Create the cluster with the following command:
 
   ```
-  aws emr create-cluster --name "Spark cluster" --release-label emr-5.22.0 --applications Name=Spark \
+  aws emr create-cluster --name "Spark cluster" --release-label emr-5.26.0 --applications Name=Spark \
   --ec2-attributes KeyName=myKey --instance-type m4.large --instance-count 3 --use-default-roles
   ```
 
@@ -33,23 +33,60 @@ Specify Spark as an application with `SupportedProductConfig` used in `RunJobFlo
 + The following example shows how to create a cluster with Spark using Java\.
 
   ```
-  AmazonElasticMapReduceClient emr = new AmazonElasticMapReduceClient(credentials);
+  import com.amazonaws.AmazonClientException;
+  import com.amazonaws.auth.AWSCredentials;
+  import com.amazonaws.auth.AWSStaticCredentialsProvider;
+  import com.amazonaws.auth.profile.ProfileCredentialsProvider;
+  import com.amazonaws.services.elasticmapreduce.AmazonElasticMapReduce;
+  import com.amazonaws.services.elasticmapreduce.AmazonElasticMapReduceClientBuilder;
+  import com.amazonaws.services.elasticmapreduce.model.*;
+  import com.amazonaws.services.elasticmapreduce.util.StepFactory;
   
-  Application sparkApp = new Application()
-      .withName("Spark");
-  Applications myApps = new Applications();
-  myApps.add(sparkApp);
+  public class Main {
   
-  RunJobFlowRequest request = new RunJobFlowRequest()
-      .withName("Spark Cluster")
-      .withApplications(myApps)
-      .withReleaseLabel("emr-5.22.0")
-      .withInstances(new JobFlowInstancesConfig()
-      .withEc2KeyName("myKeyName")
-      .withInstanceCount(1)
-          .withKeepJobFlowAliveWhenNoSteps(true)
-          .withMasterInstanceType("m4.large")
-          .withSlaveInstanceType("m4.large")
-      );			
-  RunJobFlowResult result = emr.runJobFlow(request);
+  	public static void main(String[] args) {
+  		AWSCredentials credentials_profile = null;		
+  		try {
+  			credentials_profile = new ProfileCredentialsProvider("default").getCredentials();
+          } catch (Exception e) {
+              throw new AmazonClientException(
+                      "Cannot load credentials from .aws/credentials file. " +
+                      "Make sure that the credentials file exists and the profile name is specified within it.",
+                      e);
+          }
+          
+          AmazonElasticMapReduce emr = AmazonElasticMapReduceClientBuilder.standard()
+  			.withCredentials(new AWSStaticCredentialsProvider(credentials_profile))
+  			.withRegion(Regions.US_WEST_1)
+  			.build();
+          
+          // create a step to enable debugging in the AWS Management Console
+  		StepFactory stepFactory = new StepFactory(); 
+  		StepConfig enabledebugging = new StepConfig()
+     			.withName("Enable debugging")
+     			.withActionOnFailure("TERMINATE_JOB_FLOW")
+     			.withHadoopJarStep(stepFactory.newEnableDebuggingStep());
+          
+          Application spark = new Application().withName("Spark");
+  
+          RunJobFlowRequest request = new RunJobFlowRequest()
+              .withName("Spark Cluster")
+              .withReleaseLabel("emr-5.20.0")
+              .withSteps(enabledebugging)
+              .withApplications(spark)
+              .withLogUri("s3://path/to/my/logs/")
+  	       	.withServiceRole("EMR_DefaultRole") 
+  	       	.withJobFlowRole("EMR_EC2_DefaultRole") 
+              .withInstances(new JobFlowInstancesConfig()
+                  .withEc2SubnetId("subnet-12ab3c45")
+                  .withEc2KeyName("myEc2Key")
+                  .withInstanceCount(3)
+                  .withKeepJobFlowAliveWhenNoSteps(true)
+                  .withMasterInstanceType("m4.large")
+                  .withSlaveInstanceType("m4.large")
+              );			
+          RunJobFlowResult result = emr.runJobFlow(request);  
+  	    System.out.println("The cluster ID is " + result.toString());
+  	}
+  }
   ```

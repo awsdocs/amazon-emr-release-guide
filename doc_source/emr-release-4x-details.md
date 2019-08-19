@@ -2,7 +2,7 @@
 
 Each tab below lists application versions, release notes, component versions, and configuration classifications available in each Amazon EMR 4\.x release version\.
 
-For a comprehensive diagram of application versions in every release, see [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-4x.png)\.
+For a comprehensive diagram of application versions in every release, see [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-4x.png)\.
 
 For application\-specific differences between Amazon EMR 4\.x release versions and versions beginning with Amazon EMR 5\.0\.0, see [Differences in Amazon EMR 4\.x Release Versions](emr-release-differences-4x.md)\.
 
@@ -26,8 +26,8 @@ The following applications are supported in this release: [Ganglia](http://gangl
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-4.9.5.png)
 
@@ -102,7 +102,7 @@ Some components need changes from community versions for Amazon EMR\. These comp
 
 **Release 4\.9\.5 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-4\.9\.5 Classifications**  
@@ -194,8 +194,8 @@ The following applications are supported in this release: [Ganglia](http://gangl
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-4.9.4.png)
 
@@ -269,7 +269,7 @@ Some components need changes from community versions for Amazon EMR\. These comp
 
 **Release 4\.9\.4 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-4\.9\.4 Classifications**  
@@ -361,8 +361,8 @@ The following applications are supported in this release: [Ganglia](http://gangl
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-4.9.3.png)
 
@@ -436,7 +436,7 @@ Some components need changes from community versions for Amazon EMR\. These comp
 
 **Release 4\.9\.3 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-4\.9\.3 Classifications**  
@@ -528,8 +528,8 @@ The following applications are supported in this release: [Ganglia](http://gangl
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-4.9.2.png)
 
@@ -602,7 +602,7 @@ Some components need changes from community versions for Amazon EMR\. These comp
 
 **Release 4\.9\.2 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-4\.9\.2 Classifications**  
@@ -694,8 +694,8 @@ The following applications are supported in this release:[Ganglia](http://gangli
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-4.9.1.png)
 
@@ -774,7 +774,7 @@ Some components need changes from community versions for Amazon EMR\. These comp
 
 **Release 4\.9\.1 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-4\.8\.5 Classifications**  
@@ -873,8 +873,8 @@ The following applications are supported in this release: [Ganglia](http://gangl
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-4.8.4.png)
 
@@ -947,7 +947,7 @@ Some components need changes from community versions for Amazon EMR\. These comp
 
 **Release 4\.8\.4 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-4\.8\.4 Classifications**  
@@ -1039,8 +1039,8 @@ The following applications are supported in this release: [Ganglia](http://gangl
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-4.8.3.png)
 
@@ -1124,7 +1124,7 @@ Some components need changes from community versions for Amazon EMR\. These comp
 
 **Release 4\.8\.3 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-4\.8\.3 Classifications**  
@@ -1216,8 +1216,8 @@ The following applications are supported in this release: [Ganglia](http://gangl
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-4.8.2.png)
 
@@ -1293,7 +1293,7 @@ Some components need changes from community versions for Amazon EMR\. These comp
 
 **Release 4\.8\.2 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-4\.8\.2 Classifications**  
@@ -1385,8 +1385,8 @@ The following applications are supported in this release: [Ganglia](http://gangl
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-4.8.0.png)
 
@@ -1407,7 +1407,7 @@ Release date: September 7, 2016
 + Corrected the hive\-server2 URL for Hive2 actions in the Oozie examples\.
 + Added support for additional Presto catalogs\.
 + Backported patches: [HIVE\-8948](https://issues.apache.org/jira/browse/HIVE-8948), [HIVE\-12679](https://issues.apache.org/jira/browse/HIVE-12679), [HIVE\-13405](https://issues.apache.org/jira/browse/HIVE-13405), [PHOENIX\-3116](https://issues.apache.org/jira/browse/PHOENIX-3116), [HADOOP\-12689](https://issues.apache.org/jira/browse/HADOOP-12689)
-+ Added support for security configurations, which allow you to create and apply encryption options more easily\. For more information, see [Data Encryption](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-data-encryption.html)\.
++ Added support for security configurations, which allow you to create and apply encryption options more easily\. For more information, see [Data Encryption](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-data-encryption.html)\.
 
 **Release 4\.8\.0 Component Versions**
 
@@ -1470,7 +1470,7 @@ Some components need changes from community versions for Amazon EMR\. These comp
 
 **Release 4\.8\.0 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-4\.8\.0 Classifications**  
@@ -1569,8 +1569,8 @@ The following applications are supported in this release: [Ganglia](http://gangl
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-4.7.2.png)
 
@@ -1584,7 +1584,7 @@ Release date: July 15, 2016
 + Upgraded to Mahout 0\.12\.2
 + Upgraded to Presto 0\.148
 + Upgraded to Spark 1\.6\.2
-+ You can now create an AWSCredentialsProvider for use with EMRFS using a URI as a parameter\. For more information, see [Create an AWSCredentialsProvider for EMRFS](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-plan-credentialsprovider.html)\.
++ You can now create an AWSCredentialsProvider for use with EMRFS using a URI as a parameter\. For more information, see [Create an AWSCredentialsProvider for EMRFS](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-plan-credentialsprovider.html)\.
 + EMRFS now allows users to configure a custom DynamoDB endpoint for their Consistent View metadata using the `fs.s3.consistent.dynamodb.endpoint` property in `emrfs-site.xml`\.
 + Added a script in `/usr/bin` called `spark-example`, which wraps `/usr/lib/spark/spark/bin/run-example` so you can run examples directly\. For instance, to run the SparkPi example that comes with the Spark distribution, you can run `spark-example SparkPi 100` from the command line or using `command-runner.jar` as a step in the API\.
 
@@ -1653,7 +1653,7 @@ Some components need changes from community versions for Amazon EMR\. These comp
 
 **Release 4\.7\.2 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-4\.7\.2 Classifications**  
@@ -1733,8 +1733,8 @@ The following applications are supported in this release: [Ganglia](http://gangl
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-4.7.0.png)
 
@@ -1809,7 +1809,7 @@ Some components need changes from community versions for Amazon EMR\. These comp
 
 **Release 4\.7\.1 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-4\.7\.1 Classifications**  
@@ -1887,8 +1887,8 @@ The following applications are supported in this release: [Ganglia](http://gangl
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-4.7.0.png)
 
@@ -1909,10 +1909,10 @@ Release date: June 2, 2016
 + The final flag was removed from the `mapreduce.cluster.local.dir` property in `mapred-site.xml` to allow users to run Pig in local mode\.
 + Amazon Redshift JDBC Drivers Available on Cluster
 
-  Amazon Redshift JDBC drivers are now included at `/usr/share/aws/redshift/jdbc`\. `/usr/share/aws/redshift/jdbc/RedshiftJDBC41.jar` is the JDBC 4\.1\-compatible Amazon Redshift driver and `/usr/share/aws/redshift/jdbc/RedshiftJDBC4.jar` is the JDBC 4\.0\-compatible Amazon Redshift driver\. For more information, see [Configure a JDBC Connection](http://docs.aws.amazon.com/redshift/latest/mgmt/configure-jdbc-connection.html) in the *Amazon Redshift Cluster Management Guide*\.
+  Amazon Redshift JDBC drivers are now included at `/usr/share/aws/redshift/jdbc`\. `/usr/share/aws/redshift/jdbc/RedshiftJDBC41.jar` is the JDBC 4\.1\-compatible Amazon Redshift driver and `/usr/share/aws/redshift/jdbc/RedshiftJDBC4.jar` is the JDBC 4\.0\-compatible Amazon Redshift driver\. For more information, see [Configure a JDBC Connection](https://docs.aws.amazon.com/redshift/latest/mgmt/configure-jdbc-connection.html) in the *Amazon Redshift Cluster Management Guide*\.
 + Java 8
 
-  Except for Presto, OpenJDK 1\.7 is the default JDK used for all applications\. However, both OpenJDK 1\.7 and 1\.8 are installed\. For information about how to set `JAVA_HOME` for applications, see [Configuring Applications to Use Java 8](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html#configuring-java8)\.
+  Except for Presto, OpenJDK 1\.7 is the default JDK used for all applications\. However, both OpenJDK 1\.7 and 1\.8 are installed\. For information about how to set `JAVA_HOME` for applications, see [Configuring Applications to Use Java 8](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html#configuring-java8)\.
 
 **Known Issues Resolved from Previous Releases**
 + Fixed a kernel issue that significantly affected performance on Throughput Optimized HDD \(st1\) EBS volumes for Amazon EMR in emr\-4\.6\.0\.
@@ -1988,7 +1988,7 @@ Some components need changes from community versions for Amazon EMR\. These comp
 
 **Release 4\.7\.0 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-4\.7\.0 Classifications**  
@@ -2069,8 +2069,8 @@ The following applications are supported in this release: [Ganglia](http://gangl
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-4.6.0.png)
 
@@ -2089,7 +2089,7 @@ The following release notes include information for the Amazon EMR 4\.6\.0 relea
   Python 3\.4 is now installed by default, but Python 2\.7 remains the system default\. You may configure Python 3\.4 as the system default using either a bootstrap action; you can use the configuration API to set PYSPARK\_PYTHON export to `/usr/bin/python3.4` in the `spark-env` classification to affect the Python version used by PySpark\.
 + Java 8
 
-  Except for Presto, OpenJDK 1\.7 is the default JDK used for all applications\. However, both OpenJDK 1\.7 and 1\.8 are installed\. For information about how to set `JAVA_HOME` for applications, see [Configuring Applications to Use Java 8](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html#configuring-java8)\.
+  Except for Presto, OpenJDK 1\.7 is the default JDK used for all applications\. However, both OpenJDK 1\.7 and 1\.8 are installed\. For information about how to set `JAVA_HOME` for applications, see [Configuring Applications to Use Java 8](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html#configuring-java8)\.
 
 **Known Issues Resolved from Previous Releases**
 + Fixed an issue where application provisioning would sometimes randomly fail due to a generated password\.
@@ -2097,7 +2097,7 @@ The following release notes include information for the Amazon EMR 4\.6\.0 relea
 + Changed `yarn.scheduler.maximum-allocation-vcores` to 80 from the default of 32, which fixes an issue introduced in emr\-4\.4\.0 that mainly occurs with Spark while using the `maximizeResourceAllocation` option in a cluster whose core instance type is one of a few large instance types that have the YARN vcores set higher than 32; namely c4\.8xlarge, cc2\.8xlarge, hs1\.8xlarge, i2\.8xlarge, m2\.4xlarge, r3\.8xlarge, d2\.8xlarge, or m4\.10xlarge were affected by this issue\.
 + s3\-dist\-cp now uses EMRFS for all Amazon S3 nominations and no longer stages to a temporary HDFS directory\.
 + Fixed an issue with exception handling for client\-side encryption multipart uploads\.
-+ Added an option to allow users to change the Amazon S3 storage class\. By default this setting is `STANDARD`\. The `emrfs-site` configuration classification setting is `fs.s3.storageClass` and the possible values are `STANDARD`, `STANDARD_IA`, and `REDUCED_REDUNDANCY`\. For more information about storage classes, see [Storage Classes](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html) in the Amazon Simple Storage Service Developer Guide\. 
++ Added an option to allow users to change the Amazon S3 storage class\. By default this setting is `STANDARD`\. The `emrfs-site` configuration classification setting is `fs.s3.storageClass` and the possible values are `STANDARD`, `STANDARD_IA`, and `REDUCED_REDUNDANCY`\. For more information about storage classes, see [Storage Classes](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html) in the Amazon Simple Storage Service Developer Guide\. 
 
 **Release 4\.6\.0 Component Versions**
 
@@ -2156,7 +2156,7 @@ Some components need changes from community versions for Amazon EMR\. These comp
 
 **Release 4\.6\.0 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-4\.6\.0 Classifications**  
@@ -2232,8 +2232,8 @@ The following applications are supported in this release: [Ganglia](http://gangl
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-4.5.0.png)
 
@@ -2304,7 +2304,7 @@ Some components need changes from community versions for Amazon EMR\. These comp
 
 **Release 4\.5\.0 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-4\.5\.0 Classifications**  
@@ -2373,8 +2373,8 @@ The following applications are supported in this release: [Ganglia](http://gangl
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-4.4.0.png)
 
@@ -2391,7 +2391,7 @@ Release date: March 14, 2016
 + Upgraded to Zeppelin 0\.5\.6
 + Upgraded to Mahout 0\.11\.1
 + Enabled `dynamicResourceAllocation` by default\.
-+ Added a table of all configuration classifications for the release\. For more information, see the Configuration Classifications table in [Configuring Applications](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html)\.
++ Added a table of all configuration classifications for the release\. For more information, see the Configuration Classifications table in [Configuring Applications](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html)\.
 
 **Known Issues Resolved from Previous Releases**
 + Fixed an issue where the `maximizeResourceAllocation` setting would not reserve enough memory for YARN ApplicationMaster daemons\.
@@ -2460,7 +2460,7 @@ Some components need changes from community versions for Amazon EMR\. These comp
 
 **Release 4\.4\.0 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-4\.4\.0 Classifications**  
@@ -2529,8 +2529,8 @@ The following applications are supported in this release: [Ganglia](http://gangl
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-4.3.0.png)
 
@@ -2610,7 +2610,7 @@ Some components need changes from community versions for Amazon EMR\. These comp
 
 **Release 4\.3\.0 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-4\.3\.0 Classifications**  
@@ -2670,8 +2670,8 @@ The following applications are supported in this release: [Ganglia](http://gangl
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-4.3.0.png)
 
@@ -2744,7 +2744,7 @@ Some components need changes from community versions for Amazon EMR\. These comp
 
 **Release 4\.2\.0 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-4\.2\.0 Classifications**  
@@ -2804,8 +2804,8 @@ The following applications are supported in this release: [Hadoop](http://hadoop
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-4.3.0.png)
 
@@ -2855,7 +2855,7 @@ Some components need changes from community versions for Amazon EMR\. These comp
 
 **Release 4\.1\.0 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-4\.1\.0 Classifications**  
@@ -2913,8 +2913,8 @@ The following applications are supported in this release: [Hadoop](http://hadoop
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
 For a comprehensive history of application versions for each release of Amazon EMR, see the following diagrams:
-+ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](http://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application Versions for 5\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
++ [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com//emr/latest/ReleaseGuide/images/emr-releases-4x.png)
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-4.3.0.png)
 
@@ -2956,7 +2956,7 @@ Some components need changes from community versions for Amazon EMR\. These comp
 
 **Release 4\.0\.0 Configuration Classifications**
 
-Configuration classifications allow you to customize applications when you create a cluster\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 
 **emr\-4\.0\.0 Classifications**  

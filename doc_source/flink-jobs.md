@@ -29,7 +29,7 @@ The `flink-yarn-session` command was added in Amazon EMR version 5\.5\.0 as a wr
 + To launch a long\-running Flink cluster within EMR, use the `create-cluster` command:
 
   ```
-  aws emr create-cluster --release-label emr-5.22.0 \
+  aws emr create-cluster --release-label emr-5.26.0 \
   --applications Name=Flink \
   --configurations file://./configurations.json \
   --region us-east-1 \
@@ -98,57 +98,97 @@ In the console details page for an existing cluster, add the step by choosing **
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/flinkAddStep.png)
 
 **Example SDK for Java**  
-The following examples illustrate two approaches to running a Flink job\. The first example submits a Flink job to a running cluster\. The second example creates a cluster that runs a Flink job and then terminates on completion\.  
+These examples illustrate two approaches to running a Flink job\.  
+The following example submits a Flink job to a running cluster  
 
 ```
 List<StepConfig> stepConfigs = new ArrayList<StepConfig>();
-  
+
+// The application id specified below is retrieved from the YARN cluster, for example, by running 'yarn application -list' from the master node command line 
 HadoopJarStepConfig flinkWordCountConf = new HadoopJarStepConfig()
     .withJar("command-runner.jar")
-    .withArgs("flink", "run", "-m", "yarn-cluster", "-yn", "2", "/usr/lib/flink/examples/streaming/WordCount.jar", 
-              "--input", "s3://myBucket/pg11.txt", "--output", "s3://myBucket/alice/");
-  
+    .withArgs("flink", "run", "-m", "yarn-cluster", "-yid", "application_1473169569237_0002", "-yn", "2", "/usr/lib/flink/examples/streaming/WordCount.jar", 
+      "--input", "s3://bucket/for/my/textfile.txt", "--output", "s3://bucket/for/my/output/");
+
 StepConfig flinkRunWordCount = new StepConfig()
   .withName("Flink add a wordcount step")
   .withActionOnFailure("CONTINUE")
   .withHadoopJarStep(flinkWordCountConf);
   
 stepConfigs.add(flinkRunWordCount); 
-  
+
+// Specify the cluster ID of the YARN cluster instead of j-xxxxxxxxx
 AddJobFlowStepsResult res = emr.addJobFlowSteps(new AddJobFlowStepsRequest()
-   .withJobFlowId("myClusterId")
+   .withJobFlowId("j-xxxxxxxxxx")
    .withSteps(stepConfigs));
 ```
+The following example creates a cluster that runs a Flink job and then terminates on completion\.  
 
 ```
-    
-    List<StepConfig> stepConfigs = new ArrayList<StepConfig>();
-    HadoopJarStepConfig flinkWordCountConf = new HadoopJarStepConfig()
-      .withJar("command-runner.jar")
-      .withArgs("bash","-c", "flink run -m yarn-cluster -yn 2 /usr/lib/flink/examples/streaming/WordCount.jar " 
-          + "--input", "s3://myBucket/pg11.txt", "--output", "s3://myBucket/alice/");
-    
-    StepConfig flinkRunWordCountStep = new StepConfig()
-      .withName("Flink add a wordcount step and terminate")
-      .withActionOnFailure("CONTINUE")
-      .withHadoopJarStep(flinkWordCountConf);
-    
-    stepConfigs.add(flinkRunWordCountStep); 
-    
-    RunJobFlowRequest request = new RunJobFlowRequest()
-      .withName("flink-transient")
-      .withReleaseLabel("emr-5.2.1")
-      .withApplications(myApps)
-      .withServiceRole("EMR_DefaultRole")
-      .withJobFlowRole("EMR_EC2_DefaultRole")
-      .withLogUri("s3://myLogBucket")
-      .withInstances(
-          new JobFlowInstancesConfig().withEc2KeyName("myKeyName").withInstanceCount(2)
-              .withKeepJobFlowAliveWhenNoSteps(false).withMasterInstanceType("m4.large")
-              .withSlaveInstanceType("m4.large"))
-      .withSteps(stepConfigs);
-    
-    RunJobFlowResult result = emr.runJobFlow(request);
+import java.util.ArrayList;
+import java.util.List;
+import com.amazonaws.AmazonClientException;
+import com.amazonaws.auth.AWSCredentials;
+import com.amazonaws.auth.AWSStaticCredentialsProvider;
+import com.amazonaws.auth.profile.ProfileCredentialsProvider;
+import com.amazonaws.services.elasticmapreduce.AmazonElasticMapReduce;
+import com.amazonaws.services.elasticmapreduce.AmazonElasticMapReduceClientBuilder;
+import com.amazonaws.services.elasticmapreduce.model.*;
+
+public class Main_test {
+
+	public static void main(String[] args) {
+		AWSCredentials credentials_profile = null;		
+		try {
+			credentials_profile = new ProfileCredentialsProvider("default").getCredentials();
+        } catch (Exception e) {
+            throw new AmazonClientException(
+                    "Cannot load credentials from .aws/credentials file. " +
+                    "Make sure that the credentials file exists and the profile name is specified within it.",
+                    e);
+        }
+		
+		AmazonElasticMapReduce emr = AmazonElasticMapReduceClientBuilder.standard()
+			.withCredentials(new AWSStaticCredentialsProvider(credentials_profile))
+			.withRegion(Regions.US_WEST_1)
+			.build();
+        
+		List<StepConfig> stepConfigs = new ArrayList<StepConfig>();
+	    HadoopJarStepConfig flinkWordCountConf = new HadoopJarStepConfig()
+	      .withJar("command-runner.jar")
+	      .withArgs("bash","-c", "flink", "run", "-m", "yarn-cluster", "-yn", "2", "/usr/lib/flink/examples/streaming/WordCount.jar", "--input", "s3://path/to/input-file.txt", "--output", "s3://path/to/output/");
+	    
+	    StepConfig flinkRunWordCountStep = new StepConfig()
+	      .withName("Flink add a wordcount step and terminate")
+	      .withActionOnFailure("CONTINUE")
+	      .withHadoopJarStep(flinkWordCountConf);
+	    
+	    stepConfigs.add(flinkRunWordCountStep); 
+	    
+	    Application flink = new Application().withName("Flink");
+	    
+	    RunJobFlowRequest request = new RunJobFlowRequest()
+	      .withName("flink-transient")
+	      .withReleaseLabel("emr-5.20.0")
+	      .withApplications(flink)
+	      .withServiceRole("EMR_DefaultRole")
+	      .withJobFlowRole("EMR_EC2_DefaultRole")
+	      .withLogUri("s3://path/to/my/logfiles")
+	      .withInstances(new JobFlowInstancesConfig()
+	          .withEc2KeyName("myEc2Key")
+	          .withEc2SubnetId("subnet-12ab3c45")
+	          .withInstanceCount(3)
+	          .withKeepJobFlowAliveWhenNoSteps(false)
+	          .withMasterInstanceType("m4.large")
+	          .withSlaveInstanceType("m4.large"))
+	      .withSteps(stepConfigs);
+	    
+	    RunJobFlowResult result = emr.runJobFlow(request);  
+		System.out.println("The cluster ID is " + result.toString());
+
+	}
+
+}
 ```
 
 **Example AWS CLI**  

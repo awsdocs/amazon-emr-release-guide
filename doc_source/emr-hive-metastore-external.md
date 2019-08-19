@@ -25,7 +25,7 @@ If you supply sensitive information, such as passwords, to the Amazon EMR config
 
      Create a configuration file called `hiveConfiguration.json` containing edits to `hive-site.xml` as shown in the following example\.
 
-      *hostname*> is the DNS address of the Amazon RDS instance running the database\. <*username*> and <*password*> are the credentials for your database\. For more information about connecting to MySQL and Aurora database instances, see [Connecting to a DB Instance Running the MySQL Database Engine](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ConnectToInstance.html) and [Connecting to an Athena DB Cluster](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Connect.html) in the *Amazon Relational Database Service User Guide*\. `javax.jdo.option.ConnectionURL` is the JDBC connect string for a JDBC metastore\. `javax.jdo.option.ConnectionDriverName` is the driver class name for a JDBC metastore\.
+      *hostname*> is the DNS address of the Amazon RDS instance running the database\. <*username*> and <*password*> are the credentials for your database\. For more information about connecting to MySQL and Aurora database instances, see [Connecting to a DB Instance Running the MySQL Database Engine](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ConnectToInstance.html) and [Connecting to an Athena DB Cluster](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Connect.html) in the *Amazon RDS User Guide*\. `javax.jdo.option.ConnectionURL` is the JDBC connect string for a JDBC metastore\. `javax.jdo.option.ConnectionDriverName` is the driver class name for a JDBC metastore\.
 
      The MySQL JDBC drivers are installed by Amazon EMR\. 
 
@@ -50,13 +50,13 @@ If you supply sensitive information, such as passwords, to the Amazon EMR config
 Linux line continuation characters \(\\\) are included for readability\. They can be removed or used in Linux commands\. For Windows, remove them or replace with a caret \(^\)\.
 
      ```
-     aws emr create-cluster --release-label emr-5.22.0 --instance-type m4.large --instance-count 2 \
+     aws emr create-cluster --release-label emr-5.26.0 --instance-type m4.large --instance-count 2 \
      --applications Name=Hive --configurations ./hiveConfiguration.json --use-default-roles
      ```
 
 1. Connect to the master node of your cluster\. 
 
-   For information about how to connect to the master node, see [Connect to the Master Node Using SSH](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-connect-master-node-ssh.html) in the *Amazon EMR Management Guide*\.
+   For information about how to connect to the master node, see [Connect to the Master Node Using SSH](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-connect-master-node-ssh.html) in the *Amazon EMR Management Guide*\.
 
 1. Create your Hive tables specifying the location on Amazon S3 by entering a command similar to the following:
 

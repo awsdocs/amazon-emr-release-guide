@@ -95,7 +95,19 @@ And run the script:
 
 ## Add Attributes to Active Directory<a name="emr-jupyterhub-ldap-adproperties"></a>
 
-When using Microsoft Active Directory, the JupyterHub D
+To find each user and create the appropriate entry in the database, the JupyterHub docker container requires the following UNIX properties for the corresponding user object in Active Directory\. For more information, see the section *How do I continue to edit the GID/UID RFC 2307 attributes now that the Unix Attributes Plug\-in is no longer available for the Active Directory Users and Computers MMC snap\-in?* in the article [Clarification regarding the status of Identity Management for Unix \(IDMU\) and NIS Server Role in Windows Server 2016 Technical Preview and beyond](https://blogs.technet.microsoft.com/activedirectoryua/2016/02/09/identity-management-for-unix-idmu-is-deprecated-in-windows-server/)\.
++ `homeDirectory`
+
+  This is the location to the user's home directory, which is usually `/home/username`\.
++ `gidNumber`
+
+  This is a value greater than 60000 that is not already used by a another user\. Check the `etc/passwd` file for gids in use\.
++ `uidNumber`
+
+  This is a value greater than 60000 that is not already used by a another group\. Check the `etc/group` file for uids in use\.
++ `uid`
+
+  This is the same as the *username*\.
 
 ## Create User Home Directories<a name="emr-jupyterhub-ldap-directories"></a>
 

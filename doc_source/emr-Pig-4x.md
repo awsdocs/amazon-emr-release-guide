@@ -28,7 +28,7 @@ Custom UDFs that were available in Pig on Amazon EMR 4\.x release versions were 
 |  SPLIT\_ON\_REGEX\(\)  |  STRSPLT\(\)  | 
 |  UNCAPITALIZE\(\)  |  LCFIRST\(\)  | 
 
-The following UDFs were dropped with no equivalent: FORMAT\(\), LOCAL\_DATE\(\), LOCAL\_TIME\(\), CENTER\(\), LEFT\_PAD\(\), REPEAT\(\), REPLACE\_ONCE\(\), RIGHT\_PAD\(\), STRIP\(\), STRIIP\_END\(\), STRIP\_START\(\), SWAP\_CASE\(\)\.
+The following UDFs were dropped with no equivalent: FORMAT\(\), LOCAL\_DATE\(\), LOCAL\_TIME\(\), CENTER\(\), LEFT\_PAD\(\), REPEAT\(\), REPLACE\_ONCE\(\), RIGHT\_PAD\(\), STRIP\(\), STRIP\_END\(\), STRIP\_START\(\), SWAP\_CASE\(\)\.
 
 ## Discontinued Grunt Commands<a name="emr-pig-gruntcmd-4x"></a>
 

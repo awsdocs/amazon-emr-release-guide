@@ -17,7 +17,7 @@ When direct bind is used with Active Directory, the exact `nt_domain` or `ldap_u
 + To specify LDAP properties for `hue-ini`, create a cluster with Hue installed and reference a json file with configuration properties for LDAP\. An example command is shown below, which references a configuration file `myConfig.json` stored in Amazon S3\.
 
   ```
-  aws emr create-cluster --release-label emr-5.22.0 --applications Name=Hue Name=Spark Name=Hive \
+  aws emr create-cluster --release-label emr-5.26.0 --applications Name=Hue Name=Spark Name=Hive \
   --instance-type m4.large --instance-count 3 --configurations https://s3.amazonaws.com/mybucket/myfolder/myConfig.json.
   ```
 
@@ -25,43 +25,52 @@ When direct bind is used with Active Directory, the exact `nt_domain` or `ldap_u
 
   ```
   [
-    {
-      "Classification": "hue-ini",
-      "Properties": {},
-      "Configurations": [
-        {
-          "Classification": "desktop",
+      {
+          "Classification": "hue-ini",
           "Properties": {},
           "Configurations": [
-            {
-              "Classification": "ldap",
-              "Properties": {},
-              "Configurations": [
-                {
-                  "Classification": "ldap_servers",
+              {
+                  "Classification": "desktop",
                   "Properties": {},
                   "Configurations": [
-                    {
-                      "Classification": "yourcompany",
-                      "Properties": {
-                        "base_dn": "DC=yourcompany,DC=hue,DC=com",
-                        "ldap_url": "ldap://ldapurl",
-                        "search_bind_authentication": "true",
-                        "bind_dn": "CN=hue,CN=users,DC=yourcompany,DC=hue,DC=com",
-                        "bind_password": "password"
-                      },
-                      "Configurations": []
-                    }
+                      {
+                          "Classification": "ldap",
+                          "Properties": {},
+                          "Configurations": [
+                              {
+                                  "Classification": "ldap_servers",
+                                  "Properties": {},
+                                  "Configurations": [
+                                      {
+                                          "Classification": "yourcompany",
+                                          "Properties": {
+                                              "base_dn": "DC=yourcompany,DC=hue,DC=com",
+                                              "ldap_url": "ldap://ldapurl",
+                                              "search_bind_authentication": "true",
+                                              "bind_dn": "CN=hue,CN=users,DC=yourcompany,DC=hue,DC=com",
+                                              "bind_password": "password"
+                                          },
+                                          "Configurations": []
+                                      }
+                                  ]
+                              }
+                          ]
+                      }
                   ]
-                }
-              ]
-            }
+              },
+              {
+                  "Classification": "auth",
+                  "Properties": {
+                      "backend": "desktop.auth.backend.LdapBackend"
+                  }
+              }
           ]
-        }
-      ]
-    }
+      }
   ]
   ```
+
+**Note**  
+With Amazon EMR version 5\.21\.0 and later, you can override cluster configurations and specify additional configuration classifications for each instance group in a running cluster\. You do this by using the Amazon EMR console, the AWS Command Line Interface \(AWS CLI\), or the AWS SDK\. For more information, see [Supplying a Configuration for an Instance Group in a Running Cluster](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps-running-cluster.html)\.
 
 **To View LDAP Settings in Hue**
 
