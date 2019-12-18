@@ -109,7 +109,7 @@ spark-submit --executor-memory 1g --class org.apache.spark.examples.SparkPi /usr
 Similarly, you can tune `--executor-cores` and `--driver-memory`\. In a step, you would provide the following arguments to the step:
 
 ```
---executor-memory 1g --class org.apache.spark.examples.SparkPi /usr/lib/spark/examples/jars/spark-examples.jar 10
+spark-submit --executor-cores 2 --driver-memory 1g --class org.apache.spark.examples.SparkPi /usr/lib/spark/examples/jars/spark-examples.jar 10
 ```
 
 You can also tune settings that may not have a built\-in switch using the `--conf` option\. For more information about other settings that are tunable, see the [Dynamically Loading Spark Properties](https://spark.apache.org/docs/latest/configuration.html#dynamically-loading-spark-properties) topic in the Apache Spark documentation\.
