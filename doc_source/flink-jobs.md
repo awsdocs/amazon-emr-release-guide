@@ -29,17 +29,17 @@ The `flink-yarn-session` command was added in Amazon EMR version 5\.5\.0 as a wr
 + To launch a long\-running Flink cluster within EMR, use the `create-cluster` command:
 
   ```
-  aws emr create-cluster --release-label emr-5.26.0 \
+  aws emr create-cluster --release-label emr-5.29.0 \
   --applications Name=Flink \
   --configurations file://./configurations.json \
   --region us-east-1 \
   --log-uri s3://myLogUri \
-  --instance-type m4.large \
+  --instance-type m5.xlarge \
   --instance-count 2 \
   --service-role EMR_DefaultRole \ 
   --ec2-attributes KeyName=MyKeyName,InstanceProfile=EMR_EC2_DefaultRole \
   --steps Type=CUSTOM_JAR,Jar=command-runner.jar,Name=Flink_Long_Running_Session,\
-  Args="flink-yarn-session -n 2 -d"
+  Args=flink-yarn-session,-n,2,-d
   ```
 
 ## Submit Work to an Existing, Long\-Running Flink YARN Job<a name="flink-submit-work"></a>
@@ -212,7 +212,7 @@ aws emr create-cluster --release-label emr-5.2.1 \
 --region us-east-1 \
 --log-uri s3://myLogUri \
 --auto-terminate
---instance-type m4.large \
+--instance-type m5.xlarge \
 --instance-count 2 \
 --service-role EMR_DefaultRole \ 
 --ec2-attributes KeyName=YourKeyName,InstanceProfile=EMR_EC2_DefaultRole \

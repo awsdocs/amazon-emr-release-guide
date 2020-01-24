@@ -20,12 +20,12 @@ You may want to configure Flink using a configuration file\. For example, the ma
 1. Next, create a cluster with the following configuration:
 
    ```
-   aws emr create-cluster --release-label emr-5.26.0 \
+   aws emr create-cluster --release-label emr-5.29.0 \
    --applications Name=Flink \
    --configurations file://./configurations.json \
    --region us-east-1 \
    --log-uri s3://myLogUri \
-   --instance-type m4.large \
+   --instance-type m5.xlarge \
    --instance-count 2 \
    --service-role EMR_DefaultRole \ 
    --ec2-attributes KeyName=YourKeyName,InstanceProfile=EMR_EC2_DefaultRole
@@ -46,3 +46,32 @@ Currently, the files that are configurable within the Amazon EMR configuration A
 + `log4j.properties`
 + `log4j-yarn-session.properties`
 + `log4j-cli.properties`
+
+## Configuring Flink on an EMR Cluster with Multiple Master Nodes<a name="flink-multi-master"></a>
+
+The JobManager of Flink remains available during the master node failover process in an EMR cluster with multiple master nodes\. Beginning with Amazon EMR version 5\.28\.0, JobManager high availability is also enabled automatically\. No manual configuration is needed\.
+
+With Amazon EMR versions 5\.27\.0 or earlier, the JobManager is a single point of failure\. When the JobManager fails, it loses all job states and will not resume the running jobs\. You can enable JobManager high availability by configuring application attempt count, checkpointing, and enabling ZooKeeper as state storage for Flink, as the following example demonstrates:
+
+```
+[
+  {
+    "Classification": "yarn-site",
+    "Properties": {
+      "yarn.resourcemanager.am.max-attempts": "10"
+    }
+  },
+  {
+    "Classification": "flink-conf",
+    "Properties": {
+        "yarn.application-attempts": "10",
+        "high-availability": "zookeeper",
+        "high-availability.zookeeper.quorum": "%{hiera('hadoop::zk')}",
+        "high-availability.storageDir": "hdfs:///user/flink/recovery",
+        "high-availability.zookeeper.path.root": "/flink"
+    }
+  }
+]
+```
+
+You must configure both maximum application master attempts for YARN and application attempts for Flink\. For more information, see [Configuration of YARN Cluster High Availability](https://ci.apache.org/projects/flink/flink-docs-release-1.8/ops/jobmanager_high_availability.html#maximum-application-master-attempts-yarn-sitexml)\. You may also want to configure Flink checkpointing to make restarted JobManager recover running jobs from previously completed checkpoints\. For more information, see [Flink Checkpointing](https://ci.apache.org/projects/flink/flink-docs-release-1.8/dev/stream/state/checkpointing.html)\.

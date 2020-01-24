@@ -10,9 +10,9 @@ Ganglia stores log files on the master node in the `/mnt/var/lib/ganglia/rrds/` 
 + Use a `create-cluster` command similar to the following:
 
   ```
-  aws emr create-cluster --name "Test cluster" --release-label emr-5.26.0 \
+  aws emr create-cluster --name "Test cluster" --release-label emr-5.29.0 \
   --applications Name=HBase Name=Ganglia --use-default-roles \
-  --ec2-attributes KeyName=myKey --instance-type m4.large \
+  --ec2-attributes KeyName=myKey --instance-type m5.xlarge \
   --instance-count 3 --use-default-roles
   ```
 **Note**  
@@ -29,7 +29,7 @@ If the default Amazon EMR service role and Amazon EC2 instance profile don't exi
 1. With the proxy set and the SSH connection open, you can view the Ganglia metrics by opening a browser window with http://*master\-public\-dns\-name*/ganglia/, where *master\-public\-dns\-name* is the public DNS address of the master server in the HBase cluster\. 
 
 **To view Ganglia log files on the master node**
-+ If the cluster is still running, you can access the log files by using SSH to connect to the master node and navigating to the `/var/log/ganglia/rrds` directory\. For more information, see [Connect to the Master Node Using SSH](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-connect-master-node-ssh.html) in the *Amazon EMR Management Guide*\. 
++ If the cluster is still running, you can access the log files by using SSH to connect to the master node and navigating to the `/mnt/var/lib/ganglia/rrds/` directory\. For more information, see [Connect to the Master Node Using SSH](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-connect-master-node-ssh.html) in the *Amazon EMR Management Guide*\. 
 
 **To view Ganglia log files on Amazon S3**
-+ If you configured the cluster to persist log files to Amazon S3 when you launched it, the Ganglia log files are written there as well\. Logs are written to Amazon S3 every five minutes, so there may be a slight delay before the latest log files are available\. For more information, see [View HBase Log Files](emr-hbase-log-files.md)\. 
++ The Ganglia log files are not automatically written to Amazon S3 even if you enable logging for your cluster\. To view Ganglia log files on Amazon S3, you must manually push the logs from `/mnt/var/lib/ganglia/rrds/` to the S3 bucket\. 

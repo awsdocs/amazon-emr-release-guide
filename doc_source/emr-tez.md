@@ -4,14 +4,14 @@ Apache Tez is a framework for creating a complex directed acyclic graph \(DAG\) 
 
 The following table lists the version of Tez included in the latest release of Amazon EMR, along with the components that Amazon EMR installs with Tez\.
 
-For the version of components installed with Tez in this release, see [Release 5\.26\.0 Component Versions](emr-release-5x.md#emr-5260-release)\.
+For the version of components installed with Tez in this release, see [Release 5\.29\.0 Component Versions](emr-release-5x.md#emr-5290-release)\.
 
 
-**Tez Version Information for emr\-5\.26\.0**  
+**Tez Version Information for emr\-5\.29\.0**  
 
 | Amazon EMR Release Label | Tez Version | Components Installed With Tez | 
 | --- | --- | --- | 
-| emr\-5\.26\.0 | Tez 0\.9\.2 | emrfs, emr\-goodies, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, tez\-on\-yarn | 
+| emr\-5\.29\.0 | Tez 0\.9\.2 | emrfs, emr\-goodies, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, tez\-on\-yarn | 
 
 **Topics**
 + [Creating a Cluster with Tez](tez-create-cluster.md)

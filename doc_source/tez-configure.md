@@ -7,9 +7,9 @@ The example `create-cluster` command shown below creates a cluster with Tez, Hiv
 Linux line continuation characters \(\\\) are included for readability\. They can be removed or used in Linux commands\. For Windows, remove them or replace with a caret \(^\)\.
 
 ```
-aws emr create-cluster --release-label emr-5.26.0 \
+aws emr create-cluster --release-label emr-5.29.0 \
 --applications Name=Tez Name=Hive Name=Pig --ec2-attributes KeyName=myKey \
---instance-type m4.large --instance-count 3 \
+--instance-type m5.xlarge --instance-count 3 \
 --configurations https://s3.amazonaws.com/mybucket/myfolder/myConfig.json --use-default-roles
 ```
 Example contents of `myConfig.json` are shown below\.  

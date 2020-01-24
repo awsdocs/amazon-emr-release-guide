@@ -36,7 +36,7 @@ If you supply sensitive information, such as passwords, to the Amazon EMR config
          {
            "Classification": "hive-site",
            "Properties": {
-             "javax.jdo.option.ConnectionURL": "jdbc:mysql:\/\/hostname:3306\/hive?createDatabaseIfNotExist=true",
+             "javax.jdo.option.ConnectionURL": "jdbc:mysql://hostname:3306/hive?createDatabaseIfNotExist=true",
              "javax.jdo.option.ConnectionDriverName": "org.mariadb.jdbc.Driver",
              "javax.jdo.option.ConnectionUserName": "username",
              "javax.jdo.option.ConnectionPassword": "password"
@@ -50,8 +50,8 @@ If you supply sensitive information, such as passwords, to the Amazon EMR config
 Linux line continuation characters \(\\\) are included for readability\. They can be removed or used in Linux commands\. For Windows, remove them or replace with a caret \(^\)\.
 
      ```
-     aws emr create-cluster --release-label emr-5.26.0 --instance-type m4.large --instance-count 2 \
-     --applications Name=Hive --configurations ./hiveConfiguration.json --use-default-roles
+     aws emr create-cluster --release-label emr-5.29.0 --instance-type m5.xlarge --instance-count 2 \
+     --applications Name=Hive --configurations file://hiveConfiguration.json --use-default-roles
      ```
 
 1. Connect to the master node of your cluster\. 

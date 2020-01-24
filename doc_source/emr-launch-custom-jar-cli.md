@@ -17,7 +17,7 @@ This example describes how to use the Amazon EMR console to submit a custom JAR 
 1. In the **Add Step** dialog:
    + For **Step type**, choose **Custom JAR**\.
    + For **Name**, accept the default name \(Custom JAR\) or type a new name\.
-   + For **JAR S3 location**, type or browse to the location of your JAR file\. The value must be in the form `s3://BucketName/path/JARfile`\. 
+   + For **JAR S3 location**, type or browse to the location of your JAR file\. JAR location maybe a path into S3 or a fully qualified java class in the classpath\.\. 
    + For **Arguments**, type any required arguments as space\-separated strings or leave the field blank\.
    + For **Action on failure**, accept the default option \(**Continue**\)\.
 
@@ -33,9 +33,9 @@ To launch a cluster and submit a custom JAR step using the AWS CLI, type the `cr
 + To launch a cluster and submit a custom JAR step, type the following command, replace *myKey* with the name of your EC2 key pair, and replace *mybucket* with your bucket name\.
 
   ```
-  aws emr create-cluster --name "Test cluster" --release-label emr-5.26.0 \
+  aws emr create-cluster --name "Test cluster" --release-label emr-5.29.0 \
   --applications Name=Hue Name=Hive Name=Pig --use-default-roles \
-  --ec2-attributes KeyName=myKey --instance-type m4.large --instance-count 3 \
+  --ec2-attributes KeyName=myKey --instance-type m5.xlarge --instance-count 3 \
   --steps Type=CUSTOM_JAR,Name="Custom JAR Step",ActionOnFailure=CONTINUE,Jar=pathtojarfile,Args=["pathtoinputdata","pathtooutputbucket","arg1","arg2"]
   ```
 **Note**  
@@ -54,9 +54,9 @@ Sometimes it may be necessary to include in the MapReduce classpath JARs for use
 + Launch the cluster with a modified `mapreduce.application.classpath` setting in `mapred-site.xml` using the `mapred-site` configuration classification\. To create the cluster with the step using AWS CLI, this would look like the following:
 
   ```
-  aws emr create-cluster --release-label emr-5.26.0 \
+  aws emr create-cluster --release-label emr-5.29.0 \
   --applications Name=Hue Name=Hive Name=Pig --use-default-roles \
-  --instance-type m4.large --instance-count 2  --ec2-attributes KeyName=myKey \
+  --instance-type m5.xlarge --instance-count 2  --ec2-attributes KeyName=myKey \
   --steps Type=CUSTOM_JAR,Name="Custom JAR Step",ActionOnFailure=CONTINUE,Jar=pathtojarfile,Args=["pathtoinputdata","pathtooutputbucket","arg1","arg2"] \
   --configurations https://s3.amazonaws.com/mybucket/myfolder/myConfig.json
   ```

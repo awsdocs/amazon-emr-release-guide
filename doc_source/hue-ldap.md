@@ -17,8 +17,8 @@ When direct bind is used with Active Directory, the exact `nt_domain` or `ldap_u
 + To specify LDAP properties for `hue-ini`, create a cluster with Hue installed and reference a json file with configuration properties for LDAP\. An example command is shown below, which references a configuration file `myConfig.json` stored in Amazon S3\.
 
   ```
-  aws emr create-cluster --release-label emr-5.26.0 --applications Name=Hue Name=Spark Name=Hive \
-  --instance-type m4.large --instance-count 3 --configurations https://s3.amazonaws.com/mybucket/myfolder/myConfig.json.
+  aws emr create-cluster --release-label emr-5.29.0 --applications Name=Hue Name=Spark Name=Hive \
+  --instance-type m5.xlarge --instance-count 3 --configurations https://s3.amazonaws.com/mybucket/myfolder/myConfig.json.
   ```
 
   Example contents of `myConfig.json` are shown below\.
@@ -55,15 +55,16 @@ When direct bind is used with Active Directory, the exact `nt_domain` or `ldap_u
                                   ]
                               }
                           ]
+                      },
+                      {
+                          "Classification": "auth",
+                          "Properties": {
+                           "backend": "desktop.auth.backend.LdapBackend"
+                                }
                       }
                   ]
-              },
-              {
-                  "Classification": "auth",
-                  "Properties": {
-                      "backend": "desktop.auth.backend.LdapBackend"
-                  }
               }
+              
           ]
       }
   ]

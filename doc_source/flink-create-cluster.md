@@ -18,9 +18,9 @@ Clusters can be launched using the AWS Management Console, AWS CLI, or an AWS SD
 + Create the cluster with the following command:
 
   ```
-  aws emr create-cluster --name "Cluster with Flink" --release-label emr-5.26.0 \
+  aws emr create-cluster --name "Cluster with Flink" --release-label emr-5.29.0 \
   --applications Name=Flink --ec2-attributes KeyName=myKey \
-  --instance-type m4.large --instance-count 3 --use-default-roles
+  --instance-type m5.xlarge --instance-count 3 --use-default-roles
   ```
 **Note**  
 Linux line continuation characters \(\\\) are included for readability\. They can be removed or used in Linux commands\. For Windows, remove them or replace with a caret \(^\)\.

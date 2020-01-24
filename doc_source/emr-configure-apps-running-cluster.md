@@ -210,11 +210,12 @@ emr.modifyInstanceGroups(migRequest);
 ## Considerations when Supplying Configurations for an Instance Group<a name="emr-configure-apps-running-cluster-considerations"></a>
 
 When supplying configurations for instance groups in a running cluster, consider the following points: 
-+ Amazon EMR currently doesn't support application reconfiguration requests in a cluster with multiple master nodes\.
 + Reconfiguring and resizing an instance group cannot occur at the same time\. If a reconfiguration is initiated while an instance group is resizing, reconfiguration cannot start until the instance group has completed resizing, and vice versa\. 
 + Amazon EMR follows a “rolling” process to reconfigure the instances in the Task and Core instance groups\. Only 10 percent of the instances in an instance group are modified and restarted at a time\. This process takes longer to finish but reduces the chance of potential application failure in a running cluster\. 
 + After reconfiguring an instance group, Amazon EMR restarts the applications to allow the new configurations to take effect\. Job failure or other unexpected application behavior might occur if the applications are in use during reconfiguration\. 
 + Amazon EMR assigns a version number for the new configuration specification after you submit a reconfiguration request for an instance group\. You can track the version number of configuration or the state of an instance group by viewing the CloudWatch events\. For more information, see [Monitor CloudWatch Events](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-manage-cloudwatch-events.html)\.
 + If a reconfiguration for an instance group fails, Amazon EMR reverses the configuration parameters to the previous working version\. If the reversion process fails too, you must submit a new `ModifyInstanceGroup` request to recover the instance group from the `ARRESTED` state\.
 + Reconfiguration request for any Phoenix configuration classifications is only supported in Amazon EMR version 5\.23\.0 and later, and is not supported in Amazon EMR version 5\.21\.0 or 5\.22\.0\. 
++ Amazon EMR supports application reconfiguration requests on an EMR cluster with multiple master nodes only in Amazon EMR version 5\.27\.0 and later\.
++ Reconfiguring `hdfs-encryption-zones` classification or any of the Hadoop KMS configuration classifications is not supported on EMR cluster with multiple master nodes\.
 + Amazon EMR currently doesn’t support certain reconfiguration requests for the capacity scheduler that requires restarting resource manager, such as completely removing a queue\.

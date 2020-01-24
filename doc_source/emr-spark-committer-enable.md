@@ -2,11 +2,11 @@
 
 If you are using Amazon EMR 5\.19\.0 , you can manually set the `spark.sql.parquet.fs.optimized.committer.optimization-enabled` property to `true` when you create a cluster or from within Spark if you are using Amazon EMR\.
 
-## Enabling the EMRFS S3\-optimized Committer When Creating a Cluster<a name="w27aac49c37c13c17b5"></a>
+## Enabling the EMRFS S3\-optimized Committer When Creating a Cluster<a name="w40aac53c37c13c17b5"></a>
 
 Use the `spark-defaults` configuration classification to set the `spark.sql.parquet.fs.optimized.committer.optimization-enabled` property to `true`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
-## Enabling the EMRFS S3\-optimized Committer from Spark<a name="w27aac49c37c13c17b7"></a>
+## Enabling the EMRFS S3\-optimized Committer from Spark<a name="w40aac53c37c13c17b7"></a>
 
 You can set `spark.sql.parquet.fs.optimized.committer.optimization-enabled` to `true` by hard\-coding it in a `SparkConf`, passing it as a `--conf` parameter in the Spark shell or `spark-submit` and `spark-sql` tools, or in `conf/spark-defaults.conf`\. For more information, see [Spark Configuration](https://spark.apache.org/docs/latest/configuration.html) in Apache Spark documentation\.
 

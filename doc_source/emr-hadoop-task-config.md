@@ -25,7 +25,7 @@ When you use the `create-cluster` command or `modify-instance-groups` command fr
 Linux line continuation characters \(\\\) are included for readability\. They can be removed or used in Linux commands\. For Windows, remove them or replace with a caret \(^\)\.
 
 ```
-aws emr create-cluster --release-label emr-5.26.0 --instance-type m4.large \
+aws emr create-cluster --release-label emr-5.29.0 --instance-type m5.xlarge \
 --instance-count 3 --applications Name=Hadoop --configurations https://s3.amazonaws.com/mybucket/myfolder/myConfig.json \
 --use-default-roles
 ```
@@ -55,6 +55,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 + [hs1 Instances](#emr-hadoop-task-config-hs1)
 + [i2 Instances](#emr-hadoop-task-config-i2)
 + [i3 Instances](#emr-hadoop-task-config-i3)
++ [i3en Instances](#emr-hadoop-task-config-i3en)
 + [m1 Instances](#emr-hadoop-task-config-m1)
 + [m2 Instances](#emr-hadoop-task-config-m2)
 + [m3 Instances](#emr-hadoop-task-config-m3)
@@ -290,6 +291,20 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.nodemanager\.resource\.memory\-mb | 65536 | 
 
 
+**c5\.12xlarge**  
+
+| Configuration Option | Default Value | 
+| --- | --- | 
+| mapreduce\.map\.java\.opts | \-Xmx1502m | 
+| mapreduce\.reduce\.java\.opts | \-Xmx3004m | 
+| mapreduce\.map\.memory\.mb | 1877 | 
+| mapreduce\.reduce\.memory\.mb | 3754 | 
+| yarn\.app\.mapreduce\.am\.resource\.mb | 3754 | 
+| yarn\.scheduler\.minimum\-allocation\-mb | 32 | 
+| yarn\.scheduler\.maximum\-allocation\-mb | 90112 | 
+| yarn\.nodemanager\.resource\.memory\-mb | 90112 | 
+
+
 **c5\.18xlarge**  
 
 | Configuration Option | Default Value | 
@@ -302,6 +317,20 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.scheduler\.minimum\-allocation\-mb | 32 | 
 | yarn\.scheduler\.maximum\-allocation\-mb | 139264 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 139264 | 
+
+
+**c5\.24xlarge**  
+
+| Configuration Option | Default Value | 
+| --- | --- | 
+| mapreduce\.map\.java\.opts | \-Xmx1570m | 
+| mapreduce\.reduce\.java\.opts | \-Xmx3140m | 
+| mapreduce\.map\.memory\.mb | 1963 | 
+| mapreduce\.reduce\.memory\.mb | 3926 | 
+| yarn\.app\.mapreduce\.am\.resource\.mb | 3926 | 
+| yarn\.scheduler\.minimum\-allocation\-mb | 32 | 
+| yarn\.scheduler\.maximum\-allocation\-mb | 188416 | 
+| yarn\.nodemanager\.resource\.memory\-mb | 188416 | 
 
 ### c5d Instances<a name="emr-hadoop-task-config-c5d"></a>
 
@@ -849,6 +878,92 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.scheduler\.maximum\-allocation\-mb | 491520  | 
 | yarn\.nodemanager\.resource\.memory\-mb | 491520  | 
 
+### i3en Instances<a name="emr-hadoop-task-config-i3en"></a>
+
+
+**i3en\.xlarge**  
+
+| Configuration Option | Default Value | 
+| --- | --- | 
+| mapreduce\.map\.java\.opts | \-Xmx4915m | 
+| mapreduce\.reduce\.java\.opts | \-Xmx9830m | 
+| mapreduce\.map\.memory\.mb | 6144 | 
+| mapreduce\.reduce\.memory\.mb | 12288 | 
+| yarn\.app\.mapreduce\.am\.resource\.mb | 12288 | 
+| yarn\.scheduler\.minimum\-allocation\-mb | 32 | 
+| yarn\.scheduler\.maximum\-allocation\-mb | 24576 | 
+| yarn\.nodemanager\.resource\.memory\-mb | 24576 | 
+
+
+**i3en\.2xlarge**  
+
+| Configuration Option | Default Value | 
+| --- | --- | 
+| mapreduce\.map\.java\.opts | \-Xmx5734m | 
+| mapreduce\.reduce\.java\.opts | \-Xmx11468m | 
+| mapreduce\.map\.memory\.mb | 7168 | 
+| mapreduce\.reduce\.memory\.mb | 14336 | 
+| yarn\.app\.mapreduce\.am\.resource\.mb | 14336 | 
+| yarn\.scheduler\.minimum\-allocation\-mb | 32 | 
+| yarn\.scheduler\.maximum\-allocation\-mb | 57344 | 
+| yarn\.nodemanager\.resource\.memory\-mb | 57344 | 
+
+
+**i3en\.3xlarge**  
+
+| Configuration Option | Default Value | 
+| --- | --- | 
+| mapreduce\.map\.java\.opts | \-Xmx6007m | 
+| mapreduce\.reduce\.java\.opts | \-Xmx12014m | 
+| mapreduce\.map\.memory\.mb | 7509 | 
+| mapreduce\.reduce\.memory\.mb | 15018 | 
+| yarn\.app\.mapreduce\.am\.resource\.mb | 15018 | 
+| yarn\.scheduler\.minimum\-allocation\-mb | 32 | 
+| yarn\.scheduler\.maximum\-allocation\-mb | 90112 | 
+| yarn\.nodemanager\.resource\.memory\-mb | 90112 | 
+
+
+**i3en\.6xlarge**  
+
+| Configuration Option | Default Value | 
+| --- | --- | 
+| mapreduce\.map\.java\.opts | \-Xmx6281m | 
+| mapreduce\.reduce\.java\.opts | \-Xmx12562m | 
+| mapreduce\.map\.memory\.mb | 7851 | 
+| mapreduce\.reduce\.memory\.mb | 15702 | 
+| yarn\.app\.mapreduce\.am\.resource\.mb | 15702 | 
+| yarn\.scheduler\.minimum\-allocation\-mb | 32 | 
+| yarn\.scheduler\.maximum\-allocation\-mb | 188416 | 
+| yarn\.nodemanager\.resource\.memory\-mb | 188416 | 
+
+
+**i3en\.12xlarge**  
+
+| Configuration Option | Default Value | 
+| --- | --- | 
+| mapreduce\.map\.java\.opts | \-Xmx6417m | 
+| mapreduce\.reduce\.java\.opts | \-Xmx12834m | 
+| mapreduce\.map\.memory\.mb | 8021 | 
+| mapreduce\.reduce\.memory\.mb | 16042 | 
+| yarn\.app\.mapreduce\.am\.resource\.mb | 16042 | 
+| yarn\.scheduler\.minimum\-allocation\-mb | 32 | 
+| yarn\.scheduler\.maximum\-allocation\-mb | 385024 | 
+| yarn\.nodemanager\.resource\.memory\-mb | 385024 | 
+
+
+**i3en\.24xlarge**  
+
+| Configuration Option | Default Value | 
+| --- | --- | 
+| mapreduce\.map\.java\.opts | \-Xmx6486m | 
+| mapreduce\.reduce\.java\.opts | \-Xmx12972m | 
+| mapreduce\.map\.memory\.mb | 8107 | 
+| mapreduce\.reduce\.memory\.mb | 16214 | 
+| yarn\.app\.mapreduce\.am\.resource\.mb | 16214 | 
+| yarn\.scheduler\.minimum\-allocation\-mb | 32 | 
+| yarn\.scheduler\.maximum\-allocation\-mb | 778240 | 
+| yarn\.nodemanager\.resource\.memory\-mb | 778240 | 
+
 ### m1 Instances<a name="emr-hadoop-task-config-m1"></a>
 
 
@@ -1084,6 +1199,20 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.nodemanager\.resource\.memory\-mb | 57344 | 
 
 
+**m5\.8xlarge**  
+
+| Configuration Option | Default Value | 
+| --- | --- | 
+| mapreduce\.map\.java\.opts | \-Xmx6144m | 
+| mapreduce\.reduce\.java\.opts | \-Xmx12288m | 
+| mapreduce\.map\.memory\.mb | 7680 | 
+| mapreduce\.reduce\.memory\.mb | 15360 | 
+| yarn\.app\.mapreduce\.am\.resource\.mb | 15360 | 
+| yarn\.scheduler\.minimum\-allocation\-mb | 32 | 
+| yarn\.scheduler\.maximum\-allocation\-mb | 122880 | 
+| yarn\.nodemanager\.resource\.memory\-mb | 122880 | 
+
+
 **m5\.12xlarge**  
 
 | Configuration Option | Default Value | 
@@ -1096,6 +1225,20 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.scheduler\.minimum\-allocation\-mb | 32 | 
 | yarn\.scheduler\.maximum\-allocation\-mb | 188416 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 188416 | 
+
+
+**m5\.16xlarge**  
+
+| Configuration Option | Default Value | 
+| --- | --- | 
+| mapreduce\.map\.java\.opts | \-Xmx6349m | 
+| mapreduce\.reduce\.java\.opts | \-Xmx12698m | 
+| mapreduce\.map\.memory\.mb | 7936 | 
+| mapreduce\.reduce\.memory\.mb | 15872 | 
+| yarn\.app\.mapreduce\.am\.resource\.mb | 15872 | 
+| yarn\.scheduler\.minimum\-allocation\-mb | 32 | 
+| yarn\.scheduler\.maximum\-allocation\-mb | 253952 | 
+| yarn\.nodemanager\.resource\.memory\-mb | 253952 | 
 
 
 **m5\.24xlarge**  
@@ -1156,6 +1299,20 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.nodemanager\.resource\.memory\-mb | 57344 | 
 
 
+**m5a\.8xlarge**  
+
+| Configuration Option | Default Value | 
+| --- | --- | 
+| mapreduce\.map\.java\.opts | \-Xmx6144m | 
+| mapreduce\.reduce\.java\.opts | \-Xmx12288m | 
+| mapreduce\.map\.memory\.mb | 7680 | 
+| mapreduce\.reduce\.memory\.mb | 15360 | 
+| yarn\.app\.mapreduce\.am\.resource\.mb | 15360 | 
+| yarn\.scheduler\.minimum\-allocation\-mb | 32 | 
+| yarn\.scheduler\.maximum\-allocation\-mb | 122880 | 
+| yarn\.nodemanager\.resource\.memory\-mb | 122880 | 
+
+
 **m5a\.12xlarge**  
 
 | Configuration Option | Default Value | 
@@ -1168,6 +1325,20 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.scheduler\.minimum\-allocation\-mb | 32 | 
 | yarn\.scheduler\.maximum\-allocation\-mb | 188416 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 188416 | 
+
+
+**m5a\.16xlarge**  
+
+| Configuration Option | Default Value | 
+| --- | --- | 
+| mapreduce\.map\.java\.opts | \-Xmx6349m | 
+| mapreduce\.reduce\.java\.opts | \-Xmx12698m | 
+| mapreduce\.map\.memory\.mb | 7936 | 
+| mapreduce\.reduce\.memory\.mb | 15872 | 
+| yarn\.app\.mapreduce\.am\.resource\.mb | 15872 | 
+| yarn\.scheduler\.minimum\-allocation\-mb | 32 | 
+| yarn\.scheduler\.maximum\-allocation\-mb | 253952 | 
+| yarn\.nodemanager\.resource\.memory\-mb | 253952 | 
 
 
 **m5a\.24xlarge**  
@@ -1228,6 +1399,20 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.nodemanager\.resource\.memory\-mb | 57344 | 
 
 
+**m5d\.8xlarge**  
+
+| Configuration Option | Default Value | 
+| --- | --- | 
+| mapreduce\.map\.java\.opts | \-Xmx6144m | 
+| mapreduce\.reduce\.java\.opts | \-Xmx12288m | 
+| mapreduce\.map\.memory\.mb | 7680 | 
+| mapreduce\.reduce\.memory\.mb | 15360 | 
+| yarn\.app\.mapreduce\.am\.resource\.mb | 15360 | 
+| yarn\.scheduler\.minimum\-allocation\-mb | 32 | 
+| yarn\.scheduler\.maximum\-allocation\-mb | 122880 | 
+| yarn\.nodemanager\.resource\.memory\-mb | 122880 | 
+
+
 **m5d\.12xlarge**  
 
 | Configuration Option | Default Value | 
@@ -1240,6 +1425,20 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.scheduler\.minimum\-allocation\-mb | 32 | 
 | yarn\.scheduler\.maximum\-allocation\-mb | 188416 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 188416 | 
+
+
+**m5d\.16xlarge**  
+
+| Configuration Option | Default Value | 
+| --- | --- | 
+| mapreduce\.map\.java\.opts | \-Xmx6349m | 
+| mapreduce\.reduce\.java\.opts | \-Xmx12698m | 
+| mapreduce\.map\.memory\.mb | 7936 | 
+| mapreduce\.reduce\.memory\.mb | 15872 | 
+| yarn\.app\.mapreduce\.am\.resource\.mb | 15872 | 
+| yarn\.scheduler\.minimum\-allocation\-mb | 32 | 
+| yarn\.scheduler\.maximum\-allocation\-mb | 253952 | 
+| yarn\.nodemanager\.resource\.memory\-mb | 253952 | 
 
 
 **m5d\.24xlarge**  
@@ -1521,6 +1720,20 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 | yarn\.nodemanager\.resource\.memory\-mb | 122880 | 
 
 
+**r5\.8xlarge**  
+
+| Configuration Option | Default Value | 
+| --- | --- | 
+| mapreduce\.map\.java\.opts | \-Xmx6349m | 
+| mapreduce\.reduce\.java\.opts | \-Xmx12698m | 
+| mapreduce\.map\.memory\.mb | 7936 | 
+| mapreduce\.reduce\.memory\.mb | 15872 | 
+| yarn\.app\.mapreduce\.am\.resource\.mb | 15872 | 
+| yarn\.scheduler\.minimum\-allocation\-mb | 32 | 
+| yarn\.scheduler\.maximum\-allocation\-mb | 253952 | 
+| yarn\.nodemanager\.resource\.memory\-mb | 253952 | 
+
+
 **r5\.12xlarge**  
 
 | Configuration Option | Default Value | 
@@ -1533,6 +1746,34 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 | yarn\.scheduler\.minimum\-allocation\-mb | 32 | 
 | yarn\.scheduler\.maximum\-allocation\-mb | 385024 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 385024 | 
+
+
+**r5\.16xlarge**  
+
+| Configuration Option | Default Value | 
+| --- | --- | 
+| mapreduce\.map\.java\.opts | \-Xmx6451m | 
+| mapreduce\.reduce\.java\.opts | \-Xmx12902m | 
+| mapreduce\.map\.memory\.mb | 8064 | 
+| mapreduce\.reduce\.memory\.mb | 16128 | 
+| yarn\.app\.mapreduce\.am\.resource\.mb | 16128 | 
+| yarn\.scheduler\.minimum\-allocation\-mb | 32 | 
+| yarn\.scheduler\.maximum\-allocation\-mb | 516096 | 
+| yarn\.nodemanager\.resource\.memory\-mb | 516096 | 
+
+
+**r5\.24xlarge**  
+
+| Configuration Option | Default Value | 
+| --- | --- | 
+| mapreduce\.map\.java\.opts | \-Xmx6486m | 
+| mapreduce\.reduce\.java\.opts | \-Xmx12972m | 
+| mapreduce\.map\.memory\.mb | 8107 | 
+| mapreduce\.reduce\.memory\.mb | 16214 | 
+| yarn\.app\.mapreduce\.am\.resource\.mb | 16214 | 
+| yarn\.scheduler\.minimum\-allocation\-mb | 32 | 
+| yarn\.scheduler\.maximum\-allocation\-mb | 778240 | 
+| yarn\.nodemanager\.resource\.memory\-mb | 778240 | 
 
 ### r5a Instances<a name="emr-hadoop-task-config-r5a"></a>
 
@@ -1579,6 +1820,20 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 | yarn\.nodemanager\.resource\.memory\-mb | 122880 | 
 
 
+**r5a\.8xlarge**  
+
+| Configuration Option | Default Value | 
+| --- | --- | 
+| mapreduce\.map\.java\.opts | \-Xmx6349m | 
+| mapreduce\.reduce\.java\.opts | \-Xmx12698m | 
+| mapreduce\.map\.memory\.mb | 7936 | 
+| mapreduce\.reduce\.memory\.mb | 15872 | 
+| yarn\.app\.mapreduce\.am\.resource\.mb | 15872 | 
+| yarn\.scheduler\.minimum\-allocation\-mb | 32 | 
+| yarn\.scheduler\.maximum\-allocation\-mb | 253952 | 
+| yarn\.nodemanager\.resource\.memory\-mb | 253952 | 
+
+
 **r5a\.12xlarge**  
 
 | Configuration Option | Default Value | 
@@ -1591,6 +1846,20 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 | yarn\.scheduler\.minimum\-allocation\-mb | 32 | 
 | yarn\.scheduler\.maximum\-allocation\-mb | 385024 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 385024 | 
+
+
+**r5a\.16xlarge**  
+
+| Configuration Option | Default Value | 
+| --- | --- | 
+| mapreduce\.map\.java\.opts | \-Xmx6451m | 
+| mapreduce\.reduce\.java\.opts | \-Xmx12902m | 
+| mapreduce\.map\.memory\.mb | 8064 | 
+| mapreduce\.reduce\.memory\.mb | 16128 | 
+| yarn\.app\.mapreduce\.am\.resource\.mb | 16128 | 
+| yarn\.scheduler\.minimum\-allocation\-mb | 32 | 
+| yarn\.scheduler\.maximum\-allocation\-mb | 516096 | 
+| yarn\.nodemanager\.resource\.memory\-mb | 516096 | 
 
 
 **r5a\.24xlarge**  
@@ -1651,6 +1920,20 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 | yarn\.nodemanager\.resource\.memory\-mb | 122880 | 
 
 
+**r5d\.8xlarge**  
+
+| Configuration Option | Default Value | 
+| --- | --- | 
+| mapreduce\.map\.java\.opts | \-Xmx6349m | 
+| mapreduce\.reduce\.java\.opts | \-Xmx12698m | 
+| mapreduce\.map\.memory\.mb | 7936 | 
+| mapreduce\.reduce\.memory\.mb | 15872 | 
+| yarn\.app\.mapreduce\.am\.resource\.mb | 15872 | 
+| yarn\.scheduler\.minimum\-allocation\-mb | 32 | 
+| yarn\.scheduler\.maximum\-allocation\-mb | 253952 | 
+| yarn\.nodemanager\.resource\.memory\-mb | 253952 | 
+
+
 **r5d\.12xlarge**  
 
 | Configuration Option | Default Value | 
@@ -1663,6 +1946,20 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 | yarn\.scheduler\.minimum\-allocation\-mb | 32 | 
 | yarn\.scheduler\.maximum\-allocation\-mb | 385024 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 385024 | 
+
+
+**r5d\.16xlarge**  
+
+| Configuration Option | Default Value | 
+| --- | --- | 
+| mapreduce\.map\.java\.opts | \-Xmx6451m | 
+| mapreduce\.reduce\.java\.opts | \-Xmx12902m | 
+| mapreduce\.map\.memory\.mb | 8064 | 
+| mapreduce\.reduce\.memory\.mb | 16128 | 
+| yarn\.app\.mapreduce\.am\.resource\.mb | 16128 | 
+| yarn\.scheduler\.minimum\-allocation\-mb | 32 | 
+| yarn\.scheduler\.maximum\-allocation\-mb | 516096 | 
+| yarn\.nodemanager\.resource\.memory\-mb | 516096 | 
 
 
 **r5d\.24xlarge**  

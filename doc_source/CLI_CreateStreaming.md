@@ -38,8 +38,8 @@ These examples demonstrate how to use the AWS CLI to create a cluster and submit
 + To create a cluster and submit a Streaming step using the AWS CLI, type the following command and replace *myKey* with the name of your EC2 key pair\.
 
   ```
-  aws emr create-cluster --name "Test cluster" --release-label emr-5.26.0 --applications Name=Hue Name=Hive Name=Pig --use-default-roles \
-  --ec2-attributes KeyName=myKey --instance-type m4.large --instance-count 3 \
+  aws emr create-cluster --name "Test cluster" --release-label emr-5.29.0 --applications Name=Hue Name=Hive Name=Pig --use-default-roles \
+  --ec2-attributes KeyName=myKey --instance-type m5.xlarge --instance-count 3 \
   --steps Type=STREAMING,Name="Streaming Program",ActionOnFailure=CONTINUE,Args=[--files,pathtoscripts,-mapper,mapperscript,-reducer,reducerscript,aggregate,-input,pathtoinputdata,-output,pathtooutputbucket]
   ```
 **Note**  

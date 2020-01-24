@@ -2,7 +2,7 @@
 		
 
 -----
-*****Copyright &copy; 2019 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
+*****Copyright &copy; 2020 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
 Amazon's trademarks and trade dress may not be used in 
@@ -90,6 +90,12 @@ Amazon's trademarks and trade dress may not be used in
    + [Use the Hive JDBC Driver](HiveJDBCDriver.md)
    + [Using S3 Select with Hive to Improve Performance](emr-hive-s3select.md)
    + [Hive Release History](Hive-release-history.md)
++ [Hudi (Incubating)](emr-hudi.md)
+   + [How Hudi Works](emr-hudi-how-it-works.md)
+   + [Considerations and Limitations for Using Hudi on Amazon EMR](emr-hudi-considerations.md)
+   + [Creating a Cluster with Hudi Installed](emr-hudi-installation-and-configuration.md)
+   + [Working With a Hudi Dataset](emr-hudi-work-with-dataset.md)
+   + [Using the Hudi CLI](emr-hudi-cli.md)
 + [Hue](emr-hue.md)
    + [Supported and Unsupported Features of Hue on Amazon EMR](emr-hue-supported-features.md)
    + [Launching the Hue Web Interface](accessing-hue.md)
@@ -119,6 +125,7 @@ Amazon's trademarks and trade dress may not be used in
 + [Apache MXNet](emr-mxnet.md)
    + [MXNet Release History](MXNet-release-history.md)
 + [Apache Oozie](emr-oozie.md)
+   + [Using Oozie with a Remote Database in Amazon RDS](oozie-rds.md)
    + [Oozie Release History](Oozie-release-history.md)
 + [Apache Phoenix](emr-phoenix.md)
    + [Creating a Cluster with Phoenix](phoenix-create-cluster.md)

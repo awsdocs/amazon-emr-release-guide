@@ -17,7 +17,7 @@ In Amazon EMR, KMS over HTTPS is not enabled by default with Hadoop KMS\. For mo
 
 ## Configuring HDFS Transparent Encryption<a name="emr-configure-HDFS-transparent-encryption"></a>
 
-You can configure transparent encryption by creating keys and adding encryption zones\. You can do this in several ways: 
+You can configure transparent encryption in Amazon EMR by creating keys and adding encryption zones\. You can do this in several ways: 
 + Using the Amazon EMR configuration API operation when you create a cluster
 + Using a Hadoop JAR step with command\-runner\.jar
 + Logging in to the master node of the Hadoop cluster and using the `hadoop key` and `hdfs crypto` command line clients
@@ -28,10 +28,10 @@ For more information about the REST APIs, see the respective documentation for H
 **To create encryption zones and their keys at cluster creation using the CLI**
 
 The hdfs\-encryption\-zones classification in the configuration API operation allows you to specify a key name and an encryption zone when you create a cluster\. Amazon EMR creates this key in Hadoop KMS on your cluster and configures the encryption zone\.
-+ Create a cluster with the following command:
++ Create a cluster with the following command\.
 
   ```
-  aws emr create-cluster --release-label emr-5.26.0 --instance-type m4.large --instance-count 2 \
+  aws emr create-cluster --release-label emr-5.29.0 --instance-type m5.xlarge --instance-count 2 \
   --applications Name=App1 Name=App2 --configurations https://s3.amazonaws.com/mybucket/myfolder/myConfig.json
   ```
 **Note**  
@@ -57,7 +57,7 @@ Linux line continuation characters \(\\\) are included for readability\. They ca
 
 1. Connect to the master node of the cluster using SSH\.
 
-1. Create a key within Hadoop KMS:
+1. Create a key within Hadoop KMS\.
 
    ```
    $ hadoop key create path2_key
@@ -67,13 +67,13 @@ Linux line continuation characters \(\\\) are included for readability\. They ca
 **Important**  
 Hadoop KMS requires your key names to be lowercase\. If you use a key that has uppercase characters, then your cluster will fail during launch\.
 
-1. Create the encryption zone path in HDFS:
+1. Create the encryption zone path in HDFS\.
 
    ```
    $ hadoop fs -mkdir /myHDFSPath2
    ```
 
-1. Make the HDFS path an encryption zone using the key that you created:
+1. Make the HDFS path an encryption zone using the key that you created\.
 
    ```
    $ hdfs crypto -createZone -keyName path2_key -path /myHDFSPath2
@@ -81,7 +81,7 @@ Hadoop KMS requires your key names to be lowercase\. If you use a key that has u
    ```
 
 **To create encryption zones and their keys manually using the AWS CLI**
-+ Add steps to create the KMS keys and encryption zones manually with the following command:
++ Add steps to create the KMS keys and encryption zones manually with the following command\.
 
   ```
   aws emr add-steps --cluster-id j-2AXXXXXXGAPLF --steps Type=CUSTOM_JAR,Name="Create First Hadoop KMS Key",Jar="command-runner.jar",ActionOnFailure=CONTINUE,Args=[/bin/bash,-c,"\"hadoop key create path1_key\""] \
@@ -132,7 +132,7 @@ You can configure Hadoop KMS at cluster creation time using the configuration AP
 + Create a cluster with Hadoop KMS with ACLs using the following command:
 
   ```
-  aws emr create-cluster --release-label emr-5.26.0 --instance-type m4.large --instance-count 2 \
+  aws emr create-cluster --release-label emr-5.29.0 --instance-type m5.xlarge --instance-count 2 \
   --applications Name=App1 Name=App2 --configurations https://s3.amazonaws.com/mybucket/myfolder/myConfig.json
   ```
 **Note**  
@@ -156,7 +156,7 @@ Linux line continuation characters \(\\\) are included for readability\. They ca
 + Create a cluster with Hadoop KMS `hadoop.kms.cache.enable` set to `false`, using the following command:
 
   ```
-  aws emr create-cluster --release-label emr-5.26.0 --instance-type m4.large --instance-count 2 \
+  aws emr create-cluster --release-label emr-5.29.0 --instance-type m5.xlarge --instance-count 2 \
   --applications Name=App1 Name=App2 --configurations https://s3.amazonaws.com/mybucket/myfolder/myConfig.json
   ```
 **Note**  
@@ -179,7 +179,7 @@ Linux line continuation characters \(\\\) are included for readability\. They ca
 + Change settings in `kms-env.sh` via the `hadoop-kms-env` configuration\. Create a cluster with Hadoop KMS using the following command:
 
   ```
-  aws emr create-cluster --release-label emr-5.26.0 --instance-type m4.large --instance-count 2 \
+  aws emr create-cluster --release-label emr-5.29.0 --instance-type m5.xlarge --instance-count 2 \
   --applications Name=App1 Name=App2 --configurations https://s3.amazonaws.com/mybucket/myfolder/myConfig.json
   ```
 **Note**  
@@ -210,3 +210,53 @@ Linux line continuation characters \(\\\) are included for readability\. They ca
   ```
 
 For information about configuring Hadoop KMS, see the [Hadoop KMS documentation](http://hadoop.apache.org/docs/current/hadoop-kms/index.html)\.
+
+## HDFS Transparent Encryption on EMR Clusters with Multiple Master Nodes<a name="emr-hadoop-kms-multi-master"></a>
+
+[Apache Ranger](http://hadoop.apache.org/docs/current/hadoop-kms/index.html) KMS is used in an EMR cluster with multiple master nodes for transparent encryption in HDFS\. 
+
+Apache Ranger KMS stores its master key and Encryption Zone \(EZ\) keys in your Amazon RDS for an EMR cluster with multiple master nodes\. To enable transparent encryption in HDFS on an EMR cluster with multiple master nodes, you must provide the following configurations\. 
++ Amazon RDS or your own MySQL server connection URL to store the Ranger KMS master key and EZ key 
++ User name and password for MySQL
++ Password for Ranger KMS master key
++ Certificate Authority \(CA\) PEM file for SSL connection to MySQL server
+
+You can provide these configurations by using `ranger-kms-dbks-site` classification and `ranger-kms-db-ca` classification, as the following example demonstrates\.
+
+```
+[
+  {
+    "Classification": "ranger-kms-dbks-site",
+    "Properties": {
+      "ranger.ks.jpa.jdbc.url": "jdbc:log4jdbc:mysql://mysql-host-url.xx-xxx-1.xxx.amazonaws.com:3306/rangerkms",
+      "ranger.ks.jpa.jdbc.user": "mysql-user-name",
+      "ranger.ks.jpa.jdbc.password": "mysql-password",
+      "ranger.db.encrypt.key.password": "password-for-encrypting-a-master-key"
+    }
+  },
+  {
+    “Classification”: “ranger-kms-db-ca”,
+    “Properties”: {
+      “ranger.kms.trust.ca.file.s3.url”: “s3://rds-downloads/rds-ca-2019-root.pem”
+    }
+     }
+]
+```
+
+The following are configuration object classifications for Apache Ranger KMS\.
+
+
+**Hadoop KMS Configuration Classifications**  
+
+| Classification | Description | 
+| --- | --- | 
+| ranger\-kms\-dbks\-site | Change values in dbks\-site\.xml file of Ranger KMS\. | 
+| ranger\-kms\-site | Change values in ranger\-kms\-site\.xml file of Ranger KMS\. | 
+| ranger\-kms\-env | Change values in the Ranger KMS environment\. | 
+| ranger\-kms\-log4j | Change values in kms\-log4j\.properties file of Ranger KMS\. | 
+| ranger\-kms\-db\-ca | Change values for CA file on S3 for MySQL SSL connection with Ranger KMS\. | 
+
+**Considerations**
++ It is highly recommended that you encrypt your Amazon RDS instance to improve security\. For more information, see [Overview of Encrypting Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Encryption.html#Overview.Encryption.Overview)\.
++ It is highly recommended that you use separate MySQL database for each EMR cluster with multiple master nodes for high security bar\.
++ To configure transparent encryption in HDFS on an EMR cluster with multiple master nodes, you must specify the `hdfs-encryption-zones` classification while creating the cluster\. Otherwise, Ranger KMS will not be configured or started\. Reconfiguring `hdfs-encryption-zones` classification or any of the Hadoop KMS configuration classifications on a running cluster is not supported on EMR cluster with multiple master nodes\.

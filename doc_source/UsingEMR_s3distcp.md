@@ -9,7 +9,8 @@ Like DistCp, S3DistCp uses MapReduce to copy in a distributed manner\. It shares
 If S3DistCp is unable to copy some or all of the specified files, the cluster step fails and returns a non\-zero error code\. If this occurs, S3DistCp does not clean up partially copied files\. 
 
 **Important**  
-S3DistCp does not support Amazon S3 bucket names that contain the underscore character\.
+S3DistCp does not support Amazon S3 bucket names that contain the underscore character\.  
+S3DistCp does not support concatenation for Parquet files\. Use PySpark instead\. For more information, see [Concatenating Parquet files in Amazon EMR](https://aws.amazon.com/premiumsupport/knowledge-center/emr-concatenate-parquet-files/)\.
 
 ## S3DistCp Options<a name="UsingEMR_s3distcp.options"></a>
 
@@ -18,7 +19,7 @@ When you call S3DistCp, you can specify options that change how it copies and co
 
 | Option  | Description  | Required  | 
 | --- | --- | --- | 
-| \-\-src=LOCATION  |  Location of the data to copy\. This can be either an HDFS or Amazon S3 location\.  Example: `--src=s3://myawsbucket/logs/j-3GYXXXXXX9IOJ/node`  S3DistCp does not support Amazon S3 bucket names that contain the underscore character\.  | Yes  | 
+| \-\-src=LOCATION  |  Location of the data to copy\. This can be either an HDFS or Amazon S3 location\.  Example: `--src=s3://aws-s3-bucket1/logs/j-3GYXXXXXX9IOJ/node`  S3DistCp does not support Amazon S3 bucket names that contain the underscore character\.  | Yes  | 
 | \-\-dest=LOCATION  |  Destination for the data\. This can be either an HDFS or Amazon S3 location\.  Example: `--dest=hdfs:///output`  S3DistCp does not support Amazon S3 bucket names that contain the underscore character\.  | Yes  | 
 | \-\-srcPattern=PATTERN  |  A [regular expression](http://en.wikipedia.org/wiki/Regular_expression) that filters the copy operation to a subset of the data at `--src`\. If neither `--srcPattern` nor `--groupBy` is specified, all data at `--src` is copied to `--dest`\.  If the regular expression argument contains special characters, such as an asterisk \(\*\), either the regular expression or the entire `--args` string must be enclosed in single quotes \('\)\.  Example: `--srcPattern=.*daemons.*-hadoop-.*`   | No  | 
 | \-\-groupBy=PATTERN  |  A [regular expression](http://en.wikipedia.org/wiki/Regular_expression) that causes S3DistCp to concatenate files that match the expression\. For example, you could use this option to combine all of the log files written in one hour into a single file\. The concatenated filename is the value matched by the regular expression for the grouping\.  Parentheses indicate how files should be grouped, with all of the items that match the parenthetical statement being combined into a single output file\. If the regular expression does not include a parenthetical statement, the cluster fails on the S3DistCp step and return an error\.  If the regular expression argument contains special characters, such as an asterisk \(\*\), either the regular expression or the entire `--args` string must be enclosed in single quotes \('\)\.  When `--groupBy` is specified, only files that match the specified pattern are copied\. You do not need to specify `--groupBy` and `--srcPattern` at the same time\.  Example: `--groupBy=.*subnetid.*([0-9]+-[0-9]+-[0-9]+-[0-9]+).*`  | No  | 

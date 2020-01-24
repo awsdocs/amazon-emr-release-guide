@@ -8,8 +8,8 @@ The following example creates a cluster with an alternate HBase root directory b
 Linux line continuation characters \(\\\) are included for readability\. They can be removed or used in Linux commands\. For Windows, remove them or replace with a caret \(^\)\.
 
 ```
-aws emr create-cluster --release-label emr-5.26.0 --applications Name=HBase \
---instance-type m4.large --instance-count 3 --configurations https://s3.amazonaws.com/mybucket/myfolder/myConfig.json
+aws emr create-cluster --release-label emr-5.29.0 --applications Name=HBase \
+--instance-type m5.xlarge --instance-count 3 --configurations https://s3.amazonaws.com/mybucket/myfolder/myConfig.json
 ```
 
 The `myConfig.json` file specifies the `hbase.rootdir` property for the `hbase-site` configuration classification as shown in the following example\. Replace *ip\-XXX\-XX\-XX\-XXX\.ec2\.internal* with the internal DNS hostname of the cluster's master node\.
@@ -61,14 +61,14 @@ You can set any or all of the HBase site settings to optimize the HBase cluster 
 
 ### zookeeper\.session\.timeout<a name="emr-hbase-zookeeper.session.timeout"></a>
 
-The default timeout is three minutes \(180000 ms\)\. If a region server crashes, this is how long it takes the master server to notice the absence of the region server and start recovery\. To help the master server recover faster, you can reduce this value to a shorter time period\. The following example uses one minute, or 60000 ms: 
+The default timeout is 40 seconds \(40000 ms\)\. If a region server crashes, this is how long it takes the master server to notice the absence of the region server and start recovery\. To help the master server recover faster, you can reduce this value to a shorter time period\. The following example uses 30 seconds, or 30000 ms: 
 
 ```
 [
   {
     "Classification":"hbase-site",
     "Properties": {
-       "zookeeper.session.timeout": "60000"
+       "zookeeper.session.timeout": "30000"
     }
   }
 ]
