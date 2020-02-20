@@ -1,6 +1,6 @@
 # Working With a Hudi Dataset<a name="emr-hudi-work-with-dataset"></a>
 
-Hudi supports currently supports inserting, updating, and deleting data in Hudi datasets through Spark\. For more information, see [Writing Hudi Datasets](https://hudi.apache.org/writing_data.html) in Apache Hudi documentation\.
+Hudi supports currently supports inserting, updating, and deleting data in Hudi datasets through Spark\. For more information, see [Writing Hudi Datasets](https://hudi.apache.org/docs/writing_data.html) in Apache Hudi documentation\.
 
 The following examples demonstrate how to launch the interactive Spark shell, use Spark submit, and use Amazon EMR Notebooks to work with Hudi on Amazon EMR\. You can also use the Hudi DeltaStreamer utility or other tools to write to a dataset\. Throughout this section, the examples demonstrate working with datasets using the Spark shell while connected to the master node using SSH as the default `hadoop` user\.
 
