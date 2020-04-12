@@ -14,7 +14,7 @@ The following examples demonstrate how to launch the interactive Spark shell, us
 1. Enter the following command to launch the Spark shell\.
 
    ```
-   spark-shell --conf "spark.serializer=org.apache.spark.serializer.KryoSerializer" --conf "spark.sql.hive.convertMetastoreParquet=false"
+   spark-shell --conf "spark.serializer=org.apache.spark.serializer.KryoSerializer" --conf "spark.sql.hive.convertMetastoreParquet=false" \
    --jars /usr/lib/hudi/hudi-spark-bundle.jar,/usr/lib/spark/external/lib/spark-avro.jar
    ```
 
@@ -24,7 +24,7 @@ The following examples demonstrate how to launch the interactive Spark shell, us
 To submit a Spark application that uses Hudi, make sure to pass the following parameters to spark\-submit\.
 
 ```
-spark-submit --conf "spark.serializer=org.apache.spark.serializer.KryoSerializer" --conf "spark.sql.hive.convertMetastoreParquet=false"
+spark-submit --conf "spark.serializer=org.apache.spark.serializer.KryoSerializer" --conf "spark.sql.hive.convertMetastoreParquet=false" \
 --jars /usr/lib/hudi/hudi-spark-bundle.jar,/usr/lib/spark/external/lib/spark-avro.jar
 ```
 
