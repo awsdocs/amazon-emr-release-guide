@@ -1,6 +1,6 @@
 # Using the Hudi CLI<a name="emr-hudi-cli"></a>
 
-You can use the Hudi CLI to administer Hudi datasets to view information about commits, the filesystem, statistics, and more\. You can also use the CLI to manually perform compactions, schedule compactions, or cancel scheduled compactions\. For more information, see [Administering Hudi Pipelines](https://hudi.apache.org/admin_guide.html) in the Apache Hudi documentation\.
+You can use the Hudi CLI to administer Hudi datasets to view information about commits, the filesystem, statistics, and more\. You can also use the CLI to manually perform compactions, schedule compactions, or cancel scheduled compactions\. For more information, see [Deploying Hudi Pipelines](https://hudi.apache.org/docs/0.5.2-deployment.html) in the Apache Hudi documentation\.
 
 **To start the Hudi CLI and connect to a dataset**
 
