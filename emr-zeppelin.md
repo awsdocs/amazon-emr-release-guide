@@ -2,7 +2,7 @@
 
 Use Apache Zeppelin as a notebook for interactive data exploration\. For more information about Zeppelin, see [https://zeppelin\.apache\.org/](https://zeppelin.apache.org/)\. Zeppelin is included in Amazon EMR release version 5\.0\.0 and later\. Earlier release versions include Zeppelin as a sandbox application\. For more information, see [Amazon EMR 4\.x Release Versions](emr-release-4x.md)\.
 
-To access the Zeppelin web interface, set up an SSH tunnel to the master node and a proxy connection\. For more information, see [View Web Interfaces Hosted on EMR Clusters](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-web-interfaces.html)\. Zeppelin is included in Amazon EMR release version 5\.0\.0 and later\. Earlier release versions include Zeppelin as a sandbox application\. For more information, see [Amazon EMR 4\.x Release Versions](emr-release-4x.md)\.
+To access the Zeppelin web interface, set up an SSH tunnel to the master node and a proxy connection\. For more information, see [View Web Interfaces Hosted on EMR Clusters](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-web-interfaces.html)\.
 
 The following table lists the version of Zeppelin included in the latest release of Amazon EMR, along with the components that Amazon EMR installs with Zeppelin\.
 
