@@ -3,7 +3,8 @@
 + **Schema updated by default on upsert and insert** – Hudi provides an interface, `HoodieRecordPayload` that determines how the input DataFrame and existing Hudi dataset are merged to produce a new, updated dataset\. Hudi provides a default implementation of this class, `OverwriteWithLatestAvroPayload`, that overwrites existing records and updates the schema as specified in the input DataFrame\. To customize this logic for implementing merge and partial updates, you can provide an implementation of the `HoodieRecordPayload` interface using the `DataSourceWriteOptions.PAYLOAD_CLASS_OPT_KEY` parameter\.
 + **Deletion requires schema** – When deleting, you must specify the record key, the partition key, and the pre\-combine key fields\. Other columns can be made `null` or empty, but the full schema is required\.
 + **MoR table limitations** – MoR tables do not support savepointing and can only be queried using the real time table, `tablename_rt`, from Spark SQL or Hive\.
-+ **Athena not supported** – Querying Hudi datasets using Amazon Athena is not supported\.
++ **Athena**
+  + Athena currently only supports querying the read-optimized view of Hudi datasets, which is the latest committed (Copy on Write) or latest compacted (Merge on Read) data. Querying the incremental view or real-time view on Athena is currently not supported\. For more information, see [Using Athena to Query Apache Hudi Datasets](https://docs.aws.amazon.com/athena/latest/ug/querying-hudi.html) in the *AWS Athena User Guide*\.
 + **Hive**
   + For registering tables in the Hive metastore, Hudi expects the Hive Thrift server to be running at the default port `10000`\. If you override this port with a custom port, pass the `HIVE_URL_OPT_KEY` option as shown in the following example\.
 
