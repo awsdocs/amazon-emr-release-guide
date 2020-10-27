@@ -5,9 +5,12 @@ You can use popular business intelligence tools like Microsoft Excel, MicroStrat
 The example below demonstrates using SQL Workbench/J as a SQL client to connect to a Hive cluster in Amazon EMR\. For additional drivers, see [Use Business Intelligence Tools with Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-bi-tools.html)\.
 
 Before you install and work with SQL Workbench/J, download the driver package and install the driver\. The drivers included in the package support the Hive versions available in Amazon EMR release versions 4\.0 and later\. For detailed release notes and documentation, see the PDF documentation included in the package\.
-+ **JDBC Driver Package Download**
++ **The latest Hive JDBC driver package download**
 
-  [http://awssupportdatasvcs.com/bootstrap-actions/Simba/AmazonHiveJDBC-1.0.9.1060.zip](http://awssupportdatasvcs.com/bootstrap-actions/Simba/AmazonHiveJDBC-1.0.9.1060.zip)
+  [http://awssupportdatasvcs.com/bootstrap-actions/Simba/latest/](http://awssupportdatasvcs.com/bootstrap-actions/Simba/latest/)
++ **Older versions of the Hive JDBC driver**
+
+  [http://awssupportdatasvcs.com/bootstrap-actions/Simba/](http://awssupportdatasvcs.com/bootstrap-actions/Simba/)
 
 **To install and configure SQL Workbench**
 

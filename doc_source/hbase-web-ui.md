@@ -1,5 +1,8 @@
 # View the HBase User Interface<a name="hbase-web-ui"></a>
 
+**Note**  
+The HBase user interface uses insecure HTTP connections by default\. To enable secure HTTP \(HTTPS\), set the `hbase.ssl.enabled` property for the `hbase-site` classification to `true` in your [HBase configuration](emr-hbase-configure.md)\. For more information about using secure HTTP \(HTTPS\) for the HBase web UI, see the [Apache HBase Reference Guide](https://hbase.apache.org/book.html#_using_secure_http_https_for_the_web_ui)\.
+
 HBase provides a web\-based user interface that you can use to monitor your HBase cluster\. When you run HBase on Amazon EMR, the web interface runs on the master node and can be viewed using port forwarding, also known as creating an SSH tunnel\. 
 
 **To view the HBase User Interface**

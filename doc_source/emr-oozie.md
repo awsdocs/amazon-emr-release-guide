@@ -10,16 +10,27 @@ If you use a custom Amazon Linux AMI based on an Amazon Linux AMI with a creatio
 aws ec2 --region MyRegion describe-images --owner amazon --query 'Images[?Name!=`null`]|[?starts_with(Name, `amzn-ami-hvm-2018.03`) == `true`].[CreationDate,ImageId,Name]' --output text | sort -rk1
 ```
 
-The following table lists the version of Oozie included in the latest release of Amazon EMR, along with the components that Amazon EMR installs with Oozie\.
+The following table lists the version of Oozie included in the latest release of Amazon EMR 6\.x series, along with the components that Amazon EMR installs with Oozie\.
 
-For the version of components installed with Oozie in this release, see [Release 5\.29\.0 Component Versions](emr-release-5x.md#emr-5290-release)\.
+For the version of components installed with Oozie in this release, see [Release 6\.1\.0 Component Versions](emr-release-6x.md#emr-610-release)\.
 
 
-**Oozie Version Information for emr\-5\.29\.0**  
+**Oozie Version Information for emr\-6\.1\.0**  
 
 | Amazon EMR Release Label | Oozie Version | Components Installed With Oozie | 
 | --- | --- | --- | 
-| emr\-5\.29\.0 | Oozie 5\.1\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, oozie\-client, oozie\-server, tez\-on\-yarn | 
+| emr\-6\.1\.0 | Oozie 5\.2\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, oozie\-client, oozie\-server, tez\-on\-yarn | 
+
+The following table lists the version of Oozie included in the latest release of Amazon EMR 5\.x series, along with the components that Amazon EMR installs with Oozie\.
+
+For the version of components installed with Oozie in this release, see [Release 5\.31\.0 Component Versions](emr-release-5x.md#emr-5310-release)\.
+
+
+**Oozie Version Information for emr\-5\.31\.0**  
+
+| Amazon EMR Release Label | Oozie Version | Components Installed With Oozie | 
+| --- | --- | --- | 
+| emr\-5\.31\.0 | Oozie 5\.2\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, oozie\-client, oozie\-server, tez\-on\-yarn | 
 
 **Topics**
 + [Using Oozie with a Remote Database in Amazon RDS](oozie-rds.md)

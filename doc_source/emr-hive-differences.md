@@ -20,6 +20,8 @@ ACID \(Atomicity, Consistency, Isolation, Durability\) transactions are not supp
 
 [LLAP functionality](https://cwiki.apache.org/confluence/display/Hive/LLAP) added in version 2\.0 of default Apache Hive is not supported in Hive 2\.1\.0 on Amazon EMR release 5\.0\.
 
+Amazon EMR version 6\.0\.0 and later supports the Live Long and Process \(LLAP\) functionality for Hive\. For more information, see [Using Hive LLAP](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-hive-llap.html)\. 
+
 ## Differences in Hive Between Amazon EMR Release Version 4\.x and 5\.x<a name="emr-hive-diff"></a>
 
 This section covers differences to consider before you migrate a Hive implementation from Hive version 1\.0\.0 on Amazon EMR release 4\.x to Hive 2\.x on Amazon EMR release 5\.x\.
@@ -32,7 +34,6 @@ This section covers differences to consider before you migrate a Hive implementa
 
 ### Performance differences and considerations<a name="emr-hive-diffs-perf"></a>
 + **Performance differences with Tez:** With Amazon EMR release 5\.x , Tez is the default execution engine for Hive instead of MapReduce\. Tez provides improved performance for most workflows\.
-+ **ORC file performance:** Query performance may be slower than expected for ORC files\.
 + **Tables with many partitions:** Queries that generate a large number of dynamic partitions may fail, and queries that select from tables with many partitions may take longer than expected to execute\. For example, a select from 100,000 partitions may take 10 minutes or more\.
 
 ## Additional Features of Hive on Amazon EMR<a name="emr-hive-additional-features"></a>
@@ -76,7 +77,7 @@ To pass variable values into Hive steps using the AWS CLI, use the `--steps` par
 Linux line continuation characters \(\\\) are included for readability\. They can be removed or used in Linux commands\. For Windows, remove them or replace with a caret \(^\)\.
 
   ```
-  aws emr create-cluster --name "Test cluster" --release-label emr-5.29.0 \
+  aws emr create-cluster --name "Test cluster" --release-label emr-5.31.0 \
   --applications Name=Hive Name=Pig --use-default-roles --ec2-attributes KeyName=myKey --instance-type m5.xlarge --instance-count 3 \
   --steps Type=Hive,Name="Hive Program",ActionOnFailure=CONTINUE,Args=[-f,s3://elasticmapreduce/samples/hive-ads/libs/response-time-stats.q,-d,INPUT=s3://elasticmapreduce/samples/hive-ads/tables,-d,OUTPUT=s3://mybucket/hive-ads/output/,-d,SAMPLE=s3://elasticmapreduce/samples/hive-ads/]
   ```

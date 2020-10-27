@@ -4,7 +4,7 @@ You may want to configure Flink using a configuration file\. For example, the ma
 
 **To configure the number of task slots used for Flink using the AWS CLI**
 
-1. Create a file, `configuration.json`, with the following content:
+1. Create a file, `configurations.json`, with the following content:
 
    ```
    [
@@ -20,7 +20,7 @@ You may want to configure Flink using a configuration file\. For example, the ma
 1. Next, create a cluster with the following configuration:
 
    ```
-   aws emr create-cluster --release-label emr-5.29.0 \
+   aws emr create-cluster --release-label emr-5.31.0 \
    --applications Name=Flink \
    --configurations file://./configurations.json \
    --region us-east-1 \

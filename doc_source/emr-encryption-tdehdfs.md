@@ -31,7 +31,7 @@ The hdfs\-encryption\-zones classification in the configuration API operation al
 + Create a cluster with the following command\.
 
   ```
-  aws emr create-cluster --release-label emr-5.29.0 --instance-type m5.xlarge --instance-count 2 \
+  aws emr create-cluster --release-label emr-5.31.0 --instance-type m5.xlarge --instance-count 2 \
   --applications Name=App1 Name=App2 --configurations https://s3.amazonaws.com/mybucket/myfolder/myConfig.json
   ```
 **Note**  
@@ -132,7 +132,7 @@ You can configure Hadoop KMS at cluster creation time using the configuration AP
 + Create a cluster with Hadoop KMS with ACLs using the following command:
 
   ```
-  aws emr create-cluster --release-label emr-5.29.0 --instance-type m5.xlarge --instance-count 2 \
+  aws emr create-cluster --release-label emr-5.31.0 --instance-type m5.xlarge --instance-count 2 \
   --applications Name=App1 Name=App2 --configurations https://s3.amazonaws.com/mybucket/myfolder/myConfig.json
   ```
 **Note**  
@@ -156,7 +156,7 @@ Linux line continuation characters \(\\\) are included for readability\. They ca
 + Create a cluster with Hadoop KMS `hadoop.kms.cache.enable` set to `false`, using the following command:
 
   ```
-  aws emr create-cluster --release-label emr-5.29.0 --instance-type m5.xlarge --instance-count 2 \
+  aws emr create-cluster --release-label emr-5.31.0 --instance-type m5.xlarge --instance-count 2 \
   --applications Name=App1 Name=App2 --configurations https://s3.amazonaws.com/mybucket/myfolder/myConfig.json
   ```
 **Note**  
@@ -179,7 +179,7 @@ Linux line continuation characters \(\\\) are included for readability\. They ca
 + Change settings in `kms-env.sh` via the `hadoop-kms-env` configuration\. Create a cluster with Hadoop KMS using the following command:
 
   ```
-  aws emr create-cluster --release-label emr-5.29.0 --instance-type m5.xlarge --instance-count 2 \
+  aws emr create-cluster --release-label emr-5.31.0 --instance-type m5.xlarge --instance-count 2 \
   --applications Name=App1 Name=App2 --configurations https://s3.amazonaws.com/mybucket/myfolder/myConfig.json
   ```
 **Note**  
@@ -235,9 +235,9 @@ You can provide these configurations by using `ranger-kms-dbks-site` classificat
     }
   },
   {
-    “Classification”: “ranger-kms-db-ca”,
-    “Properties”: {
-      “ranger.kms.trust.ca.file.s3.url”: “s3://rds-downloads/rds-ca-2019-root.pem”
+    "Classification": "ranger-kms-db-ca",
+    "Properties": {
+      "ranger.kms.trust.ca.file.s3.url": "s3://rds-downloads/rds-ca-2019-root.pem"
     }
      }
 ]

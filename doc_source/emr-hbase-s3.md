@@ -53,7 +53,7 @@ For example, given the JSON classification for the primary cluster as shown earl
 }
 ```
 
-### Synchronizing the Read Replica When You Add Data<a name="w40aac26c21c13c10"></a>
+### Synchronizing the Read Replica When You Add Data<a name="w55aac25c29c13c10"></a>
 
 Because the read\-replica uses HBase StoreFiles and metadata that the primary cluster writes to Amazon S3, the read\-replica is only as current as the Amazon S3 data store\. The following guidance can help minimize the lag time between the primary cluster and the read\-replica when you write data\.
 + Bulk load data on the primary cluster whenever possible\. For more information, see [Bulk Loading](http://hbase.apache.org/0.94/book/arch.bulk.load.html) in Apache HBase documentation\.
@@ -85,9 +85,9 @@ There is an HBase cleaner process that cleans up old WAL files and store files\.
 |  `hbase.oldwals.cleaner.thread.size`  |  2  |  The number of threads to clean the WALs under the oldWALs directory\.  | 
 
 With Amazon EMR 5\.17\.0 and earlier, the cleaner operation can affect query performance when running heavy workloads, so we recommend that you enable the cleaner only during off\-peak times\. The cleaner has the following HBase shell commands:
-+ `cleaner_enabled` queries whether the cleaner is enabled\.
-+ `cleaner_run` manually runs the cleaner to remove files\.
-+ `cleaner_switch` enables or disables the cleaner and returns the previous state of the cleaner\. For example, `cleaner-switch true` enables the cleaner\.
++ `cleaner_chore_enabled` queries whether the cleaner is enabled\.
++ `cleaner_chore_run` manually runs the cleaner to remove files\.
++ `cleaner_chore_switch` enables or disables the cleaner and returns the previous state of the cleaner\. For example, `cleaner_chore_switch true` enables the cleaner\.
 
 ### Properties for HBase on Amazon S3 Performance Tuning<a name="emr-hbase-s3-properties"></a>
 

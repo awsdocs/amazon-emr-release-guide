@@ -3,7 +3,7 @@
 This section demonstrates submitting Pig work to an Amazon EMR cluster\. The examples that follow generate a report containing the total bytes transferred, a list of the top 50 IP addresses, a list of the top 50 external referrers, and the top 50 search terms using Bing and Google\. The Pig script is located in the Amazon S3 bucket `s3://elasticmapreduce/samples/pig-apache/do-reports2.pig`\. Input data is located in the Amazon S3 bucket `s3://elasticmapreduce/samples/pig-apache/input`\. The output is saved to an Amazon S3 bucket\. 
 
 **Important**  
-For EMR 4\.x or greater, you must copy and modify the Pig script do\-reports\.pig to make it work\. In your modified script, replace the following line  
+For EMR 3\.x or earlier versions, you must copy and modify the Pig script do\-reports\.pig to make it work\. In your modified script, replace the following line  
 
 ```
 register file:/home/hadoop/lib/pig/piggybank.jar 
@@ -49,7 +49,7 @@ When you launch a cluster using the AWS CLI, use the `--applications` parameter 
   + 
 
     ```
-    aws emr create-cluster --name "Test cluster" --release-label emr-5.29.0 --applications Name=Pig \
+    aws emr create-cluster --name "Test cluster" --release-label emr-5.31.0 --applications Name=Pig \
     --use-default-roles --ec2-attributes KeyName=myKey --instance-type m5.xlarge --instance-count 3 \
     --steps Type=PIG,Name="Pig Program",ActionOnFailure=CONTINUE,Args=[-f,s3://elasticmapreduce/samples/pig-apache/do-reports2.pig,-p,INPUT=s3://elasticmapreduce/samples/pig-apache/input,-p,OUTPUT=s3://mybucket/pig-apache/output]
     ```

@@ -17,9 +17,11 @@ Use the following guidelines to determine if your application is a candidate for
 + Amazon S3 server\-side encryption with customer\-provided encryption keys \(SSE\-C\) and client\-side encryption are not supported\. 
 + S3 Select Pushdown is not a substitute for using columnar or compressed file formats such as ORC or Parquet\.
 
-## Enabling S3 Select Pushdown With Presto<a name="emr-presto-s3select-specify"></a>
+## Enabling S3 Select Pushdown With PrestoDB or PrestoSQL<a name="emr-presto-s3select-specify"></a>
 
-To enable S3 Select Pushdown for Presto on Amazon EMR, use the `presto-connector-hive` configuration classification to set `hive.s3select-pushdown.enabled` to `true` as shown in the example below\. For more information, see [Configuring Applications](emr-configure-apps.md)\. The hive\.s3select\-pushdown\.max\-connections value must also be set\. For most applications, the default setting of `500` should be adequate\. For more information, see [Understanding and tuning hive\.s3select\-pushdown\.max\-connections](#emr-presto-s3select-max) below\.
+To enable S3 Select Pushdown for PrestoDB on Amazon EMR, use the `presto-connector-hive` configuration classification to set `hive.s3select-pushdown.enabled` to `true` as shown in the example below\. For more information, see [Configuring Applications](emr-configure-apps.md)\. The hive\.s3select\-pushdown\.max\-connections value must also be set\. For most applications, the default setting of `500` should be adequate\. For more information, see [Understanding and tuning hive\.s3select\-pushdown\.max\-connections](#emr-presto-s3select-max) below\.
+
+For PrestoSQL on EMR version 6\.1\.0 or later, simply replace `presto-connector-hive` in the example below with `prestosql-connector-hive`\.
 
 ```
 [

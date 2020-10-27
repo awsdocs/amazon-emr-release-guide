@@ -4,7 +4,7 @@ Consider the following differences and limitations when you run [Presto](https:/
 
 ## Presto Command Line Executable<a name="emr-presto-command-line-cli"></a>
 
-In Amazon EMR, the Presto command line executable is `presto-cli`\. For example:
+In Amazon EMR, PrestoDB and PrestoSQL both use the same command line executable, `presto-cli`, as in the following example\.
 
 ```
 presto-cli --catalog hive
@@ -17,15 +17,15 @@ Depending on the version of Amazon EMR that you use, some Presto deployment conf
 
 | File | Configurable | 
 | --- | --- | 
-|  `log.properties`  |  Configurable in all Amazon EMR release versions\. Use the `presto-log` configuration classification in Amazon EMR release version 4\.0\.0 and later\.  | 
-|  `config.properties`  |  Configurable in all Amazon EMR release versions\. Use the `presto-config` configuration classification in Amazon EMR release version 4\.0\.0 and later\.  | 
-|  `hive.properties`  |  Configurable in Amazon EMR release version 4\.1\.0 and later\. Use the `presto-connector-hive` configuration classification\.  | 
-|  `node.properties`  |  Configurable in Amazon EMR release version 5\.6\.0 and later\. Use the `presto-node` configuration classification\.  | 
+|  `log.properties`  |  PrestoDB: Configurable in Amazon EMR release versions 4\.0\.0 and later\. Use the `presto-log` configuration classification\. PrestoSQL: Configurable in Amazon EMR release versions 6\.1\.0 and later\. Use the `prestosql-log` configuration classification\.  | 
+|  `config.properties`  |  PrestoDB: Configurable in Amazon EMR release versions 4\.0\.0 and later\. Use the `presto-config` configuration classification\. PrestoSQL: Configurable in Amazon EMR release versions 6\.1\.0 and later\. Use the `prestosql-config` configuration classification\.  | 
+|  `hive.properties`  |  PrestoDB: Configurable in Amazon EMR release versions 4\.1\.0 and later\. Use the `presto-connector-hive` configuration classification\. PrestoSQL: Configurable in Amazon EMR release versions 6\.1\.0 and later\. Use the `prestosql-connector-hive` configuration classification\.  | 
+|  `node.properties`  |  PrestoDB: Configurable in Amazon EMR release version 5\.6\.0 and later\. Use the `presto-node` configuration classification\. PrestoSQL: Configurable in Amazon EMR release versions 6\.1\.0 and later\. Use the `prestosql-node` configuration classification\.  | 
 |  `jvm.config`  |  Not configurable\.  | 
 
 ## EMRFS and PrestoS3FileSystem Configuration<a name="emr-presto-prestos3"></a>
 
-With Amazon EMR release version 5\.12\.0 and later, Presto can use EMRFS, and this is the default configuration\. For more information, see [Using EMR File System \(EMRFS\)](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-fs.html) in the *Amazon EMR Management Guide*\. With earlier release versions, PrestoS3FileSystem is the only option\.
+With Amazon EMR release version 5\.12\.0 and later, PrestoDB can use EMRFS, and this is the default configuration\. With Amazon EMR release version 6\.1\.0 and later, PrestoSQL also uses EMRFS as the default\. For more information, see [Using EMR File System \(EMRFS\)](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-fs.html) in the *Amazon EMR Management Guide*\. With earlier release versions, PrestoS3FileSystem is the only option\.
 
 Using EMRFS has benefits\. You can use a security configuration to set up encryption for EMRFS data in Amazon S3\. You can also use IAM roles for EMRFS requests to Amazon S3\. For more information, see [Understanding Encryption Options](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-data-encryption-options.html) and [Configure IAM Roles for EMRFS Requests to Amazon S3](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-emrfs-iam-roles.html) in the *Amazon EMR Management Guide*\.
 
@@ -45,7 +45,7 @@ You can override the EMRFS default and use the PrestoS3FileSystem instead\. To d
 ]
 ```
 
-If you use PrestoS3FileSystem, use the `presto-connector-hive` configuration classification to configure PrestoS3FileSystem properties\. For more information about available properties, see [Amazon S3 Configuration](https://prestodb.io/docs/current/connector/hive.html#amazon-s3-configuration) in the Hive Connector section of Presto documentation\. These settings do not apply to EMRFS\.
+If you use PrestoS3FileSystem, use the `presto-connector-hive` configuration classification or `prestosql-connector-hive` for PrestoSQL to configure PrestoS3FileSystem properties\. For more information about available properties, see [Amazon S3 Configuration](https://prestodb.io/docs/current/connector/hive.html#amazon-s3-configuration) in the Hive Connector section of Presto documentation\. These settings do not apply to EMRFS\.
 
 ## Default Setting for End User Impersonation<a name="emr-presto-end-user-impersonation"></a>
 
@@ -53,7 +53,7 @@ By default, Amazon EMR version 5\.12\.0 and later enables end user impersonation
 
 ## Default Port for Presto Web Interface<a name="emr-presto-default-web-port"></a>
 
-By default, Amazon EMR configures the Presto web interface on the Presto coordinator to use port 8889\. You can change this using the `presto-config` configuration classification to set the `http-server.http.port` property\. For more information, see [Config Properties](https://prestodb.io/docs/current/installation/deployment.html#config-properties) in the Deploying Presto section of Presto Documentation\.
+By default, Amazon EMR configures the Presto web interface on the Presto coordinator to use port 8889 \(for PrestoDB and PrestoSQL\)\. You can change the port by using the `presto-config` configuration classification to set the `http-server.http.port` property\. For more information, see [Config Properties](https://prestodb.io/docs/current/installation/deployment.html#config-properties) in the *Deploying Presto* section of Presto Documentation\.
 
 ## Issue with Hive Bucket Execution in Some Releases<a name="emr-presto-bucket-execution"></a>
 

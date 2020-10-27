@@ -166,6 +166,14 @@ sudo docker container exec jupyterhub bash -c "chown -R $uidNumber /home/shirley
 sudo docker container exec jupyterhub bash -c "sudo chgrp -R $gidNumber /home/shirley"
 ```
 
+**Note**  
+LDAP authenticator for JupyterHub does not support local user creation\. For more information, see [LDAP Authenticator Configuration Note on Local User Creation](https://github.com/jupyterhub/ldapauthenticator#configuration-note-on-local-user-creation)\.   
+To create a local user manually, use the following command\.  
+
+```
+sudo docker exec jupyterhub bash -c "echo 'shirley:$uidNumber:$gidNumber::/home/shirley:/bin/bash' >> /etc/passwd"   
+```
+
 ## Restart the Jupyterhub Container<a name="emr-jupyterhub-ldap-restart"></a>
 
 Run the following commands to restart the `jupyterhub` container:

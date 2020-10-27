@@ -15,7 +15,7 @@ The following procedure shows you how to override the default configuration valu
 
 1. Modify your security groups to allow JDBC connections between your database and the **ElasticMapReduce\-Master** security group\.
 
-   For information about how to modify your security groups for access, see [https://aws\.amazon\.com/rds/faqs/\#security](https://aws.amazon.com/rds/faqs/#security)\.
+   For information about how to modify your security groups for access, see [Working With Amazon EMR\-Managed Security Groups](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-man-sec-groups.html)\.
 
 1. Set JDBC configuration values in `hive-site.xml`:
 
@@ -50,7 +50,7 @@ If you supply sensitive information, such as passwords, to the Amazon EMR config
 Linux line continuation characters \(\\\) are included for readability\. They can be removed or used in Linux commands\. For Windows, remove them or replace with a caret \(^\)\.
 
      ```
-     aws emr create-cluster --release-label emr-5.29.0 --instance-type m5.xlarge --instance-count 2 \
+     aws emr create-cluster --release-label emr-5.31.0 --instance-type m5.xlarge --instance-count 2 \
      --applications Name=Hive --configurations file://hiveConfiguration.json --use-default-roles
      ```
 

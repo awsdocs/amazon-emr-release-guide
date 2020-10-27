@@ -6,6 +6,41 @@ The following tables list the version of Spark included in each release version 
 Apache Spark version 2\.3\.1, available beginning with Amazon EMR release version 5\.16\.0, addresses [CVE\-2018\-8024](https://nvd.nist.gov/vuln/detail/CVE-2018-8024) and [CVE\-2018\-1334](https://nvd.nist.gov/vuln/detail/CVE-2018-1334)\. We recommend that you migrate earlier versions of Spark to Spark version 2\.3\.1 or later\.
 
 
+**Spark Version Information for emr\-6\.1\.0**  
+
+| Amazon EMR Release Label | Spark Version | Components Installed With Spark | 
+| --- | --- | --- | 
+| emr\-6\.1\.0 | Spark 3\.0\.0 | aws\-sagemaker\-spark\-sdk, emrfs, emr\-goodies, emr\-ddb, emr\-s3\-select, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hudi, hudi\-spark, livy\-server, nginx, r, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave | 
+
+
+**Spark Version Information for emr\-6\.0\.0**  
+
+| Amazon EMR Release Label | Spark Version | Components Installed With Spark | 
+| --- | --- | --- | 
+| emr\-6\.0\.0 | Spark 2\.4\.4 | aws\-sagemaker\-spark\-sdk, emrfs, emr\-goodies, emr\-ddb, emr\-s3\-select, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hudi, livy\-server, nginx, r, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave | 
+
+
+**Spark Version Information for emr\-5\.30\.1**  
+
+| Amazon EMR Release Label | Spark Version | Components Installed With Spark | 
+| --- | --- | --- | 
+| emr\-5\.30\.1 | Spark 2\.4\.5 | aws\-sagemaker\-spark\-sdk, emrfs, emr\-goodies, emr\-ddb, emr\-s3\-select, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hudi, livy\-server, nginx, r, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave | 
+
+
+**Spark Version Information for emr\-5\.30\.0**  
+
+| Amazon EMR Release Label | Spark Version | Components Installed With Spark | 
+| --- | --- | --- | 
+| emr\-5\.30\.0 | Spark 2\.4\.5 | aws\-sagemaker\-spark\-sdk, emrfs, emr\-goodies, emr\-ddb, emr\-notebook\-env, emr\-s3\-select, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hudi, livy\-server, nginx, r, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave | 
+
+
+**Spark Version Information for emr\-5\.29\.0**  
+
+| Amazon EMR Release Label | Spark Version | Components Installed With Spark | 
+| --- | --- | --- | 
+| emr\-5\.29\.0 | Spark 2\.4\.4 | aws\-sagemaker\-spark\-sdk, emrfs, emr\-goodies, emr\-ddb, emr\-s3\-select, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hudi, livy\-server, nginx, r, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave | 
+
+
 **Spark Version Information for emr\-5\.28\.1**  
 
 | Amazon EMR Release Label | Spark Version | Components Installed With Spark | 

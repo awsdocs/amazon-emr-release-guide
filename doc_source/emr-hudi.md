@@ -9,7 +9,7 @@ These features make Hudi suitable for the following use cases:
 + Complying with data privacy regulations in applications where users might choose to be forgotten or modify their consent for how their data can be used\.
 + Implementing a [change data capture \(CDC\) system](https://en.wikipedia.org/wiki/Change_data_capture) that allows you to apply changes to a dataset over time\.
 
-The version of Hudi installed with Amazon EMR 5\.29\.0 is 0\.5\.0\-incubating\.
+The version of Hudi installed with Amazon EMR 5\.31\.0 is 0\.6\.0\.
 
 **Topics**
 + [How Hudi Works](emr-hudi-how-it-works.md)

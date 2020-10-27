@@ -25,7 +25,7 @@ For quick steps to launch clusters with the console, see [Step 3: Launch an Amaz
 Use the following command to create a cluster with HBase installed:
 
 ```
-aws emr create-cluster --name "Test cluster" --release-label emr-5.29.0 \
+aws emr create-cluster --name "Test cluster" --release-label emr-5.31.0 \
 --applications Name=HBase --use-default-roles --ec2-attributes KeyName=myKey \
 --instance-type m5.xlarge --instance-count 3
 ```
@@ -36,17 +36,20 @@ Linux line continuation characters \(\\\) are included for readability\. They ca
 If you use HBase on Amazon S3, specify the `--configurations` option with a reference to a JSON configuration object\. The configuration object must contain an `hbase-site` classification that specifies the location in Amazon S3 where HBase data is stored using the `hbase.rootdir` property\. It also must contain an `hbase` classification, which specifies `s3` using the `hbase.emr.storageMode` property\. The following example demonstrates a JSON snippet with these configuration settings\.
 
 ```
- 1. {
- 2.   "Classification": "hbase-site",
- 3.   "Properties": {
- 4.     "hbase.rootdir": "s3://MyBucket/MyHBaseStore",}
- 5. },
- 6. {
- 7.   "Classification": "hbase",
- 8.   "Properties": {
- 9.   "hbase.emr.storageMode":"s3",
-10.   }
-11. }
+ 1. [
+ 2.     {
+ 3.         "Classification": "hbase-site",
+ 4.         "Properties": {
+ 5.             "hbase.rootdir": "s3://MyBucket/MyHBaseStore"
+ 6.         }
+ 7.     },
+ 8.     {
+ 9.         "Classification": "hbase",
+10.         "Properties": {
+11.             "hbase.emr.storageMode": "s3"
+12.         }
+13.     }
+14. ]
 ```
 
 For more information about HBase on Amazon S3, see [HBase on Amazon S3 \(Amazon S3 Storage Mode\)](emr-hbase-s3.md)\. For more information about classifications, see [Configuring Applications](emr-configure-apps.md)\.

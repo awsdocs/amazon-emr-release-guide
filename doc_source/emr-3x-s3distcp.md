@@ -48,11 +48,11 @@ Args=["--src,s3://mybucket/cf","--dest,hdfs:///local",\
 Consider the case in which the preceding example is run over the following CloudFront log files\.   
 
 ```
-s3://aws-s3-bucket1/cf/XABCD12345678.2012-02-23-01.HLUS3JKx.gz
-s3://aws-s3-bucket1/cf/XABCD12345678.2012-02-23-01.I9CNAZrg.gz
-s3://aws-s3-bucket1/cf/XABCD12345678.2012-02-23-02.YRRwERSA.gz
-s3://aws-s3-bucket1/cf/XABCD12345678.2012-02-23-02.dshVLXFE.gz
-s3://aws-s3-bucket1/cf/XABCD12345678.2012-02-23-02.LpLfuShd.gz
+s3://DOC-EXAMPLE-BUCKET1/cf/XABCD12345678.2012-02-23-01.HLUS3JKx.gz
+s3://DOC-EXAMPLE-BUCKET1/cf/XABCD12345678.2012-02-23-01.I9CNAZrg.gz
+s3://DOC-EXAMPLE-BUCKET1/cf/XABCD12345678.2012-02-23-02.YRRwERSA.gz
+s3://DOC-EXAMPLE-BUCKET1/cf/XABCD12345678.2012-02-23-02.dshVLXFE.gz
+s3://DOC-EXAMPLE-BUCKET1/cf/XABCD12345678.2012-02-23-02.LpLfuShd.gz
 ```
 S3DistCp copies, concatenates, and compresses the files into the following two files, where the file name is determined by the match made by the regular expression\.   
 

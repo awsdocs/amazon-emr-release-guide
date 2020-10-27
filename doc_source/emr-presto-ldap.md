@@ -13,17 +13,19 @@ Follow the steps in this section to configure LDAP\. See each step for examples 
 
 You'll need the information and items in the following section from your LDAP server to configure LDAP authentication\.
 
-### The IP Address or host name of the LDAP Server<a name="w40aac51c21c13b7b5"></a>
+### The IP Address or host name of the LDAP Server<a name="w55aac50c27c13b7b5"></a>
 
 The Presto coordinator on the Amazon EMR master node must be able to reach the LDAP server at the specified IP address or host name\. By default, Presto communicates with the LDAP server using LDAPS over port 636\. If your LDAP implementation requires a custom port, you can specify it using the `ldap.url` property with Amazon EMR 5\.16\.0 or later, or using `authentication.ldap.url` with earlier versions\. Substitute the custom port for `636` as shown in the `presto-config` configuration classification examples in [Step 3: Create a configuration JSON with Presto properties for LDAP](#emr-presto-ldap-prestoconfig)\. Ensure that any firewalls and security groups allow inbound and outbound traffic on port 636 \(or your custom port\) and also port 8446 \(or your custom port\), which is used for internal cluster communications\.
 
-### The LDAP server certificate<a name="w40aac51c21c13b7b7"></a>
+### The LDAP server certificate<a name="w55aac50c27c13b7b7"></a>
 
 You must upload the certificate file to a secure location in Amazon S3\. For more information, see [How do I Upload Files and Folders to an S3 Bucket](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/upload-objects.html) in the *Amazon Simple Storage Service Console User Guide*\. You create a bootstrap action that copies this certificate from Amazon S3 to each node in the cluster when the cluster launches\. In [Step 4: Create the script to copy the LDAP server certificate and upload it to Amazon S3](#emr-presto-ldap-servercert)\. The example certificate is *s3://MyBucket/ldap\_server\.crt*\.
 
-### The LDAP server's settings for anonymous binding<a name="w40aac51c21c13b7b9"></a>
+### The LDAP server's settings for anonymous binding<a name="w55aac50c27c13b7b9"></a>
 
-If anonymous binding is disabled, you need the user ID \(UID\) and password of an account with permissions to bind to the LDAP server so that the Presto server can establish a connection\. You specify the UID and password using the `internal-communication.authentication.ldap.user` and `internal-communication.authentication.ldap.password` properties in the `presto-config` configuration classification\. Amazon EMR 5\.10\.0 does not support these settings, so anonymous binding must be supported on the LDAP server when you use this release version\.
+If anonymous binding is disabled on PrestoDB, you need the user ID \(UID\) and password of an account with permissions to bind to the LDAP server so that the PrestoDB server can establish a connection\. You specify the UID and password using the `internal-communication.authentication.ldap.user` and `internal-communication.authentication.ldap.password` properties in the `presto-config` configuration classification\. Amazon EMR 5\.10\.0 does not support these settings, so anonymous binding must be supported on the LDAP server when you use this release version\.
+
+Note that PrestoSQL doesn't require the anonymous binding configuration\.
 
 **To get the status of anonymous binding on the LDAP server**
 + Use the [ldapwhoami](https://linux.die.net/man/1/ldapwhoami) command from a Linux client, as shown in the following example:
@@ -54,7 +56,7 @@ If anonymous binding is disabled, you need the user ID \(UID\) and password of a
 
 The example configurations in [Step 3: Create a configuration JSON with Presto properties for LDAP](#emr-presto-ldap-prestoconfig) include this account for clarity, with the exception of the 5\.10\.0 example, where it is not supported\. If the LDAP server uses anonymous binding, remove the `internal-communication.authentication.ldap.user` and `internal-communication.authentication.ldap.password` name/value pairs\.
 
-### The LDAP distinguished name \(DN\) for Presto users<a name="w40aac51c21c13b7c11"></a>
+### The LDAP distinguished name \(DN\) for Presto users<a name="w55aac50c27c13b7c11"></a>
 
 When you specify the LDAP configuration for Presto, you specify a bind pattern that consists of `${USER}` along with an organizational unit \(OU\) and additional domain components \(DCs\)\. Presto replaces `${USER}` with the actual User ID \(UID\) of each user during password authentication to match the distinguished name \(DN\) that this bind pattern specifies\. You need the OUs that eligible users belong to and their DCs\. For example, to allow users from the `admins` OU in the `corp.example.com` domain to authenticate to Presto, you specify `${USER},ou=admins,dc=corp,dc=example,dc=com` as the user bind pattern\.
 
@@ -66,9 +68,31 @@ Create a security configuration with in\-transit encryption enabled\. For more i
 
 ## Step 3: Create a configuration JSON with Presto properties for LDAP<a name="emr-presto-ldap-prestoconfig"></a>
 
-You use the `presto-config` configuration classification to set Presto properties for LDAP\. The format and contents of `presto-config` are slightly different depending on the Amazon EMR release version you use\. Examples of configuration differences are provided later in this section\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+You use the `presto-config` configuration classification to set Presto properties for LDAP\. The format and contents of `presto-config` are slightly different depending on the Amazon EMR release version and the Presto installation \(PrestoDB or PrestoSQL\)\. Examples of configuration differences are provided later in this section\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
-The following steps assume that you save the JSON to a file, *MyPrestoConfig\.json*\. If you use the console, upload the file to a secure location in Amazon S3 so that you can reference it when you create the cluster\. If you use the AWS CLI, you can reference the file locally\.
+The following steps assume that you save the JSON data to a file, *MyPrestoConfig\.json*\. If you use the console, upload the file to a secure location in Amazon S3 so that you can reference it when you create the cluster\. If you use the AWS CLI, you can reference the file locally\.
+
+**Example Amazon EMR 6\.1\.0 and later with PrestoSQL**  
+The following example uses the LDAP host name from [Step 1: Gather information about your LDAP server and copy the server certificate to Amazon S3](#emr-presto-ldap-server-prereq) to authenticate to the LDAP server for binding\. Two user bind patterns are specified, which indicates that users within the `admins` OU and the `datascientists` OU on the LDAP server are eligible for authentication to the PrestoSQL server as users\. The bind patterns are separated by a colon \(`:`\)\.  
+
+```
+[
+   {
+      "Classification":"prestosql-config",
+      "Properties":{
+         "http-server.authentication.type":"PASSWORD"
+      }
+   },
+   {
+      "Classification":"prestosql-password-authenticator",
+      "Properties":{
+         "password-authenticator.name":"ldap",
+         "ldap.url":"ldaps://ip-xxx-xxx-xxx-xxx.ec2.internal:636",
+         "ldap.user-bind-pattern": "uid=${USER},ou=admins,dc=ec2,dc=internal:uid=${USER},ou=datascientists,dc=ec2,dc=internal"
+      }
+   }
+]
+```
 
 **Example Amazon EMR 5\.16\.0 and later**  
 The following example uses the LDAP user ID and password, and the LDAP host name from [Step 1: Gather information about your LDAP server and copy the server certificate to Amazon S3](#emr-presto-ldap-server-prereq) to authenticate to the LDAP server for binding\. Two user bind patterns are specified, which indicates that users within the `admins` OU and the `datascientists` OU on the LDAP server are eligible for authentication to the Presto server as users\. The bind patterns are separated by a colon \(`:`\)\.  
@@ -138,7 +162,7 @@ sudo keytool -import -keystore /usr/lib/jvm/jre-1.8.0-openjdk.x86_64/lib/securit
 
 When you create the cluster, you specify Presto and other applications that you want Amazon EMR to install\. The following examples also reference the configuration classification properties within a JSON, but you can also specify the configuration classification inline\.
 
-**To create a Presto cluster with LDAP authentication using the EMR management console**
+**To create a Presto cluster with LDAP authentication using the Amazon EMR console**
 
 1. Open the Amazon EMR console at [https://console\.aws\.amazon\.com/elasticmapreduce/](https://console.aws.amazon.com/elasticmapreduce/)\.
 

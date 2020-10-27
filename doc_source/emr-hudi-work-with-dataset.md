@@ -1,11 +1,11 @@
 # Working With a Hudi Dataset<a name="emr-hudi-work-with-dataset"></a>
 
-Hudi supports currently supports inserting, updating, and deleting data in Hudi datasets through Spark\. For more information, see [Writing Hudi Datasets](https://hudi.apache.org/writing_data.html) in Apache Hudi documentation\.
+Hudi supports inserting, updating, and deleting data in Hudi datasets through Spark\. For more information, see [Writing Hudi Tables](https://hudi.apache.org/docs/writing_data.html) in Apache Hudi documentation\.
 
-The following examples demonstrate how to launch the interactive Spark shell, use Spark submit, and use Amazon EMR Notebooks to work with Hudi on Amazon EMR\. You can also use the Hudi DeltaStreamer utility or other tools to write to a dataset\. Throughout this section, the examples demonstrate working with datasets using the Spark shell while connected to the master node using SSH as the default `hadoop` user\.
+The following examples demonstrate how to launch the interactive Spark shell, use Spark submit, or use Amazon EMR Notebooks to work with Hudi on Amazon EMR\. You can also use the Hudi DeltaStreamer utility or other tools to write to a dataset\. Throughout this section, the examples demonstrate working with datasets using the Spark shell while connected to the master node using SSH as the default `hadoop` user\.
 
 ------
-#### [ Spark Shell ]
+#### [ Spark shell ]
 
 **To open the Spark shell on the master node**
 
@@ -14,7 +14,9 @@ The following examples demonstrate how to launch the interactive Spark shell, us
 1. Enter the following command to launch the Spark shell\.
 
    ```
-   spark-shell --conf "spark.serializer=org.apache.spark.serializer.KryoSerializer" --conf "spark.sql.hive.convertMetastoreParquet=false"
+   spark-shell \
+   --conf "spark.serializer=org.apache.spark.serializer.KryoSerializer" \
+   --conf "spark.sql.hive.convertMetastoreParquet=false" \
    --jars /usr/lib/hudi/hudi-spark-bundle.jar,/usr/lib/spark/external/lib/spark-avro.jar
    ```
 
@@ -24,7 +26,9 @@ The following examples demonstrate how to launch the interactive Spark shell, us
 To submit a Spark application that uses Hudi, make sure to pass the following parameters to spark\-submit\.
 
 ```
-spark-submit --conf "spark.serializer=org.apache.spark.serializer.KryoSerializer" --conf "spark.sql.hive.convertMetastoreParquet=false"
+spark-submit \
+--conf "spark.serializer=org.apache.spark.serializer.KryoSerializer"\
+--conf "spark.sql.hive.convertMetastoreParquet=false" \
 --jars /usr/lib/hudi/hudi-spark-bundle.jar,/usr/lib/spark/external/lib/spark-avro.jar
 ```
 
@@ -91,15 +95,15 @@ val inputDF = spark.read.format("parquet").load("s3://mybucket/mydata/parquet/")
 
 //Specify common DataSourceWriteOptions in the single hudiOptions variable 
 val hudiOptions = Map[String,String](
-  HoodieWriteConfig.TABLE_NAME → "my_hudi_table",
-  DataSourceWriteOptions.STORAGE_TYPE_OPT_KEY -> "COPY_ON_WRITE", 
-  DataSourceWriteOptions.RECORDKEY_FIELD_OPT_KEY -> "dataframe_column_name1",
-  DataSourceWriteOptions.PARTITIONPATH_FIELD_OPT_KEY ->"dataframe_column_name2",
-  DataSourceWriteOptions.PRECOMBINE_FIELD_OPT_KEY -> "dataframe_column_name3"
-  DataSourceWriteOptions.HIVE_SYNC_ENABLED_OPT_KEY → "true",
-  DataSourceWriteOptions.HIVE_TABLE_OPT_KEY → "my_hudi_table",
-  DataSourceWriteOptions.HIVE_PARTITION_FIELDS_OPT_KEY → "dataframe_column_name2",
-  DataSourceWriteOptions.HIVE_PARTITION_EXTRACTOR_CLASS_OPT_KEY → classOf[MultiPartKeysValueExtractor].getName
+  HoodieWriteConfig.TABLE_NAME -> "my_hudi_table",
+  DataSourceWriteOptions.TABLE_TYPE_OPT_KEY -> "COPY_ON_WRITE", 
+  DataSourceWriteOptions.RECORDKEY_FIELD_OPT_KEY -> "id",
+  DataSourceWriteOptions.PARTITIONPATH_FIELD_OPT_KEY -> "creation_date",
+  DataSourceWriteOptions.PRECOMBINE_FIELD_OPT_KEY -> "last_update_time",
+  DataSourceWriteOptions.HIVE_SYNC_ENABLED_OPT_KEY -> "true",
+  DataSourceWriteOptions.HIVE_TABLE_OPT_KEY -> "my_hudi_table",
+  DataSourceWriteOptions.HIVE_PARTITION_FIELDS_OPT_KEY -> "creation_date",
+  DataSourceWriteOptions.HIVE_PARTITION_EXTRACTOR_CLASS_OPT_KEY -> classOf[MultiPartKeysValueExtractor].getName
 )
 
 // Write a DataFrame as a Hudi dataset
@@ -112,18 +116,18 @@ inputDF.write
 ```
 
 **Note**  
-The `STORAGE_TYPE_OPT_KEY` option establishes the type of dataset as CoW in the example\. CoW is the default, so this option is not required; we included it for clarity\.
+You might see "hoodie" instead of Hudi in code examples and Hudi notifications\. The Hudi codebase widely uses the old "hoodie" spelling\.
 
 
 **DataSourceWriteOptions Reference for Hudi**  
 
 | Option | Description | 
 | --- | --- | 
+|  TABLE\_NAME  |  The table name under which to register the dataset\.  | 
+|  TABLE\_TYPE\_OPT\_KEY  |  Optional\. Specifies whether the dataset is created as `"COPY_ON_WRITE"` or `"MERGE_ON_READ"`\. The default is `"COPY_ON_WRITE"`\.  | 
+|  RECORDKEY\_FIELD\_OPT\_KEY  |  The record key field whose value will be used as the `recordKey` component of `HoodieKey`\. Actual value will be obtained by invoking `.toString()` on the field value\. Nested fields can be specified using the dot notation, for example, `a.b.c`\.   | 
 |  PARTITIONPATH\_FIELD\_OPT\_KEY  |  The partition path field whose value will be used as the `partitionPath` component of `HoodieKey`\. The actual value will be obtained by invoking `.toString()` on the field value\.  | 
 |  PRECOMBINE\_FIELD\_OPT\_KEY  |  The field used in pre\-combining before actual write\. When two records have the same key value, Hudi picks the one with the largest value for the precombine field as determined by `Object.compareTo(..)`\.  | 
-|  RECORDKEY\_FIELD\_OPT\_KEY  |  The record key field whose value will be used as the `recordKey` component of `HoodieKey`\. Actual value will be obtained by invoking `.toString()` on the field value\. Nested fields can be specified using the dot notation, for example, `a.b.c`\.   | 
-|  STORAGE\_TYPE\_OPT\_KEY  |  Optional\. Specifies whether the dataset is created as `"COPY_ON_WRITE"` or `"MERGE_ON_READ"`\. The default is `"COPY_ON_WRITE"`\.  | 
-|  TABLE\_NAME  |  The table name under which to register the dataset\.  | 
 
 The following options are required only to register the Hudi dataset table in your metastore\. If you do not register your Hudi dataset as a table in the Hive metastore, these options are not required\.
 

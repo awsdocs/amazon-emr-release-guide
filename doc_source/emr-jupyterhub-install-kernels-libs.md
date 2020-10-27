@@ -1,6 +1,6 @@
 # Installing Additional Kernels and Libraries<a name="emr-jupyterhub-install-kernels-libs"></a>
 
-When you create a cluster with JupyterHub on Amazon EMR, the default Python 3 kernel for Jupyter, and the PySpark, SparkR, and Spark kernels for Sparkmagic are installed on the Docker container\. You can install additional kernels\. You can also install additional libraries and packages and then import them for the appropriate shell\.
+When you create a cluster with JupyterHub on Amazon EMR, the default Python 3 kernel for Jupyter, and the PySpark and Spark kernels for Sparkmagic are installed on the Docker container\. You can install additional kernels\. You can also install additional libraries and packages and then import them for the appropriate shell\.
 
 ## Installing a Kernel<a name="emr-jupyterhub-install-kernels"></a>
 
@@ -32,15 +32,14 @@ A core set of machine learning and data science libraries for Python 3 are pre\-
 
 If a Spark job needs libraries on worker nodes, we recommend that you use a bootstrap action to run a script to install the libraries when you create the cluster\. Bootstrap actions run on all cluster nodes during the cluster creation process, which simplifies installation\. If you install libraries on core/worker nodes after a cluster is running, the operation is more complex\. We provide an example Python program in this section that shows how to install these libraries\.
 
-The bootstrap action and Python program examples shown in this section use a bash script saved to Amazon S3 to install the libraries on all nodes\. The script uses [easy\_install\-3\.4](http://setuptools.readthedocs.io/en/latest/easy_install.html) to install `pip`, and then uses `pip` to install libraries\. The 3\.4 version of `easy_install` is specified because Python version 3\.4 is installed by default on all cluster instances along with version 2\.7\.
+The bootstrap action and Python program examples shown in this section use a bash script saved to Amazon S3 to install the libraries on all nodes\.
 
-The script referenced in the following examples installs paramiko, nltk, scipy, scikit\-learn, and pandas for the Python 3 kernel:
+The script referenced in the following examples uses `pip` to install paramiko, nltk, scipy, scikit\-learn, and pandas for the Python 3 kernel:
 
 ```
 #!/bin/bash
 
-sudo easy_install-3.4 pip
-sudo /usr/local/bin/pip3 install paramiko nltk scipy scikit-learn pandas
+sudo python3 –m pip install boto3 paramiko nltk scipy scikit-learn pandas
 ```
 
 After you create the script, upload it to a location in Amazon S3, for example, `s3://mybucket/install-my-jupyter-libraries.sh`\. For more information, see [How do I Upload Files and Folders to an S3 Bucket](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/upload-objects.html) in the *Amazon Simple Storage Service Console User Guide* so that you can use it in your bootstrap action or in your Python program\.
@@ -54,7 +53,7 @@ After you create the script, upload it to a location in Amazon S3, for example, 
 Linux line continuation characters \(\\\) are included for readability\. They can be removed or used in Linux commands\. For Windows, remove them or replace with a caret \(^\)\.
 
    ```
-   aws emr create-cluster --name="MyJupyterHubCluster" --release-label emr-5.29.0 \
+   aws emr create-cluster --name="MyJupyterHubCluster" --release-label emr-5.31.0 \
    --applications Name=JupyterHub --log-uri s3://MyBucket/MyJupyterClusterLogs \
    --use-default-roles --instance-type m5.xlarge --instance-count 2 --ec2-attributes KeyName=MyKeyPair \
    --bootstrap-actions Path=s3://mybucket/install-my-jupyter-libraries.sh,Name=InstallJupyterLibs
@@ -82,78 +81,68 @@ Linux line continuation characters \(\\\) are included for readability\. They ca
 After you install libraries on the master node from within Jupyter, you can install libraries on running core nodes in various ways\. The following example shows a Python program written to run on a local machine\. When you run the Python program locally, it uses the `AWS-RunShellScript` of AWS Systems Manager to run the example script, shown earlier in this section, which installs libraries on the cluster's core nodes\.  
 
 ```
-# Install Python libraries on running cluster nodes
-from boto3 import client
-from sys import argv
+import argparse
+import time
+import boto3
 
-try:
-  clusterId=argv[1]
-  script=argv[2]
-except:
-  print("Syntax: librariesSsm.py [ClusterId] [S3_Script_Path]")
-  import sys
-  sys.exit(1)
 
-emrclient=client('emr')
+def install_libraries_on_core_nodes(
+        cluster_id, script_path, emr_client, ssm_client):
+    """
+    Copies and runs a shell script on the core nodes in the cluster.
 
-# Get list of core nodes
-instances=emrclient.list_instances(ClusterId=clusterId,InstanceGroupTypes=['CORE'])['Instances']
-instance_list=[x['Ec2InstanceId'] for x in instances]
+    :param cluster_id: The ID of the cluster.
+    :param script_path: The path to the script, typically an Amazon S3 object URL.
+    :param emr_client: The Boto3 Amazon EMR client.
+    :param ssm_client: The Boto3 AWS Systems Manager client.
+    """
+    core_nodes = emr_client.list_instances(
+        ClusterId=cluster_id, InstanceGroupTypes=['CORE'])['Instances']
+    core_instance_ids = [node['Ec2InstanceId'] for node in core_nodes]
+    print(f"Found core instances: {core_instance_ids}.")
 
-# Attach tag to core nodes
-ec2client=client('ec2')
-ec2client.create_tags(Resources=instance_list,Tags=[{"Key":"environment","Value":"coreNodeLibs"}])
+    commands = [
+        # Copy the shell script from Amazon S3 to each node instance.
+        f"aws s3 cp {script_path} /home/hadoop",
+        # Run the shell script to install libraries on each node instance.
+        "bash /home/hadoop/install_libraries.sh"]
+    for command in commands:
+        print(f"Sending '{command}' to core instances...")
+        command_id = ssm_client.send_command(
+            InstanceIds=core_instance_ids,
+            DocumentName='AWS-RunShellScript',
+            Parameters={"commands": [command]},
+            TimeoutSeconds=3600)['Command']['CommandId']
+        while True:
+            # Verify the previous step succeeded before running the next step.
+            cmd_result = ssm_client.list_commands(
+                CommandId=command_id)['Commands'][0]
+            if cmd_result['StatusDetails'] == 'Success':
+                print(f"Command succeeded.")
+                break
+            elif cmd_result['StatusDetails'] in ['Pending', 'InProgress']:
+                print(f"Command status is {cmd_result['StatusDetails']}, waiting...")
+                time.sleep(10)
+            else:
+                print(f"Command status is {cmd_result['StatusDetails']}, quitting.")
+                raise RuntimeError(
+                    f"Command {command} failed to run. "
+                    f"Details: {cmd_result['StatusDetails']}")
 
-ssmclient=client('ssm')
 
-# Download shell script from S3
-command = "aws s3 cp " + script + " /home/hadoop"
-try:
-  first_command=ssmclient.send_command(Targets=[{"Key":"tag:environment","Values":["coreNodeLibs"]}],
-                  DocumentName='AWS-RunShellScript',
-                  Parameters={"commands":[command]}, 
-                  TimeoutSeconds=3600)['Command']['CommandId']
-  
-  # Wait for command to execute 
-  import time
-  time.sleep(15)
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('cluster_id', help="The ID of the cluster.")
+    parser.add_argument('script_path', help="The path to the script in Amazon S3.")
+    args = parser.parse_args()
 
-  first_command_status=ssmclient.list_commands(
-      CommandId=first_command,
-      Filters=[
-          {
-              'key': 'Status',
-              'value': 'SUCCESS'
-          },
-      ]
-  )['Commands'][0]['Status']
+    emr_client = boto3.client('emr')
+    ssm_client = boto3.client('ssm')
 
-  second_command=""
-  second_command_status=""
-  
-  # Only execute second command if first command is successful
+    install_libraries_on_core_nodes(
+        args.cluster_id, args.script_path, emr_client, ssm_client)
 
-  if (first_command_status=='Success'):
-    # Run shell script to install libraries
 
-    second_command=ssmclient.send_command(Targets=[{"Key":"tag:environment","Values":["coreNodeLibs"]}],
-      DocumentName='AWS-RunShellScript',
-      Parameters={"commands":["bash /home/hadoop/install_libraries.sh"]}, 
-      TimeoutSeconds=3600)['Command']['CommandId']
-    
-    second_command_status=ssmclient.list_commands(
-      CommandId=first_command,
-      Filters=[
-          {
-              'key': 'Status',
-              'value': 'SUCCESS'
-          },
-      ]
-    )['Commands'][0]['Status']
-    time.sleep(30)
-    print("First command, " + first_command + ": " + first_command_status)
-    print("Second command:" + second_command + ": " + second_command_status)
-
-except Exception as e:
-  print(e)
+if __name__ == '__main__':
+    main()
 ```

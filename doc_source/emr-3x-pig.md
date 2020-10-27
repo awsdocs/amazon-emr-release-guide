@@ -4,7 +4,7 @@
 
 The Pig version you can add to your cluster depends on the version of the Amazon EMR AMI and the version of Hadoop you are using\. The table below shows which AMI versions and versions of Hadoop are compatible with the different versions of Pig\. We recommend using the latest available version of Pig to take advantage of performance enhancements and new functionality\. 
 
-When you use the API to install Pig, the default version is used unless you specify `--pig-versions` as an argument to the step that loads Pig onto the cluster during the call to [RunJobFlow](http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_RunJobFlow.html)\. 
+When you use the API to install Pig, the default version is used unless you specify `--pig-versions` as an argument to the step that loads Pig onto the cluster during the call to [RunJobFlow](http://docs.aws.amazon.comElasticMapReduce/latest/API/API_RunJobFlow.html)\. 
 
 
 | Pig Version | AMI Version | Configuration Parameters | Pig Version Details | 

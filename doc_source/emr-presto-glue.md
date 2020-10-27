@@ -4,7 +4,7 @@ Using Amazon EMR release version 5\.10\.0 and later, you can specify the AWS Glu
 
 AWS Glue is a fully managed extract, transform, and load \(ETL\) service that makes it simple and cost\-effective to categorize your data, clean it, enrich it, and move it reliably between various data stores\. The AWS Glue Data Catalog provides a unified metadata repository across a variety of data sources and data formats, integrating with Amazon EMR as well as Amazon RDS, Amazon Redshift, Redshift Spectrum, Athena, and any application compatible with the Apache Hive metastore\. AWS Glue crawlers can automatically infer schema from source data in Amazon S3 and store the associated metadata in the Data Catalog\. For more information about the Data Catalog, see [Populating the AWS Glue Data Catalog](https://docs.aws.amazon.com/glue/latest/dg/populate-data-catalog.html) in the *AWS Glue Developer Guide*\.
 
-Separate charges apply for AWS Glue\. There is a monthly rate for storing and accessing the metadata in the Data Catalog, an hourly rate billed per minute for AWS Glue ETL jobs and crawler runtime, and an hourly rate billed per minute for each provisioned development endpoint\. The Data Catalog allows you to store up to a million objects at no charge\. If you store more than a million objects, you are charged USD$1 for each 100,000 objects over a million\. An object in the Data Catalog is a table, partition, or database\. For more information, see [Glue Pricing](https://aws.amazon.com//glue/pricing)\.
+Separate charges apply for AWS Glue\. There is a monthly rate for storing and accessing the metadata in the Data Catalog, an hourly rate billed per minute for AWS Glue ETL jobs and crawler runtime, and an hourly rate billed per minute for each provisioned development endpoint\. The Data Catalog allows you to store up to a million objects at no charge\. If you store more than a million objects, you are charged USD$1 for each 100,000 objects over a million\. An object in the Data Catalog is a table, partition, or database\. For more information, see [Glue Pricing](https://aws.amazon.com/glue/pricing)\.
 
 **Important**  
 If you created tables using Amazon Athena or Amazon Redshift Spectrum before August 14, 2017, databases and tables are stored in an Athena\-managed catalog, which is separate from the AWS Glue Data Catalog\. To integrate Amazon EMR with these tables, you must upgrade to the AWS Glue Data Catalog\. For more information, see [Upgrading to the AWS Glue Data Catalog](https://docs.aws.amazon.com/athena/latest/ug/glue-upgrade.html) in the *Amazon Athena User Guide*\.
@@ -25,7 +25,7 @@ You can specify the AWS Glue Data Catalog as the metastore using the AWS Managem
 
 **To specify the AWS Glue Data Catalog as the default Hive metastore using the configuration classification**
 
-For examples of how to specify the configuration classifications below when you create a cluster, see [Configuring Applications](emr-configure-apps.md)\.
+For examples of how to specify the following configuration classifications when you create a cluster, see [Configuring Applications](emr-configure-apps.md)\.
 
 **Amazon EMR 5\.16\.0 and later**
 + Set the `hive.metastore` property to `glue` as shown in the following JSON example\.
@@ -41,7 +41,7 @@ For examples of how to specify the configuration classifications below when you 
   ]
   ```
 
-  To specify a Data Catalog in a different AWS account, add the `hive.metastore.glue.catalogid` property as shown in the following JSON example\. Replace `acct-id` with the AWS account of the Data Catalog\.
+  To specify a Data Catalog in a different AWS account, add the `hive.metastore.glue.catalogid` property as shown in the following JSON example\. Replace `acct-id` with the AWS account of the Data Catalog\. Using a Data Catalog in another AWS account is not available using Amazon EMR version 5\.15\.0 and earlier\.
 
   ```
   [
@@ -70,7 +70,20 @@ For examples of how to specify the configuration classifications below when you 
   ]
   ```
 
-  Using a Data Catalog in another AWS account is not available using Amazon EMR version 5\.15\.0 and earlier\.
+  **Amazon EMR 6\.1\.0 and later using PrestoSQL**
+
+  Starting with EMR version 6\.1\.0, PrestoSQL also supports Glue as the default Hive metastore\. Use the `prestosql-connector-hive` configuration classification and set the `hive.metastore` property to `glue`, as shown in the following JSON example\.
+
+  ```
+  [
+    {
+      "Classification": "prestosql-connector-hive",
+      "Properties": {
+        "hive.metastore": "glue"
+      }
+    }
+  ]
+  ```
 
 To switch metastores on a long\-running cluster, you can manually set these values as appropriate for your release version by connecting to the master node, editing the property values in the `/etc/presto/conf/catalog/hive.properties` file directly, and restarting the Presto server \(`sudo restart presto-server`\)\. If you use this method with Amazon EMR 5\.15\.0 and earlier, make sure that `hive.table-statistics-enabled` is set to `false`\. This setting is not required when using release versions 5\.16\.0 and later; nevertheless, table and partition statistics are not supported\.
 
