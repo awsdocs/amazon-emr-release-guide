@@ -2,6 +2,8 @@
 
 You connect to Phoenix using either a JDBC client built with full dependencies or using the "thin client" that uses the Phoenix Query Server and can only be run on a master node of a cluster \(e\.g\. by using an SQL client, a step, command line, SSH port forwarding, etc\.\)\. When using the "fat" JDBC client, it still needs to have access to all nodes of the cluster because it connects to HBase services directly\. The "thin" Phoenix client only needs access to the Phoenix Query Server at a default port 8765\. There are several [scripts](https://github.com/apache/phoenix/tree/master/bin) within Phoenix that use these clients\. 
 
+
+
 **Use an Amazon EMR step to query using Phoenix**
 
 The following procedure restores a snapshot from HBase and uses that data to run a Phoenix query\. You can extend this example or create a new script that leverages Phoenix's clients to suit your needs\. 
@@ -9,7 +11,7 @@ The following procedure restores a snapshot from HBase and uses that data to run
 1. Create a cluster with Phoenix installed, using the following command:
 
    ```
-   aws emr create-cluster --name "Cluster with Phoenix" --log-uri s3://myBucket/myLogFolder --release-label emr-5.31.0 \
+   aws emr create-cluster --name "Cluster with Phoenix" --log-uri s3://myBucket/myLogFolder --release-label emr-5.32.0 \
    --applications Name=Phoenix Name=HBase --ec2-attributes KeyName=myKey \
    --instance-type m5.xlarge --instance-count 3 --use-default-roles
    ```

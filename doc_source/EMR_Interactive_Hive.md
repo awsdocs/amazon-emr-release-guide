@@ -2,11 +2,11 @@
 
 Apache Hive is a data warehouse application you can use to query data contained in Amazon EMR clusters using a SQL\-like language\. For more information about Hive, see [http://hive\.apache\.org/](http://hive.apache.org/)\.
 
-The following procedure assumes you have already created a cluster and specified an Amazon EC2 key pair\. To learn how to get started creating clusters, see [Step 3: Launch an Amazon EMR Cluster](https://docs.aws.amazon.com/emr/latest/ManagementGuide/gsg-launch-cluster.html) in the *Amazon EMR Management Guide*\.
+The following procedure assumes you have already created a cluster and specified an Amazon EC2 key pair\. To learn how to get started creating clusters, see [Getting Started with Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-gs) in the *Amazon EMR Management Guide*\.
 
-## Configure Hive to Use MapReduce<a name="w55aac68b7c25b7"></a>
+## Configure Hive to Use MapReduce<a name="w77aac68b7c25b7"></a>
 
-When use Hive on Amazon EMR to query DynamoDB tables, errors can occur if Hive is using the default execution engine, Tez\. For this reason, when you create a cluster with Hive that integrates with DynamoDB as described in this section, we recommend that you use a configuration classification that sets Hive to use MapReduce\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+When you use Hive on Amazon EMR to query DynamoDB tables, errors can occur if Hive uses the default execution engine, Tez\. For this reason, when you create a cluster with Hive that integrates with DynamoDB as described in this section, we recommend that you use a configuration classification that sets Hive to use MapReduce\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
 
 The following snippet shows the configuration classification and property to use to set MapReduce as the execution engine for Hive:
 

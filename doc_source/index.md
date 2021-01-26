@@ -1,8 +1,8 @@
 # Amazon EMR Amazon EMR Release Guide
-		
+                
 
 -----
-*****Copyright &copy; 2020 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
+*****Copyright &copy; 2021 Amazon Web Services, Inc. and/or its affiliates. All rights reserved.*****
 
 -----
 Amazon's trademarks and trade dress may not be used in 
@@ -92,12 +92,12 @@ Amazon's trademarks and trade dress may not be used in
    + [Using S3 Select with Hive to Improve Performance](emr-hive-s3select.md)
    + [Using Hive LLAP](emr-hive-llap.md)
    + [Hive Release History](Hive-release-history.md)
-+ [Hudi (Incubating)](emr-hudi.md)
++ [Hudi](emr-hudi.md)
    + [How Hudi Works](emr-hudi-how-it-works.md)
    + [Considerations and Limitations for Using Hudi on Amazon EMR](emr-hudi-considerations.md)
-   + [Creating a Cluster with Hudi Installed](emr-hudi-installation-and-configuration.md)
-   + [Working With a Hudi Dataset](emr-hudi-work-with-dataset.md)
-   + [Using the Hudi CLI](emr-hudi-cli.md)
+   + [Create a Cluster with Hudi Installed](emr-hudi-installation-and-configuration.md)
+   + [Work with a Hudi Dataset](emr-hudi-work-with-dataset.md)
+   + [Use the Hudi CLI](emr-hudi-cli.md)
 + [Hue](emr-hue.md)
    + [Supported and Unsupported Features of Hue on Amazon EMR](emr-hue-supported-features.md)
    + [Connecting to the Hue Web User Interface](accessing-hue.md)
@@ -122,8 +122,6 @@ Amazon's trademarks and trade dress may not be used in
       + [JupyterHub Release History](JupyterHub-release-history.md)
 + [Apache Livy](emr-livy.md)
    + [Livy Release History](Livy-release-history.md)
-+ [Apache Mahout](emr-mahout.md)
-   + [Mahout Release History](Mahout-release-history.md)
 + [Apache MXNet](emr-mxnet.md)
    + [MXNet Release History](MXNet-release-history.md)
 + [Apache Oozie](emr-oozie.md)
@@ -152,6 +150,7 @@ Amazon's trademarks and trade dress may not be used in
    + [Using the AWS Glue Data Catalog as the Metastore for Spark SQL](emr-spark-glue.md)
    + [Configure Spark](emr-spark-configure.md)
    + [Optimizing Spark Performance](emr-spark-performance.md)
+   + [Using the Nvidia Spark-RAPIDS Accelerator for Spark](emr-spark-rapids.md)
    + [Access the Spark Shell](emr-spark-shell.md)
    + [Using Amazon SageMaker Spark for Machine Learning](emr-spark-sagemaker.md)
    + [Write a Spark Application](emr-spark-application.md)

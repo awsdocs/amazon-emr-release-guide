@@ -13,13 +13,13 @@ To supply a configuration for an instance group, navigate to the **Hardware Conf
 You can provide a configuration to create\-cluster by supplying a path to a JSON file stored locally or in Amazon S3\. The following example assumes that you are using default roles for Amazon EMR and the roles have been created\. If you need to create the roles, run `aws emr create-default-roles` first\.
 
 ```
-aws emr create-cluster --use-default-roles --release-label emr-5.31.0 --instance-type m5.xlarge --instance-count 2 --applications Name=Hive --configurations https://s3.amazonaws.com/mybucket/myfolder/myConfig.json
+aws emr create-cluster --use-default-roles --release-label emr-5.32.0 --instance-type m5.xlarge --instance-count 2 --applications Name=Hive --configurations https://s3.amazonaws.com/mybucket/myfolder/myConfig.json
 ```
 
 If your configuration is in your local directory, you can use the following:
 
 ```
-aws emr create-cluster --use-default-roles --release-label emr-5.31.0 --applications Name=Hive \
+aws emr create-cluster --use-default-roles --release-label emr-5.32.0 --applications Name=Hive \
 --instance-type m5.xlarge --instance-count 3 --configurations file://./configurations.json
 ```
 

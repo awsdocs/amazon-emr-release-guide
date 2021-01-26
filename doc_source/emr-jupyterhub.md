@@ -10,25 +10,25 @@ The following diagram depicts the components of JupyterHub on Amazon EMR with co
 
 The following table lists the version of JupyterHub included in the latest release of Amazon EMR 6\.x series, along with the components that Amazon EMR installs with JupyterHub\.
 
-For the version of components installed with JupyterHub in this release, see [Release 6\.1\.0 Component Versions](emr-release-6x.md#emr-610-release)\.
+For the version of components installed with JupyterHub in this release, see [Release 6\.2\.0 Component Versions](emr-release-6x.md#emr-620-release)\.
 
 
-**JupyterHub Version Information for emr\-6\.1\.0**  
+**JupyterHub Version Information for emr\-6\.2\.0**  
 
 | Amazon EMR Release Label | JupyterHub Version | Components Installed With JupyterHub | 
 | --- | --- | --- | 
-| emr\-6\.1\.0 | JupyterHub 1\.1\.0 | aws\-sagemaker\-spark\-sdk, emrfs, emr\-goodies, emr\-ddb, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, r, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, livy\-server, jupyterhub | 
+| emr\-6\.2\.0 | JupyterHub 1\.1\.0 | aws\-sagemaker\-spark\-sdk, emrfs, emr\-goodies, emr\-ddb, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, r, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, livy\-server, jupyterhub | 
 
 The following table lists the version of JupyterHub included in the latest release of Amazon EMR 5\.x series, along with the components that Amazon EMR installs with JupyterHub\.
 
-For the version of components installed with JupyterHub in this release, see [Release 5\.31\.0 Component Versions](emr-release-5x.md#emr-5310-release)\.
+For the version of components installed with JupyterHub in this release, see [Release 5\.32\.0 Component Versions](emr-release-5x.md#emr-5320-release)\.
 
 
-**JupyterHub Version Information for emr\-5\.31\.0**  
+**JupyterHub Version Information for emr\-5\.32\.0**  
 
 | Amazon EMR Release Label | JupyterHub Version | Components Installed With JupyterHub | 
 | --- | --- | --- | 
-| emr\-5\.31\.0 | JupyterHub 1\.1\.0 | aws\-sagemaker\-spark\-sdk, emrfs, emr\-goodies, emr\-ddb, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, r, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, livy\-server, jupyterhub | 
+| emr\-5\.32\.0 | JupyterHub 1\.1\.0 | aws\-sagemaker\-spark\-sdk, emrfs, emr\-goodies, emr\-ddb, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, r, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, livy\-server, jupyterhub | 
 
 The Python 3 kernel included with JupyterHub on Amazon EMR is 3\.6\.4\.
 

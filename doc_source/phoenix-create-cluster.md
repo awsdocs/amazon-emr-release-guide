@@ -4,6 +4,8 @@ You install Phoenix by choosing the application when you create a cluster in the
 
 **To launch a cluster with Phoenix installed using **Quick Options** for creating a cluster in the console**
 
+
+
 1. Open the Amazon EMR console at [https://console\.aws\.amazon\.com/elasticmapreduce/](https://console.aws.amazon.com/elasticmapreduce/)\.
 
 1. Choose **Create cluster** to use **Quick Create**\.
@@ -23,7 +25,7 @@ The following example launches a cluster with Phoenix installed using default co
 + Create the cluster with the following command:
 
   ```
-  aws emr create-cluster --name "Cluster with Phoenix" --release-label emr-5.31.0 \
+  aws emr create-cluster --name "Cluster with Phoenix" --release-label emr-5.32.0 \
   --applications Name=Phoenix Name=HBase --ec2-attributes KeyName=myKey \
   --instance-type m5.xlarge --instance-count 3 --use-default-roles
   ```
@@ -52,7 +54,7 @@ The contents of the JSON file saved to /mybucket/myfolder/myconfig\.json is the 
 The `create cluster` command that references the JSON file is shown in the following example\.
 
 ```
-aws emr create-cluster --release-label emr-5.31.0 --applications Name=Phoenix \
+aws emr create-cluster --release-label emr-5.32.0 --applications Name=Phoenix \
 Name=HBase --instance-type m5.xlarge --instance-count 2 \
 --configurations https://s3.amazonaws.com/mybucket/myfolder/myconfig.json
 ```

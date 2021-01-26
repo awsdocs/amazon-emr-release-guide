@@ -4,14 +4,14 @@ Apache Sqoop is a tool for transferring data between Amazon S3, Hadoop, HDFS, an
 
 The following table lists the version of Sqoop included in the latest release of Amazon EMR 5\.x series, along with the components that Amazon EMR installs with Sqoop\.
 
-For the version of components installed with Sqoop in this release, see [Release 5\.31\.0 Component Versions](emr-release-5x.md#emr-5310-release)\.
+For the version of components installed with Sqoop in this release, see [Release 5\.32\.0 Component Versions](emr-release-5x.md#emr-5320-release)\.
 
 
-**Sqoop Version Information for emr\-5\.31\.0**  
+**Sqoop Version Information for emr\-5\.32\.0**  
 
 | Amazon EMR Release Label | Sqoop Version | Components Installed With Sqoop | 
 | --- | --- | --- | 
-| emr\-5\.31\.0 | Sqoop 1\.4\.7 | emrfs, emr\-ddb, emr\-goodies, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mariadb\-server, sqoop\-client | 
+| emr\-5\.32\.0 | Sqoop 1\.4\.7 | emrfs, emr\-ddb, emr\-goodies, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mariadb\-server, sqoop\-client | 
 
 **Note**  
 Sqoop is not available in Amazon EMR 6\.0\.0\.

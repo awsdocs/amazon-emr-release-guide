@@ -4,27 +4,27 @@ TensorFlow is an open\-source symbolic math library for machine intelligence and
 
 The following table lists the version of TensorFlow included in the latest release of Amazon EMR 6\.x series, along with the components that Amazon EMR installs with TensorFlow\.
 
-For the version of components installed with TensorFlow in this release, see [Release 6\.1\.0 Component Versions](emr-release-6x.md#emr-610-release)\.
+For the version of components installed with TensorFlow in this release, see [Release 6\.2\.0 Component Versions](emr-release-6x.md#emr-620-release)\.
 
 
-**TensorFlow Version Information for emr\-6\.1\.0**  
+**TensorFlow Version Information for emr\-6\.2\.0**  
 
 | Amazon EMR Release Label | TensorFlow Version | Components Installed With TensorFlow | 
 | --- | --- | --- | 
-| emr\-6\.1\.0 | TensorFlow 2\.1\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, tensorflow | 
+| emr\-6\.2\.0 | TensorFlow 2\.3\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, tensorflow | 
 
 The following table lists the version of TensorFlow included in the latest release of Amazon EMR 5\.x series, along with the components that Amazon EMR installs with TensorFlow\.
 
-For the version of components installed with TensorFlow in this release, see [Release 5\.31\.0 Component Versions](emr-release-5x.md#emr-5310-release)\.
+For the version of components installed with TensorFlow in this release, see [Release 5\.32\.0 Component Versions](emr-release-5x.md#emr-5320-release)\.
 
 
-**TensorFlow Version Information for emr\-5\.31\.0**  
+**TensorFlow Version Information for emr\-5\.32\.0**  
 
 | Amazon EMR Release Label | TensorFlow Version | Components Installed With TensorFlow | 
 | --- | --- | --- | 
-| emr\-5\.31\.0 | TensorFlow 2\.1\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, tensorflow | 
+| emr\-5\.32\.0 | TensorFlow 2\.3\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, tensorflow | 
 
-## TensorFlow Builds by Amazon EC2 Instance Type<a name="w55aac58c17"></a>
+## TensorFlow Builds by Amazon EC2 Instance Type<a name="w77aac58c17"></a>
 
 Amazon EMR uses different builds of the TensorFlow library depending on the instance types that you choose for your cluster\. The following table lists builds by instance type\.
 
@@ -36,7 +36,7 @@ Amazon EMR uses different builds of the TensorFlow library depending on the inst
 |  P3  |  Tensorflow 1\.9\.0 with CUDA 9\.2, cuDNN 7\.1, NCCL 2\.2\.13 [Nvidia NCCL](https://developer.nvidia.com/nccl) is available only on P3 instances\. **End User License Agreement \(EULA\)**: By using Nvidia components on Amazon EMR, you agree to the terms and conditions outlined in the [product EULA](https://d7umqicpi7263.cloudfront.net/eula/product/d0199cf7-a04a-4204-be4d-dc3e2af678af/5b36dd71-7d6e-4d97-a8f7-013d3eccec70.txt)\.  | 
 |  All others  |  Tensorflow 1\.9\.0  | 
 
-## Security<a name="w55aac58c19"></a>
+## Security<a name="w77aac58c19"></a>
 
 In addition to following the guidance in [Using TensorFlow Securely](https://github.com/tensorflow/tensorflow/blob/master/SECURITY.md) we recommend that you launch your cluster in a private subnet to help you limit access to trusted sources\. For more information, see [Amazon VPC Options](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-clusters-in-a-vpc.html#emr-vpc-private-subnet) in the *Amazon EMR Management Guide*\.
 

@@ -4,6 +4,34 @@ Amazon EMR provides multiple performance optimization features for Spark\. This 
 
 For more information on how to set Spark configuration, see [Configure Spark](emr-spark-configure.md)\.
 
+## Adaptive Query Execution<a name="emr-spark-performance-aqe"></a>
+
+Adaptive query execution is a framework for reoptimizing query plans based on runtime statistics\. Starting with Amazon EMR 5\.30\.0, the following adaptive query execution optimizations from Apache Spark 3 are available on Apache EMR Runtime for Spark 2\.
++ Adaptive join conversion
++ Adaptive coalescing of shuffle partitions
+
+**Adaptive Join Conversion**
+
+Adaptive join conversion improves query performance by converting sort\-merge\-join operations to broadcast\-hash\-joins operations based on runtime sizes of query stages\. Broadcast\-hash\-joins tend to perform better when one side of the join is small enough to efficiently broadcast its output across all executors, thereby avoiding the need to shuffle exchange and sort both sides of the join\. Adaptive join conversion broadens the range of cases when Spark automatically performs broadcast\-hash\-joins\.
+
+This feature is enabled by default\. It can be disabled by setting `spark.sql.adaptive.enabled` to `false`, which also disables the adaptive query execution framework\. Spark decides to convert a sort\-merge\-join to a broadcast\-hash\-join when the runtime size statistic of one of the join sides does not exceed `spark.sql.autoBroadcastJoinThreshold`, which defaults to 10,485,760 bytes \(10 MiB\)\.
+
+**Adaptive Coalescing of Shuffle Partitions**
+
+Adaptive coalescing of shuffle partitions improves query performance by coalescing small contiguous shuffle partitions to avoid the overhead of having too many small tasks\. This allows you to configure a higher number of initial shuffle partitions upfront that then gets reduced at runtime to a targeted size, improving the chances of having more evenly distributed shuffle partitions\.
+
+This feature is enabled by default unless `spark.sql.shuffle.partitions` is explicitly set\. It can be enabled by setting `spark.sql.adaptive.coalescePartitions.enabled` to `true`\. Both the initial number of shuffle partitions and target partition size can be tuned using the `spark.sql.adaptive.coalescePartitions.minPartitionNum` and `spark.sql.adaptive.advisoryPartitionSizeInBytes` properties respectively\. See the following table for further details on the related Spark properties for this feature\.
+
+
+**Spark Adaptive Coalesce Partition Properties**  
+
+| Property | Default Value | Description | 
+| --- | --- | --- | 
+|  `spark.sql.adaptive.coalescePartitions.enabled`  |  true, unless `spark.sql.shuffle.partitions` is explicitly set  |  When true and spark\.sql\.adaptive\.enabled is true, Spark coalesces contiguous shuffle partitions according to the target size \(specified by `spark.sql.adaptive.advisoryPartitionSizeInBytes`\), to avoid too many small tasks\.  | 
+|  `spark.sql.adaptive.advisoryPartitionSizeInBytes`  | 64MB |  The advisory size in bytes of the shuffle partition when coalescing\. This configuration only has an effect when `spark.sql.adaptive.enabled` and `spark.sql.adaptive.coalescePartitions.enabled` are both `true`\.  | 
+|  `spark.sql.adaptive.coalescePartitions.minPartitionNum`  | 25 |  The minimum number of shuffle partitions after coalescing\. This configuration only has an effect when `spark.sql.adaptive.enabled` and `spark.sql.adaptive.coalescePartitions.enabled` are both `true`\.  | 
+|  `spark.sql.adaptive.coalescePartitions.initialPartitionNum`  | 1000 |  The initial number of shuffle partitions before coalescing\. This configuration only has an effect when `spark.sql.adaptive.enabled` and `spark.sql.adaptive.coalescePartitions.enabled` are both `true`\.  | 
+
 ## Dynamic Partition Pruning<a name="emr-spark-performance-dynamic"></a>
 
 Dynamic partition pruning improves job performance by more accurately selecting the specific partitions within a table that need to be read and processed for a specific query\. By reducing the amount of data read and processed, significant time is saved in job execution\. With Amazon EMR 5\.26\.0, this feature is enabled by default\. With Amazon EMR 5\.24\.0 and 5\.25\.0, you can enable this feature by setting the Spark property `spark.sql.dynamicPartitionPruning.enabled` from within Spark or when creating clusters\. 

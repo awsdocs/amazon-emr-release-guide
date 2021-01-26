@@ -3,6 +3,20 @@
 The following tables list the version of Hive included in each release version of Amazon EMR, along with the components installed with the application\. For component versions in each release, see the Component Version section for your release in [Amazon EMR 5\.x Release Versions](emr-release-5x.md) or [Amazon EMR 4\.x Release Versions](emr-release-4x.md)\.
 
 
+**Hive Version Information for emr\-6\.2\.0**  
+
+| Amazon EMR Release Label | Hive Version | Components Installed With Hive | 
+| --- | --- | --- | 
+| emr\-6\.2\.0 | Hive 3\.1\.2 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, emr\-s3\-select, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hive\-client, hive\-hbase, hcatalog\-server, hive\-server2, hudi, mariadb\-server, tez\-on\-yarn, zookeeper\-client, zookeeper\-server | 
+
+
+**Hive Version Information for emr\-5\.31\.0**  
+
+| Amazon EMR Release Label | Hive Version | Components Installed With Hive | 
+| --- | --- | --- | 
+| emr\-5\.31\.0 | Hive 2\.3\.7 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, emr\-s3\-select, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hive\-client, hive\-hbase, hcatalog\-server, hive\-server2, hudi, mariadb\-server, tez\-on\-yarn | 
+
+
 **Hive Version Information for emr\-6\.1\.0**  
 
 | Amazon EMR Release Label | Hive Version | Components Installed With Hive | 

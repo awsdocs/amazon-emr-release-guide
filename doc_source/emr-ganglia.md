@@ -6,25 +6,25 @@ When you view the Ganglia web UI in a browser, you see an overview of the cluste
 
 The following table lists the version of Ganglia included in the latest release of Amazon EMR 6\.x series, along with the components that Amazon EMR installs with Ganglia\.
 
-For the version of components installed with Ganglia in this release, see [Release 6\.1\.0 Component Versions](emr-release-6x.md#emr-610-release)\.
+For the version of components installed with Ganglia in this release, see [Release 6\.2\.0 Component Versions](emr-release-6x.md#emr-620-release)\.
 
 
-**Ganglia Version Information for emr\-6\.1\.0**  
+**Ganglia Version Information for emr\-6\.2\.0**  
 
 | Amazon EMR Release Label | Ganglia Version | Components Installed With Ganglia | 
 | --- | --- | --- | 
-| emr\-6\.1\.0 | Ganglia 3\.7\.2 | emrfs, emr\-goodies, ganglia\-monitor, ganglia\-metadata\-collector, ganglia\-web, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, webserver | 
+| emr\-6\.2\.0 | Ganglia 3\.7\.2 | emrfs, emr\-goodies, ganglia\-monitor, ganglia\-metadata\-collector, ganglia\-web, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, webserver | 
 
 The following table lists the version of Ganglia included in the latest release of Amazon EMR 5\.x series, along with the components that Amazon EMR installs with Ganglia\.
 
-For the version of components installed with Ganglia in this release, see [Release 5\.31\.0 Component Versions](emr-release-5x.md#emr-5310-release)\.
+For the version of components installed with Ganglia in this release, see [Release 5\.32\.0 Component Versions](emr-release-5x.md#emr-5320-release)\.
 
 
-**Ganglia Version Information for emr\-5\.31\.0**  
+**Ganglia Version Information for emr\-5\.32\.0**  
 
 | Amazon EMR Release Label | Ganglia Version | Components Installed With Ganglia | 
 | --- | --- | --- | 
-| emr\-5\.31\.0 | Ganglia 3\.7\.2 | emrfs, emr\-goodies, ganglia\-monitor, ganglia\-metadata\-collector, ganglia\-web, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, webserver | 
+| emr\-5\.32\.0 | Ganglia 3\.7\.2 | emrfs, emr\-goodies, ganglia\-monitor, ganglia\-metadata\-collector, ganglia\-web, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, webserver | 
 
 **Topics**
 + [Create a Cluster with Ganglia](init_Ganglia.md)

@@ -12,3 +12,4 @@
 + Livy Server is supported only in Amazon EMR version 5\.9\.0 and later\.
 + To use the Hue Notebook for Spark, you must install Hue with Livy and Spark\.
 + The Hue Dashboard is not supported\.
++ PostgreSQL is not supported\.

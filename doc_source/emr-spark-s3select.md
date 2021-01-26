@@ -89,7 +89,7 @@ The following options are available when using `s3selectCSV` and `s3selectJSON`\
 |  `escape`  |  `'\\'`  |  Specifies the escape character\.  | 
 |  `header`  |  `"false"`  |  `"false"` specifies that there is no header\. `"true"` specifies that a header is in the first line\. Only headers in the first line are supported, and empty lines before a header are not supported\.  | 
 |  comment  |  `"#"`  |  Specifies the comment character\. The comment indicator cannot be disabled\. In other words, a value of `\u0000` is not supported\.  | 
-|  `nullValue`  |  ""  |   | 
+|  `nullValue`  |  ""  |    | 
 
 #### Options with S3selectJSON<a name="emr-spark-s3select-specify-options-json"></a>
 

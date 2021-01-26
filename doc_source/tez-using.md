@@ -15,6 +15,8 @@ The following examples show you how to use Tez for the data and scripts used in 
    -d INPUT=s3://region.elasticmapreduce.samples -d OUTPUT=s3://myBucket/mr-test/
    ```
 
+   
+
    The output should look something like the following:
 
    ```

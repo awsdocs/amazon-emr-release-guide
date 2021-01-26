@@ -4,7 +4,7 @@ The procedures in this section cover the basics of launching a cluster using the
 
 ## Creating a Cluster with HBase Using the Console<a name="emr-hbase-create-console"></a>
 
-For quick steps to launch clusters with the console, see [Step 3: Launch an Amazon EMR Cluster](https://docs.aws.amazon.com/emr/latest/ManagementGuide/gsg-launch-cluster.html) in the *Amazon EMR Management Guide*\.
+For quick steps to launch clusters with the console, see [Getting Started with Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-gs) in the *Amazon EMR Management Guide*\.
 
 **To launch a cluster with HBase installed using the console**
 
@@ -25,7 +25,7 @@ For quick steps to launch clusters with the console, see [Step 3: Launch an Amaz
 Use the following command to create a cluster with HBase installed:
 
 ```
-aws emr create-cluster --name "Test cluster" --release-label emr-5.31.0 \
+aws emr create-cluster --name "Test cluster" --release-label emr-5.32.0 \
 --applications Name=HBase --use-default-roles --ec2-attributes KeyName=myKey \
 --instance-type m5.xlarge --instance-count 3
 ```

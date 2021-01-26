@@ -8,14 +8,14 @@ You can execute Pig commands interactively or in batch mode\. To use Pig interac
 
 The following table lists the version of Pig included in the latest release of Amazon EMR 5\.x series, along with the components that Amazon EMR installs with Pig\.
 
-For the version of components installed with Pig in this release, see [Release 5\.31\.0 Component Versions](emr-release-5x.md#emr-5310-release)\.
+For the version of components installed with Pig in this release, see [Release 5\.32\.0 Component Versions](emr-release-5x.md#emr-5320-release)\.
 
 
-**Pig Version Information for emr\-5\.31\.0**  
+**Pig Version Information for emr\-5\.32\.0**  
 
 | Amazon EMR Release Label | Pig Version | Components Installed With Pig | 
 | --- | --- | --- | 
-| emr\-5\.31\.0 | Pig 0\.17\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, pig\-client, tez\-on\-yarn | 
+| emr\-5\.32\.0 | Pig 0\.17\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, pig\-client, tez\-on\-yarn | 
 
 **Topics**
 + [Submit Pig Work](emr-pig-launch.md)

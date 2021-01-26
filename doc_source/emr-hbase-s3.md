@@ -4,6 +4,7 @@ When you run HBase on Amazon EMR version 5\.2\.0 or later, you can enable HBase 
 + The HBase root directory is stored in Amazon S3, including HBase store files and table metadata\. This data is persistent outside of the cluster, available across Amazon EC2 Availability Zones, and you don't need to recover using snapshots or other methods\.
 + With store files in Amazon S3, you can size your Amazon EMR cluster for your compute requirements instead of data requirements, with 3x replication in HDFS\.
 + Using Amazon EMR version 5\.7\.0 or later, you can set up a read\-replica cluster, which allows you to maintain read\-only copies of data in Amazon S3\. You can access the data from the read\-replica cluster to perform read operations simultaneously, and in the event that the primary cluster becomes unavailable\.
++ In Amazon EMR version 6\.2\.0 and later, persistent HFile Tracking uses a HBase system table called ‘hbase:storefile’ to directly track the HFile paths used for read operations\. This feature is enabled by default and does not require manual migration to be performed\.
 
 The following illustration shows the HBase components relevant to HBase on Amazon S3\. 
 
@@ -53,7 +54,7 @@ For example, given the JSON classification for the primary cluster as shown earl
 }
 ```
 
-### Synchronizing the Read Replica When You Add Data<a name="w55aac25c29c13c10"></a>
+### Synchronizing the Read Replica When You Add Data<a name="w77aac25c29c13c10"></a>
 
 Because the read\-replica uses HBase StoreFiles and metadata that the primary cluster writes to Amazon S3, the read\-replica is only as current as the Amazon S3 data store\. The following guidance can help minimize the lag time between the primary cluster and the read\-replica when you write data\.
 + Bulk load data on the primary cluster whenever possible\. For more information, see [Bulk Loading](http://hbase.apache.org/0.94/book/arch.bulk.load.html) in Apache HBase documentation\.
@@ -63,6 +64,78 @@ Because the read\-replica uses HBase StoreFiles and metadata that the primary cl
 + On the read\-replica cluster, run the `refresh_hfiles` command when records are added to or changed in a table\.
 
 ![\[Synchronizing data with an HBase read-replica\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/hbase-read-replica.png)
+
+## Persistent HFile Tracking<a name="emr-hbase-s3-hfile-tracking"></a>
+
+Persistent HFile tracking uses a HBase system table called ‘hbase:storefile’ to directly track the HFile paths used for read operations\. New HFile paths are added to the table as additional data is added to HBase\. This removes rename operations as a commit mechanism in the critical write path HBase operations and improves recovery time when opening a HBase region by reading from the ‘hbase:storefile’ system table instead of filesystem directory listing\. This feature is enabled by default on Amazon EMR version 6\.2\.0 and later, and does not require any manual migration steps\.
+
+**Note**  
+Persistent HFile tracking using the HBase storefile system table does not support the HBase region replication feature\. For more information about HBase region replication, see [Timeline\-consistent High Available Reads](http://hbase.apache.org/book.html#arch.timelineconsistent.reads)\.
+
+**Disabling Persistent HFile Tracking**
+
+Persistent HFile tracking is enabled by default starting with EMR release 6\.2\.0\. To disable persistent HFile tracking, specify the following configuration override when launching a cluster:
+
+```
+{
+  "Classification": "hbase-site",
+  "Properties": {
+    "hbase.storefile.tracking.persist.enabled":"false",
+    "hbase.hstore.engine.class":"org.apache.hadoop.hbase.regionserver.DefaultStoreEngine"
+  }
+}
+```
+
+**Note**  
+When reconfiguring the Amazon EMR cluster, all instance groups must be updated\.
+
+**Manually Syncing the Storefile Table**
+
+The storefile table is kept up to date as new HFiles are created\. However, if the storefile table becomes out of sync with the data files for any reason, the following commands can be used to manually sync the data:
+
+**Sync storefile table in an online region:**
+
+`hbase org.apache.hadoop.hbase.client.example.RefreshHFilesClient <table>`
+
+**Sync storefile table in an offline region:**
++ Remove the storefile table znode\.
+
+  ```
+  echo "ls /hbase/storefile/loaded" | sudo -u hbase hbase zkcli
+  [<tableName>, hbase:namespace]
+  # The TableName exists in the list
+  echo "delete /hbase/storefile/loaded/<tableName>" | sudo -u hbase hbase zkcli
+  # Delete the Table ZNode
+  echo "ls /hbase/storefile/loaded" | sudo -u hbase hbase zkcli
+  [hbase:namespace]
+  ```
++ Assign the region \(run in 'hbase shell'\)\.
+
+  ```
+  hbase cli> assign '<region name>'
+  ```
++ If the assignment fails\.
+
+  ```
+  hbase cli> disable '<table name>'
+  hbase cli> enable '<table name>'
+  ```
+
+**Scaling the Storefile Table**
+
+The storefile table is split into four regions by default\. If the storefile table is still under heavy write load, the table can be manually split further\.
+
+To split a specific hot region, use the following command \(run in 'hbase shell'\)\.
+
+```
+hbase cli> split '<region name>'
+```
+
+To split the table, use the following command \(run in 'hbase shell'\)\.
+
+```
+hbase cli> split 'hbase:storefile'
+```
 
 ## Operational Considerations<a name="emr-hbase-s3-performance"></a>
 

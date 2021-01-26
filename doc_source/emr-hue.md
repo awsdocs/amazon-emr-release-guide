@@ -6,25 +6,25 @@ Hue is installed by default when you launch your cluster using the Amazon EMR co
 
 The following table lists the version of Hue included in the latest release of Amazon EMR 6\.x series, along with the components that Amazon EMR installs with Hue\.
 
-For the version of components installed with Hue in this release, see [Release 6\.1\.0 Component Versions](emr-release-6x.md#emr-610-release)\.
+For the version of components installed with Hue in this release, see [Release 6\.2\.0 Component Versions](emr-release-6x.md#emr-620-release)\.
 
 
-**Hue Version Information for emr\-6\.1\.0**  
+**Hue Version Information for emr\-6\.2\.0**  
 
 | Amazon EMR Release Label | Hue Version | Components Installed With Hue | 
 | --- | --- | --- | 
-| emr\-6\.1\.0 | Hue 4\.7\.1 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hue\-server, mariadb\-server, oozie\-client, oozie\-server | 
+| emr\-6\.2\.0 | Hue 4\.8\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hue\-server, mariadb\-server, oozie\-client, oozie\-server | 
 
 The following table lists the version of Hue included in the latest release of Amazon EMR 5\.x series, along with the components that Amazon EMR installs with Hue\.
 
-For the version of components installed with Hue in this release, see [Release 5\.31\.0 Component Versions](emr-release-5x.md#emr-5310-release)\.
+For the version of components installed with Hue in this release, see [Release 5\.32\.0 Component Versions](emr-release-5x.md#emr-5320-release)\.
 
 
-**Hue Version Information for emr\-5\.31\.0**  
+**Hue Version Information for emr\-5\.32\.0**  
 
 | Amazon EMR Release Label | Hue Version | Components Installed With Hue | 
 | --- | --- | --- | 
-| emr\-5\.31\.0 | Hue 4\.7\.1 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hue\-server, mariadb\-server, oozie\-client, oozie\-server | 
+| emr\-5\.32\.0 | Hue 4\.8\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hue\-server, mariadb\-server, oozie\-client, oozie\-server | 
 
 **Topics**
 + [Supported and Unsupported Features of Hue on Amazon EMR](emr-hue-supported-features.md)
