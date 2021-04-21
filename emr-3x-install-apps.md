@@ -1,3 +1,0 @@
-# Installing Applications with Earlier AMI Versions of Amazon EMR<a name="emr-3x-install-apps"></a>
-
-When using an AMI version, applications are installed in any number of ways, including using the `NewSupportedProducts` parameter for the [RunJobFlow](https://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_RunJobFlow.html) action, using bootstrap actions, and using the [Step](https://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_Step.html) action\.

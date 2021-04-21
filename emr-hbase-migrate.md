@@ -1,3 +1,0 @@
-# Migrating from Previous HBase Versions<a name="emr-hbase-migrate"></a>
-
-To migrate data from a previous HBase version, see [Upgrading](https://hbase.apache.org/book.html#upgrading) and [HBase version number and compatibility](https://hbase.apache.org/book.html#hbase.versioning) in the Apache HBase Reference Guide\. You may need to pay special attention to the requirements for upgrading from pre\-1\.0 versions of HBase\.

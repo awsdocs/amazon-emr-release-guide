@@ -1,6 +1,6 @@
 ## Amazon EMR Release Guide
 
-The open source version of the Amazon EMR Management Guide. You can submit feedback & requests for changes by submitting issues in this repo or by making proposed changes & submitting a pull request.
+The open source version of the Amazon EMR Release Guide. You can submit feedback & requests for changes by submitting issues in this repo or by making proposed changes & submitting a pull request.
 
 ## License Summary
 
