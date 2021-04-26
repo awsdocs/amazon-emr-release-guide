@@ -28,7 +28,7 @@ res2: Long = 9
 ```
 
 **Example Using the Python\-based Spark shell to count the occurrences of a string in a file stored in Amazon S3**  
-Spark also includes a Python\-based shell, `pyspark`, that you can use to prototype Spark programs written in Python\. Just as with `spark-shell`, invoke `pyspark` on the master node; it also has the same [SparkContext](https://spark.apache.org/docs/latest/api/python/pyspark.html#pyspark.SparkContext) object\.   
+Spark also includes a Python\-based shell, `pyspark`, that you can use to prototype Spark programs written in Python\. Just as with `spark-shell`, invoke `pyspark` on the master node; it also has the same [SparkContext](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.SparkContext.html#pyspark.SparkContext) object\.   
 
 ```
 >>> sc

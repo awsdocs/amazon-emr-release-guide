@@ -17,12 +17,12 @@ For the version of components installed with MXNet in this release, see [Release
 
 The following table lists the version of MXNet included in the latest release of Amazon EMR 5\.x series, along with the components that Amazon EMR installs with MXNet\.
 
-For the version of components installed with MXNet in this release, see [Release 5\.32\.0 Component Versions](emr-release-5x.md#emr-5320-release)\.
+For the version of components installed with MXNet in this release, see [Release 5\.33\.0 Component Versions](emr-release-5x.md#emr-5330-release)\.
 
 
-**MXNet Version Information for emr\-5\.32\.0**  
+**MXNet Version Information for emr\-5\.33\.0**  
 
 | Amazon EMR Release Label | MXNet Version | Components Installed With MXNet | 
 | --- | --- | --- | 
-| emr\-5\.32\.0 | MXNet 1\.7\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-5\.33\.0 | MXNet 1\.7\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
 

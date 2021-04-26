@@ -39,10 +39,10 @@ For **Read Capacity Units**: `j`\*`s`/`5`
 
 For **Write Capacity Units**: `j`\*`s`
 
-## Performance Considerations<a name="w77aac68b9b8"></a>
+## Performance Considerations<a name="w128aac67b9b8"></a>
 
 Amazon Kinesis shard throughput is directly proportional to the instance size of nodes in Amazon EMR clusters and record size in the stream\. We recommend that you use m5\.xlarge or larger instances on master and core nodes\.
 
-## Schedule Amazon Kinesis Analysis with Amazon EMR<a name="w77aac68b9c10"></a>
+## Schedule Amazon Kinesis Analysis with Amazon EMR<a name="w128aac67b9c10"></a>
 
  When you are analyzing data on an active Amazon Kinesis stream, limited by timeouts and a maximum duration for any iteration, it is important that you run the analysis frequently to gather periodic details from the stream\. There are multiple ways to execute such scripts and queries at periodic intervals; we recommend using AWS Data Pipeline for recurrent tasks like these\. For more information, see [AWS Data Pipeline PigActivity](https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-object-pigactivity.html) and [AWS Data Pipeline HiveActivity](https://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-object-hiveactivity.html) in the *AWS Data Pipeline Developer Guide*\.

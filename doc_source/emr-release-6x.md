@@ -17,7 +17,7 @@ New Amazon EMR release versions are made available in different regions over a p
 
 **6\.2\.0 Application Versions**
 
-The following applications are supported in this release: [JupyterEnterpriseGateway](https://jupyter-enterprise-gateway.readthedocs.io/en/latest/), [Flink](https://flink.apache.org/), [Ganglia](http://ganglia.info), [Hadoop](http://hadoop.apache.org/docs/current/), [HBase](http://hbase.apache.org/), [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), [Hive](http://hive.apache.org/), [Hue](http://gethue.com/), [JupyterHub](https://jupyterhub.readthedocs.io/en/latest/#), [Livy](https://livy.incubator.apache.org/), [MXNet](https://mxnet.incubator.apache.org/), [Oozie](http://oozie.apache.org/), [Phoenix](https://phoenix.apache.org/), [Pig](http://pig.apache.org/), [Presto](https://prestodb.io/), [PrestoSQL](https://prestosql.io/), [Spark](https://spark.apache.org/docs/latest/), [Sqoop](http://sqoop.apache.org/), [TensorFlow](https://www.tensorflow.org/), [Tez](https://tez.apache.org/), [Zeppelin](https://zeppelin.incubator.apache.org/), and [ZooKeeper](https://zookeeper.apache.org)\.
+The following applications are supported in this release: [https://jupyter-enterprise-gateway.readthedocs.io/en/latest/](https://jupyter-enterprise-gateway.readthedocs.io/en/latest/), [https://flink.apache.org/](https://flink.apache.org/), [http://ganglia.info](http://ganglia.info), [http://hadoop.apache.org/docs/current/](http://hadoop.apache.org/docs/current/), [http://hbase.apache.org/](http://hbase.apache.org/), [https://cwiki.apache.org/confluence/display/Hive/HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), [http://hive.apache.org/](http://hive.apache.org/), [http://gethue.com/](http://gethue.com/), [https://jupyterhub.readthedocs.io/en/latest/#](https://jupyterhub.readthedocs.io/en/latest/#), [https://livy.incubator.apache.org/](https://livy.incubator.apache.org/), [https://mxnet.incubator.apache.org/](https://mxnet.incubator.apache.org/), [http://oozie.apache.org/](http://oozie.apache.org/), [https://phoenix.apache.org/](https://phoenix.apache.org/), [http://pig.apache.org/](http://pig.apache.org/), [https://prestodb.io/](https://prestodb.io/), [https://prestosql.io/](https://prestosql.io/), [https://spark.apache.org/docs/latest/](https://spark.apache.org/docs/latest/), [http://sqoop.apache.org/](http://sqoop.apache.org/), [https://www.tensorflow.org/](https://www.tensorflow.org/), [https://tez.apache.org/](https://tez.apache.org/), [https://zeppelin.incubator.apache.org/](https://zeppelin.incubator.apache.org/), and [https://zookeeper.apache.org](https://zookeeper.apache.org)\.
 
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
@@ -34,7 +34,7 @@ The following release notes include information for Amazon EMR release version 6
 
 Initial release date: Dec 09, 2020
 
-Last updated date: Jan 08, 2021
+Last updated date: Mar 24, 2021
 
 **Supported Applications**
 + AWS SDK for Java version 1\.11\.828
@@ -42,7 +42,7 @@ Last updated date: Jan 08, 2021
 + Flink version 1\.11\.2
 + Ganglia version 3\.7\.2
 + Hadoop version 3\.2\.1\-amzn\-1
-+ HBase version 2\.2\.6
++ HBase version 2\.2\.6\-amzn\-0
 + HBase\-operator\-tools 1\.0\.0
 + HCatalog version 3\.1\.2\-amzn\-0
 + Hive version 3\.1\.2\-amzn\-3
@@ -56,7 +56,7 @@ Last updated date: Jan 08, 2021
 + Pig version 0\.17\.0
 + Presto version 0\.238\.3\-amzn\-1
 + PrestoSQL version 343
-+ Spark version 3\.0\.1
++ Spark version 3\.0\.1\-amzn\-0
 + spark\-rapids 0\.2\.0
 + TensorFlow version 2\.3\.1
 + Zeppelin version 0\.9\.0\-preview1
@@ -67,16 +67,67 @@ Last updated date: Jan 08, 2021
 + HBase: Removed rename in commit phase and added persistent HFile tracking\. See [Persistent HFile Tracking](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-hbase-s3.html#emr-hbase-s3-hfile-tracking) in the *Amazon EMR Release Guide*\.
 + HBase: Backported [Create a config that forces to cache blocks on compaction](https://issues.apache.org/jira/browse/HBASE-23066)\.
 + PrestoDB: Improvements to Dynamic Partition Pruning\. Rule\-based Join Reorder works on non\-partitioned data\.
++ Scoped managed policies: To align with AWS best practices, Amazon EMR has introduced v2 EMR\-scoped default managed policies as replacements for policies that will be deprecated\. See [Amazon EMR Managed Policies](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-iam-policies.html)\.
++ Instance Metadata Service \(IMDS\) V2 support status: For Amazon EMR 6\.2 or later, Amazon EMR components use IMDSv2 for all IMDS calls\. For IMDS calls in your application code, you can use both IMDSv1 and IMDSv2, or configure the IMDS to use only IMDSv2 for added security\. If you disable IMDSv1 in earlier Amazon EMR 6\.x releases, it causes cluster startup failure\.
 
 **Changes, Enhancements, and Resolved Issues**
 + Spark: Performance improvements in Spark runtime\.
 
 **Known Issues**
++ HTTPD fails on EMR 6\.2\.0 clusters when you use a security configuration\. This makes the Ganglia web application user interface unavailable\. To access the Ganglia web application user interface, add `Listen 80` to the `/etc/httpd/conf/httpd.conf` file on the master node of your cluster\. For information about connecting to your cluster, see [Connect to the Master Node Using SSH](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-connect-master-node-ssh.html)\. 
++ **Lower "Max open files" limit on older AL2\.** Amazon EMR releases: emr\-5\.30\.x, emr\-5\.31\.0, emr\-5\.32\.0, emr\-6\.0\.0, emr\-6\.1\.0, and emr\-6\.2\.0 are based on older versions of Amazon Linux 2 \(AL2\), which have a lower ulimit setting for “Max open files” when EMR clusters are created with the default AMI\. The lower open file limit causes a "Too many open files" error when submitting Spark job\. In the impacted EMR releases, the Amazon EMR default AMI has a default ulimit setting of 4096 for "Max open files," which is lower than the 65536 file limit in the latest Amazon Linux 2 AMI\. The lower ulimit setting for "Max open files" causes Spark job failure when the Spark driver and executor try to open more than 4096 files\. To fix the issue, Amazon EMR has a bootstrap action \(BA\) script that adjusts the ulimit setting at cluster creation\. Amazon EMR releases 6\.3\.0 and 5\.33\.0 will include a permanent fix with a higher "Max open files" setting\.
+
+  The following workaround for this issue lets you to explicitly set the instance\-controller ulimit to a maximum of 65536 files\.
+
+**Explicitly set a ulimit from the command line**
+
+  1. Edit `/etc/systemd/system/instance-controller.service` to add the following parameters to Service section\.
+
+     `LimitNOFILE=65536`
+
+     `LimitNPROC=65536`
+
+  1. Restart InstanceController
+
+     `$ sudo systemctl daemon-reload`
+
+     `$ sudo systemctl restart instance-controller`
+
+  **Set a ulimit using bootstrap action \(BA\)**
+
+  You can also use a bootstrap action \(BA\) script to configure the instance\-controller ulimit to 65536 files at cluster creation\.
+
+  ```
+  #!/bin/bash
+  for user in hadoop spark hive; do
+  sudo tee /etc/security/limits.d/$user.conf << EOF
+  $user - nofile 65536
+  $user - nproc 65536
+  EOF
+  done
+  for proc in instancecontroller logpusher; do
+  sudo mkdir -p /etc/systemd/system/$proc.service.d/
+  sudo tee /etc/systemd/system/$proc.service.d/override.conf << EOF
+  [Service]
+  LimitNOFILE=65536
+  LimitNPROC=65536
+  EOF
+  pid=$(pgrep -f aws157.$proc.Main)
+  sudo prlimit --pid $pid --nofile=65535:65535 --nproc=65535:65535
+  done
+  sudo systemctl daemon-reload
+  ```
++ 
+**Important**  
+Amazon EMR 6\.1\.0 and 6\.2\.0 include a performance issue that can critically affect all Hudi insert, upsert, and delete operations\. If you plan to use Hudi with Amazon EMR 6\.1\.0 or 6\.2\.0, you should contact AWS support to obtain a patched Hudi RPM\.
++ 
+**Important**  
+Amazon EMR clusters that are running Amazon Linux or Amazon Linux 2 AMIs \(Amazon Linux Machine Images\) use default Amazon Linux behavior, and do not automatically download and install important and critical kernel updates that require a reboot\. This is the same behavior as other Amazon EC2 instances running the default Amazon Linux AMI\. If new Amazon Linux software updates that require a reboot \(such as, kernel, NVIDIA, and CUDA updates\) become available after an EMR version is released, EMR cluster instances running the default AMI do not automatically download and install those updates\. To get kernel updates, you can [customize your Amazon EMR AMI](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-custom-ami.html) to [use the latest Amazon Linux AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html)\.
 + Amazon EMR 6\.2\.0 Maven artifacts are not published\. They will be published with a future release of Amazon EMR\.
 + Persistent HFile tracking using the HBase storefile system table does not support the HBase region replication feature\. For more information about HBase region replication, see [Timeline\-consistent High Available Reads](http://hbase.apache.org/book.html#arch.timelineconsistent.reads)\.
 + Amazon EMR 6\.x and EMR 5\.x Hive bucketing version differences
 
-  EMR 5\.x uses OOS Apacke Hive 2, while in EMR 6\.x uses OOS Apache Hive 3\. The open source Hive2 uses Bucketing version 1, while open source Hive3 uses Bucketing version 2\. This bucketing version difference between Hive 2 \(EMR 5\.x\) and Hive 3 \(EMR 6\.x\) means Hive bucketing hashing functions differently\. See the example below\.
+  EMR 5\.x uses OOS Apache Hive 2, while in EMR 6\.x uses OOS Apache Hive 3\. The open source Hive2 uses Bucketing version 1, while open source Hive3 uses Bucketing version 2\. This bucketing version difference between Hive 2 \(EMR 5\.x\) and Hive 3 \(EMR 6\.x\) means Hive bucketing hashing functions differently\. See the example below\.
 
   The following table is an example created in EMR 6\.x and EMR 5\.x, respectively\.
 
@@ -348,7 +399,7 @@ Configuration classifications allow you to customize applications\. These often 
 
 **6\.1\.0 Application Versions**
 
-The following applications are supported in this release: [Flink](https://flink.apache.org/), [Ganglia](http://ganglia.info), [Hadoop](http://hadoop.apache.org/docs/current/), [HBase](http://hbase.apache.org/), [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), [Hive](http://hive.apache.org/), [Hue](http://gethue.com/), [JupyterHub](https://jupyterhub.readthedocs.io/en/latest/#), [Livy](https://livy.incubator.apache.org/), [MXNet](https://mxnet.incubator.apache.org/), [Oozie](http://oozie.apache.org/), [Phoenix](https://phoenix.apache.org/), [Pig](http://pig.apache.org/), [Presto](https://prestodb.io/), [PrestoSQL](https://prestosql.io/), [Spark](https://spark.apache.org/docs/latest/), [Sqoop](http://sqoop.apache.org/), [TensorFlow](https://www.tensorflow.org/), [Tez](https://tez.apache.org/), [Zeppelin](https://zeppelin.incubator.apache.org/), and [ZooKeeper](https://zookeeper.apache.org)\.
+The following applications are supported in this release: [https://flink.apache.org/](https://flink.apache.org/), [http://ganglia.info](http://ganglia.info), [http://hadoop.apache.org/docs/current/](http://hadoop.apache.org/docs/current/), [http://hbase.apache.org/](http://hbase.apache.org/), [https://cwiki.apache.org/confluence/display/Hive/HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), [http://hive.apache.org/](http://hive.apache.org/), [http://gethue.com/](http://gethue.com/), [https://jupyterhub.readthedocs.io/en/latest/#](https://jupyterhub.readthedocs.io/en/latest/#), [https://livy.incubator.apache.org/](https://livy.incubator.apache.org/), [https://mxnet.incubator.apache.org/](https://mxnet.incubator.apache.org/), [http://oozie.apache.org/](http://oozie.apache.org/), [https://phoenix.apache.org/](https://phoenix.apache.org/), [http://pig.apache.org/](http://pig.apache.org/), [https://prestodb.io/](https://prestodb.io/), [https://prestosql.io/](https://prestosql.io/), [https://spark.apache.org/docs/latest/](https://spark.apache.org/docs/latest/), [http://sqoop.apache.org/](http://sqoop.apache.org/), [https://www.tensorflow.org/](https://www.tensorflow.org/), [https://tez.apache.org/](https://tez.apache.org/), [https://zeppelin.incubator.apache.org/](https://zeppelin.incubator.apache.org/), and [https://zookeeper.apache.org](https://zookeeper.apache.org)\.
 
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
@@ -385,7 +436,7 @@ Last updated date: Oct 15, 2020
 + Phoenix version 5\.0\.0
 + Presto version 0\.232
 + PrestoSQL version 338
-+ Spark version 3\.0\.0
++ Spark version 3\.0\.0\-amzn\-0
 + TensorFlow version 2\.1\.0
 + Zeppelin version 0\.9\.0\-preview1
 + Zookeeper version 3\.4\.14
@@ -401,9 +452,9 @@ Last updated date: Oct 15, 2020
   + The application name, `Presto` continues to be used to install PrestoDB on clusters\. To install PrestoSQL on clusters, use the application name `PrestoSQL`\.
   + You can install either PrestoDB or PrestoSQL, but you cannot install both on a single cluster\. If both PrestoDB and PrestoSQL are specified when attempting to create a cluster, a validation error occurs and the cluster creation request fails\.
   + PrestoSQL is supported on both single\-master and muti\-master clusters\. On multi\-master clusters, an external Hive metastore is required to run PrestoSQL or PrestoDB\. See [Supported Applications in an EMR Cluster with Multiple Master Nodes](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-ha-applications.html#emr-plan-ha-applications-list)\.
-+ ECR auto authentication support on Apache Hadoop and Apache Spark with Docker: Spark users can use ï»¿Dockerï»¿ images from ï»¿Docker Hubï»¿ and ï»¿Amazon Elastic Container Registry \(Amazon ECR\)ï»¿ to define environment and library dependencies\.
++ ECR auto authentication support on Apache Hadoop and Apache Spark with Docker: Spark users can use Docker images from Docker Hub and Amazon Elastic Container Registry \(Amazon ECR\) to define environment and library dependencies\.
 
-  [Configure Docker](emr/latest/ManagementGuide/emr-plan-docker.html) and [Run Spark Applications with Docker Using Amazon EMR 6\.x](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-spark-docker.html)\.
+  [Configure Docker](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-docker.html) and [Run Spark Applications with Docker Using Amazon EMR 6\.x](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-spark-docker.html)\.
 + EMR supports Apache Hive ACID transactions: Amazon EMR 6\.1\.0 adds support for Hive ACID transactions so it complies with the ACID properties of a database\. With this feature, you can run INSERT, UPDATE, DELETE, and MERGE operations in Hive managed tables with data in Amazon Simple Storage Service \(Amazon S3\)\. This is a key feature for use cases like streaming ingestion, data restatement, bulk updates using MERGE, and slowly changing dimensions\. For more information, including configuration examples and use cases, see [Amazon EMR supports Apache Hive ACID transactions](https://aws.amazon.com/blogs/big-data/amazon-emr-supports-apache-hive-acid-transactions)\.
 
 **Changes, Enhancements, and Resolved Issues**
@@ -411,9 +462,54 @@ Last updated date: Oct 15, 2020
 + Ganglia has been removed from default EMR 6\.1\.0 package bundles\.
 
 **Known Issues**
++ **Lower "Max open files" limit on older AL2\.** Amazon EMR releases: emr\-5\.30\.x, emr\-5\.31\.0, emr\-5\.32\.0, emr\-6\.0\.0, emr\-6\.1\.0, and emr\-6\.2\.0 are based on older versions of Amazon Linux 2 \(AL2\), which have a lower ulimit setting for “Max open files” when EMR clusters are created with the default AMI\. The lower open file limit causes a "Too many open files" error when submitting Spark job\. In the impacted EMR releases, the Amazon EMR default AMI has a default ulimit setting of 4096 for "Max open files," which is lower than the 65536 file limit in the latest Amazon Linux 2 AMI\. The lower ulimit setting for "Max open files" causes Spark job failure when the Spark driver and executor try to open more than 4096 files\. To fix the issue, Amazon EMR has a bootstrap action \(BA\) script that adjusts the ulimit setting at cluster creation\. Amazon EMR releases 6\.3\.0 and 5\.33\.0 will include a permanent fix with a higher "Max open files" setting\.
+
+  The following workaround for this issue lets you to explicitly set the instance\-controller ulimit to a maximum of 65536 files\.
+
+**Explicitly set a ulimit from the command line**
+
+  1. Edit `/etc/systemd/system/instance-controller.service` to add the following parameters to Service section\.
+
+     `LimitNOFILE=65536`
+
+     `LimitNPROC=65536`
+
+  1. Restart InstanceController
+
+     `$ sudo systemctl daemon-reload`
+
+     `$ sudo systemctl restart instance-controller`
+
+  **Set a ulimit using bootstrap action \(BA\)**
+
+  You can also use a bootstrap action \(BA\) script to configure the instance\-controller ulimit to 65536 files at cluster creation\.
+
+  ```
+  #!/bin/bash
+  for user in hadoop spark hive; do
+  sudo tee /etc/security/limits.d/$user.conf << EOF
+  $user - nofile 65536
+  $user - nproc 65536
+  EOF
+  done
+  for proc in instancecontroller logpusher; do
+  sudo mkdir -p /etc/systemd/system/$proc.service.d/
+  sudo tee /etc/systemd/system/$proc.service.d/override.conf << EOF
+  [Service]
+  LimitNOFILE=65536
+  LimitNPROC=65536
+  EOF
+  pid=$(pgrep -f aws157.$proc.Main)
+  sudo prlimit --pid $pid --nofile=65535:65535 --nproc=65535:65535
+  done
+  sudo systemctl daemon-reload
+  ```
++ 
+**Important**  
+Amazon EMR 6\.1\.0 and 6\.2\.0 include a performance issue that can critically affect all Hudi insert, upsert, and delete operations\. If you plan to use Hudi with Amazon EMR 6\.1\.0 or 6\.2\.0, you should contact AWS support to obtain a patched Hudi RPM\.
 + If you set custom garbage collection configuration with `spark.driver.extraJavaOptions` and `spark.executor.extraJavaOptions`, this will result in driver/executor launch failure with EMR 6\.1 due to conflicting garbage collection configuration\. With EMR Release 6\.1\.0, you should specify custom Spark garbage collection configuration for drivers and executors with the properties `spark.driver.defaultJavaOptions` and `spark.executor.defaultJavaOptions` instead\. Read more in [Apache Spark Runtime Environment](https://spark.apache.org/docs/latest/configuration.html#runtime-environment) and [Configuring Spark Garbage Collection on Amazon EMR 6\.1\.0](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-spark-configure.html#spark-gc-config)\.
 + Using Pig with Oozie \(and within Hue, since Hue uses Oozie actions to run Pig scripts\), generates an error that a native\-lzo library cannot be loaded\. This error message is informational and does not block Pig from running\.
-+ Hudi Concurrency Support: Currently Hudi doesnâ€™t support concurrent writes to a single Hudi table\. In addition, Hudi rolls back any changes being done by in\-progress writers before allowing a new writer to start\. Concurrent writes can interfere with this mechanism and introduce race conditions, which can lead to data corruption\. You should ensure that as part of your data processing workflow, there is only a single Hudi writer operating against a Hudi table at any time\. Hudi does support multiple concurrent readers operating against the same Hudi table\.
++ Hudi Concurrency Support: Currently Hudi doesn't support concurrent writes to a single Hudi table\. In addition, Hudi rolls back any changes being done by in\-progress writers before allowing a new writer to start\. Concurrent writes can interfere with this mechanism and introduce race conditions, which can lead to data corruption\. You should ensure that as part of your data processing workflow, there is only a single Hudi writer operating against a Hudi table at any time\. Hudi does support multiple concurrent readers operating against the same Hudi table\.
 + Known issue in clusters with multiple master nodes and Kerberos authentication
 
   If you run clusters with multiple master nodes and Kerberos authentication in EMR releases 5\.20\.0 and later, you may encounter problems with cluster operations such as scale down or step submission, after the cluster has been running for some time\. The time period depends on the Kerberos ticket validity period that you defined\. The scale\-down problem impacts both automatic scale\-down and explicit scale down requests that you submitted\. Additional cluster operations can also be impacted\. 
@@ -429,6 +525,7 @@ Last updated date: Oct 15, 2020
     Typically, the keytab file is located at `/etc/hadoop.keytab` and the principal is in the form of `hadoop/<hostname>@<REALM>`\.
 **Note**  
 This workaround will be effective for the time period the Kerberos ticket is valid\. This duration is 10 hours by default, but can configured by your Kerberos settings\. You must re\-run the above command once the Kerberos ticket expires\.
++ There is an issue in Amazon EMR 6\.1\.0 that affects clusters running Presto\. After an extended period of time \(days\), the cluster may throw errors such as, “su: failed to execute /bin/bash: Resource temporarily unavailable” or “shell request failed on channel 0”\. This issue is caused by an internal Amazon EMR process \(InstanceController\) that is spawning too many Light Weight Processes \(LWP\), which eventually causes the Hadoop user to exceed their nproc limit\. This prevents the user from opening additional processes\. The solution for this issue is to upgrade to EMR 6\.2\.0\.
 
 **6\.1\.0 Component Versions**
 
@@ -655,7 +752,7 @@ Configuration classifications allow you to customize applications\. These often 
 
 **6\.0\.0 Application Versions**
 
-The following applications are supported in this release: [Ganglia](http://ganglia.info), [Hadoop](http://hadoop.apache.org/docs/current/), [HBase](http://hbase.apache.org/), [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), [Hive](http://hive.apache.org/), [Hue](http://gethue.com/), [JupyterHub](https://jupyterhub.readthedocs.io/en/latest/#), [Livy](https://livy.incubator.apache.org/), [MXNet](https://mxnet.incubator.apache.org/), [Oozie](http://oozie.apache.org/), [Phoenix](https://phoenix.apache.org/), [Presto](https://prestodb.io/), [Spark](https://spark.apache.org/docs/latest/), [TensorFlow](https://www.tensorflow.org/), [Tez](https://tez.apache.org/), [Zeppelin](https://zeppelin.incubator.apache.org/), and [ZooKeeper](https://zookeeper.apache.org)\.
+The following applications are supported in this release: [http://ganglia.info](http://ganglia.info), [http://hadoop.apache.org/docs/current/](http://hadoop.apache.org/docs/current/), [http://hbase.apache.org/](http://hbase.apache.org/), [https://cwiki.apache.org/confluence/display/Hive/HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), [http://hive.apache.org/](http://hive.apache.org/), [http://gethue.com/](http://gethue.com/), [https://jupyterhub.readthedocs.io/en/latest/#](https://jupyterhub.readthedocs.io/en/latest/#), [https://livy.incubator.apache.org/](https://livy.incubator.apache.org/), [https://mxnet.incubator.apache.org/](https://mxnet.incubator.apache.org/), [http://oozie.apache.org/](http://oozie.apache.org/), [https://phoenix.apache.org/](https://phoenix.apache.org/), [https://prestodb.io/](https://prestodb.io/), [https://spark.apache.org/docs/latest/](https://spark.apache.org/docs/latest/), [https://www.tensorflow.org/](https://www.tensorflow.org/), [https://tez.apache.org/](https://tez.apache.org/), [https://zeppelin.incubator.apache.org/](https://zeppelin.incubator.apache.org/), and [https://zookeeper.apache.org](https://zookeeper.apache.org)\.
 
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
@@ -714,6 +811,48 @@ Flink, Sqoop, Pig, and Mahout are not available in Amazon EMR version 6\.0\.0\.
   + Beginning with Amazon EMR 6\.x release series, the YARN node labels feature is disabled by default\. The application master processes can run on both core and task nodes by default\. You can enable the YARN node labels feature by configuring following properties: `yarn.node-labels.enabled` and `yarn.node-labels.am.default-node-label-expression`\. For more information, see [Understanding Master, Core, and Task Nodes](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html)\.
 
 **Known Issues**
++ **Lower "Max open files" limit on older AL2\.** Amazon EMR releases: emr\-5\.30\.x, emr\-5\.31\.0, emr\-5\.32\.0, emr\-6\.0\.0, emr\-6\.1\.0, and emr\-6\.2\.0 are based on older versions of Amazon Linux 2 \(AL2\), which have a lower ulimit setting for “Max open files” when EMR clusters are created with the default AMI\. The lower open file limit causes a "Too many open files" error when submitting Spark job\. In the impacted EMR releases, the Amazon EMR default AMI has a default ulimit setting of 4096 for "Max open files," which is lower than the 65536 file limit in the latest Amazon Linux 2 AMI\. The lower ulimit setting for "Max open files" causes Spark job failure when the Spark driver and executor try to open more than 4096 files\. To fix the issue, Amazon EMR has a bootstrap action \(BA\) script that adjusts the ulimit setting at cluster creation\. Amazon EMR releases 6\.3\.0 and 5\.33\.0 will include a permanent fix with a higher "Max open files" setting\.
+
+  The following workaround for this issue lets you to explicitly set the instance\-controller ulimit to a maximum of 65536 files\.
+
+**Explicitly set a ulimit from the command line**
+
+  1. Edit `/etc/systemd/system/instance-controller.service` to add the following parameters to Service section\.
+
+     `LimitNOFILE=65536`
+
+     `LimitNPROC=65536`
+
+  1. Restart InstanceController
+
+     `$ sudo systemctl daemon-reload`
+
+     `$ sudo systemctl restart instance-controller`
+
+  **Set a ulimit using bootstrap action \(BA\)**
+
+  You can also use a bootstrap action \(BA\) script to configure the instance\-controller ulimit to 65536 files at cluster creation\.
+
+  ```
+  #!/bin/bash
+  for user in hadoop spark hive; do
+  sudo tee /etc/security/limits.d/$user.conf << EOF
+  $user - nofile 65536
+  $user - nproc 65536
+  EOF
+  done
+  for proc in instancecontroller logpusher; do
+  sudo mkdir -p /etc/systemd/system/$proc.service.d/
+  sudo tee /etc/systemd/system/$proc.service.d/override.conf << EOF
+  [Service]
+  LimitNOFILE=65536
+  LimitNPROC=65536
+  EOF
+  pid=$(pgrep -f aws157.$proc.Main)
+  sudo prlimit --pid $pid --nofile=65535:65535 --nproc=65535:65535
+  done
+  sudo systemctl daemon-reload
+  ```
 + Spark interactive shell, including PySpark, SparkR, and spark\-shell, does not support using Docker with additional libraries\.
 + To use Python 3 with Amazon EMR version 6\.0\.0, you must add `PATH` to `yarn.nodemanager.env-whitelist`\.
 + The Live Long and Process \(LLAP\) functionality is not supported when you use the AWS Glue Data Catalog as the metastore for Hive\.

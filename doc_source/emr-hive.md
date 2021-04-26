@@ -19,14 +19,14 @@ For the version of components installed with Hive in this release, see [Release 
 
 The following table lists the version of Hive included in the latest release of Amazon EMR 5\.x series, along with the components that Amazon EMR installs with Hive\.
 
-For the version of components installed with Hive in this release, see [Release 5\.32\.0 Component Versions](emr-release-5x.md#emr-5320-release)\.
+For the version of components installed with Hive in this release, see [Release 5\.33\.0 Component Versions](emr-release-5x.md#emr-5330-release)\.
 
 
-**Hive Version Information for emr\-5\.32\.0**  
+**Hive Version Information for emr\-5\.33\.0**  
 
 | Amazon EMR Release Label | Hive Version | Components Installed With Hive | 
 | --- | --- | --- | 
-| emr\-5\.32\.0 | Hive 2\.3\.7 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, emr\-s3\-select, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hive\-client, hive\-hbase, hcatalog\-server, hive\-server2, hudi, mariadb\-server, tez\-on\-yarn | 
+| emr\-5\.33\.0 | Hive 2\.3\.7 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, emr\-s3\-select, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hive\-client, hive\-hbase, hcatalog\-server, hive\-server2, hudi, mariadb\-server, tez\-on\-yarn | 
 
 Beginning with Amazon EMR 5\.18\.0, you can use the Amazon EMR artifact repository to build your job code against the exact versions of libraries and dependencies that are available with specific Amazon EMR release versions\. For more information, see [Checking Dependencies Using the Amazon EMR Artifact Repository](emr-artifact-repository.md)\.
 

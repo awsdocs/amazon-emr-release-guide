@@ -1,6 +1,6 @@
 # What's New?<a name="emr-whatsnew"></a>
 
-This topic covers features and issues resolved in the current release of Amazon EMR 6\.x series and 5\.x series\. These release notes are also available on the [Release 6\.2\.0 Tab](emr-release-6x.md#emr-620-release) and [Release 5\.32\.0 Tab](emr-release-5x.md#emr-5320-release), along with the application versions, component versions, and available configuration classifications for this release\.
+This topic covers features and issues resolved in the current release of Amazon EMR 6\.x series and 5\.x series\. These release notes are also available on the [Release 6\.2\.0 Tab](emr-release-6x.md#emr-620-release) and [Release 5\.33\.0 Tab](emr-release-5x.md#emr-5330-release), along with the application versions, component versions, and available configuration classifications for this release\.
 
 Subscribe to the RSS feed for Amazon EMR release notes at [https://docs.aws.amazon.com/emr/latest/ReleaseGuide/amazon-emr-release-notes.rss](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/amazon-emr-release-notes.rss) to receive updates when a new Amazon EMR release version is available\.
 
@@ -19,7 +19,7 @@ The following release notes include information for Amazon EMR release version 6
 
 Initial release date: Dec 09, 2020
 
-Last updated date: Jan 08, 2021
+Last updated date: Mar 24, 2021
 
 **Supported Applications**
 + AWS SDK for Java version 1\.11\.828
@@ -27,7 +27,7 @@ Last updated date: Jan 08, 2021
 + Flink version 1\.11\.2
 + Ganglia version 3\.7\.2
 + Hadoop version 3\.2\.1\-amzn\-1
-+ HBase version 2\.2\.6
++ HBase version 2\.2\.6\-amzn\-0
 + HBase\-operator\-tools 1\.0\.0
 + HCatalog version 3\.1\.2\-amzn\-0
 + Hive version 3\.1\.2\-amzn\-3
@@ -41,7 +41,7 @@ Last updated date: Jan 08, 2021
 + Pig version 0\.17\.0
 + Presto version 0\.238\.3\-amzn\-1
 + PrestoSQL version 343
-+ Spark version 3\.0\.1
++ Spark version 3\.0\.1\-amzn\-0
 + spark\-rapids 0\.2\.0
 + TensorFlow version 2\.3\.1
 + Zeppelin version 0\.9\.0\-preview1
@@ -52,16 +52,67 @@ Last updated date: Jan 08, 2021
 + HBase: Removed rename in commit phase and added persistent HFile tracking\. See [Persistent HFile Tracking](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-hbase-s3.html#emr-hbase-s3-hfile-tracking) in the *Amazon EMR Release Guide*\.
 + HBase: Backported [Create a config that forces to cache blocks on compaction](https://issues.apache.org/jira/browse/HBASE-23066)\.
 + PrestoDB: Improvements to Dynamic Partition Pruning\. Rule\-based Join Reorder works on non\-partitioned data\.
++ Scoped managed policies: To align with AWS best practices, Amazon EMR has introduced v2 EMR\-scoped default managed policies as replacements for policies that will be deprecated\. See [Amazon EMR Managed Policies](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-iam-policies.html)\.
++ Instance Metadata Service \(IMDS\) V2 support status: For Amazon EMR 6\.2 or later, Amazon EMR components use IMDSv2 for all IMDS calls\. For IMDS calls in your application code, you can use both IMDSv1 and IMDSv2, or configure the IMDS to use only IMDSv2 for added security\. If you disable IMDSv1 in earlier Amazon EMR 6\.x releases, it causes cluster startup failure\.
 
 **Changes, Enhancements, and Resolved Issues**
 + Spark: Performance improvements in Spark runtime\.
 
 **Known Issues**
++ HTTPD fails on EMR 6\.2\.0 clusters when you use a security configuration\. This makes the Ganglia web application user interface unavailable\. To access the Ganglia web application user interface, add `Listen 80` to the `/etc/httpd/conf/httpd.conf` file on the master node of your cluster\. For information about connecting to your cluster, see [Connect to the Master Node Using SSH](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-connect-master-node-ssh.html)\. 
++ **Lower "Max open files" limit on older AL2\.** Amazon EMR releases: emr\-5\.30\.x, emr\-5\.31\.0, emr\-5\.32\.0, emr\-6\.0\.0, emr\-6\.1\.0, and emr\-6\.2\.0 are based on older versions of Amazon Linux 2 \(AL2\), which have a lower ulimit setting for “Max open files” when EMR clusters are created with the default AMI\. The lower open file limit causes a "Too many open files" error when submitting Spark job\. In the impacted EMR releases, the Amazon EMR default AMI has a default ulimit setting of 4096 for "Max open files," which is lower than the 65536 file limit in the latest Amazon Linux 2 AMI\. The lower ulimit setting for "Max open files" causes Spark job failure when the Spark driver and executor try to open more than 4096 files\. To fix the issue, Amazon EMR has a bootstrap action \(BA\) script that adjusts the ulimit setting at cluster creation\. Amazon EMR releases 6\.3\.0 and 5\.33\.0 will include a permanent fix with a higher "Max open files" setting\.
+
+  The following workaround for this issue lets you to explicitly set the instance\-controller ulimit to a maximum of 65536 files\.
+
+**Explicitly set a ulimit from the command line**
+
+  1. Edit `/etc/systemd/system/instance-controller.service` to add the following parameters to Service section\.
+
+     `LimitNOFILE=65536`
+
+     `LimitNPROC=65536`
+
+  1. Restart InstanceController
+
+     `$ sudo systemctl daemon-reload`
+
+     `$ sudo systemctl restart instance-controller`
+
+  **Set a ulimit using bootstrap action \(BA\)**
+
+  You can also use a bootstrap action \(BA\) script to configure the instance\-controller ulimit to 65536 files at cluster creation\.
+
+  ```
+  #!/bin/bash
+  for user in hadoop spark hive; do
+  sudo tee /etc/security/limits.d/$user.conf << EOF
+  $user - nofile 65536
+  $user - nproc 65536
+  EOF
+  done
+  for proc in instancecontroller logpusher; do
+  sudo mkdir -p /etc/systemd/system/$proc.service.d/
+  sudo tee /etc/systemd/system/$proc.service.d/override.conf << EOF
+  [Service]
+  LimitNOFILE=65536
+  LimitNPROC=65536
+  EOF
+  pid=$(pgrep -f aws157.$proc.Main)
+  sudo prlimit --pid $pid --nofile=65535:65535 --nproc=65535:65535
+  done
+  sudo systemctl daemon-reload
+  ```
++ 
+**Important**  
+Amazon EMR 6\.1\.0 and 6\.2\.0 include a performance issue that can critically affect all Hudi insert, upsert, and delete operations\. If you plan to use Hudi with Amazon EMR 6\.1\.0 or 6\.2\.0, you should contact AWS support to obtain a patched Hudi RPM\.
++ 
+**Important**  
+Amazon EMR clusters that are running Amazon Linux or Amazon Linux 2 AMIs \(Amazon Linux Machine Images\) use default Amazon Linux behavior, and do not automatically download and install important and critical kernel updates that require a reboot\. This is the same behavior as other Amazon EC2 instances running the default Amazon Linux AMI\. If new Amazon Linux software updates that require a reboot \(such as, kernel, NVIDIA, and CUDA updates\) become available after an EMR version is released, EMR cluster instances running the default AMI do not automatically download and install those updates\. To get kernel updates, you can [customize your Amazon EMR AMI](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-custom-ami.html) to [use the latest Amazon Linux AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html)\.
 + Amazon EMR 6\.2\.0 Maven artifacts are not published\. They will be published with a future release of Amazon EMR\.
 + Persistent HFile tracking using the HBase storefile system table does not support the HBase region replication feature\. For more information about HBase region replication, see [Timeline\-consistent High Available Reads](http://hbase.apache.org/book.html#arch.timelineconsistent.reads)\.
 + Amazon EMR 6\.x and EMR 5\.x Hive bucketing version differences
 
-  EMR 5\.x uses OOS Apacke Hive 2, while in EMR 6\.x uses OOS Apache Hive 3\. The open source Hive2 uses Bucketing version 1, while open source Hive3 uses Bucketing version 2\. This bucketing version difference between Hive 2 \(EMR 5\.x\) and Hive 3 \(EMR 6\.x\) means Hive bucketing hashing functions differently\. See the example below\.
+  EMR 5\.x uses OOS Apache Hive 2, while in EMR 6\.x uses OOS Apache Hive 3\. The open source Hive2 uses Bucketing version 1, while open source Hive3 uses Bucketing version 2\. This bucketing version difference between Hive 2 \(EMR 5\.x\) and Hive 3 \(EMR 6\.x\) means Hive bucketing hashing functions differently\. See the example below\.
 
   The following table is an example created in EMR 6\.x and EMR 5\.x, respectively\.
 
@@ -104,43 +155,86 @@ Last updated date: Jan 08, 2021
   ...
   ```
 
-## Release 5\.32\.0 \(Latest version of Amazon EMR 5\.x series\)<a name="emr-5320-whatsnew"></a>
+## Release 5\.33\.0 \(Latest version of Amazon EMR 5\.x series\)<a name="emr-5330-whatsnew"></a>
 
 New Amazon EMR release versions are made available in different regions over a period of several days, beginning with the first region on the initial release date\. The latest release version may not be available in your region during this period\.
 
-The following release notes include information for Amazon EMR release version 5\.32\.0\. Changes are relative to 5\.31\.0\.
+The following release notes include information for Amazon EMR release version 5\.33\.0\. Changes are relative to 5\.32\.0\.
 
-Initial release date: Jan 8, 2021
+Initial release date: Apr 19, 2021
 
 **Upgrades**
-+ Upgraded Amazon Glue connector to version 1\.14\.0
-+ Upgraded Amazon SageMaker Spark SDK to version 1\.4\.1
-+ Upgraded AWS Java SDK to version 1\.11\.890
-+ Upgraded EMR DynamoDB Connector version 4\.16\.0
-+ Upgraded EMRFS to version 2\.45\.0
-+ Upgraded EMR Log Analytics Metrics to version 1\.18\.0
-+ Upgraded EMR MetricsAndEventsApiGateway Client to version 1\.5\.0
-+ Upgraded EMR Record Server to version 1\.8\.0
-+ Upgraded EMR S3 Dist CP to version 2\.17\.0
-+ Upgraded EMR Secret Agent to version 1\.7\.0
-+ Upgraded Flink to version 1\.11\.2
-+ Upgraded Hadoop to version 2\.10\.1\-amzn\-0
-+ Upgraded Hive to version 2\.3\.7\-amzn\-3
-+ Upgraded Hue to version 4\.8\.0
-+ Upgraded Mxnet to version 1\.7\.0
-+ Upgraded OpenCV to version 4\.4\.0
-+ Upgraded Presto to version 0\.240\.1\-amzn\-0
-+ Upgraded Spark to version 2\.4\.7\-amzn\-0
-+ Upgraded TensorFlow to version 2\.3\.1
++ Upgraded Amazon Glue connector to version 1\.15\.0
++ Upgraded AWS Java SDK to version 1\.11\.970
++ Upgraded EMRFS to version 2\.46\.0
++ Upgraded EMR Goodies to version 2\.14\.0
++ Upgraded EMR Record Server to version 1\.9\.0
++ Upgraded EMR S3 Dist CP to version 2\.18\.0
++ Upgraded EMR Secret Agent to version 1\.8\.0
++ Upgraded Flink to version 1\.12\.1
++ Upgraded Hadoop to version 2\.10\.1\-amzn\-1
++ Upgraded Hive to version 2\.3\.7\-amzn\-4
++ Upgraded Hudi to version 0\.7\.0
++ Upgraded Hue to version 4\.9\.0
++ Upgraded OpenCV to version 4\.5\.0
++ Upgraded Presto to version 0\.245\.1\-amzn\-0
++ Upgraded R to version 4\.0\.2
++ Upgraded Spark to version 2\.4\.7\-amzn\-1
++ Upgraded TensorFlow to version 2\.4\.1
++ Upgraded Zeppelin to version 0\.9\.0
 
 **Changes, Enhancements, and Resolved Issues**
 + Upgraded component versions\.
 + For a list of component versions, see [About Amazon EMR Releases](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html) in this guide\.
 
 **New Features**
-+ Beginning with Amazon EMR 5\.32\.0, you can launch a cluster that natively integrates with Apache Ranger\. Apache Ranger is an open\-source framework to enable, monitor, and manage comprehensive data security across the Hadoop platform\. For more information, see [Apache Ranger](https://ranger.apache.org/)\. With native integration, you can bring your own Apache Ranger to enforce fine\-grained data access control on Amazon EMR\. See [Integrate Amazon EMR with Apache Ranger](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-ranger.html) in the *Amazon EMR Release Guide*\.
-+ Amazon EMR Release 5\.32\.0 supports Amazon EMR on EKS\. For more details on getting started with EMR on EKS, see [What is Amazon EMR on EKS](https://docs.aws.amazon.com/emr/latest/EMR-on-EKS-DevelopmentGuide/emr-eks.html)\.
-+ Amazon EMR Release 5\.32\.0 supports Amazon EMR Studio \(Preview\)\. For more details on getting started with EMR Studio, see [Amazon EMR Studio \(Preview\)](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-studio.html)\.
++ Amazon EMR\-5\.33 supports new Amazon EC2 instance types: c5a, c5ad, c6gn, c6gd, m6gd, d3, d3en, m5zn, r5b, r6gd\. See [Supported Instance Types](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-supported-instance-types.html)\.
 
 **Known Issues**
++ **Lower "Max open files" limit on older AL2\.** Amazon EMR releases: emr\-5\.30\.x, emr\-5\.31\.0, emr\-5\.32\.0, emr\-6\.0\.0, emr\-6\.1\.0, and emr\-6\.2\.0 are based on older versions of Amazon Linux 2 \(AL2\), which have a lower ulimit setting for “Max open files” when EMR clusters are created with the default AMI\. The lower open file limit causes a "Too many open files" error when submitting Spark job\. In the impacted EMR releases, the Amazon EMR default AMI has a default ulimit setting of 4096 for "Max open files," which is lower than the 65536 file limit in the latest Amazon Linux 2 AMI\. The lower ulimit setting for "Max open files" causes Spark job failure when the Spark driver and executor try to open more than 4096 files\. To fix the issue, Amazon EMR has a bootstrap action \(BA\) script that adjusts the ulimit setting at cluster creation\. Amazon EMR releases 6\.3\.0 and 5\.33\.0 will include a permanent fix with a higher "Max open files" setting\.
+
+  The following workaround for this issue lets you to explicitly set the instance\-controller ulimit to a maximum of 65536 files\.
+
+**Explicitly set a ulimit from the command line**
+
+  1. Edit `/etc/systemd/system/instance-controller.service` to add the following parameters to Service section\.
+
+     `LimitNOFILE=65536`
+
+     `LimitNPROC=65536`
+
+  1. Restart InstanceController
+
+     `$ sudo systemctl daemon-reload`
+
+     `$ sudo systemctl restart instance-controller`
+
+  **Set a ulimit using bootstrap action \(BA\)**
+
+  You can also use a bootstrap action \(BA\) script to configure the instance\-controller ulimit to 65536 files at cluster creation\.
+
+  ```
+  #!/bin/bash
+  for user in hadoop spark hive; do
+  sudo tee /etc/security/limits.d/$user.conf << EOF
+  $user - nofile 65536
+  $user - nproc 65536
+  EOF
+  done
+  for proc in instancecontroller logpusher; do
+  sudo mkdir -p /etc/systemd/system/$proc.service.d/
+  sudo tee /etc/systemd/system/$proc.service.d/override.conf << EOF
+  [Service]
+  LimitNOFILE=65536
+  LimitNPROC=65536
+  EOF
+  pid=$(pgrep -f aws157.$proc.Main)
+  sudo prlimit --pid $pid --nofile=65535:65535 --nproc=65535:65535
+  done
+  sudo systemctl daemon-reload
+  ```
++ 
+**Important**  
+Amazon EMR clusters that are running Amazon Linux or Amazon Linux 2 AMIs \(Amazon Linux Machine Images\) use default Amazon Linux behavior, and do not automatically download and install important and critical kernel updates that require a reboot\. This is the same behavior as other Amazon EC2 instances running the default Amazon Linux AMI\. If new Amazon Linux software updates that require a reboot \(such as, kernel, NVIDIA, and CUDA updates\) become available after an EMR version is released, EMR cluster instances running the default AMI do not automatically download and install those updates\. To get kernel updates, you can [customize your Amazon EMR AMI](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-custom-ami.html) to [use the latest Amazon Linux AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html)\.
 + Console support to create a security configuration that specifies the AWS Ranger integration option is currently not supported in the GovCloud region\. Security configuration can be done using the CLI\. See [Create the EMR Security Configuration](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-ranger-security-config.html) in the *Amazon EMR Management Guide*\.
++ Scoped managed policies: To align with AWS best practices, Amazon EMR has introduced v2 EMR\-scoped default managed policies as replacements for policies that will be deprecated\. See [Amazon EMR Managed Policies](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-iam-policies.html)\.

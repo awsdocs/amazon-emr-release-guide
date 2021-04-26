@@ -38,7 +38,7 @@ The following `RunJobFlowRequest` call uses a release label instead:
 ```
 RunJobFlowRequest request = new RunJobFlowRequest()
 			.withName("ReleaseLabel Cluster")
-			.withReleaseLabel("emr-5.32.0")
+			.withReleaseLabel("emr-5.33.0")
 			.withInstances(new JobFlowInstancesConfig()
 				.withEc2KeyName("myKeyPair")
 				.withInstanceCount(1)

@@ -49,7 +49,7 @@ When you launch a cluster using the AWS CLI, use the `--applications` parameter 
   + 
 
     ```
-    aws emr create-cluster --name "Test cluster" --release-label emr-5.32.0 --applications Name=Pig \
+    aws emr create-cluster --name "Test cluster" --release-label emr-5.33.0 --applications Name=Pig \
     --use-default-roles --ec2-attributes KeyName=myKey --instance-type m5.xlarge --instance-count 3 \
     --steps Type=PIG,Name="Pig Program",ActionOnFailure=CONTINUE,Args=[-f,s3://elasticmapreduce/samples/pig-apache/do-reports2.pig,-p,INPUT=s3://elasticmapreduce/samples/pig-apache/input,-p,OUTPUT=s3://mybucket/pig-apache/output]
     ```

@@ -3,6 +3,13 @@
 The following tables list the version of Hadoop included in each release version of Amazon EMR, along with the components installed with the application\. For component versions in each release, see the Component Version section for your release in [Amazon EMR 5\.x Release Versions](emr-release-5x.md) or [Amazon EMR 4\.x Release Versions](emr-release-4x.md)\.
 
 
+**Hadoop Version Information for emr\-5\.32\.0**  
+
+| Amazon EMR Release Label | Hadoop Version | Components Installed With Hadoop | 
+| --- | --- | --- | 
+| emr\-5\.32\.0 | Hadoop 2\.10\.1 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-mapred, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server | 
+
+
 **Hadoop Version Information for emr\-6\.2\.0**  
 
 | Amazon EMR Release Label | Hadoop Version | Components Installed With Hadoop | 

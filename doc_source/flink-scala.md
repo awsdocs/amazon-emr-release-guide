@@ -1,6 +1,6 @@
 # Using the Scala Shell<a name="flink-scala"></a>
 
-Currently, the Flink Scala shell for EMR clusters is only configured to start new YARN sessions\. You can use the Scala shell by following the procedure below\.
+Currently, the Flink Scala Shell for EMR clusters is only configured to start new YARN sessions\. You can use the Scala Shell by following the procedure below\.
 
 **Using the Flink Scala shell on the master node**
 
@@ -8,7 +8,7 @@ Currently, the Flink Scala shell for EMR clusters is only configured to start ne
 
 1. Type the following to start a shell:
 
-   In Amazon EMR version 5\.5\.0 and later, you can use:
+   In Amazon EMR version 5\.5\.0 and later, you can use the following command to start a Yarn cluster for the Scala Shell with one TaskManager\.
 
    ```
    % flink-scala-shell yarn -n 1
@@ -21,3 +21,5 @@ Currently, the Flink Scala shell for EMR clusters is only configured to start ne
    ```
 
    This starts the Flink Scala shell so you can interactively use Flink\. Just as with other interfaces and options, you can scale the `-n` option value used in the example based on the number of tasks you want to run from the shell\.
+
+   For more information, see [Scala REPL](https://ci.apache.org/projects/flink/flink-docs-release-1.10/ops/scala_shell.html) in the official Apache Flink documentation\.

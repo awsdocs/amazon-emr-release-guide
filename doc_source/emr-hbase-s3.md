@@ -14,9 +14,6 @@ The following illustration shows the HBase components relevant to HBase on Amazo
 
 You can enable HBase on Amazon S3 using the Amazon EMR console, the AWS CLI, or the Amazon EMR API\. The configuration is an option during cluster creation\. When you use the console, you choose the setting using **Advanced options**\. When you use the AWS CLI, use the `--configurations ` option to provide a JSON configuration object\. Properties of the configuration object specify the storage mode and the root directory location in Amazon S3\. The Amazon S3 location that you specify should be in the same region as your Amazon EMR cluster\. Only one active cluster at a time can use the same HBase root directory in Amazon S3\. For console steps and a detailed create\-cluster example using the AWS CLI, see [Creating a Cluster with HBase](emr-hbase-create.md)\. An example configuration object is shown in the following JSON snippet\. 
 
-**Important**  
-We strongly recommend that you use EMRFS consistent view when you enable HBase on Amazon S3 for production workloads\. Not using consistent view may result in performance impacts for specific operations\. For more information about configuring consistent view, see [Consistent View](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-consistent-view.html) in the *Amazon EMR Management Guide*\.
-
 ```
 {
   "Classification": "hbase-site",
@@ -30,6 +27,9 @@ We strongly recommend that you use EMRFS consistent view when you enable HBase o
   }
 }
 ```
+
+**Note**  
+If you use an Amazon S3 bucket as the `rootdir` for HBase, you must add a slash at the end of the Amazon S3 URI\. For example, you must use `"hbase.rootdir: s3://my-bucket/"`, instead of `"hbase.rootdir: s3://my-bucket"`, to avoid issues\. 
 
 ## Using a Read\-Replica Cluster<a name="emr-hbase-s3-read-replica"></a>
 
@@ -54,7 +54,7 @@ For example, given the JSON classification for the primary cluster as shown earl
 }
 ```
 
-### Synchronizing the Read Replica When You Add Data<a name="w77aac25c29c13c10"></a>
+### Synchronizing the Read Replica When You Add Data<a name="w128aac25c29c13c10"></a>
 
 Because the read\-replica uses HBase StoreFiles and metadata that the primary cluster writes to Amazon S3, the read\-replica is only as current as the Amazon S3 data store\. The following guidance can help minimize the lag time between the primary cluster and the read\-replica when you write data\.
 + Bulk load data on the primary cluster whenever possible\. For more information, see [Bulk Loading](http://hbase.apache.org/0.94/book/arch.bulk.load.html) in Apache HBase documentation\.

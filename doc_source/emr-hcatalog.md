@@ -17,14 +17,14 @@ For the version of components installed with HCatalog in this release, see [Rele
 
 The following table lists the version of HCatalog included in the latest release of Amazon EMR 5\.x series, along with the components that Amazon EMR installs with HCatalog\.
 
-For the version of components installed with HCatalog in this release, see [Release 5\.32\.0 Component Versions](emr-release-5x.md#emr-5320-release)\.
+For the version of components installed with HCatalog in this release, see [Release 5\.33\.0 Component Versions](emr-release-5x.md#emr-5330-release)\.
 
 
-**HCatalog Version Information for emr\-5\.32\.0**  
+**HCatalog Version Information for emr\-5\.33\.0**  
 
 | Amazon EMR Release Label | HCatalog Version | Components Installed With HCatalog | 
 | --- | --- | --- | 
-| emr\-5\.32\.0 | HCatalog 2\.3\.7 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hcatalog\-client, hcatalog\-server, hcatalog\-webhcat\-server, hive\-client, mariadb\-server | 
+| emr\-5\.33\.0 | HCatalog 2\.3\.7 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hcatalog\-client, hcatalog\-server, hcatalog\-webhcat\-server, hive\-client, mariadb\-server | 
 
 **Topics**
 + [Creating a Cluster with HCatalog](emr-hcatalog-create-cluster.md)

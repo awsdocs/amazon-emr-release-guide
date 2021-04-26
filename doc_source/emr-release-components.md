@@ -4,7 +4,7 @@ An Amazon EMR release is a set of open\-source applications from the big\-data e
 
 For more information about getting started and working with Amazon EMR, see the [Amazon EMR Management Guide](https://docs.aws.amazon.com/emr/latest/ManagementGuide/)\.
 
-When you launch a cluster, you can choose from multiple release versions of Amazon EMR\. This allows you to test and use application versions that fit your compatibility requirements\. You specify the release version using the *release label*\. Release labels are in the form `emr-x.x.x. For example, emr-5.32.0.`
+When you launch a cluster, you can choose from multiple release versions of Amazon EMR\. This allows you to test and use application versions that fit your compatibility requirements\. You specify the release version using the *release label*\. Release labels are in the form `emr-x.x.x. For example, emr-5.33.0.`
 
 Beginning with Amazon EMR 5\.18\.0, you can use the Amazon EMR artifact repository to build your job code against the exact versions of libraries and dependencies that are available with specific Amazon EMR release versions\. For more information, see [Checking Dependencies Using the Amazon EMR Artifact Repository](emr-artifact-repository.md)\.
 
@@ -12,7 +12,7 @@ Subscribe to the RSS feed for Amazon EMR release notes at [https://docs.aws.amaz
 
 **Latest release** details, including application versions, release notes, components, and configuration classifications of Amazon EMR 6\.x series and 5\.x series:
 + [Amazon EMR Release 6\.2\.0](emr-release-6x.md#emr-620-release)
-+ [Amazon EMR Release 5\.32\.0](emr-release-5x.md#emr-5320-release)
++ [Amazon EMR Release 5\.33\.0](emr-release-5x.md#emr-5330-release)
 
 **Note**  
 New Amazon EMR release versions are made available in different regions over a period of several days, beginning with the first region on the initial release date\. The latest release version may not be available in your region during this period\.

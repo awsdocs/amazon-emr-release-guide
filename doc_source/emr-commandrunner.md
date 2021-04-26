@@ -25,5 +25,5 @@ Run the Hadoop LZO indexer on a directory\.
 The following is an example usage of `command-runner.jar` using the AWS CLI:
 
 ```
-aws emr add-steps --cluster-id j-2AXXXXXXGAPLF --steps Name="Command Runner",Jar="command-runner.jar",Args=["spark-submit","Args..."]
+aws emr add-steps --cluster-id j-2AXXXXXXGAPLF --steps Name="Command runner jar step",Jar=command-runner.jar,Args=[spark-submit,<additional-args>]
 ```

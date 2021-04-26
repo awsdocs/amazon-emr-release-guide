@@ -20,7 +20,7 @@ You may want to configure Flink using a configuration file\. For example, the ma
 1. Next, create a cluster with the following configuration:
 
    ```
-   aws emr create-cluster --release-label emr-5.32.0 \
+   aws emr create-cluster --release-label emr-5.33.0 \
    --applications Name=Flink \
    --configurations file://./configurations.json \
    --region us-east-1 \
@@ -32,7 +32,7 @@ You may want to configure Flink using a configuration file\. For example, the ma
    ```
 
 **Note**  
-It is also possible to change some configurations using the Flink API\. For more information, see [https://ci.apache.org/projects/flink/flink-docs-master/dev/api_concepts.html](https://ci.apache.org/projects/flink/flink-docs-master/dev/api_concepts.html) in the Flink documentation\.  
+It is also possible to change some configurations using the Flink API\. For more information, see [https://ci.apache.org/projects/flink/flink-docs-release-1.12/concepts/index.html](https://ci.apache.org/projects/flink/flink-docs-release-1.12/concepts/index.html) in the Flink documentation\.  
 With Amazon EMR version 5\.21\.0 and later, you can override cluster configurations and specify additional configuration classifications for each instance group in a running cluster\. You do this by using the Amazon EMR console, the AWS Command Line Interface \(AWS CLI\), or the AWS SDK\. For more information, see [Supplying a Configuration for an Instance Group in a Running Cluster](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps-running-cluster.html)\.
 
 ## Parallelism Options<a name="flink-parallelism"></a>
@@ -44,7 +44,7 @@ As the owner of your application, you know best what resources should be assigne
 Currently, the files that are configurable within the Amazon EMR configuration API are:
 + `flink-conf.yaml`
 + `log4j.properties`
-+ `log4j-yarn-session.properties`
++ `flink-log4j-session`
 + `log4j-cli.properties`
 
 ## Configuring Flink on an EMR Cluster with Multiple Master Nodes<a name="flink-multi-master"></a>

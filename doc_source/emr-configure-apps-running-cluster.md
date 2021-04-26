@@ -220,3 +220,4 @@ When supplying configurations for instance groups in a running cluster, consider
 + Amazon EMR supports application reconfiguration requests on an EMR cluster with multiple master nodes only in Amazon EMR version 5\.27\.0 and later\.
 + Reconfiguring `hdfs-encryption-zones` classification or any of the Hadoop KMS configuration classifications is not supported on EMR cluster with multiple master nodes\.
 + Amazon EMR currently doesn’t support certain reconfiguration requests for the capacity scheduler that requires restarting resource manager, such as completely removing a queue\.
++ When you supply a configuration through the console or a `ModifyInstanceGroup` request, Amazon EMR will reset any manually provided configuration to the cluster defaults for the specified instance group\.
