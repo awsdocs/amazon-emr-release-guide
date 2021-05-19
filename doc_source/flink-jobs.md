@@ -44,7 +44,7 @@ The `flink-yarn-session` command was added in Amazon EMR version 5\.5\.0 as a wr
 
 ## Submit Work to an Existing, Long\-Running Flink YARN Job<a name="flink-submit-work"></a>
 
-You can submit work using a command\-line option but you can also use Flink’s native interface proxied through the YARN ResourceManager\. To submit through an EMR step using the Flink CLI, specify the long\-running Flink cluster’s YARN application ID\. To do this, run `yarn application –list` on the EMR command line or through the [YarnClient](https://hadoop.apache.org/docs/current/api/org/apache/hadoop/yarn/client/api/YarnClient.html) API operation:
+You can submit work using a command\-line option but you can also use Flink’s native interface proxied through the YARN ResourceManager\. To submit through an EMR step using the Flink CLI, specify the long\-running Flink cluster’s YARN application ID\. To do this, run `yarn application -list` on the EMR command line or through the [YarnClient](https://hadoop.apache.org/docs/current/api/org/apache/hadoop/yarn/client/api/YarnClient.html) API operation:
 
 ```
 $ yarn application -list

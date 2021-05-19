@@ -213,7 +213,7 @@ The following release notes include information for Amazon EMR release version 4
 Initial release date: March 29, 2018
 
 **Changes, Enhancements, and Resolved Issues**
-+ Updated the Amazon Linux kernel of the default Amazon Linux AMI for Amazon EMR to address potential vulnerabilities\.
++ Updated the Amazon Linux kernel of the defaultAmazon Linux AMI for Amazon EMR to address potential vulnerabilities\.
 
 **Release 4\.9\.4 Component Versions**
 
@@ -381,7 +381,7 @@ The following release notes include information for the Amazon EMR 4\.9\.3 relea
 Initial release date: January 22, 2018
 
 **Changes, Enhancements, and Resolved Issues**
-+ Updated the Amazon Linux kernel of the default Amazon Linux AMI for Amazon EMR to address vulnerabilities associated with speculative execution \(CVE\-2017\-5715, CVE\-2017\-5753, and CVE\-2017\-5754\)\. For more information, see [https://aws.amazon.com/security/security-bulletins/AWS-2018-013/](https://aws.amazon.com/security/security-bulletins/AWS-2018-013/)\.
++ Updated the Amazon Linux kernel of the defaultAmazon Linux AMI for Amazon EMR to address vulnerabilities associated with speculative execution \(CVE\-2017\-5715, CVE\-2017\-5753, and CVE\-2017\-5754\)\. For more information, see [https://aws.amazon.com/security/security-bulletins/AWS-2018-013/](https://aws.amazon.com/security/security-bulletins/AWS-2018-013/)\.
 
 **Release 4\.9\.3 Component Versions**
 

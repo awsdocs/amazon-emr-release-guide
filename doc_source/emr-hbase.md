@@ -11,14 +11,14 @@ With HBase on Amazon EMR, you can also back up your HBase data directly to Amazo
 
 The following table lists the version of HBase included in the latest release of Amazon EMR 6\.x series, along with the components that Amazon EMR installs with HBase\.
 
-For the version of components installed with HBase in this release, see [Release 6\.2\.0 Component Versions](emr-release-6x.md#emr-620-release)\.
+For the version of components installed with HBase in this release, see [Release 6\.3\.0 Component Versions](emr-release-6x.md#emr-630-release)\.
 
 
-**HBase Version Information for emr\-6\.2\.0**  
+**HBase Version Information for emr\-6\.3\.0**  
 
 | Amazon EMR Release Label | HBase Version | Components Installed With HBase | 
 | --- | --- | --- | 
-| emr\-6\.2\.0 | HBase 2\.2\.6\-amzn\-0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-mapred, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hbase\-hmaster, hbase\-client, hbase\-region\-server, hbase\-rest\-server, hbase\-thrift\-server, zookeeper\-client, zookeeper\-server | 
+| emr\-6\.3\.0 | HBase 2\.2\.6 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-mapred, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hbase\-hmaster, hbase\-client, hbase\-region\-server, hbase\-rest\-server, hbase\-thrift\-server, zookeeper\-client, zookeeper\-server | 
 
 **Note**  
 Apache HBase HBCK2 is a separate operational tool for repairing HBase regions and system tables\. For more information about how to build and use the tool, see [HBase HBCK2](https://github.com/apache/hbase-operator-tools/tree/master/hbase-hbck2)\. 

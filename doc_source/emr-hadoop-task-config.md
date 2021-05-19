@@ -81,6 +81,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 + [r5a Instances](#emr-hadoop-task-config-r5a)
 + [r5b Instances](#emr-hadoop-task-config-r5b)
 + [r5d Instances](#emr-hadoop-task-config-r5d)
++ [r5dn Instances](#emr-hadoop-task-config-r5dn)
 + [r6g Instances](#emr-hadoop-task-config-r6g)
 + [r6gd Instances](#emr-hadoop-task-config-r6gd)
 + [z1d Instances](#emr-hadoop-task-config-z1d)
@@ -2961,6 +2962,106 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 | yarn\.scheduler\.minimum\-allocation\-mb | 32 | 
 | yarn\.scheduler\.maximum\-allocation\-mb | 778240 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 778240 | 
+
+### r5dn Instances<a name="emr-hadoop-task-config-r5dn"></a>
+
+
+**r5dn\.xlarge**  
+
+| Configuration Option | Default Value | 
+| --- | --- | 
+| mapreduce\.map\.java\.opts | \-Xmx4685m | 
+| mapreduce\.reduce\.java\.opts | \-Xmx9370m | 
+| mapreduce\.map\.memory\.mb | 5856 | 
+| mapreduce\.reduce\.memory\.mb | 11712 | 
+| yarn\.app\.mapreduce\.am\.resource\.mb | 11712 | 
+| yarn\.scheduler\.minimum\-allocation\-mb | 32 | 
+| yarn\.scheduler\.maximum\-allocation\-mb | 23424 | 
+| yarn\.nodemanager\.resource\.memory\-mb | 23424 | 
+
+
+**r5dn\.2xlarge**  
+
+| Configuration Option | Default Value | 
+| --- | --- | 
+| mapreduce\.map\.java\.opts | \-Xmx5427m | 
+| mapreduce\.reduce\.java\.opts | \-Xmx10854m | 
+| mapreduce\.map\.memory\.mb | 6784 | 
+| mapreduce\.reduce\.memory\.mb | 13568 | 
+| yarn\.app\.mapreduce\.am\.resource\.mb | 13568 | 
+| yarn\.scheduler\.minimum\-allocation\-mb | 32 | 
+| yarn\.scheduler\.maximum\-allocation\-mb | 54272 | 
+| yarn\.nodemanager\.resource\.memory\-mb | 54272 | 
+
+
+**r5dn\.4xlarge**  
+
+| Configuration Option | Default Value | 
+| --- | --- | 
+| mapreduce\.map\.java\.opts | \-Xmx5837m | 
+| mapreduce\.reduce\.java\.opts | \-Xmx11674m | 
+| mapreduce\.map\.memory\.mb | 14592 | 
+| mapreduce\.reduce\.memory\.mb | 13568 | 
+| yarn\.app\.mapreduce\.am\.resource\.mb | 14592 | 
+| yarn\.scheduler\.minimum\-allocation\-mb | 32 | 
+| yarn\.scheduler\.maximum\-allocation\-mb | 116736 | 
+| yarn\.nodemanager\.resource\.memory\-mb | 116736 | 
+
+
+**r5dn\.8xlarge**  
+
+| Configuration Option | Default Value | 
+| --- | --- | 
+| mapreduce\.map\.java\.opts | \-Xmx6042m | 
+| mapreduce\.reduce\.java\.opts | \-Xmx12084m | 
+| mapreduce\.map\.memory\.mb | 7552 | 
+| mapreduce\.reduce\.memory\.mb | 15104 | 
+| yarn\.app\.mapreduce\.am\.resource\.mb | 15104 | 
+| yarn\.scheduler\.minimum\-allocation\-mb | 32 | 
+| yarn\.scheduler\.maximum\-allocation\-mb | 241664 | 
+| yarn\.nodemanager\.resource\.memory\-mb | 241664 | 
+
+
+**r5dn\.12xlarge**  
+
+| Configuration Option | Default Value | 
+| --- | --- | 
+| mapreduce\.map\.java\.opts | \-Xmx6042m | 
+| mapreduce\.reduce\.java\.opts | \-Xmx12220m | 
+| mapreduce\.map\.memory\.mb | 7637 | 
+| mapreduce\.reduce\.memory\.mb | 15274 | 
+| yarn\.app\.mapreduce\.am\.resource\.mb | 15274 | 
+| yarn\.scheduler\.minimum\-allocation\-mb | 32 | 
+| yarn\.scheduler\.maximum\-allocation\-mb | 366592 | 
+| yarn\.nodemanager\.resource\.memory\-mb | 366592 | 
+
+
+**r5dn\.16xlarge**  
+
+| Configuration Option | Default Value | 
+| --- | --- | 
+| mapreduce\.map\.java\.opts | \-Xmx6144m | 
+| mapreduce\.reduce\.java\.opts | \-Xmx12288m | 
+| mapreduce\.map\.memory\.mb | 7680 | 
+| mapreduce\.reduce\.memory\.mb | 15360 | 
+| yarn\.app\.mapreduce\.am\.resource\.mb | 15360 | 
+| yarn\.scheduler\.minimum\-allocation\-mb | 32 | 
+| yarn\.scheduler\.maximum\-allocation\-mb | 491520 | 
+| yarn\.nodemanager\.resource\.memory\-mb | 491520 | 
+
+
+**r5dn\.24xlarge**  
+
+| Configuration Option | Default Value | 
+| --- | --- | 
+| mapreduce\.map\.java\.opts | \-Xmx6178m | 
+| mapreduce\.reduce\.java\.opts | \-Xmx12356m | 
+| mapreduce\.map\.memory\.mb | 7723 | 
+| mapreduce\.reduce\.memory\.mb | 15446 | 
+| yarn\.app\.mapreduce\.am\.resource\.mb | 15446 | 
+| yarn\.scheduler\.minimum\-allocation\-mb | 32 | 
+| yarn\.scheduler\.maximum\-allocation\-mb | 741376 | 
+| yarn\.nodemanager\.resource\.memory\-mb | 741376 | 
 
 ### r6g Instances<a name="emr-hadoop-task-config-r6g"></a>
 

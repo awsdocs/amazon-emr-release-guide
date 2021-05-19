@@ -11,7 +11,7 @@ Beginning with Amazon EMR 5\.18\.0, you can use the Amazon EMR artifact reposito
 Subscribe to the RSS feed for Amazon EMR release notes at [https://docs.aws.amazon.com/emr/latest/ReleaseGuide/amazon-emr-release-notes.rss](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/amazon-emr-release-notes.rss) to receive updates when a new Amazon EMR release version is available\.
 
 **Latest release** details, including application versions, release notes, components, and configuration classifications of Amazon EMR 6\.x series and 5\.x series:
-+ [Amazon EMR Release 6\.2\.0](emr-release-6x.md#emr-620-release)
++ [Amazon EMR Release 6\.3\.0](emr-release-6x.md#emr-630-release)
 + [Amazon EMR Release 5\.33\.0](emr-release-5x.md#emr-5330-release)
 
 **Note**  

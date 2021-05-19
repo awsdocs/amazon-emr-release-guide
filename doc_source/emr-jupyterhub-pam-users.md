@@ -34,7 +34,7 @@ You can use the **Admin** panel in JupyterHub or the REST API to add users and a
 1. Use the following command, replacing *UserName* with an operating system user that has been created within the container\.
 
    ```
-   curl -XPOST -H "Authorization: token AdminToken" "https:$(hostname):9443/hub/api/users/UserName
+   curl -XPOST -H "Authorization: token AdminToken" "https://$(hostname):9443/hub/api/users/UserName
    ```
 
 ## Example: Bash Script to Add Multiple Users<a name="emr-jupyterhub-script-multuser"></a>

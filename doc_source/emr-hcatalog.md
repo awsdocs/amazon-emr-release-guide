@@ -6,14 +6,14 @@ HCatalog on Amazon EMR release version 5\.8\.0 and later supports using AWS Glue
 
 The following table lists the version of HCatalog included in the latest release of Amazon EMR 6\.x series, along with the components that Amazon EMR installs with HCatalog\.
 
-For the version of components installed with HCatalog in this release, see [Release 6\.2\.0 Component Versions](emr-release-6x.md#emr-620-release)\.
+For the version of components installed with HCatalog in this release, see [Release 6\.3\.0 Component Versions](emr-release-6x.md#emr-630-release)\.
 
 
-**HCatalog Version Information for emr\-6\.2\.0**  
+**HCatalog Version Information for emr\-6\.3\.0**  
 
 | Amazon EMR Release Label | HCatalog Version | Components Installed With HCatalog | 
 | --- | --- | --- | 
-| emr\-6\.2\.0 | HCatalog 3\.1\.2 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hcatalog\-client, hcatalog\-server, hcatalog\-webhcat\-server, hive\-client, mariadb\-server | 
+| emr\-6\.3\.0 | HCatalog 3\.1\.2 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hcatalog\-client, hcatalog\-server, hcatalog\-webhcat\-server, hive\-client, mariadb\-server | 
 
 The following table lists the version of HCatalog included in the latest release of Amazon EMR 5\.x series, along with the components that Amazon EMR installs with HCatalog\.
 
