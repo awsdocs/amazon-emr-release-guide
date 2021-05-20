@@ -30,7 +30,7 @@ aws emr create-cluster --release-label emr-5.33.0 --instance-type m5.xlarge \
 --use-default-roles
 ```
 
-You can change default values listed below using the `mapred-site` configuration classification in the same way, and set multiple values and multiple configuration classifications using a single JSON file\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+You can change default values listed below using the `mapred-site` configuration classification in the same way, and set multiple values and multiple configuration classifications using a single JSON file\. For more information, see [Configure Applications](emr-configure-apps.md)\.
 
 With Amazon EMR version 5\.21\.0 and later, you can override cluster configurations and specify additional configuration classifications for each instance group in a running cluster\. You do this by using the Amazon EMR console, the AWS Command Line Interface \(AWS CLI\), or the AWS SDK\. For more information, see [Supplying a Configuration for an Instance Group in a Running Cluster](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps-running-cluster.html)\.
 

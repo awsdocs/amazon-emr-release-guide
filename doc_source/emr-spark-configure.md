@@ -1,6 +1,6 @@
 # Configure Spark<a name="emr-spark-configure"></a>
 
-You can configure [Spark on Amazon EMR](https://aws.amazon.com/elasticmapreduce/details/spark/) using configuration classifications\. For more information about using configuration classifications, see [Configuring Applications](emr-configure-apps.md)\.
+You can configure [Spark on Amazon EMR](https://aws.amazon.com/elasticmapreduce/details/spark/) using configuration classifications\. For more information about using configuration classifications, see [Configure Applications](emr-configure-apps.md)\.
 
 Configuration classifications for Spark on Amazon EMR include the following:
 + `spark`—Sets the `maximizeResourceAllocation` property to true or false\. When true, Amazon EMR automatically configures `spark-defaults` properties based on cluster hardware configuration\. For more information, see [Using maximizeResourceAllocation](#emr-spark-maximizeresourceallocation)\.

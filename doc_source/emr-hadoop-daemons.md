@@ -2,7 +2,7 @@
 
 Hadoop daemon settings are different depending on the EC2 instance type that a cluster node uses\. The following tables list the default configuration settings for each EC2 instance type\.
 
-To customize these settings, use the `hadoop-env` configuration classification\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+To customize these settings, use the `hadoop-env` configuration classification\. For more information, see [Configure Applications](emr-configure-apps.md)\.
 
 **Topics**
 + [c1 Instances](#emr-hadoop-daemons-c1)

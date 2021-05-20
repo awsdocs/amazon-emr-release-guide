@@ -110,7 +110,7 @@ For additional Spark configurations that you can use to tune a GPU\-accelerated 
 
 You can create a JSON file that contains your configuration for using the RAPIDS plugin for your Spark cluster\. You supply the file later when launching your cluster\.
 
-The file can be stored locally or on S3\. For more information of how to supply application configurations for your clusters, see [Configuring Applications](emr-configure-apps.md)\.
+The file can be stored locally or on S3\. For more information of how to supply application configurations for your clusters, see [Configure Applications](emr-configure-apps.md)\.
 
 The following is a sample file named `my-configurations.json`\. You can use it as a template to start building your own configurations\.
 

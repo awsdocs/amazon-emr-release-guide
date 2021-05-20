@@ -13,7 +13,7 @@ This configuration is only supported when calls from Sparkmagic to Livy are unau
 
 ## Step 1: Configure Livy<a name="Step1-UserImpersonation"></a>
 
-You use the `livy-conf` and `core-site` configuration classifications when you create a cluster to enable Livy user impersonation as shown in the following example\. Save the configuration classification as a JSON and then reference it when you create the cluster, or specify the configuration classification inline\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+You use the `livy-conf` and `core-site` configuration classifications when you create a cluster to enable Livy user impersonation as shown in the following example\. Save the configuration classification as a JSON and then reference it when you create the cluster, or specify the configuration classification inline\. For more information, see [Configure Applications](emr-configure-apps.md)\.
 
 ```
 [

@@ -108,7 +108,7 @@ Some components in Amazon EMR differ from community versions\. These components 
 
 **Release 4\.9\.5 Configuration Classifications**
 
-Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure Applications](emr-configure-apps.md)\.
 
 
 **emr\-4\.9\.5 Classifications**  
@@ -276,7 +276,7 @@ Some components in Amazon EMR differ from community versions\. These components 
 
 **Release 4\.9\.4 Configuration Classifications**
 
-Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure Applications](emr-configure-apps.md)\.
 
 
 **emr\-4\.9\.4 Classifications**  
@@ -444,7 +444,7 @@ Some components in Amazon EMR differ from community versions\. These components 
 
 **Release 4\.9\.3 Configuration Classifications**
 
-Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure Applications](emr-configure-apps.md)\.
 
 
 **emr\-4\.9\.3 Classifications**  
@@ -611,7 +611,7 @@ Some components in Amazon EMR differ from community versions\. These components 
 
 **Release 4\.9\.2 Configuration Classifications**
 
-Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure Applications](emr-configure-apps.md)\.
 
 
 **emr\-4\.9\.2 Classifications**  
@@ -784,7 +784,7 @@ Some components in Amazon EMR differ from community versions\. These components 
 
 **Release 4\.9\.1 Configuration Classifications**
 
-Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure Applications](emr-configure-apps.md)\.
 
 
 **emr\-4\.8\.5 Classifications**  
@@ -963,7 +963,7 @@ Some components in Amazon EMR differ from community versions\. These components 
 
 **Release 4\.8\.4 Configuration Classifications**
 
-Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure Applications](emr-configure-apps.md)\.
 
 
 **emr\-4\.8\.4 Classifications**  
@@ -1141,7 +1141,7 @@ Some components in Amazon EMR differ from community versions\. These components 
 
 **Release 4\.8\.3 Configuration Classifications**
 
-Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure Applications](emr-configure-apps.md)\.
 
 
 **emr\-4\.8\.3 Classifications**  
@@ -1311,7 +1311,7 @@ Some components in Amazon EMR differ from community versions\. These components 
 
 **Release 4\.8\.2 Configuration Classifications**
 
-Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure Applications](emr-configure-apps.md)\.
 
 
 **emr\-4\.8\.2 Classifications**  
@@ -1489,7 +1489,7 @@ Some components in Amazon EMR differ from community versions\. These components 
 
 **Release 4\.8\.0 Configuration Classifications**
 
-Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure Applications](emr-configure-apps.md)\.
 
 
 **emr\-4\.8\.0 Classifications**  
@@ -1678,7 +1678,7 @@ Some components in Amazon EMR differ from community versions\. These components 
 
 **Release 4\.7\.2 Configuration Classifications**
 
-Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure Applications](emr-configure-apps.md)\.
 
 
 **emr\-4\.7\.2 Classifications**  
@@ -1835,7 +1835,7 @@ Some components in Amazon EMR differ from community versions\. These components 
 
 **Release 4\.7\.1 Configuration Classifications**
 
-Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure Applications](emr-configure-apps.md)\.
 
 
 **emr\-4\.7\.1 Classifications**  
@@ -2015,7 +2015,7 @@ Some components in Amazon EMR differ from community versions\. These components 
 
 **Release 4\.7\.0 Configuration Classifications**
 
-Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure Applications](emr-configure-apps.md)\.
 
 
 **emr\-4\.7\.0 Classifications**  
@@ -2184,7 +2184,7 @@ Some components in Amazon EMR differ from community versions\. These components 
 
 **Release 4\.6\.0 Configuration Classifications**
 
-Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure Applications](emr-configure-apps.md)\.
 
 
 **emr\-4\.6\.0 Classifications**  
@@ -2333,7 +2333,7 @@ Some components in Amazon EMR differ from community versions\. These components 
 
 **Release 4\.5\.0 Configuration Classifications**
 
-Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure Applications](emr-configure-apps.md)\.
 
 
 **emr\-4\.5\.0 Classifications**  
@@ -2490,7 +2490,7 @@ Some components in Amazon EMR differ from community versions\. These components 
 
 **Release 4\.4\.0 Configuration Classifications**
 
-Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure Applications](emr-configure-apps.md)\.
 
 
 **emr\-4\.4\.0 Classifications**  
@@ -2641,7 +2641,7 @@ Some components in Amazon EMR differ from community versions\. These components 
 
 **Release 4\.3\.0 Configuration Classifications**
 
-Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure Applications](emr-configure-apps.md)\.
 
 
 **emr\-4\.3\.0 Classifications**  
@@ -2776,7 +2776,7 @@ Some components in Amazon EMR differ from community versions\. These components 
 
 **Release 4\.2\.0 Configuration Classifications**
 
-Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure Applications](emr-configure-apps.md)\.
 
 
 **emr\-4\.2\.0 Classifications**  
@@ -2888,7 +2888,7 @@ Some components in Amazon EMR differ from community versions\. These components 
 
 **Release 4\.1\.0 Configuration Classifications**
 
-Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure Applications](emr-configure-apps.md)\.
 
 
 **emr\-4\.1\.0 Classifications**  
@@ -2990,7 +2990,7 @@ Some components in Amazon EMR differ from community versions\. These components 
 
 **Release 4\.0\.0 Configuration Classifications**
 
-Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure Applications](emr-configure-apps.md)\.
 
 
 **emr\-4\.0\.0 Classifications**  

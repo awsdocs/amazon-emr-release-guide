@@ -19,7 +19,7 @@
       ```
       set session hive.parquet_use_column_names=true
       ```
-    + To set the value at the cluster level, use the `presto-connector-hive` configuration classification to set `hive.parquet.use_column_names` to `true`, as shown in the following example\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+    + To set the value at the cluster level, use the `presto-connector-hive` configuration classification to set `hive.parquet.use_column_names` to `true`, as shown in the following example\. For more information, see [Configure Applications](emr-configure-apps.md)\.
 
       ```
       [

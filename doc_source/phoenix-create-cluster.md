@@ -36,7 +36,7 @@ When creating a cluster, you configure Phoenix by setting values in `hbase-site.
 
 For more information, see [Configuration and Tuning](https://phoenix.apache.org/tuning.html) in the Phoenix documentation\.
 
-The following example demonstrates using a JSON file stored in Amazon S3 to specify the value of `false` for the `phoenix.schema.dropMetaData` property\. Multiple properties can be specified for a single classification\. For more information, see [Configuring Applications](emr-configure-apps.md)\. The `create-cluster` command then references the JSON file as the `--configurations` parameter\.
+The following example demonstrates using a JSON file stored in Amazon S3 to specify the value of `false` for the `phoenix.schema.dropMetaData` property\. Multiple properties can be specified for a single classification\. For more information, see [Configure Applications](emr-configure-apps.md)\. The `create-cluster` command then references the JSON file as the `--configurations` parameter\.
 
 The contents of the JSON file saved to /mybucket/myfolder/myconfig\.json is the following\.
 

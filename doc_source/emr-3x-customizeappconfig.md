@@ -1,6 +1,6 @@
 # Customizing Cluster and Application Configuration With Earlier AMI Versions of Amazon EMR<a name="emr-3x-customizeappconfig"></a>
 
-Amazon EMR release version 4\.0\.0 introduced a simplified method of configuring applications using configuration classifications\. For more information, see [Configuring Applications](emr-configure-apps.md)\. When using an AMI version, you configure applications using bootstrap actions along with arguments that you pass\. For example, the `configure-hadoop` and `configure-daemons` bootstrap actions set Hadoop and YARN–specific environment properties like `--namenode-heap-size`\. In more recent versions, these are configured using the `hadoop-env` and `yarn-env` configuration classifications\. For bootstrap actions that perform common configurations, see the [emr\-bootstrap\-actions repository on Github](https://github.com/awslabs/emr-bootstrap-actions)\.
+Amazon EMR release version 4\.0\.0 introduced a simplified method of configuring applications using configuration classifications\. For more information, see [Configure Applications](emr-configure-apps.md)\. When using an AMI version, you configure applications using bootstrap actions along with arguments that you pass\. For example, the `configure-hadoop` and `configure-daemons` bootstrap actions set Hadoop and YARN–specific environment properties like `--namenode-heap-size`\. In more recent versions, these are configured using the `hadoop-env` and `yarn-env` configuration classifications\. For bootstrap actions that perform common configurations, see the [emr\-bootstrap\-actions repository on Github](https://github.com/awslabs/emr-bootstrap-actions)\.
 
 The following tables map bootstrap actions to configuration classifications in more recent Amazon EMR release versions\.
 
@@ -37,7 +37,7 @@ The following tables map bootstrap actions to configuration classifications in m
 | emrfs\-site\.xml | configure\-hadoop \-e | emrfs\-site | 
 | n/a | s3get \-s s3://custom\-provider\.jar \-d /usr/share/aws/emr/auxlib/ | emrfs\-site \(with new setting fs\.s3\.cse\.encryptionMaterialsProvider\.uri\) | 
 
-For a list of all classifications, see [Configuring Applications](emr-configure-apps.md)\.
+For a list of all classifications, see [Configure Applications](emr-configure-apps.md)\.
 
 ## Application Environment Variables<a name="emr-3x-appenv"></a>
 

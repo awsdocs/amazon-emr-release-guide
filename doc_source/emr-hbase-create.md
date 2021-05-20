@@ -52,4 +52,4 @@ If you use HBase on Amazon S3, specify the `--configurations` option with a refe
 14. ]
 ```
 
-For more information about HBase on Amazon S3, see [HBase on Amazon S3 \(Amazon S3 Storage Mode\)](emr-hbase-s3.md)\. For more information about classifications, see [Configuring Applications](emr-configure-apps.md)\.
+For more information about HBase on Amazon S3, see [HBase on Amazon S3 \(Amazon S3 Storage Mode\)](emr-hbase-s3.md)\. For more information about classifications, see [Configure Applications](emr-configure-apps.md)\.

@@ -32,7 +32,7 @@ The option to use the Data Catalog is also available with HCatalog because Hive 
 
 **To specify the AWS Glue Data Catalog as the metastore using the configuration classification**
 
-For more information about specifying a configuration classification using the AWS CLI and EMR API, see [Configuring Applications](emr-configure-apps.md)\.
+For more information about specifying a configuration classification using the AWS CLI and EMR API, see [Configure Applications](emr-configure-apps.md)\.
 + Specify the value for `hive.metastore.client.factory.class` using the `hive-site` configuration classification as shown in the following example:
 
   ```

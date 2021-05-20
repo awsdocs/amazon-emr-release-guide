@@ -25,7 +25,7 @@ You can specify the AWS Glue Data Catalog as the metastore using the AWS Managem
 
 **To specify the AWS Glue Data Catalog as the default Hive metastore using the configuration classification**
 
-For examples of how to specify the following configuration classifications when you create a cluster, see [Configuring Applications](emr-configure-apps.md)\.
+For examples of how to specify the following configuration classifications when you create a cluster, see [Configure Applications](emr-configure-apps.md)\.
 
 **Amazon EMR 5\.16\.0 and later**
 + Set the `hive.metastore` property to `glue` as shown in the following JSON example\.

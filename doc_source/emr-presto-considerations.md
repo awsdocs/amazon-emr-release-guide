@@ -32,7 +32,7 @@ Using EMRFS has benefits\. You can use a security configuration to set up encryp
 **Note**  
 A configuration issue can cause Presto errors when querying underlying data in Amazon S3 with Amazon EMR release version 5\.12\.0\. This is because Presto fails to pick up configuration classification values from `emrfs-site.xml`\. As a workaround, create an `emrfs` subdirectory under `usr/lib/presto/plugin/hive-hadoop2/`, create a symlink in `usr/lib/presto/plugin/hive-hadoop2/emrfs` to the existing `/usr/share/aws/emr/emrfs/conf/emrfs-site.xml` file, and then restart the presto\-server process \(`sudo presto-server stop` followed by `sudo presto-server start`\)\.
 
-You can override the EMRFS default and use the PrestoS3FileSystem instead\. To do this, use the `presto-connector-hive` configuration classification to set `hive.s3-file-system-type` to `PRESTO` as shown in the following example\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+You can override the EMRFS default and use the PrestoS3FileSystem instead\. To do this, use the `presto-connector-hive` configuration classification to set `hive.s3-file-system-type` to `PRESTO` as shown in the following example\. For more information, see [Configure Applications](emr-configure-apps.md)\.
 
 ```
 [

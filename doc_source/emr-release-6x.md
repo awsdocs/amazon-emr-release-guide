@@ -222,139 +222,141 @@ Some components in Amazon EMR differ from community versions\. These components 
 
 **6\.3\.0 Configuration Classifications**
 
-Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure Applications](emr-configure-apps.md)\.
+
+Reconfiguration actions occur when you specify a configuration for instance groups in a running cluster\. EMR only initiates reconfiguration actions for the classifications that you modify\. For more information, see [Reconfigure an Instance Group in a Running Cluster](emr-configure-apps-running-cluster.md)\.
 
 
 **emr\-6\.3\.0 Classifications**  
 
-| Classifications | Description | 
-| --- | --- | 
-| capacity\-scheduler | Change values in Hadoop's capacity\-scheduler\.xml file\. | 
-| container\-executor | Change values in Hadoop YARN's container\-executor\.cfg file\. | 
-| container\-log4j | Change values in Hadoop YARN's container\-log4j\.properties file\. | 
-| core\-site | Change values in Hadoop's core\-site\.xml file\. | 
-| docker\-conf | Change docker related settings\. | 
-| emrfs\-site | Change EMRFS settings\. | 
-| flink\-conf | Change flink\-conf\.yaml settings\. | 
-| flink\-log4j | Change Flink log4j\.properties settings\. | 
-| flink\-log4j\-session | Change Flink log4j\-session\.properties settings for Kubernetes/Yarn session\. | 
-| flink\-log4j\-cli | Change Flink log4j\-cli\.properties settings\. | 
-| hadoop\-env | Change values in the Hadoop environment for all Hadoop components\. | 
-| hadoop\-log4j | Change values in Hadoop's log4j\.properties file\. | 
-| hadoop\-ssl\-server | Change hadoop ssl server configuration | 
-| hadoop\-ssl\-client | Change hadoop ssl client configuration | 
-| hbase | Amazon EMR\-curated settings for Apache HBase\. | 
-| hbase\-env | Change values in HBase's environment\. | 
-| hbase\-log4j | Change values in HBase's hbase\-log4j\.properties file\. | 
-| hbase\-metrics | Change values in HBase's hadoop\-metrics2\-hbase\.properties file\. | 
-| hbase\-policy | Change values in HBase's hbase\-policy\.xml file\. | 
-| hbase\-site | Change values in HBase's hbase\-site\.xml file\. | 
-| hdfs\-encryption\-zones | Configure HDFS encryption zones\. | 
-| hdfs\-env | Change values in the HDFS environment\. | 
-| hdfs\-site | Change values in HDFS's hdfs\-site\.xml\. | 
-| hcatalog\-env | Change values in HCatalog's environment\. | 
-| hcatalog\-server\-jndi | Change values in HCatalog's jndi\.properties\. | 
-| hcatalog\-server\-proto\-hive\-site | Change values in HCatalog's proto\-hive\-site\.xml\. | 
-| hcatalog\-webhcat\-env | Change values in HCatalog WebHCat's environment\. | 
-| hcatalog\-webhcat\-log4j2 | Change values in HCatalog WebHCat's log4j2\.properties\. | 
-| hcatalog\-webhcat\-site | Change values in HCatalog WebHCat's webhcat\-site\.xml file\. | 
-| hive | Amazon EMR\-curated settings for Apache Hive\. | 
-| hive\-beeline\-log4j2 | Change values in Hive's beeline\-log4j2\.properties file\. | 
-| hive\-parquet\-logging | Change values in Hive's parquet\-logging\.properties file\. | 
-| hive\-env | Change values in the Hive environment\. | 
-| hive\-exec\-log4j2 | Change values in Hive's hive\-exec\-log4j2\.properties file\. | 
-| hive\-llap\-daemon\-log4j2 | Change values in Hive's llap\-daemon\-log4j2\.properties file\. | 
-| hive\-log4j2 | Change values in Hive's hive\-log4j2\.properties file\. | 
-| hive\-site | Change values in Hive's hive\-site\.xml file | 
-| hiveserver2\-site | Change values in Hive Server2's hiveserver2\-site\.xml file | 
-| hue\-ini | Change values in Hue's ini file | 
-| httpfs\-env | Change values in the HTTPFS environment\. | 
-| httpfs\-site | Change values in Hadoop's httpfs\-site\.xml file\. | 
-| hadoop\-kms\-acls | Change values in Hadoop's kms\-acls\.xml file\. | 
-| hadoop\-kms\-env | Change values in the Hadoop KMS environment\. | 
-| hadoop\-kms\-log4j | Change values in Hadoop's kms\-log4j\.properties file\. | 
-| hadoop\-kms\-site | Change values in Hadoop's kms\-site\.xml file\. | 
-| hudi\-env | Change values in the Hudi environment\. | 
-| jupyter\-notebook\-conf | Change values in Jupyter Notebook's jupyter\_notebook\_config\.py file\. | 
-| jupyter\-hub\-conf | Change values in JupyterHubs's jupyterhub\_config\.py file\. | 
-| jupyter\-s3\-conf | Configure Jupyter Notebook S3 persistence\. | 
-| jupyter\-sparkmagic\-conf | Change values in Sparkmagic's config\.json file\. | 
-| livy\-conf | Change values in Livy's livy\.conf file\. | 
-| livy\-env | Change values in the Livy environment\. | 
-| livy\-log4j | Change Livy log4j\.properties settings\. | 
-| mapred\-env | Change values in the MapReduce application's environment\. | 
-| mapred\-site | Change values in the MapReduce application's mapred\-site\.xml file\. | 
-| oozie\-env | Change values in Oozie's environment\. | 
-| oozie\-log4j | Change values in Oozie's oozie\-log4j\.properties file\. | 
-| oozie\-site | Change values in Oozie's oozie\-site\.xml file\. | 
-| phoenix\-hbase\-metrics | Change values in Phoenix's hadoop\-metrics2\-hbase\.properties file\. | 
-| phoenix\-hbase\-site | Change values in Phoenix's hbase\-site\.xml file\. | 
-| phoenix\-log4j | Change values in Phoenix's log4j\.properties file\. | 
-| phoenix\-metrics | Change values in Phoenix's hadoop\-metrics2\-phoenix\.properties file\. | 
-| pig\-env | Change values in the Pig environment\. | 
-| pig\-properties | Change values in Pig's pig\.properties file\. | 
-| pig\-log4j | Change values in Pig's log4j\.properties file\. | 
-| presto\-log | Change values in Presto's log\.properties file\. | 
-| presto\-config | Change values in Presto's config\.properties file\. | 
-| presto\-password\-authenticator | Change values in Presto's password\-authenticator\.properties file\. | 
-| presto\-env | Change values in Presto's presto\-env\.sh file\. | 
-| presto\-node | Change values in Presto's node\.properties file\. | 
-| presto\-connector\-blackhole | Change values in Presto's blackhole\.properties file\. | 
-| presto\-connector\-cassandra | Change values in Presto's cassandra\.properties file\. | 
-| presto\-connector\-hive | Change values in Presto's hive\.properties file\. | 
-| presto\-connector\-jmx | Change values in Presto's jmx\.properties file\. | 
-| presto\-connector\-kafka | Change values in Presto's kafka\.properties file\. | 
-| presto\-connector\-localfile | Change values in Presto's localfile\.properties file\. | 
-| presto\-connector\-memory | Change values in Presto's memory\.properties file\. | 
-| presto\-connector\-mongodb | Change values in Presto's mongodb\.properties file\. | 
-| presto\-connector\-mysql | Change values in Presto's mysql\.properties file\. | 
-| presto\-connector\-postgresql | Change values in Presto's postgresql\.properties file\. | 
-| presto\-connector\-raptor | Change values in Presto's raptor\.properties file\. | 
-| presto\-connector\-redis | Change values in Presto's redis\.properties file\. | 
-| presto\-connector\-redshift | Change values in Presto's redshift\.properties file\. | 
-| presto\-connector\-tpch | Change values in Presto's tpch\.properties file\. | 
-| presto\-connector\-tpcds | Change values in Presto's tpcds\.properties file\. | 
-| prestosql\-log | Change values in Presto's log\.properties file\. | 
-| prestosql\-config | Change values in Presto's config\.properties file\. | 
-| prestosql\-password\-authenticator | Change values in Presto's password\-authenticator\.properties file\. | 
-| prestosql\-env | Change values in Presto's presto\-env\.sh file\. | 
-| prestosql\-node | Change values in PrestoSQL's node\.properties file\. | 
-| prestosql\-connector\-blackhole | Change values in PrestoSQL's blackhole\.properties file\. | 
-| prestosql\-connector\-cassandra | Change values in PrestoSQL's cassandra\.properties file\. | 
-| prestosql\-connector\-hive | Change values in PrestoSQL's hive\.properties file\. | 
-| prestosql\-connector\-jmx | Change values in PrestoSQL's jmx\.properties file\. | 
-| prestosql\-connector\-kafka | Change values in PrestoSQL's kafka\.properties file\. | 
-| prestosql\-connector\-localfile | Change values in PrestoSQL's localfile\.properties file\. | 
-| prestosql\-connector\-memory | Change values in PrestoSQL's memory\.properties file\. | 
-| prestosql\-connector\-mongodb | Change values in PrestoSQL's mongodb\.properties file\. | 
-| prestosql\-connector\-mysql | Change values in PrestoSQL's mysql\.properties file\. | 
-| prestosql\-connector\-postgresql | Change values in PrestoSQL's postgresql\.properties file\. | 
-| prestosql\-connector\-raptor | Change values in PrestoSQL's raptor\.properties file\. | 
-| prestosql\-connector\-redis | Change values in PrestoSQL's redis\.properties file\. | 
-| prestosql\-connector\-redshift | Change values in PrestoSQL's redshift\.properties file\. | 
-| prestosql\-connector\-tpch | Change values in PrestoSQL's tpch\.properties file\. | 
-| prestosql\-connector\-tpcds | Change values in PrestoSQL's tpcds\.properties file\. | 
-| ranger\-kms\-dbks\-site | Change values in dbks\-site\.xml file of Ranger KMS\. | 
-| ranger\-kms\-site | Change values in ranger\-kms\-site\.xml file of Ranger KMS\. | 
-| ranger\-kms\-env | Change values in the Ranger KMS environment\. | 
-| ranger\-kms\-log4j | Change values in kms\-log4j\.properties file of Ranger KMS\. | 
-| ranger\-kms\-db\-ca | Change values for CA file on S3 for MySQL SSL connection with Ranger KMS\. | 
-| spark | Amazon EMR\-curated settings for Apache Spark\. | 
-| spark\-defaults | Change values in Spark's spark\-defaults\.conf file\. | 
-| spark\-env | Change values in the Spark environment\. | 
-| spark\-hive\-site | Change values in Spark's hive\-site\.xml file | 
-| spark\-log4j | Change values in Spark's log4j\.properties file\. | 
-| spark\-metrics | Change values in Spark's metrics\.properties file\. | 
-| sqoop\-env | Change values in Sqoop's environment\. | 
-| sqoop\-oraoop\-site | Change values in Sqoop OraOop's oraoop\-site\.xml file\. | 
-| sqoop\-site | Change values in Sqoop's sqoop\-site\.xml file\. | 
-| tez\-site | Change values in Tez's tez\-site\.xml file\. | 
-| yarn\-env | Change values in the YARN environment\. | 
-| yarn\-site | Change values in YARN's yarn\-site\.xml file\. | 
-| zeppelin\-env | Change values in the Zeppelin environment\. | 
-| zeppelin\-site | Change configuration settings in zeppelin\-site\.xml\. | 
-| zookeeper\-config | Change values in ZooKeeper's zoo\.cfg file\. | 
-| zookeeper\-log4j | Change values in ZooKeeper's log4j\.properties file\. | 
+| Classifications | Description | Reconfiguration Actions | 
+| --- | --- | --- | 
+| capacity\-scheduler | Change values in Hadoop's capacity\-scheduler\.xml file\. | Restarts the ResourceManager service\. | 
+| container\-executor | Change values in Hadoop YARN's container\-executor\.cfg file\. | N/A | 
+| container\-log4j | Change values in Hadoop YARN's container\-log4j\.properties file\. | N/A | 
+| core\-site | Change values in Hadoop's core\-site\.xml file\. | Restarts the Hadoop HDFS services Namenode, SecondaryNamenode, Datanode, ZKFC, and Journalnode\. Restarts the Hadoop YARN services ResourceManager, NodeManager, ProxyServer, and TimelineServer\. Additionally restarts Hadoop KMS, Ranger KMS, HiveServer2, Hive MetaStore, Hadoop Httpfs, and MapReduce\-HistoryServer\. | 
+| docker\-conf | Change docker related settings\. | N/A | 
+| emrfs\-site | Change EMRFS settings\. | Restarts the Hadoop HDFS services Namenode, SecondaryNamenode, Datanode, ZKFC, and Journalnode\. Restarts the Hadoop YARN services ResourceManager, NodeManager, ProxyServer, and TimelineServer\. Additionally restarts HBaseRegionserver, HBaseMaster, HBaseThrift, HBaseRest, HiveServer2, Hive MetaStore, Hadoop Httpfs, and MapReduce\-HistoryServer\. | 
+| flink\-conf | Change flink\-conf\.yaml settings\. | Restarts Flink history server\. | 
+| flink\-log4j | Change Flink log4j\.properties settings\. | Restarts Flink history server\. | 
+| flink\-log4j\-session | Change Flink log4j\-session\.properties settings for Kubernetes/Yarn session\. | Restarts Flink history server\. | 
+| flink\-log4j\-cli | Change Flink log4j\-cli\.properties settings\. | Restarts Flink history server\. | 
+| hadoop\-env | Change values in the Hadoop environment for all Hadoop components\. | Restarts the Hadoop HDFS services Namenode, SecondaryNamenode, Datanode, ZKFC, and Journalnode\. Restarts the Hadoop YARN services ResourceManager, NodeManager, ProxyServer, and TimelineServer\. Additionally restarts PhoenixQueryserver, HiveServer2, Hive MetaStore, and MapReduce\-HistoryServer\. | 
+| hadoop\-log4j | Change values in Hadoop's log4j\.properties file\. | Restarts the Hadoop HDFS services SecondaryNamenode, Datanode, and Journalnode\. Restarts the Hadoop YARN services ResourceManager, NodeManager, ProxyServer, and TimelineServer\. Additionally restarts Hadoop KMS, Hadoop Httpfs, and MapReduce\-HistoryServer\. | 
+| hadoop\-ssl\-server | Change hadoop ssl server configuration | N/A | 
+| hadoop\-ssl\-client | Change hadoop ssl client configuration | N/A | 
+| hbase | Amazon EMR\-curated settings for Apache HBase\. | Custom EMR specific property\. Sets emrfs\-site and hbase\-site configs\. See those for their associated restarts\. | 
+| hbase\-env | Change values in HBase's environment\. | Restarts the HBase services RegionServer, HBaseMaster, ThriftServer, RestServer\. | 
+| hbase\-log4j | Change values in HBase's hbase\-log4j\.properties file\. | Restarts the HBase services RegionServer, HBaseMaster, ThriftServer, RestServer\. | 
+| hbase\-metrics | Change values in HBase's hadoop\-metrics2\-hbase\.properties file\. | Restarts the HBase services RegionServer, HBaseMaster, ThriftServer, RestServer\. | 
+| hbase\-policy | Change values in HBase's hbase\-policy\.xml file\. | N/A | 
+| hbase\-site | Change values in HBase's hbase\-site\.xml file\. | Restarts the HBase services RegionServer, HBaseMaster, ThriftServer, RestServer\. Additionally restarts Phoenix QueryServer\. | 
+| hdfs\-encryption\-zones | Configure HDFS encryption zones\. | This classification should not be reconfigured\. | 
+| hdfs\-env | Change values in the HDFS environment\. | Restarts Hadoop HDFS services Namenode, Datanode, and ZKFC\. | 
+| hdfs\-site | Change values in HDFS's hdfs\-site\.xml\. | Restarts the Hadoop HDFS services Namenode, SecondaryNamenode, Datanode, ZKFC, and Journalnode\. Additionally restarts Hadoop Httpfs\. | 
+| hcatalog\-env | Change values in HCatalog's environment\. | Restarts Hive HCatalog Server\. | 
+| hcatalog\-server\-jndi | Change values in HCatalog's jndi\.properties\. | Restarts Hive HCatalog Server\. | 
+| hcatalog\-server\-proto\-hive\-site | Change values in HCatalog's proto\-hive\-site\.xml\. | Restarts Hive HCatalog Server\. | 
+| hcatalog\-webhcat\-env | Change values in HCatalog WebHCat's environment\. | Restarts Hive WebHCat server\. | 
+| hcatalog\-webhcat\-log4j2 | Change values in HCatalog WebHCat's log4j2\.properties\. | Restarts Hive WebHCat server\. | 
+| hcatalog\-webhcat\-site | Change values in HCatalog WebHCat's webhcat\-site\.xml file\. | Restarts Hive WebHCat server\. | 
+| hive | Amazon EMR\-curated settings for Apache Hive\. | Sets configurations to launch Hive LLAP service\. | 
+| hive\-beeline\-log4j2 | Change values in Hive's beeline\-log4j2\.properties file\. | N/A | 
+| hive\-parquet\-logging | Change values in Hive's parquet\-logging\.properties file\. | N/A | 
+| hive\-env | Change values in the Hive environment\. | Restarts HiveServer2, HiveMetastore, and Hive HCatalog\-Server\. Runs Hive schemaTool CLI commands to verify hive\-metastore\. | 
+| hive\-exec\-log4j2 | Change values in Hive's hive\-exec\-log4j2\.properties file\. | N/A | 
+| hive\-llap\-daemon\-log4j2 | Change values in Hive's llap\-daemon\-log4j2\.properties file\. | N/A | 
+| hive\-log4j2 | Change values in Hive's hive\-log4j2\.properties file\. | N/A | 
+| hive\-site | Change values in Hive's hive\-site\.xml file | Restarts HiveServer2, HiveMetastore, and Hive HCatalog\-Server\. Runs Hive schemaTool CLI commands to verify hive\-metastore\. Also restarts Oozie and Zeppelin\. | 
+| hiveserver2\-site | Change values in Hive Server2's hiveserver2\-site\.xml file | N/A | 
+| hue\-ini | Change values in Hue's ini file | Restarts Hue\. Also activates Hue config override CLI commands to pick up new configurations\. | 
+| httpfs\-env | Change values in the HTTPFS environment\. | Restarts Hadoop Httpfs service\. | 
+| httpfs\-site | Change values in Hadoop's httpfs\-site\.xml file\. | Restarts Hadoop Httpfs service\. | 
+| hadoop\-kms\-acls | Change values in Hadoop's kms\-acls\.xml file\. | N/A | 
+| hadoop\-kms\-env | Change values in the Hadoop KMS environment\. | Restarts Hadoop\-KMS service\. | 
+| hadoop\-kms\-log4j | Change values in Hadoop's kms\-log4j\.properties file\. | N/A | 
+| hadoop\-kms\-site | Change values in Hadoop's kms\-site\.xml file\. | Restarts Hadoop\-KMS and Ranger\-KMS service\. | 
+| hudi\-env | Change values in the Hudi environment\. | N/A | 
+| jupyter\-notebook\-conf | Change values in Jupyter Notebook's jupyter\_notebook\_config\.py file\. | N/A | 
+| jupyter\-hub\-conf | Change values in JupyterHubs's jupyterhub\_config\.py file\. | N/A | 
+| jupyter\-s3\-conf | Configure Jupyter Notebook S3 persistence\. | N/A | 
+| jupyter\-sparkmagic\-conf | Change values in Sparkmagic's config\.json file\. | N/A | 
+| livy\-conf | Change values in Livy's livy\.conf file\. | Restarts Livy Server\. | 
+| livy\-env | Change values in the Livy environment\. | Restarts Livy Server\. | 
+| livy\-log4j | Change Livy log4j\.properties settings\. | Restarts Livy Server\. | 
+| mapred\-env | Change values in the MapReduce application's environment\. | Restarts Hadoop MapReduce\-HistoryServer\. | 
+| mapred\-site | Change values in the MapReduce application's mapred\-site\.xml file\. | Restarts Hadoop MapReduce\-HistoryServer\. | 
+| oozie\-env | Change values in Oozie's environment\. | Restarts Oozie\. | 
+| oozie\-log4j | Change values in Oozie's oozie\-log4j\.properties file\. | Restarts Oozie\. | 
+| oozie\-site | Change values in Oozie's oozie\-site\.xml file\. | Restarts Oozie\. | 
+| phoenix\-hbase\-metrics | Change values in Phoenix's hadoop\-metrics2\-hbase\.properties file\. | N/A | 
+| phoenix\-hbase\-site | Change values in Phoenix's hbase\-site\.xml file\. | N/A | 
+| phoenix\-log4j | Change values in Phoenix's log4j\.properties file\. | Restarts Phoenix\-QueryServer\. | 
+| phoenix\-metrics | Change values in Phoenix's hadoop\-metrics2\-phoenix\.properties file\. | N/A | 
+| pig\-env | Change values in the Pig environment\. | N/A | 
+| pig\-properties | Change values in Pig's pig\.properties file\. | Restarts Oozie\. | 
+| pig\-log4j | Change values in Pig's log4j\.properties file\. | N/A | 
+| presto\-log | Change values in Presto's log\.properties file\. | Restarts Presto\-Server \(for PrestoDB\) | 
+| presto\-config | Change values in Presto's config\.properties file\. | Restarts Presto\-Server \(for PrestoDB\) | 
+| presto\-password\-authenticator | Change values in Presto's password\-authenticator\.properties file\. | N/A | 
+| presto\-env | Change values in Presto's presto\-env\.sh file\. | Restarts Presto\-Server \(for PrestoDB\) | 
+| presto\-node | Change values in Presto's node\.properties file\. | N/A | 
+| presto\-connector\-blackhole | Change values in Presto's blackhole\.properties file\. | N/A | 
+| presto\-connector\-cassandra | Change values in Presto's cassandra\.properties file\. | N/A | 
+| presto\-connector\-hive | Change values in Presto's hive\.properties file\. | Restarts Presto\-Server \(for PrestoDB\) | 
+| presto\-connector\-jmx | Change values in Presto's jmx\.properties file\. | N/A | 
+| presto\-connector\-kafka | Change values in Presto's kafka\.properties file\. | N/A | 
+| presto\-connector\-localfile | Change values in Presto's localfile\.properties file\. | N/A | 
+| presto\-connector\-memory | Change values in Presto's memory\.properties file\. | N/A | 
+| presto\-connector\-mongodb | Change values in Presto's mongodb\.properties file\. | N/A | 
+| presto\-connector\-mysql | Change values in Presto's mysql\.properties file\. | N/A | 
+| presto\-connector\-postgresql | Change values in Presto's postgresql\.properties file\. | N/A | 
+| presto\-connector\-raptor | Change values in Presto's raptor\.properties file\. | N/A | 
+| presto\-connector\-redis | Change values in Presto's redis\.properties file\. | N/A | 
+| presto\-connector\-redshift | Change values in Presto's redshift\.properties file\. | N/A | 
+| presto\-connector\-tpch | Change values in Presto's tpch\.properties file\. | N/A | 
+| presto\-connector\-tpcds | Change values in Presto's tpcds\.properties file\. | N/A | 
+| prestosql\-log | Change values in Presto's log\.properties file\. | Restarts Presto\-Server \(for PrestoSQL\) | 
+| prestosql\-config | Change values in Presto's config\.properties file\. | Restarts Presto\-Server \(for PrestoSQL\) | 
+| prestosql\-password\-authenticator | Change values in Presto's password\-authenticator\.properties file\. | Restarts Presto\-Server \(for PrestoSQL\) | 
+| prestosql\-env | Change values in Presto's presto\-env\.sh file\. | Restarts Presto\-Server \(for PrestoSQL\) | 
+| prestosql\-node | Change values in PrestoSQL's node\.properties file\. | N/A | 
+| prestosql\-connector\-blackhole | Change values in PrestoSQL's blackhole\.properties file\. | N/A | 
+| prestosql\-connector\-cassandra | Change values in PrestoSQL's cassandra\.properties file\. | N/A | 
+| prestosql\-connector\-hive | Change values in PrestoSQL's hive\.properties file\. | Restarts Presto\-Server \(for PrestoSQL\) | 
+| prestosql\-connector\-jmx | Change values in PrestoSQL's jmx\.properties file\. | N/A | 
+| prestosql\-connector\-kafka | Change values in PrestoSQL's kafka\.properties file\. | N/A | 
+| prestosql\-connector\-localfile | Change values in PrestoSQL's localfile\.properties file\. | N/A | 
+| prestosql\-connector\-memory | Change values in PrestoSQL's memory\.properties file\. | N/A | 
+| prestosql\-connector\-mongodb | Change values in PrestoSQL's mongodb\.properties file\. | N/A | 
+| prestosql\-connector\-mysql | Change values in PrestoSQL's mysql\.properties file\. | N/A | 
+| prestosql\-connector\-postgresql | Change values in PrestoSQL's postgresql\.properties file\. | N/A | 
+| prestosql\-connector\-raptor | Change values in PrestoSQL's raptor\.properties file\. | N/A | 
+| prestosql\-connector\-redis | Change values in PrestoSQL's redis\.properties file\. | N/A | 
+| prestosql\-connector\-redshift | Change values in PrestoSQL's redshift\.properties file\. | N/A | 
+| prestosql\-connector\-tpch | Change values in PrestoSQL's tpch\.properties file\. | N/A | 
+| prestosql\-connector\-tpcds | Change values in PrestoSQL's tpcds\.properties file\. | N/A | 
+| ranger\-kms\-dbks\-site | Change values in dbks\-site\.xml file of Ranger KMS\. | Restarts Ranger KMS Server\. | 
+| ranger\-kms\-site | Change values in ranger\-kms\-site\.xml file of Ranger KMS\. | Restarts Ranger KMS Server\. | 
+| ranger\-kms\-env | Change values in the Ranger KMS environment\. | Restarts Ranger KMS Server\. | 
+| ranger\-kms\-log4j | Change values in kms\-log4j\.properties file of Ranger KMS\. | N/A | 
+| ranger\-kms\-db\-ca | Change values for CA file on S3 for MySQL SSL connection with Ranger KMS\. | N/A | 
+| spark | Amazon EMR\-curated settings for Apache Spark\. | This property modifies spark\-defaults\. See actions there\. | 
+| spark\-defaults | Change values in Spark's spark\-defaults\.conf file\. | Restarts Spark history server and Spark thrift server\. | 
+| spark\-env | Change values in the Spark environment\. | Restarts Spark history server and Spark thrift server\. | 
+| spark\-hive\-site | Change values in Spark's hive\-site\.xml file | N/A | 
+| spark\-log4j | Change values in Spark's log4j\.properties file\. | Restarts Spark history server and Spark thrift server\. | 
+| spark\-metrics | Change values in Spark's metrics\.properties file\. | Restarts Spark history server and Spark thrift server\. | 
+| sqoop\-env | Change values in Sqoop's environment\. | N/A | 
+| sqoop\-oraoop\-site | Change values in Sqoop OraOop's oraoop\-site\.xml file\. | N/A | 
+| sqoop\-site | Change values in Sqoop's sqoop\-site\.xml file\. | N/A | 
+| tez\-site | Change values in Tez's tez\-site\.xml file\. | Restart Oozie and HiveServer2\. | 
+| yarn\-env | Change values in the YARN environment\. | Restarts the Hadoop YARN services ResourceManager, NodeManager, ProxyServer, and TimelineServer\. Additionally restarts MapReduce\-HistoryServer\. | 
+| yarn\-site | Change values in YARN's yarn\-site\.xml file\. | Restarts the Hadoop YARN services ResourceManager, NodeManager, ProxyServer, and TimelineServer\. Additionally restarts Livy Server and MapReduce\-HistoryServer\. | 
+| zeppelin\-env | Change values in the Zeppelin environment\. | Restarts Zeppelin\. | 
+| zeppelin\-site | Change configuration settings in zeppelin\-site\.xml\. | Restarts Zeppelin\. | 
+| zookeeper\-config | Change values in ZooKeeper's zoo\.cfg file\. | Restarts Zookeeper server\. | 
+| zookeeper\-log4j | Change values in ZooKeeper's log4j\.properties file\. | Restarts Zookeeper server\. | 
 
 ------
 #### [ 6\.2\.0 ]<a name="emr-620-release"></a>
@@ -607,138 +609,140 @@ Some components in Amazon EMR differ from community versions\. These components 
 
 **6\.2\.0 Configuration Classifications**
 
-Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure Applications](emr-configure-apps.md)\.
+
+Reconfiguration actions occur when you specify a configuration for instance groups in a running cluster\. EMR only initiates reconfiguration actions for the classifications that you modify\. For more information, see [Reconfigure an Instance Group in a Running Cluster](emr-configure-apps-running-cluster.md)\.
 
 
 **emr\-6\.2\.0 Classifications**  
 
-| Classifications | Description | 
-| --- | --- | 
-| capacity\-scheduler | Change values in Hadoop's capacity\-scheduler\.xml file\. | 
-| container\-executor | Change values in Hadoop YARN's container\-executor\.cfg file\. | 
-| container\-log4j | Change values in Hadoop YARN's container\-log4j\.properties file\. | 
-| core\-site | Change values in Hadoop's core\-site\.xml file\. | 
-| docker\-conf | Change docker related settings\. | 
-| emrfs\-site | Change EMRFS settings\. | 
-| flink\-conf | Change flink\-conf\.yaml settings\. | 
-| flink\-log4j | Change Flink log4j\.properties settings\. | 
-| flink\-log4j\-yarn\-session | Change Flink log4j\-yarn\-session\.properties settings\. | 
-| flink\-log4j\-cli | Change Flink log4j\-cli\.properties settings\. | 
-| hadoop\-env | Change values in the Hadoop environment for all Hadoop components\. | 
-| hadoop\-log4j | Change values in Hadoop's log4j\.properties file\. | 
-| hadoop\-ssl\-server | Change hadoop ssl server configuration | 
-| hadoop\-ssl\-client | Change hadoop ssl client configuration | 
-| hbase | Amazon EMR\-curated settings for Apache HBase\. | 
-| hbase\-env | Change values in HBase's environment\. | 
-| hbase\-log4j | Change values in HBase's hbase\-log4j\.properties file\. | 
-| hbase\-metrics | Change values in HBase's hadoop\-metrics2\-hbase\.properties file\. | 
-| hbase\-policy | Change values in HBase's hbase\-policy\.xml file\. | 
-| hbase\-site | Change values in HBase's hbase\-site\.xml file\. | 
-| hdfs\-encryption\-zones | Configure HDFS encryption zones\. | 
-| hdfs\-env | Change values in the HDFS environment\. | 
-| hdfs\-site | Change values in HDFS's hdfs\-site\.xml\. | 
-| hcatalog\-env | Change values in HCatalog's environment\. | 
-| hcatalog\-server\-jndi | Change values in HCatalog's jndi\.properties\. | 
-| hcatalog\-server\-proto\-hive\-site | Change values in HCatalog's proto\-hive\-site\.xml\. | 
-| hcatalog\-webhcat\-env | Change values in HCatalog WebHCat's environment\. | 
-| hcatalog\-webhcat\-log4j2 | Change values in HCatalog WebHCat's log4j2\.properties\. | 
-| hcatalog\-webhcat\-site | Change values in HCatalog WebHCat's webhcat\-site\.xml file\. | 
-| hive | Amazon EMR\-curated settings for Apache Hive\. | 
-| hive\-beeline\-log4j2 | Change values in Hive's beeline\-log4j2\.properties file\. | 
-| hive\-parquet\-logging | Change values in Hive's parquet\-logging\.properties file\. | 
-| hive\-env | Change values in the Hive environment\. | 
-| hive\-exec\-log4j2 | Change values in Hive's hive\-exec\-log4j2\.properties file\. | 
-| hive\-llap\-daemon\-log4j2 | Change values in Hive's llap\-daemon\-log4j2\.properties file\. | 
-| hive\-log4j2 | Change values in Hive's hive\-log4j2\.properties file\. | 
-| hive\-site | Change values in Hive's hive\-site\.xml file | 
-| hiveserver2\-site | Change values in Hive Server2's hiveserver2\-site\.xml file | 
-| hue\-ini | Change values in Hue's ini file | 
-| httpfs\-env | Change values in the HTTPFS environment\. | 
-| httpfs\-site | Change values in Hadoop's httpfs\-site\.xml file\. | 
-| hadoop\-kms\-acls | Change values in Hadoop's kms\-acls\.xml file\. | 
-| hadoop\-kms\-env | Change values in the Hadoop KMS environment\. | 
-| hadoop\-kms\-log4j | Change values in Hadoop's kms\-log4j\.properties file\. | 
-| hadoop\-kms\-site | Change values in Hadoop's kms\-site\.xml file\. | 
-| hudi\-env | Change values in the Hudi environment\. | 
-| jupyter\-notebook\-conf | Change values in Jupyter Notebook's jupyter\_notebook\_config\.py file\. | 
-| jupyter\-hub\-conf | Change values in JupyterHubs's jupyterhub\_config\.py file\. | 
-| jupyter\-s3\-conf | Configure Jupyter Notebook S3 persistence\. | 
-| jupyter\-sparkmagic\-conf | Change values in Sparkmagic's config\.json file\. | 
-| livy\-conf | Change values in Livy's livy\.conf file\. | 
-| livy\-env | Change values in the Livy environment\. | 
-| livy\-log4j | Change Livy log4j\.properties settings\. | 
-| mapred\-env | Change values in the MapReduce application's environment\. | 
-| mapred\-site | Change values in the MapReduce application's mapred\-site\.xml file\. | 
-| oozie\-env | Change values in Oozie's environment\. | 
-| oozie\-log4j | Change values in Oozie's oozie\-log4j\.properties file\. | 
-| oozie\-site | Change values in Oozie's oozie\-site\.xml file\. | 
-| phoenix\-hbase\-metrics | Change values in Phoenix's hadoop\-metrics2\-hbase\.properties file\. | 
-| phoenix\-hbase\-site | Change values in Phoenix's hbase\-site\.xml file\. | 
-| phoenix\-log4j | Change values in Phoenix's log4j\.properties file\. | 
-| phoenix\-metrics | Change values in Phoenix's hadoop\-metrics2\-phoenix\.properties file\. | 
-| pig\-env | Change values in the Pig environment\. | 
-| pig\-properties | Change values in Pig's pig\.properties file\. | 
-| pig\-log4j | Change values in Pig's log4j\.properties file\. | 
-| presto\-log | Change values in Presto's log\.properties file\. | 
-| presto\-config | Change values in Presto's config\.properties file\. | 
-| presto\-password\-authenticator | Change values in Presto's password\-authenticator\.properties file\. | 
-| presto\-env | Change values in Presto's presto\-env\.sh file\. | 
-| presto\-node | Change values in Presto's node\.properties file\. | 
-| presto\-connector\-blackhole | Change values in Presto's blackhole\.properties file\. | 
-| presto\-connector\-cassandra | Change values in Presto's cassandra\.properties file\. | 
-| presto\-connector\-hive | Change values in Presto's hive\.properties file\. | 
-| presto\-connector\-jmx | Change values in Presto's jmx\.properties file\. | 
-| presto\-connector\-kafka | Change values in Presto's kafka\.properties file\. | 
-| presto\-connector\-localfile | Change values in Presto's localfile\.properties file\. | 
-| presto\-connector\-memory | Change values in Presto's memory\.properties file\. | 
-| presto\-connector\-mongodb | Change values in Presto's mongodb\.properties file\. | 
-| presto\-connector\-mysql | Change values in Presto's mysql\.properties file\. | 
-| presto\-connector\-postgresql | Change values in Presto's postgresql\.properties file\. | 
-| presto\-connector\-raptor | Change values in Presto's raptor\.properties file\. | 
-| presto\-connector\-redis | Change values in Presto's redis\.properties file\. | 
-| presto\-connector\-redshift | Change values in Presto's redshift\.properties file\. | 
-| presto\-connector\-tpch | Change values in Presto's tpch\.properties file\. | 
-| presto\-connector\-tpcds | Change values in Presto's tpcds\.properties file\. | 
-| prestosql\-log | Change values in Presto's log\.properties file\. | 
-| prestosql\-config | Change values in Presto's config\.properties file\. | 
-| prestosql\-password\-authenticator | Change values in Presto's password\-authenticator\.properties file\. | 
-| prestosql\-env | Change values in Presto's presto\-env\.sh file\. | 
-| prestosql\-node | Change values in PrestoSQL's node\.properties file\. | 
-| prestosql\-connector\-blackhole | Change values in PrestoSQL's blackhole\.properties file\. | 
-| prestosql\-connector\-cassandra | Change values in PrestoSQL's cassandra\.properties file\. | 
-| prestosql\-connector\-hive | Change values in PrestoSQL's hive\.properties file\. | 
-| prestosql\-connector\-jmx | Change values in PrestoSQL's jmx\.properties file\. | 
-| prestosql\-connector\-kafka | Change values in PrestoSQL's kafka\.properties file\. | 
-| prestosql\-connector\-localfile | Change values in PrestoSQL's localfile\.properties file\. | 
-| prestosql\-connector\-memory | Change values in PrestoSQL's memory\.properties file\. | 
-| prestosql\-connector\-mongodb | Change values in PrestoSQL's mongodb\.properties file\. | 
-| prestosql\-connector\-mysql | Change values in PrestoSQL's mysql\.properties file\. | 
-| prestosql\-connector\-postgresql | Change values in PrestoSQL's postgresql\.properties file\. | 
-| prestosql\-connector\-raptor | Change values in PrestoSQL's raptor\.properties file\. | 
-| prestosql\-connector\-redis | Change values in PrestoSQL's redis\.properties file\. | 
-| prestosql\-connector\-redshift | Change values in PrestoSQL's redshift\.properties file\. | 
-| prestosql\-connector\-tpch | Change values in PrestoSQL's tpch\.properties file\. | 
-| prestosql\-connector\-tpcds | Change values in PrestoSQL's tpcds\.properties file\. | 
-| ranger\-kms\-dbks\-site | Change values in dbks\-site\.xml file of Ranger KMS\. | 
-| ranger\-kms\-site | Change values in ranger\-kms\-site\.xml file of Ranger KMS\. | 
-| ranger\-kms\-env | Change values in the Ranger KMS environment\. | 
-| ranger\-kms\-log4j | Change values in kms\-log4j\.properties file of Ranger KMS\. | 
-| ranger\-kms\-db\-ca | Change values for CA file on S3 for MySQL SSL connection with Ranger KMS\. | 
-| spark | Amazon EMR\-curated settings for Apache Spark\. | 
-| spark\-defaults | Change values in Spark's spark\-defaults\.conf file\. | 
-| spark\-env | Change values in the Spark environment\. | 
-| spark\-hive\-site | Change values in Spark's hive\-site\.xml file | 
-| spark\-log4j | Change values in Spark's log4j\.properties file\. | 
-| spark\-metrics | Change values in Spark's metrics\.properties file\. | 
-| sqoop\-env | Change values in Sqoop's environment\. | 
-| sqoop\-oraoop\-site | Change values in Sqoop OraOop's oraoop\-site\.xml file\. | 
-| sqoop\-site | Change values in Sqoop's sqoop\-site\.xml file\. | 
-| tez\-site | Change values in Tez's tez\-site\.xml file\. | 
-| yarn\-env | Change values in the YARN environment\. | 
-| yarn\-site | Change values in YARN's yarn\-site\.xml file\. | 
-| zeppelin\-env | Change values in the Zeppelin environment\. | 
-| zookeeper\-config | Change values in ZooKeeper's zoo\.cfg file\. | 
-| zookeeper\-log4j | Change values in ZooKeeper's log4j\.properties file\. | 
+| Classifications | Description | Reconfiguration Actions | 
+| --- | --- | --- | 
+| capacity\-scheduler | Change values in Hadoop's capacity\-scheduler\.xml file\. | Restarts the ResourceManager service\. | 
+| container\-executor | Change values in Hadoop YARN's container\-executor\.cfg file\. | N/A | 
+| container\-log4j | Change values in Hadoop YARN's container\-log4j\.properties file\. | N/A | 
+| core\-site | Change values in Hadoop's core\-site\.xml file\. | Restarts the Hadoop HDFS services Namenode, SecondaryNamenode, Datanode, ZKFC, and Journalnode\. Restarts the Hadoop YARN services ResourceManager, NodeManager, ProxyServer, and TimelineServer\. Additionally restarts Hadoop KMS, Ranger KMS, HiveServer2, Hive MetaStore, Hadoop Httpfs, and MapReduce\-HistoryServer\. | 
+| docker\-conf | Change docker related settings\. | N/A | 
+| emrfs\-site | Change EMRFS settings\. | Restarts the Hadoop HDFS services Namenode, SecondaryNamenode, Datanode, ZKFC, and Journalnode\. Restarts the Hadoop YARN services ResourceManager, NodeManager, ProxyServer, and TimelineServer\. Additionally restarts HBaseRegionserver, HBaseMaster, HBaseThrift, HBaseRest, HiveServer2, Hive MetaStore, Hadoop Httpfs, and MapReduce\-HistoryServer\. | 
+| flink\-conf | Change flink\-conf\.yaml settings\. | N/A | 
+| flink\-log4j | Change Flink log4j\.properties settings\. | N/A | 
+| flink\-log4j\-yarn\-session | Change Flink log4j\-yarn\-session\.properties settings\. | N/A | 
+| flink\-log4j\-cli | Change Flink log4j\-cli\.properties settings\. | N/A | 
+| hadoop\-env | Change values in the Hadoop environment for all Hadoop components\. | Restarts the Hadoop HDFS services Namenode, SecondaryNamenode, Datanode, ZKFC, and Journalnode\. Restarts the Hadoop YARN services ResourceManager, NodeManager, ProxyServer, and TimelineServer\. Additionally restarts PhoenixQueryserver, HiveServer2, Hive MetaStore, and MapReduce\-HistoryServer\. | 
+| hadoop\-log4j | Change values in Hadoop's log4j\.properties file\. | Restarts the Hadoop HDFS services SecondaryNamenode, Datanode, and Journalnode\. Restarts the Hadoop YARN services ResourceManager, NodeManager, ProxyServer, and TimelineServer\. Additionally restarts Hadoop KMS, Hadoop Httpfs, and MapReduce\-HistoryServer\. | 
+| hadoop\-ssl\-server | Change hadoop ssl server configuration | N/A | 
+| hadoop\-ssl\-client | Change hadoop ssl client configuration | N/A | 
+| hbase | Amazon EMR\-curated settings for Apache HBase\. | Custom EMR specific property\. Sets emrfs\-site and hbase\-site configs\. See those for their associated restarts\. | 
+| hbase\-env | Change values in HBase's environment\. | Restarts the HBase services RegionServer, HBaseMaster, ThriftServer, RestServer\. | 
+| hbase\-log4j | Change values in HBase's hbase\-log4j\.properties file\. | Restarts the HBase services RegionServer, HBaseMaster, ThriftServer, RestServer\. | 
+| hbase\-metrics | Change values in HBase's hadoop\-metrics2\-hbase\.properties file\. | Restarts the HBase services RegionServer, HBaseMaster, ThriftServer, RestServer\. | 
+| hbase\-policy | Change values in HBase's hbase\-policy\.xml file\. | N/A | 
+| hbase\-site | Change values in HBase's hbase\-site\.xml file\. | Restarts the HBase services RegionServer, HBaseMaster, ThriftServer, RestServer\. Additionally restarts Phoenix QueryServer\. | 
+| hdfs\-encryption\-zones | Configure HDFS encryption zones\. | This classification should not be reconfigured\. | 
+| hdfs\-env | Change values in the HDFS environment\. | Restarts Hadoop HDFS ZKFC\. | 
+| hdfs\-site | Change values in HDFS's hdfs\-site\.xml\. | Restarts the Hadoop HDFS services Namenode, SecondaryNamenode, Datanode, ZKFC, and Journalnode\. Additionally restarts Hadoop Httpfs\. | 
+| hcatalog\-env | Change values in HCatalog's environment\. | Restarts Hive HCatalog Server\. | 
+| hcatalog\-server\-jndi | Change values in HCatalog's jndi\.properties\. | Restarts Hive HCatalog Server\. | 
+| hcatalog\-server\-proto\-hive\-site | Change values in HCatalog's proto\-hive\-site\.xml\. | Restarts Hive HCatalog Server\. | 
+| hcatalog\-webhcat\-env | Change values in HCatalog WebHCat's environment\. | Restarts Hive WebHCat server\. | 
+| hcatalog\-webhcat\-log4j2 | Change values in HCatalog WebHCat's log4j2\.properties\. | Restarts Hive WebHCat server\. | 
+| hcatalog\-webhcat\-site | Change values in HCatalog WebHCat's webhcat\-site\.xml file\. | Restarts Hive WebHCat server\. | 
+| hive | Amazon EMR\-curated settings for Apache Hive\. | Sets configurations to launch Hive LLAP service\. | 
+| hive\-beeline\-log4j2 | Change values in Hive's beeline\-log4j2\.properties file\. | N/A | 
+| hive\-parquet\-logging | Change values in Hive's parquet\-logging\.properties file\. | N/A | 
+| hive\-env | Change values in the Hive environment\. | Restarts HiveServer2, HiveMetastore, and Hive HCatalog\-Server\. Runs Hive schemaTool CLI commands to verify hive\-metastore\. | 
+| hive\-exec\-log4j2 | Change values in Hive's hive\-exec\-log4j2\.properties file\. | N/A | 
+| hive\-llap\-daemon\-log4j2 | Change values in Hive's llap\-daemon\-log4j2\.properties file\. | N/A | 
+| hive\-log4j2 | Change values in Hive's hive\-log4j2\.properties file\. | N/A | 
+| hive\-site | Change values in Hive's hive\-site\.xml file | Restarts HiveServer2, HiveMetastore, and Hive HCatalog\-Server\. Runs Hive schemaTool CLI commands to verify hive\-metastore\. Also restarts Oozie and Zeppelin\. | 
+| hiveserver2\-site | Change values in Hive Server2's hiveserver2\-site\.xml file | N/A | 
+| hue\-ini | Change values in Hue's ini file | Restarts Hue\. Also activates Hue config override CLI commands to pick up new configurations\. | 
+| httpfs\-env | Change values in the HTTPFS environment\. | Restarts Hadoop Httpfs service\. | 
+| httpfs\-site | Change values in Hadoop's httpfs\-site\.xml file\. | Restarts Hadoop Httpfs service\. | 
+| hadoop\-kms\-acls | Change values in Hadoop's kms\-acls\.xml file\. | N/A | 
+| hadoop\-kms\-env | Change values in the Hadoop KMS environment\. | Restarts Hadoop\-KMS service\. | 
+| hadoop\-kms\-log4j | Change values in Hadoop's kms\-log4j\.properties file\. | N/A | 
+| hadoop\-kms\-site | Change values in Hadoop's kms\-site\.xml file\. | Restarts Hadoop\-KMS and Ranger\-KMS service\. | 
+| hudi\-env | Change values in the Hudi environment\. | N/A | 
+| jupyter\-notebook\-conf | Change values in Jupyter Notebook's jupyter\_notebook\_config\.py file\. | N/A | 
+| jupyter\-hub\-conf | Change values in JupyterHubs's jupyterhub\_config\.py file\. | N/A | 
+| jupyter\-s3\-conf | Configure Jupyter Notebook S3 persistence\. | N/A | 
+| jupyter\-sparkmagic\-conf | Change values in Sparkmagic's config\.json file\. | N/A | 
+| livy\-conf | Change values in Livy's livy\.conf file\. | Restarts Livy Server\. | 
+| livy\-env | Change values in the Livy environment\. | Restarts Livy Server\. | 
+| livy\-log4j | Change Livy log4j\.properties settings\. | Restarts Livy Server\. | 
+| mapred\-env | Change values in the MapReduce application's environment\. | Restarts Hadoop MapReduce\-HistoryServer\. | 
+| mapred\-site | Change values in the MapReduce application's mapred\-site\.xml file\. | Restarts Hadoop MapReduce\-HistoryServer\. | 
+| oozie\-env | Change values in Oozie's environment\. | Restarts Oozie\. | 
+| oozie\-log4j | Change values in Oozie's oozie\-log4j\.properties file\. | Restarts Oozie\. | 
+| oozie\-site | Change values in Oozie's oozie\-site\.xml file\. | Restarts Oozie\. | 
+| phoenix\-hbase\-metrics | Change values in Phoenix's hadoop\-metrics2\-hbase\.properties file\. | N/A | 
+| phoenix\-hbase\-site | Change values in Phoenix's hbase\-site\.xml file\. | N/A | 
+| phoenix\-log4j | Change values in Phoenix's log4j\.properties file\. | Restarts Phoenix\-QueryServer\. | 
+| phoenix\-metrics | Change values in Phoenix's hadoop\-metrics2\-phoenix\.properties file\. | N/A | 
+| pig\-env | Change values in the Pig environment\. | N/A | 
+| pig\-properties | Change values in Pig's pig\.properties file\. | Restarts Oozie\. | 
+| pig\-log4j | Change values in Pig's log4j\.properties file\. | N/A | 
+| presto\-log | Change values in Presto's log\.properties file\. | Restarts Presto\-Server \(for PrestoDB\) | 
+| presto\-config | Change values in Presto's config\.properties file\. | Restarts Presto\-Server \(for PrestoDB\) | 
+| presto\-password\-authenticator | Change values in Presto's password\-authenticator\.properties file\. | N/A | 
+| presto\-env | Change values in Presto's presto\-env\.sh file\. | Restarts Presto\-Server \(for PrestoDB\) | 
+| presto\-node | Change values in Presto's node\.properties file\. | N/A | 
+| presto\-connector\-blackhole | Change values in Presto's blackhole\.properties file\. | N/A | 
+| presto\-connector\-cassandra | Change values in Presto's cassandra\.properties file\. | N/A | 
+| presto\-connector\-hive | Change values in Presto's hive\.properties file\. | Restarts Presto\-Server \(for PrestoDB\) | 
+| presto\-connector\-jmx | Change values in Presto's jmx\.properties file\. | N/A | 
+| presto\-connector\-kafka | Change values in Presto's kafka\.properties file\. | N/A | 
+| presto\-connector\-localfile | Change values in Presto's localfile\.properties file\. | N/A | 
+| presto\-connector\-memory | Change values in Presto's memory\.properties file\. | N/A | 
+| presto\-connector\-mongodb | Change values in Presto's mongodb\.properties file\. | N/A | 
+| presto\-connector\-mysql | Change values in Presto's mysql\.properties file\. | N/A | 
+| presto\-connector\-postgresql | Change values in Presto's postgresql\.properties file\. | N/A | 
+| presto\-connector\-raptor | Change values in Presto's raptor\.properties file\. | N/A | 
+| presto\-connector\-redis | Change values in Presto's redis\.properties file\. | N/A | 
+| presto\-connector\-redshift | Change values in Presto's redshift\.properties file\. | N/A | 
+| presto\-connector\-tpch | Change values in Presto's tpch\.properties file\. | N/A | 
+| presto\-connector\-tpcds | Change values in Presto's tpcds\.properties file\. | N/A | 
+| prestosql\-log | Change values in Presto's log\.properties file\. | Restarts Presto\-Server \(for PrestoSQL\) | 
+| prestosql\-config | Change values in Presto's config\.properties file\. | Restarts Presto\-Server \(for PrestoSQL\) | 
+| prestosql\-password\-authenticator | Change values in Presto's password\-authenticator\.properties file\. | Restarts Presto\-Server \(for PrestoSQL\) | 
+| prestosql\-env | Change values in Presto's presto\-env\.sh file\. | Restarts Presto\-Server \(for PrestoSQL\) | 
+| prestosql\-node | Change values in PrestoSQL's node\.properties file\. | N/A | 
+| prestosql\-connector\-blackhole | Change values in PrestoSQL's blackhole\.properties file\. | N/A | 
+| prestosql\-connector\-cassandra | Change values in PrestoSQL's cassandra\.properties file\. | N/A | 
+| prestosql\-connector\-hive | Change values in PrestoSQL's hive\.properties file\. | Restarts Presto\-Server \(for PrestoSQL\) | 
+| prestosql\-connector\-jmx | Change values in PrestoSQL's jmx\.properties file\. | N/A | 
+| prestosql\-connector\-kafka | Change values in PrestoSQL's kafka\.properties file\. | N/A | 
+| prestosql\-connector\-localfile | Change values in PrestoSQL's localfile\.properties file\. | N/A | 
+| prestosql\-connector\-memory | Change values in PrestoSQL's memory\.properties file\. | N/A | 
+| prestosql\-connector\-mongodb | Change values in PrestoSQL's mongodb\.properties file\. | N/A | 
+| prestosql\-connector\-mysql | Change values in PrestoSQL's mysql\.properties file\. | N/A | 
+| prestosql\-connector\-postgresql | Change values in PrestoSQL's postgresql\.properties file\. | N/A | 
+| prestosql\-connector\-raptor | Change values in PrestoSQL's raptor\.properties file\. | N/A | 
+| prestosql\-connector\-redis | Change values in PrestoSQL's redis\.properties file\. | N/A | 
+| prestosql\-connector\-redshift | Change values in PrestoSQL's redshift\.properties file\. | N/A | 
+| prestosql\-connector\-tpch | Change values in PrestoSQL's tpch\.properties file\. | N/A | 
+| prestosql\-connector\-tpcds | Change values in PrestoSQL's tpcds\.properties file\. | N/A | 
+| ranger\-kms\-dbks\-site | Change values in dbks\-site\.xml file of Ranger KMS\. | Restarts Ranger KMS Server\. | 
+| ranger\-kms\-site | Change values in ranger\-kms\-site\.xml file of Ranger KMS\. | Restarts Ranger KMS Server\. | 
+| ranger\-kms\-env | Change values in the Ranger KMS environment\. | Restarts Ranger KMS Server\. | 
+| ranger\-kms\-log4j | Change values in kms\-log4j\.properties file of Ranger KMS\. | N/A | 
+| ranger\-kms\-db\-ca | Change values for CA file on S3 for MySQL SSL connection with Ranger KMS\. | N/A | 
+| spark | Amazon EMR\-curated settings for Apache Spark\. | This property modifies spark\-defaults\. See actions there\. | 
+| spark\-defaults | Change values in Spark's spark\-defaults\.conf file\. | Restarts Spark history server and Spark thrift server\. | 
+| spark\-env | Change values in the Spark environment\. | Restarts Spark history server and Spark thrift server\. | 
+| spark\-hive\-site | Change values in Spark's hive\-site\.xml file | N/A | 
+| spark\-log4j | Change values in Spark's log4j\.properties file\. | Restarts Spark history server and Spark thrift server\. | 
+| spark\-metrics | Change values in Spark's metrics\.properties file\. | Restarts Spark history server and Spark thrift server\. | 
+| sqoop\-env | Change values in Sqoop's environment\. | N/A | 
+| sqoop\-oraoop\-site | Change values in Sqoop OraOop's oraoop\-site\.xml file\. | N/A | 
+| sqoop\-site | Change values in Sqoop's sqoop\-site\.xml file\. | N/A | 
+| tez\-site | Change values in Tez's tez\-site\.xml file\. | Restart Oozie\. | 
+| yarn\-env | Change values in the YARN environment\. | Restarts the Hadoop YARN services ResourceManager, NodeManager, ProxyServer, and TimelineServer\. Additionally restarts MapReduce\-HistoryServer\. | 
+| yarn\-site | Change values in YARN's yarn\-site\.xml file\. | Restarts the Hadoop YARN services ResourceManager, NodeManager, ProxyServer, and TimelineServer\. Additionally restarts Livy Server and MapReduce\-HistoryServer\. | 
+| zeppelin\-env | Change values in the Zeppelin environment\. | Restarts Zeppelin\. | 
+| zookeeper\-config | Change values in ZooKeeper's zoo\.cfg file\. | Restarts Zookeeper server\. | 
+| zookeeper\-log4j | Change values in ZooKeeper's log4j\.properties file\. | Restarts Zookeeper server\. | 
 
 ------
 #### [ 6\.1\.0 ]<a name="emr-610-release"></a>
@@ -961,7 +965,7 @@ Some components in Amazon EMR differ from community versions\. These components 
 
 **6\.1\.0 Configuration Classifications**
 
-Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure Applications](emr-configure-apps.md)\.
 
 
 **emr\-6\.1\.0 Classifications**  
@@ -1299,7 +1303,7 @@ Some components in Amazon EMR differ from community versions\. These components 
 
 **6\.0\.0 Configuration Classifications**
 
-Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configuring Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure Applications](emr-configure-apps.md)\.
 
 
 **emr\-6\.0\.0 Classifications**  

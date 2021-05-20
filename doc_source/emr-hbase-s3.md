@@ -54,7 +54,7 @@ For example, given the JSON classification for the primary cluster as shown earl
 }
 ```
 
-### Synchronizing the Read Replica When You Add Data<a name="w138aac25c29c13c10"></a>
+### Synchronizing the Read Replica When You Add Data<a name="w141aac25c29c13c10"></a>
 
 Because the read\-replica uses HBase StoreFiles and metadata that the primary cluster writes to Amazon S3, the read\-replica is only as current as the Amazon S3 data store\. The following guidance can help minimize the lag time between the primary cluster and the read\-replica when you write data\.
 + Bulk load data on the primary cluster whenever possible\. For more information, see [Bulk Loading](http://hbase.apache.org/0.94/book/arch.bulk.load.html) in Apache HBase documentation\.
