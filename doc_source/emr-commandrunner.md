@@ -1,6 +1,6 @@
-# Command Runner<a name="emr-commandrunner"></a>
+# Command runner<a name="emr-commandrunner"></a>
 
-Many scripts or programs are placed on the shell login path environment so you do not need to specify the full path when executing them when using `command-runner.jar`\. You also do not have to know the full path to `command-runner.jar`\. `command-runner.jar` is located on the AMI so there is no need to know a full URI as was the case with `script-runner.jar`\. For more information, see [Run a Script in a Cluster](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-hadoop-script.html)\. 
+Many scripts or programs are placed on the shell login path environment so you do not need to specify the full path when executing them when using `command-runner.jar`\. You also do not have to know the full path to `command-runner.jar`\. `command-runner.jar` is located on the AMI so there is no need to know a full URI as was the case with `script-runner.jar`\. For more information, see [Run a script in a cluster](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-hadoop-script.html)\. 
 
 The following is a list of scripts that can be executed with `command-runner.jar`:
 

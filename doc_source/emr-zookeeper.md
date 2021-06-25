@@ -7,9 +7,9 @@ The following table lists the version of ZooKeeper included in the latest releas
 For the version of components installed with ZooKeeper in this release, see [Release 6\.3\.0 Component Versions](emr-release-6x.md#emr-630-release)\.
 
 
-**ZooKeeper Version Information for emr\-6\.3\.0**  
+**ZooKeeper version information for emr\-6\.3\.0**  
 
-| Amazon EMR Release Label | ZooKeeper Version | Components Installed With ZooKeeper | 
+| Amazon EMR release label | ZooKeeper version | Components installed with ZooKeeper | 
 | --- | --- | --- | 
 | emr\-6\.3\.0 | ZooKeeper 3\.4\.14 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, zookeeper\-client, zookeeper\-server | 
 
@@ -18,11 +18,11 @@ The following table lists the version of ZooKeeper included in the latest releas
 For the version of components installed with ZooKeeper in this release, see [Release 5\.33\.0 Component Versions](emr-release-5x.md#emr-5330-release)\.
 
 
-**ZooKeeper Version Information for emr\-5\.33\.0**  
+**ZooKeeper version information for emr\-5\.33\.0**  
 
-| Amazon EMR Release Label | ZooKeeper Version | Components Installed With ZooKeeper | 
+| Amazon EMR release label | ZooKeeper version | Components installed with ZooKeeper | 
 | --- | --- | --- | 
 | emr\-5\.33\.0 | ZooKeeper 3\.4\.14 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, zookeeper\-client, zookeeper\-server | 
 
 **Topics**
-+ [ZooKeeper Release History](ZooKeeper-release-history.md)
++ [ZooKeeper release history](ZooKeeper-release-history.md)

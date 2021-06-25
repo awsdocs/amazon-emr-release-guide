@@ -1,6 +1,6 @@
-# HDFS Configuration<a name="emr-hdfs-config"></a>
+# HDFS configuration<a name="emr-hdfs-config"></a>
 
-The following table describes the default Hadoop Distributed File System \(HDFS\) parameters and their settings\. You can change these values using the `hdfs-site` configuration classification\. For more information, see [Configure Applications](emr-configure-apps.md)\.
+The following table describes the default Hadoop Distributed File System \(HDFS\) parameters and their settings\. You can change these values using the `hdfs-site` configuration classification\. For more information, see [Configure applications](emr-configure-apps.md)\.
 
 **Warning**  
 Setting dfs\.replication to 1 for clusters with fewer than four nodes can lead to HDFS data loss if a single node goes down\.

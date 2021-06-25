@@ -1,4 +1,4 @@
-# Phoenix Clients<a name="emr-phoenix-clients"></a>
+# Phoenix clients<a name="emr-phoenix-clients"></a>
 
 You connect to Phoenix using either a JDBC client built with full dependencies or using the "thin client" that uses the Phoenix Query Server and can only be run on a master node of a cluster \(e\.g\. by using an SQL client, a step, command line, SSH port forwarding, etc\.\)\. When using the "fat" JDBC client, it still needs to have access to all nodes of the cluster because it connects to HBase services directly\. The "thin" Phoenix client only needs access to the Phoenix Query Server at a default port 8765\. There are several [scripts](https://github.com/apache/phoenix/tree/master/bin) within Phoenix that use these clients\. 
 

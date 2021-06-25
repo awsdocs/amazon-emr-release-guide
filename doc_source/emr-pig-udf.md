@@ -1,8 +1,8 @@
-# Call User Defined Functions from Pig<a name="emr-pig-udf"></a>
+# Call user\-defined functions from Pig<a name="emr-pig-udf"></a>
 
 Pig provides the ability to call user\-defined functions \(UDFs\) from within Pig scripts\. You can do this to implement custom processing to use in your Pig scripts\. The languages currently supported are Java, Python/Jython, and JavaScript \(though JavaScript support is still experimental\.\) 
 
-The following sections describe how to register your functions with Pig so you can call them either from the Pig shell or from within Pig scripts\. For more information about using UDFs with Pig, see [Pig Documentation](http://pig.apache.org/docs/) for your version of Pig\. 
+The following sections describe how to register your functions with Pig so you can call them either from the Pig shell or from within Pig scripts\. For more information about using UDFs with Pig, see [Pig documentation](http://pig.apache.org/docs/) for your version of Pig\. 
 
 ## Call JAR files from Pig<a name="UsingJarsWithPig"></a>
 
@@ -18,7 +18,7 @@ You can use custom JAR files with Pig using the `REGISTER` command in your Pig s
    REGISTER s3://mybucket/path/mycustomjar.jar;
    ```
 
-## Call Python/Jython Scripts from Pig<a name="emr-pig-udf-jython"></a>
+## Call Python/Jython scripts from Pig<a name="emr-pig-udf-jython"></a>
 
 You can register Python scripts with Pig and then call functions in those scripts from the Pig shell or in a Pig script\. You do this by specifying the location of the script with the `register` keyword\. 
 
@@ -28,9 +28,9 @@ Because Pig in written in Java, it uses the Jython script engine to parse Python
 
 1. Write a Python script and upload the script to a location in Amazon S3\. This should be a bucket owned by the same account that creates the Pig cluster, or that has permissions set so the account that created the cluster can access it\. In this example, the script is uploaded to s3://mybucket/pig/python\. 
 
-1. Start a Pig cluster\. If you are accessing Pig from the Grunt shell, run an interactive cluster\. If you are running Pig commands from a script, start a scripted Pig cluster\. This example starts an interactive cluster\. For more information about how to create a Pig cluster, see [Submit Pig Work](emr-pig-launch.md)\. 
+1. Start a Pig cluster\. If you are accessing Pig from the Grunt shell, run an interactive cluster\. If you are running Pig commands from a script, start a scripted Pig cluster\. This example starts an interactive cluster\. For more information about how to create a Pig cluster, see [Submit Pig work](emr-pig-launch.md)\. 
 
-1. For an interactive cluster, use SSH to connect into the master node and run the Grunt shell\. For more information, see [SSH into the Master Node](https://docs.aws.amazon.com/emr/latest/DeveloperGuide/EMR_SetUp_SSH.html)\. 
+1. For an interactive cluster, use SSH to connect into the master node and run the Grunt shell\. For more information, see [SSH into the master node](https://docs.aws.amazon.com/emr/latest/DeveloperGuide/EMR_SetUp_SSH.html)\. 
 
 1. Run the Grunt shell for Pig by typing `pig` at the command line: 
 

@@ -2,7 +2,7 @@
 
 You can use HCatalog within various applications that use the Hive metastore\. The examples in this section show how to create a table and use it in the context of Pig and Spark SQL\.
 
-## Disable Direct Write When Using HCatalog HStorer<a name="emr-hcatalog-hcatstorer"></a>
+## Disable direct write when using HCatalog HStorer<a name="emr-hcatalog-hcatstorer"></a>
 
 Whenever an application uses [HCatStorer](https://cwiki.apache.org/confluence/display/Hive/HCatalog+LoadStore#HCatalogLoadStore-HCatStorer) to write to an HCatalog table stored in Amazon S3, disable the direct write feature of Amazon EMR\. For example, disable direct write when using the Pig `STORE` command or when running Sqoop jobs that write HCatalog tables to Amazon S3\. You can disable the direct write feature by setting the `mapred.output.direct.NativeS3FileSystem` and the `mapred.output.direct.EmrFileSystem` configurations to `false`\. The following example demonstrates how to set these configurations using Java\.
 
@@ -12,7 +12,7 @@ conf.set("mapred.output.direct.NativeS3FileSystem", "false");
 conf.set("mapred.output.direct.EmrFileSystem", "false");
 ```
 
-## Create a Table Using the HCat CLI and Use That Data in Pig<a name="emr-hcatalog-create-table"></a>
+## Create a table using the HCat CLI and use that data in Pig<a name="emr-hcatalog-create-table"></a>
 
 Create the following script, `impressions.q`, on your cluster:
 
@@ -56,7 +56,7 @@ dump B;"
 16/03/08 23:17:10 INFO pig.Main: Pig script completed in 7 seconds and 199 milliseconds (7199 ms)
 ```
 
-## Accessing the Table using Spark SQL<a name="emr-hcatalog-spark"></a>
+## Accessing the table using Spark SQL<a name="emr-hcatalog-spark"></a>
 
 This example creates a Spark DataFrame from the table created in the first example and shows the first 20 lines:
 

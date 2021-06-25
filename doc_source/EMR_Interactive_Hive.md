@@ -1,12 +1,12 @@
-# Set Up a Hive Table to Run Hive Commands<a name="EMR_Interactive_Hive"></a>
+# Set up a Hive table to run Hive commands<a name="EMR_Interactive_Hive"></a>
 
 Apache Hive is a data warehouse application you can use to query data contained in Amazon EMR clusters using a SQL\-like language\. For more information about Hive, see [http://hive\.apache\.org/](http://hive.apache.org/)\.
 
-The following procedure assumes you have already created a cluster and specified an Amazon EC2 key pair\. To learn how to get started creating clusters, see [Getting Started with Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-gs) in the *Amazon EMR Management Guide*\.
+The following procedure assumes you have already created a cluster and specified an Amazon EC2 key pair\. To learn how to get started creating clusters, see [Getting started with Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-gs) in the *Amazon EMR Management Guide*\.
 
-## Configure Hive to Use MapReduce<a name="w141aac67b7c25b7"></a>
+## Configure Hive to use MapReduce<a name="w142aac67b7c25b7"></a>
 
-When you use Hive on Amazon EMR to query DynamoDB tables, errors can occur if Hive uses the default execution engine, Tez\. For this reason, when you create a cluster with Hive that integrates with DynamoDB as described in this section, we recommend that you use a configuration classification that sets Hive to use MapReduce\. For more information, see [Configure Applications](emr-configure-apps.md)\.
+When you use Hive on Amazon EMR to query DynamoDB tables, errors can occur if Hive uses the default execution engine, Tez\. For this reason, when you create a cluster with Hive that integrates with DynamoDB as described in this section, we recommend that you use a configuration classification that sets Hive to use MapReduce\. For more information, see [Configure applications](emr-configure-apps.md)\.
 
 The following snippet shows the configuration classification and property to use to set MapReduce as the execution engine for Hive:
 
@@ -23,13 +23,13 @@ The following snippet shows the configuration classification and property to use
 
 **To run Hive commands interactively**
 
-1. Connect to the master node\. For more information, see [Connect to the Master Node Using SSH](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-connect-master-node-ssh.html) in the *Amazon EMR Management Guide*\.
+1. Connect to the master node\. For more information, see [Connect to the master node using SSH](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-connect-master-node-ssh.html) in the *Amazon EMR Management Guide*\.
 
 1. At the command prompt for the current master node, type `hive`\.
 
    You should see a hive prompt: `hive>`
 
-1.  Enter a Hive command that maps a table in the Hive application to the data in DynamoDB\. This table acts as a reference to the data stored in Amazon DynamoDB; the data is not stored locally in Hive and any queries using this table run against the live data in DynamoDB, consuming the table’s read or write capacity every time a command is run\. If you expect to run multiple Hive commands against the same dataset, consider exporting it first\. 
+1.  Enter a Hive command that maps a table in the Hive application to the data in DynamoDB\. This table acts as a reference to the data stored in Amazon DynamoDB; the data is not stored locally in Hive and any queries using this table run against the live data in DynamoDB, consuming the table's read or write capacity every time a command is run\. If you expect to run multiple Hive commands against the same dataset, consider exporting it first\. 
 
     The following shows the syntax for mapping a Hive table to a DynamoDB table\. 
 
@@ -72,10 +72,10 @@ For example, suppose that you have provisioned 100 units of read capacity for yo
 The only way to decrease the time required would be to adjust the read capacity units on the source DynamoDB table\. Adding more Amazon EMR nodes will not help\.
 
 In the Hive output, the completion percentage is updated when one or more mapper processes are finished\. For a large DynamoDB table with a low provisioned read capacity setting, the completion percentage output might not be updated for a long time; in the case above, the job will appear to be 0% complete for several hours\. For more detailed status on your job's progress, go to the Amazon EMR console; you will be able to view the individual mapper task status, and statistics for data reads\. You can also log on to Hadoop interface on the master node and see the Hadoop statistics\. This will show you the individual map task status and some data read statistics\. For more information, see the following topics:
-+ [Web Interfaces Hosted on the Master Node](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-web-interfaces.html)
-+ [View the Hadoop Web Interfaces](https://docs.aws.amazon.com/emr/latest/ManagementGuide/UsingtheHadoopUserInterface.html)
++ [Web interfaces hosted on the master node](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-web-interfaces.html)
++ [View the Hadoop web interfaces](https://docs.aws.amazon.com/emr/latest/ManagementGuide/UsingtheHadoopUserInterface.html)
 
-For more information about sample HiveQL statements to perform tasks such as exporting or importing data from DynamoDB and joining tables, see [Hive Command Examples for Exporting, Importing, and Querying Data in DynamoDB](EMR_Hive_Commands.md)\.<a name="EMR_Hive_Cancel"></a>
+For more information about sample HiveQL statements to perform tasks such as exporting or importing data from DynamoDB and joining tables, see [Hive command examples for exporting, importing, and querying data in DynamoDB](EMR_Hive_Commands.md)\.<a name="EMR_Hive_Cancel"></a>
 
 **To cancel a Hive request**
 
@@ -91,7 +91,7 @@ When you execute a Hive query, the initial response from the server includes the
    hadoop job -kill job-id
    ```
 
-## Data Types for Hive and DynamoDB<a name="EMR_Hive_Properties"></a>
+## Data types for Hive and DynamoDB<a name="EMR_Hive_Properties"></a>
 
 The following table shows the available Hive data types, the default DynamoDB type that they correspond to, and the alternate DynamoDB types that they can also map to\. 
 
@@ -147,16 +147,16 @@ The bigint type in Hive is the same as the Java long type, and the Hive double t
 
  Exports of the binary type from DynamoDB to Amazon Simple Storage Service \(Amazon S3\) or HDFS are stored as a Base64\-encoded string\. If you are importing data from Amazon S3 or HDFS into the DynamoDB binary type, it should be encoded as a Base64 string\. 
 
-## Hive Options<a name="EMR_Hive_Options"></a>
+## Hive options<a name="EMR_Hive_Options"></a>
 
  You can set the following Hive options to manage the transfer of data out of Amazon DynamoDB\. These options only persist for the current Hive session\. If you close the Hive command prompt and reopen it later on the cluster, these settings will have returned to the default values\. 
 
 
-| Hive Options | Description | 
+| Hive options | Description | 
 | --- | --- | 
 | dynamodb\.throughput\.read\.percent |   Set the rate of read operations to keep your DynamoDB provisioned throughput rate in the allocated range for your table\. The value is between `0.1` and `1.5`, inclusively\.   The value of 0\.5 is the default read rate, which means that Hive will attempt to consume half of the read provisioned throughout resources in the table\. Increasing this value above 0\.5 increases the read request rate\. Decreasing it below 0\.5 decreases the read request rate\. This read rate is approximate\. The actual read rate will depend on factors such as whether there is a uniform distribution of keys in DynamoDB\.   If you find your provisioned throughput is frequently exceeded by the Hive operation, or if live read traffic is being throttled too much, then reduce this value below `0.5`\. If you have enough capacity and want a faster Hive operation, set this value above `0.5`\. You can also oversubscribe by setting it up to 1\.5 if you believe there are unused input/output operations available\.   | 
 | dynamodb\.throughput\.write\.percent |   Set the rate of write operations to keep your DynamoDB provisioned throughput rate in the allocated range for your table\. The value is between `0.1` and `1.5`, inclusively\.   The value of 0\.5 is the default write rate, which means that Hive will attempt to consume half of the write provisioned throughout resources in the table\. Increasing this value above 0\.5 increases the write request rate\. Decreasing it below 0\.5 decreases the write request rate\. This write rate is approximate\. The actual write rate will depend on factors such as whether there is a uniform distribution of keys in DynamoDB   If you find your provisioned throughput is frequently exceeded by the Hive operation, or if live write traffic is being throttled too much, then reduce this value below `0.5`\. If you have enough capacity and want a faster Hive operation, set this value above `0.5`\. You can also oversubscribe by setting it up to 1\.5 if you believe there are unused input/output operations available or this is the initial data upload to the table and there is no live traffic yet\.   | 
-| dynamodb\.endpoint | Specify the endpoint for the DynamoDB service\. For more information about the available DynamoDB endpoints, see [Regions and Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#ddb_region)\.  | 
+| dynamodb\.endpoint | Specify the endpoint for the DynamoDB service\. For more information about the available DynamoDB endpoints, see [Regions and endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#ddb_region)\.  | 
 | dynamodb\.max\.map\.tasks |   Specify the maximum number of map tasks when reading data from DynamoDB\. This value must be equal to or greater than 1\.   | 
 | dynamodb\.retry\.duration |   Specify the number of minutes to use as the timeout duration for retrying Hive commands\. This value must be an integer equal to or greater than 0\. The default timeout duration is two minutes\.   | 
 

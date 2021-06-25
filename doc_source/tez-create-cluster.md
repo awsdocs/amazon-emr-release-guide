@@ -1,4 +1,4 @@
-# Creating a Cluster with Tez<a name="tez-create-cluster"></a>
+# Creating a cluster with Tez<a name="tez-create-cluster"></a>
 
 Install Tez by choosing that application when you create the cluster\.<a name="emr-tez-create"></a>
 

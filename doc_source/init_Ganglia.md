@@ -1,4 +1,4 @@
-# Create a Cluster with Ganglia<a name="init_Ganglia"></a>
+# Create a cluster with Ganglia<a name="init_Ganglia"></a>
 
 **To create a cluster with Ganglia using the console**
 

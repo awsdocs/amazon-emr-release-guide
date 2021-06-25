@@ -1,4 +1,4 @@
-# Submit Pig Work<a name="emr-pig-launch"></a>
+# Submit Pig work<a name="emr-pig-launch"></a>
 
 This section demonstrates submitting Pig work to an Amazon EMR cluster\. The examples that follow generate a report containing the total bytes transferred, a list of the top 50 IP addresses, a list of the top 50 external referrers, and the top 50 search terms using Bing and Google\. The Pig script is located in the Amazon S3 bucket `s3://elasticmapreduce/samples/pig-apache/do-reports2.pig`\. Input data is located in the Amazon S3 bucket `s3://elasticmapreduce/samples/pig-apache/input`\. The output is saved to an Amazon S3 bucket\. 
 
@@ -15,7 +15,7 @@ register file:/usr/lib/pig/lib/piggybank.jar
 ```
 Then replace this script in your own bucket in Amazon S3\.
 
-## Submit Pig Work Using the Amazon EMR Console<a name="ConsoleCreatingaPigJob"></a>
+## Submit Pig work using the Amazon EMR console<a name="ConsoleCreatingaPigJob"></a>
 
 This example describes how to use the Amazon EMR console to add a Pig step to a cluster\. 
 
@@ -40,7 +40,7 @@ This example describes how to use the Amazon EMR console to add a Pig step to a 
 
 1. The status of the step changes from Pending to Running to Completed as the step runs\. To update the status, choose the **Refresh** icon above the **Actions** column\. 
 
-## Submit Pig Work Using the AWS CLI<a name="emr-pig-submit-work"></a>
+## Submit Pig work using the AWS CLI<a name="emr-pig-submit-work"></a>
 
 **To submit a Pig step using the AWS CLI**
 

@@ -1,11 +1,11 @@
-# Build Binaries Using Amazon EMR<a name="emr-build-binaries"></a>
+# Build binaries using Amazon EMR<a name="emr-build-binaries"></a>
 
-You can use Amazon EMR as a build environment to compile programs for use in your cluster\. Programs that you use with Amazon EMR must be compiled on a system running the same version of Linux used by Amazon EMR\. For a 32\-bit version, you should have compiled on a 32\-bit machine or with 32\-bit cross compilation options turned on\. For a 64\-bit version, you need to have compiled on a 64\-bit machine or with 64\-bit cross compilation options turned\. For more information about EC2 instance versions, see [Plan and Configure EC2 Instances](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-ec2-instances.html) in the *Amazon EMR Management Guide*\. Supported programming languages include C\+\+, Python, and C\#\. 
+You can use Amazon EMR as a build environment to compile programs for use in your cluster\. Programs that you use with Amazon EMR must be compiled on a system running the same version of Linux used by Amazon EMR\. For a 32\-bit version, you should have compiled on a 32\-bit machine or with 32\-bit cross compilation options turned on\. For a 64\-bit version, you need to have compiled on a 64\-bit machine or with 64\-bit cross compilation options turned\. For more information about EC2 instance versions, see [Plan and configure EC2 instances](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-ec2-instances.html) in the *Amazon EMR Management Guide*\. Supported programming languages include C\+\+, Python, and C\#\. 
 
 The following table outlines the steps involved to build and test your application using Amazon EMR\.
 
 
-**Process for Building a Module**  
+**Process for building a module**  
 
 |  |  | 
 | --- |--- |
@@ -17,7 +17,7 @@ The following table outlines the steps involved to build and test your applicati
 The details for each of these steps are covered in the sections that follow\. 
 
 **To connect to the master node of the cluster**
-+ Follow the instructions at [Connect to the Master Node Using SSH](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-connect-master-node-ssh.html) in the *Amazon EMR Management Guide*\.
++ Follow the instructions at [Connect to the master node using SSH](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-connect-master-node-ssh.html) in the *Amazon EMR Management Guide*\.
 
 **To copy source files to the master node**
 

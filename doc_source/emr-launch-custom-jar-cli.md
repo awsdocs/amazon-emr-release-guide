@@ -1,8 +1,8 @@
-# Submit a Custom JAR Step<a name="emr-launch-custom-jar-cli"></a>
+# Submit a custom JAR step<a name="emr-launch-custom-jar-cli"></a>
 
 This section covers the basics of submitting a custom JAR step in Amazon EMR\. Submitting a custom JAR step enables you to write a script to process your data using the Java programming language\. 
 
-## Submit a Custom JAR Step Using the Console<a name="ConsoleCreatingaCustomJARJob"></a>
+## Submit a custom JAR step using the console<a name="ConsoleCreatingaCustomJARJob"></a>
 
 This example describes how to use the Amazon EMR console to submit a custom JAR step to a running cluster\.
 

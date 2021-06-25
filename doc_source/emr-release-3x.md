@@ -1,4 +1,4 @@
-# Amazon EMR 2\.x and 3\.x AMI Versions<a name="emr-release-3x"></a>
+# Amazon EMR 2\.x and 3\.x AMI versions<a name="emr-release-3x"></a>
 
 **Note**  
 This topic replaces the Amazon EMR Developer Guide, which has been retired\.
@@ -12,11 +12,11 @@ The scope of differences between the 2\.x and 3\.x series release versions and r
 This section attempts to cover the most significant differences for Amazon EMR, as well as specific application configuration and management differences\. It is not comprehensive\. If you create and use clusters in the 2\.x or 3\.x series, you may encounter differences not covered in this section\.
 
 **Topics**
-+ [Creating a Cluster With Earlier AMI Versions of Amazon EMR](emr-3x-create.md)
-+ [Installing Applications with Earlier AMI Versions of Amazon EMR](emr-3x-install-apps.md)
-+ [Customizing Cluster and Application Configuration With Earlier AMI Versions of Amazon EMR](emr-3x-customizeappconfig.md)
-+ [Hive Application Specifics for Earlier AMI Versions of Amazon EMR](emr-3x-hive.md)
-+ [HBase Application Specifics for Earlier AMI Versions of Amazon EMR](emr-3x-hbase.md)
-+ [Pig Application Specifics for Earlier AMI Versions of Amazon EMR](emr-3x-pig.md)
-+ [Spark Application Specifics With Earlier AMI Versions of Amazon EMR](emr-3x-spark.md)
-+ [S3DistCp Utility Differences With Earlier AMI Versions of Amazon EMR](emr-3x-s3distcp.md)
++ [Creating a cluster with earlier AMI versions of Amazon EMR](emr-3x-create.md)
++ [Installing applications with earlier AMI versions of Amazon EMR](emr-3x-install-apps.md)
++ [Customizing cluster and application configuration with earlier AMI versions of Amazon EMR](emr-3x-customizeappconfig.md)
++ [Hive application specifics for earlier AMI versions of Amazon EMR](emr-3x-hive.md)
++ [HBase application specifics for earlier AMI versions of Amazon EMR](emr-3x-hbase.md)
++ [Pig application specifics for earlier AMI versions of Amazon EMR](emr-3x-pig.md)
++ [Spark application specifics with earlier AMI versions of Amazon EMR](emr-3x-spark.md)
++ [S3DistCp utility differences with earlier AMI versions of Amazon EMR](emr-3x-s3distcp.md)

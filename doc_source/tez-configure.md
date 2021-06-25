@@ -2,7 +2,7 @@
 
 You can customize Tez by setting values using the `tez-site` configuration classification, which configures settings in the `tez-site.xml` configuration file\. For more information, see [TezConfiguration](https://tez.apache.org/releases/0.8.2/tez-api-javadocs/configs/TezConfiguration.html) in the Apache Tez documentation\. To change Hive or Pig to use the Tez execution engine, use the `hive-site` and `pig-properties` configuration classifications as appropriate\. Examples are shown below\.
 
-**Example: Customizing the Tez Root Logging Level and Setting Tez as the Execution Engine for Hive and Pig**  
+**Example: Customizing the Tez root logging level and setting Tez as the execution engine for Hive and Pig**  
 The example `create-cluster` command shown below creates a cluster with Tez, Hive, and Pig installed\. The command references a file stored in Amazon S3, `myConfig.json`, which specifies properties for the `tez-site` classification that sets `tez.am.log.level` to `DEBUG`, and sets the execution engine to Tez for Hive and Pig using the `hive-site` and `pig-properties` configuration classifications\.  
 Linux line continuation characters \(\\\) are included for readability\. They can be removed or used in Linux commands\. For Windows, remove them or replace with a caret \(^\)\.
 

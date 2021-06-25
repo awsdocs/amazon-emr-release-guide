@@ -1,4 +1,4 @@
-# Process Data with Streaming<a name="UseCase_Streaming"></a>
+# Process data with streaming<a name="UseCase_Streaming"></a>
 
 Hadoop Streaming is a utility that comes with Hadoop that enables you to develop MapReduce executables in languages other than Java\. Streaming is implemented in the form of a JAR file, so you can run it from the Amazon EMR API or command line just like a standard JAR file\. 
 
@@ -7,12 +7,12 @@ This section describes how to use Streaming with Amazon EMR\.
 **Note**  
 Apache Hadoop Streaming is an independent tool\. As such, all of its functions and parameters are not described here\. For more information about Hadoop Streaming, go to [http://hadoop\.apache\.org/docs/stable/hadoop\-streaming/HadoopStreaming\.html](http://hadoop.apache.org/docs/stable/hadoop-streaming/HadoopStreaming.html)\.
 
-## Using the Hadoop Streaming Utility<a name="HadoopStreamCommands"></a>
+## Using the Hadoop streaming utility<a name="HadoopStreamCommands"></a>
 
 This section describes how use to Hadoop's Streaming utility\.
 
 
-**Hadoop Process**  
+**Hadoop process**  
 
 |  |  | 
 | --- |--- |

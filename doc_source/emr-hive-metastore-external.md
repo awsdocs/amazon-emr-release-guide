@@ -1,4 +1,4 @@
-# Using an External MySQL Database or Amazon Aurora<a name="emr-hive-metastore-external"></a>
+# Using an external MySQL database or Amazon Aurora<a name="emr-hive-metastore-external"></a>
 
 To use an external MySQL database or Amazon Aurora as your Hive metastore, you override the default configuration values for the metastore in Hive to specify the external database location, either on an Amazon RDS MySQL instance or an Amazon Aurora instance\.
 
@@ -15,7 +15,7 @@ The following procedure shows you how to override the default configuration valu
 
 1. Modify your security groups to allow JDBC connections between your database and the **ElasticMapReduce\-Master** security group\.
 
-   For information about how to modify your security groups for access, see [Working With Amazon EMR\-Managed Security Groups](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-man-sec-groups.html)\.
+   For information about how to modify your security groups for access, see [Working with Amazon EMR\-managed security groups](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-man-sec-groups.html)\.
 
 1. Set JDBC configuration values in `hive-site.xml`:
 
@@ -25,7 +25,7 @@ If you supply sensitive information, such as passwords, to the Amazon EMR config
 
      Create a configuration file called `hiveConfiguration.json` containing edits to `hive-site.xml` as shown in the following example\.
 
-      *hostname*> is the DNS address of the Amazon RDS instance running the database\. <*username*> and <*password*> are the credentials for your database\. For more information about connecting to MySQL and Aurora database instances, see [Connecting to a DB Instance Running the MySQL Database Engine](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ConnectToInstance.html) and [Connecting to an Athena DB Cluster](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Connect.html) in the *Amazon RDS User Guide*\. `javax.jdo.option.ConnectionURL` is the JDBC connect string for a JDBC metastore\. `javax.jdo.option.ConnectionDriverName` is the driver class name for a JDBC metastore\.
+      *hostname*> is the DNS address of the Amazon RDS instance running the database\. <*username*> and <*password*> are the credentials for your database\. For more information about connecting to MySQL and Aurora database instances, see [Connecting to a DB instance running the MySQL database engine](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ConnectToInstance.html) and [Connecting to an Athena DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Connect.html) in the *Amazon RDS User Guide*\. `javax.jdo.option.ConnectionURL` is the JDBC connect string for a JDBC metastore\. `javax.jdo.option.ConnectionDriverName` is the driver class name for a JDBC metastore\.
 
      The MySQL JDBC drivers are installed by Amazon EMR\. 
 
@@ -56,7 +56,7 @@ Linux line continuation characters \(\\\) are included for readability\. They ca
 
 1. Connect to the master node of your cluster\. 
 
-   For information about how to connect to the master node, see [Connect to the Master Node Using SSH](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-connect-master-node-ssh.html) in the *Amazon EMR Management Guide*\.
+   For information about how to connect to the master node, see [Connect to the master node using SSH](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-connect-master-node-ssh.html) in the *Amazon EMR Management Guide*\.
 
 1. Create your Hive tables specifying the location on Amazon S3 by entering a command similar to the following:
 

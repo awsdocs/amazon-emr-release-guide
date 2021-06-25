@@ -1,14 +1,14 @@
-# Submit a Streaming Step<a name="CLI_CreateStreaming"></a>
+# Submit a streaming step<a name="CLI_CreateStreaming"></a>
 
 This section covers the basics of submitting a Streaming step to a cluster\. A Streaming application reads input from standard input and then runs a script or executable \(called a mapper\) against each input\. The result from each of the inputs is saved locally, typically on a Hadoop Distributed File System \(HDFS\) partition\. After all the input is processed by the mapper, a second script or executable \(called a reducer\) processes the mapper results\. The results from the reducer are sent to standard output\. You can chain together a series of Streaming steps, where the output of one step becomes the input of another step\. 
 
 The mapper and the reducer can each be referenced as a file or you can supply a Java class\. You can implement the mapper and reducer in any of the supported languages, including Ruby, Perl, Python, PHP, or Bash\.
 
-## Submit a Streaming Step Using the Console<a name="emr-dev-create-stream-console"></a>
+## Submit a streaming step using the console<a name="emr-dev-create-stream-console"></a>
 
 This example describes how to use the Amazon EMR console to submit a Streaming step to a running cluster\.
 
-**To submit a Streaming step**
+**To submit a streaming step**
 
 1. Open the Amazon EMR console at [https://console\.aws\.amazon\.com/elasticmapreduce/](https://console.aws.amazon.com/elasticmapreduce/)\.
 
@@ -34,7 +34,7 @@ This example describes how to use the Amazon EMR console to submit a Streaming s
 
 These examples demonstrate how to use the AWS CLI to create a cluster and submit a Streaming step\. 
 
-**To create a cluster and submit a Streaming step using the AWS CLI**
+**To create a cluster and submit a streaming step using the AWS CLI**
 + To create a cluster and submit a Streaming step using the AWS CLI, type the following command and replace *myKey* with the name of your EC2 key pair\.
 
   ```

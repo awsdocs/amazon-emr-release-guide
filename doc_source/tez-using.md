@@ -1,12 +1,12 @@
 # Using Tez<a name="tez-using"></a>
 
-The following examples show you how to use Tez for the data and scripts used in the tutorial [Getting Started: Analyzing Big Data with Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-gs.html) shown in [Step 3](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-gs-prepare-data-and-script.html)\.
+The following examples show you how to use Tez for the data and scripts used in the tutorial [Getting started: Analyzing big data with Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-gs.html) shown in [Step 3](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-gs-prepare-data-and-script.html)\.
 
 **Compare the Hive runtimes of MapReduce vs\. Tez**
 
 1. Create a cluster as shown in the procedure called [To create a cluster with Tez installed using the console](tez-create-cluster.md#emr-tez-create)\. Choose **Hive** as an application in addition to **Tez**\.
 
-1. Connect to the cluster master node using SSH\. For more information, see [Connect to the Master Node Using SSH](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-connect-master-node-ssh.html)\.
+1. Connect to the cluster master node using SSH\. For more information, see [Connect to the master node using SSH](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-connect-master-node-ssh.html)\.
 
 1. Run the `Hive_CloudFront.q` script using MapReduce with the following command, where *region* is the region in which your cluster is located:
 

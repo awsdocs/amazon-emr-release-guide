@@ -1,4 +1,4 @@
-# Hadoop and Spark Metrics in Ganglia<a name="Hadoopmetrics_Ganglia"></a>
+# Hadoop and Spark metrics in Ganglia<a name="Hadoopmetrics_Ganglia"></a>
 
  Ganglia reports Hadoop metrics for each instance\. The various types of metrics are prefixed by category: distributed file system \(dfs\.\*\), Java virtual machine \(jvm\.\*\), MapReduce \(mapred\.\*\), and remote procedure calls \(rpc\.\*\)\. 
 

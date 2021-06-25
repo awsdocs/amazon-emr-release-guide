@@ -1,13 +1,13 @@
-# Run a Script in a Cluster<a name="emr-hadoop-script"></a>
+# Run a script in a cluster<a name="emr-hadoop-script"></a>
 
-Amazon EMR enables you to run a script at any time during step processing in your cluster\. You specify a step that runs a script either when you create your cluster or you can add a step if your cluster is in the `WAITING` state\. For more information about adding steps, see [Submit Work to a Cluster](https://docs.aws.amazon.com/emr/latest/ManagementGuide/AddingStepstoaJobFlow.html) in the *Amazon EMR Management Guide*\.
+Amazon EMR enables you to run a script at any time during step processing in your cluster\. You specify a step that runs a script either when you create your cluster or you can add a step if your cluster is in the `WAITING` state\. For more information about adding steps, see [Submit work to a cluster](https://docs.aws.amazon.com/emr/latest/ManagementGuide/AddingStepstoaJobFlow.html) in the *Amazon EMR Management Guide*\.
 
-To run a script before step processing begins, use a bootstrap action\. For more information about bootstrap actions, see [Create Bootstrap Actions to Install Additional Software](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-bootstrap.html) in the *Amazon EMR Management Guide*\.
+To run a script before step processing begins, use a bootstrap action\. For more information about bootstrap actions, see [Create bootstrap actions to install additional software](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-bootstrap.html) in the *Amazon EMR Management Guide*\.
 
-## Submitting a Custom JAR Step Using the AWS CLI<a name="emr-dev-cli-add-step-script"></a>
+## Submitting a custom JAR step using the AWS CLI<a name="emr-dev-cli-add-step-script"></a>
 
 **Note**  
-You can now use command\-runner\.jar in many cases instead of script\-runner\.jar\. command\-runner\.jar does not need to have a full path for the JAR\. For more information, see [Command Runner](emr-commandrunner.md)\.
+You can now use command\-runner\.jar in many cases instead of script\-runner\.jar\. command\-runner\.jar does not need to have a full path for the JAR\. For more information, see [Command runner](emr-commandrunner.md)\.
 
 This section describes how to add a step to run a script\. The `script-runner.jar` takes arguments to the path to a script and any additional arguments for the script\. The JAR file runs the script with the passed arguments\. 
 

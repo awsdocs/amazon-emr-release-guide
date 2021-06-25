@@ -1,6 +1,6 @@
-# Advanced Configurations for Hue<a name="advanced-configurations"></a>
+# Advanced configurations for Hue<a name="advanced-configurations"></a>
 
 This section includes the following topics\.
 
 **Topics**
-+ [Configure Hue for LDAP Users](hue-ldap.md)
++ [Configure Hue for LDAP users](hue-ldap.md)

@@ -1,4 +1,4 @@
-# Configure Applications<a name="emr-configure-apps"></a>
+# Configure applications<a name="emr-configure-apps"></a>
 
 To override the default configurations for an application, you can supply a configuration object\. You can either use a shorthand syntax to provide the configuration, or you can reference the configuration object in a JSON file\. Configuration objects consist of a classification, properties, and optional nested configurations\. Properties correspond to the application settings you want to change\. You can specify multiple classifications for multiple applications in a single JSON object\.
 
@@ -91,6 +91,6 @@ The following settings do not belong to a configuration file but are used by Ama
 | Spark | spark | maximizeResourceAllocation | Configure executors to utilize the maximum resources of each node\. | 
 
 **Topics**
-+ [Configure Applications when You Create a Cluster](emr-configure-apps-create-cluster.md)
-+ [Reconfigure an Instance Group in a Running Cluster](emr-configure-apps-running-cluster.md)
-+ [Configure Applications to Use a Specific Java Virtual Machine](configuring-java8.md)
++ [Configure applications when you create a cluster](emr-configure-apps-create-cluster.md)
++ [Reconfigure an instance group in a running cluster](emr-configure-apps-running-cluster.md)
++ [Configure applications to use a specific Java Virtual Machine](configuring-java8.md)

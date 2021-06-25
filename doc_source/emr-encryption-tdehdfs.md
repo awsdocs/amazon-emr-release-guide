@@ -1,8 +1,8 @@
-# Transparent Encryption in HDFS on Amazon EMR<a name="emr-encryption-tdehdfs"></a>
+# Transparent encryption in HDFS on Amazon EMR<a name="emr-encryption-tdehdfs"></a>
 
 Transparent encryption is implemented through the use of HDFS *encryption zones*, which are HDFS paths that you define\. Each encryption zone has its own key, which is stored in the key server specified using the `hdfs-site` configuration classification\.
 
-Beginning with Amazon EMR release version 4\.8\.0, you can use Amazon EMR security configurations to configure data encryption settings for clusters more easily\. Security configurations offer settings to enable security for data in\-transit and data at\-rest in Amazon Elastic Block Store \(Amazon EBS\) storage volumes and EMRFS data in Amazon S3\. For more information, see [Encrypt Data in Transit and At Rest](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-data-encryption.html) in the *Amazon EMR Management Guide*\.
+Beginning with Amazon EMR release version 4\.8\.0, you can use Amazon EMR security configurations to configure data encryption settings for clusters more easily\. Security configurations offer settings to enable security for data in\-transit and data at\-rest in Amazon Elastic Block Store \(Amazon EBS\) storage volumes and EMRFS data in Amazon S3\. For more information, see [Encrypt data in transit and at rest](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-data-encryption.html) in the *Amazon EMR Management Guide*\.
 
 Amazon EMR uses the Hadoop KMS by default; however, you can use another KMS that implements the KeyProvider API operation\. Each file in an HDFS encryption zone has its own unique *data encryption key*, which is encrypted by the encryption zone key\. HDFS data is encrypted end\-to\-end \(at\-rest and in\-transit\) when data is written to an encryption zone because encryption and decryption activities only occur in the client\.
 
@@ -10,12 +10,12 @@ You cannot move files between encryptions zones or from an encryption zone to un
 
 The NameNode and HDFS client interact with the Hadoop KMS \(or an alternate KMS you configured\) through the KeyProvider API operation\. The KMS is responsible for storing encryption keys in the backing keystore\. Also, Amazon EMR includes the JCE unlimited strength policy, so you can create keys at a desired length\. 
 
-For more information, see [Transparent Encryption in HDFS](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/TransparentEncryption.html) in the Hadoop documentation\.
+For more information, see [Transparent encryption in HDFS](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/TransparentEncryption.html) in the Hadoop documentation\.
 
 **Note**  
 In Amazon EMR, KMS over HTTPS is not enabled by default with Hadoop KMS\. For more information about how to enable KMS over HTTPS, see the [Hadoop KMS documentation](http://hadoop.apache.org/docs/current/hadoop-kms/index.html)\.
 
-## Configuring HDFS Transparent Encryption<a name="emr-configure-HDFS-transparent-encryption"></a>
+## Configuring HDFS transparent encryption<a name="emr-configure-HDFS-transparent-encryption"></a>
 
 You can configure transparent encryption in Amazon EMR by creating keys and adding encryption zones\. You can do this in several ways: 
 + Using the Amazon EMR configuration API operation when you create a cluster
@@ -94,17 +94,17 @@ Hadoop KMS requires your key names to be lowercase\. If you use a key that has u
 **Note**  
 Linux line continuation characters \(\\\) are included for readability\. They can be removed or used in Linux commands\. For Windows, remove them or replace with a caret \(^\)\.
 
-## Considerations for HDFS Transparent Encryption<a name="emr-HDFS-transparent-encryption-considerations"></a>
+## Considerations for HDFS transparent encryption<a name="emr-HDFS-transparent-encryption-considerations"></a>
 
 A best practice is to create an encryption zone for each application where they may write files\. Also, you can encrypt all of HDFS by using the hdfs\-encryption\-zones classification in the configuration API and specify the root path \(/\) as the encryption zone\.
 
-## Hadoop Key Management Server<a name="emr-hadoop-kms"></a>
+## Hadoop key management server<a name="emr-hadoop-kms"></a>
 
-[Hadoop KMS](http://hadoop.apache.org/docs/current/hadoop-kms/index.html) is a key management server that provides the ability to implement cryptographic services for Hadoop clusters, and can serve as the key vendor for [Transparent Encryption in HDFS on Amazon EMR](#emr-encryption-tdehdfs)\. Hadoop KMS in Amazon EMR is installed and enabled by default when you select the Hadoop application while launching an EMR cluster\. The Hadoop KMS does not store the keys itself except in the case of temporary caching\. Hadoop KMS acts as a proxy between the key provider and the client trustee to a backing keystore—it is not a keystore\. The default keystore that is created for Hadoop KMS is the Java Cryptography Extension KeyStore \(JCEKS\)\. The JCE unlimited strength policy is also included, so you can create keys with the desired length\. Hadoop KMS also supports a range of ACLs that control access to keys and key operations independently of other client applications such as HDFS\. The default key length in Amazon EMR is 256 bit\.
+[Hadoop KMS](http://hadoop.apache.org/docs/current/hadoop-kms/index.html) is a key management server that provides the ability to implement cryptographic services for Hadoop clusters, and can serve as the key vendor for [Transparent encryption in HDFS on Amazon EMR](#emr-encryption-tdehdfs)\. Hadoop KMS in Amazon EMR is installed and enabled by default when you select the Hadoop application while launching an EMR cluster\. The Hadoop KMS does not store the keys itself except in the case of temporary caching\. Hadoop KMS acts as a proxy between the key provider and the client trustee to a backing keystore—it is not a keystore\. The default keystore that is created for Hadoop KMS is the Java Cryptography Extension KeyStore \(JCEKS\)\. The JCE unlimited strength policy is also included, so you can create keys with the desired length\. Hadoop KMS also supports a range of ACLs that control access to keys and key operations independently of other client applications such as HDFS\. The default key length in Amazon EMR is 256 bit\.
 
 To configure Hadoop KMS, use the hadoop\-kms\-site classification to change settings\. To configure ACLs, you use the classification kms\-acls\.
 
-For more information, see the [Hadoop KMS documentation](http://hadoop.apache.org/docs/current/hadoop-kms/index.html)\. Hadoop KMS is used in Hadoop HDFS transparent encryption\. To learn more about HDFS transparent encryption, see the [HDFS Transparent Encryption](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/TransparentEncryption.html) topic in the Apache Hadoop documentation\.
+For more information, see the [Hadoop KMS documentation](http://hadoop.apache.org/docs/current/hadoop-kms/index.html)\. Hadoop KMS is used in Hadoop HDFS transparent encryption\. To learn more about HDFS transparent encryption, see the [HDFS transparent encryption](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/TransparentEncryption.html) topic in the Apache Hadoop documentation\.
 
 **Note**  
 In Amazon EMR, KMS over HTTPS is not enabled by default with Hadoop KMS\. To learn how to enable KMS over HTTPS, see the [Hadoop KMS documentation](http://hadoop.apache.org/docs/current/hadoop-kms/index.html)\.
@@ -119,7 +119,7 @@ Using Amazon EMR release version 4\.6\.0 or later, the `kms-http-port` is 9700 a
 You can configure Hadoop KMS at cluster creation time using the configuration API for Amazon EMR releases\. The following are the configuration object classifications available for Hadoop KMS:
 
 
-**Hadoop KMS Configuration Classifications**  
+**Hadoop KMS configuration classifications**  
 
 | Classification | Filename | 
 | --- | --- | 
@@ -211,7 +211,7 @@ Linux line continuation characters \(\\\) are included for readability\. They ca
 
 For information about configuring Hadoop KMS, see the [Hadoop KMS documentation](http://hadoop.apache.org/docs/current/hadoop-kms/index.html)\.
 
-## HDFS Transparent Encryption on EMR Clusters with Multiple Master Nodes<a name="emr-hadoop-kms-multi-master"></a>
+## HDFS transparent encryption on EMR clusters with multiple master nodes<a name="emr-hadoop-kms-multi-master"></a>
 
 [Apache Ranger](http://hadoop.apache.org/docs/current/hadoop-kms/index.html) KMS is used in an EMR cluster with multiple master nodes for transparent encryption in HDFS\. 
 
@@ -246,7 +246,7 @@ You can provide these configurations by using `ranger-kms-dbks-site` classificat
 The following are configuration object classifications for Apache Ranger KMS\.
 
 
-**Hadoop KMS Configuration Classifications**  
+**Hadoop KMS configuration classifications**  
 
 | Classification | Description | 
 | --- | --- | 
@@ -257,6 +257,6 @@ The following are configuration object classifications for Apache Ranger KMS\.
 | ranger\-kms\-db\-ca | Change values for CA file on S3 for MySQL SSL connection with Ranger KMS\. | 
 
 **Considerations**
-+ It is highly recommended that you encrypt your Amazon RDS instance to improve security\. For more information, see [Overview of Encrypting Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Encryption.html#Overview.Encryption.Overview)\.
++ It is highly recommended that you encrypt your Amazon RDS instance to improve security\. For more information, see [Overview of encrypting Amazon RDS resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Encryption.html#Overview.Encryption.Overview)\.
 + It is highly recommended that you use separate MySQL database for each EMR cluster with multiple master nodes for high security bar\.
 + To configure transparent encryption in HDFS on an EMR cluster with multiple master nodes, you must specify the `hdfs-encryption-zones` classification while creating the cluster\. Otherwise, Ranger KMS will not be configured or started\. Reconfiguring `hdfs-encryption-zones` classification or any of the Hadoop KMS configuration classifications on a running cluster is not supported on EMR cluster with multiple master nodes\.

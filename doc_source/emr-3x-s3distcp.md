@@ -1,11 +1,11 @@
-# S3DistCp Utility Differences With Earlier AMI Versions of Amazon EMR<a name="emr-3x-s3distcp"></a>
+# S3DistCp utility differences with earlier AMI versions of Amazon EMR<a name="emr-3x-s3distcp"></a>
 
-## S3DistCp Versions Supported in Amazon EMR<a name="emr-s3distcp-verisons"></a>
+## S3DistCp versions supported in Amazon EMR<a name="emr-s3distcp-verisons"></a>
 
 The following S3DistCp versions are supported in Amazon EMR AMI releases\. S3DistCp versions after 1\.0\.7 are found on directly on the clusters\. Use the JAR in `/home/hadoop/lib` for the latest features\.
 
 
-| Version | Description | Release Date | 
+| Version | Description | Release date | 
 | --- | --- | --- | 
 | 1\.0\.8 | Adds the \-\-appendToLastFile, \-\-requirePreviousManifest, and \-\-storageClass options\. | 3 January 2014 | 
 | 1\.0\.7 | Adds the \-\-s3ServerSideEncryption option\. | 2 May 2013 | 
@@ -16,7 +16,7 @@ The following S3DistCp versions are supported in Amazon EMR AMI releases\. S3Dis
 | 1\.0\.2 | Improves file naming when using groups\. | 6 June 2012 | 
 | 1\.0\.1 | Initial release of S3DistCp\. | 19 January 2012 | 
 
-## Add an S3DistCp Copy Step to a Cluster<a name="emr-3x-s3distcp-add-step"></a>
+## Add an S3DistCp copy step to a cluster<a name="emr-3x-s3distcp-add-step"></a>
 
 To add an S3DistCp copy step to a running cluster, type the following command, replace *j\-3GYXXXXXX9IOK* with your cluster ID, and replace *mybucket* with your Amazon S3 bucket name\.
 

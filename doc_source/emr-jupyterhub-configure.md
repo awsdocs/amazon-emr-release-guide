@@ -3,10 +3,10 @@
 You can customize the configuration of JupyterHub on Amazon EMR and individual user notebooks by connecting to the cluster master node and editing configuration files\. After you change values, restart the `jupyterhub` container\.
 
 Modify properties in the following files to configure JupyterHub and individual Jupyter notebooks:
-+ `jupyterhub_config.py`—By default, this file is saved in the `/etc/jupyter/conf/` directory on the master node\. For more information, see [Configuration Basics](http://jupyterhub.readthedocs.io/en/latest/getting-started/config-basics.html) in the JupyterHub documentation\.
++ `jupyterhub_config.py`—By default, this file is saved in the `/etc/jupyter/conf/` directory on the master node\. For more information, see [Configuration basics](http://jupyterhub.readthedocs.io/en/latest/getting-started/config-basics.html) in the JupyterHub documentation\.
 + `jupyter_notebook_config.py`—This file is saved in the `/etc/jupyter/` directory by default and copied to the `jupyterhub` container as the default\. For more information, see [Config file and command line options](http://jupyter-notebook.readthedocs.io/en/stable/config.html) in the Jupyter Notebook documentation\.
 
-You can also use the `jupyter-sparkmagic-conf` configuration classification to customize Sparkmagic, which updates values in the `config.json` file for Sparkmagic\. For more information about available settings, see the [example\_config\.json on GitHub](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json)\. For more information about using configuration classifications with applications in Amazon EMR, see [Configure Applications](emr-configure-apps.md)\.
+You can also use the `jupyter-sparkmagic-conf` configuration classification to customize Sparkmagic, which updates values in the `config.json` file for Sparkmagic\. For more information about available settings, see the [example\_config\.json on GitHub](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json)\. For more information about using configuration classifications with applications in Amazon EMR, see [Configure applications](emr-configure-apps.md)\.
 
 The following example launches a cluster using the AWS CLI, referencing the file `MyJupyterConfig.json` for Sparkmagic configuration classification settings\.
 

@@ -1,4 +1,4 @@
-# Creating a Cluster with Flink<a name="flink-create-cluster"></a>
+# Creating a cluster with Flink<a name="flink-create-cluster"></a>
 
 Clusters can be launched using the AWS Management Console, AWS CLI, or an AWS SDK\.<a name="emr-flink-create-console"></a>
 
@@ -18,9 +18,17 @@ Clusters can be launched using the AWS Management Console, AWS CLI, or an AWS SD
 + Create the cluster with the following command:
 
   ```
-  aws emr create-cluster --name "Cluster with Flink" --release-label emr-5.33.0 \
-  --applications Name=Flink --ec2-attributes KeyName=myKey \
-  --instance-type m5.xlarge --instance-count 3 --use-default-roles
+  aws emr create-cluster --release-label emr-5.33.0 \
+  --applications Name=Flink \
+  --configurations file://./configurations.json \
+  --region us-east-1 \
+  --log-uri s3://myLogUri \
+  --instance-type m5.xlarge \
+  --instance-count 2 \
+  --service-role EMR_DefaultRole \ 
+  --ec2-attributes KeyName=MyKeyName,InstanceProfile=EMR_EC2_DefaultRole \
+  --steps Type=CUSTOM_JAR,Jar=command-runner.jar,Name=Flink_Long_Running_Session,\
+  Args=flink-yarn-session,-d
   ```
 **Note**  
 Linux line continuation characters \(\\\) are included for readability\. They can be removed or used in Linux commands\. For Windows, remove them or replace with a caret \(^\)\.

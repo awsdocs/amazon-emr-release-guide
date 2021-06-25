@@ -1,14 +1,14 @@
 # Using the Nvidia Spark\-RAPIDS Accelerator for Spark<a name="emr-spark-rapids"></a>
 
-With Amazon EMR release version 6\.2\.0 and later, you can use Nvidia’s [RAPIDS](https://nvidia.github.io/spark-rapids/) Accelerator for Apache Spark plugin to accelerate Spark using EC2 graphics processing unit \(GPU\) instance types\. Rapids Accelerator will GPU\-accelerate your Apache Spark 3\.0 data science pipelines without code changes and speed up data processing and model training, while substantially lowering infrastructure costs\. 
+With Amazon EMR release version 6\.2\.0 and later, you can use Nvidia's [RAPIDS](https://nvidia.github.io/spark-rapids/) Accelerator for Apache Spark plugin to accelerate Spark using EC2 graphics processing unit \(GPU\) instance types\. Rapids Accelerator will GPU\-accelerate your Apache Spark 3\.0 data science pipelines without code changes and speed up data processing and model training, while substantially lowering infrastructure costs\. 
 
 The following sections guide you through configuring your EMR cluster to use the Spark\-RAPIDS Plugin for Spark\.
 
-## Choose Instance Types<a name="emr-spark-rapids-instancetypes"></a>
+## Choose instance types<a name="emr-spark-rapids-instancetypes"></a>
 
-To use the Nvidia Spark\-RAPIDS plugin for Spark, the core and task instance groups must use EC2 GPU instance types that meet the [Hardware Requirements](https://nvidia.github.io/spark-rapids/) of Spark\-RAPIDS\. To view a complete list of EMR supported GPU instance types, please see [Supported Instance Types](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-supported-instance-types.html) in the *Amazon EMR Management Guide*\. Instance type for the master instance group can be either GPU or non\-GPU types, but ARM instance types aren't supported\.
+To use the Nvidia Spark\-RAPIDS plugin for Spark, the core and task instance groups must use EC2 GPU instance types that meet the [Hardware requirements](https://nvidia.github.io/spark-rapids/) of Spark\-RAPIDS\. To view a complete list of EMR supported GPU instance types, please see [Supported instance types](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-supported-instance-types.html) in the *Amazon EMR Management Guide*\. Instance type for the master instance group can be either GPU or non\-GPU types, but ARM instance types aren't supported\.
 
-## Set Up Application Configurations for Your Cluster<a name="emr-spark-rapids-appconfig"></a>
+## Set up application configurations for your cluster<a name="emr-spark-rapids-appconfig"></a>
 
 **1\. Enable Amazon EMR to install the plugins on your new cluster**
 
@@ -25,7 +25,7 @@ To install plugins, supply the following configuration when creating your cluste
 
 **2\. Configure YARN to use GPU**
 
-For details on using GPU on YARN, see [Using GPU on YARN](https://hadoop.apache.org/docs/r3.2.1/hadoop-yarn/hadoop-yarn-site/UsingGpus.html) in Apache Hadoop documentation\. Here’s a sample configuration:
+For details on using GPU on YARN, see [Using GPU on YARN](https://hadoop.apache.org/docs/r3.2.1/hadoop-yarn/hadoop-yarn-site/UsingGpus.html) in Apache Hadoop documentation\. Here's a sample configuration:
 
 ```
 {
@@ -91,7 +91,7 @@ Here are the required configurations to enable Spark to use RAPIDS plugin:
 }
 ```
 
-For additional Spark configurations that you can use to tune a GPU\-accelerated EMR cluster, please refer to the [Rapids Accelerator for Apache Spark Tuning Guide](https://nvidia.github.io/spark-rapids/docs/tuning-guide.html) in Nvidia\.github\.io documentation\.
+For additional Spark configurations that you can use to tune a GPU\-accelerated EMR cluster, please refer to the [Rapids Accelerator for Apache Spark tuning guide](https://nvidia.github.io/spark-rapids/docs/tuning-guide.html) in Nvidia\.github\.io documentation\.
 
 **4\. Configure YARN Capacity Scheduler**
 
@@ -110,7 +110,7 @@ For additional Spark configurations that you can use to tune a GPU\-accelerated 
 
 You can create a JSON file that contains your configuration for using the RAPIDS plugin for your Spark cluster\. You supply the file later when launching your cluster\.
 
-The file can be stored locally or on S3\. For more information of how to supply application configurations for your clusters, see [Configure Applications](emr-configure-apps.md)\.
+The file can be stored locally or on S3\. For more information of how to supply application configurations for your clusters, see [Configure applications](emr-configure-apps.md)\.
 
 The following is a sample file named `my-configurations.json`\. You can use it as a template to start building your own configurations\.
 
@@ -185,13 +185,13 @@ The following is a sample file named `my-configurations.json`\. You can use it a
 ]
 ```
 
-## Add a Bootstrap Action for Your Cluster<a name="emr-spark-rapids-bootstrap"></a>
+## Add a bootstrap action for your cluster<a name="emr-spark-rapids-bootstrap"></a>
 
-In order to use YARN on GPU, you need to open cgroups permissions to YARN on your cluster, which can be done using an EMR Bootstrap action script\.
+In order to use YARN on GPU, you need to open cgroups permissions to YARN on your cluster, which can be done using an EMR bootstrap action script\.
 
-For more information on how to supply Bootstrap action scripts when creating your cluster, see [Bootstrap Action Basics](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-bootstrap.html#bootstrapUses) in the *Amazon EMR Management Guide*\.
+For more information on how to supply bootstrap action scripts when creating your cluster, see [Bootstrap action basics](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-bootstrap.html#bootstrapUses) in the *Amazon EMR Management Guide*\.
 
-Here’s an example script named `my-bootstap-action.json`:
+Here's an example script named `my-bootstap-action.json`:
 
 ```
 #!/bin/bash
@@ -202,9 +202,9 @@ sudo chmod a+rwx -R /sys/fs/cgroup/cpu,cpuacct
 sudo chmod a+rwx -R /sys/fs/cgroup/devices
 ```
 
-## Launch Your Cluster<a name="emr-spark-rapids-launchcluster"></a>
+## Launch your cluster<a name="emr-spark-rapids-launchcluster"></a>
 
-The last step is to launch your cluster with the cluster configurations mentioned above\. Here’s an example command to launch a cluster via EMR CLI:
+The last step is to launch your cluster with the cluster configurations mentioned above\. Here's an example command to launch a cluster via EMR CLI:
 
 ```
  aws emr create-cluster \

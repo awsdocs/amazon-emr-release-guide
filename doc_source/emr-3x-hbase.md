@@ -1,15 +1,15 @@
-# HBase Application Specifics for Earlier AMI Versions of Amazon EMR<a name="emr-3x-hbase"></a>
+# HBase application specifics for earlier AMI versions of Amazon EMR<a name="emr-3x-hbase"></a>
 
-## Supported HBase Versions<a name="emr-3x-hbase-versions"></a>
+## Supported HBase versions<a name="emr-3x-hbase-versions"></a>
 
 
-| HBase Version | AMI Version | AWS CLI Configuration Parameters | HBase Version Details | 
+| HBase version | AMI version | AWS CLI configuration parameters | HBase version details | 
 | --- | --- | --- | --- | 
 | [0\.94\.18](https://svn.apache.org/repos/asf/hbase/branches/0.94/CHANGES.txt) | 3\.1\.0 and later |  `--ami-version 3.1` `--ami-version 3.2` `--ami-version 3.3` `--applications Name=HBase`  |  [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-3x-hbase.html)  | 
 | [0\.94\.7](https://svn.apache.org/repos/asf/hbase/branches/0.94/CHANGES.txt) | 3\.0\-3\.0\.4 |  `--ami-version 3.0` `--applications Name=HBase`  | 
 | [0\.92](https://svn.apache.org/repos/asf/hbase/branches/0.92/CHANGES.txt) | 2\.2 and later |  `--ami-version 2.2 or later` `--applications Name=HBase`  | 
 
-## HBase Cluster Prerequisites<a name="emr-3x-hbase-prerequisites"></a>
+## HBase cluster prerequisites<a name="emr-3x-hbase-prerequisites"></a>
 
 A cluster created using Amazon EMR AMI versions 2\.x and 3\.x should meet the following requirements for HBase\.
 + The AWS CLI \(optional\)—To interact with HBase using the command line, download and install the latest version of the AWS CLI\. For more information, see [Installing the AWS Command Line Interface](https://docs.aws.amazon.com/cli/latest/userguide/installing.html) in the *AWS Command Line Interface User Guide*\.
@@ -20,7 +20,7 @@ A cluster created using Amazon EMR AMI versions 2\.x and 3\.x should meet the fo
 + Ganglia \(optional\)—To monitor HBase performance metrics, install Ganglia when you create the cluster\. 
 + An Amazon S3 bucket for logs \(optional\)—The logs for HBase are available on the master node\. If you'd like these logs copied to Amazon S3, specify an S3 bucket to receive log files when you create the cluster\. 
 
-## Creating a Cluster with HBase<a name="emr-3x-hbase-launch"></a>
+## Creating a cluster with HBase<a name="emr-3x-hbase-launch"></a>
 
 The following table lists options that are available when using the console to create a cluster with HBase using an Amazon EMR AMI release version\.
 
@@ -69,7 +69,7 @@ add jar lib/emr-metrics-1.0.jar ;
                select count(*) from inputTable ;
 ```
 
-## Customizing HBase Configuration<a name="emr-3x-hbase-customize"></a>
+## Customizing HBase configuration<a name="emr-3x-hbase-customize"></a>
 
 Although the default settings should work for most applications, you have the flexibility to modify your HBase configuration settings\. To do this, run one of two bootstrap action scripts: 
 + **configure\-hbase\-daemons**—Configures properties of the master, regionserver, and zookeeper daemons\. These properties include heap size and options to pass to the Java Virtual Machine \(JVM\) when the HBase daemon starts\. You set these properties as arguments in the bootstrap action\. This bootstrap action modifies the /home/hadoop/conf/hbase\-user\-env\.sh configuration file on the HBase cluster\. 
@@ -82,7 +82,7 @@ When you run the **configure\-hbase** or **configure\-hbase\-daemons** bootstrap
 
 Configuring HBase with these bootstrap actions is analogous to using bootstrap actions in Amazon EMR to configure Hadoop settings and Hadoop daemon properties\. The difference is that HBase does not have per\-process memory options\. Instead, memory options are set using the `--daemon-opts` argument, where *daemon* is replaced by the name of the daemon to configure\. 
 
-### Configure HBase Daemons<a name="emr-3x-hbase-configure-daemons"></a>
+### Configure HBase daemons<a name="emr-3x-hbase-configure-daemons"></a>
 
  Amazon EMR provides a bootstrap action, `s3://region.elasticmapreduce/bootstrap-actions/configure-hbase-daemons`, that you can use to change the configuration of HBase daemons, where *region* is the region into which you're launching your HBase cluster\. 
 
@@ -111,7 +111,7 @@ aws emr create-cluster --name "Test cluster" --ami-version 3.3 \
 Args=["--hbase-zookeeper-opts=-Xmx1024m -XX:GCTimeRatio=19","--hbase-master-opts=-Xmx2048m","--hbase-regionserver-opts=-Xmx4096m"]
 ```
 
-### Configure HBase Site Settings<a name="emr-3x-hbase-configure-site"></a>
+### Configure HBase site settings<a name="emr-3x-hbase-configure-site"></a>
 
 Amazon EMR provides a bootstrap action, `s3://elasticmapreduce/bootstrap-actions/configure-hbase`, that you can use to change the configuration of HBase\. You can set configuration values one\-by\-one, as arguments in the bootstrap action, or you can specify the location of an XML configuration file in Amazon S3\. Setting configuration values one\-by\-one is useful if you only need to set a few configuration settings\. Setting them using an XML file is useful if you have many changes to make, or if you want to save your configuration settings for reuse\. 
 
@@ -120,7 +120,7 @@ You can prefix the Amazon S3 bucket name with a region prefix, such as `s3://reg
 
 This bootstrap action modifies the `/home/hadoop/conf/hbase-site.xml` configuration file on the HBase cluster\. The bootstrap action can only be run when the HBase cluster is launched\.
 
-For more information about the HBase site settings that you can configure, see [Default Configuration](http://hbase.apache.org/book.html#config.files) in the HBase documentation\. 
+For more information about the HBase site settings that you can configure, see [Default configuration](http://hbase.apache.org/book.html#config.files) in the HBase documentation\. 
 
 Set the `configure-hbase` bootstrap action when you launch the HBase cluster and specify the values in `hbase-site.xml` to change\.
 
@@ -165,7 +165,7 @@ With the proxy set and the SSH connection open, you can view the HBase UI by ope
 
 You can view the current HBase logs by using SSH to connect to the master node, and navigating to the `mnt/var/log/hbase` directory\. These logs are not available after the cluster is terminated unless you enable logging to Amazon S3 when the cluster is launched\.
 
-## Back Up and Restore HBase<a name="emr-3x-hbase-backup-restore"></a>
+## Back up and restore HBase<a name="emr-3x-hbase-backup-restore"></a>
 
 Amazon EMR provides the ability to back up your HBase data to Amazon S3, either manually or on an automated schedule\. You can perform both full and incremental backups\. After you have a backed\-up version of HBase data, you can restore that version to an HBase cluster\. You can restore to an HBase cluster that is currently running, or launch a new cluster pre\-populated with backed\-up data\. 
 
@@ -179,7 +179,7 @@ When you are ready to delete old backup files that are no longer needed, we reco
 
 The HBase backup process uses S3DistCp for the copy operation, which has certain limitations regarding temporary file storage space\. 
 
-### Back Up and Restore HBase Using the Console<a name="emr-3x-hbase-backup-restore-console"></a>
+### Back up and restore HBase using the console<a name="emr-3x-hbase-backup-restore-console"></a>
 
 The console provides the ability to launch a new cluster and populate it with data from a previous HBase backup\. It also gives you the ability to schedule periodic incremental backups of HBase data\. Additional backup and restore functionality, such as the ability to restore data to an already running cluster, do manual backups, and schedule automated full backups, is available using the CLI\.
 

@@ -14,8 +14,8 @@ These features make Hudi suitable for the following use cases:
 The version of Hudi installed with Amazon EMR 5\.33\.0 is 0\.7\.0\-amzn\-1\.
 
 **Topics**
-+ [How Hudi Works](emr-hudi-how-it-works.md)
-+ [Considerations and Limitations for Using Hudi on Amazon EMR](emr-hudi-considerations.md)
-+ [Create a Cluster with Hudi Installed](emr-hudi-installation-and-configuration.md)
-+ [Work with a Hudi Dataset](emr-hudi-work-with-dataset.md)
++ [How Hudi works](emr-hudi-how-it-works.md)
++ [Considerations and limitations for using Hudi on Amazon EMR](emr-hudi-considerations.md)
++ [Create a cluster with Hudi installed](emr-hudi-installation-and-configuration.md)
++ [Work with a Hudi dataset](emr-hudi-work-with-dataset.md)
 + [Use the Hudi CLI](emr-hudi-cli.md)

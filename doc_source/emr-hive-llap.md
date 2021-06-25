@@ -4,7 +4,7 @@ Amazon EMR 6\.0\.0 supports the Live Long and Process \(LLAP\) functionality for
 
 The Hive LLAP daemons are managed and run as a YARN Service\. Since a YARN service can be considered a long\-running YARN application, some of your cluster resources are dedicated to Hive LLAP and cannot be used for other workloads\. For more information, see [LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) and [YARN Service API](https://hadoop.apache.org/docs/r3.2.1/hadoop-yarn/hadoop-yarn-site/yarn-service/YarnServiceAPI.html)\.
 
-## How to enable Hive LLAP on Amazon EMR<a name="emr-llap-enable"></a>
+## To enable Hive LLAP on Amazon EMR<a name="emr-llap-enable"></a>
 
 To enable Hive LLAP on Amazon EMR, supply the following configuration when you launch a cluster\. 
 
@@ -19,7 +19,7 @@ To enable Hive LLAP on Amazon EMR, supply the following configuration when you l
 ]
 ```
 
-For more information, see [Configuring Applications](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html)\.
+For more information, see [Configuring applications](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html)\.
 
 By default, Amazon EMR allocates about 60 percent of cluster YARN resources to Hive LLAP daemons\. You can configure the percentage of cluster YARN resource allocated to Hive LLAP and the number of task and core nodes to be considered for the Hive LLAP allocation\.
 
@@ -76,7 +76,7 @@ hive --service llap \
 --startImmediately
 ```
 
-## To check hive LLAP status<a name="emr-llap-check"></a>
+## To check Hive LLAP status<a name="emr-llap-check"></a>
 
 Use the following command to check the status of Hive LLAP through Hive\.
 

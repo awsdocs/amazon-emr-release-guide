@@ -1,6 +1,6 @@
 # Configure HBase<a name="emr-hbase-configure"></a>
 
-Although the default HBase settings should work for most applications, you can modify your HBase configuration settings\. To do this, use properties of HBase configuration classifications\. For more information, see [Configure Applications](emr-configure-apps.md)\.
+Although the default HBase settings should work for most applications, you can modify your HBase configuration settings\. To do this, use properties of HBase configuration classifications\. For more information, see [Configure applications](emr-configure-apps.md)\.
 
 The following example creates a cluster with an alternate HBase root directory based on a configuration file, `myConfig.json`, stored in Amazon S3\.
 
@@ -28,18 +28,18 @@ The `myConfig.json` file specifies the `hbase.rootdir` property for the `hbase-s
 **Note**  
 With Amazon EMR version 5\.21\.0 and later, you can override cluster configurations and specify additional configuration classifications for each instance group in a running cluster\. You do this by using the Amazon EMR console, the AWS Command Line Interface \(AWS CLI\), or the AWS SDK\. For more information, see [Supplying a Configuration for an Instance Group in a Running Cluster](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps-running-cluster.html)\.
 
-## Changes to Memory Allocation in YARN<a name="emr-hbase-configure-yarn"></a>
+## Changes to memory allocation in YARN<a name="emr-hbase-configure-yarn"></a>
 
 HBase is not running as a YARN application, thus it is necessary to recalculate the memory allocated to YARN and its applications, which results in a reduction in overall memory available to YARN if HBase is installed\. You should take this into account when planning to co\-locate YARN applications and HBase on the same clusters\. The instance types with less than 64 GB of memory have half the memory available to NodeManager, which is then allocated to the HBase RegionServer\. For instance types with memory greater than 64 GB, HBase RegionServer memory is capped at 32 GB\. As a general rule, YARN setting memory is some multiple of MapReduce reducer task memory\.
 
-The tables in [Default Values for Task Configuration Settings](emr-hadoop-task-config.md#emr-hadoop-task-jvm) show changes to YARN settings based on the memory needed for HBase\.
+The tables in [Default values for task configuration settings](emr-hadoop-task-config.md#emr-hadoop-task-jvm) show changes to YARN settings based on the memory needed for HBase\.
 
-## HBase Port Numbers<a name="emr-hbase-ports"></a>
+## HBase port numbers<a name="emr-hbase-ports"></a>
 
 Some port numbers chosen for HBase are different from the default\. The following are interfaces and ports for HBase on Amazon EMR\.
 
 
-**HBase Ports**  
+**HBase ports**  
 
 | Interface | Port | Protocol | 
 | --- | --- | --- | 
@@ -55,7 +55,7 @@ Some port numbers chosen for HBase are different from the default\. The followin
 **Important**  
 The `kms-http-port` is 9700 and the `kms-admin-port` is 9701 in Amazon EMR release version 4\.6\.0 and later\.
 
-## HBase Site Settings to Optimize<a name="emr-hbase-settings-optimize"></a>
+## HBase site settings to optimize<a name="emr-hbase-settings-optimize"></a>
 
 You can set any or all of the HBase site settings to optimize the HBase cluster for your application's workload\. We recommend the following settings as a starting point in your investigation\.
 

@@ -1,10 +1,10 @@
-# Optimizing Spark Performance<a name="emr-spark-performance"></a>
+# Optimizing Spark performance<a name="emr-spark-performance"></a>
 
 Amazon EMR provides multiple performance optimization features for Spark\. This topic explains each optimization feature in detail\.
 
 For more information on how to set Spark configuration, see [Configure Spark](emr-spark-configure.md)\.
 
-## Adaptive Query Execution<a name="emr-spark-performance-aqe"></a>
+## Adaptive query execution<a name="emr-spark-performance-aqe"></a>
 
 Adaptive query execution is a framework for reoptimizing query plans based on runtime statistics\. Starting with Amazon EMR 5\.30\.0, the following adaptive query execution optimizations from Apache Spark 3 are available on Apache EMR Runtime for Spark 2\.
 + Adaptive join conversion
@@ -23,16 +23,16 @@ Adaptive coalescing of shuffle partitions improves query performance by coalesci
 This feature is enabled by default unless `spark.sql.shuffle.partitions` is explicitly set\. It can be enabled by setting `spark.sql.adaptive.coalescePartitions.enabled` to `true`\. Both the initial number of shuffle partitions and target partition size can be tuned using the `spark.sql.adaptive.coalescePartitions.minPartitionNum` and `spark.sql.adaptive.advisoryPartitionSizeInBytes` properties respectively\. See the following table for further details on the related Spark properties for this feature\.
 
 
-**Spark Adaptive Coalesce Partition Properties**  
+**Spark adaptive coalesce partition properties**  
 
-| Property | Default Value | Description | 
+| Property | Default value | Description | 
 | --- | --- | --- | 
 |  `spark.sql.adaptive.coalescePartitions.enabled`  |  true, unless `spark.sql.shuffle.partitions` is explicitly set  |  When true and spark\.sql\.adaptive\.enabled is true, Spark coalesces contiguous shuffle partitions according to the target size \(specified by `spark.sql.adaptive.advisoryPartitionSizeInBytes`\), to avoid too many small tasks\.  | 
 |  `spark.sql.adaptive.advisoryPartitionSizeInBytes`  | 64MB |  The advisory size in bytes of the shuffle partition when coalescing\. This configuration only has an effect when `spark.sql.adaptive.enabled` and `spark.sql.adaptive.coalescePartitions.enabled` are both `true`\.  | 
 |  `spark.sql.adaptive.coalescePartitions.minPartitionNum`  | 25 |  The minimum number of shuffle partitions after coalescing\. This configuration only has an effect when `spark.sql.adaptive.enabled` and `spark.sql.adaptive.coalescePartitions.enabled` are both `true`\.  | 
 |  `spark.sql.adaptive.coalescePartitions.initialPartitionNum`  | 1000 |  The initial number of shuffle partitions before coalescing\. This configuration only has an effect when `spark.sql.adaptive.enabled` and `spark.sql.adaptive.coalescePartitions.enabled` are both `true`\.  | 
 
-## Dynamic Partition Pruning<a name="emr-spark-performance-dynamic"></a>
+## Dynamic partition pruning<a name="emr-spark-performance-dynamic"></a>
 
 Dynamic partition pruning improves job performance by more accurately selecting the specific partitions within a table that need to be read and processed for a specific query\. By reducing the amount of data read and processed, significant time is saved in job execution\. With Amazon EMR 5\.26\.0, this feature is enabled by default\. With Amazon EMR 5\.24\.0 and 5\.25\.0, you can enable this feature by setting the Spark property `spark.sql.dynamicPartitionPruning.enabled` from within Spark or when creating clusters\. 
 
@@ -60,7 +60,7 @@ where ss.region = sr.region and sr.country = 'North America'
 
 Without dynamic partition pruning, this query will read all regions before filtering out the subset of regions that match the results of the subquery\. With dynamic partition pruning, this query will read and process only the partitions for the regions returned in the subquery\. This saves time and resources by reading less data from storage and processing less records\.
 
-## Flattening Scalar Subqueries<a name="emr-spark-performance-flatten"></a>
+## Flattening scalar subqueries<a name="emr-spark-performance-flatten"></a>
 
 This optimization improves the performance of queries that have scalar subqueries over the same table\. With Amazon EMR 5\.26\.0, this feature is enabled by default\. With Amazon EMR 5\.24\.0 and 5\.25\.0, you can enable it by setting the Spark property `spark.sql.optimizer.flattenScalarSubqueriesWithAggregates.enabled` from within Spark or when creating clusters\. When this property is set to true, the query optimizer flattens aggregate scalar subqueries that use the same relation if possible\. The scalar subqueries are flattened by pushing any predicates present in the subquery into the aggregate functions and then performing one aggregation, with all the aggregate functions, per relation\.
 
@@ -86,7 +86,7 @@ from (select avg (if(age between 5 and 10, age, null)) as c1,
 
 Notice that the rewritten query reads the student table only once, and the predicates of the three subqueries are pushed into the `avg` function\.
 
-## DISTINCT Before INTERSECT<a name="emr-spark-performance-distinct"></a>
+## DISTINCT before INTERSECT<a name="emr-spark-performance-distinct"></a>
 
 This optimization optimizes joins when using INTERSECT\. With Amazon EMR 5\.26\.0, this feature is enabled by default\. With Amazon EMR 5\.24\.0 and 5\.25\.0, you can enable it by setting the Spark property `spark.sql.optimizer.distinctBeforeIntersect.enabled` from within Spark or when creating clusters\. Queries using INTERSECT are automatically converted to use a left\-semi join\. When this property is set to true, the query optimizer pushes the DISTINCT operator to the children of INTERSECT if it detects that the DISTINCT operator can make the left\-semi join a BroadcastHashJoin instead of a SortMergeJoin\.
 
@@ -124,7 +124,7 @@ left semi join
  on brand <=> cs_brand
 ```
 
-## Bloom Filter Join<a name="emr-spark-performance-bloom"></a>
+## Bloom filter join<a name="emr-spark-performance-bloom"></a>
 
 This optimization can improve the performance of some joins by pre\-filtering one side of a join using a [Bloom filter](https://en.wikipedia.org/wiki/Bloom_filter) generated from the values from the other side of the join\. With Amazon EMR 5\.26\.0, this feature is enabled by default\. With Amazon EMR 5\.25\.0, you can enable this feature by setting the Spark property `spark.sql.bloomFilterJoin.enabled` to `true` from within Spark or when creating clusters\.
 
@@ -139,7 +139,7 @@ and item.category in (1, 10, 16)
 
 When this feature is enabled, the Bloom filter is built from all item ids whose category is in the set of categories being queried\. While scanning the sales table, the Bloom filter is used to determine which sales are for items that are definitely not in the set defined by the Bloom filter\. Thus these identified sales can be filtered out as early as possible\.
 
-## Optimized Join Reorder<a name="emr-spark-performance-join-reorder"></a>
+## Optimized join reorder<a name="emr-spark-performance-join-reorder"></a>
 
 This optimization can improve query performance by reordering joins involving tables with filters\. With Amazon EMR 5\.26\.0, this feature is enabled by default\. With Amazon EMR 5\.25\.0, you can enable this feature by setting the Spark configuration parameter `spark.sql.optimizer.sizeBasedJoinReorder.enabled` to true\. The default behavior in Spark is to join tables from left to right, as listed in the query\. This strategy can miss opportunities to execute smaller joins with filters first, in order to benefit more expensive joins later\. 
 

@@ -1,14 +1,14 @@
-# Connectors and Utilities<a name="emr-connectors"></a>
+# Connectors and utilities<a name="emr-connectors"></a>
 
 Amazon EMR provides several connectors and utilities to access other AWS services as data sources\. You can usually access data in these services within a program\. For example, you can specify an Kinesis stream in a Hive query, Pig script, or MapReduce application and then operate on that data\.
 
 **Topics**
-+ [Export, Import, Query, and Join Tables in DynamoDB Using Amazon EMR](EMRforDynamoDB.md)
++ [Export, import, query, and join tables in DynamoDB using Amazon EMR](EMRforDynamoDB.md)
 + [Kinesis](emr-kinesis.md)
 + [S3DistCp \(s3\-dist\-cp\)](UsingEMR_s3distcp.md)
-+ [Cleaning Up After Failed S3DistCp Jobs](#s3distcp-cleanup)
++ [Cleaning up after failed S3DistCp jobs](#s3distcp-cleanup)
 
-## Cleaning Up After Failed S3DistCp Jobs<a name="s3distcp-cleanup"></a>
+## Cleaning up after failed S3DistCp jobs<a name="s3distcp-cleanup"></a>
 
 If S3DistCp cannot copy some or all of the specified files, the command or cluster step fails and returns a non\-zero error code\. If this occurs, S3DistCp does not clean up partially copied files\. You must delete them manually\.
 

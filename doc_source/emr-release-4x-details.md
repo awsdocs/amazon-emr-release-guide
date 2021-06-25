@@ -1,10 +1,10 @@
-# Details for Amazon EMR 4\.x Release Versions<a name="emr-release-4x-details"></a>
+# Details for Amazon EMR 4\.x release versions<a name="emr-release-4x-details"></a>
 
 Each tab below lists application versions, release notes, component versions, and configuration classifications available in each Amazon EMR 4\.x release version\.
 
-For a comprehensive diagram of application versions in every release, see [Application Versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-4x.png)\.
+For a comprehensive diagram of application versions in every release, see [Application versions for 4\.x Series Amazon EMR Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-4x.png)\.
 
-For application\-specific differences between Amazon EMR 4\.x release versions and versions beginning with Amazon EMR 5\.0\.0, see [Differences in Amazon EMR 4\.x Release Versions](emr-release-differences-4x.md)\.
+For application\-specific differences between Amazon EMR 4\.x release versions and versions beginning with Amazon EMR 5\.0\.0, see [Differences in Amazon EMR 4\.x release versions](emr-release-differences-4x.md)\.
 
 ------
 #### [ 4\.9\.x ]
@@ -13,18 +13,18 @@ There are multiple releases within the 4\.9 series\. Choose a link below to see 
 
 **[4.9.6](#emr-496-release) \|[4.9.5](#emr-495-release) \| [4.9.4](#emr-494-release) \| [4.9.3](#emr-493-release) \| [4.9.2](#emr-492-release) \| [4.9.1](#emr-491-release)** 
 
-**Amazon EMR Release 4\.9\.6**
+**Amazon EMR release 4\.9\.6**
 
 **Important**  
 In this release version, Amazon EMR uses AWS Signature Version 4 exclusively to authenticate requests to Amazon S3\. For more information, see [Whats New](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-whatsnew.html)\.
 
-**Amazon EMR Release 4\.9\.5**
-+ [Application Versions](#emr-495-app-versions)
-+ [Release Notes](#emr-495-relnotes)
-+ [Component Versions](#emr-495-components)
-+ [Configuration Classifications](#emr-495-class)
+**Amazon EMR release 4\.9\.5**
++ [Application versions](#emr-495-app-versions)
++ [Release notes](#emr-495-relnotes)
++ [Component versions](#emr-495-components)
++ [Configuration classifications](#emr-495-class)
 
-**Release 4\.9\.5 Application Versions**
+**Release 4\.9\.5 application versions**
 
 The following applications are supported in this release: [http://ganglia.info](http://ganglia.info), [http://hadoop.apache.org/docs/current/](http://hadoop.apache.org/docs/current/), [http://hbase.apache.org/](http://hbase.apache.org/), [https://cwiki.apache.org/confluence/display/Hive/HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), [http://hive.apache.org/](http://hive.apache.org/), [http://gethue.com/](http://gethue.com/), [http://mahout.apache.org/](http://mahout.apache.org/), [http://oozie.apache.org/](http://oozie.apache.org/), [https://phoenix.apache.org/](https://phoenix.apache.org/), [http://pig.apache.org/](http://pig.apache.org/), [https://prestodb.io/](https://prestodb.io/), [https://spark.apache.org/docs/latest/](https://spark.apache.org/docs/latest/), [http://sqoop.apache.org/](http://sqoop.apache.org/), [https://tez.apache.org/](https://tez.apache.org/), [https://zeppelin.incubator.apache.org/](https://zeppelin.incubator.apache.org/), and [https://zookeeper.apache.org](https://zookeeper.apache.org)\.
 
@@ -37,17 +37,17 @@ For a comprehensive history of application versions for each release of Amazon E
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-4.9.5.png)
 
-**Release 4\.9\.5 Release Notes**
+**Release 4\.9\.5 release notes**
 
 The following release notes include information for Amazon EMR release version 4\.9\.5\. Changes are relative to 4\.9\.4\.
 
 Initial release date: August 29, 2018
 
-**Changes, Enhancements, and Resolved Issues**
+**Changes, enhancements, and resolved issues**
 + HBase
   + This release addresses a potential security vulnerability\.
 
-**Release 4\.9\.5 Component Versions**
+**Release 4\.9\.5 component versions**
 
 The components that Amazon EMR installs with this release are listed below\. Some are installed as part of big\-data application packages\. Others are unique to Amazon EMR and installed for system processes and features\. These typically start with `emr` or `aws`\. Big\-data application packages in the most recent Amazon EMR release are usually the latest version found in the community\. We make community releases available in Amazon EMR as quickly as possible\.
 
@@ -106,12 +106,12 @@ Some components in Amazon EMR differ from community versions\. These components 
 | zookeeper\-server | 3\.4\.9 | Centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services\. | 
 | zookeeper\-client | 3\.4\.9 | ZooKeeper command line client\. | 
 
-**Release 4\.9\.5 Configuration Classifications**
+**Release 4\.9\.5 configuration classifications**
 
-Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure applications](emr-configure-apps.md)\.
 
 
-**emr\-4\.9\.5 Classifications**  
+**emr\-4\.9\.5 classifications**  
 
 | Classifications | Description | 
 | --- | --- | 
@@ -187,13 +187,13 @@ Configuration classifications allow you to customize applications\. These often 
 | zookeeper\-config | Change values in ZooKeeper's zoo\.cfg file\. | 
 | zookeeper\-log4j | Change values in ZooKeeper's log4j\.properties file\. | 
 
-**Amazon EMR Release 4\.9\.4**
-+ [Application Versions](#emr-494-app-versions)
-+ [Release Notes](#emr-494-relnotes)
-+ [Component Versions](#emr-494-components)
-+ [Configuration Classifications](#emr-494-class)
+**Amazon EMR release 4\.9\.4**
++ [Application versions](#emr-494-app-versions)
++ [Release notes](#emr-494-relnotes)
++ [Component versions](#emr-494-components)
++ [Configuration classifications](#emr-494-class)
 
-**Release 4\.9\.4 Application Versions**
+**Release 4\.9\.4 application versions**
 
 The following applications are supported in this release: [http://ganglia.info](http://ganglia.info), [http://hadoop.apache.org/docs/current/](http://hadoop.apache.org/docs/current/), [http://hbase.apache.org/](http://hbase.apache.org/), [https://cwiki.apache.org/confluence/display/Hive/HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), [http://hive.apache.org/](http://hive.apache.org/), [http://gethue.com/](http://gethue.com/), [http://mahout.apache.org/](http://mahout.apache.org/), [http://oozie.apache.org/](http://oozie.apache.org/), [https://phoenix.apache.org/](https://phoenix.apache.org/), [http://pig.apache.org/](http://pig.apache.org/), [https://prestodb.io/](https://prestodb.io/), [https://spark.apache.org/docs/latest/](https://spark.apache.org/docs/latest/), [http://sqoop.apache.org/](http://sqoop.apache.org/), [https://tez.apache.org/](https://tez.apache.org/), [https://zeppelin.incubator.apache.org/](https://zeppelin.incubator.apache.org/), and [https://zookeeper.apache.org](https://zookeeper.apache.org)\.
 
@@ -206,16 +206,16 @@ For a comprehensive history of application versions for each release of Amazon E
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-4.9.4.png)
 
-**Release 4\.9\.4 Release Notes**
+**Release 4\.9\.4 release notes**
 
 The following release notes include information for Amazon EMR release version 4\.9\.4\. Changes are relative to 4\.9\.3\.
 
 Initial release date: March 29, 2018
 
-**Changes, Enhancements, and Resolved Issues**
+**Changes, enhancements, and resolved issues**
 + Updated the Amazon Linux kernel of the defaultAmazon Linux AMI for Amazon EMR to address potential vulnerabilities\.
 
-**Release 4\.9\.4 Component Versions**
+**Release 4\.9\.4 component versions**
 
 The components that Amazon EMR installs with this release are listed below\. Some are installed as part of big\-data application packages\. Others are unique to Amazon EMR and installed for system processes and features\. These typically start with `emr` or `aws`\. Big\-data application packages in the most recent Amazon EMR release are usually the latest version found in the community\. We make community releases available in Amazon EMR as quickly as possible\.
 
@@ -274,12 +274,12 @@ Some components in Amazon EMR differ from community versions\. These components 
 | zookeeper\-server | 3\.4\.9 | Centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services\. | 
 | zookeeper\-client | 3\.4\.9 | ZooKeeper command line client\. | 
 
-**Release 4\.9\.4 Configuration Classifications**
+**Release 4\.9\.4 configuration classifications**
 
-Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure applications](emr-configure-apps.md)\.
 
 
-**emr\-4\.9\.4 Classifications**  
+**emr\-4\.9\.4 classifications**  
 
 | Classifications | Description | 
 | --- | --- | 
@@ -355,13 +355,13 @@ Configuration classifications allow you to customize applications\. These often 
 | zookeeper\-config | Change values in ZooKeeper's zoo\.cfg file\. | 
 | zookeeper\-log4j | Change values in ZooKeeper's log4j\.properties file\. | 
 
-**Amazon EMR Release 4\.9\.3**
-+ [Application Versions](#emr-493-app-versions)
-+ [Release Notes](#emr-493-relnotes)
-+ [Component Versions](#emr-493-components)
-+ [Configuration Classifications](#emr-493-class)
+**Amazon EMR release 4\.9\.3**
++ [Application versions](#emr-493-app-versions)
++ [Release notes](#emr-493-relnotes)
++ [Component versions](#emr-493-components)
++ [Configuration classifications](#emr-493-class)
 
-**Release 4\.9\.3 Application Versions**
+**Release 4\.9\.3 application versions**
 
 The following applications are supported in this release: [http://ganglia.info](http://ganglia.info), [http://hadoop.apache.org/docs/current/](http://hadoop.apache.org/docs/current/), [http://hbase.apache.org/](http://hbase.apache.org/), [https://cwiki.apache.org/confluence/display/Hive/HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), [http://hive.apache.org/](http://hive.apache.org/), [http://gethue.com/](http://gethue.com/), [http://mahout.apache.org/](http://mahout.apache.org/), [http://oozie.apache.org/](http://oozie.apache.org/), [https://phoenix.apache.org/](https://phoenix.apache.org/), [http://pig.apache.org/](http://pig.apache.org/), [https://prestodb.io/](https://prestodb.io/), [https://spark.apache.org/docs/latest/](https://spark.apache.org/docs/latest/), [http://sqoop.apache.org/](http://sqoop.apache.org/), [https://tez.apache.org/](https://tez.apache.org/), [https://zeppelin.incubator.apache.org/](https://zeppelin.incubator.apache.org/), and [https://zookeeper.apache.org](https://zookeeper.apache.org)\.
 
@@ -374,16 +374,16 @@ For a comprehensive history of application versions for each release of Amazon E
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-4.9.3.png)
 
-**Release 4\.9\.3 Release Notes**
+**Release 4\.9\.3 release notes**
 
 The following release notes include information for the Amazon EMR 4\.9\.3 release\. Changes are relative to the Amazon EMR 4\.9\.2 release\.
 
 Initial release date: January 22, 2018
 
-**Changes, Enhancements, and Resolved Issues**
+**Changes, enhancements, and resolved issues**
 + Updated the Amazon Linux kernel of the defaultAmazon Linux AMI for Amazon EMR to address vulnerabilities associated with speculative execution \(CVE\-2017\-5715, CVE\-2017\-5753, and CVE\-2017\-5754\)\. For more information, see [https://aws.amazon.com/security/security-bulletins/AWS-2018-013/](https://aws.amazon.com/security/security-bulletins/AWS-2018-013/)\.
 
-**Release 4\.9\.3 Component Versions**
+**Release 4\.9\.3 component versions**
 
 The components that Amazon EMR installs with this release are listed below\. Some are installed as part of big\-data application packages\. Others are unique to Amazon EMR and installed for system processes and features\. These typically start with `emr` or `aws`\. Big\-data application packages in the most recent Amazon EMR release are usually the latest version found in the community\. We make community releases available in Amazon EMR as quickly as possible\.
 
@@ -442,12 +442,12 @@ Some components in Amazon EMR differ from community versions\. These components 
 | zookeeper\-server | 3\.4\.9 | Centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services\. | 
 | zookeeper\-client | 3\.4\.9 | ZooKeeper command line client\. | 
 
-**Release 4\.9\.3 Configuration Classifications**
+**Release 4\.9\.3 configuration classifications**
 
-Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure applications](emr-configure-apps.md)\.
 
 
-**emr\-4\.9\.3 Classifications**  
+**emr\-4\.9\.3 classifications**  
 
 | Classifications | Description | 
 | --- | --- | 
@@ -524,12 +524,12 @@ Configuration classifications allow you to customize applications\. These often 
 | zookeeper\-log4j | Change values in ZooKeeper's log4j\.properties file\. | 
 
 **Release 4\.9\.2**
-+ [Application Versions](#emr-492-app-versions)
-+ [Release Notes](#emr-492-relnotes)
-+ [Component Versions](#emr-492-components)
-+ [Configuration Classifications](#emr-492-class)
++ [Application versions](#emr-492-app-versions)
++ [Release notes](#emr-492-relnotes)
++ [Component versions](#emr-492-components)
++ [Configuration classifications](#emr-492-class)
 
-**Release 4\.9\.2 Application Versions**
+**Release 4\.9\.2 application versions**
 
 The following applications are supported in this release: [http://ganglia.info](http://ganglia.info), [http://hadoop.apache.org/docs/current/](http://hadoop.apache.org/docs/current/), [http://hbase.apache.org/](http://hbase.apache.org/), [https://cwiki.apache.org/confluence/display/Hive/HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), [http://hive.apache.org/](http://hive.apache.org/), [http://gethue.com/](http://gethue.com/), [http://mahout.apache.org/](http://mahout.apache.org/), [http://oozie.apache.org/](http://oozie.apache.org/), [https://phoenix.apache.org/](https://phoenix.apache.org/), [http://pig.apache.org/](http://pig.apache.org/), [https://prestodb.io/](https://prestodb.io/), [https://spark.apache.org/docs/latest/](https://spark.apache.org/docs/latest/), [http://sqoop.apache.org/](http://sqoop.apache.org/), [https://tez.apache.org/](https://tez.apache.org/), [https://zeppelin.incubator.apache.org/](https://zeppelin.incubator.apache.org/), and [https://zookeeper.apache.org](https://zookeeper.apache.org)\.
 
@@ -542,7 +542,7 @@ For a comprehensive history of application versions for each release of Amazon E
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-4.9.2.png)
 
-**Release 4\.9\.2 Release Notes**
+**Release 4\.9\.2 release notes**
 
 The following release notes include information for the Amazon EMR 4\.9\.2 release\. Changes are relative to the Amazon EMR 4\.9\.1 release\.
 
@@ -550,7 +550,7 @@ Release date: July 13, 2017
 
 Minor changes, bug fixes, and enhancements were made in this release\.
 
-**Release 4\.9\.2 Component Versions**
+**Release 4\.9\.2 component versions**
 
 The components that Amazon EMR installs with this release are listed below\. Some are installed as part of big\-data application packages\. Others are unique to Amazon EMR and installed for system processes and features\. These typically start with `emr` or `aws`\. Big\-data application packages in the most recent Amazon EMR release are usually the latest version found in the community\. We make community releases available in Amazon EMR as quickly as possible\.
 
@@ -609,12 +609,12 @@ Some components in Amazon EMR differ from community versions\. These components 
 | zookeeper\-server | 3\.4\.9 | Centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services\. | 
 | zookeeper\-client | 3\.4\.9 | ZooKeeper command line client\. | 
 
-**Release 4\.9\.2 Configuration Classifications**
+**Release 4\.9\.2 configuration classifications**
 
-Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure applications](emr-configure-apps.md)\.
 
 
-**emr\-4\.9\.2 Classifications**  
+**emr\-4\.9\.2 classifications**  
 
 | Classifications | Description | 
 | --- | --- | 
@@ -691,14 +691,14 @@ Configuration classifications allow you to customize applications\. These often 
 | zookeeper\-log4j | Change values in ZooKeeper's log4j\.properties file\. | 
 
 **Release 4\.9\.1**
-+ [Application Versions](#emr-491-app-versions)
-+ [Release Notes](#emr-491-relnotes)
-+ [Component Versions](#emr-491-components)
-+ [Configuration Classifications](#emr-491-class)
++ [Application versions](#emr-491-app-versions)
++ [Release notes](#emr-491-relnotes)
++ [Component versions](#emr-491-components)
++ [Configuration classifications](#emr-491-class)
 
-**Release 4\.9\.1 Application Versions**
+**Release 4\.9\.1 application versions**
 
-The following applications are supported in this release:[Ganglia](http://ganglia.info), [Hadoop](http://hadoop.apache.org/docs/current/), [HBase](http://hbase.apache.org/), [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), [Hive](http://hive.apache.org/), [Hue](http://gethue.com/), [Mahout](http://mahout.apache.org/), [Oozie\-Sandbox](http://oozie.apache.org/), [Phoenix](https://phoenix.apache.org/), [Pig](http://pig.apache.org/), [Presto\-Sandbox](https://prestodb.io/), [Spark](https://spark.apache.org/docs/latest/), [Sqoop\-Sandbox](http://sqoop.apache.org/), [Tez](https://tez.apache.org/), [Zeppelin\-Sandbox](https://zeppelin.incubator.apache.org/), and [ZooKeeper\-Sandbox](https://zookeeper.apache.org)\.
+The following applications are supported in this release:[Ganglia](http://ganglia.info), [Hadoop](http://hadoop.apache.org/docs/current/), [HBase](http://hbase.apache.org/), [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), [Hive](http://hive.apache.org/), [Hue](http://gethue.com/), [Mahout](http://mahout.apache.org/), [Oozie\-sandbox](http://oozie.apache.org/), [Phoenix](https://phoenix.apache.org/), [Pig](http://pig.apache.org/), [Presto\-sandbox](https://prestodb.io/), [Spark](https://spark.apache.org/docs/latest/), [Sqoop\-sandbox](http://sqoop.apache.org/), [Tez](https://tez.apache.org/), [Zeppelin\-sandbox](https://zeppelin.incubator.apache.org/), and [ZooKeeper\-sandbox](https://zookeeper.apache.org)\.
 
 The diagram below depicts the application versions available in this release of Amazon EMR and the application versions in the preceding four Amazon EMR releases\.
 
@@ -709,21 +709,21 @@ For a comprehensive history of application versions for each release of Amazon E
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-4.9.1.png)
 
-**Release 4\.9\.1 Release Notes**
+**Release 4\.9\.1 release notes**
 
 The following release notes include information for the Amazon EMR 4\.9\.1 release\. Changes are relative to the Amazon EMR 4\.8\.4 release\.
 
 Release date: April 10, 2017
 
-**Known Issues Resolved from the Previous Releases**
+**Known issues resolved from previous releases**
 + Backports of [HIVE\-9976](https://issues.apache.org/jira/browse/HIVE-9976) and [HIVE\-10106](https://issues.apache.org/jira/browse/HIVE-10106)
 + Fixed an issue in YARN where a large number of nodes \(greater than 2,000\) and containers \(greater than 5,000\) would cause an out\-of\-memory error, for example: `"Exception in thread main java.lang.OutOfMemoryError"`\.
 
-**Changes and Enhancements**
+**Changes and enhancements**
 + Amazon EMR releases are now based on Amazon Linux 2017\.03\. For more information, see [https://aws.amazon.com/amazon-linux-ami/2017.03-release-notes/](https://aws.amazon.com/amazon-linux-ami/2017.03-release-notes/)\.
 + Removed Python 2\.6 from the Amazon EMR base Linux image\. You can install Python 2\.6 manually if necessary\.
 
-**Release 4\.9\.1 Component Versions**
+**Release 4\.9\.1 component versions**
 
 The components that Amazon EMR installs with this release are listed below\. Some are installed as part of big\-data application packages\. Others are unique to Amazon EMR and installed for system processes and features\. These typically start with `emr` or `aws`\. Big\-data application packages in the most recent Amazon EMR release are usually the latest version found in the community\. We make community releases available in Amazon EMR as quickly as possible\.
 
@@ -782,12 +782,12 @@ Some components in Amazon EMR differ from community versions\. These components 
 | zookeeper\-server | 3\.4\.9 | Centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services\. | 
 | zookeeper\-client | 3\.4\.9 | ZooKeeper command line client\. | 
 
-**Release 4\.9\.1 Configuration Classifications**
+**Release 4\.9\.1 configuration classifications**
 
-Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure applications](emr-configure-apps.md)\.
 
 
-**emr\-4\.8\.5 Classifications**  
+**emr\-4\.8\.5 classifications**  
 
 | Classifications | Description | 
 | --- | --- | 
@@ -870,18 +870,18 @@ There are multiple releases within the 4\.8 series\. Choose a link below to see 
 
 **[4.8.5](#emr-485-release) \|[4.8.4](#emr-484-release) \| [4.8.3](#emr-483-release) \| [4.8.2](#emr-482-release) \| [4.8.0](#emr-480-release)**
 
-**Amazon EMR Release 4\.8\.5**
+**Amazon EMR release 4\.8\.5**
 
 **Important**  
 In this release version, Amazon EMR uses AWS Signature Version 4 exclusively to authenticate requests to Amazon S3\. For more information, see [Whats New](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-whatsnew.html)\.
 
-**Amazon EMR Release 4\.8\.4**
-+ [Application Versions](#emr-484-app-versions)
-+ [Release Notes](#emr-484-relnotes)
-+ [Component Versions](#emr-484-components)
-+ [Configuration Classifications](#emr-484-class)
+**Amazon EMR release 4\.8\.4**
++ [Application versions](#emr-484-app-versions)
++ [Release notes](#emr-484-relnotes)
++ [Component versions](#emr-484-components)
++ [Configuration classifications](#emr-484-class)
 
-**Release 4\.8\.4 Application Versions**
+**Release 4\.8\.4 application versions**
 
 The following applications are supported in this release: [http://ganglia.info](http://ganglia.info), [http://hadoop.apache.org/docs/current/](http://hadoop.apache.org/docs/current/), [http://hbase.apache.org/](http://hbase.apache.org/), [https://cwiki.apache.org/confluence/display/Hive/HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), [http://hive.apache.org/](http://hive.apache.org/), [http://gethue.com/](http://gethue.com/), [http://mahout.apache.org/](http://mahout.apache.org/), [http://oozie.apache.org/](http://oozie.apache.org/), [https://phoenix.apache.org/](https://phoenix.apache.org/), [http://pig.apache.org/](http://pig.apache.org/), [https://prestodb.io/](https://prestodb.io/), [https://spark.apache.org/docs/latest/](https://spark.apache.org/docs/latest/), [http://sqoop.apache.org/](http://sqoop.apache.org/), [https://tez.apache.org/](https://tez.apache.org/), [https://zeppelin.incubator.apache.org/](https://zeppelin.incubator.apache.org/), and [https://zookeeper.apache.org](https://zookeeper.apache.org)\.
 
@@ -894,7 +894,7 @@ For a comprehensive history of application versions for each release of Amazon E
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-4.8.4.png)
 
-**Release 4\.8\.4 Release Notes**
+**Release 4\.8\.4 release notes**
 
 The following release notes include information for the Amazon EMR 4\.8\.4 release\. Changes are relative to the Amazon EMR 4\.8\.3 release\.
 
@@ -902,7 +902,7 @@ Release date: February 7, 2017
 
 Minor changes, bug fixes, and enhancements were made in this release\.
 
-**Release 4\.8\.4 Component Versions**
+**Release 4\.8\.4 component versions**
 
 The components that Amazon EMR installs with this release are listed below\. Some are installed as part of big\-data application packages\. Others are unique to Amazon EMR and installed for system processes and features\. These typically start with `emr` or `aws`\. Big\-data application packages in the most recent Amazon EMR release are usually the latest version found in the community\. We make community releases available in Amazon EMR as quickly as possible\.
 
@@ -961,12 +961,12 @@ Some components in Amazon EMR differ from community versions\. These components 
 | zookeeper\-server | 3\.4\.9 | Centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services\. | 
 | zookeeper\-client | 3\.4\.9 | ZooKeeper command line client\. | 
 
-**Release 4\.8\.4 Configuration Classifications**
+**Release 4\.8\.4 configuration classifications**
 
-Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure applications](emr-configure-apps.md)\.
 
 
-**emr\-4\.8\.4 Classifications**  
+**emr\-4\.8\.4 classifications**  
 
 | Classifications | Description | 
 | --- | --- | 
@@ -1042,13 +1042,13 @@ Configuration classifications allow you to customize applications\. These often 
 | zookeeper\-config | Change values in ZooKeeper's zoo\.cfg file\. | 
 | zookeeper\-log4j | Change values in ZooKeeper's log4j\.properties file\. | 
 
-**Amazon EMR Release 4\.8\.3**
-+ [Application Versions](#emr-483-app-versions)
-+ [Release Notes](#emr-483-relnotes)
-+ [Component Versions](#emr-483-components)
-+ [Configuration Classifications](#emr-483-class)
+**Amazon EMR release 4\.8\.3**
++ [Application versions](#emr-483-app-versions)
++ [Release notes](#emr-483-relnotes)
++ [Component versions](#emr-483-components)
++ [Configuration classifications](#emr-483-class)
 
-**Release 4\.8\.3 Application Versions**
+**Release 4\.8\.3 application versions**
 
 The following applications are supported in this release: [http://ganglia.info](http://ganglia.info), [http://hadoop.apache.org/docs/current/](http://hadoop.apache.org/docs/current/), [http://hbase.apache.org/](http://hbase.apache.org/), [https://cwiki.apache.org/confluence/display/Hive/HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), [http://hive.apache.org/](http://hive.apache.org/), [http://gethue.com/](http://gethue.com/), [http://mahout.apache.org/](http://mahout.apache.org/), [http://oozie.apache.org/](http://oozie.apache.org/), [https://phoenix.apache.org/](https://phoenix.apache.org/), [http://pig.apache.org/](http://pig.apache.org/), [https://prestodb.io/](https://prestodb.io/), [https://spark.apache.org/docs/latest/](https://spark.apache.org/docs/latest/), [http://sqoop.apache.org/](http://sqoop.apache.org/), [https://tez.apache.org/](https://tez.apache.org/), [https://zeppelin.incubator.apache.org/](https://zeppelin.incubator.apache.org/), and [https://zookeeper.apache.org](https://zookeeper.apache.org)\.
 
@@ -1061,7 +1061,7 @@ For a comprehensive history of application versions for each release of Amazon E
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-4.8.3.png)
 
-**Release 4\.8\.3 Release Notes**
+**Release 4\.8\.3 release notes**
 
 The following release notes include information for the Amazon EMR 4\.8\.3 release\. Changes are relative to the Amazon EMR 4\.8\.2 release\.
 
@@ -1072,15 +1072,15 @@ Release date: December 29, 2016
 + Upgraded to Spark 1\.6\.3\. For more information, see [Spark Release Notes](http://spark.apache.org/releases/spark-release-1-6-3.html) in the Apache Spark documentation\.
 + Upgraded to ZooKeeper 3\.4\.9\. For more information, see [ZooKeeper Release Notes](https://zookeeper.apache.org/doc/r3.4.9/releasenotes.html) in the Apache ZooKeeper documentation\.
 
-**Changes and Enhancements**
+**Changes and enhancements**
 + Added support for the Amazon EC2 m4\.16xlarge instance type in Amazon EMR version 4\.8\.3 and later, excluding 5\.0\.0, 5\.0\.3, and 5\.2\.0\.
 + Amazon EMR releases are now based on Amazon Linux 2016\.09\. For more information, see [https://aws.amazon.com/amazon-linux-ami/2016.09-release-notes/](https://aws.amazon.com/amazon-linux-ami/2016.09-release-notes/)\.
 
-**Known Issues Resolved from the Previous Releases**
+**Known issues resolved from previous releases**
 + Fixed an issue in Hadoop where the ReplicationMonitor thread could get stuck for a long time because of a race between replication and deletion of the same file in a large cluster\.
 + Fixed an issue where ControlledJob\#toString failed with a null pointer exception \(NPE\) when job status was not successfully updated\.
 
-**Release 4\.8\.3 Component Versions**
+**Release 4\.8\.3 component versions**
 
 The components that Amazon EMR installs with this release are listed below\. Some are installed as part of big\-data application packages\. Others are unique to Amazon EMR and installed for system processes and features\. These typically start with `emr` or `aws`\. Big\-data application packages in the most recent Amazon EMR release are usually the latest version found in the community\. We make community releases available in Amazon EMR as quickly as possible\.
 
@@ -1139,12 +1139,12 @@ Some components in Amazon EMR differ from community versions\. These components 
 | zookeeper\-server | 3\.4\.9 | Centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services\. | 
 | zookeeper\-client | 3\.4\.9 | ZooKeeper command line client\. | 
 
-**Release 4\.8\.3 Configuration Classifications**
+**Release 4\.8\.3 configuration classifications**
 
-Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure applications](emr-configure-apps.md)\.
 
 
-**emr\-4\.8\.3 Classifications**  
+**emr\-4\.8\.3 classifications**  
 
 | Classifications | Description | 
 | --- | --- | 
@@ -1220,13 +1220,13 @@ Configuration classifications allow you to customize applications\. These often 
 | zookeeper\-config | Change values in ZooKeeper's zoo\.cfg file\. | 
 | zookeeper\-log4j | Change values in ZooKeeper's log4j\.properties file\. | 
 
-**Amazon EMR Release 4\.8\.2**
-+ [Application Versions](#emr-482-app-versions)
-+ [Release Notes](#emr-482-relnotes)
-+ [Component Versions](#emr-482-components)
-+ [Configuration Classifications](#emr-482-class)
+**Amazon EMR release 4\.8\.2**
++ [Application versions](#emr-482-app-versions)
++ [Release notes](#emr-482-relnotes)
++ [Component versions](#emr-482-components)
++ [Configuration classifications](#emr-482-class)
 
-**Release 4\.8\.2 Application Versions**
+**Release 4\.8\.2 application versions**
 
 The following applications are supported in this release: [http://ganglia.info](http://ganglia.info), [http://hadoop.apache.org/docs/current/](http://hadoop.apache.org/docs/current/), [http://hbase.apache.org/](http://hbase.apache.org/), [https://cwiki.apache.org/confluence/display/Hive/HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), [http://hive.apache.org/](http://hive.apache.org/), [http://gethue.com/](http://gethue.com/), [http://mahout.apache.org/](http://mahout.apache.org/), [http://oozie.apache.org/](http://oozie.apache.org/), [https://phoenix.apache.org/](https://phoenix.apache.org/), [http://pig.apache.org/](http://pig.apache.org/), [https://prestodb.io/](https://prestodb.io/), [https://spark.apache.org/docs/latest/](https://spark.apache.org/docs/latest/), [http://sqoop.apache.org/](http://sqoop.apache.org/), [https://tez.apache.org/](https://tez.apache.org/), [https://zeppelin.incubator.apache.org/](https://zeppelin.incubator.apache.org/), and [https://zookeeper.apache.org](https://zookeeper.apache.org)\.
 
@@ -1239,7 +1239,7 @@ For a comprehensive history of application versions for each release of Amazon E
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-4.8.2.png)
 
-**Release 4\.8\.2 Release Notes**
+**Release 4\.8\.2 release notes**
 
 The following release notes include information for the Amazon EMR 4\.8\.2 release\. Changes are relative to the Amazon EMR 4\.8\.0 release\.
 
@@ -1250,7 +1250,7 @@ Release date: October 24, 2016
 + Upgraded to Presto 0\.152\.3, which includes support for the Presto web interface\. You can access the Presto web interface on the Presto coordinator using port 8889\. For more information about the Presto web interface, see [Web Interface](https://prestodb.io/docs/current/admin/web-interface.html) in the Presto documentation\.
 + Amazon EMR releases are now based on Amazon Linux 2016\.09\. For more information, see [https://aws.amazon.com/amazon-linux-ami/2016.09-release-notes/](https://aws.amazon.com/amazon-linux-ami/2016.09-release-notes/)\.
 
-**Release 4\.8\.2 Component Versions**
+**Release 4\.8\.2 component versions**
 
 The components that Amazon EMR installs with this release are listed below\. Some are installed as part of big\-data application packages\. Others are unique to Amazon EMR and installed for system processes and features\. These typically start with `emr` or `aws`\. Big\-data application packages in the most recent Amazon EMR release are usually the latest version found in the community\. We make community releases available in Amazon EMR as quickly as possible\.
 
@@ -1309,12 +1309,12 @@ Some components in Amazon EMR differ from community versions\. These components 
 | zookeeper\-server | 3\.4\.8 | Centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services\. | 
 | zookeeper\-client | 3\.4\.8 | ZooKeeper command line client\. | 
 
-**Release 4\.8\.2 Configuration Classifications**
+**Release 4\.8\.2 configuration classifications**
 
-Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure applications](emr-configure-apps.md)\.
 
 
-**emr\-4\.8\.2 Classifications**  
+**emr\-4\.8\.2 classifications**  
 
 | Classifications | Description | 
 | --- | --- | 
@@ -1390,13 +1390,13 @@ Configuration classifications allow you to customize applications\. These often 
 | zookeeper\-config | Change values in ZooKeeper's zoo\.cfg file\. | 
 | zookeeper\-log4j | Change values in ZooKeeper's log4j\.properties file\. | 
 
-**Amazon EMR Release 4\.8\.0**
-+ [Application Versions](#emr-480-app-versions)
-+ [Release Notes](#emr-480-relnotes)
-+ [Component Versions](#emr-480-components)
-+ [Configuration Classifications](#emr-480-class)
+**Amazon EMR release 4\.8\.0**
++ [Application versions](#emr-480-app-versions)
++ [Release notes](#emr-480-relnotes)
++ [Component versions](#emr-480-components)
++ [Configuration classifications](#emr-480-class)
 
-**Release 4\.8\.0 Application Versions**
+**Release 4\.8\.0 application versions**
 
 The following applications are supported in this release: [http://ganglia.info](http://ganglia.info), [http://hadoop.apache.org/docs/current/](http://hadoop.apache.org/docs/current/), [http://hbase.apache.org/](http://hbase.apache.org/), [https://cwiki.apache.org/confluence/display/Hive/HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), [http://hive.apache.org/](http://hive.apache.org/), [http://gethue.com/](http://gethue.com/), [http://mahout.apache.org/](http://mahout.apache.org/), [http://oozie.apache.org/](http://oozie.apache.org/), [https://phoenix.apache.org/](https://phoenix.apache.org/), [http://pig.apache.org/](http://pig.apache.org/), [https://prestodb.io/](https://prestodb.io/), [https://spark.apache.org/docs/latest/](https://spark.apache.org/docs/latest/), [http://sqoop.apache.org/](http://sqoop.apache.org/), [https://tez.apache.org/](https://tez.apache.org/), [https://zeppelin.incubator.apache.org/](https://zeppelin.incubator.apache.org/), and [https://zookeeper.apache.org](https://zookeeper.apache.org)\.
 
@@ -1409,7 +1409,7 @@ For a comprehensive history of application versions for each release of Amazon E
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-4.8.0.png)
 
-**Release 4\.8\.0 Release Notes**
+**Release 4\.8\.0 release notes**
 
 The following release notes include information for the Amazon EMR 4\.8\.0 release\. Changes are relative to the Amazon EMR 4\.7\.2 release\.
 
@@ -1421,14 +1421,14 @@ Release date: September 7, 2016
 + Upgraded to Tez 0\.8\.4
 + Upgraded to Zeppelin\-Sandbox 0\.6\.1
 
-**Changes and Enhancements**
+**Changes and enhancements**
 + Fixed an issue in YARN where the ApplicationMaster would attempt to clean up containers that no longer exist because their instances have been terminated\.
 + Corrected the hive\-server2 URL for Hive2 actions in the Oozie examples\.
 + Added support for additional Presto catalogs\.
 + Backported patches: [HIVE\-8948](https://issues.apache.org/jira/browse/HIVE-8948), [HIVE\-12679](https://issues.apache.org/jira/browse/HIVE-12679), [HIVE\-13405](https://issues.apache.org/jira/browse/HIVE-13405), [PHOENIX\-3116](https://issues.apache.org/jira/browse/PHOENIX-3116), [HADOOP\-12689](https://issues.apache.org/jira/browse/HADOOP-12689)
 + Added support for security configurations, which allow you to create and apply encryption options more easily\. For more information, see [Data Encryption](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-data-encryption.html)\.
 
-**Release 4\.8\.0 Component Versions**
+**Release 4\.8\.0 component versions**
 
 The components that Amazon EMR installs with this release are listed below\. Some are installed as part of big\-data application packages\. Others are unique to Amazon EMR and installed for system processes and features\. These typically start with `emr` or `aws`\. Big\-data application packages in the most recent Amazon EMR release are usually the latest version found in the community\. We make community releases available in Amazon EMR as quickly as possible\.
 
@@ -1487,12 +1487,12 @@ Some components in Amazon EMR differ from community versions\. These components 
 | zookeeper\-server | 3\.4\.8 | Centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services\. | 
 | zookeeper\-client | 3\.4\.8 | ZooKeeper command line client\. | 
 
-**Release 4\.8\.0 Configuration Classifications**
+**Release 4\.8\.0 configuration classifications**
 
-Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure applications](emr-configure-apps.md)\.
 
 
-**emr\-4\.8\.0 Classifications**  
+**emr\-4\.8\.0 classifications**  
 
 | Classifications | Description | 
 | --- | --- | 
@@ -1575,18 +1575,18 @@ There are multiple releases within the 4\.7 series\. Choose a link below to see 
 
 **[4.7.4](#emr-474-release) \|[4.7.2](#emr-472-release) \| [4.7.1](#emr-471-release) \| [4.7.0](#emr-470-release)**
 
-**Amazon EMR Release 4\.7\.4**
+**Amazon EMR release 4\.7\.4**
 
 **Important**  
 In this release version, Amazon EMR uses AWS Signature Version 4 exclusively to authenticate requests to Amazon S3\. For more information, see [Whats New](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-whatsnew.html)\.
 
-**Amazon EMR Release 4\.7\.2**
-+ [Application Versions](#emr-472-app-versions)
-+ [Release Notes](#emr-472-relnotes)
-+ [Component Versions](#emr-472-components)
-+ [Configuration Classifications](#emr-472-class)
+**Amazon EMR release 4\.7\.2**
++ [Application versions](#emr-472-app-versions)
++ [Release notes](#emr-472-relnotes)
++ [Component versions](#emr-472-components)
++ [Configuration classifications](#emr-472-class)
 
-**Release 4\.7\.2 Application Versions**
+**Release 4\.7\.2 application versions**
 
 The following applications are supported in this release: [http://ganglia.info](http://ganglia.info), [http://hadoop.apache.org/docs/current/](http://hadoop.apache.org/docs/current/), [http://hbase.apache.org/](http://hbase.apache.org/), [https://cwiki.apache.org/confluence/display/Hive/HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), [http://hive.apache.org/](http://hive.apache.org/), [http://gethue.com/](http://gethue.com/), [http://mahout.apache.org/](http://mahout.apache.org/), [http://oozie.apache.org/](http://oozie.apache.org/), [https://phoenix.apache.org/](https://phoenix.apache.org/), [http://pig.apache.org/](http://pig.apache.org/), [https://prestodb.io/](https://prestodb.io/), [https://spark.apache.org/docs/latest/](https://spark.apache.org/docs/latest/), [http://sqoop.apache.org/](http://sqoop.apache.org/), [https://tez.apache.org/](https://tez.apache.org/), [https://zeppelin.incubator.apache.org/](https://zeppelin.incubator.apache.org/), and [https://zookeeper.apache.org](https://zookeeper.apache.org)\.
 
@@ -1599,7 +1599,7 @@ For a comprehensive history of application versions for each release of Amazon E
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-4.7.2.png)
 
-**Release 4\.7\.2 Release Notes**
+**Release 4\.7\.2 release notes**
 
 The following release notes include information for Amazon EMR 4\.7\.2\.
 
@@ -1613,11 +1613,11 @@ Release date: July 15, 2016
 + EMRFS now allows users to configure a custom DynamoDB endpoint for their Consistent View metadata using the `fs.s3.consistent.dynamodb.endpoint` property in `emrfs-site.xml`\.
 + Added a script in `/usr/bin` called `spark-example`, which wraps `/usr/lib/spark/spark/bin/run-example` so you can run examples directly\. For instance, to run the SparkPi example that comes with the Spark distribution, you can run `spark-example SparkPi 100` from the command line or using `command-runner.jar` as a step in the API\.
 
-**Known Issues Resolved from Previous Releases**
+**Known issues resolved from previous releases**
 + Fixed an issue where Oozie had the `spark-assembly.jar` was not in the correct location when Spark was also installed, which resulted in failure to launch Spark applications with Oozie\.
 + Fixed an issue with Spark Log4j\-based logging in YARN containers\.
 
-**Release 4\.7\.2 Component Versions**
+**Release 4\.7\.2 component versions**
 
 The components that Amazon EMR installs with this release are listed below\. Some are installed as part of big\-data application packages\. Others are unique to Amazon EMR and installed for system processes and features\. These typically start with `emr` or `aws`\. Big\-data application packages in the most recent Amazon EMR release are usually the latest version found in the community\. We make community releases available in Amazon EMR as quickly as possible\.
 
@@ -1676,12 +1676,12 @@ Some components in Amazon EMR differ from community versions\. These components 
 | zookeeper\-server | 3\.4\.8 | Centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services\. | 
 | zookeeper\-client | 3\.4\.8 | ZooKeeper command line client\. | 
 
-**Release 4\.7\.2 Configuration Classifications**
+**Release 4\.7\.2 configuration classifications**
 
-Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure applications](emr-configure-apps.md)\.
 
 
-**emr\-4\.7\.2 Classifications**  
+**emr\-4\.7\.2 classifications**  
 
 | Classifications | Description | 
 | --- | --- | 
@@ -1745,13 +1745,13 @@ Configuration classifications allow you to customize applications\. These often 
 | zookeeper\-config | Change values in ZooKeeper's zoo\.cfg file\. | 
 | zookeeper\-log4j | Change values in ZooKeeper's log4j\.properties file\. | 
 
-**Amazon EMR Release 4\.7\.1**
-+ [Application Versions](#emr-471-app-versions)
-+ [Release Notes](#emr-471-relnotes)
-+ [Component Versions](#emr-471-components)
-+ [Configuration Classifications](#emr-471-class)
+**Amazon EMR release 4\.7\.1**
++ [Application versions](#emr-471-app-versions)
++ [Release notes](#emr-471-relnotes)
++ [Component versions](#emr-471-components)
++ [Configuration classifications](#emr-471-class)
 
-**Release 4\.7\.1 Application Versions**
+**Release 4\.7\.1 application versions**
 
 The following applications are supported in this release: [http://ganglia.info](http://ganglia.info), [http://hadoop.apache.org/docs/current/](http://hadoop.apache.org/docs/current/), [http://hbase.apache.org/](http://hbase.apache.org/), [https://cwiki.apache.org/confluence/display/Hive/HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), [http://hive.apache.org/](http://hive.apache.org/), [http://gethue.com/](http://gethue.com/), [http://mahout.apache.org/](http://mahout.apache.org/), [http://oozie.apache.org/](http://oozie.apache.org/), [https://phoenix.apache.org/](https://phoenix.apache.org/), [http://pig.apache.org/](http://pig.apache.org/), [https://prestodb.io/](https://prestodb.io/), [https://spark.apache.org/docs/latest/](https://spark.apache.org/docs/latest/), [http://sqoop.apache.org/](http://sqoop.apache.org/), [https://tez.apache.org/](https://tez.apache.org/), [https://zeppelin.incubator.apache.org/](https://zeppelin.incubator.apache.org/), and [https://zookeeper.apache.org](https://zookeeper.apache.org)\.
 
@@ -1764,17 +1764,17 @@ For a comprehensive history of application versions for each release of Amazon E
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-4.7.0.png)
 
-**Release 4\.7\.1 Release Notes**
+**Release 4\.7\.1 release notes**
 
 The following release notes include information for Amazon EMR 4\.7\.1\.
 
 Release date: June 10, 2016
 
-**Known Issues Resolved from Previous Releases**
+**Known issues resolved from previous releases**
 + Fixed an issue that extended the startup time of clusters launched in a VPC with private subnets\. The bug only impacted clusters launched with the Amazon EMR 4\.7\.0 release\. 
 + Fixed an issue that improperly handled listing of files in Amazon EMR for clusters launched with the Amazon EMR 4\.7\.0 release\.
 
-**Release 4\.7\.1 Component Versions**
+**Release 4\.7\.1 component versions**
 
 The components that Amazon EMR installs with this release are listed below\. Some are installed as part of big\-data application packages\. Others are unique to Amazon EMR and installed for system processes and features\. These typically start with `emr` or `aws`\. Big\-data application packages in the most recent Amazon EMR release are usually the latest version found in the community\. We make community releases available in Amazon EMR as quickly as possible\.
 
@@ -1833,12 +1833,12 @@ Some components in Amazon EMR differ from community versions\. These components 
 | zookeeper\-server | 3\.4\.8 | Centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services\. | 
 | zookeeper\-client | 3\.4\.8 | ZooKeeper command line client\. | 
 
-**Release 4\.7\.1 Configuration Classifications**
+**Release 4\.7\.1 configuration classifications**
 
-Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure applications](emr-configure-apps.md)\.
 
 
-**emr\-4\.7\.1 Classifications**  
+**emr\-4\.7\.1 classifications**  
 
 | Classifications | Description | 
 | --- | --- | 
@@ -1900,13 +1900,13 @@ Configuration classifications allow you to customize applications\. These often 
 | zookeeper\-config | Change values in ZooKeeper's zoo\.cfg file\. | 
 | zookeeper\-log4j | Change values in ZooKeeper's log4j\.properties file\. | 
 
-**Amazon EMR Release 4\.7\.0**
-+ [Application Versions](#emr-470-app-versions)
-+ [Release Notes](#emr-470-relnotes)
-+ [Component Versions](#emr-470-components)
-+ [Configuration Classifications](#emr-470-class)
+**Amazon EMR release 4\.7\.0**
++ [Application versions](#emr-470-app-versions)
++ [Release notes](#emr-470-relnotes)
++ [Component versions](#emr-470-components)
++ [Configuration classifications](#emr-470-class)
 
-**Release 4\.7\.0 Application Versions**
+**Release 4\.7\.0 application versions**
 
 The following applications are supported in this release: [http://ganglia.info](http://ganglia.info), [http://hadoop.apache.org/docs/current/](http://hadoop.apache.org/docs/current/), [http://hbase.apache.org/](http://hbase.apache.org/), [https://cwiki.apache.org/confluence/display/Hive/HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), [http://hive.apache.org/](http://hive.apache.org/), [http://gethue.com/](http://gethue.com/), [http://mahout.apache.org/](http://mahout.apache.org/), [http://oozie.apache.org/](http://oozie.apache.org/), [https://phoenix.apache.org/](https://phoenix.apache.org/), [http://pig.apache.org/](http://pig.apache.org/), [https://prestodb.io/](https://prestodb.io/), [https://spark.apache.org/docs/latest/](https://spark.apache.org/docs/latest/), [http://sqoop.apache.org/](http://sqoop.apache.org/), [https://tez.apache.org/](https://tez.apache.org/), [https://zeppelin.incubator.apache.org/](https://zeppelin.incubator.apache.org/), and [https://zookeeper.apache.org](https://zookeeper.apache.org)\.
 
@@ -1919,7 +1919,7 @@ For a comprehensive history of application versions for each release of Amazon E
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-4.7.0.png)
 
-**Release 4\.7\.0 Release Notes**
+**Release 4\.7\.0 release notes**
 
 **Important**  
 Amazon EMR 4\.7\.0 is deprecated\. Use Amazon EMR 4\.7\.1 or later instead\.
@@ -1941,7 +1941,7 @@ Release date: June 2, 2016
 
   Except for Presto, OpenJDK 1\.7 is the default JDK used for all applications\. However, both OpenJDK 1\.7 and 1\.8 are installed\. For information about how to set `JAVA_HOME` for applications, see [Configuring Applications to Use Java 8](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html#configuring-java8)\.
 
-**Known Issues Resolved from Previous Releases**
+**Known issues resolved from previous releases**
 + Fixed a kernel issue that significantly affected performance on Throughput Optimized HDD \(st1\) EBS volumes for Amazon EMR in emr\-4\.6\.0\.
 + Fixed an issue where a cluster would fail if any HDFS encryption zone were specified without choosing Hadoop as an application\.
 + Changed the default HDFS write policy from `RoundRobin` to `AvailableSpaceVolumeChoosingPolicy`\. Some volumes were not properly utilized with the RoundRobin configuration, which resulted in failed core nodes and an unreliable HDFS\.
@@ -1954,7 +1954,7 @@ Release date: June 2, 2016
 + Backported a [commit](https://github.com/cloudera/hue/commit/c3c89f085e7a29c9fac7de016d881142d90af3eb) from Hue 3\.9\.0 \(no JIRA exists\) to fix an issue with the HBase browser sample\. 
 + Backported [HIVE\-9073](https://issues.apache.org/jira/browse/HIVE-9073)\.
 
-**Release 4\.7\.0 Component Versions**
+**Release 4\.7\.0 component versions**
 
 The components that Amazon EMR installs with this release are listed below\. Some are installed as part of big\-data application packages\. Others are unique to Amazon EMR and installed for system processes and features\. These typically start with `emr` or `aws`\. Big\-data application packages in the most recent Amazon EMR release are usually the latest version found in the community\. We make community releases available in Amazon EMR as quickly as possible\.
 
@@ -2013,12 +2013,12 @@ Some components in Amazon EMR differ from community versions\. These components 
 | zookeeper\-server | 3\.4\.8 | Centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services\. | 
 | zookeeper\-client | 3\.4\.8 | ZooKeeper command line client\. | 
 
-**Release 4\.7\.0 Configuration Classifications**
+**Release 4\.7\.0 configuration classifications**
 
-Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure applications](emr-configure-apps.md)\.
 
 
-**emr\-4\.7\.0 Classifications**  
+**emr\-4\.7\.0 classifications**  
 
 | Classifications | Description | 
 | --- | --- | 
@@ -2083,13 +2083,13 @@ Configuration classifications allow you to customize applications\. These often 
 ------
 #### [ 4\.6\.0 ]
 
-**Amazon EMR Release 4\.6\.0**
-+ [Application Versions](#emr-460-app-versions)
-+ [Release Notes](#emr-460-relnotes)
-+ [Component Versions](#emr-460-components)
-+ [Configuration Classifications](#emr-460-class)
+**Amazon EMR release 4\.6\.0**
++ [Application versions](#emr-460-app-versions)
++ [Release notes](#emr-460-relnotes)
++ [Component versions](#emr-460-components)
++ [Configuration classifications](#emr-460-class)
 
-**Release 4\.6\.0 Application Versions**
+**Release 4\.6\.0 application versions**
 
 The following applications are supported in this release: [http://ganglia.info](http://ganglia.info), [http://hadoop.apache.org/docs/current/](http://hadoop.apache.org/docs/current/), [http://hbase.apache.org/](http://hbase.apache.org/), [https://cwiki.apache.org/confluence/display/Hive/HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), [http://hive.apache.org/](http://hive.apache.org/), [http://gethue.com/](http://gethue.com/), [http://mahout.apache.org/](http://mahout.apache.org/), [http://oozie.apache.org/](http://oozie.apache.org/), [http://pig.apache.org/](http://pig.apache.org/), [https://prestodb.io/](https://prestodb.io/), [https://spark.apache.org/docs/latest/](https://spark.apache.org/docs/latest/), [http://sqoop.apache.org/](http://sqoop.apache.org/), [https://zeppelin.incubator.apache.org/](https://zeppelin.incubator.apache.org/), and [https://zookeeper.apache.org](https://zookeeper.apache.org)\.
 
@@ -2102,7 +2102,7 @@ For a comprehensive history of application versions for each release of Amazon E
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-4.6.0.png)
 
-**Release 4\.6\.0 Release Notes**
+**Release 4\.6\.0 release notes**
 
 The following release notes include information for the Amazon EMR 4\.6\.0 release\.
 + Added HBase 1\.2\.0
@@ -2119,7 +2119,7 @@ The following release notes include information for the Amazon EMR 4\.6\.0 relea
 
   Except for Presto, OpenJDK 1\.7 is the default JDK used for all applications\. However, both OpenJDK 1\.7 and 1\.8 are installed\. For information about how to set `JAVA_HOME` for applications, see [Configuring Applications to Use Java 8](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html#configuring-java8)\.
 
-**Known Issues Resolved from Previous Releases**
+**Known issues resolved from previous releases**
 + Fixed an issue where application provisioning would sometimes randomly fail due to a generated password\.
 + Previously, `mysqld` was installed on all nodes\. Now, it is only installed on the master instance and only if the chosen application includes `mysql-server` as a component\. Currently, the following applications include the `mysql-server` component: HCatalog, Hive, Hue, Presto\-Sandbox, and Sqoop\-Sandbox\.
 + Changed `yarn.scheduler.maximum-allocation-vcores` to 80 from the default of 32, which fixes an issue introduced in emr\-4\.4\.0 that mainly occurs with Spark while using the `maximizeResourceAllocation` option in a cluster whose core instance type is one of a few large instance types that have the YARN vcores set higher than 32; namely c4\.8xlarge, cc2\.8xlarge, hs1\.8xlarge, i2\.8xlarge, m2\.4xlarge, r3\.8xlarge, d2\.8xlarge, or m4\.10xlarge were affected by this issue\.
@@ -2127,7 +2127,7 @@ The following release notes include information for the Amazon EMR 4\.6\.0 relea
 + Fixed an issue with exception handling for client\-side encryption multipart uploads\.
 + Added an option to allow users to change the Amazon S3 storage class\. By default this setting is `STANDARD`\. The `emrfs-site` configuration classification setting is `fs.s3.storageClass` and the possible values are `STANDARD`, `STANDARD_IA`, and `REDUCED_REDUNDANCY`\. For more information about storage classes, see [Storage Classes](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html) in the Amazon Simple Storage Service Developer Guide\. 
 
-**Release 4\.6\.0 Component Versions**
+**Release 4\.6\.0 component versions**
 
 The components that Amazon EMR installs with this release are listed below\. Some are installed as part of big\-data application packages\. Others are unique to Amazon EMR and installed for system processes and features\. These typically start with `emr` or `aws`\. Big\-data application packages in the most recent Amazon EMR release are usually the latest version found in the community\. We make community releases available in Amazon EMR as quickly as possible\.
 
@@ -2182,12 +2182,12 @@ Some components in Amazon EMR differ from community versions\. These components 
 | zookeeper\-server | 3\.4\.8 | Centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services\. | 
 | zookeeper\-client | 3\.4\.8 | ZooKeeper command line client\. | 
 
-**Release 4\.6\.0 Configuration Classifications**
+**Release 4\.6\.0 configuration classifications**
 
-Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure applications](emr-configure-apps.md)\.
 
 
-**emr\-4\.6\.0 Classifications**  
+**emr\-4\.6\.0 classifications**  
 
 | Classifications | Description | 
 | --- | --- | 
@@ -2247,13 +2247,13 @@ Configuration classifications allow you to customize applications\. These often 
 ------
 #### [ 4\.5\.0 ]
 
-**Amazon EMR Release 4\.5\.0**
-+ [Application Versions](#emr-450-app-versions)
-+ [Release Notes](#emr-450-relnotes)
-+ [Component Versions](#emr-450-components)
-+ [Configuration Classifications](#emr-450-class)
+**Amazon EMR release 4\.5\.0**
++ [Application versions](#emr-450-app-versions)
++ [Release notes](#emr-450-relnotes)
++ [Component versions](#emr-450-components)
++ [Configuration classifications](#emr-450-class)
 
-**Release 4\.5\.0 Application Versions**
+**Release 4\.5\.0 application versions**
 
 The following applications are supported in this release: [http://ganglia.info](http://ganglia.info), [http://hadoop.apache.org/docs/current/](http://hadoop.apache.org/docs/current/), [https://cwiki.apache.org/confluence/display/Hive/HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), [http://hive.apache.org/](http://hive.apache.org/), [http://gethue.com/](http://gethue.com/), [http://mahout.apache.org/](http://mahout.apache.org/), [http://oozie.apache.org/](http://oozie.apache.org/), [http://pig.apache.org/](http://pig.apache.org/), [https://prestodb.io/](https://prestodb.io/), [https://spark.apache.org/docs/latest/](https://spark.apache.org/docs/latest/), [http://sqoop.apache.org/](http://sqoop.apache.org/), and [https://zeppelin.incubator.apache.org/](https://zeppelin.incubator.apache.org/)\.
 
@@ -2266,7 +2266,7 @@ For a comprehensive history of application versions for each release of Amazon E
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-4.5.0.png)
 
-**Release 4\.5\.0 Release Notes**
+**Release 4\.5\.0 release notes**
 
 The following release notes include information for the Amazon EMR 4\.5\.0 release\.
 
@@ -2278,12 +2278,12 @@ Release date: April 4, 2016
 + Upgraded to Presto 0\.140
 + Added AWS KMS support for Amazon S3 server\-side encryption\.
 
-**Known Issues Resolved from Previous Releases**
+**Known issues resolved from previous releases**
 + Fixed an issue where MySQL and Apache servers would not start after a node was rebooted\. 
 + Fixed an issue where IMPORT did not work correctly with non\-partitioned tables stored in Amazon S3
 + Fixed an issue with Presto where it requires the staging directory to be `/mnt/tmp` rather than `/tmp` when writing to Hive tables\.
 
-**Release 4\.5\.0 Component Versions**
+**Release 4\.5\.0 component versions**
 
 The components that Amazon EMR installs with this release are listed below\. Some are installed as part of big\-data application packages\. Others are unique to Amazon EMR and installed for system processes and features\. These typically start with `emr` or `aws`\. Big\-data application packages in the most recent Amazon EMR release are usually the latest version found in the community\. We make community releases available in Amazon EMR as quickly as possible\.
 
@@ -2331,12 +2331,12 @@ Some components in Amazon EMR differ from community versions\. These components 
 | webserver | 2\.4 | Apache HTTP server\. | 
 | zeppelin\-server | 0\.5\.6\-incubating | Web\-based notebook that enables interactive data analytics\. | 
 
-**Release 4\.5\.0 Configuration Classifications**
+**Release 4\.5\.0 configuration classifications**
 
-Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure applications](emr-configure-apps.md)\.
 
 
-**emr\-4\.5\.0 Classifications**  
+**emr\-4\.5\.0 classifications**  
 
 | Classifications | Description | 
 | --- | --- | 
@@ -2389,13 +2389,13 @@ Configuration classifications allow you to customize applications\. These often 
 ------
 #### [ 4\.4\.0 ]
 
-**Amazon EMR Release 4\.4\.0**
-+ [Application Versions](#emr-440-app-versions)
-+ [Release Notes](#emr-440-relnotes)
-+ [Component Versions](#emr-440-components)
-+ [Configuration Classifications](#emr-440-class)
+**Amazon EMR release 4\.4\.0**
++ [Application versions](#emr-440-app-versions)
++ [Release notes](#emr-440-relnotes)
++ [Component versions](#emr-440-components)
++ [Configuration classifications](#emr-440-class)
 
-**Release 4\.4\.0 Application Versions**
+**Release 4\.4\.0 application versions**
 
 The following applications are supported in this release: [http://ganglia.info](http://ganglia.info), [http://hadoop.apache.org/docs/current/](http://hadoop.apache.org/docs/current/), [https://cwiki.apache.org/confluence/display/Hive/HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog), [http://hive.apache.org/](http://hive.apache.org/), [http://gethue.com/](http://gethue.com/), [http://mahout.apache.org/](http://mahout.apache.org/), [http://oozie.apache.org/](http://oozie.apache.org/), [http://pig.apache.org/](http://pig.apache.org/), [https://prestodb.io/](https://prestodb.io/), [https://spark.apache.org/docs/latest/](https://spark.apache.org/docs/latest/), [http://sqoop.apache.org/](http://sqoop.apache.org/), and [https://zeppelin.incubator.apache.org/](https://zeppelin.incubator.apache.org/)\.
 
@@ -2408,7 +2408,7 @@ For a comprehensive history of application versions for each release of Amazon E
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-4.4.0.png)
 
-**Release 4\.4\.0 Release Notes**
+**Release 4\.4\.0 release notes**
 
 The following release notes include information for the Amazon EMR 4\.4\.0 release\.
 
@@ -2423,7 +2423,7 @@ Release date: March 14, 2016
 + Enabled `dynamicResourceAllocation` by default\.
 + Added a table of all configuration classifications for the release\. For more information, see the Configuration Classifications table in [Configuring Applications](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html)\.
 
-**Known Issues Resolved from Previous Releases**
+**Known issues resolved from previous releases**
 + Fixed an issue where the `maximizeResourceAllocation` setting would not reserve enough memory for YARN ApplicationMaster daemons\.
 + Fixed an issue encountered with a custom DNS\. If any entries in `resolve.conf` precede the custom entries provided, then the custom entries are not resolvable\. This behavior was affected by clusters in a VPC where the default VPC name server is inserted as the top entry in `resolve.conf`\.
 + Fixed an issue where the default Python moved to version 2\.7 and boto was not installed for that version\.
@@ -2440,7 +2440,7 @@ Release date: March 14, 2016
 + [HIVE\-9183](https://issues.apache.org/jira/browse/HIVE-9183)
 + [HADOOP\-12810](https://issues.apache.org/jira/browse/HADOOP-12810)
 
-**Release 4\.4\.0 Component Versions**
+**Release 4\.4\.0 component versions**
 
 The components that Amazon EMR installs with this release are listed below\. Some are installed as part of big\-data application packages\. Others are unique to Amazon EMR and installed for system processes and features\. These typically start with `emr` or `aws`\. Big\-data application packages in the most recent Amazon EMR release are usually the latest version found in the community\. We make community releases available in Amazon EMR as quickly as possible\.
 
@@ -2488,12 +2488,12 @@ Some components in Amazon EMR differ from community versions\. These components 
 | webserver | 2\.4 | Apache HTTP server\. | 
 | zeppelin\-server | 0\.5\.6\-incubating | Web\-based notebook that enables interactive data analytics\. | 
 
-**Release 4\.4\.0 Configuration Classifications**
+**Release 4\.4\.0 configuration classifications**
 
-Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure applications](emr-configure-apps.md)\.
 
 
-**emr\-4\.4\.0 Classifications**  
+**emr\-4\.4\.0 classifications**  
 
 | Classifications | Description | 
 | --- | --- | 
@@ -2546,13 +2546,13 @@ Configuration classifications allow you to customize applications\. These often 
 ------
 #### [ 4\.3\.0 ]
 
-**Amazon EMR Release 4\.3\.0**
-+ [Application Versions](#emr-430-app-versions)
-+ [Release Notes](#emr-430-relnotes)
-+ [Component Versions](#emr-430-components)
-+ [Configuration Classifications](#emr-430-class)
+**Amazon EMR release 4\.3\.0**
++ [Application versions](#emr-430-app-versions)
++ [Release notes](#emr-430-relnotes)
++ [Component versions](#emr-430-components)
++ [Configuration classifications](#emr-430-class)
 
-**Release 4\.3\.0 Application Versions**
+**Release 4\.3\.0 application versions**
 
 The following applications are supported in this release: [http://ganglia.info](http://ganglia.info), [http://hadoop.apache.org/docs/current/](http://hadoop.apache.org/docs/current/), [http://hive.apache.org/](http://hive.apache.org/), [http://gethue.com/](http://gethue.com/), [http://mahout.apache.org/](http://mahout.apache.org/), [http://oozie.apache.org/](http://oozie.apache.org/), [http://pig.apache.org/](http://pig.apache.org/), [https://prestodb.io/](https://prestodb.io/), [https://spark.apache.org/docs/latest/](https://spark.apache.org/docs/latest/), and [https://zeppelin.incubator.apache.org/](https://zeppelin.incubator.apache.org/)\.
 
@@ -2565,7 +2565,7 @@ For a comprehensive history of application versions for each release of Amazon E
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-4.3.0.png)
 
-**Release 4\.3\.0 Release Notes**
+**Release 4\.3\.0 release notes**
 
 The following release notes include information for the Amazon EMR 4\.3\.0 release\.
 
@@ -2582,7 +2582,7 @@ Release date: January 19, 2016
   + The `spark.default.parallelism` setting is now set at twice the number of CPU cores available for YARN containers\. In previous releases, this was half that value\.
   + The calculations for the memory overhead reserved for Spark YARN processes were adjusted to be more accurate, resulting in a small increase in the total amount of memory available to Spark \(that is, `spark.executor.memory`\)\.
 
-**Known Issues Resolved from the Previous Releases**
+**Known issues resolved from previous releases**
 + YARN log aggregation is now enabled by default\.
 + Fixed an issue where logs would not be pushed to Amazon S3 logs bucket for the cluster when YARN log aggregation was enabled\.
 + YARN container sizes now have a new minimum of 32 across all node types\.
@@ -2595,7 +2595,7 @@ Release date: January 19, 2016
 + Fixed an issue where large clusters would not provision properly when Hue, Oozie, and Ganglia are installed\.
 + Fixed an issue in s3\-dist\-cp where it would return a zero exit code even if it failed with an error\.
 
-**Release 4\.3\.0 Component Versions**
+**Release 4\.3\.0 component versions**
 
 The components that Amazon EMR installs with this release are listed below\. Some are installed as part of big\-data application packages\. Others are unique to Amazon EMR and installed for system processes and features\. These typically start with `emr` or `aws`\. Big\-data application packages in the most recent Amazon EMR release are usually the latest version found in the community\. We make community releases available in Amazon EMR as quickly as possible\.
 
@@ -2639,12 +2639,12 @@ Some components in Amazon EMR differ from community versions\. These components 
 | webserver | 2\.4 | Apache HTTP server\. | 
 | zeppelin\-server | 0\.5\.5\-incubating\-amzn\-1 | Web\-based notebook that enables interactive data analytics\. | 
 
-**Release 4\.3\.0 Configuration Classifications**
+**Release 4\.3\.0 configuration classifications**
 
-Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure applications](emr-configure-apps.md)\.
 
 
-**emr\-4\.3\.0 Classifications**  
+**emr\-4\.3\.0 classifications**  
 
 | Classifications | Description | 
 | --- | --- | 
@@ -2688,13 +2688,13 @@ Configuration classifications allow you to customize applications\. These often 
 ------
 #### [ 4\.2\.0 ]
 
-**Amazon EMR Release 4\.2\.0**
-+ [Application Versions](#emr-420-app-versions)
-+ [Release Notes](#emr-420-relnotes)
-+ [Component Versions](#emr-420-components)
-+ [Configuration Classifications](#emr-420-class)
+**Amazon EMR release 4\.2\.0**
++ [Application versions](#emr-420-app-versions)
++ [Release notes](#emr-420-relnotes)
++ [Component versions](#emr-420-components)
++ [Configuration classifications](#emr-420-class)
 
-**Release 4\.2\.0 Application Versions**
+**Release 4\.2\.0 application versions**
 
 The following applications are supported in this release: [http://ganglia.info](http://ganglia.info), [http://hadoop.apache.org/docs/current/](http://hadoop.apache.org/docs/current/), [http://hive.apache.org/](http://hive.apache.org/), [http://gethue.com/](http://gethue.com/), [http://mahout.apache.org/](http://mahout.apache.org/), [http://oozie.apache.org/](http://oozie.apache.org/), [http://pig.apache.org/](http://pig.apache.org/), [https://prestodb.io/](https://prestodb.io/), [https://spark.apache.org/docs/latest/](https://spark.apache.org/docs/latest/), and [https://zeppelin.incubator.apache.org/](https://zeppelin.incubator.apache.org/)\.
 
@@ -2707,7 +2707,7 @@ For a comprehensive history of application versions for each release of Amazon E
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-4.3.0.png)
 
-**Release 4\.2\.0 Release Notes**
+**Release 4\.2\.0 release notes**
 
 The following release notes include information for the Amazon EMR 4\.2\.0 release\.
 
@@ -2721,7 +2721,7 @@ Release date: November 18, 2015
 + Upgraded Zeppelin to 0\.5\.5
 + Upgraded the AWS SDK for Java to 1\.10\.27
 
-**Known Issues Resolved from the Previous Releases**
+**Known issues resolved from previous releases**
 + Fixed an issue with the EMRFS CLI where it did not use the default metadata table name\.
 + Fixed an issue encountered when using ORC\-backed tables in Amazon S3\.
 + Fixed an issue encountered with a Python version mismatch in the Spark configuration\.
@@ -2730,7 +2730,7 @@ Release date: November 18, 2015
 + Fixed an issue encountered when clusters terminated with status TIMED\_OUT\_STARTING\.
 + Fixed an issue encountered when including the EMRFS Scala dependency in other builds\. The Scala dependency has been removed\.
 
-**Release 4\.2\.0 Component Versions**
+**Release 4\.2\.0 component versions**
 
 The components that Amazon EMR installs with this release are listed below\. Some are installed as part of big\-data application packages\. Others are unique to Amazon EMR and installed for system processes and features\. These typically start with `emr` or `aws`\. Big\-data application packages in the most recent Amazon EMR release are usually the latest version found in the community\. We make community releases available in Amazon EMR as quickly as possible\.
 
@@ -2774,12 +2774,12 @@ Some components in Amazon EMR differ from community versions\. These components 
 | webserver | 2\.4 | Apache HTTP server\. | 
 | zeppelin\-server | 0\.5\.5\-incubating\-amzn\-0 | Web\-based notebook that enables interactive data analytics\. | 
 
-**Release 4\.2\.0 Configuration Classifications**
+**Release 4\.2\.0 configuration classifications**
 
-Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure applications](emr-configure-apps.md)\.
 
 
-**emr\-4\.2\.0 Classifications**  
+**emr\-4\.2\.0 classifications**  
 
 | Classifications | Description | 
 | --- | --- | 
@@ -2823,13 +2823,13 @@ Configuration classifications allow you to customize applications\. These often 
 ------
 #### [ 4\.1\.0 ]
 
-**Amazon EMR Release 4\.1\.0**
-+ [Application Versions](#emr-410-app-versions)
-+ [Release Notes](#emr-410-relnotes)
-+ [Component Versions](#emr-410-components)
-+ [Configuration Classifications](#emr-410-class)
+**Amazon EMR release 4\.1\.0**
++ [Application versions](#emr-410-app-versions)
++ [Release notes](#emr-410-relnotes)
++ [Component versions](#emr-410-components)
++ [Configuration classifications](#emr-410-class)
 
-**Release 4\.1\.0 Application Versions**
+**Release 4\.1\.0 application versions**
 
 The following applications are supported in this release: [http://hadoop.apache.org/docs/current/](http://hadoop.apache.org/docs/current/), [http://hive.apache.org/](http://hive.apache.org/), [http://gethue.com/](http://gethue.com/), [http://mahout.apache.org/](http://mahout.apache.org/), [http://oozie.apache.org/](http://oozie.apache.org/), [http://pig.apache.org/](http://pig.apache.org/), [https://prestodb.io/](https://prestodb.io/), [https://spark.apache.org/docs/latest/](https://spark.apache.org/docs/latest/), and [https://zeppelin.incubator.apache.org/](https://zeppelin.incubator.apache.org/)\.
 
@@ -2842,11 +2842,11 @@ For a comprehensive history of application versions for each release of Amazon E
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-4.3.0.png)
 
-**Release 4\.1\.0 Release Notes**
+**Release 4\.1\.0 release notes**
 
 Not available\.
 
-**Release 4\.1\.0 Component Versions**
+**Release 4\.1\.0 component versions**
 
 The components that Amazon EMR installs with this release are listed below\. Some are installed as part of big\-data application packages\. Others are unique to Amazon EMR and installed for system processes and features\. These typically start with `emr` or `aws`\. Big\-data application packages in the most recent Amazon EMR release are usually the latest version found in the community\. We make community releases available in Amazon EMR as quickly as possible\.
 
@@ -2886,12 +2886,12 @@ Some components in Amazon EMR differ from community versions\. These components 
 | spark\-yarn\-slave | 1\.5\.0 | Apache Spark libraries needed by YARN slaves\. | 
 | zeppelin\-server | 0\.6\.0\-incubating\-SNAPSHOT | Web\-based notebook that enables interactive data analytics\. | 
 
-**Release 4\.1\.0 Configuration Classifications**
+**Release 4\.1\.0 configuration classifications**
 
-Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure applications](emr-configure-apps.md)\.
 
 
-**emr\-4\.1\.0 Classifications**  
+**emr\-4\.1\.0 classifications**  
 
 | Classifications | Description | 
 | --- | --- | 
@@ -2933,13 +2933,13 @@ Configuration classifications allow you to customize applications\. These often 
 ------
 #### [ 4\.0\.0 ]
 
-**Amazon EMR Release 4\.0\.0**
-+ [Application Versions](#emr-400-app-versions)
-+ [Release Notes](#emr-400-relnotes)
-+ [Component Versions](#emr-400-components)
-+ [Configuration Classifications](#emr-400-class)
+**Amazon EMR release 4\.0\.0**
++ [Application versions](#emr-400-app-versions)
++ [Release notes](#emr-400-relnotes)
++ [Component versions](#emr-400-components)
++ [Configuration classifications](#emr-400-class)
 
-**Release 4\.0\.0 Application Versions**
+**Release 4\.0\.0 application versions**
 
 The following applications are supported in this release: [http://hadoop.apache.org/docs/current/](http://hadoop.apache.org/docs/current/), [http://hive.apache.org/](http://hive.apache.org/), [http://mahout.apache.org/](http://mahout.apache.org/), [http://pig.apache.org/](http://pig.apache.org/), and [https://spark.apache.org/docs/latest/](https://spark.apache.org/docs/latest/)\.
 
@@ -2952,11 +2952,11 @@ For a comprehensive history of application versions for each release of Amazon E
 
 ![\[Image NOT FOUND\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-4.3.0.png)
 
-**Release 4\.0\.0 Release Notes**
+**Release 4\.0\.0 release notes**
 
 Not available\.
 
-**Release 4\.0\.0 Component Versions**
+**Release 4\.0\.0 component versions**
 
 The components that Amazon EMR installs with this release are listed below\. Some are installed as part of big\-data application packages\. Others are unique to Amazon EMR and installed for system processes and features\. These typically start with `emr` or `aws`\. Big\-data application packages in the most recent Amazon EMR release are usually the latest version found in the community\. We make community releases available in Amazon EMR as quickly as possible\.
 
@@ -2988,12 +2988,12 @@ Some components in Amazon EMR differ from community versions\. These components 
 | spark\-on\-yarn | 1\.4\.1 | In\-memory execution engine for YARN\. | 
 | spark\-yarn\-slave | 1\.4\.1 | Apache Spark libraries needed by YARN slaves\. | 
 
-**Release 4\.0\.0 Configuration Classifications**
+**Release 4\.0\.0 configuration classifications**
 
-Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure Applications](emr-configure-apps.md)\.
+Configuration classifications allow you to customize applications\. These often correspond to a configuration XML file for the application, such as `hive-site.xml`\. For more information, see [Configure applications](emr-configure-apps.md)\.
 
 
-**emr\-4\.0\.0 Classifications**  
+**emr\-4\.0\.0 classifications**  
 
 | Classifications | Description | 
 | --- | --- | 

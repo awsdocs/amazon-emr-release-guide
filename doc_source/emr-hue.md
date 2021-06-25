@@ -9,9 +9,9 @@ The following table lists the version of Hue included in the latest release of A
 For the version of components installed with Hue in this release, see [Release 6\.3\.0 Component Versions](emr-release-6x.md#emr-630-release)\.
 
 
-**Hue Version Information for emr\-6\.3\.0**  
+**Hue version information for emr\-6\.3\.0**  
 
-| Amazon EMR Release Label | Hue Version | Components Installed With Hue | 
+| Amazon EMR release label | Hue version | Components installed with Hue | 
 | --- | --- | --- | 
 | emr\-6\.3\.0 | Hue 4\.9\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hue\-server, mariadb\-server, oozie\-client, oozie\-server | 
 
@@ -20,15 +20,15 @@ The following table lists the version of Hue included in the latest release of A
 For the version of components installed with Hue in this release, see [Release 5\.33\.0 Component Versions](emr-release-5x.md#emr-5330-release)\.
 
 
-**Hue Version Information for emr\-5\.33\.0**  
+**Hue version information for emr\-5\.33\.0**  
 
-| Amazon EMR Release Label | Hue Version | Components Installed With Hue | 
+| Amazon EMR release label | Hue version | Components installed with Hue | 
 | --- | --- | --- | 
 | emr\-5\.33\.0 | Hue 4\.9\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hue\-server, mariadb\-server, oozie\-client, oozie\-server | 
 
 **Topics**
-+ [Supported and Unsupported Features of Hue on Amazon EMR](emr-hue-supported-features.md)
-+ [Connecting to the Hue Web User Interface](accessing-hue.md)
-+ [Using Hue with a Remote Database in Amazon RDS](hue-rds.md)
-+ [Advanced Configurations for Hue](advanced-configurations.md)
-+ [Hue Release History](Hue-release-history.md)
++ [Supported and unsupported features of Hue on Amazon EMR](emr-hue-supported-features.md)
++ [Connecting to the Hue web user interface](accessing-hue.md)
++ [Using Hue with a remote database in Amazon RDS](hue-rds.md)
++ [Advanced configurations for Hue](advanced-configurations.md)
++ [Hue release history](Hue-release-history.md)

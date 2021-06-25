@@ -1,10 +1,10 @@
-# Creating a Cluster with HCatalog<a name="emr-hcatalog-create-cluster"></a>
+# Creating a cluster with HCatalog<a name="emr-hcatalog-create-cluster"></a>
 
 Although HCatalog is included in the Hive project, you must install it as its own application\.
 
 **To launch a cluster with HCatalog installed using the console**
 
-The following procedure creates a cluster with HCatalog installed\. For more information about creating clusters using the console, including **Advanced Options** see [Plan and Configure Clusters](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan.html) in the *Amazon EMR Management Guide*\.
+The following procedure creates a cluster with HCatalog installed\. For more information about creating clusters using the console, including **Advanced Options** see [Plan and configure clusters](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan.html) in the *Amazon EMR Management Guide*\.
 
 1. Open the Amazon EMR console at [https://console\.aws\.amazon\.com/elasticmapreduce/](https://console.aws.amazon.com/elasticmapreduce/)\.
 

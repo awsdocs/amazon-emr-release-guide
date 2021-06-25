@@ -1,16 +1,16 @@
 # Configure Spark<a name="emr-spark-configure"></a>
 
-You can configure [Spark on Amazon EMR](https://aws.amazon.com/elasticmapreduce/details/spark/) using configuration classifications\. For more information about using configuration classifications, see [Configure Applications](emr-configure-apps.md)\.
+You can configure [Spark on Amazon EMR](https://aws.amazon.com/elasticmapreduce/details/spark/) using configuration classifications\. For more information about using configuration classifications, see [Configure applications](emr-configure-apps.md)\.
 
 Configuration classifications for Spark on Amazon EMR include the following:
 + `spark`—Sets the `maximizeResourceAllocation` property to true or false\. When true, Amazon EMR automatically configures `spark-defaults` properties based on cluster hardware configuration\. For more information, see [Using maximizeResourceAllocation](#emr-spark-maximizeresourceallocation)\.
-+ `spark-defaults`—Sets values in the `spark-defaults.conf` file\. For more information, see [Spark Configuration](https://spark.apache.org/docs/latest/configuration.html) in the Spark documentation\.
-+ `spark-env`—Sets values in the `spark-env.sh` file\. For more information, see [Environment Variables](https://spark.apache.org/docs/latest/configuration.html#environment-variables) in the Spark documentation\.
++ `spark-defaults`—Sets values in the `spark-defaults.conf` file\. For more information, see [Spark configuration](https://spark.apache.org/docs/latest/configuration.html) in the Spark documentation\.
++ `spark-env`—Sets values in the `spark-env.sh` file\. For more information, see [Environment variables](https://spark.apache.org/docs/latest/configuration.html#environment-variables) in the Spark documentation\.
 + `spark-hive-site`—Sets values in the `hive-site.xml` for Spark\.
 + `spark-log4j`—Sets values in the `log4j.properties` file\. For settings and more information, see the [log4j\.properties\.template](https://github.com/apache/spark/blob/master/conf/log4j.properties.template) file on Github\.
 + `spark-metrics`—Sets values in the `metrics.properties` file\. For settings and more information, see the [metrics\.properties\.template](https://github.com/apache/spark/blob/master/conf/metrics.properties.template) file on Github, and [Metrics](https://spark.apache.org/docs/latest/monitoring.html#metrics) in Spark documentation\.
 
-## Spark Defaults Set By Amazon EMR<a name="spark-defaults"></a>
+## Spark defaults set by Amazon EMR<a name="spark-defaults"></a>
 
 The following table shows how Amazon EMR sets default values in `spark-defaults` that affect applications\.
 
@@ -23,13 +23,18 @@ The following table shows how Amazon EMR sets default values in `spark-defaults`
 | spark\.executor\.cores | The number of cores to use on each executor\.  | Setting is configured based on the core and task instance types in the cluster\.  | 
 | spark\.dynamicAllocation\.enabled | Whether to use dynamic resource allocation, which scales the number of executors registered with an application up and down based on the workload\. |  true \(emr\-4\.4\.0 or greater\)  Spark Shuffle Service is automatically configured by Amazon EMR\.   | 
 
-## Configuring Spark Garbage Collection on Amazon EMR 6\.1\.0<a name="spark-gc-config"></a>
+## Configuring Spark garbage collection on Amazon EMR 6\.1\.0<a name="spark-gc-config"></a>
 
-Setting custom garbage collection configurations with `spark.driver.extraJavaOptions` and `spark.executor.extraJavaOptions` results in driver or executor launch failure with Amazon EMR 6\.1 because of a conflicting garbage collection configuration with Amazon EMR 6\.1\.0\. ForAmazon EMR 6\.1\.0, the default garbage collection configuration is set through `spark.driver.defaultJavaOptions` and `spark.executor.defaultJavaOptions`\. This configuration applies only to Amazon EMR 6\.1\.0\. JVM options not related to garbage collection, such as those for configuring logging \(`-verbose:class`\), can still be set through `extraJavaOptions`\. For more information, see [Spark Application Properties\.](https://spark.apache.org/docs/latest/configuration.html#application-properties) 
+Setting custom garbage collection configurations with `spark.driver.extraJavaOptions` and `spark.executor.extraJavaOptions` results in driver or executor launch failure with Amazon EMR 6\.1 because of a conflicting garbage collection configuration with Amazon EMR 6\.1\.0\. ForAmazon EMR 6\.1\.0, the default garbage collection configuration is set through `spark.driver.defaultJavaOptions` and `spark.executor.defaultJavaOptions`\. This configuration applies only to Amazon EMR 6\.1\.0\. JVM options not related to garbage collection, such as those for configuring logging \(`-verbose:class`\), can still be set through `extraJavaOptions`\. For more information, see [Spark application properties\.](https://spark.apache.org/docs/latest/configuration.html#application-properties) 
 
 ## Using maximizeResourceAllocation<a name="emr-spark-maximizeresourceallocation"></a>
 
-You can configure your executors to utilize the maximum resources possible on each node in a cluster by using the `spark` configuration classification to set `maximizeResourceAllocation` option to true\. This EMR\-specific option calculates the maximum compute and memory resources available for an executor on an instance in the core instance group\. It then sets the corresponding `spark-defaults` settings based on this information\.
+To configure your executors to use the maximum resources possible on each node in a cluster, set `maximizeResourceAllocation` to `true` in your `spark` configuration classification\. The `maximizeResourceAllocation` is specific to Amazon EMR\. When you enable `maximizeResourceAllocation`, EMR calculates the maximum compute and memory resources available for an executor on an instance in the core instance group\. It then sets the corresponding `spark-defaults` settings based on the calculated maximum values\.
+
+**Note**  
+You should not use the `maximizeResourceAllocation` option on clusters with other distributed applications like HBase\. Amazon EMR uses custom YARN configurations for distributed applications, which can conflict with `maximizeResourceAllocation` and cause Spark applications to fail\.
+
+The following is an example spark configuration classification with `maximizeResourceAllocation` set to `true`\.
 
 ```
 [
@@ -53,11 +58,11 @@ You can configure your executors to utilize the maximum resources possible on ea
 | spark\.executor\.cores | The number of cores to use on each executor\.  | Setting is configured based on the core and task instance types in the cluster\.  | 
 | spark\.executor\.instances |  The number of executors\. |  Setting is configured based on the core and task instance types in the cluster\. Set unless `spark.dynamicAllocation.enabled` explicitly set to true at the same time\.  | 
 
-## Enabling Dynamic Allocation of Executors<a name="spark-dynamic-allocation"></a>
+## Enabling dynamic allocation of executors<a name="spark-dynamic-allocation"></a>
 
-Spark on YARN has the ability to scale the number of executors used for a Spark application dynamically\. Using Amazon EMR release version 4\.4\.0 and later, dynamic allocation is enabled by default\. For more information, see [Dynamic Resource Allocation](https://spark.apache.org/docs/1.6.1/job-scheduling.html#dynamic-resource-allocation) and the properties for [Dynamic Allocation](https://spark.apache.org/docs/latest/configuration.html#dynamic-allocation) in the Spark documentation\.
+Spark on YARN has the ability to scale the number of executors used for a Spark application dynamically\. Using Amazon EMR release version 4\.4\.0 and later, dynamic allocation is enabled by default\. For more information, see [Dynamic resource allocation](https://spark.apache.org/docs/1.6.1/job-scheduling.html#dynamic-resource-allocation) and the properties for [Dynamic allocation](https://spark.apache.org/docs/latest/configuration.html#dynamic-allocation) in the Spark documentation\.
 
-## Configuring Node Decommissioning Behavior<a name="spark-decommissioning"></a>
+## Configuring node decommissioning behavior<a name="spark-decommissioning"></a>
 
 When using Amazon EMR release version 5\.9\.0 or later, Spark on Amazon EMR includes a set of features to help ensure that Spark handles node termination because of a manual resize or an automatic scaling policy request gracefully\. Amazon EMR implements a blacklisting mechanism in Spark that is built on top of YARN's decommissioning mechanism\. This mechanism helps ensure that no new tasks are scheduled on a node that is decommissioning, while at the same time allowing tasks that are already running to complete\. In addition, there are features to help recover Spark jobs faster if shuffle blocks are lost when a node terminates\. The recomputation process is triggered sooner and optimized to recompute faster with fewer stage retries, and jobs can be prevented from failing because of fetch failures that are caused by missing shuffle blocks\.
 
@@ -65,9 +70,9 @@ When using Amazon EMR release version 5\.9\.0 or later, Spark on Amazon EMR incl
 The `spark.decommissioning.timeout.threshold` setting was added in Amazon EMR release version 5\.11\.0 to improve Spark resiliency when you use Spot instances\. In earlier release versions, when a node uses a Spot instance, and the instance is terminated because of bid price, Spark may not be able to handle the termination gracefully\. Jobs may fail, and shuffle recomputations could take a significant amount of time\. For this reason, we recommend using release version 5\.11\.0 or later if you use Spot instances\.
 
 
-**Spark Node Decommissioning Settings**  
+**Spark node decommissioning settings**  
 
-| Setting | Description | Default Value | 
+| Setting | Description | Default value | 
 | --- | --- | --- | 
 | `spark.blacklist.decommissioning.enabled` | When set to `true`, Spark blacklists nodes that are in the `decommissioning` state in YARN\. Spark does not schedule new tasks on executors running on that node\. Tasks already running are allowed to complete\. | `true` | 
 | `spark.blacklist.decommissioning.timeout` | The amount of time that a node in the `decommissioning` state is blacklisted\. By default, this value is set to one hour, which is also the default for `yarn.resourcemanager.decommissioning.timeout`\. To ensure that a node is blacklisted for its entire decommissioning period, set this value equal to or greater than `yarn.resourcemanager.decommissioning.timeout`\. After the decommissioning timeout expires, the node transitions to a `decommissioned` state, and Amazon EMR can terminate the node's EC2 instance\. If any tasks are still running after the timeout expires, they are lost or killed and rescheduled on executors running on other nodes\. | `1h` | 
@@ -75,11 +80,11 @@ The `spark.decommissioning.timeout.threshold` setting was added in Amazon EMR re
 | `spark.resourceManager.cleanupExpiredHost` | When set to `true`, Spark unregisters all cached data and shuffle blocks that are stored in executors on nodes that are in the `decommissioned` state\. This speeds up the recovery process\. | `true` | 
 | `spark.stage.attempt.ignoreOnDecommissionFetchFailure` | When set to `true`, helps prevent Spark from failing stages and eventually failing the job because of too many failed fetches from decommissioned nodes\. Failed fetches of shuffle blocks from a node in the `decommissioned` state will not count toward the maximum number of consecutive fetch failures\. | true | 
 
-## Spark ThriftServer Environment Variable<a name="spark-thriftserver"></a>
+## Spark ThriftServer environment variable<a name="spark-thriftserver"></a>
 
 Spark sets the Hive Thrift Server Port environment variable, `HIVE_SERVER2_THRIFT_PORT`, to 10001\.
 
-## Changing Spark Default Settings<a name="spark-change-defaults"></a>
+## Changing Spark default settings<a name="spark-change-defaults"></a>
 
 You change the defaults in `spark-defaults.conf` using the `spark-defaults` configuration classification or the `maximizeResourceAllocation` setting in the `spark` configuration classification\.
 

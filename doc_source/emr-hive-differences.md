@@ -1,18 +1,18 @@
-# Differences and Considerations for Hive on Amazon EMR<a name="emr-hive-differences"></a>
+# Differences and considerations for Hive on Amazon EMR<a name="emr-hive-differences"></a>
 
 ## Differences between Apache Hive on Amazon EMR and Apache Hive<a name="emr-hive-apache-diff"></a>
 
 This section describes the differences between Hive on Amazon EMR and the default versions of Hive available at [http://svn\.apache\.org/viewvc/hive/branches/](http://svn.apache.org/viewvc/hive/branches/)\. 
 
-### Hive Authorization<a name="emr-hive-authorization"></a>
+### Hive authorization<a name="emr-hive-authorization"></a>
 
- Amazon EMR supports [Hive Authorization](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Authorization) for HDFS but not for EMRFS and Amazon S3\. Amazon EMR clusters run with authorization disabled by default\.
+ Amazon EMR supports [Hive authorization](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Authorization) for HDFS but not for EMRFS and Amazon S3\. Amazon EMR clusters run with authorization disabled by default\.
 
-### Hive File Merge Behavior with Amazon S3<a name="emr-hive-filemerge"></a>
+### Hive file merge behavior with Amazon S3<a name="emr-hive-filemerge"></a>
 
 Apache Hive merges small files at the end of a map\-only job if `hive.merge.mapfiles` is true and the merge is triggered only if the average output size of the job is less than the `hive.merge.smallfiles.avgsize` setting\. Amazon EMR Hive has exactly the same behavior if the final output path is in HDFS\. If the output path is in Amazon S3, the `hive.merge.smallfiles.avgsize` parameter is ignored\. In that situation, the merge task is always triggered if `hive.merge.mapfiles` is set to `true`\.
 
-### ACID Transactions and Amazon S3<a name="emr-hive-acid"></a>
+### ACID transactions and Amazon S3<a name="emr-hive-acid"></a>
 
 Amazon EMR 6\.1\.0 and later supports Hive ACID \(Atomicity, Consistency, Isolation, Durability\) transactions so it complies with the ACID properties of a database\. With this feature, you can run INSERT, UPDATE, DELETE, and MERGE operations in Hive managed tables with data in Amazon Simple Storage Service \(Amazon S3\)\.
 
@@ -22,21 +22,21 @@ Amazon EMR 6\.1\.0 and later supports Hive ACID \(Atomicity, Consistency, Isolat
 
 Amazon EMR version 6\.0\.0 and later supports the Live Long and Process \(LLAP\) functionality for Hive\. For more information, see [Using Hive LLAP](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-hive-llap.html)\. 
 
-## Differences in Hive Between Amazon EMR Release Version 4\.x and 5\.x<a name="emr-hive-diff"></a>
+## Differences in Hive between Amazon EMR release version 4\.x and 5\.x<a name="emr-hive-diff"></a>
 
 This section covers differences to consider before you migrate a Hive implementation from Hive version 1\.0\.0 on Amazon EMR release 4\.x to Hive 2\.x on Amazon EMR release 5\.x\.
 
-### Operational Differences and Considerations<a name="emr-hive-diffs-ops"></a>
-+ **Support added for [ACID \(Atomicity, Consistency, Isolation, and Durability\)transactions](https://cwiki.apache.org/confluence/display/Hive/Hive+Transactions):** This difference between Hive 1\.0\.0 on Amazon EMR 4\.x and default Apache Hive has been eliminated\.
+### Operational differences and considerations<a name="emr-hive-diffs-ops"></a>
++ **Support added for [ACID \(atomicity, consistency, isolation, and durability\) transactions](https://cwiki.apache.org/confluence/display/Hive/Hive+Transactions):** This difference between Hive 1\.0\.0 on Amazon EMR 4\.x and default Apache Hive has been eliminated\.
 + **Direct writes to Amazon S3 eliminated:** This difference between Hive 1\.0\.0 on Amazon EMR and the default Apache Hive has been eliminated\. Hive 2\.1\.0 on Amazon EMR release 5\.x now creates, reads from, and writes to temporary files stored in Amazon S3\. As a result, to read from and write to the same table you no longer have to create a temporary table in the cluster's local HDFS file system as a workaround\. If you use versioned buckets, be sure to manage these temporary files as described below\.
-+ **Manage temp files when using Amazon S3 versioned buckets:** When you run Hive queries where the destination of generated data is Amazon S3, many temporary files and directories are created\. This is new behavior as described earlier\. If you use versioned S3 buckets, these temp files clutter Amazon S3 and incur cost if they're not deleted\. Adjust your lifecycle rules so that data with a `/_tmp` prefix is deleted after a short period, such as five days\. See [Specifying a Lifecycle Configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-set-lifecycle-configuration-intro.html) for more information\.
++ **Manage temp files when using Amazon S3 versioned buckets:** When you run Hive queries where the destination of generated data is Amazon S3, many temporary files and directories are created\. This is new behavior as described earlier\. If you use versioned S3 buckets, these temp files clutter Amazon S3 and incur cost if they're not deleted\. Adjust your lifecycle rules so that data with a `/_tmp` prefix is deleted after a short period, such as five days\. See [Specifying a lifecycle configuration](https://docs.aws.amazon.com/AmazonS3/latest/dev/how-to-set-lifecycle-configuration-intro.html) for more information\.
 + **Log4j updated to log4j 2:** If you use log4j, you may need to change your logging configuration because of this upgrade\. See [Apache log4j 2](http://logging.apache.org/log4j/2.x/) for details\.
 
 ### Performance differences and considerations<a name="emr-hive-diffs-perf"></a>
 + **Performance differences with Tez:** With Amazon EMR release 5\.x , Tez is the default execution engine for Hive instead of MapReduce\. Tez provides improved performance for most workflows\.
 + **Tables with many partitions:** Queries that generate a large number of dynamic partitions may fail, and queries that select from tables with many partitions may take longer than expected to execute\. For example, a select from 100,000 partitions may take 10 minutes or more\.
 
-## Additional Features of Hive on Amazon EMR<a name="emr-hive-additional-features"></a>
+## Additional features of Hive on Amazon EMR<a name="emr-hive-additional-features"></a>
 
 Amazon EMR extends Hive with new features that support Hive integration with other AWS services, such as the ability to read from and write to Amazon Simple Storage Service \(Amazon S3\) and DynamoDB\.
 
@@ -97,7 +97,7 @@ Linux line continuation characters \(\\\) are included for readability\. They ca
         Lists.newArrayList(“-d”,”LIB= s3://elasticmapreduce/samples/hive-ads/lib”));
   ```
 
-### Amazon EMR Hive Queries to Accommodate Partial DynamoDB Schemas<a name="emr-hive-partial-schema"></a>
+### Amazon EMR Hive queries to accommodate partial DynamoDB schemas<a name="emr-hive-partial-schema"></a>
 
 Amazon EMR Hive provides maximum flexibility when querying DynamoDB tables by allowing you to specify a subset of columns on which you can filter data, rather than requiring your query to include all columns\. This partial schema query technique is effective when you have a sparse database schema and want to filter records based on a few columns, such as filtering on time stamps\. 
 
@@ -134,7 +134,7 @@ The following table shows the query syntax for selecting any combination of item
 | SELECT column1\_name, column2\_name, column3\_name FROM table\_name; | Selects all items \(rows\) from a given table and includes data from some columns available for those items\. | 
 | SELECT column1\_name, column2\_name, column3\_name FROM table\_name WHERE field\_name =value; | Selects some items \(rows\) from a given table and includes data from some columns available for those items\. | 
 
-### Copy Data Between DynamoDB Tables in Different AWS Regions<a name="emr-hive-cross-region-ddb-copy"></a>
+### Copy data between DynamoDB tables in different AWS Regions<a name="emr-hive-cross-region-ddb-copy"></a>
 
 Amazon EMR Hive provides a `dynamodb.region` property you can set per DynamoDB table\. When `dynamodb.region` is set differently on two tables, any data you copy between the tables automatically occurs between the specified regions\.
 
@@ -153,9 +153,9 @@ CREATE EXTERNAL TABLE dynamodb(hashKey STRING, recordTimeStamp BIGINT, map<Strin
      "dynamodb.column.mapping" = "hashKey:HashKey,recordTimeStamp:RangeKey");
 ```
 
-### Set DynamoDB Throughput Values Per Table<a name="emr-hive-set-ddb-throughput"></a>
+### Set DynamoDB throughput values per table<a name="emr-hive-set-ddb-throughput"></a>
 
-Amazon EMR Hive enables you to set the DynamoDB readThroughputPercent and writeThroughputPercent settings on a per table basis in the table definition\. The following Amazon EMR Hive script shows how to set the throughput values\. For more information about DynamoDB throughput values, see [Specifying Read and Write Requirements for Tables](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithDDTables.html#ProvisionedThroughput)\. 
+Amazon EMR Hive enables you to set the DynamoDB readThroughputPercent and writeThroughputPercent settings on a per table basis in the table definition\. The following Amazon EMR Hive script shows how to set the throughput values\. For more information about DynamoDB throughput values, see [Specifying read and write requirements for tables](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithDDTables.html#ProvisionedThroughput)\. 
 
 ```
 CREATE EXTERNAL TABLE dynamodb(hashKey STRING, recordTimeStamp BIGINT, map<String, String> fullColumn)

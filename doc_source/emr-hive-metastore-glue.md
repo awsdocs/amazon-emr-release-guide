@@ -1,4 +1,4 @@
-# Using the AWS Glue Data Catalog as the Metastore for Hive<a name="emr-hive-metastore-glue"></a>
+# Using the AWS Glue Data Catalog as the metastore for Hive<a name="emr-hive-metastore-glue"></a>
 
 Using Amazon EMR version 5\.8\.0 or later, you can configure Hive to use the AWS Glue Data Catalog as its metastore\. We recommend this configuration when you require a persistent metastore or a metastore shared by different clusters, services, applications, or AWS accounts\.
 
@@ -9,7 +9,7 @@ Separate charges apply for AWS Glue\. There is a monthly rate for storing and ac
 **Important**  
 If you created tables using Amazon Athena or Amazon Redshift Spectrum before August 14, 2017, databases and tables are stored in an Athena\-managed catalog, which is separate from the AWS Glue Data Catalog\. To integrate Amazon EMR with these tables, you must upgrade to the AWS Glue Data Catalog\. For more information, see [Upgrading to the AWS Glue Data Catalog](https://docs.aws.amazon.com/athena/latest/ug/glue-upgrade.html) in the *Amazon Athena User Guide*\.
 
-## Specifying AWS Glue Data Catalog as the Metastore<a name="emr-hive-glue-configure"></a>
+## Specifying AWS Glue Data Catalog as the metastore<a name="emr-hive-glue-configure"></a>
 
 You can specify the AWS Glue Data Catalog as the metastore using the AWS Management Console, AWS CLI, or Amazon EMR API\. When you use the CLI or API, you use the configuration classification for Hive to specify the Data Catalog\. In addition, with Amazon EMR 5\.16\.0 and later, you can use the configuration classification to specify a Data Catalog in a different AWS account\. When you use the console, you can specify the Data Catalog using **Advanced Options** or **Quick Options**\.
 
@@ -32,7 +32,7 @@ The option to use the Data Catalog is also available with HCatalog because Hive 
 
 **To specify the AWS Glue Data Catalog as the metastore using the configuration classification**
 
-For more information about specifying a configuration classification using the AWS CLI and EMR API, see [Configure Applications](emr-configure-apps.md)\.
+For more information about specifying a configuration classification using the AWS CLI and EMR API, see [Configure applications](emr-configure-apps.md)\.
 + Specify the value for `hive.metastore.client.factory.class` using the `hive-site` configuration classification as shown in the following example:
 
   ```
@@ -84,17 +84,17 @@ For more information about specifying a configuration classification using the A
   ]
   ```
 
-## IAM Permissions<a name="emr-hive-glue-permissions"></a>
+## IAM permissions<a name="emr-hive-glue-permissions"></a>
 
 The EC2 instance profile for a cluster must have IAM permissions for AWS Glue actions\. In addition, if you enable encryption for AWS Glue Data Catalog objects, the role must also be allowed to encrypt, decrypt and generate the customer master key \(CMK\) used for encryption\.
 
-### Permissions for AWS Glue Actions<a name="emr-hive-glue-permissions-actions"></a>
+### Permissions for AWS Glue actions<a name="emr-hive-glue-permissions-actions"></a>
 
-The default `AmazonElasticMapReduceforEC2Role` managed policy attached to `EMR_EC2_DefaultRole` allows the required AWS Glue actions\. If you use the default EC2 instance profile, no action is required\. However, if you specify a custom EC2 instance profile and permissions when you create a cluster, ensure that the appropriate AWS Glue actions are allowed\. Use the `AmazonElasticMapReduceforEC2Role` managed policy as a starting point\. For a listing of AWS Glue actions, see [Service Role for Cluster EC2 Instances \(EC2 Instance Profile\)](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-iam-role-for-ec2.html) in the *Amazon EMR Management Guide*\.
+The default `AmazonElasticMapReduceforEC2Role` managed policy attached to `EMR_EC2_DefaultRole` allows the required AWS Glue actions\. If you use the default EC2 instance profile, no action is required\. However, if you specify a custom EC2 instance profile and permissions when you create a cluster, ensure that the appropriate AWS Glue actions are allowed\. Use the `AmazonElasticMapReduceforEC2Role` managed policy as a starting point\. For a listing of AWS Glue actions, see [Service role for cluster EC2 instances \(EC2 instance profile\)](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-iam-role-for-ec2.html) in the *Amazon EMR Management Guide*\.
 
-### Permissions for Encrypting and Decrypting AWS Glue Data Catalog<a name="emr-hive-glue-permissions-encrypt"></a>
+### Permissions for encrypting and decrypting AWS Glue Data Catalog<a name="emr-hive-glue-permissions-encrypt"></a>
 
-This section is about the encryption feature of the AWS Glue Data Catalog\. For more information about AWS Glue Data Catalog encryption, see [Encrypting Your Data Catalog](https://docs.aws.amazon.com/glue/latest/dg/encrypt-glue-data-catalog.html) in the *AWS Glue Developer Guide*\.
+This section is about the encryption feature of the AWS Glue Data Catalog\. For more information about AWS Glue Data Catalog encryption, see [Encrypting your data catalog](https://docs.aws.amazon.com/glue/latest/dg/encrypt-glue-data-catalog.html) in the *AWS Glue Developer Guide*\.
 
 If you enable encryption for AWS Glue Data Catalog objects using AWS managed keys for AWS Glue, and the cluster that accesses the AWS Glue Data Catalog is within the same AWS account, you don't need to update the permissions policy attached to the EC2 instance profile\. If you use a customer managed CMK, or if the cluster is in a different AWS account, you must update the permissions policy so that the EC2 instance profile has permission to encrypt and decrypt using the key\. The contents of the following policy statement needs to be added regardless of whether you use the default permissions policy, `AmazonElasticMapReduceforEC2Role`, or you use a custom permissions policy attached to a custom EC2 instance profile\. 
 
@@ -117,7 +117,7 @@ If you enable encryption for AWS Glue Data Catalog objects using AWS managed key
 ]
 ```
 
-### Resource\-Based Permissions<a name="emr-hive-glue-permissions-resource"></a>
+### Resource\-based permissions<a name="emr-hive-glue-permissions-resource"></a>
 
 If you use AWS Glue in conjunction with Hive, Spark, or Presto in Amazon EMR, AWS Glue supports resource\-based policies to control access to Data Catalog resources\. These resources include databases, tables, connections, and user\-defined functions\. For more information, see [AWS Glue Resource Policies](https://docs.aws.amazon.com/glue/latest/dg/glue-resource-policies.html) in the *AWS Glue Developer Guide*\.
 
@@ -129,7 +129,7 @@ arn:aws:iam::acct-id:role/EMR_EC2_DefaultRole
 
 The *acct\-id* can be different from the AWS Glue account ID\. This enables access from EMR clusters in different accounts\. You can specify multiple principals, each from a different account\.
 
-## Considerations When Using AWS Glue Data Catalog<a name="emr-hive-glue-considerations-hive"></a>
+## Considerations when using AWS Glue Data Catalog<a name="emr-hive-glue-considerations-hive"></a>
 
 Consider the following items when using the AWS Glue Data Catalog as the metastore with Hive:
 + Adding auxiliary JARs using the Hive shell is not supported\. As a workaround, use the `hive-site` configuration classification to set the `hive.aux.jars.path` property, which adds auxiliary JARs into the Hive classpath\.

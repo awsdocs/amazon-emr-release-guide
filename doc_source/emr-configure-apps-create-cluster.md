@@ -1,14 +1,14 @@
-# Configure Applications when You Create a Cluster<a name="emr-configure-apps-create-cluster"></a>
+# Configure applications when you create a cluster<a name="emr-configure-apps-create-cluster"></a>
 
 When you create a cluster, you can override the default configurations for applications\. To do so, use the Amazon EMR console, the AWS Command Line Interface \(AWS CLI\), or the AWS SDK\. 
 
-## Supply a Configuration in the Console when You Create a Cluster<a name="emr-configure-apps-create-cluster-console"></a>
+## Supply a configuration in the console when you create a cluster<a name="emr-configure-apps-create-cluster-console"></a>
 
 To supply a configuration, navigate to the **Create cluster** page and choose **Edit software settings**\. You can then enter the configuration directly by using either JSON or a shorthand syntax demonstrated in shadow text in the console\. Otherwise, you can provide an Amazon S3 URI for a file with a JSON `Configurations` object\.
 
 To supply a configuration for an instance group, navigate to the **Hardware Configuration** page\. Under the **Instance type** column in the **Node type** table, choose to edit the **Configurations** for applications for each instance group\. 
 
-## Supply a Configuration Using the AWS CLI when You Create a Cluster<a name="emr-configure-apps-create-cluster-cli"></a>
+## Supply a configuration using the AWS CLI when you create a cluster<a name="emr-configure-apps-create-cluster-cli"></a>
 
 You can provide a configuration to create\-cluster by supplying a path to a JSON file stored locally or in Amazon S3\. The following example assumes that you are using default roles for Amazon EMR and that the roles have been created\. If you need to create the roles, run `aws emr create-default-roles` first\.
 
@@ -23,7 +23,7 @@ aws emr create-cluster --use-default-roles --release-label emr-5.33.0 --applicat
 --instance-type m5.xlarge --instance-count 3 --configurations file://./configurations.json
 ```
 
-## Supply a Configuration Using the Java SDK when You Create a Cluster<a name="emr-configure-apps-create-cluster-sdk"></a>
+## Supply a configuration using the Java SDK when you create a cluster<a name="emr-configure-apps-create-cluster-sdk"></a>
 
 The following program excerpt shows how to supply a configuration using the AWS SDK for Java\.
 

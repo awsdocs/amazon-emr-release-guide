@@ -1,10 +1,10 @@
-# Creating a Cluster with HBase<a name="emr-hbase-create"></a>
+# Creating a cluster with HBase<a name="emr-hbase-create"></a>
 
-The procedures in this section cover the basics of launching a cluster using the AWS Management Console and the AWS CLI\. For detailed information about how to plan, configure, and launch EMR clusters, see [Plan and Configure Clusters](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan.html) in the *Amazon EMR Management Guide*\.
+The procedures in this section cover the basics of launching a cluster using the AWS Management Console and the AWS CLI\. For detailed information about how to plan, configure, and launch EMR clusters, see [Plan and configure clusters](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan.html) in the *Amazon EMR Management Guide*\.
 
-## Creating a Cluster with HBase Using the Console<a name="emr-hbase-create-console"></a>
+## Creating a cluster with HBase using the console<a name="emr-hbase-create-console"></a>
 
-For quick steps to launch clusters with the console, see [Getting Started with Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-gs) in the *Amazon EMR Management Guide*\.
+For quick steps to launch clusters with the console, see [Getting started with Amazon EMR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-gs) in the *Amazon EMR Management Guide*\.
 
 **To launch a cluster with HBase installed using the console**
 
@@ -16,11 +16,11 @@ For quick steps to launch clusters with the console, see [Getting Started with A
 
 1. For **Software Configuration**, choose an **Amazon Release Version** of 4\.6\.0 or later \(we recommend the latest version\)\. Choose **HBase** and other applications as desired\.
 
-1. With Amazon EMR version 5\.2\.0 and later, under **HBase Storage Settings**, select **HDFS** or **S3**\. For more information, see [HBase on Amazon S3 \(Amazon S3 Storage Mode\)](emr-hbase-s3.md)\.
+1. With Amazon EMR version 5\.2\.0 and later, under **HBase Storage Settings**, select **HDFS** or **S3**\. For more information, see [HBase on Amazon S3 \(Amazon S3 storage mode\)](emr-hbase-s3.md)\.
 
 1.  Select other options as necessary and then choose **Create cluster**\.
 
-## Creating a Cluster with HBase Using the AWS CLI<a name="emr-hbase-cli"></a>
+## Creating a cluster with HBase using the AWS CLI<a name="emr-hbase-cli"></a>
 
 Use the following command to create a cluster with HBase installed:
 
@@ -52,4 +52,4 @@ If you use HBase on Amazon S3, specify the `--configurations` option with a refe
 14. ]
 ```
 
-For more information about HBase on Amazon S3, see [HBase on Amazon S3 \(Amazon S3 Storage Mode\)](emr-hbase-s3.md)\. For more information about classifications, see [Configure Applications](emr-configure-apps.md)\.
+For more information about HBase on Amazon S3, see [HBase on Amazon S3 \(Amazon S3 storage mode\)](emr-hbase-s3.md)\. For more information about classifications, see [Configure applications](emr-configure-apps.md)\.

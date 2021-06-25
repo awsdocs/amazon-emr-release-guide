@@ -1,6 +1,6 @@
-# Work with a Hudi Dataset<a name="emr-hudi-work-with-dataset"></a>
+# Work with a Hudi dataset<a name="emr-hudi-work-with-dataset"></a>
 
-Hudi supports inserting, updating, and deleting data in Hudi datasets through Spark\. For more information, see [Writing Hudi Tables](https://hudi.apache.org/docs/writing_data.html) in Apache Hudi documentation\.
+Hudi supports inserting, updating, and deleting data in Hudi datasets through Spark\. For more information, see [Writing Hudi tables](https://hudi.apache.org/docs/writing_data.html) in Apache Hudi documentation\.
 
 The following examples demonstrate how to launch the interactive Spark shell, use Spark submit, or use Amazon EMR Notebooks to work with Hudi on Amazon EMR\. You can also use the Hudi DeltaStreamer utility or other tools to write to a dataset\. Throughout this section, the examples demonstrate working with datasets using the Spark shell while connected to the master node using SSH as the default `hadoop` user\.
 
@@ -12,7 +12,7 @@ Hudi 0\.6\.0 includes the spark\-avro package as a dependency under a different 
 
 **To open the Spark shell on the master node**
 
-1. Connect to the master node using SSH\. For more information, see [Connect to the Master Node using SSH](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-connect-master-node-ssh.html) in the *Amazon EMR Management Guide*\.
+1. Connect to the master node using SSH\. For more information, see [Connect to the master node using SSH](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-connect-master-node-ssh.html) in the *Amazon EMR Management Guide*\.
 
 1. Enter the following command to launch the Spark shell\. To use the PySpark shell, replace *spark\-shell* with *pyspark*\.
 
@@ -26,7 +26,7 @@ Hudi 0\.6\.0 includes the spark\-avro package as a dependency under a different 
 ------
 #### [ spark\-submit ]
 
-To submit a Spark application that uses Hudi, make sure to pass the following parameters to spark\-submit\.
+To submit a Spark application that uses Hudi, make sure to pass the following parameters to `spark-submit`\.
 
 ```
 spark-submit \
@@ -42,7 +42,7 @@ To use Hudi with Amazon EMR Notebooks, you must first copy the Hudi jar files fr
 
 **To use Hudi with Amazon EMR Notebooks**
 
-1. Create and launch a cluster for Amazon EMR Notebooks\. For more information, see [Creating Amazon EMR Clusters for Notebooks](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-cluster.html) in the *Amazon EMR Management Guide*\.
+1. Create and launch a cluster for Amazon EMR Notebooks\. For more information, see [Creating Amazon EMR clusters for notebooks](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-notebooks-cluster.html) in the *Amazon EMR Management Guide*\.
 
 1. Connect to the master node of the cluster using SSH and then copy the jar files from the local filesystem to HDFS as shown in the following examples\. In the example, we create a directory in HDFS for clarity of file management\. You can choose your own destination in HDFS, if desired\.
 
@@ -71,19 +71,20 @@ To use Hudi with Amazon EMR Notebooks, you must first copy the Hudi jar files fr
 
 ------
 
-## Initialize a Spark Session for Hudi<a name="emr-hudi-initialize-session"></a>
+## Initialize a Spark session for Hudi<a name="emr-hudi-initialize-session"></a>
 
-When using Scala, make sure you import the following classes in your Spark session\. This needs to be done once per Spark session\.
+When you use Scala, you must import the following classes in your Spark session\. This needs to be done once per Spark session\.
 
 ```
 import org.apache.spark.sql.SaveMode
 import org.apache.spark.sql.functions._
 import org.apache.hudi.DataSourceWriteOptions
+import org.apache.hudi.DataSourceReadOptions
 import org.apache.hudi.config.HoodieWriteConfig
 import org.apache.hudi.hive.MultiPartKeysValueExtractor
 ```
 
-## Write to a Hudi Dataset<a name="emr-hudi-dataframe"></a>
+## Write to a Hudi dataset<a name="emr-hudi-dataframe"></a>
 
 The following example shows how to create a DataFrame and write it as a Hudi dataset\.
 
@@ -172,7 +173,7 @@ inputDF.write
 You might see "hoodie" instead of Hudi in code examples and notifications\. The Hudi codebase widely uses the old "hoodie" spelling\.
 
 
-**DataSourceWriteOptions Reference for Hudi**  
+**DataSourceWriteOptions reference for Hudi**  
 
 | Option | Description | 
 | --- | --- | 
@@ -185,7 +186,7 @@ You might see "hoodie" instead of Hudi in code examples and notifications\. The 
 The following options are required only to register the Hudi dataset table in your metastore\. If you do not register your Hudi dataset as a table in the Hive metastore, these options are not required\.
 
 
-**DataSourceWriteOptions Reference for Hive**  
+**DataSourceWriteOptions reference for Hive**  
 
 | Option | Description | 
 | --- | --- | 
@@ -198,7 +199,7 @@ The following options are required only to register the Hudi dataset table in yo
 |  HIVE\_PASS\_OPT\_KEY  |  Optional\. The Hive password for the user specified by `HIVE_USER_OPT_KEY`\.  | 
 |  HIVE\_URL\_OPT\_KEY  |  The Hive metastore URL\.  | 
 
-## Upsert Data<a name="emr-hudi-upsert-to-datasets"></a>
+## Upsert data<a name="emr-hudi-upsert-to-datasets"></a>
 
 The following example demonstrates how to upsert data by writing a DataFrame\. Unlike the previous insert example, the `OPERATION_OPT_KEY` value is set to `UPSERT_OPERATION_OPT_VAL`\. In addition, `.mode(SaveMode.Append)` is specified to indicate that the record should be appended\.
 
@@ -234,7 +235,7 @@ updateDF.write
 
 ------
 
-## Delete a Record<a name="emr-hudi-delete-from-datasets"></a>
+## Delete a record<a name="emr-hudi-delete-from-datasets"></a>
 
 To hard delete a record, you can upsert an empty payload\. In this case, the `PAYLOAD_CLASS_OPT_KEY` option specifies the `EmptyHoodieRecordPayload` class\. The example uses the same DataFrame, `updateDF`, used in the upsert example to specify the same record\.
 
@@ -267,9 +268,9 @@ updateDF.write
 
 You can also hard delete data by setting `OPERATION_OPT_KEY `to `DELETE_OPERATION_OPT_VAL` to remove all records in the dataset you submit\. For instructions on performing soft deletes, and for more information about deleting data stored in Hudi tables, see [Deletes](https://hudi.apache.org/docs/writing_data.html#deletes) in the Apache Hudi documentation\.
 
-## Read from a Hudi Dataset<a name="emr-hudi-read-dataset"></a>
+## Read from a Hudi dataset<a name="emr-hudi-read-dataset"></a>
 
-To retrieve data at the present point in time, Hudi performs snapshot queries by default\. Following is an example of querying the dataset written to S3 in [Write to a Hudi Dataset](#emr-hudi-dataframe)\. Replace *s3://mybucket/myhudidataset* with your table path, and add wildcard asterisks for each partition level, *plus one additional asterisk*\. In this example, there is one partition level, so we've added two wildcard symbols\.
+To retrieve data at the present point in time, Hudi performs snapshot queries by default\. Following is an example of querying the dataset written to S3 in [Write to a Hudi dataset](#emr-hudi-dataframe)\. Replace *s3://mybucket/myhudidataset* with your table path, and add wildcard asterisks for each partition level, *plus one additional asterisk*\. In this example, there is one partition level, so we've added two wildcard symbols\.
 
 ------
 #### [ Scala ]
@@ -295,7 +296,7 @@ snapshotQueryDF.show()
 
 ------
 
-### Incremental Queries<a name="emr-hudi-incremental-query"></a>
+### Incremental queries<a name="emr-hudi-incremental-query"></a>
 
 You can also perform incremental queries with Hudi to get a stream of records that have changed since a given commit timestamp\. To do so, set the `QUERY_TYPE_OPT_KEY` field to `QUERY_TYPE_INCREMENTAL_OPT_VAL`\. Then, add a value for `BEGIN_INSTANTTIME_OPT_KEY` to obtain all records written since the specified time\. Incremental queries are typically ten times more efficient than their batch counterparts since they only process changed records\.
 
@@ -336,4 +337,4 @@ incQueryDF.show()
 
 ------
 
-For more information about reading from Hudi datasets, see [Querying Hudi Tables](https://hudi.apache.org/docs/querying_data.html) in the Apache Hudi documentation\.
+For more information about reading from Hudi datasets, see [Querying Hudi tables](https://hudi.apache.org/docs/querying_data.html) in the Apache Hudi documentation\.

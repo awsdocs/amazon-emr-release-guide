@@ -1,11 +1,11 @@
-# Hive Application Specifics for Earlier AMI Versions of Amazon EMR<a name="emr-3x-hive"></a>
+# Hive application specifics for earlier AMI versions of Amazon EMR<a name="emr-3x-hive"></a>
 
 ## Log files<a name="emr-3x-hive-log-files"></a>
 
 Using Amazon EMR AMI versions 2\.x and 3\.x, Hive logs are saved to `/mnt/var/log/apps/`\. In order to support concurrent versions of Hive, the version of Hive that you run determines the log file name, as shown in the following table\. 
 
 
-| Hive Version | Log File Name | 
+| Hive version | Log file name | 
 | --- | --- | 
 | 0\.13\.1 | hive\.log  Beginning with this version, Amazon EMR uses an unversioned file name, `hive.log`\. Minor versions share the same log location as the major version\.   | 
 | 0\.11\.0 | hive\_0110\.log   Minor versions of Hive 0\.11\.0, such as 0\.11\.0\.1, share the same log file location as Hive 0\.11\.0\.   | 
@@ -15,7 +15,7 @@ Using Amazon EMR AMI versions 2\.x and 3\.x, Hive logs are saved to `/mnt/var/lo
 | 0\.5 | hive\_05\.log | 
 | 0\.4 | hive\.log | 
 
-## Split Input Functionality<a name="emr-3x-hive-split-input"></a>
+## Split input functionality<a name="emr-3x-hive-split-input"></a>
 
 To implement split input functionality using Hive versions earlier than 0\.13\.1 \(Amazon EMR AMI versions earlier 3\.11\.0\), use the following:
 
@@ -30,12 +30,12 @@ This functionality was deprecated with Hive 0\.13\.1\. To get the same split inp
 set hive.hadoop.supports.splittable.combineinputformat=true;
 ```
 
-## Thrift Service Ports<a name="emr-3x-hive-thrift-service"></a>
+## Thrift service ports<a name="emr-3x-hive-thrift-service"></a>
 
  Thrift is an RPC framework that defines a compact binary serialization format used to persist data structures for later analysis\. Normally, Hive configures the server to operate on the following ports\. 
 
 
-| Hive Version | Port Number | 
+| Hive version | Port number | 
 | --- | --- | 
 | Hive 0\.13\.1 | 10000 | 
 | Hive 0\.11\.0 | 10004 | 
@@ -46,7 +46,7 @@ set hive.hadoop.supports.splittable.combineinputformat=true;
 
  For more information about thrift services, see [http://wiki.apache.org/thrift/](http://wiki.apache.org/thrift/)\. 
 
-## Use Hive to Recover Partitions<a name="emr-3x-hive-recover-partition"></a>
+## Use Hive to recover partitions<a name="emr-3x-hive-recover-partition"></a>
 
 Amazon EMR includes a statement in the Hive query language that recovers the partitions of a table from table data located in Amazon S3\. The following example shows this\. 
 
@@ -62,7 +62,7 @@ The partition directories and data must be at the location specified in the tabl
 **Note**  
 After Hive 0\.13\.1 this capability is supported natively using `msck repair table` and therefore `recover partitions` is not supported\. For more information, see [https://cwiki\.apache\.org/confluence/display/Hive/LanguageManual\+DDL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL)\.
 
-## Pass a Hive Variable to a Script<a name="emr-3x-hive-pass-variable"></a>
+## Pass a Hive variable to a script<a name="emr-3x-hive-pass-variable"></a>
 
 To pass a variable into a Hive step using the AWS CLI, type the following command, replace *myKey* with the name of your EC2 key pair, and replace *mybucket* with your bucket name\. In this example, `SAMPLE` is a variable value preceded by the `-d` switch\. This variable is defined in the Hive script as: `${SAMPLE}`\.
 
@@ -80,7 +80,7 @@ INPUT=s3://elasticmapreduce/samples/hive-ads/tables,-d,OUTPUT=s3://mybucket/hive
 -d,SAMPLE=s3://elasticmapreduce/samples/hive-ads/]
 ```
 
-## Specify an External Metastore Location<a name="emr-3x-hive-external-metastore"></a>
+## Specify an external metastore location<a name="emr-3x-hive-external-metastore"></a>
 
 The following procedure shows you how to override the default configuration values for the Hive metastore location and start a cluster using the reconfigured metastore location\.
 
@@ -88,11 +88,11 @@ The following procedure shows you how to override the default configuration valu
 
 1. Create a MySQL or Aurora database using Amazon RDS\.
 
-   For information about how to create an Amazon RDS database, see [Getting Started with Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.html)\.
+   For information about how to create an Amazon RDS database, see [Getting started with Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.html)\.
 
 1. Modify your security groups to allow JDBC connections between your database and the **ElasticMapReduce\-Master** security group\.
 
-   For information about how to modify your security groups for access, see [Amazon RDS Security Groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.RDSSecurityGroups.html) in the *Amazon RDS User Guide*\.
+   For information about how to modify your security groups for access, see [Amazon RDS security groups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.RDSSecurityGroups.html) in the *Amazon RDS User Guide*\.
 
 1. Set the JDBC configuration values in `hive-site.xml`:
 
@@ -118,7 +118,7 @@ The following procedure shows you how to override the default configuration valu
       </configuration>
       ```
 
-      *hostname* is the DNS address of the Amazon RDS instance running the database\. *username* and *password* are the credentials for your database\. For more information about connecting to MySQL and Aurora database instances, see [Connecting to a DB Instance Running the MySQL Database Engine](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ConnectToInstance.html) and [Connecting to an Aurora DB Cluster](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Connecting.html) in the *Amazon RDS User Guide*\.
+      *hostname* is the DNS address of the Amazon RDS instance running the database\. *username* and *password* are the credentials for your database\. For more information about connecting to MySQL and Aurora database instances, see [Connecting to a DB instance running the MySQL database engine](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ConnectToInstance.html) and [Connecting to an Aurora DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Connecting.html) in the *Amazon RDS User Guide*\.
 
       The JDBC drivers are installed by Amazon EMR\. 
 **Note**  
@@ -143,7 +143,7 @@ Linux line continuation characters \(\\\) are included for readability\. They ca
    "--hive-site=s3://mybucket/hive-site.xml","--hive-versions","latest"]
    ```
 
-## Connect to Hive Using JDBC<a name="emr-3x-hive-jdbc"></a>
+## Connect to Hive using JDBC<a name="emr-3x-hive-jdbc"></a>
 
 To connect to Hive via JDBC requires you to download the JDBC driver and install a SQL client\. The following example demonstrates using SQL Workbench/J to connect to Hive using JDBC\.
 
@@ -157,9 +157,9 @@ To connect to Hive via JDBC requires you to download the JDBC driver and install
 1. Install SQL Workbench/J\. For more information, see [Installing and starting SQL Workbench/J](http://www.sql-workbench.net/manual/install.html) in the SQL Workbench/J Manual User's Manual\.
 
 1. Create an SSH tunnel to the cluster master node\. The port for connection is different depending on the version of Hive\. Example commands are provided in the tables below for Linux `ssh` users and PuTTY commands for Windows users  
-**Linux ssh Commands**    
+**Linux SSH commands**    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-3x-hive.html)  
-**Windows PuTTY Tunnel Settings**    
+**Windows PuTTY tunnel settings**    
 [\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-3x-hive.html)
 
 1. Add the JDBC driver to SQL Workbench\.

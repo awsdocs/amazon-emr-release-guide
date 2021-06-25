@@ -1,4 +1,4 @@
-# Task Configuration<a name="emr-hadoop-task-config"></a>
+# Task configuration<a name="emr-hadoop-task-config"></a>
 
 You can set configuration variables to tune the performance of your MapReduce jobs\. This section provides the default values for important settings\. Default values vary based on the EC2 instance type of the node used in the cluster\. HBase is available when using Amazon EMR release version 4\.6\.0 and later\. Different defaults are used when HBase is installed\. Those values are provided along with the initial defaults\.
 
@@ -30,68 +30,68 @@ aws emr create-cluster --release-label emr-5.33.0 --instance-type m5.xlarge \
 --use-default-roles
 ```
 
-You can change default values listed below using the `mapred-site` configuration classification in the same way, and set multiple values and multiple configuration classifications using a single JSON file\. For more information, see [Configure Applications](emr-configure-apps.md)\.
+You can change default values listed below using the `mapred-site` configuration classification in the same way, and set multiple values and multiple configuration classifications using a single JSON file\. For more information, see [Configure applications](emr-configure-apps.md)\.
 
 With Amazon EMR version 5\.21\.0 and later, you can override cluster configurations and specify additional configuration classifications for each instance group in a running cluster\. You do this by using the Amazon EMR console, the AWS Command Line Interface \(AWS CLI\), or the AWS SDK\. For more information, see [Supplying a Configuration for an Instance Group in a Running Cluster](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps-running-cluster.html)\.
 
-## Default Values for Task Configuration Settings<a name="emr-hadoop-task-jvm"></a>
+## Default values for task configuration settings<a name="emr-hadoop-task-jvm"></a>
 
 **Topics**
-+ [c1 Instances](#emr-hadoop-task-config-c1)
-+ [c3 Instances](#emr-hadoop-task-config-c3)
-+ [c4 Instances](#emr-hadoop-task-config-c4)
-+ [c5 Instances](#emr-hadoop-task-config-c5)
-+ [c5a Instances](#emr-hadoop-task-config-c5a)
-+ [c5ad Instances](#emr-hadoop-task-config-c5ad)
-+ [c5d Instances](#emr-hadoop-task-config-c5d)
-+ [c5n Instances](#emr-hadoop-task-config-c5n)
-+ [c6g Instances](#emr-hadoop-task-config-c6g)
-+ [c6gd Instances](#emr-hadoop-task-config-c6gd)
-+ [c6gn Instances](#emr-hadoop-task-config-c6gn)
-+ [cc2 Instances](#emr-hadoop-task-config-cc2)
-+ [cg1 Instances](#emr-hadoop-task-config-cg1)
-+ [cr1 Instances](#emr-hadoop-task-config-cr1)
-+ [d2 Instances](#emr-hadoop-task-config-d2)
-+ [d3 Instances](#emr-hadoop-task-config-d3)
-+ [d3en Instances](#emr-hadoop-task-config-d3)
-+ [g2 Instances](#emr-hadoop-task-config-g2)
-+ [g3 Instances](#emr-hadoop-task-config-g3)
-+ [g3s Instances](#emr-hadoop-task-config-g3s)
-+ [g4dn Instances](#emr-hadoop-task-config-g4dn)
-+ [hi1 Instances](#emr-hadoop-task-config-hi1)
-+ [hs1 Instances](#emr-hadoop-task-config-hs1)
-+ [i2 Instances](#emr-hadoop-task-config-i2)
-+ [i3 Instances](#emr-hadoop-task-config-i3)
-+ [i3en Instances](#emr-hadoop-task-config-i3en)
-+ [m1 Instances](#emr-hadoop-task-config-m1)
-+ [m2 Instances](#emr-hadoop-task-config-m2)
-+ [m3 Instances](#emr-hadoop-task-config-m3)
-+ [m4 Instances](#emr-hadoop-task-config-m4)
-+ [m5 Instances](#emr-hadoop-task-config-m5)
-+ [m5a Instances](#emr-hadoop-task-config-m5a)
-+ [m5d Instances](#emr-hadoop-task-config-m5d)
-+ [m5zn Instances](#emr-hadoop-task-config-m5zn)
-+ [m6g Instances](#emr-hadoop-task-config-m6g)
-+ [m6gd Instances](#emr-hadoop-task-config-m6gd)
-+ [p2 Instances](#emr-hadoop-task-config-p2)
-+ [p3 Instances](#emr-hadoop-task-config-p3)
-+ [r3 Instances](#emr-hadoop-task-config-r3)
-+ [r4 Instances](#emr-hadoop-task-config-r4)
-+ [r5 Instances](#emr-hadoop-task-config-r5)
-+ [r5a Instances](#emr-hadoop-task-config-r5a)
-+ [r5b Instances](#emr-hadoop-task-config-r5b)
-+ [r5d Instances](#emr-hadoop-task-config-r5d)
-+ [r5dn Instances](#emr-hadoop-task-config-r5dn)
-+ [r6g Instances](#emr-hadoop-task-config-r6g)
-+ [r6gd Instances](#emr-hadoop-task-config-r6gd)
-+ [z1d Instances](#emr-hadoop-task-config-z1d)
++ [c1 instances](#emr-hadoop-task-config-c1)
++ [c3 instances](#emr-hadoop-task-config-c3)
++ [c4 instances](#emr-hadoop-task-config-c4)
++ [c5 instances](#emr-hadoop-task-config-c5)
++ [c5a instances](#emr-hadoop-task-config-c5a)
++ [c5ad instances](#emr-hadoop-task-config-c5ad)
++ [c5d instances](#emr-hadoop-task-config-c5d)
++ [c5n instances](#emr-hadoop-task-config-c5n)
++ [c6g instances](#emr-hadoop-task-config-c6g)
++ [c6gd instances](#emr-hadoop-task-config-c6gd)
++ [c6gn instances](#emr-hadoop-task-config-c6gn)
++ [cc2 instances](#emr-hadoop-task-config-cc2)
++ [cg1 instances](#emr-hadoop-task-config-cg1)
++ [cr1 instances](#emr-hadoop-task-config-cr1)
++ [d2 instances](#emr-hadoop-task-config-d2)
++ [d3 instances](#emr-hadoop-task-config-d3)
++ [d3en instances](#emr-hadoop-task-config-d3)
++ [g2 instances](#emr-hadoop-task-config-g2)
++ [g3 instances](#emr-hadoop-task-config-g3)
++ [g3s instances](#emr-hadoop-task-config-g3s)
++ [g4dn instances](#emr-hadoop-task-config-g4dn)
++ [hi1 instances](#emr-hadoop-task-config-hi1)
++ [hs1 instances](#emr-hadoop-task-config-hs1)
++ [i2 instances](#emr-hadoop-task-config-i2)
++ [i3 instances](#emr-hadoop-task-config-i3)
++ [i3en instances](#emr-hadoop-task-config-i3en)
++ [m1 instances](#emr-hadoop-task-config-m1)
++ [m2 instances](#emr-hadoop-task-config-m2)
++ [m3 instances](#emr-hadoop-task-config-m3)
++ [m4 instances](#emr-hadoop-task-config-m4)
++ [m5 instances](#emr-hadoop-task-config-m5)
++ [m5a instances](#emr-hadoop-task-config-m5a)
++ [m5d instances](#emr-hadoop-task-config-m5d)
++ [m5zn instances](#emr-hadoop-task-config-m5zn)
++ [m6g instances](#emr-hadoop-task-config-m6g)
++ [m6gd instances](#emr-hadoop-task-config-m6gd)
++ [p2 instances](#emr-hadoop-task-config-p2)
++ [p3 instances](#emr-hadoop-task-config-p3)
++ [r3 instances](#emr-hadoop-task-config-r3)
++ [r4 instances](#emr-hadoop-task-config-r4)
++ [r5 instances](#emr-hadoop-task-config-r5)
++ [r5a instances](#emr-hadoop-task-config-r5a)
++ [r5b instances](#emr-hadoop-task-config-r5b)
++ [r5d instances](#emr-hadoop-task-config-r5d)
++ [r5dn instances](#emr-hadoop-task-config-r5dn)
++ [r6g instances](#emr-hadoop-task-config-r6g)
++ [r6gd instances](#emr-hadoop-task-config-r6gd)
++ [z1d instances](#emr-hadoop-task-config-z1d)
 
-### c1 Instances<a name="emr-hadoop-task-config-c1"></a>
+### c1 instances<a name="emr-hadoop-task-config-c1"></a>
 
 
 **c1\.medium**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx288m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx288m | 
@@ -105,7 +105,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c1\.xlarge**  
 
-| Configuration Option | Default Value | With HBase Installed | 
+| Configuration option | Default value | With HBase installed | 
 | --- | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx864m | \-Xmx864m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx1536m | \-Xmx1536m | 
@@ -116,12 +116,12 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.scheduler\.maximum\-allocation\-mb | 2048 | 2560 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 5120 | 2560 | 
 
-### c3 Instances<a name="emr-hadoop-task-config-c3"></a>
+### c3 instances<a name="emr-hadoop-task-config-c3"></a>
 
 
 **c3\.xlarge**  
 
-| Configuration Option | Default Value | With HBase Installed | 
+| Configuration option | Default value | With HBase installed | 
 | --- | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1126m | \-Xmx1126m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2252m | \-Xmx2252m | 
@@ -135,7 +135,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c3\.2xlarge**  
 
-| Configuration Option | Default Value | With HBase Installed | 
+| Configuration option | Default value | With HBase installed | 
 | --- | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1152m | \-Xmx1152m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2304m | \-Xmx2304m | 
@@ -149,7 +149,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c3\.4xlarge**  
 
-| Configuration Option | Default Value | With HBase Installed | 
+| Configuration option | Default value | With HBase installed | 
 | --- | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1152m | \-Xmx1152m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2304m | \-Xmx2304m | 
@@ -163,7 +163,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c3\.8xlarge**  
 
-| Configuration Option | Default Value | With HBase Installed | 
+| Configuration option | Default value | With HBase installed | 
 | --- | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1331m | \-Xmx1331m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2662m | \-Xmx2662m | 
@@ -174,12 +174,12 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.scheduler\.maximum\-allocation\-mb | 53248 | 26624 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 53248 | 26624 | 
 
-### c4 Instances<a name="emr-hadoop-task-config-c4"></a>
+### c4 instances<a name="emr-hadoop-task-config-c4"></a>
 
 
 **c4\.large**  
 
-| Configuration Option | Default Value | With HBase Installed | 
+| Configuration option | Default value | With HBase installed | 
 | --- | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx717m | \-Xmx717m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx1434m | \-Xmx1434m | 
@@ -193,7 +193,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c4\.xlarge**  
 
-| Configuration Option | Default Value | With HBase Installed | 
+| Configuration option | Default value | With HBase installed | 
 | --- | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1126m | \-Xmx1126m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2253m | \-Xmx2253m | 
@@ -207,7 +207,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c4\.2xlarge**  
 
-| Configuration Option | Default Value | With HBase Installed | 
+| Configuration option | Default value | With HBase installed | 
 | --- | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1152m | \-Xmx1152m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2304m | \-Xmx2304m | 
@@ -221,7 +221,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c4\.4xlarge**  
 
-| Configuration Option | Default Value | With HBase Installed | 
+| Configuration option | Default value | With HBase installed | 
 | --- | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1152m | \-Xmx1152m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2304m | \-Xmx2304m | 
@@ -235,7 +235,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c4\.8xlarge**  
 
-| Configuration Option | Default Value | With HBase Installed | 
+| Configuration option | Default value | With HBase installed | 
 | --- | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1183m | \-Xmx1183m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2366m | \-Xmx2366m | 
@@ -246,12 +246,12 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.scheduler\.maximum\-allocation\-mb | 53248 | 26624 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 53248 | 26624 | 
 
-### c5 Instances<a name="emr-hadoop-task-config-c5"></a>
+### c5 instances<a name="emr-hadoop-task-config-c5"></a>
 
 
 **c5\.xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1229m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2458m | 
@@ -265,7 +265,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c5\.2xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1229m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2458m | 
@@ -279,7 +279,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c5\.4xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1229m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2458m | 
@@ -293,7 +293,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c5\.9xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1456m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2912m | 
@@ -307,7 +307,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c5\.12xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1502m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx3004m | 
@@ -321,7 +321,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c5\.18xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1547m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx3094m | 
@@ -335,7 +335,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c5\.24xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1570m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx3140m | 
@@ -346,12 +346,12 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.scheduler\.maximum\-allocation\-mb | 188416 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 188416 | 
 
-### c5a Instances<a name="emr-hadoop-task-config-c5a"></a>
+### c5a instances<a name="emr-hadoop-task-config-c5a"></a>
 
 
 **c5a\.xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1126m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2252m | 
@@ -365,7 +365,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c5a\.2xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1171m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2342m | 
@@ -379,7 +379,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c5a\.4xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1171m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2342m | 
@@ -393,7 +393,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c5a\.8xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1357m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2714m | 
@@ -407,7 +407,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c5a\.12xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1502m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx3004m | 
@@ -421,7 +421,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c5a\.16xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1459m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx3004m | 
@@ -435,7 +435,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c5a\.24xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1494m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2988m | 
@@ -446,12 +446,12 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.scheduler\.maximum\-allocation\-mb | 179200 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 179200 | 
 
-### c5ad Instances<a name="emr-hadoop-task-config-c5ad"></a>
+### c5ad instances<a name="emr-hadoop-task-config-c5ad"></a>
 
 
 **c5ad\.xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1126m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2252m | 
@@ -465,7 +465,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c5ad\.2xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1171m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2342m | 
@@ -479,7 +479,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c5ad\.4xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1171m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2342m | 
@@ -493,7 +493,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c5ad\.8xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1357m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2714m | 
@@ -507,7 +507,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c5ad\.12xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1425m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx1425m | 
@@ -521,7 +521,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c5ad\.16xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1459m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2918m | 
@@ -535,7 +535,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c5ad\.24xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1494m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2988m | 
@@ -546,12 +546,12 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.scheduler\.maximum\-allocation\-mb | 179200 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 179200 | 
 
-### c5d Instances<a name="emr-hadoop-task-config-c5d"></a>
+### c5d instances<a name="emr-hadoop-task-config-c5d"></a>
 
 
 **c5d\.xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1229m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2458m | 
@@ -565,7 +565,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c5d\.2xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1229m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2458m | 
@@ -579,7 +579,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c5d\.4xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1229m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2458m | 
@@ -593,7 +593,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c5d\.9xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1456m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2912m | 
@@ -607,7 +607,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c5d\.18xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1547m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx3094m | 
@@ -618,12 +618,12 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.scheduler\.maximum\-allocation\-mb | 139264 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 139264 | 
 
-### c5n Instances<a name="emr-hadoop-task-config-c5n"></a>
+### c5n instances<a name="emr-hadoop-task-config-c5n"></a>
 
 
 **c5n\.xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1613m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx3226m | 
@@ -637,7 +637,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c5n\.2xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1613m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx3226m | 
@@ -651,7 +651,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c5n\.4xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1741m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx3482m | 
@@ -665,7 +665,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c5n\.9xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx2002m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx4004m | 
@@ -679,7 +679,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c5n\.18xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx2094m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx4188m | 
@@ -690,12 +690,12 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.scheduler\.maximum\-allocation\-mb | 188416 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 188416 | 
 
-### c6g Instances<a name="emr-hadoop-task-config-c6g"></a>
+### c6g instances<a name="emr-hadoop-task-config-c6g"></a>
 
 
 **c6g\.xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1126 | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2252m | 
@@ -709,7 +709,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c6g\.2xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1171m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2342m | 
@@ -723,7 +723,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c6g\.4xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1171m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2342m | 
@@ -737,7 +737,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c6g\.8xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1375m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2714m | 
@@ -751,7 +751,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c6g\.12xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1425m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2850m | 
@@ -765,7 +765,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c6g\.16xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1459m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2918m | 
@@ -776,12 +776,12 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.scheduler\.maximum\-allocation\-mb | 116736 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 116736 | 
 
-### c6gd Instances<a name="emr-hadoop-task-config-c6gd"></a>
+### c6gd instances<a name="emr-hadoop-task-config-c6gd"></a>
 
 
 **c6gd\.xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1126m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2252m | 
@@ -795,7 +795,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c6gd\.2xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1171m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2342m | 
@@ -809,7 +809,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c6gd\.4xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1171m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2342m | 
@@ -823,7 +823,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c6gd\.8xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1357m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2714m | 
@@ -837,7 +837,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c6gd\.12xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1425m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2850m | 
@@ -851,7 +851,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c6gd\.16xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1459m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2918m | 
@@ -862,12 +862,12 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.scheduler\.maximum\-allocation\-mb | 116736 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 116736 | 
 
-### c6gn Instances<a name="emr-hadoop-task-config-c6gn"></a>
+### c6gn instances<a name="emr-hadoop-task-config-c6gn"></a>
 
 
 **c6gn\.xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1126m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2252m | 
@@ -881,7 +881,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c6gn\.2xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1171m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2342m | 
@@ -895,7 +895,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c6gn\.4xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1171m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2342m | 
@@ -909,7 +909,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c6gn\.8xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1357m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2714m | 
@@ -923,7 +923,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c6gn\.12xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1425m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2850m | 
@@ -937,7 +937,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **c6gn\.16xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1459m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2918m | 
@@ -948,12 +948,12 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.scheduler\.maximum\-allocation\-mb | 116736 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 116736 | 
 
-### cc2 Instances<a name="emr-hadoop-task-config-cc2"></a>
+### cc2 instances<a name="emr-hadoop-task-config-cc2"></a>
 
 
 **cc2\.8xlarge**  
 
-| Configuration Option | Default Value | With HBase Installed | 
+| Configuration option | Default value | With HBase installed | 
 | --- | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1280m | \-Xmx1280m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2304m | \-Xmx2304m | 
@@ -964,12 +964,12 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.scheduler\.maximum\-allocation\-mb | 56320 | 28160 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 56320 | 28160 | 
 
-### cg1 Instances<a name="emr-hadoop-task-config-cg1"></a>
+### cg1 instances<a name="emr-hadoop-task-config-cg1"></a>
 
 
 **cg1\.4xlarge**  
 
-| Configuration Option | Default Value | With HBase Installed | 
+| Configuration option | Default value | With HBase installed | 
 | --- | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1280m | \-Xmx1280m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2304m | \-Xmx2304m | 
@@ -980,12 +980,12 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.scheduler\.maximum\-allocation\-mb | 5120 | 10240 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 20480 | 10240 | 
 
-### cr1 Instances<a name="emr-hadoop-task-config-cr1"></a>
+### cr1 instances<a name="emr-hadoop-task-config-cr1"></a>
 
 
 **cr1\.8xlarge**  
 
-| Configuration Option | Default Value | With HBase Installed | 
+| Configuration option | Default value | With HBase installed | 
 | --- | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6042m | \-Xmx6042m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12084m | \-Xmx12084m | 
@@ -996,12 +996,12 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.scheduler\.maximum\-allocation\-mb | 241664 | 211456 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 241664 | 211456 | 
 
-### d2 Instances<a name="emr-hadoop-task-config-d2"></a>
+### d2 instances<a name="emr-hadoop-task-config-d2"></a>
 
 
 **d2\.xlarge**  
 
-| Configuration Option | Default Value | With HBase Installed | 
+| Configuration option | Default value | With HBase installed | 
 | --- | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx2342m | \-Xmx2342m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx4685m | \-Xmx4685m | 
@@ -1015,7 +1015,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **d2\.2xlarge**  
 
-| Configuration Option | Default Value | With HBase Installed | 
+| Configuration option | Default value | With HBase installed | 
 | --- | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx2714m | \-Xmx2714m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx5428m | \-Xmx5428m | 
@@ -1029,7 +1029,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **d2\.4xlarge**  
 
-| Configuration Option | Default Value | With HBase Installed | 
+| Configuration option | Default value | With HBase installed | 
 | --- | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx2918m | \-Xmx2918m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx5836m | \-Xmx5836m | 
@@ -1043,7 +1043,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **d2\.8xlarge**  
 
-| Configuration Option | Default Value | With HBase Installed | 
+| Configuration option | Default value | With HBase installed | 
 | --- | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx2417m | \-Xmx2417m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx4384m | \-Xmx4834m | 
@@ -1054,12 +1054,12 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.scheduler\.maximum\-allocation\-mb | 241664 | 211470 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 241664 | 211470 | 
 
-### d3 Instances<a name="emr-hadoop-task-config-d3"></a>
+### d3 instances<a name="emr-hadoop-task-config-d3"></a>
 
 
 **d3\.xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx4685m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx9370m | 
@@ -1073,7 +1073,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **d3\.2xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx5427m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx10854m | 
@@ -1087,7 +1087,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **d3\.4xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx5837m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx11674m | 
@@ -1101,7 +1101,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **d3\.8xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6042m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12084m | 
@@ -1112,12 +1112,12 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.scheduler\.maximum\-allocation\-mb | 241664 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 241664 | 
 
-### d3en Instances<a name="emr-hadoop-task-config-d3"></a>
+### d3en instances<a name="emr-hadoop-task-config-d3"></a>
 
 
 **d3en\.xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx2342m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx4684m | 
@@ -1131,7 +1131,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **d3en\.2xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx2342m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx4684m | 
@@ -1145,7 +1145,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **d3en\.4xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx2714m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx5428m | 
@@ -1159,7 +1159,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **d3en\.6xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx2850m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx5700m | 
@@ -1173,7 +1173,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **d3en\.8xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx2918m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx5700m | 
@@ -1187,7 +1187,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **d3en\.12xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx2918m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx5700m | 
@@ -1198,12 +1198,12 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.scheduler\.maximum\-allocation\-mb | 179200 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 179200 | 
 
-### g2 Instances<a name="emr-hadoop-task-config-g2"></a>
+### g2 instances<a name="emr-hadoop-task-config-g2"></a>
 
 
 **g2\.2xlarge**  
 
-| Configuration Option | Default Value | With HBase Installed | 
+| Configuration option | Default value | With HBase installed | 
 | --- | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx512m | \-Xmx512m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx1536m | \-Xmx1536m | 
@@ -1214,12 +1214,12 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.scheduler\.maximum\-allocation\-mb | 8192 | 6144 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 12288 | 6144 | 
 
-### g3 Instances<a name="emr-hadoop-task-config-g3"></a>
+### g3 instances<a name="emr-hadoop-task-config-g3"></a>
 
 
 **g3\.4xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx5837m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx11674m | 
@@ -1233,7 +1233,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **g3\.8xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6042m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12084m | 
@@ -1247,7 +1247,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **g3\.16xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6144m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12288m | 
@@ -1258,12 +1258,12 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.scheduler\.maximum\-allocation\-mb | 491520 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 491520 | 
 
-### g3s Instances<a name="emr-hadoop-task-config-g3s"></a>
+### g3s instances<a name="emr-hadoop-task-config-g3s"></a>
 
 
 **g3s\.xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx4685m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx9370m | 
@@ -1274,12 +1274,12 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.scheduler\.maximum\-allocation\-mb | 23424 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 23424 | 
 
-### g4dn Instances<a name="emr-hadoop-task-config-g4dn"></a>
+### g4dn instances<a name="emr-hadoop-task-config-g4dn"></a>
 
 
 **g4dn\.xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx2458m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx4916m | 
@@ -1293,7 +1293,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **g4dn\.2xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx2458m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx4916m | 
@@ -1307,7 +1307,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **g4dn\.4xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx2867m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx5734m | 
@@ -1321,7 +1321,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **g4dn\.8xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx3072m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx6144m | 
@@ -1335,7 +1335,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **g4dn\.12xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx3140m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx6280m | 
@@ -1349,7 +1349,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **g4dn\.16xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx3174m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx6348m | 
@@ -1360,12 +1360,12 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.scheduler\.maximum\-allocation\-mb | 253952 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 253952 | 
 
-### hi1 Instances<a name="emr-hadoop-task-config-hi1"></a>
+### hi1 instances<a name="emr-hadoop-task-config-hi1"></a>
 
 
 **hi1\.4xlarge**  
 
-| Configuration Option | Default Value | With HBase Installed | 
+| Configuration option | Default value | With HBase installed | 
 | --- | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx2688m | \-Xmx2688m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx5376m | \-Xmx5376m | 
@@ -1376,12 +1376,12 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.scheduler\.maximum\-allocation\-mb | 53760 | 26880 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 53760 | 26880 | 
 
-### hs1 Instances<a name="emr-hadoop-task-config-hs1"></a>
+### hs1 instances<a name="emr-hadoop-task-config-hs1"></a>
 
 
 **hs1\.8xlarge**  
 
-| Configuration Option | Default Value | With HBase Installed | 
+| Configuration option | Default value | With HBase installed | 
 | --- | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1280m | \-Xmx1280m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2304m | \-Xmx2304m | 
@@ -1392,12 +1392,12 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.scheduler\.maximum\-allocation\-mb | 8192 | 28160 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 56320 | 28160 | 
 
-### i2 Instances<a name="emr-hadoop-task-config-i2"></a>
+### i2 instances<a name="emr-hadoop-task-config-i2"></a>
 
 
 **i2\.xlarge**  
 
-| Configuration Option | Default Value | With HBase Installed | 
+| Configuration option | Default value | With HBase installed | 
 | --- | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx2342m | \-Xmx2342m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx4684m | \-Xmx4684m | 
@@ -1411,7 +1411,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **i2\.2xlarge**  
 
-| Configuration Option | Default Value | With HBase Installed | 
+| Configuration option | Default value | With HBase installed | 
 | --- | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx2714m | \-Xmx2714m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx5428m | \-Xmx5428m | 
@@ -1425,7 +1425,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **i2\.4xlarge**  
 
-| Configuration Option | Default Value | With HBase Installed | 
+| Configuration option | Default value | With HBase installed | 
 | --- | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx2918m | \-Xmx2918m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx5836m | \-Xmx5836m | 
@@ -1439,7 +1439,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **i2\.8xlarge**  
 
-| Configuration Option | Default Value | With HBase Installed | 
+| Configuration option | Default value | With HBase installed | 
 | --- | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx3021m | \-Xmx3021m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx6042m | \-Xmx6042m | 
@@ -1450,12 +1450,12 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.scheduler\.maximum\-allocation\-mb | 241664 | 211456 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 241664 | 211456 | 
 
-### i3 Instances<a name="emr-hadoop-task-config-i3"></a>
+### i3 instances<a name="emr-hadoop-task-config-i3"></a>
 
 
 **i3\.xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx4685m  | 
 | mapreduce\.reduce\.java\.opts | \-Xmx9370m  | 
@@ -1469,7 +1469,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **i3\.2xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx5427m  | 
 | mapreduce\.reduce\.java\.opts | \-Xmx10854m  | 
@@ -1483,7 +1483,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **i3\.4xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx5837m  | 
 | mapreduce\.reduce\.java\.opts | \-Xmx11674m  | 
@@ -1497,7 +1497,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **i3\.8xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6042m  | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12083m  | 
@@ -1511,7 +1511,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **i3\.16xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6144m  | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12288m  | 
@@ -1522,12 +1522,12 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.scheduler\.maximum\-allocation\-mb | 491520  | 
 | yarn\.nodemanager\.resource\.memory\-mb | 491520  | 
 
-### i3en Instances<a name="emr-hadoop-task-config-i3en"></a>
+### i3en instances<a name="emr-hadoop-task-config-i3en"></a>
 
 
 **i3en\.xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx4915m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx9830m | 
@@ -1541,7 +1541,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **i3en\.2xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx5734m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx11468m | 
@@ -1555,7 +1555,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **i3en\.3xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6007m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12014m | 
@@ -1569,7 +1569,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **i3en\.6xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6281m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12562m | 
@@ -1583,7 +1583,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **i3en\.12xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6417m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12834m | 
@@ -1597,7 +1597,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **i3en\.24xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6486m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12972m | 
@@ -1608,12 +1608,12 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.scheduler\.maximum\-allocation\-mb | 778240 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 778240 | 
 
-### m1 Instances<a name="emr-hadoop-task-config-m1"></a>
+### m1 instances<a name="emr-hadoop-task-config-m1"></a>
 
 
 **m1\.medium**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx512m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx768m | 
@@ -1627,7 +1627,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **m1\.large**  
 
-| Configuration Option | Default Value | With HBase Installed | 
+| Configuration option | Default value | With HBase installed | 
 | --- | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx512m | \-Xmx512m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx1024m | \-Xmx1024m | 
@@ -1641,7 +1641,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **m1\.xlarge**  
 
-| Configuration Option | Default Value | With HBase Installed | 
+| Configuration option | Default value | With HBase installed | 
 | --- | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx512m | \-Xmx512m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx1536m | \-Xmx1536m | 
@@ -1652,12 +1652,12 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.scheduler\.maximum\-allocation\-mb | 8192 | 6144 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 12288 | 6144 | 
 
-### m2 Instances<a name="emr-hadoop-task-config-m2"></a>
+### m2 instances<a name="emr-hadoop-task-config-m2"></a>
 
 
 **m2\.xlarge**  
 
-| Configuration Option | Default Value | With HBase Installed | 
+| Configuration option | Default value | With HBase installed | 
 | --- | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx864m | \-Xmx864m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx1536m | \-Xmx1536m | 
@@ -1671,7 +1671,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **m2\.2xlarge**  
 
-| Configuration Option | Default Value | With HBase Installed | 
+| Configuration option | Default value | With HBase installed | 
 | --- | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1280m | \-Xmx1280m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2304m | \-Xmx2304m | 
@@ -1685,7 +1685,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **m2\.4xlarge**  
 
-| Configuration Option | Default Value | With HBase Installed | 
+| Configuration option | Default value | With HBase installed | 
 | --- | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1280m | \-Xmx1280m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2304m | \-Xmx2304m | 
@@ -1696,12 +1696,12 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.scheduler\.maximum\-allocation\-mb | 8192 | 30720 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 61440 | 30720 | 
 
-### m3 Instances<a name="emr-hadoop-task-config-m3"></a>
+### m3 instances<a name="emr-hadoop-task-config-m3"></a>
 
 
 **m3\.2xlarge**  
 
-| Configuration Option | Default Value | With HBase Installed | 
+| Configuration option | Default value | With HBase installed | 
 | --- | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1152m | \-Xmx1152m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2304m | \-Xmx2304m | 
@@ -1712,12 +1712,12 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.scheduler\.maximum\-allocation\-mb | 23040 | 11520 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 23040 | 11520 | 
 
-### m4 Instances<a name="emr-hadoop-task-config-m4"></a>
+### m4 instances<a name="emr-hadoop-task-config-m4"></a>
 
 
 **m4\.large**  
 
-| Configuration Option | Default Value | With HBase Installed | 
+| Configuration option | Default value | With HBase installed | 
 | --- | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1229m | \-Xmx2458m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2458m | \-Xmx4916m | 
@@ -1731,7 +1731,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **m4\.xlarge**  
 
-| Configuration Option | Default Value | With HBase Installed | 
+| Configuration option | Default value | With HBase installed | 
 | --- | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1229m | \-Xmx1229m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2458m | \-Xmx2458m | 
@@ -1745,7 +1745,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **m4\.2xlarge**  
 
-| Configuration Option | Default Value | With HBase Installed | 
+| Configuration option | Default value | With HBase installed | 
 | --- | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1229m | \-Xmx1229m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2458m | \-Xmx2458m | 
@@ -1759,7 +1759,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **m4\.4xlarge**  
 
-| Configuration Option | Default Value | With HBase Installed | 
+| Configuration option | Default value | With HBase installed | 
 | --- | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1434m | \-Xmx1434m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx2868m | \-Xmx2868m | 
@@ -1773,7 +1773,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **m4\.10xlarge**  
 
-| Configuration Option | Default Value | With HBase Installed | 
+| Configuration option | Default value | With HBase installed | 
 | --- | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1557m | \-Xmx1557m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx3114m | \-Xmx3114m | 
@@ -1787,7 +1787,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **m4\.16xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx1587m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx3174m | 
@@ -1798,12 +1798,12 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.scheduler\.maximum\-allocation\-mb | 253952 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 253952 | 
 
-### m5 Instances<a name="emr-hadoop-task-config-m5"></a>
+### m5 instances<a name="emr-hadoop-task-config-m5"></a>
 
 
 **m5\.xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx2458m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx4916m | 
@@ -1817,7 +1817,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **m5\.2xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx2458m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx4916m | 
@@ -1831,7 +1831,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **m5\.4xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx2867m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx5734m | 
@@ -1845,13 +1845,13 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **m5\.8xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
-| mapreduce\.map\.java\.opts | \-Xmx6144m | 
-| mapreduce\.reduce\.java\.opts | \-Xmx12288m | 
-| mapreduce\.map\.memory\.mb | 7680 | 
-| mapreduce\.reduce\.memory\.mb | 15360 | 
-| yarn\.app\.mapreduce\.am\.resource\.mb | 15360 | 
+| mapreduce\.map\.java\.opts | \-Xmx3072m | 
+| mapreduce\.reduce\.java\.opts | \-Xmx6144m | 
+| mapreduce\.map\.memory\.mb | 3840 | 
+| mapreduce\.reduce\.memory\.mb | 7680 | 
+| yarn\.app\.mapreduce\.am\.resource\.mb | 7680 | 
 | yarn\.scheduler\.minimum\-allocation\-mb | 32 | 
 | yarn\.scheduler\.maximum\-allocation\-mb | 122880 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 122880 | 
@@ -1859,7 +1859,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **m5\.12xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx3140m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx6280m | 
@@ -1873,13 +1873,13 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **m5\.16xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
-| mapreduce\.map\.java\.opts | \-Xmx6349m | 
-| mapreduce\.reduce\.java\.opts | \-Xmx12698m | 
-| mapreduce\.map\.memory\.mb | 7936 | 
-| mapreduce\.reduce\.memory\.mb | 15872 | 
-| yarn\.app\.mapreduce\.am\.resource\.mb | 15872 | 
+| mapreduce\.map\.java\.opts | \-Xmx3174m | 
+| mapreduce\.reduce\.java\.opts | \-Xmx6348m | 
+| mapreduce\.map\.memory\.mb | 3968 | 
+| mapreduce\.reduce\.memory\.mb | 7936 | 
+| yarn\.app\.mapreduce\.am\.resource\.mb | 7936 | 
 | yarn\.scheduler\.minimum\-allocation\-mb | 32 | 
 | yarn\.scheduler\.maximum\-allocation\-mb | 253952 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 253952 | 
@@ -1887,7 +1887,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **m5\.24xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx3209m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx6418m | 
@@ -1898,12 +1898,12 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.scheduler\.maximum\-allocation\-mb | 385024 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 385024 | 
 
-### m5a Instances<a name="emr-hadoop-task-config-m5a"></a>
+### m5a instances<a name="emr-hadoop-task-config-m5a"></a>
 
 
 **m5a\.xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx2458m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx4916m | 
@@ -1917,7 +1917,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **m5a\.2xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx2458m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx4916m | 
@@ -1931,7 +1931,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **m5a\.4xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx2867m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx5734m | 
@@ -1945,7 +1945,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **m5a\.8xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6144m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12288m | 
@@ -1959,7 +1959,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **m5a\.12xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx3140m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx6280m | 
@@ -1973,7 +1973,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **m5a\.16xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6349m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12698m | 
@@ -1987,7 +1987,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **m5a\.24xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx3209m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx6418m | 
@@ -1998,12 +1998,12 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.scheduler\.maximum\-allocation\-mb | 385024 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 385024 | 
 
-### m5d Instances<a name="emr-hadoop-task-config-m5d"></a>
+### m5d instances<a name="emr-hadoop-task-config-m5d"></a>
 
 
 **m5d\.xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx2458m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx4916m | 
@@ -2017,7 +2017,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **m5d\.2xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx2458m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx4916m | 
@@ -2031,7 +2031,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **m5d\.4xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx2867m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx5734m | 
@@ -2045,7 +2045,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **m5d\.8xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6144m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12288m | 
@@ -2059,7 +2059,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **m5d\.12xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx3140m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx6280m | 
@@ -2073,7 +2073,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **m5d\.16xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6349m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12698m | 
@@ -2087,7 +2087,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **m5d\.24xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx3209m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx6418m | 
@@ -2098,12 +2098,12 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.scheduler\.maximum\-allocation\-mb | 385024 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 385024 | 
 
-### m5zn Instances<a name="emr-hadoop-task-config-m5zn"></a>
+### m5zn instances<a name="emr-hadoop-task-config-m5zn"></a>
 
 
 **m5zn\.xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx2304m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx4608m | 
@@ -2117,7 +2117,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **m5zn\.2xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx2304m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx4608m | 
@@ -2131,7 +2131,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **m5zn\.3xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx2304m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx5154m | 
@@ -2145,7 +2145,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **m5zn\.6xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx2850m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx5700m | 
@@ -2159,7 +2159,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **m5zn\.12xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx2986m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx5972m | 
@@ -2170,12 +2170,12 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.scheduler\.maximum\-allocation\-mb | 179200 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 179200 | 
 
-### m6g Instances<a name="emr-hadoop-task-config-m6g"></a>
+### m6g instances<a name="emr-hadoop-task-config-m6g"></a>
 
 
 **m6g\.xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx2342m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx4684m | 
@@ -2189,7 +2189,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **m6g\.2xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx2342m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx4684m | 
@@ -2203,7 +2203,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **m6g\.4xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx2714m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx5428m | 
@@ -2217,7 +2217,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **m6g\.8xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx2918m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx5836m | 
@@ -2231,7 +2231,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **m6g\.12xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx3021m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx6042m | 
@@ -2245,7 +2245,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **m6g\.16xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx3021m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx6042m | 
@@ -2256,12 +2256,12 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.scheduler\.maximum\-allocation\-mb | 241664 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 241664 | 
 
-### m6gd Instances<a name="emr-hadoop-task-config-m6gd"></a>
+### m6gd instances<a name="emr-hadoop-task-config-m6gd"></a>
 
 
 **m6gd\.xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx2342m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx4684m | 
@@ -2275,7 +2275,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **m6gd\.2xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx2342m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx4684m | 
@@ -2289,7 +2289,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **m6gd\.4xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx2714m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx5428m | 
@@ -2303,7 +2303,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **m6gd\.8xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx2918m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx5836m | 
@@ -2317,7 +2317,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **m6gd\.12xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx3021m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx6042m | 
@@ -2331,7 +2331,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **m6gd\.16xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx3021m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx6042m | 
@@ -2342,12 +2342,12 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.scheduler\.maximum\-allocation\-mb | 241664 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 241664 | 
 
-### p2 Instances<a name="emr-hadoop-task-config-p2"></a>
+### p2 instances<a name="emr-hadoop-task-config-p2"></a>
 
 
 **p2\.xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx10854m  | 
 | mapreduce\.reduce\.java\.opts | \-Xmx21708m  | 
@@ -2361,7 +2361,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **p2\.8xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx12288m  | 
 | mapreduce\.reduce\.java\.opts | \-Xmx24576  | 
@@ -2375,7 +2375,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **p2\.16xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx9267m  | 
 | mapreduce\.reduce\.java\.opts | \-Xmx18534m  | 
@@ -2386,12 +2386,12 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.scheduler\.maximum\-allocation\-mb | 741376  | 
 | yarn\.nodemanager\.resource\.memory\-mb | 741376  | 
 
-### p3 Instances<a name="emr-hadoop-task-config-p3"></a>
+### p3 instances<a name="emr-hadoop-task-config-p3"></a>
 
 
 **p3\.2xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx5427m  | 
 | mapreduce\.reduce\.java\.opts | \-Xmx10854m  | 
@@ -2405,7 +2405,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **p3\.8xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6042m  | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12084m  | 
@@ -2419,7 +2419,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **p3\.16xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6144m  | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12288m  | 
@@ -2430,12 +2430,12 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.scheduler\.maximum\-allocation\-mb | 491520  | 
 | yarn\.nodemanager\.resource\.memory\-mb | 491520  | 
 
-### r3 Instances<a name="emr-hadoop-task-config-r3"></a>
+### r3 instances<a name="emr-hadoop-task-config-r3"></a>
 
 
 **r3\.xlarge**  
 
-| Configuration Option | Default Value | With HBase Installed | 
+| Configuration option | Default value | With HBase installed | 
 | --- | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx2342m | \-Xmx2342m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx4684m | \-Xmx4684m | 
@@ -2449,7 +2449,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **r3\.2xlarge**  
 
-| Configuration Option | Default Value | With HBase Installed | 
+| Configuration option | Default value | With HBase installed | 
 | --- | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx2714m | \-Xmx2714m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx5428m | \-Xmx5428m | 
@@ -2463,7 +2463,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **r3\.4xlarge**  
 
-| Configuration Option | Default Value | With HBase Installed | 
+| Configuration option | Default value | With HBase installed | 
 | --- | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx2918m | \-Xmx2918m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx5836m | \-Xmx5836m | 
@@ -2477,7 +2477,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 
 **r3\.8xlarge**  
 
-| Configuration Option | Default Value | With HBase Installed | 
+| Configuration option | Default value | With HBase installed | 
 | --- | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx3021m | \-Xmx3021m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx6042m | \-Xmx6042m | 
@@ -2488,7 +2488,7 @@ With Amazon EMR version 5\.21\.0 and later, you can override cluster configurati
 | yarn\.scheduler\.maximum\-allocation\-mb | 241664 | 211456 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 241664 | 211456 | 
 
-### r4 Instances<a name="emr-hadoop-task-config-r4"></a>
+### r4 instances<a name="emr-hadoop-task-config-r4"></a>
 
 **Note**  
 R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\.
@@ -2496,7 +2496,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **r4\.xlarge**  
 
-| Configuration Option | Default Value | With HBase Installed | 
+| Configuration option | Default value | With HBase installed | 
 | --- | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx4685m | \-Xmx2342m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx9370m | \-Xmx4684m | 
@@ -2510,7 +2510,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **r4\.2xlarge**  
 
-| Configuration Option | Default Value | With HBase Installed | 
+| Configuration option | Default value | With HBase installed | 
 | --- | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx5427m | \-Xmx5427m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx10854m | \-Xmx10854m | 
@@ -2524,7 +2524,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **r4\.4xlarge**  
 
-| Configuration Option | Default Value | With HBase Installed | 
+| Configuration option | Default value | With HBase installed | 
 | --- | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx5837m | \-Xmx5837m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx11674m | \-Xmx11674m | 
@@ -2538,7 +2538,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **r4\.8xlarge**  
 
-| Configuration Option | Default Value | With HBase Installed | 
+| Configuration option | Default value | With HBase installed | 
 | --- | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6042m | \-Xmx6042m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12084m | \-Xmx12084m | 
@@ -2552,7 +2552,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **r4\.16xlarge**  
 
-| Configuration Option | Default Value | With HBase Installed | 
+| Configuration option | Default value | With HBase installed | 
 | --- | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6144m | \-Xmx6144m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12288m | \-Xmx1228m | 
@@ -2563,12 +2563,12 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 | yarn\.scheduler\.maximum\-allocation\-mb | 491520 | 460800 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 491520 | 460800 | 
 
-### r5 Instances<a name="emr-hadoop-task-config-r5"></a>
+### r5 instances<a name="emr-hadoop-task-config-r5"></a>
 
 
 **r5\.xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx4915m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx9830m | 
@@ -2582,7 +2582,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **r5\.2xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx5734m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx11468m | 
@@ -2596,7 +2596,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **r5\.4xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6144m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12288m | 
@@ -2610,7 +2610,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **r5\.8xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6349m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12698m | 
@@ -2624,7 +2624,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **r5\.12xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6417m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12834m | 
@@ -2638,7 +2638,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **r5\.16xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6451m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12902m | 
@@ -2652,7 +2652,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **r5\.24xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6486m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12972m | 
@@ -2663,12 +2663,12 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 | yarn\.scheduler\.maximum\-allocation\-mb | 778240 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 778240 | 
 
-### r5a Instances<a name="emr-hadoop-task-config-r5a"></a>
+### r5a instances<a name="emr-hadoop-task-config-r5a"></a>
 
 
 **r5a\.xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx4915m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx9830m | 
@@ -2682,7 +2682,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **r5a\.2xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx5734m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx11468m | 
@@ -2696,7 +2696,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **r5a\.4xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6144m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12288m | 
@@ -2710,7 +2710,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **r5a\.8xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6349m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12698m | 
@@ -2724,7 +2724,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **r5a\.12xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6417m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12834m | 
@@ -2738,7 +2738,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **r5a\.16xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6451m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12902m | 
@@ -2752,7 +2752,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **r5a\.24xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6486m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12972m | 
@@ -2763,12 +2763,12 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 | yarn\.scheduler\.maximum\-allocation\-mb | 778240 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 778240 | 
 
-### r5b Instances<a name="emr-hadoop-task-config-r5b"></a>
+### r5b instances<a name="emr-hadoop-task-config-r5b"></a>
 
 
 **r5b\.xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx4685m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx9370m | 
@@ -2782,7 +2782,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **r5b\.2xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx5427m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx10854m | 
@@ -2796,7 +2796,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **r5b\.4xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx5837m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx11674m | 
@@ -2810,7 +2810,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **r5b\.8xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6042m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12084m | 
@@ -2824,7 +2824,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **r5b\.12xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6110m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12220m | 
@@ -2838,7 +2838,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **r5b\.16xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6144m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12288m | 
@@ -2852,7 +2852,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **r5b\.24xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6178m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12356m | 
@@ -2863,12 +2863,12 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 | yarn\.scheduler\.maximum\-allocation\-mb | 741376 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 741376 | 
 
-### r5d Instances<a name="emr-hadoop-task-config-r5d"></a>
+### r5d instances<a name="emr-hadoop-task-config-r5d"></a>
 
 
 **r5d\.xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx4915m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx9830m | 
@@ -2882,7 +2882,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **r5d\.2xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx5734m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx11468m | 
@@ -2896,7 +2896,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **r5d\.4xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6144m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12288m | 
@@ -2910,7 +2910,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **r5d\.8xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6349m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12698m | 
@@ -2924,7 +2924,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **r5d\.12xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6417m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12834m | 
@@ -2938,7 +2938,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **r5d\.16xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6451m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12902m | 
@@ -2952,7 +2952,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **r5d\.24xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6486m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12972m | 
@@ -2963,12 +2963,12 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 | yarn\.scheduler\.maximum\-allocation\-mb | 778240 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 778240 | 
 
-### r5dn Instances<a name="emr-hadoop-task-config-r5dn"></a>
+### r5dn instances<a name="emr-hadoop-task-config-r5dn"></a>
 
 
 **r5dn\.xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx4685m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx9370m | 
@@ -2982,7 +2982,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **r5dn\.2xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx5427m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx10854m | 
@@ -2996,7 +2996,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **r5dn\.4xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx5837m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx11674m | 
@@ -3010,7 +3010,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **r5dn\.8xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6042m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12084m | 
@@ -3024,7 +3024,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **r5dn\.12xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6042m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12220m | 
@@ -3038,7 +3038,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **r5dn\.16xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6144m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12288m | 
@@ -3052,7 +3052,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **r5dn\.24xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6178m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12356m | 
@@ -3063,12 +3063,12 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 | yarn\.scheduler\.maximum\-allocation\-mb | 741376 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 741376 | 
 
-### r6g Instances<a name="emr-hadoop-task-config-r6g"></a>
+### r6g instances<a name="emr-hadoop-task-config-r6g"></a>
 
 
 **r6g\.xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx2342m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx4684m | 
@@ -3082,7 +3082,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **r6g\.2xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx5427m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx10584m | 
@@ -3096,7 +3096,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **r6g\.4xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx5837m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx11674m | 
@@ -3110,7 +3110,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **r6g\.8xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6042m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12084m | 
@@ -3124,7 +3124,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **r6g\.12xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6110m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12220m | 
@@ -3138,7 +3138,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **r6g\.16xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6144m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12288m | 
@@ -3149,12 +3149,12 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 | yarn\.scheduler\.maximum\-allocation\-mb | 491520 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 491520 | 
 
-### r6gd Instances<a name="emr-hadoop-task-config-r6gd"></a>
+### r6gd instances<a name="emr-hadoop-task-config-r6gd"></a>
 
 
 **r6gd\.xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx4685m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx9370m | 
@@ -3168,7 +3168,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **r6gd\.2xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx5427m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx10854m | 
@@ -3182,7 +3182,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **r6gd\.4xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx5837m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx11674m | 
@@ -3196,7 +3196,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **r6gd\.8xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6042m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12084m | 
@@ -3210,7 +3210,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **r6gd\.12xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6110m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12220m | 
@@ -3224,7 +3224,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **r6gd\.16xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6144m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12288m | 
@@ -3235,12 +3235,12 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 | yarn\.scheduler\.maximum\-allocation\-mb | 491520 | 
 | yarn\.nodemanager\.resource\.memory\-mb | 491520 | 
 
-### z1d Instances<a name="emr-hadoop-task-config-z1d"></a>
+### z1d instances<a name="emr-hadoop-task-config-z1d"></a>
 
 
 **z1d\.xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx4915m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx9830m | 
@@ -3254,7 +3254,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **z1d\.2xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx5734m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx11468m | 
@@ -3268,7 +3268,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **z1d\.3xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6007m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12014m | 
@@ -3282,7 +3282,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **z1d\.6xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6281m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12562m | 
@@ -3296,7 +3296,7 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 **z1d\.12xlarge**  
 
-| Configuration Option | Default Value | 
+| Configuration option | Default value | 
 | --- | --- | 
 | mapreduce\.map\.java\.opts | \-Xmx6417m | 
 | mapreduce\.reduce\.java\.opts | \-Xmx12834m | 

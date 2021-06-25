@@ -1,6 +1,6 @@
-# Configure Applications to Use a Specific Java Virtual Machine<a name="configuring-java8"></a>
+# Configure applications to use a specific Java Virtual Machine<a name="configuring-java8"></a>
 
-Java 8 is the default Java virtual machine \(JVM\) for cluster instances created using Amazon EMR release version 5\.0\.0 or later\. To override this JVM setting—for example, to use Java 8 with a cluster created using Amazon EMR version 4\.8\.0—set `JAVA_HOME` for an application by supplying the setting to its environment classification, `application-env`\. For Hadoop and Hive, this would look like the following example\.
+Java 8 is the default Java Virtual Machine \(JVM\) for cluster instances created using Amazon EMR release version 5\.0\.0 or later\. To override this JVM setting \- for example, to use Java 8 with a cluster created using Amazon EMR version 4\.8\.0 \- set `JAVA_HOME` for an application by supplying the setting to its environment classification, `application-env`\. For Hadoop and Hive, this would look like the following example\.
 
 ```
 [
@@ -58,7 +58,7 @@ For Spark, if you are writing a driver for submission in cluster mode, the drive
 The following are YARN and HDFS service ports\. These settings reflect Hadoop defaults\. Other application services are hosted at default ports unless otherwise documented\. For more information, see the application's project documentation\.
 
 
-**Port Settings for YARN and HDFS**  
+**Port settings for YARN and HDFS**  
 
 | Setting | Hostname/Port | 
 | --- | --- | 

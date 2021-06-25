@@ -9,9 +9,9 @@ The following table lists the version of MXNet included in the latest release of
 For the version of components installed with MXNet in this release, see [Release 6\.3\.0 Component Versions](emr-release-6x.md#emr-630-release)\.
 
 
-**MXNet Version Information for emr\-6\.3\.0**  
+**MXNet version information for emr\-6\.3\.0**  
 
-| Amazon EMR Release Label | MXNet Version | Components Installed With MXNet | 
+| Amazon EMR release label | MXNet version | Components installed with MXNet | 
 | --- | --- | --- | 
 | emr\-6\.3\.0 | MXNet 1\.7\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
 
@@ -20,9 +20,9 @@ The following table lists the version of MXNet included in the latest release of
 For the version of components installed with MXNet in this release, see [Release 5\.33\.0 Component Versions](emr-release-5x.md#emr-5330-release)\.
 
 
-**MXNet Version Information for emr\-5\.33\.0**  
+**MXNet version information for emr\-5\.33\.0**  
 
-| Amazon EMR Release Label | MXNet Version | Components Installed With MXNet | 
+| Amazon EMR release label | MXNet version | Components installed with MXNet | 
 | --- | --- | --- | 
 | emr\-5\.33\.0 | MXNet 1\.7\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
 

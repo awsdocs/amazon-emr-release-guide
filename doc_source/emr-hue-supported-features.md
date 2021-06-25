@@ -1,4 +1,4 @@
-# Supported and Unsupported Features of Hue on Amazon EMR<a name="emr-hue-supported-features"></a>
+# Supported and unsupported features of Hue on Amazon EMR<a name="emr-hue-supported-features"></a>
 + Amazon S3 and Hadoop File System \(HDFS\) Browser
   + With the appropriate permissions, you can browse and move data between the ephemeral HDFS storage and S3 buckets belonging to your account\. 
   + By default, superusers in Hue can access all files that Amazon EMR IAM roles are allowed to access\. Newly created users do not automatically have permissions to access the Amazon S3 filebrowser and must have the `filebrowser.s3_access` permissions enabled for their group\.

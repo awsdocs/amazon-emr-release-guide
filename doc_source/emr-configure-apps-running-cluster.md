@@ -1,4 +1,4 @@
-# Reconfigure an Instance Group in a Running Cluster<a name="emr-configure-apps-running-cluster"></a>
+# Reconfigure an instance group in a running cluster<a name="emr-configure-apps-running-cluster"></a>
 
 With Amazon EMR version 5\.21\.0 and later, you can reconfigure cluster applications and specify additional configuration classifications for each instance group in a running cluster\. To do so, you can use the Amazon EMR console, the AWS Command Line Interface \(AWS CLI\), or the AWS SDK\. When you update an application configuration for an instance group, Amazon EMR merges the new configuration with the existing configuration to create a new active configuration\. 
 
@@ -7,17 +7,17 @@ After you submit a reconfiguration request for an instance group, Amazon EMR ass
 **Note**  
 You can only override, and not delete, cluster configurations that were specified during cluster creation\.
 
-## Considerations When You Reconfigure an Instance Group<a name="emr-configure-apps-running-cluster-considerations"></a>
+## Considerations when you reconfigure an instance group<a name="emr-configure-apps-running-cluster-considerations"></a>
 
 **Reconfiguration actions**  
 When you submit a reconfiguration request using the Amazon EMR console, the AWS Command Line Interface \(AWS CLI\), or the AWS SDK, Amazon EMR checks the existing on\-cluster configuration file\. If there are differences between the existing configuration and the file that you supply, Amazon EMR initiates reconfiguration actions, restarts some applications, and resets any manually modified configurations to the cluster defaults for the specified instance group\.   
-Amazon EMR performs some default actions during every instance group reconfiguration\. These default actions might conflict with cluster customizations that you have made, and result in reconfiguration failures\. For information about how to troubleshoot reconfiguration failures, see [Troubleshoot Instance Group Reconfiguration](#emr-configure-apps-running-cluster-troubleshoot)\.
+Amazon EMR performs some default actions during every instance group reconfiguration\. These default actions might conflict with cluster customizations that you have made, and result in reconfiguration failures\. For information about how to troubleshoot reconfiguration failures, see [Troubleshoot instance group reconfiguration](#emr-configure-apps-running-cluster-troubleshoot)\.
 Amazon EMR also initiates reconfiguration actions for the configuration classifications that you specify in your request\. For a complete list of these actions, see the Configuration Classifications section for the version of Amazon EMR that you use\. For example, [6\.2\.0 Configuration Classifications](emr-release-6x.md#emr-620-class)\.  
 The Amazon EMR Release Guide only lists reconfiguration actions starting with Amazon EMR versions 5\.32\.0 and 6\.2\.0\.
 
 **Service disruption**  
 Amazon EMR follows a rolling process to reconfigure instances in the Task and Core instance groups\. Only 10 percent of the instances in an instance group are modified and restarted at a time\. This process takes longer to finish but reduces the chance of potential application failure in a running cluster\.   
-To run YARN jobs during a YARN restart, you can either create an Amazon EMR cluster with multiple master nodes or set `yarn.resourcemanager.recovery.enabled` to `true` in your `yarn-site` configuration classification\. For more information about using multiple master nodes, see [High Availability YARN ResourceManager](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-ha-applications.html#emr-plan-ha-applications-YARN)\.
+To run YARN jobs during a YARN restart, you can either create an Amazon EMR cluster with multiple master nodes or set `yarn.resourcemanager.recovery.enabled` to `true` in your `yarn-site` configuration classification\. For more information about using multiple master nodes, see [High availability YARN ResourceManager](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-ha-applications.html#emr-plan-ha-applications-YARN)\.
 
 **Application validation**  
 Amazon EMR checks that each application on the cluster is running after the reconfiguration restart process\. If any application is unavailable, the overall reconfiguration operation fails\. If a reconfiguration operation fails, Amazon EMR reverses the configuration parameters to the previous working version\.  
@@ -34,9 +34,9 @@ When you reconfigure an instance group in a running cluster, consider the follow
 + Reconfiguration requests for HBase configuration classifications are only supported in Amazon EMR version 5\.30\.0 and later, and are not supported in Amazon EMR versions 5\.23\.0 through 5\.29\.0\. 
 + Amazon EMR supports application reconfiguration requests on an EMR cluster with multiple master nodes only in Amazon EMR versions 5\.27\.0 and later\.
 + Reconfiguring `hdfs-encryption-zones` classification or any of the Hadoop KMS configuration classifications is not supported on an EMR cluster with multiple master nodes\.
-+ Amazon EMR currently doesn’t support certain reconfiguration requests for the capacity scheduler that require restarting the YARN ResourceManager\. For example, you cannot completely remove a queue\.
++ Amazon EMR currently doesn't support certain reconfiguration requests for the capacity scheduler that require restarting the YARN ResourceManager\. For example, you cannot completely remove a queue\.
 
-## Reconfigure an Instance Group in the Console<a name="emr-configure-apps-running-cluster-console"></a>
+## Reconfigure an instance group in the console<a name="emr-configure-apps-running-cluster-console"></a>
 
 1. Open the Amazon EMR console at [https://console\.aws\.amazon\.com/elasticmapreduce/](https://console.aws.amazon.com/elasticmapreduce/)\.
 
@@ -57,14 +57,14 @@ You can also add or edit nested configuration classifications directly in the ta
 
 1. Save the changes\.
 
-## Reconfigure an Instance Group Using the CLI<a name="emr-configure-apps-running-cluster-cli"></a>
+## Reconfigure an instance group using the CLI<a name="emr-configure-apps-running-cluster-cli"></a>
 
 Use the modify\-instance\-groups command to specify a new configuration for an instance group in a running cluster\.
 
 **Note**  
 In the following examples, replace *<j\-2AL4XXXXXX5T9>* with your cluster ID and replace *<ig\-1xxxxxxx9>* with your instance group ID\.
 
-**Example – Replace a Configuration for an Instance Group**  
+**Example – Replace a configuration for an instance group**  
 The following example references a configuration JSON file called `instanceGroups.json` to edit the property of the YARN NodeManager disk health checker for an instance group\.  
 
 1. Prepare your configuration classification, and save it as `instanceGroups.json` in the same directory where you will run the command\.
@@ -72,7 +72,7 @@ The following example references a configuration JSON file called `instanceGroup
    ```
    [
       {
-         "InstanceGroupId":"ig-1xxxxxxx9>",
+         "InstanceGroupId":"<ig-1xxxxxxx9>",
          "Configurations":[
             {
                "Classification":"yarn-site",
@@ -94,7 +94,7 @@ The following example references a configuration JSON file called `instanceGroup
    --instance-groups file://instanceGroups.json
    ```
 
-**Example – Add a Configuration to an Instance Group**  
+**Example – Add a configuration to an instance group**  
 If you want to add a configuration to an instance group, you must include all previously specified configurations for that instance group in your new `ModifyInstanceGroup` request\. Otherwise, the previously specified configurations are removed\.  
 The following example adds a property for the YARN NodeManager virtual memory checker\. The configuration also includes previously specified values for the YARN NodeManager disk health checker so that the values won't be overwritten\.  
 
@@ -127,7 +127,7 @@ The following example adds a property for the YARN NodeManager virtual memory ch
    --instance-groups file://instanceGroups.json
    ```
 
-**Example – Delete a Configuration for an Instance Group**  
+**Example – Delete a configuration for an instance group**  
 To delete a configuration for an instance group, submit a new reconfiguration request that excludes the previous configuration\.   
 You can only override the initial *cluster* configuration\. You cannot delete it\.
 For example, to delete the configuration for the YARN NodeManager disk health checker from the previous example, submit a new `instanceGroups.json` with the following contents\.   
@@ -160,7 +160,7 @@ To delete all of the configurations in your last reconfiguration request, submit
 ]
 ```
 
-**Example – Reconfigure and Resize an Instance Group in One Request**  
+**Example – Reconfigure and resize an instance group in one request**  
 The following example JSON demonstrates how to reconfigure and resize an instance group in the same request\.  
 
 ```
@@ -192,7 +192,7 @@ The following example JSON demonstrates how to reconfigure and resize an instanc
 ]
 ```
 
-## Reconfigure an Instance Group Using the Java SDK<a name="emr-configure-apps-running-cluster-sdk"></a>
+## Reconfigure an instance group using the Java SDK<a name="emr-configure-apps-running-cluster-sdk"></a>
 
 **Note**  
 In the following examples, replace *<j\-2AL4XXXXXX5T9>* with your cluster ID and replace *<ig\-1xxxxxxx9>* with your instance group ID\.
@@ -238,7 +238,7 @@ ModifyInstanceGroupsRequest migRequest = new ModifyInstanceGroupsRequest()
 emr.modifyInstanceGroups(migRequest);
 ```
 
-## Troubleshoot Instance Group Reconfiguration<a name="emr-configure-apps-running-cluster-troubleshoot"></a>
+## Troubleshoot instance group reconfiguration<a name="emr-configure-apps-running-cluster-troubleshoot"></a>
 
 If the reconfiguration process for an instance group fails, Amazon EMR reverts the reconfiguration and logs a failure message using an Amazon CloudWatch event\. The event provides a brief summary of the reconfiguration failure\. It lists the instances for which reconfiguration has failed and corresponding failure messages\. The following is an example failure message\.
 
@@ -257,7 +257,7 @@ i-xxxxxxx1 failed with message “Unable to complete transaction and some change
 ------
 #### [ On the node ]
 
-**To Access Node Provisioning Logs by Connecting to a Node**
+**To access node provisioning logs by connecting to a node**
 
 1. Use SSH to connect to the node on which reconfiguration has failed\. For instructions, see [Connect to your Linux instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstances.html) in the *Amazon EC2* *User Guide for Linux Instances*\.
 
@@ -284,7 +284,7 @@ i-xxxxxxx1 failed with message “Unable to complete transaction and some change
 ------
 #### [ Amazon S3 ]
 
-**To Access Node Provisioning Logs Using Amazon S3**
+**To access node provisioning logs using Amazon S3**
 
 1. Sign in to the AWS Management Console and open the Amazon S3 console at [https://console\.aws\.amazon\.com/s3/](https://console.aws.amazon.com/s3/)\.
 

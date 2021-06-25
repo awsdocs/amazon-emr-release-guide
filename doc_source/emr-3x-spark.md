@@ -1,6 +1,6 @@
-# Spark Application Specifics With Earlier AMI Versions of Amazon EMR<a name="emr-3x-spark"></a>
+# Spark application specifics with earlier AMI versions of Amazon EMR<a name="emr-3x-spark"></a>
 
-## Use Spark Interactively or in Batch Mode<a name="emr-3x-spark-interactive-batch"></a>
+## Use Spark interactively or in batch mode<a name="emr-3x-spark-interactive-batch"></a>
 
 Amazon EMR enables you to run Spark applications in two modes: 
 + Interactive
@@ -10,7 +10,7 @@ When you launch a long\-running cluster using the console or the AWS CLI, you ca
 
 In batch mode, upload your Spark script to Amazon S3 or the local master node file system, and then submit the work to the cluster as a step\. Spark steps can be submitted to a long\-running cluster or a transient cluster\.
 
-## Creating a Cluster with Spark Installed<a name="emr-3x-spark-install"></a>
+## Creating a cluster with Spark installed<a name="emr-3x-spark-install"></a>
 
 **To launch a cluster with Spark installed using the console**
 
@@ -51,9 +51,9 @@ RunJobFlowResult result = emr.runJobFlow(request);
 
 You configure Spark when you create a cluster by running the bootstrap action located at [awslabs/emr\-bootstrap\-actions/spark repository on Github](https://github.com/awslabs/emr-bootstrap-actions/tree/master/spark)\. For arguments that the bootstrap action accepts, see the [README](https://github.com/awslabs/emr-bootstrap-actions/blob/master/spark/README.md)in that repository\. The bootstrap action configures properties in the `$SPARK_CONF_DIR/spark-defaults.conf` file\. For more information about settings, see the Spark Configuration topic in Spark documentation\. You can replace "latest" in the following URL with the version number of Spark that you are installing, for example, `2.2.0` [http://spark.apache.org/docs/latest/configuration.html](http://spark.apache.org/docs/latest/configuration.html)\.
 
-You can also configure Spark dynamically at the time of each application submission\. A setting to automatically maximize the resource allocation for an executor is available using the `spark` configuration file\. For more information, see [Overriding Spark Default Configuration Settings](#emr-3x-spark-dynamic-configuration)\.
+You can also configure Spark dynamically at the time of each application submission\. A setting to automatically maximize the resource allocation for an executor is available using the `spark` configuration file\. For more information, see [Overriding Spark default configuration settings](#emr-3x-spark-dynamic-configuration)\.
 
-### Changing Spark Default Settings<a name="emr-3x-spark-default-settings"></a>
+### Changing Spark default settings<a name="emr-3x-spark-default-settings"></a>
 
 The following example shows how to create a cluster with `spark.executor.memory` set to 2G using the AWS CLI\.
 
@@ -66,7 +66,7 @@ aws emr create-cluster --name "Spark cluster" --ami-version 3.11.0 \
 --instance-type m3.xlarge --instance-count 3 --use-default-roles
 ```
 
-### Submit Work to Spark<a name="emr-3x-spark-submit-work"></a>
+### Submit work to Spark<a name="emr-3x-spark-submit-work"></a>
 
 To submit work to a cluster, use a step to run the `spark-submit` script on your EMR cluster\. Add the step using the `addJobFlowSteps` method in [AmazonElasticMapReduceClient](https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/elasticmapreduce/AmazonElasticMapReduceClient.html):
 
@@ -89,7 +89,7 @@ req.withSteps(stepConfigs);
 AddJobFlowStepsResult result = emr.addJobFlowSteps(req);
 ```
 
-### Overriding Spark Default Configuration Settings<a name="emr-3x-spark-dynamic-configuration"></a>
+### Overriding Spark default configuration settings<a name="emr-3x-spark-dynamic-configuration"></a>
 
 You may want to override Spark default configuration values on a per\-application basis\. You can do this when you submit applications using a step, which essentially passes options to `spark-submit`\. For example, you may wish to change the memory allocated to an executor process by changing `spark.executor.memory`\. You can supply the `--executor-memory` switch with an argument like the following:
 
@@ -103,4 +103,4 @@ Similarly, you can tune `--executor-cores` and `--driver-memory`\. In a step, yo
 --executor-memory 1g --class org.apache.spark.examples.SparkPi /home/hadoop/spark/lib/spark-examples*.jar 10
 ```
 
-You can also tune settings that may not have a built\-in switch using the `--conf` option\. For more information about other settings that are tunable, see the [Dynamically Loading Spark Properties](https://spark.apache.org/docs/latest/configuration.html#dynamically-loading-spark-properties) topic in the Apache Spark documentation\.
+You can also tune settings that may not have a built\-in switch using the `--conf` option\. For more information about other settings that are tunable, see the [Dynamically loading Spark properties](https://spark.apache.org/docs/latest/configuration.html#dynamically-loading-spark-properties) topic in the Apache Spark documentation\.

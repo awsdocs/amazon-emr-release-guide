@@ -1,61 +1,61 @@
-# Hadoop Daemon Configuration Settings<a name="emr-hadoop-daemons"></a>
+# Hadoop daemon configuration settings<a name="emr-hadoop-daemons"></a>
 
 Hadoop daemon settings are different depending on the EC2 instance type that a cluster node uses\. The following tables list the default configuration settings for each EC2 instance type\.
 
-To customize these settings, use the `hadoop-env` configuration classification\. For more information, see [Configure Applications](emr-configure-apps.md)\.
+To customize these settings, use the `hadoop-env` configuration classification\. For more information, see [Configure applications](emr-configure-apps.md)\.
 
 **Topics**
-+ [c1 Instances](#emr-hadoop-daemons-c1)
-+ [c3 Instances](#emr-hadoop-daemons-c3)
-+ [c4 Instances](#emr-hadoop-daemons-c4)
-+ [c5 Instances](#emr-hadoop-daemons-c5)
-+ [c5a Instances](#emr-hadoop-daemons-c5a)
-+ [c5ad Instances](#emr-hadoop-daemons-c5ad)
-+ [c5d Instances](#emr-hadoop-daemons-c5d)
-+ [c5n Instances](#emr-hadoop-daemons-c5n)
-+ [c6g Instances](#emr-hadoop-daemons-c6g)
-+ [c6gd Instances](#emr-hadoop-daemons-c6gd)
-+ [c6gn Instances](#emr-hadoop-daemons-c6gn)
-+ [cc2 Instances](#emr-hadoop-daemons-cc2)
-+ [cg1 Instances](#emr-hadoop-daemons-cg1)
-+ [cr1 Instances](#emr-hadoop-daemons-cr1)
-+ [d2 Instances](#emr-hadoop-daemons-d2)
-+ [d3 Instances](#emr-hadoop-daemons-d3)
-+ [d3en Instances](#emr-hadoop-daemons-d3en)
-+ [g2 Instances](#emr-hadoop-daemons-g2)
-+ [g3 Instances](#emr-hadoop-daemons-g3)
-+ [g3s Instances](#emr-hadoop-daemons-g3s)
-+ [g4dn Instances](#emr-hadoop-daemons-g4dn)
-+ [h1 Instances](#emr-hadoop-daemons-h1)
-+ [hi1 Instances](#emr-hadoop-daemons-hi1)
-+ [hs1 Instances](#emr-hadoop-daemons-hs1)
-+ [i2 Instances](#emr-hadoop-daemons-i2)
-+ [i3 Instances](#emr-hadoop-daemons-i3)
-+ [i3en Instances](#emr-hadoop-daemons-i3en)
-+ [m1 Instances](#emr-hadoop-daemons-m1)
-+ [m2 Instances](#emr-hadoop-daemons-m2)
-+ [m3 Instances](#emr-hadoop-daemons-m3)
-+ [m4 Instances](#emr-hadoop-daemons-m4)
-+ [m5 Instances](#emr-hadoop-daemons-m5)
-+ [m5a Instances](#emr-hadoop-daemons-m5a)
-+ [m5d Instances](#emr-hadoop-daemons-m5d)
-+ [m5zn Instances](#emr-hadoop-daemons-m5zn)
-+ [m6g Instances](#emr-hadoop-daemons-m6g)
-+ [m6gd Instances](#emr-hadoop-daemons-m6gd)
-+ [p2 Instances](#emr-hadoop-daemons-p2)
-+ [p3 Instances](#emr-hadoop-daemons-p3)
-+ [r3 Instances](#emr-hadoop-daemons-r3)
-+ [r4 Instances](#emr-hadoop-daemons-r4)
-+ [r5 Instances](#emr-hadoop-daemons-r5)
-+ [r5a Instances](#emr-hadoop-daemons-r5a)
-+ [r5b Instances](#emr-hadoop-daemons-r5b)
-+ [r5d Instances](#emr-hadoop-daemons-r5d)
-+ [r5dn Instances](#emr-hadoop-daemons-r5dn)
-+ [r6g Instances](#emr-hadoop-daemons-r6g)
-+ [r6gd Instances](#emr-hadoop-daemons-r6gd)
-+ [z1d Instances](#emr-hadoop-daemons-z1d)
++ [c1 instances](#emr-hadoop-daemons-c1)
++ [c3 instances](#emr-hadoop-daemons-c3)
++ [c4 instances](#emr-hadoop-daemons-c4)
++ [c5 instances](#emr-hadoop-daemons-c5)
++ [c5a instances](#emr-hadoop-daemons-c5a)
++ [c5ad instances](#emr-hadoop-daemons-c5ad)
++ [c5d instances](#emr-hadoop-daemons-c5d)
++ [c5n instances](#emr-hadoop-daemons-c5n)
++ [c6g instances](#emr-hadoop-daemons-c6g)
++ [c6gd instances](#emr-hadoop-daemons-c6gd)
++ [c6gn instances](#emr-hadoop-daemons-c6gn)
++ [cc2 instances](#emr-hadoop-daemons-cc2)
++ [cg1 instances](#emr-hadoop-daemons-cg1)
++ [cr1 instances](#emr-hadoop-daemons-cr1)
++ [d2 instances](#emr-hadoop-daemons-d2)
++ [d3 instances](#emr-hadoop-daemons-d3)
++ [d3en instances](#emr-hadoop-daemons-d3en)
++ [g2 instances](#emr-hadoop-daemons-g2)
++ [g3 instances](#emr-hadoop-daemons-g3)
++ [g3s instances](#emr-hadoop-daemons-g3s)
++ [g4dn instances](#emr-hadoop-daemons-g4dn)
++ [h1 instances](#emr-hadoop-daemons-h1)
++ [hi1 instances](#emr-hadoop-daemons-hi1)
++ [hs1 instances](#emr-hadoop-daemons-hs1)
++ [i2 instances](#emr-hadoop-daemons-i2)
++ [i3 instances](#emr-hadoop-daemons-i3)
++ [i3en instances](#emr-hadoop-daemons-i3en)
++ [m1 instances](#emr-hadoop-daemons-m1)
++ [m2 instances](#emr-hadoop-daemons-m2)
++ [m3 instances](#emr-hadoop-daemons-m3)
++ [m4 instances](#emr-hadoop-daemons-m4)
++ [m5 instances](#emr-hadoop-daemons-m5)
++ [m5a instances](#emr-hadoop-daemons-m5a)
++ [m5d instances](#emr-hadoop-daemons-m5d)
++ [m5zn instances](#emr-hadoop-daemons-m5zn)
++ [m6g instances](#emr-hadoop-daemons-m6g)
++ [m6gd instances](#emr-hadoop-daemons-m6gd)
++ [p2 instances](#emr-hadoop-daemons-p2)
++ [p3 instances](#emr-hadoop-daemons-p3)
++ [r3 instances](#emr-hadoop-daemons-r3)
++ [r4 instances](#emr-hadoop-daemons-r4)
++ [r5 instances](#emr-hadoop-daemons-r5)
++ [r5a instances](#emr-hadoop-daemons-r5a)
++ [r5b instances](#emr-hadoop-daemons-r5b)
++ [r5d instances](#emr-hadoop-daemons-r5d)
++ [r5dn instances](#emr-hadoop-daemons-r5dn)
++ [r6g instances](#emr-hadoop-daemons-r6g)
++ [r6gd instances](#emr-hadoop-daemons-r6gd)
++ [z1d instances](#emr-hadoop-daemons-z1d)
 
-## c1 Instances<a name="emr-hadoop-daemons-c1"></a>
+## c1 instances<a name="emr-hadoop-daemons-c1"></a>
 
 
 **c1\.medium**  
@@ -81,7 +81,7 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 768 | 
 | HADOOP\_DATANODE\_HEAPSIZE  | 384 | 
 
-## c3 Instances<a name="emr-hadoop-daemons-c3"></a>
+## c3 instances<a name="emr-hadoop-daemons-c3"></a>
 
 
 **c3\.xlarge**  
@@ -131,7 +131,7 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 6348 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 1679 | 
 
-## c4 Instances<a name="emr-hadoop-daemons-c4"></a>
+## c4 instances<a name="emr-hadoop-daemons-c4"></a>
 
 
 **c4\.large**  
@@ -193,7 +193,7 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 6348 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 1679 | 
 
-## c5 Instances<a name="emr-hadoop-daemons-c5"></a>
+## c5 instances<a name="emr-hadoop-daemons-c5"></a>
 
 
 **c5\.xlarge**  
@@ -279,7 +279,7 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 19865 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
 
-## c5a Instances<a name="emr-hadoop-daemons-c5a"></a>
+## c5a instances<a name="emr-hadoop-daemons-c5a"></a>
 
 
 **c5a\.xlarge**  
@@ -353,7 +353,7 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 12697 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 2949 | 
 
-## c5ad Instances<a name="emr-hadoop-daemons-c5ad"></a>
+## c5ad instances<a name="emr-hadoop-daemons-c5ad"></a>
 
 
 **c5ad\.xlarge**  
@@ -439,7 +439,7 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 18944 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
 
-## c5d Instances<a name="emr-hadoop-daemons-c5d"></a>
+## c5d instances<a name="emr-hadoop-daemons-c5d"></a>
 
 
 **c5d\.xlarge**  
@@ -501,7 +501,7 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 14950 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 3399 | 
 
-## c5n Instances<a name="emr-hadoop-daemons-c5n"></a>
+## c5n instances<a name="emr-hadoop-daemons-c5n"></a>
 
 
 **c5n\.xlarge**  
@@ -563,7 +563,7 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 19865 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
 
-## c6g Instances<a name="emr-hadoop-daemons-c6g"></a>
+## c6g instances<a name="emr-hadoop-daemons-c6g"></a>
 
 
 **c6g\.xlarge**  
@@ -637,7 +637,7 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 12697 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 2949 | 
 
-## c6gd Instances<a name="emr-hadoop-daemons-c6gd"></a>
+## c6gd instances<a name="emr-hadoop-daemons-c6gd"></a>
 
 
 **c6gd\.xlarge**  
@@ -711,7 +711,7 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 12697 | 
 | HADOOP\_DATANODE\_HEAPSIZE  | 2949 | 
 
-## c6gn Instances<a name="emr-hadoop-daemons-c6gn"></a>
+## c6gn instances<a name="emr-hadoop-daemons-c6gn"></a>
 
 
 **c6gn\.xlarge**  
@@ -785,7 +785,7 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 12697 | 
 | HADOOP\_DATANODE\_HEAPSIZE  | 2949 | 
 
-## cc2 Instances<a name="emr-hadoop-daemons-cc2"></a>
+## cc2 instances<a name="emr-hadoop-daemons-cc2"></a>
 
 
 **cc2\.8xlarge**  
@@ -799,7 +799,7 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 12288 | 
 | HADOOP\_DATANODE\_HEAPSIZE  | 384 | 
 
-## cg1 Instances<a name="emr-hadoop-daemons-cg1"></a>
+## cg1 instances<a name="emr-hadoop-daemons-cg1"></a>
 
 
 **cg1\.4xlarge**  
@@ -813,7 +813,7 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 3840 | 
 | HADOOP\_DATANODE\_HEAPSIZE  | 384 | 
 
-## cr1 Instances<a name="emr-hadoop-daemons-cr1"></a>
+## cr1 instances<a name="emr-hadoop-daemons-cr1"></a>
 
 
 **cr1\.8xlarge**  
@@ -827,7 +827,7 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 25190 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
 
-## d2 Instances<a name="emr-hadoop-daemons-d2"></a>
+## d2 instances<a name="emr-hadoop-daemons-d2"></a>
 
 
 **d2\.xlarge**  
@@ -877,7 +877,7 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 25190 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
 
-## d3 Instances<a name="emr-hadoop-daemons-d3"></a>
+## d3 instances<a name="emr-hadoop-daemons-d3"></a>
 
 
 **d3\.xlarge**  
@@ -927,7 +927,7 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 25190 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
 
-## d3en Instances<a name="emr-hadoop-daemons-d3en"></a>
+## d3en instances<a name="emr-hadoop-daemons-d3en"></a>
 
 
 **d3en\.xlarge**  
@@ -1001,7 +1001,7 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 18944 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
 
-## g2 Instances<a name="emr-hadoop-daemons-g2"></a>
+## g2 instances<a name="emr-hadoop-daemons-g2"></a>
 
 
 **g2\.2xlarge**  
@@ -1015,7 +1015,7 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 2304 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 384 | 
 
-## g3 Instances<a name="emr-hadoop-daemons-g3"></a>
+## g3 instances<a name="emr-hadoop-daemons-g3"></a>
 
 
 **g3\.4xlarge**  
@@ -1053,7 +1053,7 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 50176 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
 
-## g3s Instances<a name="emr-hadoop-daemons-g3s"></a>
+## g3s instances<a name="emr-hadoop-daemons-g3s"></a>
 
 
 **g3s\.xlarge**  
@@ -1067,7 +1067,7 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 3328 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 1075 | 
 
-## g4dn Instances<a name="emr-hadoop-daemons-g4dn"></a>
+## g4dn instances<a name="emr-hadoop-daemons-g4dn"></a>
 
 
 **g4dn\.xlarge**  
@@ -1141,7 +1141,7 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 26419 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
 
-## h1 Instances<a name="emr-hadoop-daemons-h1"></a>
+## h1 instances<a name="emr-hadoop-daemons-h1"></a>
 
 
 **h1\.2xlarge**  
@@ -1191,7 +1191,7 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 26419 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
 
-## hi1 Instances<a name="emr-hadoop-daemons-hi1"></a>
+## hi1 instances<a name="emr-hadoop-daemons-hi1"></a>
 
 
 **hi1\.4xlarge**  
@@ -1205,7 +1205,7 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 6400 | 
 | HADOOP\_DATANODE\_HEAPSIZE  | 1689 | 
 
-## hs1 Instances<a name="emr-hadoop-daemons-hs1"></a>
+## hs1 instances<a name="emr-hadoop-daemons-hs1"></a>
 
 
 **hs1\.8xlarge**  
@@ -1219,7 +1219,7 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 12288 | 
 | HADOOP\_DATANODE\_HEAPSIZE  | 384 | 
 
-## i2 Instances<a name="emr-hadoop-daemons-i2"></a>
+## i2 instances<a name="emr-hadoop-daemons-i2"></a>
 
 
 **i2\.xlarge**  
@@ -1269,7 +1269,7 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 25190 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
 
-## i3 Instances<a name="emr-hadoop-daemons-i3"></a>
+## i3 instances<a name="emr-hadoop-daemons-i3"></a>
 
 
 **i3\.xlarge**  
@@ -1331,7 +1331,7 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 12083 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 1699 | 
 
-## i3en Instances<a name="emr-hadoop-daemons-i3en"></a>
+## i3en instances<a name="emr-hadoop-daemons-i3en"></a>
 
 
 **i3en\.xlarge**  
@@ -1405,7 +1405,7 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 78848 | 
 | HADOOP\_DATANODE\_HEAPSIZE  | 4096 | 
 
-## m1 Instances<a name="emr-hadoop-daemons-m1"></a>
+## m1 instances<a name="emr-hadoop-daemons-m1"></a>
 
 
 **m1\.medium**  
@@ -1443,7 +1443,7 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 2304 | 
 | HADOOP\_DATANODE\_HEAPSIZE  | 384 | 
 
-## m2 Instances<a name="emr-hadoop-daemons-m2"></a>
+## m2 instances<a name="emr-hadoop-daemons-m2"></a>
 
 
 **m2\.xlarge**  
@@ -1481,7 +1481,7 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 12288 | 
 | HADOOP\_DATANODE\_HEAPSIZE  | 384 | 
 
-## m3 Instances<a name="emr-hadoop-daemons-m3"></a>
+## m3 instances<a name="emr-hadoop-daemons-m3"></a>
 
 
 **m3\.2xlarge**  
@@ -1495,7 +1495,7 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 3276 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 1064 | 
 
-## m4 Instances<a name="emr-hadoop-daemons-m4"></a>
+## m4 instances<a name="emr-hadoop-daemons-m4"></a>
 
 
 **m4\.large**  
@@ -1569,7 +1569,7 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 26419 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
 
-## m5 Instances<a name="emr-hadoop-daemons-m5"></a>
+## m5 instances<a name="emr-hadoop-daemons-m5"></a>
 
 
 **m5\.xlarge**  
@@ -1655,7 +1655,7 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 39526 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
 
-## m5a Instances<a name="emr-hadoop-daemons-m5a"></a>
+## m5a instances<a name="emr-hadoop-daemons-m5a"></a>
 
 
 **m5a\.xlarge**  
@@ -1741,7 +1741,7 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 39526 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
 
-## m5d Instances<a name="emr-hadoop-daemons-m5d"></a>
+## m5d instances<a name="emr-hadoop-daemons-m5d"></a>
 
 
 **m5d\.xlarge**  
@@ -1827,7 +1827,7 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 39526 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
 
-## m5zn Instances<a name="emr-hadoop-daemons-m5zn"></a>
+## m5zn instances<a name="emr-hadoop-daemons-m5zn"></a>
 
 
 **m5zn\.xlarge**  
@@ -1889,7 +1889,7 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE | 18944 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
 
-## m6g Instances<a name="emr-hadoop-daemons-m6g"></a>
+## m6g instances<a name="emr-hadoop-daemons-m6g"></a>
 
 
 **m6g\.xlarge**  
@@ -1963,7 +1963,7 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE | 25190 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
 
-## m6gd Instances<a name="emr-hadoop-daemons-m6gd"></a>
+## m6gd instances<a name="emr-hadoop-daemons-m6gd"></a>
 
 
 **m6gd\.xlarge**  
@@ -2037,7 +2037,7 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE | 25190 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
 
-## p2 Instances<a name="emr-hadoop-daemons-p2"></a>
+## p2 instances<a name="emr-hadoop-daemons-p2"></a>
 
 
 **p2\.xlarge**  
@@ -2075,7 +2075,7 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 75161 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
 
-## p3 Instances<a name="emr-hadoop-daemons-p3"></a>
+## p3 instances<a name="emr-hadoop-daemons-p3"></a>
 
 
 **p3\.2xlarge**  
@@ -2113,7 +2113,7 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 25190 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
 
-## r3 Instances<a name="emr-hadoop-daemons-r3"></a>
+## r3 instances<a name="emr-hadoop-daemons-r3"></a>
 
 
 **r3\.xlarge**  
@@ -2163,7 +2163,7 @@ To customize these settings, use the `hadoop-env` configuration classification\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 25190 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
 
-## r4 Instances<a name="emr-hadoop-daemons-r4"></a>
+## r4 instances<a name="emr-hadoop-daemons-r4"></a>
 
 **Note**  
 R4 instances are available only in version 5\.4\.0 and later\.
@@ -2228,7 +2228,7 @@ R4 instances are available only in version 5\.4\.0 and later\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 50176 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
 
-## r5 Instances<a name="emr-hadoop-daemons-r5"></a>
+## r5 instances<a name="emr-hadoop-daemons-r5"></a>
 
 
 **r5\.xlarge**  
@@ -2314,7 +2314,7 @@ R4 instances are available only in version 5\.4\.0 and later\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 78848 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
 
-## r5a Instances<a name="emr-hadoop-daemons-r5a"></a>
+## r5a instances<a name="emr-hadoop-daemons-r5a"></a>
 
 
 **r5a\.xlarge**  
@@ -2400,7 +2400,7 @@ R4 instances are available only in version 5\.4\.0 and later\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 78848 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
 
-## r5b Instances<a name="emr-hadoop-daemons-r5b"></a>
+## r5b instances<a name="emr-hadoop-daemons-r5b"></a>
 
 
 **r5b\.xlarge**  
@@ -2486,7 +2486,7 @@ R4 instances are available only in version 5\.4\.0 and later\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 75161 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
 
-## r5d Instances<a name="emr-hadoop-daemons-r5d"></a>
+## r5d instances<a name="emr-hadoop-daemons-r5d"></a>
 
 
 **r5d\.xlarge**  
@@ -2572,7 +2572,7 @@ R4 instances are available only in version 5\.4\.0 and later\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 78848 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
 
-## r5dn Instances<a name="emr-hadoop-daemons-r5dn"></a>
+## r5dn instances<a name="emr-hadoop-daemons-r5dn"></a>
 
 
 **r5dn\.xlarge**  
@@ -2658,7 +2658,7 @@ R4 instances are available only in version 5\.4\.0 and later\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 75161 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
 
-## r6g Instances<a name="emr-hadoop-daemons-r6g"></a>
+## r6g instances<a name="emr-hadoop-daemons-r6g"></a>
 
 
 **r6g\.xlarge**  
@@ -2732,7 +2732,7 @@ R4 instances are available only in version 5\.4\.0 and later\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 50176 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
 
-## r6gd Instances<a name="emr-hadoop-daemons-r6gd"></a>
+## r6gd instances<a name="emr-hadoop-daemons-r6gd"></a>
 
 
 **r6gd\.xlarge**  
@@ -2806,7 +2806,7 @@ R4 instances are available only in version 5\.4\.0 and later\.
 | HADOOP\_NAMENODE\_HEAPSIZE  | 50176 | 
 | HADOOP\_DATANODE\_HEAPSIZE | 4096 | 
 
-## z1d Instances<a name="emr-hadoop-daemons-z1d"></a>
+## z1d instances<a name="emr-hadoop-daemons-z1d"></a>
 
 
 **z1d\.xlarge**  

@@ -1,8 +1,8 @@
-# Using HBase Snapshots<a name="emr-hbase-snapshot"></a>
+# Using HBase snapshots<a name="emr-hbase-snapshot"></a>
 
-HBase uses a built\-in [snapshot](https://hbase.apache.org/book.html#ops.snapshots) functionality to create lightweight backups of tables\. In EMR clusters, these backups can be exported to Amazon S3 using EMRFS\. You can create a snapshot on the master node using the HBase shell\. This topic shows you how to run these commands interactively with the shell or through a step using `command-runner.jar` with either the AWS CLI or AWS SDK for Java\. For more information about other types of HBase backups, see [HBase Backup](https://hbase.apache.org/book.html#ops.backup) in the HBase documentation\.
+HBase uses a built\-in [snapshot](https://hbase.apache.org/book.html#ops.snapshots) functionality to create lightweight backups of tables\. In EMR clusters, these backups can be exported to Amazon S3 using EMRFS\. You can create a snapshot on the master node using the HBase shell\. This topic shows you how to run these commands interactively with the shell or through a step using `command-runner.jar` with either the AWS CLI or AWS SDK for Java\. For more information about other types of HBase backups, see [HBase backup](https://hbase.apache.org/book.html#ops.backup) in the HBase documentation\.
 
-## Create a snapshot using a table<a name="w141aac25c39b4"></a>
+## Create a snapshot using a table<a name="w142aac25c39b4"></a>
 
 ```
 hbase snapshot create -n snapshotName -t tableName
@@ -27,20 +27,20 @@ HadoopJarStepConfig hbaseSnapshotConf = new HadoopJarStepConfig()
 **Note**  
 If your snapshot name is not unique, the create operation fails with a return code of `-1` or `255` but you may not see an error message that states what went wrong\. To use the same snapshot name, delete it and then re\-create it\.
 
-## Delete a snapshot<a name="w141aac25c39b6"></a>
+## Delete a snapshot<a name="w142aac25c39b6"></a>
 
 ```
 hbase shell
 >> delete_snapshot 'snapshotName'
 ```
 
-## View snapshot info<a name="w141aac25c39b8"></a>
+## View snapshot info<a name="w142aac25c39b8"></a>
 
 ```
 hbase snapshot info -snapshot snapshotName
 ```
 
-## Export a snapshot to Amazon S3<a name="w141aac25c39c10"></a>
+## Export a snapshot to Amazon S3<a name="w142aac25c39c10"></a>
 
 **Important**  
 If you do not specify a `-mappers` value when exporting a snapshot, HBase uses an arbitrary calculation to determine the number of mappers\. This value can be very large depending on your table size, which negatively affects running jobs during the export\. For this reason, we recommend that you specify the `-mappers` parameter, the `-bandwidth` parameter \(which specifies the bandwidth consumption in megabytes per second\), or both to limit the cluster resources used by the export operation\. Alternatively, you can run the export snapshot operation during a period of low usage\.
@@ -69,7 +69,7 @@ HadoopJarStepConfig hbaseImportSnapshotConf = new HadoopJarStepConfig()
       "-mappers","2","-bandwidth","50");
 ```
 
-## Import snapshot from Amazon S3<a name="w141aac25c39c12"></a>
+## Import snapshot from Amazon S3<a name="w142aac25c39c12"></a>
 
 Although this is an import, the HBase option used here is still `export`\.
 
@@ -102,7 +102,7 @@ HadoopJarStepConfig hbaseImportSnapshotConf = new HadoopJarStepConfig()
       "-mappers","2","-chuser","hbase");
 ```
 
-## Restore a table from snapshots within the HBase shell<a name="w141aac25c39c14"></a>
+## Restore a table from snapshots within the HBase shell<a name="w142aac25c39c14"></a>
 
 ```
 hbase shell

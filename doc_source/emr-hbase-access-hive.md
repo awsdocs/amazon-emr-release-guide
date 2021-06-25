@@ -1,4 +1,4 @@
-# Access HBase Tables with Hive<a name="emr-hbase-access-hive"></a>
+# Access HBase tables with Hive<a name="emr-hbase-access-hive"></a>
 
 HBase and [Apache Hive](emr-hive.md) are tightly integrated, allowing you run massively parallel processing workloads directly on data stored in HBase\. To use Hive with HBase, you can usually launch them on the same cluster\. You can, however, launch Hive and HBase on separate clusters\. Running HBase and Hive separately on different clusters can improve performance because this allows each application to use cluster resources more efficiently\.
 
@@ -13,7 +13,7 @@ You can only connect a Hive cluster to a single HBase cluster\.
 
 1. If you are using separate clusters, modify your security groups so that HBase and Hive ports are open between these two master nodes\.
 
-1. Use SSH to connect to the master node for the cluster with Hive installed\. For more information, see [Connect to the Master Node Using SSH](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-connect-master-node-ssh.html) in the *Amazon EMR Management Guide*\.
+1. Use SSH to connect to the master node for the cluster with Hive installed\. For more information, see [Connect to the master node using SSH](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-connect-master-node-ssh.html) in the *Amazon EMR Management Guide*\.
 
 1. Launch the Hive shell with the following command\. 
 
@@ -45,4 +45,4 @@ You can only connect a Hive cluster to a single HBase cluster\.
   select count(key) from inputTable ;
   ```
 
-For a more advanced use case and example combining HBase and Hive, see the AWS Big Data Blog post, [Combine NoSQL and Massively Parallel Analytics Using Apache HBase and Apache Hive on Amazon EMR](http://aws.amazon.com/blogs/big-data/combine-nosql-and-massively-parallel-analytics-using-apache-hbase-and-apache-hive-on-amazon-emr)\.
+For a more advanced use case and example combining HBase and Hive, see the AWS Big Data Blog post, [Combine NoSQL and massively parallel analytics using Apache HBase and Apache Hive on Amazon EMR](http://aws.amazon.com/blogs/big-data/combine-nosql-and-massively-parallel-analytics-using-apache-hbase-and-apache-hive-on-amazon-emr)\.

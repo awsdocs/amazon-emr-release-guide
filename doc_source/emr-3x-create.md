@@ -1,4 +1,4 @@
-# Creating a Cluster With Earlier AMI Versions of Amazon EMR<a name="emr-3x-create"></a>
+# Creating a cluster with earlier AMI versions of Amazon EMR<a name="emr-3x-create"></a>
 
 Amazon EMR 2\.x and 3\.x releases are referenced by AMI version\. With Amazon EMR release 4\.0\.0 and later, releases are referenced by release version, using a release label such as `emr-5.11.0`\. This change is most apparent when you create a cluster using the AWS CLI or programmatically\.
 
@@ -47,7 +47,7 @@ RunJobFlowRequest request = new RunJobFlowRequest()
 				.withSlaveInstanceType("m3.xlarge");
 ```
 
-## Configuring Cluster Size<a name="emr-3x-cluster-size"></a>
+## Configuring cluster size<a name="emr-3x-cluster-size"></a>
 
 When your cluster runs, Hadoop determines the number of mapper and reducer tasks needed to process the data\. Larger clusters should have more tasks for better resource use and shorter processing time\. Typically, an EMR cluster remains the same size during the entire cluster; you set the number of tasks when you create the cluster\. When you resize a running cluster, you can vary the processing during the cluster execution\. Therefore, instead of using a fixed number of tasks, you can vary the number of tasks during the life of the cluster\. There are two configuration options to help set the ideal number of tasks:
 + `mapred.map.tasksperslot`

@@ -1,4 +1,4 @@
-# Using Hue with a Remote Database in Amazon RDS<a name="hue-rds"></a>
+# Using Hue with a remote database in Amazon RDS<a name="hue-rds"></a>
 
 By default, Hue user information and query histories are stored in a local MySQL database on the master node\. Alternatively, you can create one or more Hue\-enabled clusters using a configuration stored in Amazon S3 and a MySQL database in Amazon Relational Database Service\(Amazon RDS\)\. This allows you to persist user information and query history created by Hue without keeping your Amazon EMR cluster running\. We recommend using Amazon S3 server\-side encryption to store the configuration file\.
 

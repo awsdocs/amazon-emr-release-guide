@@ -1,7 +1,7 @@
-# Create or Run a Hadoop Application<a name="emr-hadoop-application"></a>
+# Create or run a Hadoop application<a name="emr-hadoop-application"></a>
 
 **Topics**
-+ [Build Binaries Using Amazon EMR](emr-build-binaries.md)
-+ [Run a Script in a Cluster](emr-hadoop-script.md)
-+ [Process Data with Streaming](UseCase_Streaming.md)
-+ [Process Data with a Custom JAR](UseCase_CustomJar.md)
++ [Build binaries using Amazon EMR](emr-build-binaries.md)
++ [Run a script in a cluster](emr-hadoop-script.md)
++ [Process data with streaming](UseCase_Streaming.md)
++ [Process data with a custom JAR](UseCase_CustomJar.md)

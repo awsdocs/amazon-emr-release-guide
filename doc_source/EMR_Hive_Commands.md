@@ -1,15 +1,15 @@
-# Hive Command Examples for Exporting, Importing, and Querying Data in DynamoDB<a name="EMR_Hive_Commands"></a>
+# Hive command examples for exporting, importing, and querying data in DynamoDB<a name="EMR_Hive_Commands"></a>
 
 The following examples use Hive commands to perform operations such as exporting data to Amazon S3 or HDFS, importing data to DynamoDB, joining tables, querying tables, and more\. 
 
 Operations on a Hive table reference data stored in DynamoDB\. Hive commands are subject to the DynamoDB table's provisioned throughput settings, and the data retrieved includes the data written to the DynamoDB table at the time the Hive operation request is processed by DynamoDB\. If the data retrieval process takes a long time, some data returned by the Hive command may have been updated in DynamoDB since the Hive command began\. 
 
-Hive commands `DROP TABLE` and `CREATE TABLE` only act on the local tables in Hive and do not create or drop tables in DynamoDB\. If your Hive query references a table in DynamoDB, that table must already exist before you run the query\. For more information about creating and deleting tables in DynamoDB, see [Working with Tables in DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html) in the *Amazon DynamoDB Developer Guide*\. 
+Hive commands `DROP TABLE` and `CREATE TABLE` only act on the local tables in Hive and do not create or drop tables in DynamoDB\. If your Hive query references a table in DynamoDB, that table must already exist before you run the query\. For more information about creating and deleting tables in DynamoDB, see [Working with tables in DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html) in the *Amazon DynamoDB Developer Guide*\. 
 
 **Note**  
  When you map a Hive table to a location in Amazon S3, do not map it to the root path of the bucket, s3://mybucket, as this may cause errors when Hive writes the data to Amazon S3\. Instead map the table to a subpath of the bucket, s3://mybucket/mypath\. 
 
-## Exporting Data from DynamoDB<a name="EMR_Hive_Commands_exporting"></a>
+## Exporting data from DynamoDB<a name="EMR_Hive_Commands_exporting"></a>
 
  You can use Hive to export data from DynamoDB\. 
 
@@ -121,7 +121,7 @@ Hive commands `DROP TABLE` and `CREATE TABLE` only act on the local tables in Hi
   11. FROM hiveTableName;
   ```
 
-## Importing Data to DynamoDB<a name="EMR_Hive_Commands_importing"></a>
+## Importing data to DynamoDB<a name="EMR_Hive_Commands_importing"></a>
 
  When you write data to DynamoDB using Hive you should ensure that the number of write capacity units is greater than the number of mappers in the cluster\. For example, clusters that run on m1\.xlarge EC2 instances produce 8 mappers per instance\. In the case of a cluster that has 10 instances, that would mean a total of 80 mappers\. If your write capacity units are not greater than the number of mappers in the cluster, the Hive write operation may consume all of the write throughput, or attempt to consume more throughput than is provisioned\. For more information about the number of mappers produced by each EC2 instance type, see [Configure Hadoop](emr-hadoop-config.md)\.
 
@@ -177,7 +177,7 @@ Hive commands `DROP TABLE` and `CREATE TABLE` only act on the local tables in Hi
   INSERT OVERWRITE TABLE hiveTableName SELECT * FROM hdfs_import;
   ```
 
-## Querying Data in DynamoDB<a name="EMR_Hive_Commands_querying"></a>
+## Querying data in DynamoDB<a name="EMR_Hive_Commands_querying"></a>
 
  The following examples show the various ways you can use Amazon EMR to query data stored in DynamoDB\. 
 

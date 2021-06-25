@@ -1,10 +1,10 @@
-# Run Spark Applications with Docker Using Amazon EMR 6\.x<a name="emr-spark-docker"></a>
+# Run Spark applications with Docker using Amazon EMR 6\.x<a name="emr-spark-docker"></a>
 
-With Amazon EMR 6\.0\.0, Spark applications can use Docker containers to define their library dependencies, instead of installing dependencies on the individual Amazon EC2 instances in the cluster\. To run Spark with Docker, you must first configure the Docker registry and define additional parameters when submitting a Spark application\. For more information, see [Configure Docker Integration](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-docker.html)\.
+With Amazon EMR 6\.0\.0, Spark applications can use Docker containers to define their library dependencies, instead of installing dependencies on the individual Amazon EC2 instances in the cluster\. To run Spark with Docker, you must first configure the Docker registry and define additional parameters when submitting a Spark application\. For more information, see [Configure Docker integration](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-docker.html)\.
 
 When the application is submitted, YARN invokes Docker to pull the specified Docker image and run the Spark application inside a Docker container\. This allows you to easily define and isolate dependencies\. It reduces the time for bootstrapping or preparing instances in the Amazon EMR cluster with the libraries needed for job execution\. 
 
-## Considerations when Running Spark with Docker<a name="emr-spark-docker-considerations"></a>
+## Considerations when running Spark with Docker<a name="emr-spark-docker-considerations"></a>
 
 When running Spark with Docker, make sure the following prerequisites are met:
 + The `docker` package and CLI are only installed on core and task nodes\.
@@ -27,9 +27,9 @@ When running Spark with Docker, make sure the following prerequisites are met:
 + In EMR 6\.1\.0 and later, you are not required to use the listed command `YARN_CONTAINER_RUNTIME_DOCKER_CLIENT_CONFIG={DOCKER_CLIENT_CONFIG_PATH_ON_HDFS}` when the ECR auto authentication feature is enabled\.
 + Any Docker image used with Spark must have Java installed in the Docker image\.
 
-For more information about the prerequisites, see [Configure Docker Integration](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-docker.html)\.
+For more information about the prerequisites, see [Configure Docker integration](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-docker.html)\.
 
-## Creating a Docker Image<a name="emr-spark-docker-image"></a>
+## Creating a Docker image<a name="emr-spark-docker-image"></a>
 
 Docker images are created using a Dockerfile, which defines the packages and configuration to include in the image\. The following two example Dockerfiles use PySpark and SparkR\.
 
@@ -82,7 +82,7 @@ RUN Rscript -e "install.packages('randomForest')"
 
 For more information on Dockerfile syntax, see the [Dockerfile reference documentation](https://docs.docker.com/engine/reference/builder/)\.
 
-## Using Docker Images from Amazon ECR<a name="emr-spark-docker-ECR"></a>
+## Using Docker images from Amazon ECR<a name="emr-spark-docker-ECR"></a>
 
 Amazon Elastic Container Registry \(Amazon ECR\) is a fully\-managed Docker container registry, which makes it easy to store, manage, and deploy Docker container images\. When using Amazon ECR, the cluster must be configured to trust your instance of ECR, and you must configure authentication in order for the cluster to use Docker images from Amazon ECR\. For more information, see [Configuring YARN to access Amazon ECR](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-docker.html#emr-docker-ECR)\. 
 
@@ -280,9 +280,9 @@ Wishlist (formerly TODO):
 Changes in 4.6-14:
 ```
 
-## Using a Docker Image from Docker Hub<a name="emr-spark-dockerhub"></a>
+## Using a Docker image from Docker Hub<a name="emr-spark-dockerhub"></a>
 
-To use Docker Hub, you must deploy your cluster to a public subnet and configure it to use Docker Hub as a trusted registry\. For more information, see [Configure Docker Integration](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-docker.html)\. 
+To use Docker Hub, you must deploy your cluster to a public subnet and configure it to use Docker Hub as a trusted registry\. For more information, see [Configure Docker integration](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-plan-docker.html)\. 
 
 In this example, the cluster needs the following additional configuration to make sure that the your\-public\-repo repository on Docker Hub is trusted\. When using Docker Hub, replace this repository name with your actual repository\.
 

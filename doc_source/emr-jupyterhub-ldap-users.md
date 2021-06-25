@@ -1,8 +1,8 @@
-# Using LDAP Authentication<a name="emr-jupyterhub-ldap-users"></a>
+# Using LDAP authentication<a name="emr-jupyterhub-ldap-users"></a>
 
-Lightweight Directory Access Protocol \(LDAP\) is an application protocol for querying and modifying objects that correspond to resources such as users and computers stored in an LDAP\-compatible directory service provider such as Active Directory or an OpenLDAP server\. You can use the [LDAP Authenticator Plugin for JupyterHub](https://github.com/jupyterhub/ldapauthenticator/) with JupyterHub on Amazon EMR to use LDAP for user authentication\. The plugin handles login sessions for LDAP users and provides user information to Jupyter\. This lets users connect to JupyterHub and notebooks by using the credentials for their identities stored in an LDAP\-compatible server\.
+Lightweight Directory Access Protocol \(LDAP\) is an application protocol for querying and modifying objects that correspond to resources such as users and computers stored in an LDAP\-compatible directory service provider such as Active Directory or an OpenLDAP server\. You can use the [LDAP authenticator plugin for JupyterHub](https://github.com/jupyterhub/ldapauthenticator/) with JupyterHub on Amazon EMR to use LDAP for user authentication\. The plugin handles login sessions for LDAP users and provides user information to Jupyter\. This lets users connect to JupyterHub and notebooks by using the credentials for their identities stored in an LDAP\-compatible server\.
 
-The steps in this section walk you through the following steps to set up and enable LDAP using the LDAP Authenticator Plugin for JupyterHub\. You perform the steps while connected to the master node command line\. For more information, see [Connecting to the Master Node and Notebook Servers](emr-jupyterhub-connect.md)\.
+The steps in this section walk you through the following steps to set up and enable LDAP using the LDAP Authenticator Plugin for JupyterHub\. You perform the steps while connected to the master node command line\. For more information, see [Connecting to the master node and Notebook servers](emr-jupyterhub-connect.md)\.
 
 1. Create an LDAP configuration file with information about the LDAP server, such as the host IP address, port, binding names, and so on\.
 
@@ -17,7 +17,7 @@ The steps in this section walk you through the following steps to set up and ena
 **Important**  
 Before you set up LDAP, test your network infrastructure to ensure that the LDAP server and the cluster master node can communicate as required\. TLS typically uses port 389 over a plain TCP connection\. If your LDAP connection uses SSL, the well\-known TCP port for SSL is 636\.
 
-## Create the LDAP Configuration File<a name="emr-jupyterhub-ldap-config"></a>
+## Create the LDAP configuration file<a name="emr-jupyterhub-ldap-config"></a>
 
 The example below uses the following place\-holder configuration values\. Replace these with parameters that match your implementation\.
 + The LDAP server is running version 3 and available on port 389\. This is the standard non\-SSL port for LDAP\.
@@ -44,7 +44,7 @@ c.LDAPAuthenticator.server_address = 'host'
 c.LDAPAuthenticator.bind_dn_template = 'cn={username},ou=people,dc=example,dc=org'
 ```
 
-## Configure LDAP Within The Container<a name="emr-jupyterhub-ldap-container"></a>
+## Configure LDAP within the container<a name="emr-jupyterhub-ldap-container"></a>
 
 Use a text editor to create a bash script with the following contents:
 
@@ -93,9 +93,9 @@ And run the script:
 ./configure_ldap_client.sh
 ```
 
-## Add Attributes to Active Directory<a name="emr-jupyterhub-ldap-adproperties"></a>
+## Add attributes to Active Directory<a name="emr-jupyterhub-ldap-adproperties"></a>
 
-To find each user and create the appropriate entry in the database, the JupyterHub docker container requires the following UNIX properties for the corresponding user object in Active Directory\. For more information, see the section *How do I continue to edit the GID/UID RFC 2307 attributes now that the Unix Attributes Plug\-in is no longer available for the Active Directory Users and Computers MMC snap\-in?* in the article [Clarification regarding the status of Identity Management for Unix \(IDMU\) and NIS Server Role in Windows Server 2016 Technical Preview and beyond](https://blogs.technet.microsoft.com/activedirectoryua/2016/02/09/identity-management-for-unix-idmu-is-deprecated-in-windows-server/)\.
+To find each user and create the appropriate entry in the database, the JupyterHub docker container requires the following UNIX properties for the corresponding user object in Active Directory\. For more information, see the section *How do I continue to edit the GID/UID RFC 2307 attributes now that the Unix Attributes Plug\-in is no longer available for the Active Directory Users and Computers MMC snap\-in?* in the article [Clarification regarding the status of identity management for Unix \(IDMU\) and NIS server role in Windows Server 2016 technical preview and beyond](https://blogs.technet.microsoft.com/activedirectoryua/2016/02/09/identity-management-for-unix-idmu-is-deprecated-in-windows-server/)\.
 + `homeDirectory`
 
   This is the location to the user's home directory, which is usually `/home/username`\.
@@ -109,7 +109,7 @@ To find each user and create the appropriate entry in the database, the JupyterH
 
   This is the same as the *username*\.
 
-## Create User Home Directories<a name="emr-jupyterhub-ldap-directories"></a>
+## Create user home directories<a name="emr-jupyterhub-ldap-directories"></a>
 
 JupyterHub needs home directories within the container to authenticate LDAP users and store instance data\. The following example demonstrates two users, *shirley* and *diego*, in the LDAP directory\.
 
@@ -167,14 +167,14 @@ sudo docker container exec jupyterhub bash -c "sudo chgrp -R $gidNumber /home/sh
 ```
 
 **Note**  
-LDAP authenticator for JupyterHub does not support local user creation\. For more information, see [LDAP Authenticator Configuration Note on Local User Creation](https://github.com/jupyterhub/ldapauthenticator#configuration-note-on-local-user-creation)\.   
+LDAP authenticator for JupyterHub does not support local user creation\. For more information, see [LDAP authenticator configuration note on local user creation](https://github.com/jupyterhub/ldapauthenticator#configuration-note-on-local-user-creation)\.   
 To create a local user manually, use the following command\.  
 
 ```
-sudo docker exec jupyterhub bash -c "echo 'shirley:$uidNumber:$gidNumber::/home/shirley:/bin/bash' >> /etc/passwd"   
+sudo docker exec jupyterhub bash -c "echo 'shirley:x:$uidNumber:$gidNumber::/home/shirley:/bin/bash' >> /etc/passwd"   
 ```
 
-## Restart the Jupyterhub Container<a name="emr-jupyterhub-ldap-restart"></a>
+## Restart the JupyterHub container<a name="emr-jupyterhub-ldap-restart"></a>
 
 Run the following commands to restart the `jupyterhub` container:
 

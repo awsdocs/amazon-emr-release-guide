@@ -9,9 +9,9 @@ The following table lists the version of Phoenix included in the latest release 
 For the version of components installed with Phoenix in this release, see [Release 6\.3\.0 Component Versions](emr-release-6x.md#emr-630-release)\.
 
 
-**Phoenix Version Information for emr\-6\.3\.0**  
+**Phoenix version information for emr\-6\.3\.0**  
 
-| Amazon EMR Release Label | Phoenix Version | Components Installed With Phoenix | 
+| Amazon EMR release label | Phoenix version | Components installed with Phoenix | 
 | --- | --- | --- | 
 | emr\-6\.3\.0 | Phoenix 5\.0\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-mapred, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hbase\-hmaster, hbase\-client, hbase\-region\-server, phoenix\-library, phoenix\-query\-server, zookeeper\-client, zookeeper\-server | 
 
@@ -20,13 +20,13 @@ The following table lists the version of Phoenix included in the latest release 
 For the version of components installed with Phoenix in this release, see [Release 5\.33\.0 Component Versions](emr-release-5x.md#emr-5330-release)\.
 
 
-**Phoenix Version Information for emr\-5\.33\.0**  
+**Phoenix version information for emr\-5\.33\.0**  
 
-| Amazon EMR Release Label | Phoenix Version | Components Installed With Phoenix | 
+| Amazon EMR release label | Phoenix version | Components installed with Phoenix | 
 | --- | --- | --- | 
 | emr\-5\.33\.0 | Phoenix 4\.14\.3 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-mapred, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hbase\-hmaster, hbase\-client, hbase\-region\-server, phoenix\-library, phoenix\-query\-server, zookeeper\-client, zookeeper\-server | 
 
 **Topics**
-+ [Creating a Cluster with Phoenix](phoenix-create-cluster.md)
-+ [Phoenix Clients](emr-phoenix-clients.md)
-+ [Phoenix Release History](Phoenix-release-history.md)
++ [Creating a cluster with Phoenix](phoenix-create-cluster.md)
++ [Phoenix clients](emr-phoenix-clients.md)
++ [Phoenix release history](Phoenix-release-history.md)

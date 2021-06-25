@@ -9,9 +9,9 @@ The following table lists the version of Hadoop included in the latest release o
 For the version of components installed with Hadoop in this release, see [Release 6\.3\.0 Component Versions](emr-release-6x.md#emr-630-release)\.
 
 
-**Hadoop Version Information for emr\-6\.3\.0**  
+**Hadoop version information for emr\-6\.3\.0**  
 
-| Amazon EMR Release Label | Hadoop Version | Components Installed With Hadoop | 
+| Amazon EMR release label | Hadoop version | Components installed with Hadoop | 
 | --- | --- | --- | 
 | emr\-6\.3\.0 | Hadoop 3\.2\.1 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-mapred, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server | 
 
@@ -20,16 +20,16 @@ The following table lists the version of Hadoop included in the latest release o
 For the version of components installed with Hadoop in this release, see [Release 5\.33\.0 Component Versions](emr-release-5x.md#emr-5330-release)\.
 
 
-**Hadoop Version Information for emr\-5\.33\.0**  
+**Hadoop version information for emr\-5\.33\.0**  
 
-| Amazon EMR Release Label | Hadoop Version | Components Installed With Hadoop | 
+| Amazon EMR release label | Hadoop version | Components installed with Hadoop | 
 | --- | --- | --- | 
 | emr\-5\.33\.0 | Hadoop 2\.10\.1 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-mapred, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server | 
 
-Beginning with Amazon EMR 5\.18\.0, you can use the Amazon EMR artifact repository to build your job code against the exact versions of libraries and dependencies that are available with specific Amazon EMR release versions\. For more information, see [Checking Dependencies Using the Amazon EMR Artifact Repository](emr-artifact-repository.md)\.
+Beginning with Amazon EMR 5\.18\.0, you can use the Amazon EMR artifact repository to build your job code against the exact versions of libraries and dependencies that are available with specific Amazon EMR release versions\. For more information, see [Checking dependencies using the Amazon EMR artifact repository](emr-artifact-repository.md)\.
 
 **Topics**
 + [Configure Hadoop](emr-hadoop-config.md)
-+ [Transparent Encryption in HDFS on Amazon EMR](emr-encryption-tdehdfs.md)
-+ [Create or Run a Hadoop Application](emr-hadoop-application.md)
-+ [Hadoop Version History](Hadoop-release-history.md)
++ [Transparent encryption in HDFS on Amazon EMR](emr-encryption-tdehdfs.md)
++ [Create or run a Hadoop application](emr-hadoop-application.md)
++ [Hadoop version history](Hadoop-release-history.md)

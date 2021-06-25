@@ -1,4 +1,4 @@
-# Using Oozie with a Remote Database in Amazon RDS<a name="oozie-rds"></a>
+# Using Oozie with a remote database in Amazon RDS<a name="oozie-rds"></a>
 
 By default, Oozie user information and query histories are stored in a local MySQL database on the master node\. Alternatively, you can create one or more Oozie\-enabled clusters using a configuration stored in Amazon S3 and a MySQL database in Amazon Relational Database Service\(Amazon RDS\)\. This allows you to persist user information and query history created by Oozie without keeping your Amazon EMR cluster running\. We recommend using Amazon S3 server\-side encryption to store the configuration file\.
 
