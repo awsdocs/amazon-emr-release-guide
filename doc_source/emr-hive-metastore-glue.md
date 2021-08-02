@@ -77,7 +77,7 @@ For more information about specifying a configuration classification using the A
       "Classification": "hive-site",
       "Properties": {
         "hive.metastore.client.factory.class": "com.amazonaws.glue.catalog.metastore.AWSGlueDataCatalogHiveClientFactory",
-        "hive.metastore.schema.verification": "false"
+        "hive.metastore.schema.verification": "false",
         "hive.metastore.glue.catalogid": "acct-id"
       }
     }
