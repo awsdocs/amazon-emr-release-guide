@@ -10,6 +10,9 @@ Configuration classifications for Spark on Amazon EMR include the following:
 + `spark-log4j`—Sets values in the `log4j.properties` file\. For settings and more information, see the [log4j\.properties\.template](https://github.com/apache/spark/blob/master/conf/log4j.properties.template) file on Github\.
 + `spark-metrics`—Sets values in the `metrics.properties` file\. For settings and more information, see the [metrics\.properties\.template](https://github.com/apache/spark/blob/master/conf/metrics.properties.template) file on Github, and [Metrics](https://spark.apache.org/docs/latest/monitoring.html#metrics) in Spark documentation\.
 
+**Note**  
+If you're migrating Spark workloads to Amazon EMR from another platform, we recommend that you test your workloads with the [Spark defaults set by Amazon EMR](#spark-defaults) before you add custom configurations\. Most customers see improved performance with our default settings\.
+
 ## Spark defaults set by Amazon EMR<a name="spark-defaults"></a>
 
 The following table shows how Amazon EMR sets default values in `spark-defaults` that affect applications\.

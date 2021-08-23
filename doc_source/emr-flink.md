@@ -5,7 +5,7 @@
 Additionally, Flink has connectors for third\-party data sources, such as the following:
 + [Amazon Kinesis Data Streams](https://ci.apache.org/projects/flink/flink-docs-master/apis/streaming/connectors/kinesis.html)
 + [Apache Kafka](https://ci.apache.org/projects/flink/flink-docs-master/apis/streaming/connectors/kafka.html)
-+ [Elasticsearch](https://ci.apache.org/projects/flink/flink-docs-master/apis/streaming/connectors/elasticsearch2.html)
++ [Flink Elasticsearch Connector](https://ci.apache.org/projects/flink/flink-docs-master/apis/streaming/connectors/elasticsearch2.html)
 + [Twitter Streaming API](https://ci.apache.org/projects/flink/flink-docs-release-1.2/dev/connectors/twitter.html)
 + [Cassandra](https://ci.apache.org/projects/flink/flink-docs-master/apis/streaming/connectors/cassandra.html)
 
@@ -23,7 +23,7 @@ For the version of components installed with Flink in this release, see [Release
 
 **Flink version information for emr\-5\.33\.0**  
 
-| Amazon EMR release label | Flink version | Components installed with Flink | 
+| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
 | --- | --- | --- | 
 | emr\-5\.33\.0 | Flink 1\.12\.1 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client, flink\-jobmanager\-config | 
 

@@ -6,7 +6,7 @@ For a comprehensive diagram of application versions in every release, see [Appli
 
 When you launch a cluster, you can choose from multiple release versions of Amazon EMR\. This allows you to test and use application versions that fit your compatibility requirements\. You specify the release version using the *release label*\. Release labels are in the form `emr-x.x.x. For example, emr-5.33.0.`
 
-New Amazon EMR release versions are made available in different regions over a period of several days, beginning with the first region on the initial release date\. The latest release version may not be available in your region during this period\.
+New Amazon EMR release versions are made available in different Regions over a period of several days, beginning with the first Region on the initial release date\. The latest release version may not be available in your Region during this period\.
 
 ------
 #### [ 5\.33\.0 ]<a name="emr-5330-release"></a>
@@ -32,7 +32,9 @@ For a comprehensive history of application versions for each release of Amazon E
 
 The following release notes include information for Amazon EMR release version 5\.33\.0\. Changes are relative to 5\.32\.0\.
 
-Initial release date: Apr 19, 2021
+Initial release date: April 19, 2021
+
+Last updated date: August 9, 2021
 
 **Upgrades**
 + Upgraded Amazon Glue connector to version 1\.15\.0
@@ -55,10 +57,13 @@ Initial release date: Apr 19, 2021
 + Upgraded Zeppelin to version 0\.9\.0
 
 **Changes, enhancements, and resolved issues**
-+ Upgraded component versions\.
-+ For a list of component versions, see [About Amazon EMR Releases](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html) in this guide\.
++ Spark runtime is now faster when fetching partition locations from Hive Metastore for Spark insert queries\.
++ Upgraded component versions\. For a list of component versions, see [About Amazon EMR Releases](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html) in this guide\.
++ Installed the AWS Java SDK Bundle on each new cluster\. This is a single jar containing all service SDKs and their dependencies, instead of individual component jars\. For more information, see [Java SDK Bundled Dependency](http://aws.amazon.com/blogs/developer/java-sdk-bundle/)\.
++ Fixed Managed Scaling issues in earlier Amazon EMR releases and made improvements so application failure rates are significantly reduced\.
 
 **New features**
++ Amazon EMR supports Amazon S3 Access Points, a feature of Amazon S3 that allows you to easily manage access for shared data lakes\. Using your Amazon S3 Access Point alias, you can simplify your data access at scale on Amazon EMR\. You can use Amazon S3 Access Points with all versions of Amazon EMR at no additional cost in all AWS regions where Amazon EMR is available\. To learn more about Amazon S3 Access Points and Access Point aliases, see [Using a bucket\-style alias for your access point](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-alias.html) in the *Amazon S3 User Guide*\.
 + Amazon EMR\-5\.33 supports new Amazon EC2 instance types: c5a, c5ad, c6gn, c6gd, m6gd, d3, d3en, m5zn, r5b, r6gd\. See [Supported Instance Types](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-supported-instance-types.html)\.
 
 **Known issues**
@@ -107,7 +112,7 @@ Initial release date: Apr 19, 2021
 + 
 **Important**  
 Amazon EMR clusters that are running Amazon Linux or Amazon Linux 2 AMIs \(Amazon Linux Machine Images\) use default Amazon Linux behavior, and do not automatically download and install important and critical kernel updates that require a reboot\. This is the same behavior as other Amazon EC2 instances running the default Amazon Linux AMI\. If new Amazon Linux software updates that require a reboot \(such as, kernel, NVIDIA, and CUDA updates\) become available after an Amazon EMR version is released, Amazon EMR cluster instances running the default AMI do not automatically download and install those updates\. To get kernel updates, you can [customize your Amazon EMR AMI](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-custom-ami.html) to [use the latest Amazon Linux AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html)\.
-+ Console support to create a security configuration that specifies the AWS Ranger integration option is currently not supported in the GovCloud region\. Security configuration can be done using the CLI\. See [Create the EMR Security Configuration](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-ranger-security-config.html) in the *Amazon EMR Management Guide*\.
++ Console support to create a security configuration that specifies the AWS Ranger integration option is currently not supported in the GovCloud Region\. Security configuration can be done using the CLI\. See [Create the EMR Security Configuration](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-ranger-security-config.html) in the *Amazon EMR Management Guide*\.
 + Scoped managed policies: To align with AWS best practices, Amazon EMR has introduced v2 EMR\-scoped default managed policies as replacements for policies that will be deprecated\. See [Amazon EMR Managed Policies](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-iam-policies.html)\.
 
 **Release 5\.33\.0 component versions**
@@ -198,7 +203,7 @@ Reconfiguration actions occur when you specify a configuration for instance grou
 
 **emr\-5\.33\.0 classifications**  
 
-| Classifications | Description | Reconfiguration actions | 
+| Classifications | Description | Reconfiguration Actions | 
 | --- | --- | --- | 
 | capacity\-scheduler | Change values in Hadoop's capacity\-scheduler\.xml file\. | Restarts the ResourceManager service\. | 
 | container\-executor | Change values in Hadoop YARN's container\-executor\.cfg file\. | N/A | 
@@ -412,7 +417,7 @@ Initial release date: Jan 8, 2021
 + 
 **Important**  
 Amazon EMR clusters that are running Amazon Linux or Amazon Linux 2 AMIs \(Amazon Linux Machine Images\) use default Amazon Linux behavior, and do not automatically download and install important and critical kernel updates that require a reboot\. This is the same behavior as other Amazon EC2 instances running the default Amazon Linux AMI\. If new Amazon Linux software updates that require a reboot \(such as, kernel, NVIDIA, and CUDA updates\) become available after an Amazon EMR version is released, Amazon EMR cluster instances running the default AMI do not automatically download and install those updates\. To get kernel updates, you can [customize your Amazon EMR AMI](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-custom-ami.html) to [use the latest Amazon Linux AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html)\.
-+ Console support to create a security configuration that specifies the AWS Ranger integration option is currently not supported in the GovCloud region\. Security configuration can be done using the CLI\. See [Create the EMR Security Configuration](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-ranger-security-config.html) in the *Amazon EMR Management Guide*\.
++ Console support to create a security configuration that specifies the AWS Ranger integration option is currently not supported in the GovCloud Region\. Security configuration can be done using the CLI\. See [Create the EMR Security Configuration](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-ranger-security-config.html) in the *Amazon EMR Management Guide*\.
 + When AtRestEncryption or HDFS encryption is enabled on a cluster that uses EMR 5\.31\.0 or 5\.32\.0, Hive queries result in the following runtime exception\. 
 
   ```
@@ -507,7 +512,7 @@ Reconfiguration actions occur when you specify a configuration for instance grou
 
 **emr\-5\.32\.0 classifications**  
 
-| Classifications | Description | Reconfiguration actions | 
+| Classifications | Description | Reconfiguration Actions | 
 | --- | --- | --- | 
 | capacity\-scheduler | Change values in Hadoop's capacity\-scheduler\.xml file\. | Restarts the ResourceManager service\. | 
 | container\-executor | Change values in Hadoop YARN's container\-executor\.cfg file\. | N/A | 
@@ -1374,6 +1379,7 @@ Last updated date: June 25, 2020
     Typically, the keytab file is located at `/etc/hadoop.keytab` and the principal is in the form of `hadoop/<hostname>@<REALM>`\.
 **Note**  
 This workaround will be effective for the time period the Kerberos ticket is valid\. This duration is 10 hours by default, but can configured by your Kerberos settings\. You must re\-run the above command once the Kerberos ticket expires\.
++ The default database engine for Hue 4\.6\.0 is SQLite, which causes issues when you try to use Hue with an external database\. To fix this, set `engine` in your `hue-ini` configuration classification to `mysql`\. This issue has been fixed in Amazon EMR version 5\.30\.1\.
 
 **Release 5\.30\.0 component versions**
 
@@ -4627,7 +4633,7 @@ Last updated date: January 22, 2019
 + Hive
   + Backported [HIVE\-16686](https://issues.apache.org/jira/browse/HIVE-16686)\.
 + Glue with Spark and Hive
-  + In EMR 5\.20\.0 or later, parallel partition pruning is enabled automatically for Spark and Hive when AWS Glue Data Catalog is used as the metastore\. This change significantly reduces query planning time by executing multiple requests in parallel to retrieve partitions\. The total number of segments that can be executed concurrently range between 1 and 10\. The default value is 5, which is a recommended setting\. You can change it by specifying the property `aws.glue.partition.num.segments` in `hive-site` configuration classification\. If throttling occurs, you can turn off the feature by changing the value to 1\. For more information, see [AWS Glue Segment Structure](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-partitions.html#aws-glue-api-catalog-partitions-Segment)\.
+  + In EMR 5\.20\.0 or later, parallel partition pruning is enabled automatically for Spark and Hive when is used as the metastore\. This change significantly reduces query planning time by executing multiple requests in parallel to retrieve partitions\. The total number of segments that can be executed concurrently range between 1 and 10\. The default value is 5, which is a recommended setting\. You can change it by specifying the property `aws.glue.partition.num.segments` in `hive-site` configuration classification\. If throttling occurs, you can turn off the feature by changing the value to 1\. For more information, see [AWS Glue Segment Structure](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-api-catalog-partitions.html#aws-glue-api-catalog-partitions-Segment)\.
 
 **Known issues**
 + Hue \(Fixed in Amazon EMR release version 5\.24\.0\)
@@ -5578,7 +5584,7 @@ Initial release date: August 30, 2018
 
 **Known issues**
 + When you create a kerberized cluster with Livy installed, Livy fails with an error that simple authentication is not enabled\. Rebooting the Livy server resolves the issue\. As a workaround, add a step during cluster creation that runs `sudo restart livy-server` on the master node\.
-+ If you use a customAmazon Linux AMI based on anAmazon Linux AMI with a creation date of 2018\-08\-11, the Oozie server fails to start\. If you use Oozie, create a custom AMI based on anAmazon Linux AMI ID with a different creation date\. You can use the following AWS CLI command to return a list of Image IDs for all HVMAmazon Linux AMIs with a 2018\.03 version, along with the release date, so that you can choose an appropriateAmazon Linux AMI as your base\. Replace MyRegion with your region identifier, such as us\-west\-2\.
++ If you use a custom Amazon Linux AMI based on an Amazon Linux AMI with a creation date of 2018\-08\-11, the Oozie server fails to start\. If you use Oozie, create a custom AMI based on an Amazon Linux AMI ID with a different creation date\. You can use the following AWS CLI command to return a list of Image IDs for all HVM Amazon Linux AMIs with a 2018\.03 version, along with the release date, so that you can choose an appropriate Amazon Linux AMI as your base\. Replace MyRegion with your Region identifier, such as us\-west\-2\.
 
   ```
   aws ec2 --region MyRegion describe-images --owner amazon --query 'Images[?Name!=`null`]|[?starts_with(Name, `amzn-ami-hvm-2018.03`) == `true`].[CreationDate,ImageId,Name]' --output text | sort -rk1
@@ -6457,7 +6463,7 @@ Initial release date: June 4, 2018
 + EMRFS
   + The userAgent string in requests to Amazon S3 has been updated to contain the user and group information of the invoking principal\. This can be used with AWS CloudTrail logs for more comprehensive request tracking\.
 + HBase
-  +  Included [HBASE\-20447](https://issues.apache.org/jira/browse/HBASE-20447), which addresses an issue that could cause cache issues, especially with split regions\. 
+  +  Included [HBASE\-20447](https://issues.apache.org/jira/browse/HBASE-20447), which addresses an issue that could cause cache issues, especially with split Regions\. 
 + MXnet
   + Added OpenCV libraries\.
 + Spark

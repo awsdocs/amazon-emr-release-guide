@@ -54,7 +54,7 @@ For example, given the JSON classification for the primary cluster as shown earl
 }
 ```
 
-### Synchronizing the read replica when you add data<a name="w142aac25c29c13c10"></a>
+### Synchronizing the read replica when you add data<a name="w162aac25c29c13c10"></a>
 
 Because the read\-replica uses HBase StoreFiles and metadata that the primary cluster writes to Amazon S3, the read\-replica is only as current as the Amazon S3 data store\. The following guidance can help minimize the lag time between the primary cluster and the read\-replica when you write data\.
 + Bulk load data on the primary cluster whenever possible\. For more information, see [Bulk loading](http://hbase.apache.org/0.94/book/arch.bulk.load.html) in Apache HBase documentation\.
@@ -177,7 +177,13 @@ The following parameters can be adjusted to tune the performance of your workloa
 
 ### Shutting down and restoring a cluster without data loss<a name="emr-hbase-s3-shutdown"></a>
 
-To shut down an Amazon EMR cluster without losing data that hasn't been written to Amazon S3, the MemStore cache needs to flush to Amazon S3 to write new store files\. To do this, you can run a shell script provided on the EMR cluster\. You can either add it as a step or run it directly using the on\-cluster CLI\. The script disables all HBase tables, which causes the MemStore in each region server to flush to Amazon S3\. If the script completes successfully, the data persists in Amazon S3 and the cluster can be terminated\. 
+To shut down an Amazon EMR cluster without losing data that hasn't been written to Amazon S3, you should flush your MemStore cache to Amazon S3 to write new store files\. First, you must flush the `hbase:meta` table using the HBase shell and the following command\.
+
+```
+flush 'hbase:meta'
+```
+
+Then, you can run a shell script provided on the EMR cluster to flush the MemStore cache\. You can either add it as a step or run it directly using the on\-cluster CLI\. The script disables all HBase tables, which causes the MemStore in each region server to flush to Amazon S3\. If the script completes successfully, the data persists in Amazon S3 and the cluster can be terminated\. 
 
 The following step configuration can be used when you add a step to the cluster\. For more information, see [Work with steps using the CLI and console](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-work-with-steps.html) in the *Amazon EMR Management Guide*\.
 

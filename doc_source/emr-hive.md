@@ -13,7 +13,7 @@ For the version of components installed with Hive in this release, see [Release 
 
 **Hive version information for emr\-6\.3\.0**  
 
-| Amazon EMR release label | Hive version | Components installed with Hive | 
+| Amazon EMR Release Label | Hive Version | Components Installed With Hive | 
 | --- | --- | --- | 
 | emr\-6\.3\.0 | Hive 3\.1\.2 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, emr\-s3\-select, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hive\-client, hive\-hbase, hcatalog\-server, hive\-server2, hudi, mariadb\-server, tez\-on\-yarn, zookeeper\-client, zookeeper\-server | 
 
@@ -24,7 +24,7 @@ For the version of components installed with Hive in this release, see [Release 
 
 **Hive version information for emr\-5\.33\.0**  
 
-| Amazon EMR release label | Hive version | Components installed with Hive | 
+| Amazon EMR Release Label | Hive Version | Components Installed With Hive | 
 | --- | --- | --- | 
 | emr\-5\.33\.0 | Hive 2\.3\.7 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, emr\-s3\-select, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hive\-client, hive\-hbase, hcatalog\-server, hive\-server2, hudi, mariadb\-server, tez\-on\-yarn | 
 

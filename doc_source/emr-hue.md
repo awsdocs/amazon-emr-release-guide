@@ -11,7 +11,7 @@ For the version of components installed with Hue in this release, see [Release 6
 
 **Hue version information for emr\-6\.3\.0**  
 
-| Amazon EMR release label | Hue version | Components installed with Hue | 
+| Amazon EMR Release Label | Hue Version | Components Installed With Hue | 
 | --- | --- | --- | 
 | emr\-6\.3\.0 | Hue 4\.9\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hue\-server, mariadb\-server, oozie\-client, oozie\-server | 
 
@@ -22,7 +22,7 @@ For the version of components installed with Hue in this release, see [Release 5
 
 **Hue version information for emr\-5\.33\.0**  
 
-| Amazon EMR release label | Hue version | Components installed with Hue | 
+| Amazon EMR Release Label | Hue Version | Components Installed With Hue | 
 | --- | --- | --- | 
 | emr\-5\.33\.0 | Hue 4\.9\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hue\-server, mariadb\-server, oozie\-client, oozie\-server | 
 

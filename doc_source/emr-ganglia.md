@@ -11,7 +11,7 @@ For the version of components installed with Ganglia in this release, see [Relea
 
 **Ganglia version information for emr\-6\.3\.0**  
 
-| Amazon EMR release label | Ganglia version | Components installed with Ganglia | 
+| Amazon EMR Release Label | Ganglia Version | Components Installed With Ganglia | 
 | --- | --- | --- | 
 | emr\-6\.3\.0 | Ganglia 3\.7\.2 | emrfs, emr\-goodies, ganglia\-monitor, ganglia\-metadata\-collector, ganglia\-web, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, webserver | 
 
@@ -22,7 +22,7 @@ For the version of components installed with Ganglia in this release, see [Relea
 
 **Ganglia version information for emr\-5\.33\.0**  
 
-| Amazon EMR release label | Ganglia version | Components installed with Ganglia | 
+| Amazon EMR Release Label | Ganglia Version | Components Installed With Ganglia | 
 | --- | --- | --- | 
 | emr\-5\.33\.0 | Ganglia 3\.7\.2 | emrfs, emr\-goodies, ganglia\-monitor, ganglia\-metadata\-collector, ganglia\-web, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, webserver | 
 

@@ -9,7 +9,7 @@ For the version of components installed with TensorFlow in this release, see [Re
 
 **TensorFlow version information for emr\-6\.3\.0**  
 
-| Amazon EMR release label | TensorFlow version | Components installed with TensorFlow | 
+| Amazon EMR Release Label | TensorFlow Version | Components Installed With TensorFlow | 
 | --- | --- | --- | 
 | emr\-6\.3\.0 | TensorFlow 2\.4\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, tensorflow | 
 
@@ -20,11 +20,11 @@ For the version of components installed with TensorFlow in this release, see [Re
 
 **TensorFlow version information for emr\-5\.33\.0**  
 
-| Amazon EMR release label | TensorFlow version | Components installed with TensorFlow | 
+| Amazon EMR Release Label | TensorFlow Version | Components Installed With TensorFlow | 
 | --- | --- | --- | 
 | emr\-5\.33\.0 | TensorFlow 2\.4\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, tensorflow | 
 
-## TensorFlow builds by Amazon EC2 instance type<a name="w142aac57c17"></a>
+## TensorFlow builds by Amazon EC2 instance type<a name="w162aac57c17"></a>
 
 Amazon EMR uses different builds of the TensorFlow library depending on the instance types that you choose for your cluster\. The following table lists builds by instance type\.
 
@@ -36,7 +36,7 @@ Amazon EMR uses different builds of the TensorFlow library depending on the inst
 |  P3  |  Tensorflow 1\.9\.0 with CUDA 9\.2, cuDNN 7\.1, NCCL 2\.2\.13 [Nvidia NCCL](https://developer.nvidia.com/nccl) is available only on P3 instances\. **End User License Agreement \(EULA\)**: By using Nvidia components on Amazon EMR, you agree to the terms and conditions outlined in the [product EULA](https://d7umqicpi7263.cloudfront.net/eula/product/d0199cf7-a04a-4204-be4d-dc3e2af678af/5b36dd71-7d6e-4d97-a8f7-013d3eccec70.txt)\.  | 
 |  All others  |  Tensorflow 1\.9\.0  | 
 
-## Security<a name="w142aac57c19"></a>
+## Security<a name="w162aac57c19"></a>
 
 In addition to following the guidance in [Using TensorFlow securely](https://github.com/tensorflow/tensorflow/blob/master/SECURITY.md) we recommend that you launch your cluster in a private subnet to help you limit access to trusted sources\. For more information, see [Amazon VPC options](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-clusters-in-a-vpc.html#emr-vpc-private-subnet) in the *Amazon EMR Management Guide*\.
 

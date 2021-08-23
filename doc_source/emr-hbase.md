@@ -16,12 +16,12 @@ For the version of components installed with HBase in this release, see [Release
 
 **HBase version information for emr\-6\.3\.0**  
 
-| Amazon EMR release label | HBase version | Components installed with HBase | 
+| Amazon EMR Release Label | HBase Version | Components Installed With HBase | 
 | --- | --- | --- | 
 | emr\-6\.3\.0 | HBase 2\.2\.6 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-mapred, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hbase\-hmaster, hbase\-client, hbase\-region\-server, hbase\-rest\-server, hbase\-thrift\-server, zookeeper\-client, zookeeper\-server | 
 
 **Note**  
-Apache HBase HBCK2 is a separate operational tool for repairing HBase regions and system tables\. For more information about how to build and use the tool, see [HBase HBCK2](https://github.com/apache/hbase-operator-tools/tree/master/hbase-hbck2)\. 
+Apache HBase HBCK2 is a separate operational tool for repairing HBase regions and system tables\. In Amazon EMR version 6\.1\.0 and later, the hbase\-hbck2\.jar is provided in `/usr/lib/hbase-operator-tools/` on the master node\. For more information about how to build and use the tool, see [HBase HBCK2](https://github.com/apache/hbase-operator-tools/tree/master/hbase-hbck2)\. 
 
 The following table lists the version of HBase included in the latest release of Amazon EMR 5\.x series, along with the components that Amazon EMR installs with HBase\.
 
@@ -30,7 +30,7 @@ For the version of components installed with HBase in this release, see [Release
 
 **HBase version information for emr\-5\.33\.0**  
 
-| Amazon EMR release label | HBase version | Components installed with HBase | 
+| Amazon EMR Release Label | HBase Version | Components Installed With HBase | 
 | --- | --- | --- | 
 | emr\-5\.33\.0 | HBase 1\.4\.13 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-mapred, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hbase\-hmaster, hbase\-client, hbase\-region\-server, hbase\-rest\-server, hbase\-thrift\-server, zookeeper\-client, zookeeper\-server | 
 

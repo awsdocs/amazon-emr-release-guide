@@ -11,7 +11,7 @@ For the version of components installed with Phoenix in this release, see [Relea
 
 **Phoenix version information for emr\-6\.3\.0**  
 
-| Amazon EMR release label | Phoenix version | Components installed with Phoenix | 
+| Amazon EMR Release Label | Phoenix Version | Components Installed With Phoenix | 
 | --- | --- | --- | 
 | emr\-6\.3\.0 | Phoenix 5\.0\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-mapred, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hbase\-hmaster, hbase\-client, hbase\-region\-server, phoenix\-library, phoenix\-query\-server, zookeeper\-client, zookeeper\-server | 
 
@@ -22,7 +22,7 @@ For the version of components installed with Phoenix in this release, see [Relea
 
 **Phoenix version information for emr\-5\.33\.0**  
 
-| Amazon EMR release label | Phoenix version | Components installed with Phoenix | 
+| Amazon EMR Release Label | Phoenix Version | Components Installed With Phoenix | 
 | --- | --- | --- | 
 | emr\-5\.33\.0 | Phoenix 4\.14\.3 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-mapred, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hbase\-hmaster, hbase\-client, hbase\-region\-server, phoenix\-library, phoenix\-query\-server, zookeeper\-client, zookeeper\-server | 
 

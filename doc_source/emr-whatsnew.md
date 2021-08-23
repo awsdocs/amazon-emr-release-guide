@@ -13,11 +13,13 @@ You do not need to change your application code to use Signature Version 4 if yo
 
 ## Release 6\.3\.0 \(latest version of Amazon EMR 6\.x series\)<a name="emr-630-whatsnew"></a>
 
-New Amazon EMR release versions are made available in different regions over a period of several days, beginning with the first region on the initial release date\. The latest release version may not be available in your region during this period\.
+New Amazon EMR release versions are made available in different Regions over a period of several days, beginning with the first Region on the initial release date\. The latest release version may not be available in your Region during this period\.
 
 The following release notes include information for Amazon EMR release version 6\.3\.0\. Changes are relative to 6\.2\.0\.
 
 Initial release date: May 12, 2021
+
+Last updated date: August 9, 2021
 
 **Supported applications**
 + AWS SDK for Java version 1\.11\.977
@@ -62,16 +64,31 @@ Initial release date: May 12, 2021
 + Connectors and drivers: DynamoDB Connector 4\.16\.0
 
 **New features**
++ Amazon EMR supports Amazon S3 Access Points, a feature of Amazon S3 that allows you to easily manage access for shared data lakes\. Using your Amazon S3 Access Point alias, you can simplify your data access at scale on Amazon EMR\. You can use Amazon S3 Access Points with all versions of Amazon EMR at no additional cost in all AWS regions where Amazon EMR is available\. To learn more about Amazon S3 Access Points and Access Point aliases, see [Using a bucket\-style alias for your access point](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-alias.html) in the *Amazon S3 User Guide*\.
++ New `DescribeReleaseLabel` and `ListReleaseLabel` API parameters provide Amazon EMR release label details\. You can programmatically list releases available in the region where the API request is run, and list the available applications for a specific Amazon EMR release label\. The release label parameters also list Amazon EMR release versions that support a specified application, such as Spark\. This information can be used to programmatically launch Amazon EMR clusters\. For example, you can launch a cluster using the latest release version from the `ListReleaseLabel` results\. For more information, see [DescribeReleaseLabel](https://docs.aws.amazon.com/emr/latest/APIReference/API_DescribeReleaseLabel.html) and [ListReleaseLabels](https://docs.aws.amazon.com/emr/latest/APIReference/API_ListReleaseLabels.html) in the *Amazon EMR API Reference*\.
 + With Amazon EMR 6\.3\.0, you can launch a cluster that natively integrates with Apache Ranger\. Apache Ranger is an open\-source framework to enable, monitor, and manage comprehensive data security across the Hadoop platform\. For more information, see [Apache Ranger](https://ranger.apache.org/)\. With native integration, you can bring your own Apache Ranger to enforce fine\-grained data access control on Amazon EMR\. See [Integrate Amazon EMR with Apache Ranger](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-ranger.html) in the Amazon EMR Management Guide\.
 + Scoped managed policies: To align with AWS best practices, Amazon EMR has introduced v2 EMR\-scoped default managed policies as replacements for policies that will be deprecated\. See [Amazon EMR Managed Policies](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-iam-policies.html)\.
 + Instance Metadata Service \(IMDS\) V2 support status: For Amazon EMR 6\.2 or later, Amazon EMR components use IMDSv2 for all IMDS calls\. For IMDS calls in your application code, you can use both IMDSv1 and IMDSv2, or configure the IMDS to use only IMDSv2 for added security\. If you disable IMDSv1 in earlier Amazon EMR 6\.x releases, it causes cluster startup failure\.
 
 **Changes, enhancements, and resolved issues**
-+ The file output committer default algorithm has been changed from the v2 algorithm to the v1 algorithm in open source Spark 3\.1\. For more information, see this [Apache Spark JIRA ticket\.](https://issues.apache.org/jira/browse/SPARK-33019)
++ Spark SQL UI explain mode default changed from `extended` to `formatted` in [Spark 3\.1](https://issues.apache.org/jira/browse/SPARK-31325)\. Amazon EMR reverted it back to `extended` to include logical plan information in the Spark SQL UI\. This can be reverted by setting `spark.sql.ui.explainMode` to `formatted`\.
++ The following commits were backported from the Spark master branch\.
+
+  \- [\[SPARK\-34752\]](https://issues.apache.org/jira/browse/SPARK-34752)\[BUILD\] Bump Jetty to 9\.4\.37 to address CVE\-2020\-27223\.
+
+  \- [\[SPARK\-34534\]](https://issues.apache.org/jira/browse/SPARK-34534) Fix blockIds order when use FetchShuffleBlocks to fetch blocks\.
+
+  \- [\[SPARK\-34681\]](https://issues.apache.org/jira/browse/SPARK-34681) \[SQL\] Fix bug for full outer shuffled hash join when building left side with non\-equal condition\.
+
+  \- [\[SPARK\-34497\]](https://issues.apache.org/jira/browse/SPARK-34497) \[SQL\] Fix built\-in JDBC connection providers to restore JVM security context changes\.
++ To improve interoperability with Nvidia Spark RAPIDs plugin, Added workaround to address an issue preventing dynamic partition pruning from triggering when using Nvidia Spark RAPIDs with adaptive query execution disabled, see [RAPIDS issue \#1378](https://github.com/NVIDIA/spark-rapids/issues/1378) and [RAPIDS issue \#\#1386](https://github.com/NVIDIA/spark-rapids/issues/1386)\. For details of the new configuration `spark.sql.optimizer.dynamicPartitionPruning.enforceBroadcastReuse`, see [RAPIDS issue \#\#1386](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-spark-performance.html#emr-spark-performance-dynamic)\.
++ The file output committer default algorithm has been changed from the v2 algorithm to the v1 algorithm in open source Spark 3\.1\. For more information, see this [Amazon EMR optimizing Spark performance \- dynamic partition pruning](https://issues.apache.org/jira/browse/SPARK-33019)\.
 + Amazon EMR reverted to the v2 algorithm, the default used in prior Amazon EMR 6\.x releases, to prevent performance regression\. To restore the open source Spark 3\.1 behavior, set `spark.hadoop.mapreduce.fileoutputcommitter.algorithm.version` to `1`\. Open source Spark made this change because task commit in file output committer algorithm v2 is not atomic, which can cause an output data correctness issue in some cases\. However, task commit in algorithm v1 is also not atomic\. In some scenarios task commit includes a delete performed before a rename\. This can result in a silent data correctness issue\.
++ Fixed Managed Scaling issues in earlier Amazon EMR releases and made improvements so application failure rates are significantly reduced\.
++ Installed the AWS Java SDK Bundle on each new cluster\. This is a single jar containing all service SDKs and their dependencies, instead of individual component jars\. For more information, see [Java SDK Bundled Dependency](http://aws.amazon.com/blogs/developer/java-sdk-bundle/)\.
 
 **Known issues**
-+ For Amazon EMR 6\.3\.0 and 6\.2\.0 private subnet clusters, you cannot acces the Ganglia web UI\. You will get an "access denied \(403\)" error\. Other web UIs, such as Spark, Hue, JupyterHub, Zeppelin, Livy, and Tez are working normally\. Ganglia web UI access on public subnet clusters are also working normally\. To resolve this issue, restart httpd service on the master node with `sudo systemctl restart httpd`\.
++ For Amazon EMR 6\.3\.0 and 6\.2\.0 private subnet clusters, you cannot access the Ganglia web UI\. You will get an "access denied \(403\)" error\. Other web UIs, such as Spark, Hue, JupyterHub, Zeppelin, Livy, and Tez are working normally\. Ganglia web UI access on public subnet clusters are also working normally\. To resolve this issue, restart httpd service on the master node with `sudo systemctl restart httpd`\.
 + When AWS Glue Data Catalog is enabled, using Spark to access a AWS Glue DB with null string location URI may fail\. This happens to earlier Amazon EMR releases, but SPARK\-31709 \(https://issues\.apache\.org/jira/browse/SPARK\-31709\) makes it apply to more cases\. For example, when creating a table within the default AWS Glue DB whose location URI is a null string, `spark.sql("CREATE TABLE mytest (key string) location '/table_path';")` fails with the message, "Cannot create a Path from an empty string\." To work around this, manually set a location URI of your AWS Glue databases, then create tables within these databases using Spark\.
 + In Amazon EMR 6\.3\.0, PrestoSQL has upgraded from version 343 to version 350\. There are two security related changes from the open source that relate to this version change\. File\-based catalog access control is changed from `deny` to `allow` when table, schema, or session property rules are not defined\. Also, file\-based system access control is changed to support files without catalog rules defined\. In this case, all access to catalogs is allowed\.
 
@@ -125,11 +142,13 @@ Amazon EMR clusters that are running Amazon Linux or Amazon Linux 2 AMIs \(Amazo
 
 ## Release 5\.33\.0 \(latest version of Amazon EMR 5\.x series\)<a name="emr-5330-whatsnew"></a>
 
-New Amazon EMR release versions are made available in different regions over a period of several days, beginning with the first region on the initial release date\. The latest release version may not be available in your region during this period\.
+New Amazon EMR release versions are made available in different Regions over a period of several days, beginning with the first Region on the initial release date\. The latest release version may not be available in your Region during this period\.
 
 The following release notes include information for Amazon EMR release version 5\.33\.0\. Changes are relative to 5\.32\.0\.
 
-Initial release date: Apr 19, 2021
+Initial release date: April 19, 2021
+
+Last updated date: August 9, 2021
 
 **Upgrades**
 + Upgraded Amazon Glue connector to version 1\.15\.0
@@ -152,10 +171,13 @@ Initial release date: Apr 19, 2021
 + Upgraded Zeppelin to version 0\.9\.0
 
 **Changes, enhancements, and resolved issues**
-+ Upgraded component versions\.
-+ For a list of component versions, see [About Amazon EMR Releases](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html) in this guide\.
++ Spark runtime is now faster when fetching partition locations from Hive Metastore for Spark insert queries\.
++ Upgraded component versions\. For a list of component versions, see [About Amazon EMR Releases](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html) in this guide\.
++ Installed the AWS Java SDK Bundle on each new cluster\. This is a single jar containing all service SDKs and their dependencies, instead of individual component jars\. For more information, see [Java SDK Bundled Dependency](http://aws.amazon.com/blogs/developer/java-sdk-bundle/)\.
++ Fixed Managed Scaling issues in earlier Amazon EMR releases and made improvements so application failure rates are significantly reduced\.
 
 **New features**
++ Amazon EMR supports Amazon S3 Access Points, a feature of Amazon S3 that allows you to easily manage access for shared data lakes\. Using your Amazon S3 Access Point alias, you can simplify your data access at scale on Amazon EMR\. You can use Amazon S3 Access Points with all versions of Amazon EMR at no additional cost in all AWS regions where Amazon EMR is available\. To learn more about Amazon S3 Access Points and Access Point aliases, see [Using a bucket\-style alias for your access point](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-alias.html) in the *Amazon S3 User Guide*\.
 + Amazon EMR\-5\.33 supports new Amazon EC2 instance types: c5a, c5ad, c6gn, c6gd, m6gd, d3, d3en, m5zn, r5b, r6gd\. See [Supported Instance Types](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-supported-instance-types.html)\.
 
 **Known issues**
@@ -204,5 +226,5 @@ Initial release date: Apr 19, 2021
 + 
 **Important**  
 Amazon EMR clusters that are running Amazon Linux or Amazon Linux 2 AMIs \(Amazon Linux Machine Images\) use default Amazon Linux behavior, and do not automatically download and install important and critical kernel updates that require a reboot\. This is the same behavior as other Amazon EC2 instances running the default Amazon Linux AMI\. If new Amazon Linux software updates that require a reboot \(such as, kernel, NVIDIA, and CUDA updates\) become available after an Amazon EMR version is released, Amazon EMR cluster instances running the default AMI do not automatically download and install those updates\. To get kernel updates, you can [customize your Amazon EMR AMI](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-custom-ami.html) to [use the latest Amazon Linux AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html)\.
-+ Console support to create a security configuration that specifies the AWS Ranger integration option is currently not supported in the GovCloud region\. Security configuration can be done using the CLI\. See [Create the EMR Security Configuration](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-ranger-security-config.html) in the *Amazon EMR Management Guide*\.
++ Console support to create a security configuration that specifies the AWS Ranger integration option is currently not supported in the GovCloud Region\. Security configuration can be done using the CLI\. See [Create the EMR Security Configuration](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-ranger-security-config.html) in the *Amazon EMR Management Guide*\.
 + Scoped managed policies: To align with AWS best practices, Amazon EMR has introduced v2 EMR\-scoped default managed policies as replacements for policies that will be deprecated\. See [Amazon EMR Managed Policies](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-iam-policies.html)\.

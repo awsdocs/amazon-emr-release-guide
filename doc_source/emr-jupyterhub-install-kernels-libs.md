@@ -1,6 +1,6 @@
 # Installing additional kernels and libraries<a name="emr-jupyterhub-install-kernels-libs"></a>
 
-When you create a cluster with JupyterHub on Amazon EMR, the default Python 3 kernel for Jupyter, and the PySpark and Spark kernels for Sparkmagic are installed on the Docker container\. You can install additional kernels\. You can also install additional libraries and packages and then import them for the appropriate shell\.
+When you create a cluster with JupyterHub on Amazon EMR, the default Python 3 kernel for Jupyter along with the PySpark and Spark kernels for Sparkmagic are installed on the Docker container\. You can install additional kernels\. You can also install additional libraries and packages and then import them for the appropriate shell\.
 
 ## Installing a kernel<a name="emr-jupyterhub-install-kernels"></a>
 
@@ -8,15 +8,16 @@ Kernels are installed within the Docker container\. The easiest way to accomplis
 
 ```
 #!/bin/bash
+
 # Install Python 2 kernel
 conda create -n py27 python=2.7 anaconda
-source  /opt/conda/envs/py27/bin/activate
+source /opt/conda/envs/py27/bin/activate
 apt-get update
 apt-get install -y gcc
 /opt/conda/envs/py27/bin/python -m pip install --upgrade ipykernel
 /opt/conda/envs/py27/bin/python -m ipykernel install
 
-# Install libraries for Python2
+# Install libraries for Python 2
 /opt/conda/envs/py27/bin/pip install paramiko nltk scipy numpy scikit-learn pandas
 ```
 
@@ -28,13 +29,13 @@ sudo docker exec jupyterhub bash /etc/jupyter/install_kernels.sh
 
 ## Using libraries and installing additional libraries<a name="emr-jupyterhub-install-libs"></a>
 
-A core set of machine learning and data science libraries for Python 3 are pre\-installed with JupyterHub on Amazon EMR\. You can use `sudo docker exec jupyterhub bash -c "conda list" ` and `sudo docker exec jupyterhub bash -c "pip freeze" `\.
+A core set of machine learning and data science libraries for Python 3 are pre\-installed with JupyterHub on Amazon EMR\. You can use `sudo docker exec jupyterhub bash -c "conda list" ` and `sudo docker exec jupyterhub bash -c "pip freeze"`\.
 
 If a Spark job needs libraries on worker nodes, we recommend that you use a bootstrap action to run a script to install the libraries when you create the cluster\. Bootstrap actions run on all cluster nodes during the cluster creation process, which simplifies installation\. If you install libraries on core/worker nodes after a cluster is running, the operation is more complex\. We provide an example Python program in this section that shows how to install these libraries\.
 
 The bootstrap action and Python program examples shown in this section use a bash script saved to Amazon S3 to install the libraries on all nodes\.
 
-The script referenced in the following examples uses `pip` to install paramiko, nltk, scipy, scikit\-learn, and pandas for the Python 3 kernel:
+The script referenced in the following example uses `pip` to install paramiko, nltk, scipy, scikit\-learn, and pandas for the Python 3 kernel:
 
 ```
 #!/bin/bash
@@ -42,7 +43,7 @@ The script referenced in the following examples uses `pip` to install paramiko, 
 sudo python3 -m pip install boto3 paramiko nltk scipy scikit-learn pandas
 ```
 
-After you create the script, upload it to a location in Amazon S3, for example, `s3://mybucket/install-my-jupyter-libraries.sh`\. For more information, see [How do I upload files and folders to an S3 Bucket](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/upload-objects.html) in the *Amazon Simple Storage Service Console User Guide* so that you can use it in your bootstrap action or in your Python program\.
+After you create the script, upload it to a location in Amazon S3, for example, `s3://mybucket/install-my-jupyter-libraries.sh`\. For more information, see [Uploading objects](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/upload-objects.html) in the *Amazon Simple Storage Service Console User Guide* so that you can use it in your bootstrap action or in your Python program\.
 
 **To specify a bootstrap action that installs libraries on all nodes when you create a cluster using the AWS CLI**
 

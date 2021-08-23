@@ -13,7 +13,7 @@ For the version of components installed with Pig in this release, see [Release 5
 
 **Pig version information for emr\-5\.33\.0**  
 
-| Amazon EMR release label | Pig version | Components installed with Pig | 
+| Amazon EMR Release Label | Pig Version | Components Installed With Pig | 
 | --- | --- | --- | 
 | emr\-5\.33\.0 | Pig 0\.17\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, pig\-client, tez\-on\-yarn | 
 

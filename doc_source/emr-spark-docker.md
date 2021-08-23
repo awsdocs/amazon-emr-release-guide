@@ -69,13 +69,12 @@ FROM amazoncorretto:8
 RUN java -version
 
 RUN yum -y update
-RUN amazon-linux-extras enable R3.4
+RUN amazon-linux-extras install R4
 
-RUN yum -y install R R-devel openssl-devel
-RUN yum -y install curl
+RUN yum -y install curl hostname
 
 #setup R configs
-RUN echo "r <- getOption('repos'); r['CRAN'] <- 'http://cran.us.r-project.org'; options(repos = r);" ) ~/.Rprofile
+RUN echo "r <- getOption('repos'); r['CRAN'] <- 'http://cran.us.r-project.org'; options(repos = r);" > ~/.Rprofile
 
 RUN Rscript -e "install.packages('randomForest')"
 ```

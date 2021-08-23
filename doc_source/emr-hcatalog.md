@@ -11,7 +11,7 @@ For the version of components installed with HCatalog in this release, see [Rele
 
 **HCatalog version information for emr\-6\.3\.0**  
 
-| Amazon EMR release label | HCatalog version | Components installed with HCatalog | 
+| Amazon EMR Release Label | HCatalog Version | Components Installed With HCatalog | 
 | --- | --- | --- | 
 | emr\-6\.3\.0 | HCatalog 3\.1\.2 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hcatalog\-client, hcatalog\-server, hcatalog\-webhcat\-server, hive\-client, mariadb\-server | 
 
@@ -22,7 +22,7 @@ For the version of components installed with HCatalog in this release, see [Rele
 
 **HCatalog version information for emr\-5\.33\.0**  
 
-| Amazon EMR release label | HCatalog version | Components installed with HCatalog | 
+| Amazon EMR Release Label | HCatalog Version | Components Installed With HCatalog | 
 | --- | --- | --- | 
 | emr\-5\.33\.0 | HCatalog 2\.3\.7 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hcatalog\-client, hcatalog\-server, hcatalog\-webhcat\-server, hive\-client, mariadb\-server | 
 

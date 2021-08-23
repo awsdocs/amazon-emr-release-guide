@@ -15,7 +15,7 @@ For the version of components installed with JupyterHub in this release, see [Re
 
 **JupyterHub version information for emr\-6\.3\.0**  
 
-| Amazon EMR release label | JupyterHub version | Components installed with JupyterHub | 
+| Amazon EMR Release Label | JupyterHub Version | Components Installed With JupyterHub | 
 | --- | --- | --- | 
 | emr\-6\.3\.0 | JupyterHub 1\.2\.0 | aws\-sagemaker\-spark\-sdk, emrfs, emr\-goodies, emr\-ddb, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, r, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, livy\-server, jupyterhub | 
 
@@ -26,7 +26,7 @@ For the version of components installed with JupyterHub in this release, see [Re
 
 **JupyterHub version information for emr\-5\.33\.0**  
 
-| Amazon EMR release label | JupyterHub version | Components installed with JupyterHub | 
+| Amazon EMR Release Label | JupyterHub Version | Components Installed With JupyterHub | 
 | --- | --- | --- | 
 | emr\-5\.33\.0 | JupyterHub 1\.1\.0 | aws\-sagemaker\-spark\-sdk, emrfs, emr\-goodies, emr\-ddb, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, r, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, livy\-server, jupyterhub | 
 

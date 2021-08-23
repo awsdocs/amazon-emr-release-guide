@@ -1,6 +1,6 @@
 # Use the Hudi CLI<a name="emr-hudi-cli"></a>
 
-You can use the Hudi CLI to administer Hudi datasets to view information about commits, the filesystem, statistics, and more\. You can also use the CLI to manually perform compactions, schedule compactions, or cancel scheduled compactions\. For more information, see [Administering Hudi pipelines](https://hudi.apache.org/docs/0.5.0-admin_guide.html) in the Apache Hudi documentation\.
+You can use the Hudi CLI to administer Hudi datasets to view information about commits, the filesystem, statistics, and more\. You can also use the CLI to manually perform compactions, schedule compactions, or cancel scheduled compactions\. For more information, see [Interacting via CLI](https://hudi.apache.org/docs/deployment#cli) in the Apache Hudi documentation\.
 
 **To start the Hudi CLI and connect to a dataset**
 
@@ -10,7 +10,7 @@ You can use the Hudi CLI to administer Hudi datasets to view information about c
 
    The command prompt changes to `hudi->`\.
 
-1. Type the following code to connect to a dataset\. Replace *s3://mybucket/myhudidataset* with the path to the dataset that you want to work with\. The value we use is the same as the value established in earlier examples\.
+1. Type the following code to connect to a dataset\. Replace *s3://DOC\-EXAMPLE\-BUCKET/myhudidataset* with the path to the dataset that you want to work with\. The value we use is the same as the value established in earlier examples\.
 
    ```
    connect --path s3://DOC-EXAMPLE-BUCKET/myhudidataset

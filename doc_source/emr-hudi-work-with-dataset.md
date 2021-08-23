@@ -270,7 +270,7 @@ You can also hard delete data by setting `OPERATION_OPT_KEY `to `DELETE_OPERATIO
 
 ## Read from a Hudi dataset<a name="emr-hudi-read-dataset"></a>
 
-To retrieve data at the present point in time, Hudi performs snapshot queries by default\. Following is an example of querying the dataset written to S3 in [Write to a Hudi dataset](#emr-hudi-dataframe)\. Replace *s3://mybucket/myhudidataset* with your table path, and add wildcard asterisks for each partition level, *plus one additional asterisk*\. In this example, there is one partition level, so we've added two wildcard symbols\.
+To retrieve data at the present point in time, Hudi performs snapshot queries by default\. Following is an example of querying the dataset written to S3 in [Write to a Hudi dataset](#emr-hudi-dataframe)\. Replace *s3://DOC\-EXAMPLE\-BUCKET/myhudidataset* with your table path, and add wildcard asterisks for each partition level, *plus one additional asterisk*\. In this example, there is one partition level, so we've added two wildcard symbols\.
 
 ------
 #### [ Scala ]

@@ -18,41 +18,39 @@ The following procedure shows you how to override the default configuration valu
    For information about how to modify your security groups for access, see [Working with Amazon EMR\-managed security groups](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-man-sec-groups.html)\.
 
 1. Set JDBC configuration values in `hive-site.xml`:
-
-   1. 
 **Important**  
 If you supply sensitive information, such as passwords, to the Amazon EMR configuration API, this information is displayed for those accounts that have sufficient permissions\. If you are concerned that this information could be displayed to other users, create the cluster with an administrative account and limit other users \(IAM users or those with delegated credentials\) to accessing services on the cluster by creating a role which explicitly denies permissions to the `elasticmapreduce:DescribeCluster` API key\.
 
-     Create a configuration file called `hiveConfiguration.json` containing edits to `hive-site.xml` as shown in the following example\.
+   1. Create a configuration file called `hiveConfiguration.json` containing edits to `hive-site.xml` as shown in the following example\.
 
-      *hostname*> is the DNS address of the Amazon RDS instance running the database\. <*username*> and <*password*> are the credentials for your database\. For more information about connecting to MySQL and Aurora database instances, see [Connecting to a DB instance running the MySQL database engine](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ConnectToInstance.html) and [Connecting to an Athena DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Connect.html) in the *Amazon RDS User Guide*\. `javax.jdo.option.ConnectionURL` is the JDBC connect string for a JDBC metastore\. `javax.jdo.option.ConnectionDriverName` is the driver class name for a JDBC metastore\.
+       Replace *hostname* with the DNS address of your Amazon RDS instance running the database, and *username* and *password* with the credentials for your database\. For more information about connecting to MySQL and Aurora database instances, see [Connecting to a DB instance running the MySQL database engine](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ConnectToInstance.html) and [Connecting to an Athena DB cluster](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Connect.html) in the *Amazon RDS User Guide*\. `javax.jdo.option.ConnectionURL` is the JDBC connect string for a JDBC metastore\. `javax.jdo.option.ConnectionDriverName` is the driver class name for a JDBC metastore\.
 
-     The MySQL JDBC drivers are installed by Amazon EMR\. 
+      The MySQL JDBC drivers are installed by Amazon EMR\. 
 
-     The value property can not contain any spaces or carriage returns\. It should appear all on one line\.
+      The value property can not contain any spaces or carriage returns\. It should appear all on one line\.
 
-     ```
-     [
-         {
-           "Classification": "hive-site",
-           "Properties": {
-             "javax.jdo.option.ConnectionURL": "jdbc:mysql://hostname:3306/hive?createDatabaseIfNotExist=true",
-             "javax.jdo.option.ConnectionDriverName": "org.mariadb.jdbc.Driver",
-             "javax.jdo.option.ConnectionUserName": "username",
-             "javax.jdo.option.ConnectionPassword": "password"
-           }
-         }
-       ]
-     ```
+      ```
+      [
+          {
+            "Classification": "hive-site",
+            "Properties": {
+              "javax.jdo.option.ConnectionURL": "jdbc:mysql://hostname:3306/hive?createDatabaseIfNotExist=true",
+              "javax.jdo.option.ConnectionDriverName": "org.mariadb.jdbc.Driver",
+              "javax.jdo.option.ConnectionUserName": "username",
+              "javax.jdo.option.ConnectionPassword": "password"
+            }
+          }
+        ]
+      ```
 
-     Reference the `hiveConfiguration.json` file when you create the cluster as shown in the following AWS CLI command\. In this command, the file is stored locally, you can also upload the file to Amazon S3 and reference it there, for example, `s3://mybucket/hiveConfiguration.json`\.
+   1. Reference the `hiveConfiguration.json` file when you create the cluster as shown in the following AWS CLI command\. In this command, the file is stored locally, you can also upload the file to Amazon S3 and reference it there, for example, `s3://DOC-EXAMPLE-BUCKET/hiveConfiguration.json`\.
 **Note**  
 Linux line continuation characters \(\\\) are included for readability\. They can be removed or used in Linux commands\. For Windows, remove them or replace with a caret \(^\)\.
 
-     ```
-     aws emr create-cluster --release-label emr-5.33.0 --instance-type m5.xlarge --instance-count 2 \
-     --applications Name=Hive --configurations file://hiveConfiguration.json --use-default-roles
-     ```
+      ```
+      aws emr create-cluster --release-label emr-5.33.0 --instance-type m5.xlarge --instance-count 2 \
+      --applications Name=Hive --configurations file://hiveConfiguration.json --use-default-roles
+      ```
 
 1. Connect to the master node of your cluster\. 
 
@@ -66,7 +64,7 @@ Linux line continuation characters \(\\\) are included for readability\. They ca
    key int,
    value int
    )
-   LOCATION s3://mybucket/hdfs/
+   LOCATION s3://DOC-EXAMPLE-BUCKET/hdfs/
    ```
 
 1. Add your Hive script to the running cluster\.

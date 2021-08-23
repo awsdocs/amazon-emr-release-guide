@@ -9,7 +9,7 @@ For the version of components installed with Sqoop in this release, see [Release
 
 **Sqoop version information for emr\-5\.33\.0**  
 
-| Amazon EMR release label | Sqoop version | Components installed with Sqoop | 
+| Amazon EMR Release Label | Sqoop Version | Components Installed With Sqoop | 
 | --- | --- | --- | 
 | emr\-5\.33\.0 | Sqoop 1\.4\.7 | emrfs, emr\-ddb, emr\-goodies, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mariadb\-server, sqoop\-client | 
 
@@ -20,7 +20,7 @@ For the version of components installed with Sqoop in this release, see [Release
 
 **Sqoop version information for emr\-6\.3\.0**  
 
-| Amazon EMR release label | Sqoop version | Components installed with Sqoop | 
+| Amazon EMR Release Label | Sqoop Version | Components Installed With Sqoop | 
 | --- | --- | --- | 
 | emr\-6\.3\.0 | Sqoop 1\.4\.7 | emrfs, emr\-ddb, emr\-goodies, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mariadb\-server, sqoop\-client | 
 

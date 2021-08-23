@@ -173,7 +173,6 @@ Amazon's trademarks and trade dress may not be used in
 + [Apache Tez](emr-tez.md)
    + [Creating a cluster with Tez](tez-create-cluster.md)
    + [Configuring Tez](tez-configure.md)
-   + [Using Tez](tez-using.md)
    + [Tez web UI](tez-web-ui.md)
    + [Timeline Server](tez-timeline-server.md)
    + [Tez release history](Tez-release-history.md)

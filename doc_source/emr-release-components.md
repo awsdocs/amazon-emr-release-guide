@@ -15,7 +15,7 @@ Subscribe to the RSS feed for Amazon EMR release notes at [https://docs.aws.amaz
 + [Amazon EMR Release 5\.33\.0](emr-release-5x.md#emr-5330-release)
 
 **Note**  
-New Amazon EMR release versions are made available in different regions over a period of several days, beginning with the first region on the initial release date\. The latest release version may not be available in your region during this period\.
+New Amazon EMR release versions are made available in different Regions over a period of several days, beginning with the first Region on the initial release date\. The latest release version may not be available in your Region during this period\.
 
 **release notes** for the latest Amazon EMR releases and a history of all releases:
 + [What's new?](emr-whatsnew.md)

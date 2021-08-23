@@ -9,7 +9,7 @@ For the version of components installed with Tez in this release, see [Release 6
 
 **Tez version information for emr\-6\.3\.0**  
 
-| Amazon EMR release label | Tez version | Components installed with Tez | 
+| Amazon EMR Release Label | Tez Version | Components Installed With Tez | 
 | --- | --- | --- | 
 | emr\-6\.3\.0 | Tez 0\.9\.2 | emrfs, emr\-goodies, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, tez\-on\-yarn | 
 
@@ -20,14 +20,13 @@ For the version of components installed with Tez in this release, see [Release 5
 
 **Tez version information for emr\-5\.33\.0**  
 
-| Amazon EMR release label | Tez version | Components installed with Tez | 
+| Amazon EMR Release Label | Tez Version | Components Installed With Tez | 
 | --- | --- | --- | 
 | emr\-5\.33\.0 | Tez 0\.9\.2 | emrfs, emr\-goodies, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, tez\-on\-yarn | 
 
 **Topics**
 + [Creating a cluster with Tez](tez-create-cluster.md)
 + [Configuring Tez](tez-configure.md)
-+ [Using Tez](tez-using.md)
 + [Tez web UI](tez-web-ui.md)
 + [Timeline Server](tez-timeline-server.md)
 + [Tez release history](Tez-release-history.md)

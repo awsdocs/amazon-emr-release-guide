@@ -3070,8 +3070,8 @@ R4 instances are available only in Amazon EMR release version 5\.4\.0 and later\
 
 | Configuration option | Default value | 
 | --- | --- | 
-| mapreduce\.map\.java\.opts | \-Xmx2342m | 
-| mapreduce\.reduce\.java\.opts | \-Xmx4684m | 
+| mapreduce\.map\.java\.opts | \-Xmx4685m | 
+| mapreduce\.reduce\.java\.opts | \-Xmx9370m | 
 | mapreduce\.map\.memory\.mb | 5856 | 
 | mapreduce\.reduce\.memory\.mb | 11712 | 
 | yarn\.app\.mapreduce\.am\.resource\.mb | 11712 | 

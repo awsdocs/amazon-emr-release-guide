@@ -36,6 +36,8 @@ The following procedure restores a snapshot from HBase and uses that data to run
    ```
 
    phoenixQuery\.sql
+**Note**  
+You only need to include `COLUMN_ENCODED_BYTES=0` in the following example when you use Amazon EMR versions 5\.26\.0 and higher\.
 
    ```
    CREATE VIEW "customer" (
@@ -47,7 +49,8 @@ The following procedure restores a snapshot from HBase and uses that data to run
    "cc"."number" VARCHAR,
    "cc"."expire" VARCHAR,
    "cc"."type" VARCHAR,
-   "contact"."phone" VARCHAR);
+   "contact"."phone" VARCHAR)
+   COLUMN_ENCODED_BYTES=0;
    
    CREATE INDEX my_index ON "customer" ("customer"."state") INCLUDE("PK", "customer"."city", "customer"."expire", "customer"."type");
    

@@ -36,6 +36,14 @@ This feature is enabled by default unless `spark.sql.shuffle.partitions` is expl
 
 Dynamic partition pruning improves job performance by more accurately selecting the specific partitions within a table that need to be read and processed for a specific query\. By reducing the amount of data read and processed, significant time is saved in job execution\. With Amazon EMR 5\.26\.0, this feature is enabled by default\. With Amazon EMR 5\.24\.0 and 5\.25\.0, you can enable this feature by setting the Spark property `spark.sql.dynamicPartitionPruning.enabled` from within Spark or when creating clusters\. 
 
+
+**Spark dynamic partition pruning partition properties**  
+
+| Property | Default Value | Description | 
+| --- | --- | --- | 
+| `spark.sql.dynamicPartitionPruning.enabled` | `true` | When true, enable dynamic partition pruning\. | 
+| `spark.sql.optimizer.dynamicPartitionPruning.enforceBroadcastReuse` | `true` | When `true`, Spark performs a defensive check before query execution to ensure that reuse of broadcast exchanges in dynamic pruning filters is not broken by later preparation rules, such as user\-defined columnar rules\. When reuse is broken and this config is `true`, Spark removes the affected dynamic pruning filters to guard against performance and correctness issues\. Correctness issues may arise when the broadcast exchange of the dynamic pruning filter yields different, inconsistent results from the broadcast exchange of the corresponding join operation\. Setting this configuration to `false` should be done with caution; it allows working around scenarios, such as when reuse is broken by user\-defined columnar rules\. When Adaptive Query Execution is enabled, broadcast reuse is always enforced\. | 
+
 This optimization improves upon the existing capabilities of Spark 2\.4\.2, which only supports pushing down static predicates that can be resolved at plan time\.
 
 The following are examples of static predicate push down in Spark 2\.4\.2\.

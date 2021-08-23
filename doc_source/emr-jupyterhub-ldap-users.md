@@ -51,15 +51,14 @@ Use a text editor to create a bash script with the following contents:
 ```
 #!/bin/bash
 
-
 # Uncomment the following lines to install LDAP client libraries only if
 # using Amazon EMR release version 5.14.0. Later versions install libraries by default.
 # sudo docker exec jupyterhub bash -c "sudo apt-get update"
 # sudo docker exec jupyterhub bash -c "sudo apt-get -y install libnss-ldap libpam-ldap ldap-utils nscd"
  
 # Copy ldap.conf
-sudo docker cp ldap.conf jupyterhub:/etc/
-sudo docker exec jupyterhub bash -c "cat /etc/ldap.conf"
+sudo docker cp ldap.conf jupyterhub:/etc/ldap/
+sudo docker exec jupyterhub bash -c "cat /etc/ldap/ldap.conf"
  
 # configure nss switch
 sudo docker exec jupyterhub bash -c "sed -i 's/\(^passwd.*\)/\1 ldap/g' /etc/nsswitch.conf"
@@ -128,12 +127,11 @@ The `ldapsearch` command returns an LDIF\-formatted response that looks similar 
 
 ```
 # extended LDIF
-#
+
 # LDAPv3
 # base <ou=people,dc=example,dc=org> with scope subtree
 # filter: (objectclass=*)
 # requesting: uidNumber gidNumber sn 
-#
 
 # people, example.org
 dn: ou=people,dc=example,dc=org
@@ -171,7 +169,7 @@ LDAP authenticator for JupyterHub does not support local user creation\. For mor
 To create a local user manually, use the following command\.  
 
 ```
-sudo docker exec jupyterhub bash -c "echo 'shirley:x:$uidNumber:$gidNumber::/home/shirley:/bin/bash' >> /etc/passwd"   
+sudo docker exec jupyterhub bash -c "echo 'shirley:x:$uidNumber:$gidNumber::/home/shirley:/bin/bash' >> /etc/passwd"
 ```
 
 ## Restart the JupyterHub container<a name="emr-jupyterhub-ldap-restart"></a>

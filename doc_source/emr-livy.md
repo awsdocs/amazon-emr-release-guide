@@ -11,7 +11,7 @@ For the version of components installed with Livy in this release, see [Release 
 
 **Livy version information for emr\-6\.3\.0**  
 
-| Amazon EMR release label | Livy version | Components installed with Livy | 
+| Amazon EMR Release Label | Livy Version | Components Installed With Livy | 
 | --- | --- | --- | 
 | emr\-6\.3\.0 | Livy 0\.7\.0 | aws\-sagemaker\-spark\-sdk, emrfs, emr\-goodies, emr\-ddb, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, r, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, livy\-server, nginx | 
 
@@ -22,7 +22,7 @@ For the version of components installed with Livy in this release, see [Release 
 
 **Livy version information for emr\-5\.33\.0**  
 
-| Amazon EMR release label | Livy version | Components installed with Livy | 
+| Amazon EMR Release Label | Livy Version | Components Installed With Livy | 
 | --- | --- | --- | 
 | emr\-5\.33\.0 | Livy 0\.7\.0 | aws\-sagemaker\-spark\-sdk, emrfs, emr\-goodies, emr\-ddb, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, r, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, livy\-server, nginx | 
 

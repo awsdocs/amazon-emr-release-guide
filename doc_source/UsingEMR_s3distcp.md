@@ -1,6 +1,6 @@
 # S3DistCp \(s3\-dist\-cp\)<a name="UsingEMR_s3distcp"></a>
 
-Apache DistCp is an open\-source tool you can use to copy large amounts of data\. *S3DistCp* is an extension of DistCp that is optimized to work with AWS, particularly Amazon S3\. The command for S3DistCp in Amazon EMR version 4\.0 and later is `s3-dist-cp`, which you add as a step in a cluster or at the command line\. Using S3DistCp, you can efficiently copy large amounts of data from Amazon S3 into HDFS where it can be processed by subsequent steps in your Amazon EMR cluster\. You can also use S3DistCp to copy data between Amazon S3 buckets or from HDFS to Amazon S3\. S3DistCp is more scalable and efficient for parallel copying large numbers of objects across buckets and across AWS accounts\.
+Apache DistCp is an open\-source tool you can use to copy large amounts of data\. *S3DistCp* is similar to DistCp, but optimized to work with AWS, particularly Amazon S3\. The command for S3DistCp in Amazon EMR version 4\.0 and later is `s3-dist-cp`, which you add as a step in a cluster or at the command line\. Using S3DistCp, you can efficiently copy large amounts of data from Amazon S3 into HDFS where it can be processed by subsequent steps in your Amazon EMR cluster\. You can also use S3DistCp to copy data between Amazon S3 buckets or from HDFS to Amazon S3\. S3DistCp is more scalable and efficient for parallel copying large numbers of objects across buckets and across AWS accounts\.
 
 For specific commands that demonstrate the flexibility of S3DistCP in real\-world scenarios, see [Seven tips for using S3DistCp](http://aws.amazon.com/blogs/big-data/seven-tips-for-using-s3distcp-on-amazon-emr-to-move-data-efficiently-between-hdfs-and-amazon-s3/) on the AWS Big Data blog\.
 
@@ -14,7 +14,9 @@ S3DistCp does not support concatenation for Parquet files\. Use PySpark instead\
 
 ## S3DistCp options<a name="UsingEMR_s3distcp.options"></a>
 
-When you call S3DistCp, you can specify options that change how it copies and compresses data\. These are described in the following table\. The options are added to the step using the arguments list\. Examples of the S3DistCp arguments are shown in the following table\. 
+Though similar to DistCp, S3DistCp supports a different set of options to change how it copies and compresses data\.
+
+When you call S3DistCp, you can specify the options described in the following table\. The options are added to the step using the arguments list\. Examples of the S3DistCp arguments are shown in the following table\. 
 
 
 | Option  | Description  | Required  | 
@@ -36,7 +38,7 @@ When you call S3DistCp, you can specify options that change how it copies and co
 | \-\-previousManifest=PATH  |  Reads a manifest file that was created during a previous call to S3DistCp using the `--outputManifest` flag\. When the `--previousManifest` flag is set, S3DistCp excludes the files listed in the manifest from the copy operation\. If `--outputManifest` is specified along with `--previousManifest`, files listed in the previous manifest also appear in the new manifest file, although the files are not copied\.  Example: `--previousManifest=/usr/bin/manifest-1.gz`   | No  | 
 | \-\-requirePreviousManifest |  Requires a previous manifest created during a previous call to S3DistCp\. If this is set to false, no error is generated when a previous manifest is not specified\. The default is true\.  | No  | 
 | \-\-copyFromManifest  |  Reverses the behavior of `--previousManifest` to cause S3DistCp to use the specified manifest file as a list of files to copy, instead of a list of files to exclude from copying\.  Example: `--copyFromManifest --previousManifest=/usr/bin/manifest-1.gz`   | No  | 
-| \-\-s3Endpoint=ENDPOINT |  Specifies the Amazon S3 endpoint to use when uploading a file\. This option sets the endpoint for both the source and destination\. If not set, the default endpoint is `s3.amazonaws.com`\. For a list of the Amazon S3 endpoints, see [Regions and endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region)\.  Example: `--s3Endpoint=s3-eu-west-1.amazonaws.com`   | No  | 
+| \-\-s3Endpoint=ENDPOINT |  Specifies the Amazon S3 endpoint to use when uploading a file\. This option sets the endpoint for both the source and destination\. If not set, the default endpoint is `s3.amazonaws.com`\. For a list of the Amazon S3 endpoints, see [Regions and endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region)\.  Example: `--s3Endpoint=s3.eu-west-1.amazonaws.com`   | No  | 
 | \-\-storageClass=CLASS |  The storage class to use when the destination is Amazon S3\. Valid values are STANDARD and REDUCED\_REDUNDANCY\. If this option is not specified, S3DistCp tries to preserve the storage class\. Example: `--storageClass=STANDARD`  | No  | 
 | \-\-srcPrefixesFile=PATH |  a text file in Amazon S3 \(s3://\), HDFS \(hdfs:///\) or local file system \(file:/\) that contains a list of `src` prefixes, one prefix per line\.  If `srcPrefixesFile` is provided, S3DistCp will not list the src path\. Instead, it generates a source list as the combined result of listing all prefixes specified in this file\. The relative path as compared to src path, instead of these prefixes, will be used to generate the destination paths\. If `srcPattern` is also specified, it will be applied to the combined list results of the source prefixes to further filter the input\. If `copyFromManifest` is used, objects in the manifest will be copied and `srcPrefixesFile` will be ignored\. Example: `--srcPrefixesFile=PATH`  | No  | 
 
@@ -46,13 +48,13 @@ In addition to the options above, S3DistCp implements the [Tool interface](https
 
 You can call S3DistCp by adding it as a step in your cluster\. Steps can be added to a cluster at launch or to a running cluster using the console, CLI, or API\. The following examples demonstrate adding an S3DistCp step to a running cluster\. For more information on adding steps to a cluster, see [Submit work to a cluster](https://docs.aws.amazon.com/emr/latest/ManagementGuide/AddingStepstoaJobFlow.html) in the *Amazon EMR Management Guide*\.
 
-**To add an S3DistCp step to a running cluster using the AWS CLI**
+**To add a S3DistCp step to a running cluster using the AWS CLI**
 
-For more information on using Amazon EMR commands in the AWS CLI, see [https://docs.aws.amazon.com/cli/latest/reference/emr](https://docs.aws.amazon.com/cli/latest/reference/emr)\.
+For more information on using Amazon EMR commands in the AWS CLI, see the [AWS CLI Command Reference](https://docs.aws.amazon.com/cli/latest/reference/emr)\.
 + To add a step to a cluster that calls S3DistCp, pass the parameters that specify how S3DistCp should perform the copy operation as arguments\. 
 
   The following example copies daemon logs from Amazon S3 to `hdfs:///output`\. In the following command:
-  + `--cluster-id` specifies the cluster 
+  + `--cluster-id` specifies the cluster
   + `Jar` is the location of the S3DistCp JAR file 
   + `Args` is a comma\-separated list of the option name\-value pairs to pass in to S3DistCp\. For a complete list of the available options, see [S3DistCp options](#UsingEMR_s3distcp.options)\. 
 

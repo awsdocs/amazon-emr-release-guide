@@ -23,6 +23,14 @@ Depending on the version of Amazon EMR that you use, some Presto deployment conf
 |  `node.properties`  |  PrestoDB: Configurable in Amazon EMR release version 5\.6\.0 and later\. Use the `presto-node` configuration classification\. PrestoSQL: Configurable in Amazon EMR release versions 6\.1\.0 and later\. Use the `prestosql-node` configuration classification\.  | 
 |  `jvm.config`  |  Not configurable\.  | 
 
+## Installing PrestoDB and PrestoSQL<a name="emr-prestodb-prestosql"></a>
+
+The application name Presto continues to be used to install PrestoDB on clusters\. To install PrestoSQL on clusters, use the application name PrestoSQL\.
+
+You can install either PrestoDB or PrestoSQL, but you cannot install both on a single cluster\. If both PrestoDB and PrestoSQL are specified when attempting to create a cluster, a validation error occurs and the cluster creation request fails\.
+
+If you install Presto \(PrestoDB\) with Amazon EMR release version 6\.1\.0 and later, then Amazon EMR uses PrestoDB version 0\.232\. If you install PrestoSQL instead, Amazon EMR uses PrestoSQL version 338\.
+
 ## EMRFS and PrestoS3FileSystem configuration<a name="emr-presto-prestos3"></a>
 
 With Amazon EMR release version 5\.12\.0 and later, PrestoDB can use EMRFS, and this is the default configuration\. With Amazon EMR release version 6\.1\.0 and later, PrestoSQL also uses EMRFS as the default\. For more information, see [Using EMR File System \(EMRFS\)](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-fs.html) in the *Amazon EMR Management Guide*\. With earlier release versions, PrestoS3FileSystem is the only option\.

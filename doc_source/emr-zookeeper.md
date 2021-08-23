@@ -9,7 +9,7 @@ For the version of components installed with ZooKeeper in this release, see [Rel
 
 **ZooKeeper version information for emr\-6\.3\.0**  
 
-| Amazon EMR release label | ZooKeeper version | Components installed with ZooKeeper | 
+| Amazon EMR Release Label | ZooKeeper Version | Components Installed With ZooKeeper | 
 | --- | --- | --- | 
 | emr\-6\.3\.0 | ZooKeeper 3\.4\.14 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, zookeeper\-client, zookeeper\-server | 
 
@@ -20,7 +20,7 @@ For the version of components installed with ZooKeeper in this release, see [Rel
 
 **ZooKeeper version information for emr\-5\.33\.0**  
 
-| Amazon EMR release label | ZooKeeper version | Components installed with ZooKeeper | 
+| Amazon EMR Release Label | ZooKeeper Version | Components Installed With ZooKeeper | 
 | --- | --- | --- | 
 | emr\-5\.33\.0 | ZooKeeper 3\.4\.14 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, zookeeper\-client, zookeeper\-server | 
 

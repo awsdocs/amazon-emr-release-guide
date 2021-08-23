@@ -64,34 +64,35 @@ Linux line continuation characters \(\\\) are included for readability\. They ca
    ```
 
 **To submit work to Spark using the SDK for Java**
-+ 
 
-  ```
-  AWSCredentials credentials = new BasicAWSCredentials(accessKey, secretKey);
-  AmazonElasticMapReduce emr = new AmazonElasticMapReduceClient(credentials);
+1. The following example shows how to add a step to a cluster with Spark using Java\.
+
+   ```
+   AWSCredentials credentials = new BasicAWSCredentials(accessKey, secretKey);
+   AmazonElasticMapReduce emr = new AmazonElasticMapReduceClient(credentials);
+    
+   StepFactory stepFactory = new StepFactory();
+   AmazonElasticMapReduceClient emr = new AmazonElasticMapReduceClient(credentials);
+   AddJobFlowStepsRequest req = new AddJobFlowStepsRequest();
+   req.withJobFlowId("j-1K48XXXXXXHCB");
    
-  StepFactory stepFactory = new StepFactory();
-  AmazonElasticMapReduceClient emr = new AmazonElasticMapReduceClient(credentials);
-  AddJobFlowStepsRequest req = new AddJobFlowStepsRequest();
-  req.withJobFlowId("j-1K48XXXXXXHCB");
-  
-  List<StepConfig> stepConfigs = new ArrayList<StepConfig>();
-  		
-  HadoopJarStepConfig sparkStepConf = new HadoopJarStepConfig()
-  			.withJar("command-runner.jar")
-  			.withArgs("spark-submit","--executor-memory","1g","--class","org.apache.spark.examples.SparkPi","/usr/lib/spark/examples/jars/spark-examples.jar","10");			
-  		
-  StepConfig sparkStep = new StepConfig()
-  			.withName("Spark Step")
-  			.withActionOnFailure("CONTINUE")
-  			.withHadoopJarStep(sparkStepConf);
-  
-  stepConfigs.add(sparkStep);
-  req.withSteps(stepConfigs);
-  AddJobFlowStepsResult result = emr.addJobFlowSteps(req);
-  ```
+   List<StepConfig> stepConfigs = new ArrayList<StepConfig>();
+   		
+   HadoopJarStepConfig sparkStepConf = new HadoopJarStepConfig()
+   			.withJar("command-runner.jar")
+   			.withArgs("spark-submit","--executor-memory","1g","--class","org.apache.spark.examples.SparkPi","/usr/lib/spark/examples/jars/spark-examples.jar","10");			
+   		
+   StepConfig sparkStep = new StepConfig()
+   			.withName("Spark Step")
+   			.withActionOnFailure("CONTINUE")
+   			.withHadoopJarStep(sparkStepConf);
+   
+   stepConfigs.add(sparkStep);
+   req.withSteps(stepConfigs);
+   AddJobFlowStepsResult result = emr.addJobFlowSteps(req);
+   ```
 
-View the results of the step by examining the logs for the step\. You can do this in the AWS Management Console if you have enabled logging by choosing **Steps**, selecting your step, and then, for **Log files**, choosing either `stdout` or `stderr`\. To see the logs available, choose **View Logs**\.
+1. View the results of the step by examining the logs for the step\. You can do this in the AWS Management Console if you have enabled logging by choosing **Steps**, selecting your step, and then, for **Log files**, choosing either `stdout` or `stderr`\. To see the logs available, choose **View Logs**\.
 
 ## Overriding Spark default configuration settings<a name="dynamic-configuration"></a>
 
