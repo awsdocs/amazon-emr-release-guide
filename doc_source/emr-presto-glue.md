@@ -89,17 +89,19 @@ To switch metastores on a long\-running cluster, you can manually set these valu
 
 ## IAM permissions<a name="emr-hive-glue-permissions"></a>
 
-The EC2 instance profile for a cluster must have IAM permissions for AWS Glue actions\. In addition, if you enable encryption for AWS Glue Data Catalog objects, the role must also be allowed to encrypt, decrypt and generate the customer master key \(CMK\) used for encryption\.
+The EC2 instance profile for a cluster must have IAM permissions for AWS Glue actions\. In addition, if you enable encryption for AWS Glue Data Catalog objects, the role must also be allowed to encrypt, decrypt and generate the AWS KMS key used for encryption\.
 
 ### Permissions for AWS Glue actions<a name="emr-hive-glue-permissions-actions"></a>
 
-The default `AmazonElasticMapReduceforEC2Role` managed policy attached to `EMR_EC2_DefaultRole` allows the required AWS Glue actions\. If you use the default EC2 instance profile, no action is required\. However, if you specify a custom EC2 instance profile and permissions when you create a cluster, ensure that the appropriate AWS Glue actions are allowed\. Use the `AmazonElasticMapReduceforEC2Role` managed policy as a starting point\. For a listing of AWS Glue actions, see [Service role for cluster EC2 instances \(EC2 instance profile\)](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-iam-role-for-ec2.html) in the *Amazon EMR Management Guide*\.
+If you use the default EC2 instance profile for Amazon EMR, no action is required\. The `AmazonElasticMapReduceforEC2Role` managed policy that is attached to the `EMR_EC2_DefaultRole` allows all necessary AWS Glue actions\. However, if you specify a custom EC2 instance profile and permissions, you must configure the appropriate AWS Glue actions\. Use the `AmazonElasticMapReduceforEC2Role` managed policy as a starting point\. For more information, see [Service role for cluster EC2 instances \(EC2 instance profile\)](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-iam-role-for-ec2.html) in the *Amazon EMR Management Guide*\.
 
 ### Permissions for encrypting and decrypting AWS Glue Data Catalog<a name="emr-hive-glue-permissions-encrypt"></a>
 
-This section is about the encryption feature of the AWS Glue Data Catalog\. For more information about AWS Glue Data Catalog encryption, see [Encrypting your data catalog](https://docs.aws.amazon.com/glue/latest/dg/encrypt-glue-data-catalog.html) in the *AWS Glue Developer Guide*\.
+Your instance profile needs permission to encrypt and decrypt data using your key\. You do *not* need to configure these permissions if both of the following statements apply:
++ You enable encryption for AWS Glue Data Catalog objects using managed keys for AWS Glue\.
++ You use a cluster that's in the same AWS account as the AWS Glue Data Catalog\.
 
-If you enable encryption for AWS Glue Data Catalog objects using AWS managed keys for AWS Glue, and the cluster that accesses the AWS Glue Data Catalog is within the same AWS account, you don't need to update the permissions policy attached to the EC2 instance profile\. If you use a customer managed CMK, or if the cluster is in a different AWS account, you must update the permissions policy so that the EC2 instance profile has permission to encrypt and decrypt using the key\. The contents of the following policy statement needs to be added regardless of whether you use the default permissions policy, `AmazonElasticMapReduceforEC2Role`, or you use a custom permissions policy attached to a custom EC2 instance profile\. 
+Otherwise, you must add the following statement to the permissions policy attached to your EC2 instance profile\. 
 
 ```
 [
@@ -119,6 +121,8 @@ If you enable encryption for AWS Glue Data Catalog objects using AWS managed key
     }
 ]
 ```
+
+For more information about AWS Glue Data Catalog encryption, see [Encrypting your data catalog](https://docs.aws.amazon.com/glue/latest/dg/encrypt-glue-data-catalog.html) in the *AWS Glue Developer Guide*\.
 
 ### Resource\-based permissions<a name="emr-hive-glue-permissions-resource"></a>
 

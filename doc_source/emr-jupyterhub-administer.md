@@ -15,7 +15,7 @@ sudo docker exec jupyterhub conda install keras
 
 ## Administration by submitting steps<a name="emr-jupyterhub-administer-steps"></a>
 
-Steps are a way to submit work to a cluster\. You can submit steps when you launch a cluster, or you can submit steps to a running cluster\. Commands that you run on the command line can be submitted as steps using `command-runner.jar`\. For more information, see [Work with steps using the CLI and console](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-work-with-steps.html) in the *Amazon EMR Management Guide* and [Command runner](emr-commandrunner.md)\.
+Steps are a way to submit work to a cluster\. You can submit steps when you launch a cluster, or you can submit steps to a running cluster\. Commands that you run on the command line can be submitted as steps using `command-runner.jar`\. For more information, see [Work with steps using the CLI and console](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-work-with-steps.html) in the *Amazon EMR Management Guide* and [Run commands and scripts on an Amazon EMR cluster](emr-commandrunner.md)\.
 
 For example, you could use the following AWS CLI command on a local computer to install Keras in the same way that you did from the command line of the master node in the earlier example:
 
@@ -23,7 +23,7 @@ For example, you could use the following AWS CLI command on a local computer to 
 aws emr add-steps --cluster-id MyClusterID --steps Name="Command Runner",Jar="command-runner.jar",Args="/usr/bin/sudo","/usr/bin/docker","exec","jupyterhub","conda","install","keras"
 ```
 
-Also, you can script a sequence of steps, upload the script to Amazon S3, and then use `script-runner.jar` to run the script when you create the cluster or add the script as a step\. For more information, see [Run a script in a cluster](emr-hadoop-script.md)\. For an example, see [Example: Bash script to add multiple users](emr-jupyterhub-pam-users.md#emr-jupyterhub-script-multuser)\.
+Also, you can script a sequence of steps, upload the script to Amazon S3, and then use `script-runner.jar` to run the script when you create the cluster or add the script as a step\. For more information, see [Run commands and scripts on an Amazon EMR cluster](emr-commandrunner.md)\. For an example, see [Example: Bash script to add multiple users](emr-jupyterhub-pam-users.md#emr-jupyterhub-script-multuser)\.
 
 ## Administration using REST APIs<a name="emr-jupyterhub-administer-rest"></a>
 

@@ -33,7 +33,7 @@ If you install Presto \(PrestoDB\) with Amazon EMR release version 6\.1\.0 and l
 
 ## EMRFS and PrestoS3FileSystem configuration<a name="emr-presto-prestos3"></a>
 
-With Amazon EMR release version 5\.12\.0 and later, PrestoDB can use EMRFS, and this is the default configuration\. With Amazon EMR release version 6\.1\.0 and later, PrestoSQL also uses EMRFS as the default\. For more information, see [Using EMR File System \(EMRFS\)](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-fs.html) in the *Amazon EMR Management Guide*\. With earlier release versions, PrestoS3FileSystem is the only option\.
+With Amazon EMR release version 5\.12\.0 and later, PrestoDB can use EMRFS, and this is the default configuration\. With Amazon EMR release version 6\.1\.0 and later, PrestoSQL also uses EMRFS as the default\. For more information, see [EMR File System \(EMRFS\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-fs) in the *Amazon EMR Management Guide*\. With earlier release versions, PrestoS3FileSystem is the only option\.
 
 Using EMRFS has benefits\. You can use a security configuration to set up encryption for EMRFS data in Amazon S3\. You can also use IAM roles for EMRFS requests to Amazon S3\. For more information, see [Understanding encryption options](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-data-encryption-options.html) and [Configure IAM roles for EMRFS requests to Amazon S3](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-emrfs-iam-roles.html) in the *Amazon EMR Management Guide*\.
 

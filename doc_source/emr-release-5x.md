@@ -674,9 +674,9 @@ Last updated date: Oct 15, 2020
 + [Hive column statistics](https://cwiki.apache.org/confluence/display/Hive/StatsDev#StatsDev-ColumnStatistics) are supported for Amazon EMR versions 5\.31\.0 and later\.
 + Upgraded component versions\.
 + EMRFS S3EC V2 Support in Amazon EMR 5\.31\.0\. In S3 Java SDK releases 1\.11\.837 and later, encryption client Version 2 \(S3EC V2\) has been introduced with various security enhancements\. For more information, see the following:
-  + S3 blog post: [Updates to the Amazon S3 Encryption Client](https://aws.amazon.com/blogs/developer/updates-to-the-amazon-s3-encryption-client/)\.
-  +  Developer Guide: [Migrate Encryption and Decryption Clients to V2](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/s3-encryption-migration.html#s3-cse-update-code)\.
-  + EMR Management Guide: [Amazon S3 Client\-Side Encryption](http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-emrfs-encryption-cse.html)\.
+  + S3 blog post: [Updates to the Amazon S3 encryption client](https://aws.amazon.com/blogs/developer/updates-to-the-amazon-s3-encryption-client/)\.
+  +  Developer Guide: [Migrate encryption and decryption clients to V2](https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/s3-encryption-migration.html#s3-cse-update-code)\.
+  + EMR Management Guide: [Amazon S3 client\-side encryption](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-emrfs-encryption-cse.html)\.
 
   Encryption Client V1 is still available in the SDK for backward compatibility\.
 
