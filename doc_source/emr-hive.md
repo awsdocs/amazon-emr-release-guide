@@ -8,18 +8,18 @@ For more information about Hive, see [http://hive\.apache\.org/](http://hive.apa
 
 The following table lists the version of Hive included in the latest release of Amazon EMR 6\.x series, along with the components that Amazon EMR installs with Hive\.
 
-For the version of components installed with Hive in this release, see [Release 6\.3\.0 Component Versions](emr-release-6x.md#emr-630-release)\.
+For the version of components installed with Hive in this release, see [Release 6\.4\.0 Component Versions](emr-640-release.md)\.
 
 
-**Hive version information for emr\-6\.3\.0**  
+**Hive version information for emr\-6\.4\.0**  
 
 | Amazon EMR Release Label | Hive Version | Components Installed With Hive | 
 | --- | --- | --- | 
-| emr\-6\.3\.0 | Hive 3\.1\.2 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, emr\-s3\-select, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hive\-client, hive\-hbase, hcatalog\-server, hive\-server2, hudi, mariadb\-server, tez\-on\-yarn, zookeeper\-client, zookeeper\-server | 
+| emr\-6\.4\.0 | Hive 3\.1\.2 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, emr\-s3\-select, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hive\-client, hive\-hbase, hcatalog\-server, hive\-server2, hudi, mariadb\-server, tez\-on\-yarn, zookeeper\-client, zookeeper\-server | 
 
 The following table lists the version of Hive included in the latest release of Amazon EMR 5\.x series, along with the components that Amazon EMR installs with Hive\.
 
-For the version of components installed with Hive in this release, see [Release 5\.33\.0 Component Versions](emr-release-5x.md#emr-5330-release)\.
+For the version of components installed with Hive in this release, see [Release 5\.33\.0 Component Versions](emr-5330-release.md)\.
 
 
 **Hive version information for emr\-5\.33\.0**  

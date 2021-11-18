@@ -37,6 +37,9 @@ You can use the **Admin** panel in JupyterHub or the REST API to add users and a
    curl -XPOST -H "Authorization: token AdminToken" "https://$(hostname):9443/hub/api/users/UserName
    ```
 
+**Note**  
+You are automatically added as a JupyterHub non\-admin user when you log in to the JupyterHub web interface for the first time\.
+
 ## Example: Bash script to add multiple users<a name="emr-jupyterhub-script-multuser"></a>
 
 The following sample bash script ties together the previous steps in this section to create multiple JupyterHub users\. The script can be run directly on the master node, or it can be uploaded to Amazon S3 and then run as a step\.

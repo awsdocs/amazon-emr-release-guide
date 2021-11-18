@@ -14,3 +14,31 @@ aws emr create-cluster --release-label emr-5.33.0 \
 Linux line continuation characters \(\\\) are included for readability\. They can be removed or used in Linux commands\. For Windows, remove them or replace with a caret \(^\)\.
 
 For more information, see [Consistent view](emr-plan-consistent-view.md)\.
+
+## EMRFS configurations for IMDS get region calls<a name="randomized-exponential-backoff-retry"></a>
+
+EMRFS relies on the IMDS \(instance metadata service\) to get instance region and Amazon S3, DynamoDB, or AWS KMS endpoints\. However, IMDS has a limit on how many requests it can handle, and requests that exceed that limit will fail\. This IMDS limit can cause EMRFS failures to initialize and cause the query or command to fail\. You can use the following randomized exponential backoff retry mechanism and a fallback region configuration properties in emrfs\-site\.xml to address the scenario where all retries fail\.
+
+```
+<property>
+    <name>fs.s3.region.retryCount</name>
+    <value>3</value>
+    <description>
+    Maximum retries that would be attempted to get AWS region.
+    </description>
+</property>
+<property>
+    <name>fs.s3.region.retryPeriodSeconds</name>
+    <value>3</value>
+    <description>
+    Base sleep time in second for each get-region retry.
+    </description>
+</property>
+<property>
+    <name>fs.s3.region.fallback</name>
+    <value>us-east-1</value>
+    <description>
+    Fallback to this region after maximum retries for getting AWS region have been reached.
+    </description>
+</property>
+```

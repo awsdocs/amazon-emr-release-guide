@@ -53,7 +53,7 @@ List<StepConfig> stepConfigs = new ArrayList<StepConfig>();
   
 HadoopJarStepConfig flinkWordCountConf = new HadoopJarStepConfig()
     .withJar("command-runner.jar")
-    .withArgs("flink", "run", "-m", "yarn-cluster", “-yid”, “application_1473169569237_0002”, "-yn", "2", "/usr/lib/flink/examples/streaming/WordCount.jar", 
+    .withArgs("flink", "run", "-m", "yarn-cluster", "-yid", "application_1473169569237_0002", "-yn", "2", "/usr/lib/flink/examples/streaming/WordCount.jar", 
       "--input", "s3://myBucket/pg11.txt", "--output", "s3://myBucket/alice2/");
   
 StepConfig flinkRunWordCount = new StepConfig()

@@ -11,7 +11,27 @@ These features make Hudi suitable for the following use cases:
 + Complying with data privacy regulations in applications where users might choose to be forgotten or modify their consent for how their data can be used\.
 + Implementing a [change data capture \(CDC\) system](https://en.wikipedia.org/wiki/Change_data_capture) that allows you to apply changes to a dataset over time\.
 
-The version of Hudi installed with Amazon EMR 5\.33\.0 is 0\.7\.0\-amzn\-1\.
+The following table lists the version of Hudi included in the latest release of Amazon EMR 6\.x series, along with the components that Amazon EMR installs with Hudi\.
+
+For the version of components installed with Hudi in this release, see [Release 6\.4\.0 Component Versions](emr-640-release.md)\.
+
+
+**Hudi version information for emr\-6\.4\.0**  
+
+| Amazon EMR Release Label | Hudi Version | Components Installed With Hudi | 
+| --- | --- | --- | 
+| emr\-6\.4\.0 | Hudi 0\.8\.0\-amzn\-0 | Not available\. | 
+
+The following table lists the version of Hudi included in the latest release of Amazon EMR 5\.x series, along with the components that Amazon EMR installs with Hudi\.
+
+For the version of components installed with Hudi in this release, see [Release 5\.33\.0 Component Versions](emr-5330-release.md)\.
+
+
+**Hudi version information for emr\-5\.33\.0**  
+
+| Amazon EMR Release Label | Hudi Version | Components Installed With Hudi | 
+| --- | --- | --- | 
+| emr\-5\.33\.0 | Hudi 0\.7\.0\-amzn\-1 | Not available\. | 
 
 **Topics**
 + [How Hudi works](emr-hudi-how-it-works.md)
@@ -19,3 +39,4 @@ The version of Hudi installed with Amazon EMR 5\.33\.0 is 0\.7\.0\-amzn\-1\.
 + [Create a cluster with Hudi installed](emr-hudi-installation-and-configuration.md)
 + [Work with a Hudi dataset](emr-hudi-work-with-dataset.md)
 + [Use the Hudi CLI](emr-hudi-cli.md)
++ [Hudi release history](Hudi-release-history.md)

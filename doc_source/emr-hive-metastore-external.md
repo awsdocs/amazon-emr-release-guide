@@ -9,13 +9,9 @@ The following procedure shows you how to override the default configuration valu
 
 **To create a metastore located outside of the EMR cluster**
 
-1. Create a MySQL or Aurora database\. 
+1. Create a MySQL or Aurora database\. For information about the differences between Aurora MySQL and Aurora PostgreSQL, see [Overview of Amazon Aurora MySQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraMySQL.Overview.html) and [Working with Amazon Aurora PostgreSQL](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.AuroraPostgreSQL.html)\. For information about how to create an Amazon RDS database in general, see [https://aws\.amazon\.com/rds/](https://aws.amazon.com/rds/)\.
 
-   For information about how to create an Amazon RDS database, see [https://aws\.amazon\.com/rds/](https://aws.amazon.com/rds/)\.
-
-1. Modify your security groups to allow JDBC connections between your database and the **ElasticMapReduce\-Master** security group\.
-
-   For information about how to modify your security groups for access, see [Working with Amazon EMR\-managed security groups](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-man-sec-groups.html)\.
+1. Modify your security groups to allow JDBC connections between your database and the **ElasticMapReduce\-Master** security group\. For information about how to modify your security groups for access, see [Working with Amazon EMR\-managed security groups](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-man-sec-groups.html)\.
 
 1. Set JDBC configuration values in `hive-site.xml`:
 **Important**  

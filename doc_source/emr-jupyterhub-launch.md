@@ -14,7 +14,7 @@ Use the following procedure to create a cluster with JupyterHub installed using 
 
 1. Under **Software Configuration**:
    + For **Release**, select emr\-5\.33\.0, and choose JupyterHub\.
-   + If you use Spark, to use the AWS Glue Data Catalog as the metastore for Spark SQL, select **Use for Spark table metadata**\. For more information, see [Using the AWS Glue Data Catalog as the metastore for Spark SQL](emr-spark-glue.md)\.
+   + If you use Spark, to use the AWS Glue Data Catalog as the metastore for Spark SQL, select **Use for Spark table metadata**\. For more information, see [Use the AWS Glue Data Catalog as the metastore for Spark SQL](emr-spark-glue.md)\.
    + For **Edit software settings** choose **Enter configuration** and specify values, or choose **Load JSON from S3** and specify a JSON configuration file\. For more information, see [Configuring JupyterHub](emr-jupyterhub-configure.md)\.
 
 1. Under **Add steps \(optional\)** configure steps to run when the cluster is created, make sure that **Auto\-terminate cluster after the last step is completed** is not selected, and choose **Next**\.

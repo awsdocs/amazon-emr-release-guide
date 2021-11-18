@@ -16,521 +16,144 @@ Oozie is available as a sandbox application beginning with Amazon EMR release ve
 Oozie examples are not installed by default using the sandbox versions\. To install the examples, SSH to the master node and run `install-oozie-examples`\.
 
 
-**Oozie\-Sandbox version information for emr\-4\.9\.3**  
+**Oozie\-Sandbox version information**  
 
-| Amazon EMR Release Label | Oozie\-Sandbox Version | Components Installed With Oozie\-Sandbox | 
+| Amazon EMR Release label | Oozie\-Sandbox Version | Components installed with Oozie\-Sandbox | 
 | --- | --- | --- | 
-| emr\-4\.9\.3 | Oozie\-Sandbox 4\.2\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, oozie\-client, oozie\-server | 
-
-
-**Oozie\-Sandbox version information for emr\-4\.9\.2**  
-
-| Amazon EMR Release Label | Oozie\-Sandbox Version | Components Installed With Oozie\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.9\.2 | Oozie\-Sandbox 4\.2\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, oozie\-client, oozie\-server | 
-
-
-**Oozie\-Sandbox version information for emr\-4\.9\.1**  
-
-| Amazon EMR Release Label | Oozie\-Sandbox Version | Components Installed With Oozie\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.9\.1 | Oozie\-Sandbox 4\.2\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, oozie\-client, oozie\-server | 
-
-
-**Oozie\-Sandbox version information for emr\-4\.8\.4**  
-
-| Amazon EMR Release Label | Oozie\-Sandbox Version | Components Installed With Oozie\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.8\.4 | Oozie\-Sandbox 4\.2\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, oozie\-client, oozie\-server | 
-
-
-**Oozie\-Sandbox version information for emr\-4\.8\.3**  
-
-| Amazon EMR Release Label | Oozie\-Sandbox Version | Components Installed With Oozie\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.8\.3 | Oozie\-Sandbox 4\.2\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, oozie\-client, oozie\-server | 
-
-
-**Oozie\-Sandbox version information for emr\-4\.8\.2**  
-
-| Amazon EMR Release Label | Oozie\-Sandbox Version | Components Installed With Oozie\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.8\.2 | Oozie\-Sandbox 4\.2\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, oozie\-client, oozie\-server | 
-
-
-**Oozie\-Sandbox version information for emr\-4\.8\.0**  
-
-| Amazon EMR Release Label | Oozie\-Sandbox Version | Components Installed With Oozie\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.8\.0 | Oozie\-Sandbox 4\.2\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, oozie\-client, oozie\-server | 
-
-
-**Oozie\-Sandbox version information for emr\-4\.7\.2**  
-
-| Amazon EMR Release Label | Oozie\-Sandbox Version | Components Installed With Oozie\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.7\.2 | Oozie\-Sandbox 4\.2\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, oozie\-client, oozie\-server | 
-
-
-**Oozie\-Sandbox version information for emr\-4\.7\.1**  
-
-| Amazon EMR Release Label | Oozie\-Sandbox Version | Components Installed With Oozie\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.7\.1 | Oozie\-Sandbox 4\.2\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, oozie\-client, oozie\-server | 
-
-
-**Oozie\-Sandbox version information for emr\-4\.7\.0**  
-
-| Amazon EMR Release Label | Oozie\-Sandbox Version | Components Installed With Oozie\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.7\.0 | Oozie\-Sandbox 4\.2\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, oozie\-client, oozie\-server | 
-
-
-**Oozie\-Sandbox version information for emr\-4\.6\.0**  
-
-| Amazon EMR Release Label | Oozie\-Sandbox Version | Components Installed With Oozie\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.6\.0 | Oozie\-Sandbox 4\.2\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, oozie\-client, oozie\-server | 
-
-
-**Oozie\-Sandbox version information for emr\-4\.5\.0**  
-
-| Amazon EMR Release Label | Oozie\-Sandbox Version | Components Installed With Oozie\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.5\.0 | Oozie\-Sandbox 4\.2\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, oozie\-client, oozie\-server | 
-
-
-**Oozie\-Sandbox version information for emr\-4\.4\.0**  
-
-| Amazon EMR Release Label | Oozie\-Sandbox Version | Components Installed With Oozie\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.4\.0 | Oozie\-Sandbox 4\.2\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, oozie\-client, oozie\-server | 
-
-
-**Oozie\-Sandbox version information for emr\-4\.3\.0**  
-
-| Amazon EMR Release Label | Oozie\-Sandbox Version | Components Installed With Oozie\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.3\.0 | Oozie\-Sandbox 4\.2\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, oozie\-client, oozie\-server | 
-
-
-**Oozie\-Sandbox version information for emr\-4\.2\.0**  
-
-| Amazon EMR Release Label | Oozie\-Sandbox Version | Components Installed With Oozie\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.2\.0 | Oozie\-Sandbox 4\.2\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, oozie\-client, oozie\-server | 
-
-
-**Oozie\-Sandbox version information for emr\-4\.1\.0**  
-
-| Amazon EMR Release Label | Oozie\-Sandbox Version | Components Installed With Oozie\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.1\.0 | Oozie\-Sandbox 4\.0\.1 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, oozie\-client, oozie\-server | 
+| emr\-4\.9\.6 | 4\.2\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, oozie\-client, oozie\-server | 
+| emr\-4\.9\.5 | 4\.2\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, oozie\-client, oozie\-server | 
+| emr\-4\.9\.4 | 4\.2\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, oozie\-client, oozie\-server | 
+| emr\-4\.9\.3 | 4\.2\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, oozie\-client, oozie\-server | 
+| emr\-4\.9\.2 | 4\.2\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, oozie\-client, oozie\-server | 
+| emr\-4\.9\.1 | 4\.2\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, oozie\-client, oozie\-server | 
+| emr\-4\.8\.5 | 4\.2\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, oozie\-client, oozie\-server | 
+| emr\-4\.8\.4 | 4\.2\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, oozie\-client, oozie\-server | 
+| emr\-4\.8\.3 | 4\.2\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, oozie\-client, oozie\-server | 
+| emr\-4\.8\.2 | 4\.2\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, oozie\-client, oozie\-server | 
+| emr\-4\.8\.0 | 4\.2\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, oozie\-client, oozie\-server | 
+| emr\-4\.7\.4 | 4\.2\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, oozie\-client, oozie\-server | 
+| emr\-4\.7\.2 | 4\.2\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, oozie\-client, oozie\-server | 
+| emr\-4\.7\.1 | 4\.2\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, oozie\-client, oozie\-server | 
+| emr\-4\.7\.0 | 4\.2\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, oozie\-client, oozie\-server | 
+| emr\-4\.6\.0 | 4\.2\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, oozie\-client, oozie\-server | 
+| emr\-4\.5\.0 | 4\.2\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, oozie\-client, oozie\-server | 
+| emr\-4\.4\.0 | 4\.2\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, oozie\-client, oozie\-server | 
+| emr\-4\.3\.0 | 4\.2\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, oozie\-client, oozie\-server | 
+| emr\-4\.2\.0 | 4\.2\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, oozie\-client, oozie\-server | 
+| emr\-4\.1\.0 | 4\.0\.1 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, oozie\-client, oozie\-server | 
 
 ## Presto \(sandbox versions\)<a name="emr-Presto-sandbox-4x"></a>
 
 Presto is available as a sandbox application beginning with Amazon EMR release version 4\.1\.0\.
 
 
-**Presto\-Sandbox version information for emr\-4\.9\.3**  
+**Presto\-Sandbox version information**  
 
-| Amazon EMR Release Label | Presto\-Sandbox Version | Components Installed With Presto\-Sandbox | 
+| Amazon EMR Release label | Presto\-Sandbox Version | Components installed with Presto\-Sandbox | 
 | --- | --- | --- | 
-| emr\-4\.9\.3 | Presto\-Sandbox 0\.157\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hive\-client, hcatalog\-server, mysql\-server, presto\-coordinator, presto\-worker | 
-
-
-**Presto\-Sandbox version information for emr\-4\.9\.2**  
-
-| Amazon EMR Release Label | Presto\-Sandbox Version | Components Installed With Presto\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.9\.2 | Presto\-Sandbox 0\.157\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hive\-client, hcatalog\-server, mysql\-server, presto\-coordinator, presto\-worker | 
-
-
-**Presto\-Sandbox version information for emr\-4\.9\.1**  
-
-| Amazon EMR Release Label | Presto\-Sandbox Version | Components Installed With Presto\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.9\.1 | Presto\-Sandbox 0\.157\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hive\-client, hcatalog\-server, mysql\-server, presto\-coordinator, presto\-worker | 
-
-
-**Presto\-Sandbox version information for emr\-4\.8\.4**  
-
-| Amazon EMR Release Label | Presto\-Sandbox Version | Components Installed With Presto\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.8\.4 | Presto\-Sandbox 0\.157\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hive\-client, hcatalog\-server, mysql\-server, presto\-coordinator, presto\-worker | 
-
-
-**Presto\-Sandbox version information for emr\-4\.8\.3**  
-
-| Amazon EMR Release Label | Presto\-Sandbox Version | Components Installed With Presto\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.8\.3 | Presto\-Sandbox 0\.157\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hive\-client, hcatalog\-server, mysql\-server, presto\-coordinator, presto\-worker | 
-
-
-**Presto\-Sandbox version information for emr\-4\.8\.2**  
-
-| Amazon EMR Release Label | Presto\-Sandbox Version | Components Installed With Presto\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.8\.2 | Presto\-Sandbox 0\.152\.3 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hive\-client, hcatalog\-server, mysql\-server, presto\-coordinator, presto\-worker | 
-
-
-**Presto\-Sandbox version information for emr\-4\.8\.0**  
-
-| Amazon EMR Release Label | Presto\-Sandbox Version | Components Installed With Presto\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.8\.0 | Presto\-Sandbox 0\.151 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hive\-client, hcatalog\-server, mysql\-server, presto\-coordinator, presto\-worker | 
-
-
-**Presto\-Sandbox version information for emr\-4\.7\.2**  
-
-| Amazon EMR Release Label | Presto\-Sandbox Version | Components Installed With Presto\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.7\.2 | Presto\-Sandbox 0\.148 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hive\-client, hcatalog\-server, mysql\-server, presto\-coordinator, presto\-worker | 
-
-
-**Presto\-Sandbox version information for emr\-4\.7\.1**  
-
-| Amazon EMR Release Label | Presto\-Sandbox Version | Components Installed With Presto\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.7\.1 | Presto\-Sandbox 0\.147 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hive\-client, hcatalog\-server, mysql\-server, presto\-coordinator, presto\-worker | 
-
-
-**Presto\-Sandbox version information for emr\-4\.7\.0**  
-
-| Amazon EMR Release Label | Presto\-Sandbox Version | Components Installed With Presto\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.7\.0 | Presto\-Sandbox 0\.147 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hive\-client, hcatalog\-server, mysql\-server, presto\-coordinator, presto\-worker | 
-
-
-**Presto\-Sandbox version information for emr\-4\.6\.0**  
-
-| Amazon EMR Release Label | Presto\-Sandbox Version | Components Installed With Presto\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.6\.0 | Presto\-Sandbox 0\.143 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hive\-client, hive\-metastore\-server, mysql\-server, presto\-coordinator, presto\-worker | 
-
-
-**Presto\-Sandbox version information for emr\-4\.5\.0**  
-
-| Amazon EMR Release Label | Presto\-Sandbox Version | Components Installed With Presto\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.5\.0 | Presto\-Sandbox 0\.140 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hive\-client, hive\-metastore\-server, mysql\-server, presto\-coordinator, presto\-worker | 
-
-
-**Presto\-Sandbox version information for emr\-4\.4\.0**  
-
-| Amazon EMR Release Label | Presto\-Sandbox Version | Components Installed With Presto\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.4\.0 | Presto\-Sandbox 0\.136 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hive\-client, hive\-metastore\-server, mysql\-server, presto\-coordinator, presto\-worker | 
-
-
-**Presto\-Sandbox version information for emr\-4\.3\.0**  
-
-| Amazon EMR Release Label | Presto\-Sandbox Version | Components Installed With Presto\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.3\.0 | Presto\-Sandbox 0\.130 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hive\-client, hive\-metastore\-server, mysql\-server, presto\-coordinator, presto\-worker | 
-
-
-**Presto\-Sandbox version information for emr\-4\.2\.0**  
-
-| Amazon EMR Release Label | Presto\-Sandbox Version | Components Installed With Presto\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.2\.0 | Presto\-Sandbox 0\.125 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hive\-client, hive\-metastore\-server, mysql\-server, presto\-coordinator, presto\-worker | 
-
-
-**Presto\-Sandbox version information for emr\-4\.1\.0**  
-
-| Amazon EMR Release Label | Presto\-Sandbox Version | Components Installed With Presto\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.1\.0 | Presto\-Sandbox 0\.119 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hive\-client, hive\-metastore\-server, mysql\-server, presto\-coordinator, presto\-worker | 
+| emr\-4\.9\.6 | 0\.157\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hive\-client, hcatalog\-server, mysql\-server, presto\-coordinator, presto\-worker | 
+| emr\-4\.9\.5 | 0\.157\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hive\-client, hcatalog\-server, mysql\-server, presto\-coordinator, presto\-worker | 
+| emr\-4\.9\.4 | 0\.157\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hive\-client, hcatalog\-server, mysql\-server, presto\-coordinator, presto\-worker | 
+| emr\-4\.9\.3 | 0\.157\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hive\-client, hcatalog\-server, mysql\-server, presto\-coordinator, presto\-worker | 
+| emr\-4\.9\.2 | 0\.157\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hive\-client, hcatalog\-server, mysql\-server, presto\-coordinator, presto\-worker | 
+| emr\-4\.9\.1 | 0\.157\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hive\-client, hcatalog\-server, mysql\-server, presto\-coordinator, presto\-worker | 
+| emr\-4\.8\.5 | 0\.157\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hive\-client, hcatalog\-server, mysql\-server, presto\-coordinator, presto\-worker | 
+| emr\-4\.8\.4 | 0\.157\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hive\-client, hcatalog\-server, mysql\-server, presto\-coordinator, presto\-worker | 
+| emr\-4\.8\.3 | 0\.157\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hive\-client, hcatalog\-server, mysql\-server, presto\-coordinator, presto\-worker | 
+| emr\-4\.8\.2 | 0\.152\.3 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hive\-client, hcatalog\-server, mysql\-server, presto\-coordinator, presto\-worker | 
+| emr\-4\.8\.0 | 0\.151 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hive\-client, hcatalog\-server, mysql\-server, presto\-coordinator, presto\-worker | 
+| emr\-4\.7\.4 | 0\.148 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hive\-client, hcatalog\-server, mysql\-server, presto\-coordinator, presto\-worker | 
+| emr\-4\.7\.2 | 0\.148 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hive\-client, hcatalog\-server, mysql\-server, presto\-coordinator, presto\-worker | 
+| emr\-4\.7\.1 | 0\.147 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hive\-client, hcatalog\-server, mysql\-server, presto\-coordinator, presto\-worker | 
+| emr\-4\.7\.0 | 0\.147 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hive\-client, hcatalog\-server, mysql\-server, presto\-coordinator, presto\-worker | 
+| emr\-4\.6\.0 | 0\.143 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hive\-client, hive\-metastore\-server, mysql\-server, presto\-coordinator, presto\-worker | 
+| emr\-4\.5\.0 | 0\.140 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hive\-client, hive\-metastore\-server, mysql\-server, presto\-coordinator, presto\-worker | 
+| emr\-4\.4\.0 | 0\.136 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hive\-client, hive\-metastore\-server, mysql\-server, presto\-coordinator, presto\-worker | 
+| emr\-4\.3\.0 | 0\.130 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hive\-client, hive\-metastore\-server, mysql\-server, presto\-coordinator, presto\-worker | 
+| emr\-4\.2\.0 | 0\.125 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hive\-client, hive\-metastore\-server, mysql\-server, presto\-coordinator, presto\-worker | 
+| emr\-4\.1\.0 | 0\.119 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hive\-client, hive\-metastore\-server, mysql\-server, presto\-coordinator, presto\-worker | 
 
 ## Sqoop \(sandbox versions\)<a name="emr-Sqoop-sandbox-4x"></a>
 
 Sqoop is available as a sandbox application beginning with Amazon EMR release version 4\.4\.0\.
 
 
-**Sqoop\-Sandbox version information for emr\-4\.9\.3**  
+**Sqoop\-Sandbox version information**  
 
-| Amazon EMR Release Label | Sqoop\-Sandbox Version | Components Installed With Sqoop\-Sandbox | 
+| Amazon EMR Release label | Sqoop\-Sandbox Version | Components installed with Sqoop\-Sandbox | 
 | --- | --- | --- | 
-| emr\-4\.9\.3 | Sqoop\-Sandbox 1\.4\.6 | emrfs, emr\-ddb, emr\-goodies, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, mysql\-server, sqoop\-client | 
-
-
-**Sqoop\-Sandbox version information for emr\-4\.9\.2**  
-
-| Amazon EMR Release Label | Sqoop\-Sandbox Version | Components Installed With Sqoop\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.9\.2 | Sqoop\-Sandbox 1\.4\.6 | emrfs, emr\-ddb, emr\-goodies, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, mysql\-server, sqoop\-client | 
-
-
-**Sqoop\-Sandbox version information for emr\-4\.9\.1**  
-
-| Amazon EMR Release Label | Sqoop\-Sandbox Version | Components Installed With Sqoop\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.9\.1 | Sqoop\-Sandbox 1\.4\.6 | emrfs, emr\-ddb, emr\-goodies, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, mysql\-server, sqoop\-client | 
-
-
-**Sqoop\-Sandbox version information for emr\-4\.8\.4**  
-
-| Amazon EMR Release Label | Sqoop\-Sandbox Version | Components Installed With Sqoop\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.8\.4 | Sqoop\-Sandbox 1\.4\.6 | emrfs, emr\-ddb, emr\-goodies, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, mysql\-server, sqoop\-client | 
-
-
-**Sqoop\-Sandbox version information for emr\-4\.8\.3**  
-
-| Amazon EMR Release Label | Sqoop\-Sandbox Version | Components Installed With Sqoop\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.8\.3 | Sqoop\-Sandbox 1\.4\.6 | emrfs, emr\-ddb, emr\-goodies, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, mysql\-server, sqoop\-client | 
-
-
-**Sqoop\-Sandbox version information for emr\-4\.8\.2**  
-
-| Amazon EMR Release Label | Sqoop\-Sandbox Version | Components Installed With Sqoop\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.8\.2 | Sqoop\-Sandbox 1\.4\.6 | emrfs, emr\-ddb, emr\-goodies, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, mysql\-server, sqoop\-client | 
-
-
-**Sqoop\-Sandbox version information for emr\-4\.8\.0**  
-
-| Amazon EMR Release Label | Sqoop\-Sandbox Version | Components Installed With Sqoop\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.8\.0 | Sqoop\-Sandbox 1\.4\.6 | emrfs, emr\-ddb, emr\-goodies, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, mysql\-server, sqoop\-client | 
-
-
-**Sqoop\-Sandbox version information for emr\-4\.7\.2**  
-
-| Amazon EMR Release Label | Sqoop\-Sandbox Version | Components Installed With Sqoop\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.7\.2 | Sqoop\-Sandbox 1\.4\.6 | emrfs, emr\-ddb, emr\-goodies, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, mysql\-server, sqoop\-client | 
-
-
-**Sqoop\-Sandbox version information for emr\-4\.7\.1**  
-
-| Amazon EMR Release Label | Sqoop\-Sandbox Version | Components Installed With Sqoop\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.7\.1 | Sqoop\-Sandbox 1\.4\.6 | emrfs, emr\-ddb, emr\-goodies, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, mysql\-server, sqoop\-client | 
-
-
-**Sqoop\-Sandbox version information for emr\-4\.7\.0**  
-
-| Amazon EMR Release Label | Sqoop\-Sandbox Version | Components Installed With Sqoop\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.7\.0 | Sqoop\-Sandbox 1\.4\.6 | emrfs, emr\-ddb, emr\-goodies, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, mysql\-server, sqoop\-client | 
-
-
-**Sqoop\-Sandbox version information for emr\-4\.6\.0**  
-
-| Amazon EMR Release Label | Sqoop\-Sandbox Version | Components Installed With Sqoop\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.6\.0 | Sqoop\-Sandbox 1\.4\.6 | emrfs, emr\-ddb, emr\-goodies, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, mysql\-server, sqoop\-client | 
-
-
-**Sqoop\-Sandbox version information for emr\-4\.5\.0**  
-
-| Amazon EMR Release Label | Sqoop\-Sandbox Version | Components Installed With Sqoop\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.5\.0 | Sqoop\-Sandbox 1\.4\.6 | emrfs, emr\-ddb, emr\-goodies, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, sqoop\-client | 
-
-
-**Sqoop\-Sandbox version information for emr\-4\.4\.0**  
-
-| Amazon EMR Release Label | Sqoop\-Sandbox Version | Components Installed With Sqoop\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.4\.0 | Sqoop\-Sandbox 1\.4\.6 | emrfs, emr\-ddb, emr\-goodies, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, sqoop\-client | 
+| emr\-4\.9\.6 | 1\.4\.6 | emrfs, emr\-ddb, emr\-goodies, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, mysql\-server, sqoop\-client | 
+| emr\-4\.9\.5 | 1\.4\.6 | emrfs, emr\-ddb, emr\-goodies, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, mysql\-server, sqoop\-client | 
+| emr\-4\.9\.4 | 1\.4\.6 | emrfs, emr\-ddb, emr\-goodies, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, mysql\-server, sqoop\-client | 
+| emr\-4\.9\.3 | 1\.4\.6 | emrfs, emr\-ddb, emr\-goodies, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, mysql\-server, sqoop\-client | 
+| emr\-4\.9\.2 | 1\.4\.6 | emrfs, emr\-ddb, emr\-goodies, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, mysql\-server, sqoop\-client | 
+| emr\-4\.9\.1 | 1\.4\.6 | emrfs, emr\-ddb, emr\-goodies, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, mysql\-server, sqoop\-client | 
+| emr\-4\.8\.5 | 1\.4\.6 | emrfs, emr\-ddb, emr\-goodies, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, mysql\-server, sqoop\-client | 
+| emr\-4\.8\.4 | 1\.4\.6 | emrfs, emr\-ddb, emr\-goodies, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, mysql\-server, sqoop\-client | 
+| emr\-4\.8\.3 | 1\.4\.6 | emrfs, emr\-ddb, emr\-goodies, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, mysql\-server, sqoop\-client | 
+| emr\-4\.8\.2 | 1\.4\.6 | emrfs, emr\-ddb, emr\-goodies, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, mysql\-server, sqoop\-client | 
+| emr\-4\.8\.0 | 1\.4\.6 | emrfs, emr\-ddb, emr\-goodies, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, mysql\-server, sqoop\-client | 
+| emr\-4\.7\.4 | 1\.4\.6 | emrfs, emr\-ddb, emr\-goodies, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, mysql\-server, sqoop\-client | 
+| emr\-4\.7\.2 | 1\.4\.6 | emrfs, emr\-ddb, emr\-goodies, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, mysql\-server, sqoop\-client | 
+| emr\-4\.7\.1 | 1\.4\.6 | emrfs, emr\-ddb, emr\-goodies, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, mysql\-server, sqoop\-client | 
+| emr\-4\.7\.0 | 1\.4\.6 | emrfs, emr\-ddb, emr\-goodies, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, mysql\-server, sqoop\-client | 
+| emr\-4\.6\.0 | 1\.4\.6 | emrfs, emr\-ddb, emr\-goodies, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, mysql\-server, sqoop\-client | 
+| emr\-4\.5\.0 | 1\.4\.6 | emrfs, emr\-ddb, emr\-goodies, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, sqoop\-client | 
+| emr\-4\.4\.0 | 1\.4\.6 | emrfs, emr\-ddb, emr\-goodies, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, sqoop\-client | 
 
 ## Zeppelin \(sandbox versions\)<a name="emr-Zeppelin-sandbox-4x"></a>
 
 Zeppelin is available as a sandbox application beginning with Amazon EMR release version 4\.1\.0\.
 
 
-**Zeppelin\-Sandbox version information for emr\-4\.9\.3**  
+**Zeppelin\-Sandbox version information**  
 
-| Amazon EMR Release Label | Zeppelin\-Sandbox Version | Components Installed With Zeppelin\-Sandbox | 
+| Amazon EMR Release label | Zeppelin\-Sandbox Version | Components installed with Zeppelin\-Sandbox | 
 | --- | --- | --- | 
-| emr\-4\.9\.3 | Zeppelin\-Sandbox 0\.6\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
-
-
-**Zeppelin\-Sandbox version information for emr\-4\.9\.2**  
-
-| Amazon EMR Release Label | Zeppelin\-Sandbox Version | Components Installed With Zeppelin\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.9\.2 | Zeppelin\-Sandbox 0\.6\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
-
-
-**Zeppelin\-Sandbox version information for emr\-4\.9\.1**  
-
-| Amazon EMR Release Label | Zeppelin\-Sandbox Version | Components Installed With Zeppelin\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.9\.1 | Zeppelin\-Sandbox 0\.6\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
-
-
-**Zeppelin\-Sandbox version information for emr\-4\.8\.4**  
-
-| Amazon EMR Release Label | Zeppelin\-Sandbox Version | Components Installed With Zeppelin\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.8\.4 | Zeppelin\-Sandbox 0\.6\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
-
-
-**Zeppelin\-Sandbox version information for emr\-4\.8\.3**  
-
-| Amazon EMR Release Label | Zeppelin\-Sandbox Version | Components Installed With Zeppelin\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.8\.3 | Zeppelin\-Sandbox 0\.6\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
-
-
-**Zeppelin\-Sandbox version information for emr\-4\.8\.2**  
-
-| Amazon EMR Release Label | Zeppelin\-Sandbox Version | Components Installed With Zeppelin\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.8\.2 | Zeppelin\-Sandbox 0\.6\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
-
-
-**Zeppelin\-Sandbox version information for emr\-4\.8\.0**  
-
-| Amazon EMR Release Label | Zeppelin\-Sandbox Version | Components Installed With Zeppelin\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.8\.0 | Zeppelin\-Sandbox 0\.6\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
-
-
-**Zeppelin\-Sandbox version information for emr\-4\.7\.2**  
-
-| Amazon EMR Release Label | Zeppelin\-Sandbox Version | Components Installed With Zeppelin\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.7\.2 | Zeppelin\-Sandbox 0\.5\.6 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
-
-
-**Zeppelin\-Sandbox version information for emr\-4\.7\.1**  
-
-| Amazon EMR Release Label | Zeppelin\-Sandbox Version | Components Installed With Zeppelin\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.7\.1 | Zeppelin\-Sandbox 0\.5\.6 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
-
-
-**Zeppelin\-Sandbox version information for emr\-4\.7\.0**  
-
-| Amazon EMR Release Label | Zeppelin\-Sandbox Version | Components Installed With Zeppelin\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.7\.0 | Zeppelin\-Sandbox 0\.5\.6 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
-
-
-**Zeppelin\-Sandbox version information for emr\-4\.6\.0**  
-
-| Amazon EMR Release Label | Zeppelin\-Sandbox Version | Components Installed With Zeppelin\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.6\.0 | Zeppelin\-Sandbox 0\.5\.6 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
-
-
-**Zeppelin\-Sandbox version information for emr\-4\.5\.0**  
-
-| Amazon EMR Release Label | Zeppelin\-Sandbox Version | Components Installed With Zeppelin\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.5\.0 | Zeppelin\-Sandbox 0\.5\.6 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
-
-
-**Zeppelin\-Sandbox version information for emr\-4\.4\.0**  
-
-| Amazon EMR Release Label | Zeppelin\-Sandbox Version | Components Installed With Zeppelin\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.4\.0 | Zeppelin\-Sandbox 0\.5\.6 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
-
-
-**Zeppelin\-Sandbox version information for emr\-4\.3\.0**  
-
-| Amazon EMR Release Label | Zeppelin\-Sandbox Version | Components Installed With Zeppelin\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.3\.0 | Zeppelin\-Sandbox 0\.5\.5 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
-
-
-**Zeppelin\-Sandbox version information for emr\-4\.2\.0**  
-
-| Amazon EMR Release Label | Zeppelin\-Sandbox Version | Components Installed With Zeppelin\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.2\.0 | Zeppelin\-Sandbox 0\.5\.5 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
-
-
-**Zeppelin\-Sandbox version information for emr\-4\.1\.0**  
-
-| Amazon EMR Release Label | Zeppelin\-Sandbox Version | Components Installed With Zeppelin\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.1\.0 | Zeppelin\-Sandbox 0\.6\.0\-SNAPSHOT | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
+| emr\-4\.9\.6 | 0\.6\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
+| emr\-4\.9\.5 | 0\.6\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
+| emr\-4\.9\.4 | 0\.6\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
+| emr\-4\.9\.3 | 0\.6\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
+| emr\-4\.9\.2 | 0\.6\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
+| emr\-4\.9\.1 | 0\.6\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
+| emr\-4\.8\.5 | 0\.6\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
+| emr\-4\.8\.4 | 0\.6\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
+| emr\-4\.8\.3 | 0\.6\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
+| emr\-4\.8\.2 | 0\.6\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
+| emr\-4\.8\.0 | 0\.6\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
+| emr\-4\.7\.4 | 0\.5\.6 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
+| emr\-4\.7\.2 | 0\.5\.6 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
+| emr\-4\.7\.1 | 0\.5\.6 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
+| emr\-4\.7\.0 | 0\.5\.6 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
+| emr\-4\.6\.0 | 0\.5\.6 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
+| emr\-4\.5\.0 | 0\.5\.6 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
+| emr\-4\.4\.0 | 0\.5\.6 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
+| emr\-4\.3\.0 | 0\.5\.5 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
+| emr\-4\.2\.0 | 0\.5\.5 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
+| emr\-4\.1\.0 | 0\.6\.0\-SNAPSHOT | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, zeppelin\-server | 
 
 ## ZooKeeper \(sandbox versions\)<a name="emr-Zookeeper-sandbox-4x"></a>
 
-ZooKeeper is available as a sandbox application beginning with Amazon EMR release version 4\.6\.0\.
+Zookeeper is available as a sandbox application beginning with Amazon EMR release version 4\.6\.0\.
 
 
-**ZooKeeper\-Sandbox version information for emr\-4\.9\.3**  
+**ZooKeeper\-Sandbox version information**  
 
-| Amazon EMR Release Label | ZooKeeper\-Sandbox Version | Components Installed With ZooKeeper\-Sandbox | 
+| Amazon EMR Release label | ZooKeeper\-Sandbox Version | Components installed with ZooKeeper\-Sandbox | 
 | --- | --- | --- | 
-| emr\-4\.9\.3 | ZooKeeper\-Sandbox 3\.4\.9 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, zookeeper\-client, zookeeper\-server | 
-
-
-**ZooKeeper\-Sandbox version information for emr\-4\.9\.2**  
-
-| Amazon EMR Release Label | ZooKeeper\-Sandbox Version | Components Installed With ZooKeeper\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.9\.2 | ZooKeeper\-Sandbox 3\.4\.9 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, zookeeper\-client, zookeeper\-server | 
-
-
-**ZooKeeper\-Sandbox version information for emr\-4\.9\.1**  
-
-| Amazon EMR Release Label | ZooKeeper\-Sandbox Version | Components Installed With ZooKeeper\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.9\.1 | ZooKeeper\-Sandbox 3\.4\.9 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, zookeeper\-client, zookeeper\-server | 
-
-
-**ZooKeeper\-Sandbox version information for emr\-4\.8\.4**  
-
-| Amazon EMR Release Label | ZooKeeper\-Sandbox Version | Components Installed With ZooKeeper\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.8\.4 | ZooKeeper\-Sandbox 3\.4\.9 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, zookeeper\-client, zookeeper\-server | 
-
-
-**ZooKeeper\-Sandbox version information for emr\-4\.8\.3**  
-
-| Amazon EMR Release Label | ZooKeeper\-Sandbox Version | Components Installed With ZooKeeper\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.8\.3 | ZooKeeper\-Sandbox 3\.4\.9 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, zookeeper\-client, zookeeper\-server | 
-
-
-**ZooKeeper\-Sandbox version information for emr\-4\.8\.2**  
-
-| Amazon EMR Release Label | ZooKeeper\-Sandbox Version | Components Installed With ZooKeeper\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.8\.2 | ZooKeeper\-Sandbox 3\.4\.8 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, zookeeper\-client, zookeeper\-server | 
-
-
-**ZooKeeper\-Sandbox version information for emr\-4\.8\.0**  
-
-| Amazon EMR Release Label | ZooKeeper\-Sandbox Version | Components Installed With ZooKeeper\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.8\.0 | ZooKeeper\-Sandbox 3\.4\.8 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, zookeeper\-client, zookeeper\-server | 
-
-
-**ZooKeeper\-Sandbox version information for emr\-4\.7\.2**  
-
-| Amazon EMR Release Label | ZooKeeper\-Sandbox Version | Components Installed With ZooKeeper\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.7\.2 | ZooKeeper\-Sandbox 3\.4\.8 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, zookeeper\-client, zookeeper\-server | 
-
-
-**ZooKeeper\-Sandbox version information for emr\-4\.7\.1**  
-
-| Amazon EMR Release Label | ZooKeeper\-Sandbox Version | Components Installed With ZooKeeper\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.7\.1 | ZooKeeper\-Sandbox 3\.4\.8 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, zookeeper\-client, zookeeper\-server | 
-
-
-**ZooKeeper\-Sandbox version information for emr\-4\.7\.0**  
-
-| Amazon EMR Release Label | ZooKeeper\-Sandbox Version | Components Installed With ZooKeeper\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.7\.0 | ZooKeeper\-Sandbox 3\.4\.8 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, zookeeper\-client, zookeeper\-server | 
-
-
-**ZooKeeper\-Sandbox version information for emr\-4\.6\.0**  
-
-| Amazon EMR Release Label | ZooKeeper\-Sandbox Version | Components Installed With ZooKeeper\-Sandbox | 
-| --- | --- | --- | 
-| emr\-4\.6\.0 | ZooKeeper\-Sandbox 3\.4\.8 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, zookeeper\-client, zookeeper\-server | 
+| emr\-4\.9\.6 | 3\.4\.9 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, zookeeper\-client, zookeeper\-server | 
+| emr\-4\.9\.5 | 3\.4\.9 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, zookeeper\-client, zookeeper\-server | 
+| emr\-4\.9\.4 | 3\.4\.9 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, zookeeper\-client, zookeeper\-server | 
+| emr\-4\.9\.3 | 3\.4\.9 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, zookeeper\-client, zookeeper\-server | 
+| emr\-4\.9\.2 | 3\.4\.9 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, zookeeper\-client, zookeeper\-server | 
+| emr\-4\.9\.1 | 3\.4\.9 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, zookeeper\-client, zookeeper\-server | 
+| emr\-4\.8\.5 | 3\.4\.9 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, zookeeper\-client, zookeeper\-server | 
+| emr\-4\.8\.4 | 3\.4\.9 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, zookeeper\-client, zookeeper\-server | 
+| emr\-4\.8\.3 | 3\.4\.9 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, zookeeper\-client, zookeeper\-server | 
+| emr\-4\.8\.2 | 3\.4\.8 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, zookeeper\-client, zookeeper\-server | 
+| emr\-4\.8\.0 | 3\.4\.8 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, zookeeper\-client, zookeeper\-server | 
+| emr\-4\.7\.4 | 3\.4\.8 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, zookeeper\-client, zookeeper\-server | 
+| emr\-4\.7\.2 | 3\.4\.8 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, zookeeper\-client, zookeeper\-server | 
+| emr\-4\.7\.1 | 3\.4\.8 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, zookeeper\-client, zookeeper\-server | 
+| emr\-4\.7\.0 | 3\.4\.8 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, zookeeper\-client, zookeeper\-server | 
+| emr\-4\.6\.0 | 3\.4\.8 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, zookeeper\-client, zookeeper\-server | 

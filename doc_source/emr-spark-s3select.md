@@ -1,8 +1,8 @@
-# Using S3 Select with Spark to improve query performance<a name="emr-spark-s3select"></a>
+# Use S3 Select with Spark to improve query performance<a name="emr-spark-s3select"></a>
 
 With Amazon EMR release version 5\.17\.0 and later, you can use [S3 Select](https://aws.amazon.com/blogs/aws/s3-glacier-select/) with Spark on Amazon EMR\. S3 Select allows applications to retrieve only a subset of data from an object\. For Amazon EMR, the computational work of filtering large data sets for processing is "pushed down" from the cluster to Amazon S3, which can improve performance in some applications and reduces the amount of data transferred between Amazon EMR and Amazon S3\.
 
-S3 Select is supported with CSV and JSON files using `s3selectCSV` and `s3selectJSON` values to specify the data format\. For more information and examples, see [Specifying S3 Select in your code](#emr-spark-s3select-specify)\.
+S3 Select is supported with CSV and JSON files using `s3selectCSV` and `s3selectJSON` values to specify the data format\. For more information and examples, see [Specify S3 Select in your code](#emr-spark-s3select-specify)\.
 
 ## Is S3 Select right for my application?<a name="emr-spark-s3select-apps"></a>
 
@@ -28,7 +28,7 @@ Use the following guidelines to determine if your application is a candidate for
   + Filters for which the value is not a literal value\. For example, `intColumn1 = intColumn2`
   + Only [S3 Select supported data types](https://docs.aws.amazon.com/AmazonS3/latest/dev/s3-glacier-select-sql-reference-data-types.html) are supported with the documented limitations\.
 
-## Specifying S3 Select in your code<a name="emr-spark-s3select-specify"></a>
+## Specify S3 Select in your code<a name="emr-spark-s3select-specify"></a>
 
 The following examples demonstrate how to specify S3 Select for CSV using Scala, SQL, R, and PySpark\. You can use S3 Select for JSON in the same way\. For a listing of options, their default values, and limitations, see [Options](#emr-spark-s3select-specify-options)\.
 

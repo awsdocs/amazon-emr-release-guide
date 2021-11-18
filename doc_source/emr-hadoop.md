@@ -6,18 +6,18 @@ For more information, see [http://hadoop.apache.org](http://hadoop.apache.org)
 
 The following table lists the version of Hadoop included in the latest release of Amazon EMR 6\.x series, along with the components that Amazon EMR installs with Hadoop\.
 
-For the version of components installed with Hadoop in this release, see [Release 6\.3\.0 Component Versions](emr-release-6x.md#emr-630-release)\.
+For the version of components installed with Hadoop in this release, see [Release 6\.4\.0 Component Versions](emr-640-release.md)\.
 
 
-**Hadoop version information for emr\-6\.3\.0**  
+**Hadoop version information for emr\-6\.4\.0**  
 
 | Amazon EMR Release Label | Hadoop Version | Components Installed With Hadoop | 
 | --- | --- | --- | 
-| emr\-6\.3\.0 | Hadoop 3\.2\.1 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-mapred, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server | 
+| emr\-6\.4\.0 | Hadoop 3\.2\.1 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-mapred, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server | 
 
 The following table lists the version of Hadoop included in the latest release of Amazon EMR 5\.x series, along with the components that Amazon EMR installs with Hadoop\.
 
-For the version of components installed with Hadoop in this release, see [Release 5\.33\.0 Component Versions](emr-release-5x.md#emr-5330-release)\.
+For the version of components installed with Hadoop in this release, see [Release 5\.33\.0 Component Versions](emr-5330-release.md)\.
 
 
 **Hadoop version information for emr\-5\.33\.0**  

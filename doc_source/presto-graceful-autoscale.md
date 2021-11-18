@@ -22,4 +22,4 @@ Replace the `graceful-shutdown-timeout` value with the number of minutes appropr
 
 **Limitations**
 
-PrestoDB Graceful Decommission does not work on EMR clusters where HTTP connectivity is disabled, such as when `http-server.http.enabled` is set to `false`\. PrestoSQL does not support Graceful Decommission at all, regardless of the `http-server.http.enabled` setting\.
+PrestoDB Graceful Decommission does not work on EMR clusters where HTTP connectivity is disabled, such as when `http-server.http.enabled` is set to `false`\. Trino does not support Graceful Decommission at all, regardless of the `http-server.http.enabled` setting\.

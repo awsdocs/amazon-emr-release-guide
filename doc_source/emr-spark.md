@@ -15,18 +15,18 @@ Apache Spark version 2\.3\.1, available beginning with Amazon EMR release versio
 
 The following table lists the version of Spark included in the latest release of Amazon EMR 6\.x series, along with the components that Amazon EMR installs with Spark\.
 
-For the version of components installed with Spark in this release, see [Release 6\.3\.0 Component Versions](emr-release-6x.md#emr-630-release)\.
+For the version of components installed with Spark in this release, see [Release 6\.4\.0 Component Versions](emr-640-release.md)\.
 
 
-**Spark version information for emr\-6\.3\.0**  
+**Spark version information for emr\-6\.4\.0**  
 
 | Amazon EMR Release Label | Spark Version | Components Installed With Spark | 
 | --- | --- | --- | 
-| emr\-6\.3\.0 | Spark 3\.1\.1 | aws\-sagemaker\-spark\-sdk, emrfs, emr\-goodies, emr\-ddb, emr\-s3\-select, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hudi, hudi\-spark, livy\-server, nginx, r, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave | 
+| emr\-6\.4\.0 | Spark 3\.1\.2 | aws\-sagemaker\-spark\-sdk, emrfs, emr\-goodies, emr\-ddb, emr\-s3\-select, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hudi, hudi\-spark, livy\-server, nginx, r, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave | 
 
 The following table lists the version of Spark included in the latest release of Amazon EMR 5\.x series, along with the components that Amazon EMR installs with Spark\.
 
-For the version of components installed with Spark in this release, see [Release 5\.33\.0 Component Versions](emr-release-5x.md#emr-5330-release)\.
+For the version of components installed with Spark in this release, see [Release 5\.33\.0 Component Versions](emr-5330-release.md)\.
 
 
 **Spark version information for emr\-5\.33\.0**  
@@ -38,15 +38,16 @@ For the version of components installed with Spark in this release, see [Release
 **Topics**
 + [Create a cluster with Spark](emr-spark-launch.md)
 + [Run Spark applications with Docker using Amazon EMR 6\.x](emr-spark-docker.md)
-+ [Using the AWS Glue Data Catalog as the metastore for Spark SQL](emr-spark-glue.md)
++ [Use the AWS Glue Data Catalog as the metastore for Spark SQL](emr-spark-glue.md)
 + [Configure Spark](emr-spark-configure.md)
-+ [Optimizing Spark performance](emr-spark-performance.md)
-+ [Using the Nvidia Spark\-RAPIDS Accelerator for Spark](emr-spark-rapids.md)
++ [Optimize Spark performance](emr-spark-performance.md)
++ [Use the Nvidia Spark\-RAPIDS Accelerator for Spark](emr-spark-rapids.md)
 + [Access the Spark shell](emr-spark-shell.md)
-+ [Using Amazon SageMaker Spark for machine learning](emr-spark-sagemaker.md)
++ [Use Amazon SageMaker Spark for machine learning](emr-spark-sagemaker.md)
 + [Write a Spark application](emr-spark-application.md)
-+ [Improving Spark performance with Amazon S3](emr-spark-s3-performance.md)
-+ [Adding a Spark step](emr-spark-submit-step.md)
++ [Improve Spark performance with Amazon S3](emr-spark-s3-performance.md)
++ [Add a Spark step](emr-spark-submit-step.md)
 + [View Spark application history](emr-spark-application-history.md)
-+ [Accessing the Spark web UIs](emr-spark-webui.md)
++ [Access the Spark web UIs](emr-spark-webui.md)
++ [Use Spark on Amazon Redshift with a connector](emr-spark-redshift.md)
 + [Spark release history](Spark-release-history.md)

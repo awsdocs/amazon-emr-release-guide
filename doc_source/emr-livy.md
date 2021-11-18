@@ -6,18 +6,18 @@ To access the Livy web interface, set up an SSH tunnel to the master node and a 
 
 The following table lists the version of Livy included in the latest release of Amazon EMR 6\.x series, along with the components that Amazon EMR installs with Livy\.
 
-For the version of components installed with Livy in this release, see [Release 6\.3\.0 Component Versions](emr-release-6x.md#emr-630-release)\.
+For the version of components installed with Livy in this release, see [Release 6\.4\.0 Component Versions](emr-640-release.md)\.
 
 
-**Livy version information for emr\-6\.3\.0**  
+**Livy version information for emr\-6\.4\.0**  
 
 | Amazon EMR Release Label | Livy Version | Components Installed With Livy | 
 | --- | --- | --- | 
-| emr\-6\.3\.0 | Livy 0\.7\.0 | aws\-sagemaker\-spark\-sdk, emrfs, emr\-goodies, emr\-ddb, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, r, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, livy\-server, nginx | 
+| emr\-6\.4\.0 | Livy 0\.7\.1 | aws\-sagemaker\-spark\-sdk, emrfs, emr\-goodies, emr\-ddb, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, r, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave, livy\-server, nginx | 
 
 The following table lists the version of Livy included in the latest release of Amazon EMR 5\.x series, along with the components that Amazon EMR installs with Livy\.
 
-For the version of components installed with Livy in this release, see [Release 5\.33\.0 Component Versions](emr-release-5x.md#emr-5330-release)\.
+For the version of components installed with Livy in this release, see [Release 5\.33\.0 Component Versions](emr-5330-release.md)\.
 
 
 **Livy version information for emr\-5\.33\.0**  

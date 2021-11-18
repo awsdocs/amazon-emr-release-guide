@@ -12,18 +12,18 @@ aws ec2 --region MyRegion describe-images --owner amazon --query 'Images[?Name!=
 
 The following table lists the version of Oozie included in the latest release of Amazon EMR 6\.x series, along with the components that Amazon EMR installs with Oozie\.
 
-For the version of components installed with Oozie in this release, see [Release 6\.3\.0 Component Versions](emr-release-6x.md#emr-630-release)\.
+For the version of components installed with Oozie in this release, see [Release 6\.4\.0 Component Versions](emr-640-release.md)\.
 
 
-**Oozie version information for emr\-6\.3\.0**  
+**Oozie version information for emr\-6\.4\.0**  
 
 | Amazon EMR Release Label | Oozie Version | Components Installed With Oozie | 
 | --- | --- | --- | 
-| emr\-6\.3\.0 | Oozie 5\.2\.1 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, oozie\-client, oozie\-server, tez\-on\-yarn | 
+| emr\-6\.4\.0 | Oozie 5\.2\.1 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, oozie\-client, oozie\-server, tez\-on\-yarn | 
 
 The following table lists the version of Oozie included in the latest release of Amazon EMR 5\.x series, along with the components that Amazon EMR installs with Oozie\.
 
-For the version of components installed with Oozie in this release, see [Release 5\.33\.0 Component Versions](emr-release-5x.md#emr-5330-release)\.
+For the version of components installed with Oozie in this release, see [Release 5\.33\.0 Component Versions](emr-5330-release.md)\.
 
 
 **Oozie version information for emr\-5\.33\.0**  

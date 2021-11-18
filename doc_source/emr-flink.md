@@ -16,9 +16,20 @@ Flink is included in Amazon EMR release versions 5\.1\.0 and later\.
 **Note**  
 Support for the `FlinkKinesisConsumer` class was added in Amazon EMR release version 5\.2\.1\.
 
+The following table lists the version of Flink included in the latest release of Amazon EMR 6\.x series, along with the components that Amazon EMR installs with Flink\.
+
+For the version of components installed with Flink in this release, see [Release 6\.4\.0 Component Versions](emr-640-release.md)\.
+
+
+**Flink version information for emr\-6\.4\.0**  
+
+| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
+| --- | --- | --- | 
+| emr\-6\.4\.0 | Flink 1\.13\.1 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client, flink\-jobmanager\-config, hudi | 
+
 The following table lists the version of Flink included in the latest release of Amazon EMR 5\.x series, along with the components that Amazon EMR installs with Flink\.
 
-For the version of components installed with Flink in this release, see [Release 5\.33\.0 Component Versions](emr-release-5x.md#emr-5330-release)\.
+For the version of components installed with Flink in this release, see [Release 5\.33\.0 Component Versions](emr-5330-release.md)\.
 
 
 **Flink version information for emr\-5\.33\.0**  

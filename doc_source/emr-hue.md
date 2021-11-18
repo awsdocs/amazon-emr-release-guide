@@ -6,18 +6,18 @@ Hue is installed by default when you launch your cluster using the Amazon EMR co
 
 The following table lists the version of Hue included in the latest release of Amazon EMR 6\.x series, along with the components that Amazon EMR installs with Hue\.
 
-For the version of components installed with Hue in this release, see [Release 6\.3\.0 Component Versions](emr-release-6x.md#emr-630-release)\.
+For the version of components installed with Hue in this release, see [Release 6\.4\.0 Component Versions](emr-640-release.md)\.
 
 
-**Hue version information for emr\-6\.3\.0**  
+**Hue version information for emr\-6\.4\.0**  
 
 | Amazon EMR Release Label | Hue Version | Components Installed With Hue | 
 | --- | --- | --- | 
-| emr\-6\.3\.0 | Hue 4\.9\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hue\-server, mariadb\-server, oozie\-client, oozie\-server | 
+| emr\-6\.4\.0 | Hue 4\.9\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hue\-server, mariadb\-server, oozie\-client, oozie\-server | 
 
 The following table lists the version of Hue included in the latest release of Amazon EMR 5\.x series, along with the components that Amazon EMR installs with Hue\.
 
-For the version of components installed with Hue in this release, see [Release 5\.33\.0 Component Versions](emr-release-5x.md#emr-5330-release)\.
+For the version of components installed with Hue in this release, see [Release 5\.33\.0 Component Versions](emr-5330-release.md)\.
 
 
 **Hue version information for emr\-5\.33\.0**  

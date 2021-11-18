@@ -35,6 +35,8 @@ The role for the Amazon EC2 instance profile must have permissions to use the CM
 
 You can use the AWS Management Console to add your instance profile or EC2 instance profile to the list of key users for the specified AWS KMS CMK, or you can use the AWS CLI or an AWS SDK to attach an appropriate key policy\.
 
+Note that Amazon EMR supports only [symmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#symmetric-cmks)\. You cannot use an [asymmetric KMS key](https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html#asymmetric-cmks) to encrypt data at rest in an Amazon EMR cluster\. For help determining whether a KMS key is symmetric or asymmetric, see [ Identifying symmetric and asymmetric KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/find-symm-asymm.html)\.
+
 The procedure below describes how to add the default EMR instance profile, `EMR_EC2_DefaultRole` as a *key user* using the AWS Management Console\. It assumes that you have already created a CMK\. To create a new CMK, see [Creating Keys](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html) in the *AWS Key Management Service Developer Guide*\.
 
 **To add the EC2 instance profile for Amazon EMR to the list of encryption key users**
@@ -53,11 +55,11 @@ The procedure below describes how to add the default EMR instance profile, `EMR_
 
 ## Amazon S3 server\-side encryption<a name="emr-emrfs-encryption-sse"></a>
 
-When you set up Amazon S3 server\-side encryption, Amazon S3 encrypts data at the object level as it writes the data to disk and decrypts the data when it is accessed\. For more information about SSE, see [Protecting data using server\-side encryption](https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html) in the *Amazon Simple Storage Service Developer Guide*\.
+When you set up Amazon S3 server\-side encryption, Amazon S3 encrypts data at the object level as it writes the data to disk and decrypts the data when it is accessed\. For more information about SSE, see [Protecting data using server\-side encryption](https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html) in the *Amazon Simple Storage Service User Guide*\.
 
 You can choose between two different key management systems when you specify SSE in Amazon EMR: 
 + **SSE\-S3** – Amazon S3 manages keys for you\.
-+ **SSE\-KMS** – You use an AWS KMS customer master key \(CMK\) set up with policies suitable for Amazon EMR\. For more information about key requirements for Amazon EMR, see [Using AWS KMS customer master keys \(CMKs\) for encryption ](emr/latest/ManagementGuide/emr-encryption-enable.html#emr-awskms-keys)\.
++ **SSE\-KMS** – You use an AWS KMS customer master key \(CMK\) set up with policies suitable for Amazon EMR\. For more information about key requirements for Amazon EMR, see [Using AWS KMS customer master keys \(CMKs\) for encryption](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-encryption-enable.html#emr-awskms-keys)\.
 
 SSE with customer\-provided keys \(SSE\-C\) is not available for use with Amazon EMR\.
 

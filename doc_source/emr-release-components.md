@@ -11,20 +11,20 @@ Beginning with Amazon EMR 5\.18\.0, you can use the Amazon EMR artifact reposito
 Subscribe to the RSS feed for Amazon EMR release notes at [https://docs.aws.amazon.com/emr/latest/ReleaseGuide/amazon-emr-release-notes.rss](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/amazon-emr-release-notes.rss) to receive updates when a new Amazon EMR release version is available\.
 
 **Latest release** details, including application versions, release notes, components, and configuration classifications of Amazon EMR 6\.x series and 5\.x series:
-+ [Amazon EMR Release 6\.3\.0](emr-release-6x.md#emr-630-release)
-+ [Amazon EMR Release 5\.33\.0](emr-release-5x.md#emr-5330-release)
++ [Amazon EMR Release 6\.4\.0](emr-640-release.md)
++ [Amazon EMR Release 5\.33\.0](emr-5330-release.md)
 
 **Note**  
 New Amazon EMR release versions are made available in different Regions over a period of several days, beginning with the first Region on the initial release date\. The latest release version may not be available in your Region during this period\.
 
-**release notes** for the latest Amazon EMR releases and a history of all releases:
+**Release notes** for the latest Amazon EMR releases and a history of all releases:
 + [What's new?](emr-whatsnew.md)
 + [Amazon EMR what's new history](emr-whatsnew-history.md)
 
 **A comprehensive history of application versions** in each Amazon EMR release:
-+ [Application versions in Amazon EMR 6\.x Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-6x.png)
-+ [Application versions in Amazon EMR 5\.x Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-5x.png)
-+ [Application versions in Amazon EMR 4\.x Releases \(PNG\)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/images/emr-releases-4x.png)
++ [Application versions in Amazon EMR 6\.x releases](emr-release-app-versions-6.x.md)
++ [Application versions in Amazon EMR 5\.x releases](emr-release-app-versions-5.x.md)
++ [Application versions in Amazon EMR 4\.x releases](emr-release-app-versions-4.x.md)
 
 **Details for each Amazon EMR release** and differences between release series, where applicable:
 + [Amazon EMR 6\.x release versions](emr-release-6x.md)

@@ -70,9 +70,11 @@ For examples of how to specify the following configuration classifications when 
   ]
   ```
 
-  **Amazon EMR 6\.1\.0 and later using PrestoSQL**
+  **Amazon EMR 6\.1\.0 and later using PrestoSQL \(Trino\)**
 
   Starting with EMR version 6\.1\.0, PrestoSQL also supports Glue as the default Hive metastore\. Use the `prestosql-connector-hive` configuration classification and set the `hive.metastore` property to `glue`, as shown in the following JSON example\.
+
+  Amazon EMR versions 6\.4\.0 and later use the new name Trino instead of PrestoSQL\. If you use Trino, replace `prestosql-connector-hive` in the following configuration classification with `trino-connector-hive`\.
 
   ```
   [

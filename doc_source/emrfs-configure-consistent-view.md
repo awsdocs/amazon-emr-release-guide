@@ -58,3 +58,4 @@ The following options can be set using configurations or AWS CLI `--emrfs` argum
 | fs\.s3\.consistent\.notification\.SQS\.queueName | EMRFS\-Inconsistency\-<jobFlowId> | Changing this property allows you to specify your own SQS queue name for messages regarding Amazon S3 eventual consistency issues\. | 
 | fs\.s3\.consistent\.notification\.SQS\.customMsg | none | This property allows you to specify custom information included in SQS messages regarding Amazon S3 eventual consistency issues\. If a value is not specified for this property, the corresponding field in the message is empty\.  | 
 | fs\.s3\.consistent\.dynamodb\.endpoint | none | This property allows you to specify a custom DynamoDB endpoint for your consistent view metadata\. | 
+| fs\.s3\.useRequesterPaysHeader | false | When set to true, this property allows Amazon S3 requests to buckets with the request payer option enabled\.  | 

@@ -21,7 +21,7 @@ The details for each of these steps are covered in the sections that follow\.
 
 **To copy source files to the master node**
 
-1. Put your source files in an Amazon S3 bucket\. To learn how to create buckets and how to move data into Amazon S3, see the [Amazon Simple Storage Service Getting Started Guide](https://docs.aws.amazon.com/AmazonS3/latest/gsg/)\.
+1. Put your source files in an Amazon S3 bucket\. To learn how to create buckets and how to move data into Amazon S3, see the [Amazon Simple Storage Service User Guide](https://docs.aws.amazon.com/AmazonS3/latest/gsg/)\.
 
 1. Create a folder on your Hadoop cluster for your source files by entering a command similar to the following:
 

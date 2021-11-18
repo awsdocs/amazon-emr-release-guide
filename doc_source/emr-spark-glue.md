@@ -1,4 +1,4 @@
-# Using the AWS Glue Data Catalog as the metastore for Spark SQL<a name="emr-spark-glue"></a>
+# Use the AWS Glue Data Catalog as the metastore for Spark SQL<a name="emr-spark-glue"></a>
 
 Using Amazon EMR version 5\.8\.0 or later, you can configure Spark SQL to use the AWS Glue Data Catalog as its metastore\. We recommend this configuration when you require a persistent metastore or a metastore shared by different clusters, services, applications, or AWS accounts\.
 

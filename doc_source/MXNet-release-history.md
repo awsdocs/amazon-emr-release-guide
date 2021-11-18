@@ -1,262 +1,71 @@
 # MXNet release history<a name="MXNet-release-history"></a>
 
-The following tables list the version of MXNet included in each release version of Amazon EMR, along with the components installed with the application\. For component versions in each release, see the Component Version section for your release in [Amazon EMR 5\.x release versions](emr-release-5x.md) or [Amazon EMR 4\.x release versions](emr-release-4x.md)\.
+The following table lists the version of MXNet included in each release version of Amazon EMR, along with the components installed with the application\. For component versions in each release, see the Component Version section for your release in [Amazon EMR 5\.x release versions](emr-release-5x.md) or [Amazon EMR 4\.x release versions](emr-release-4x.md)\.
 
 
-**MXNet version information for emr\-5\.33\.0**  
+**MXNet version information**  
 
-| Amazon EMR Release Label | MXNet Version | Components Installed With MXNet | 
+| Amazon EMR Release label | MXNet Version | Components installed with MXNet | 
 | --- | --- | --- | 
-| emr\-5\.33\.0 | MXNet 1\.7\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
-
-
-**MXNet version information for emr\-5\.32\.0**  
-
-| Amazon EMR Release Label | MXNet Version | Components Installed With MXNet | 
-| --- | --- | --- | 
-| emr\-5\.32\.0 | MXNet 1\.7\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
-
-
-**MXNet version information for emr\-6\.2\.0**  
-
-| Amazon EMR Release Label | MXNet Version | Components Installed With MXNet | 
-| --- | --- | --- | 
-| emr\-6\.2\.0 | MXNet 1\.7\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
-
-
-**MXNet version information for emr\-5\.31\.0**  
-
-| Amazon EMR Release Label | MXNet Version | Components Installed With MXNet | 
-| --- | --- | --- | 
-| emr\-5\.31\.0 | MXNet 1\.6\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
-
-
-**MXNet version information for emr\-6\.1\.0**  
-
-| Amazon EMR Release Label | MXNet Version | Components Installed With MXNet | 
-| --- | --- | --- | 
-| emr\-6\.1\.0 | MXNet 1\.6\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
-
-
-**MXNet version information for emr\-6\.0\.0**  
-
-| Amazon EMR Release Label | MXNet Version | Components Installed With MXNet | 
-| --- | --- | --- | 
-| emr\-6\.0\.0 | MXNet 1\.5\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
-
-
-**MXNet version information for emr\-5\.30\.1**  
-
-| Amazon EMR Release Label | MXNet Version | Components Installed With MXNet | 
-| --- | --- | --- | 
-| emr\-5\.30\.1 | MXNet 1\.5\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
-
-
-**MXNet version information for emr\-5\.30\.0**  
-
-| Amazon EMR Release Label | MXNet Version | Components Installed With MXNet | 
-| --- | --- | --- | 
-| emr\-5\.30\.0 | MXNet 1\.5\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
-
-
-**MXNet version information for emr\-5\.29\.0**  
-
-| Amazon EMR Release Label | MXNet Version | Components Installed With MXNet | 
-| --- | --- | --- | 
-| emr\-5\.29\.0 | MXNet 1\.5\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
-
-
-**MXNet version information for emr\-5\.28\.1**  
-
-| Amazon EMR Release Label | MXNet Version | Components Installed With MXNet | 
-| --- | --- | --- | 
-| emr\-5\.28\.1 | MXNet 1\.5\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
-
-
-**MXNet version information for emr\-5\.28\.0**  
-
-| Amazon EMR Release Label | MXNet Version | Components Installed With MXNet | 
-| --- | --- | --- | 
-| emr\-5\.28\.0 | MXNet 1\.5\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
-
-
-**MXNet version information for emr\-5\.27\.0**  
-
-| Amazon EMR Release Label | MXNet Version | Components Installed With MXNet | 
-| --- | --- | --- | 
-| emr\-5\.27\.0 | MXNet 1\.4\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
-
-
-**MXNet version information for emr\-5\.26\.0**  
-
-| Amazon EMR Release Label | MXNet Version | Components Installed With MXNet | 
-| --- | --- | --- | 
-| emr\-5\.26\.0 | MXNet 1\.4\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
-
-
-**MXNet version information for emr\-5\.25\.0**  
-
-| Amazon EMR Release Label | MXNet Version | Components Installed With MXNet | 
-| --- | --- | --- | 
-| emr\-5\.25\.0 | MXNet 1\.4\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
-
-
-**MXNet version information for emr\-5\.24\.1**  
-
-| Amazon EMR Release Label | MXNet Version | Components Installed With MXNet | 
-| --- | --- | --- | 
-| emr\-5\.24\.1 | MXNet 1\.4\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
-
-
-**MXNet version information for emr\-5\.24\.0**  
-
-| Amazon EMR Release Label | MXNet Version | Components Installed With MXNet | 
-| --- | --- | --- | 
-| emr\-5\.24\.0 | MXNet 1\.4\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
-
-
-**MXNet version information for emr\-5\.23\.0**  
-
-| Amazon EMR Release Label | MXNet Version | Components Installed With MXNet | 
-| --- | --- | --- | 
-| emr\-5\.23\.0 | MXNet 1\.3\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
-
-
-**MXNet version information for emr\-5\.22\.0**  
-
-| Amazon EMR Release Label | MXNet Version | Components Installed With MXNet | 
-| --- | --- | --- | 
-| emr\-5\.22\.0 | MXNet 1\.3\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
-
-
-**MXNet version information for emr\-5\.21\.1**  
-
-| Amazon EMR Release Label | MXNet Version | Components Installed With MXNet | 
-| --- | --- | --- | 
-| emr\-5\.21\.1 | MXNet 1\.3\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
-
-
-**MXNet version information for emr\-5\.21\.0**  
-
-| Amazon EMR Release Label | MXNet Version | Components Installed With MXNet | 
-| --- | --- | --- | 
-| emr\-5\.21\.0 | MXNet 1\.3\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
-
-
-**MXNet version information for emr\-5\.20\.0**  
-
-| Amazon EMR Release Label | MXNet Version | Components Installed With MXNet | 
-| --- | --- | --- | 
-| emr\-5\.20\.0 | MXNet 1\.3\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
-
-
-**MXNet version information for emr\-5\.19\.0**  
-
-| Amazon EMR Release Label | MXNet Version | Components Installed With MXNet | 
-| --- | --- | --- | 
-| emr\-5\.19\.0 | MXNet 1\.3\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
-
-
-**MXNet version information for emr\-5\.18\.0**  
-
-| Amazon EMR Release Label | MXNet Version | Components Installed With MXNet | 
-| --- | --- | --- | 
-| emr\-5\.18\.0 | MXNet 1\.2\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
-
-
-**MXNet version information for emr\-5\.17\.1**  
-
-| Amazon EMR Release Label | MXNet Version | Components Installed With MXNet | 
-| --- | --- | --- | 
-| emr\-5\.17\.1 | MXNet 1\.2\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
-
-
-**MXNet version information for emr\-5\.17\.0**  
-
-| Amazon EMR Release Label | MXNet Version | Components Installed With MXNet | 
-| --- | --- | --- | 
-| emr\-5\.17\.0 | MXNet 1\.2\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
-
-
-**MXNet version information for emr\-5\.16\.0**  
-
-| Amazon EMR Release Label | MXNet Version | Components Installed With MXNet | 
-| --- | --- | --- | 
-| emr\-5\.16\.0 | MXNet 1\.2\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
-
-
-**MXNet version information for emr\-5\.15\.0**  
-
-| Amazon EMR Release Label | MXNet Version | Components Installed With MXNet | 
-| --- | --- | --- | 
-| emr\-5\.15\.0 | MXNet 1\.1\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
-
-
-**MXNet version information for emr\-5\.14\.0**  
-
-| Amazon EMR Release Label | MXNet Version | Components Installed With MXNet | 
-| --- | --- | --- | 
-| emr\-5\.14\.0 | MXNet 1\.1\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
-
-
-**MXNet version information for emr\-5\.13\.0**  
-
-| Amazon EMR Release Label | MXNet Version | Components Installed With MXNet | 
-| --- | --- | --- | 
-| emr\-5\.13\.0 | MXNet 1\.0\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet | 
-
-
-**MXNet version information for emr\-5\.12\.2**  
-
-| Amazon EMR Release Label | MXNet Version | Components Installed With MXNet | 
-| --- | --- | --- | 
-| emr\-5\.12\.2 | MXNet 1\.0\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet | 
-
-
-**MXNet version information for emr\-5\.12\.1**  
-
-| Amazon EMR Release Label | MXNet Version | Components Installed With MXNet | 
-| --- | --- | --- | 
-| emr\-5\.12\.1 | MXNet 1\.0\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet | 
-
-
-**MXNet version information for emr\-5\.12\.0**  
-
-| Amazon EMR Release Label | MXNet Version | Components Installed With MXNet | 
-| --- | --- | --- | 
-| emr\-5\.12\.0 | MXNet 1\.0\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet | 
-
-
-**MXNet version information for emr\-5\.11\.3**  
-
-| Amazon EMR Release Label | MXNet Version | Components Installed With MXNet | 
-| --- | --- | --- | 
-| emr\-5\.11\.3 | MXNet 0\.12\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet | 
-
-
-**MXNet version information for emr\-5\.11\.2**  
-
-| Amazon EMR Release Label | MXNet Version | Components Installed With MXNet | 
-| --- | --- | --- | 
-| emr\-5\.11\.2 | MXNet 0\.12\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet | 
-
-
-**MXNet version information for emr\-5\.11\.1**  
-
-| Amazon EMR Release Label | MXNet Version | Components Installed With MXNet | 
-| --- | --- | --- | 
-| emr\-5\.11\.1 | MXNet 0\.12\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet | 
-
-
-**MXNet version information for emr\-5\.11\.0**  
-
-| Amazon EMR Release Label | MXNet Version | Components Installed With MXNet | 
-| --- | --- | --- | 
-| emr\-5\.11\.0 | MXNet 0\.12\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet | 
-
-
-**MXNet version information for emr\-5\.10\.0**  
-
-| Amazon EMR Release Label | MXNet Version | Components Installed With MXNet | 
-| --- | --- | --- | 
-| emr\-5\.10\.0 | MXNet 0\.12\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet | 
+| emr\-6\.4\.0 | 1\.8\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-6\.3\.1 | 1\.7\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-6\.3\.0 | 1\.7\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-5\.33\.1 | 1\.7\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-5\.33\.0 | 1\.7\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-5\.32\.1 | 1\.7\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-5\.32\.0 | 1\.7\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-6\.2\.1 | 1\.7\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-6\.2\.0 | 1\.7\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-6\.1\.1 | 1\.6\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-6\.1\.0 | 1\.6\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-6\.0\.1 | 1\.5\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-6\.0\.0 | 1\.5\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-5\.31\.1 | 1\.6\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-5\.31\.0 | 1\.6\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-5\.30\.2 | 1\.5\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-5\.30\.1 | 1\.5\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-5\.30\.0 | 1\.5\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-5\.29\.0 | 1\.5\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-5\.28\.1 | 1\.5\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-5\.28\.0 | 1\.5\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-5\.27\.1 | 1\.4\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-5\.27\.0 | 1\.4\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-5\.26\.0 | 1\.4\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-5\.25\.0 | 1\.4\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-5\.24\.1 | 1\.4\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-5\.24\.0 | 1\.4\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-5\.23\.1 | 1\.3\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-5\.23\.0 | 1\.3\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-5\.22\.0 | 1\.3\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-5\.21\.2 | 1\.3\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-5\.21\.1 | 1\.3\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-5\.21\.0 | 1\.3\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-5\.20\.1 | 1\.3\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-5\.20\.0 | 1\.3\.1 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-5\.19\.1 | 1\.3\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-5\.19\.0 | 1\.3\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-5\.18\.1 | 1\.2\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-5\.18\.0 | 1\.2\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-5\.17\.2 | 1\.2\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-5\.17\.1 | 1\.2\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-5\.17\.0 | 1\.2\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-5\.16\.1 | 1\.2\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-5\.16\.0 | 1\.2\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-5\.15\.1 | 1\.1\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-5\.15\.0 | 1\.1\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-5\.14\.2 | 1\.1\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-5\.14\.1 | 1\.1\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-5\.14\.0 | 1\.1\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet, opencv | 
+| emr\-5\.13\.1 | 1\.0\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet | 
+| emr\-5\.13\.0 | 1\.0\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet | 
+| emr\-5\.12\.3 | 1\.0\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet | 
+| emr\-5\.12\.2 | 1\.0\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet | 
+| emr\-5\.12\.1 | 1\.0\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet | 
+| emr\-5\.12\.0 | 1\.0\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet | 
+| emr\-5\.11\.4 | 0\.12\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet | 
+| emr\-5\.11\.3 | 0\.12\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet | 
+| emr\-5\.11\.2 | 0\.12\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet | 
+| emr\-5\.11\.1 | 0\.12\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet | 
+| emr\-5\.11\.0 | 0\.12\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet | 
+| emr\-5\.10\.1 | 0\.12\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet | 
+| emr\-5\.10\.0 | 0\.12\.0 | emrfs, emr\-goodies, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, mxnet | 

@@ -1,367 +1,95 @@
 # Flink release history<a name="Flink-release-history"></a>
 
-The following tables list the version of Flink included in each release version of Amazon EMR, along with the components installed with the application\. For component versions in each release, see the Component Version section for your release in [Amazon EMR 5\.x release versions](emr-release-5x.md) or [Amazon EMR 4\.x release versions](emr-release-4x.md)\.
+The following table lists the version of Flink included in each release version of Amazon EMR, along with the components installed with the application\. For component versions in each release, see the Component Version section for your release in [Amazon EMR 5\.x release versions](emr-release-5x.md) or [Amazon EMR 4\.x release versions](emr-release-4x.md)\.
 
 
-**Flink version information for emr\-5\.33\.0**  
+**Flink version information**  
 
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
+| Amazon EMR Release label | Flink Version | Components installed with Flink | 
 | --- | --- | --- | 
-| emr\-5\.33\.0 | Flink 1\.12\.1 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client, flink\-jobmanager\-config | 
-
-
-**Flink version information for emr\-5\.32\.0**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.32\.0 | Flink 1\.11\.2 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client, flink\-jobmanager\-config | 
-
-
-**Flink version information for emr\-6\.2\.0**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-6\.2\.0 | Flink 1\.11\.2 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client, flink\-jobmanager\-config | 
-
-
-**Flink version information for emr\-5\.31\.0**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.31\.0 | Flink 1\.11\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client, flink\-jobmanager\-config | 
-
-
-**Flink version information for emr\-6\.1\.0**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-6\.1\.0 | Flink 1\.11\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
-
-
-**Flink version information for emr\-5\.30\.1**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.30\.1 | Flink 1\.10\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
-
-
-**Flink version information for emr\-5\.30\.0**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.30\.0 | Flink 1\.10\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
-
-
-**Flink version information for emr\-5\.29\.0**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.29\.0 | Flink 1\.9\.1 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
-
-
-**Flink version information for emr\-5\.28\.1**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.28\.1 | Flink 1\.9\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
-
-
-**Flink version information for emr\-5\.28\.0**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.28\.0 | Flink 1\.9\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
-
-
-**Flink version information for emr\-5\.27\.0**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.27\.0 | Flink 1\.8\.1 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
-
-
-**Flink version information for emr\-5\.26\.0**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.26\.0 | Flink 1\.8\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
-
-
-**Flink version information for emr\-5\.25\.0**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.25\.0 | Flink 1\.8\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
-
-
-**Flink version information for emr\-5\.24\.1**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.24\.1 | Flink 1\.8\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
-
-
-**Flink version information for emr\-5\.24\.0**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.24\.0 | Flink 1\.8\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
-
-
-**Flink version information for emr\-5\.23\.0**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.23\.0 | Flink 1\.7\.1 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
-
-
-**Flink version information for emr\-5\.22\.0**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.22\.0 | Flink 1\.7\.1 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
-
-
-**Flink version information for emr\-5\.21\.1**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.21\.1 | Flink 1\.7\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
-
-
-**Flink version information for emr\-5\.21\.0**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.21\.0 | Flink 1\.7\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
-
-
-**Flink version information for emr\-5\.20\.0**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.20\.0 | Flink 1\.6\.2 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
-
-
-**Flink version information for emr\-5\.19\.0**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.19\.0 | Flink 1\.6\.1 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
-
-
-**Flink version information for emr\-5\.18\.0**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.18\.0 | Flink 1\.6\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
-
-
-**Flink version information for emr\-5\.17\.1**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.17\.1 | Flink 1\.5\.2 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
-
-
-**Flink version information for emr\-5\.17\.0**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.17\.0 | Flink 1\.5\.2 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
-
-
-**Flink version information for emr\-5\.16\.0**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.16\.0 | Flink 1\.5\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
-
-
-**Flink version information for emr\-5\.15\.0**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.15\.0 | Flink 1\.4\.2 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
-
-
-**Flink version information for emr\-5\.14\.0**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.14\.0 | Flink 1\.4\.2 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
-
-
-**Flink version information for emr\-5\.13\.0**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.13\.0 | Flink 1\.4\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
-
-
-**Flink version information for emr\-5\.12\.2**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.12\.2 | Flink 1\.4\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
-
-
-**Flink version information for emr\-5\.12\.1**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.12\.1 | Flink 1\.4\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
-
-
-**Flink version information for emr\-5\.12\.0**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.12\.0 | Flink 1\.4\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
-
-
-**Flink version information for emr\-5\.11\.3**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.11\.3 | Flink 1\.3\.2 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
-
-
-**Flink version information for emr\-5\.11\.2**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.11\.2 | Flink 1\.3\.2 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
-
-
-**Flink version information for emr\-5\.11\.1**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.11\.1 | Flink 1\.3\.2 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
-
-
-**Flink version information for emr\-5\.11\.0**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.11\.0 | Flink 1\.3\.2 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
-
-
-**Flink version information for emr\-5\.10\.0**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.10\.0 | Flink 1\.3\.2 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
-
-
-**Flink version information for emr\-5\.9\.0**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.9\.0 | Flink 1\.3\.2 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
-
-
-**Flink version information for emr\-5\.8\.2**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.8\.2 | Flink 1\.3\.1 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
-
-
-**Flink version information for emr\-5\.8\.1**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.8\.1 | Flink 1\.3\.1 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
-
-
-**Flink version information for emr\-5\.8\.0**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.8\.0 | Flink 1\.3\.1 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
-
-
-**Flink version information for emr\-5\.7\.0**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.7\.0 | Flink 1\.3\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
-
-
-**Flink version information for emr\-5\.6\.0**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.6\.0 | Flink 1\.2\.1 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
-
-
-**Flink version information for emr\-5\.5\.3**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.5\.3 | Flink 1\.2\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, flink\-client | 
-
-
-**Flink version information for emr\-5\.5\.2**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.5\.2 | Flink 1\.2\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, flink\-client | 
-
-
-**Flink version information for emr\-5\.5\.1**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.5\.1 | Flink 1\.2\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, flink\-client | 
-
-
-**Flink version information for emr\-5\.5\.0**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.5\.0 | Flink 1\.2\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, flink\-client | 
-
-
-**Flink version information for emr\-5\.4\.0**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.4\.0 | Flink 1\.2\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, flink\-client | 
-
-
-**Flink version information for emr\-5\.3\.0**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.3\.0 | Flink 1\.1\.4 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, flink\-client | 
-
-
-**Flink version information for emr\-5\.2\.2**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.2\.2 | Flink 1\.1\.3 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, flink\-client | 
-
-
-**Flink version information for emr\-5\.2\.1**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.2\.1 | Flink 1\.1\.3 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, flink\-client | 
-
-
-**Flink version information for emr\-5\.2\.0**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.2\.0 | Flink 1\.1\.3 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, flink\-client | 
-
-
-**Flink version information for emr\-5\.1\.0**  
-
-| Amazon EMR Release Label | Flink Version | Components Installed With Flink | 
-| --- | --- | --- | 
-| emr\-5\.1\.0 | Flink 1\.1\.3 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, flink\-client | 
+| emr\-6\.4\.0 | 1\.13\.1 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client, flink\-jobmanager\-config, hudi | 
+| emr\-6\.3\.1 | 1\.12\.1 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client, flink\-jobmanager\-config | 
+| emr\-6\.3\.0 | 1\.12\.1 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client, flink\-jobmanager\-config | 
+| emr\-5\.33\.1 | 1\.12\.1 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client, flink\-jobmanager\-config | 
+| emr\-5\.33\.0 | 1\.12\.1 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client, flink\-jobmanager\-config | 
+| emr\-5\.32\.1 | 1\.11\.2 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client, flink\-jobmanager\-config | 
+| emr\-5\.32\.0 | 1\.11\.2 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client, flink\-jobmanager\-config | 
+| emr\-6\.2\.1 | 1\.11\.2 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client, flink\-jobmanager\-config | 
+| emr\-6\.2\.0 | 1\.11\.2 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client, flink\-jobmanager\-config | 
+| emr\-6\.1\.1 | 1\.11\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-6\.1\.0 | 1\.11\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.31\.1 | 1\.11\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client, flink\-jobmanager\-config | 
+| emr\-5\.31\.0 | 1\.11\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client, flink\-jobmanager\-config | 
+| emr\-5\.30\.2 | 1\.10\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.30\.1 | 1\.10\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.30\.0 | 1\.10\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.29\.0 | 1\.9\.1 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.28\.1 | 1\.9\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.28\.0 | 1\.9\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.27\.1 | 1\.8\.1 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.27\.0 | 1\.8\.1 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.26\.0 | 1\.8\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.25\.0 | 1\.8\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.24\.1 | 1\.8\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.24\.0 | 1\.8\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.23\.1 | 1\.7\.1 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.23\.0 | 1\.7\.1 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.22\.0 | 1\.7\.1 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.21\.2 | 1\.7\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.21\.1 | 1\.7\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.21\.0 | 1\.7\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.20\.1 | 1\.6\.2 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.20\.0 | 1\.6\.2 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.19\.1 | 1\.6\.1 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.19\.0 | 1\.6\.1 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.18\.1 | 1\.6\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.18\.0 | 1\.6\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.17\.2 | 1\.5\.2 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.17\.1 | 1\.5\.2 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.17\.0 | 1\.5\.2 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.16\.1 | 1\.5\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.16\.0 | 1\.5\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.15\.1 | 1\.4\.2 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.15\.0 | 1\.4\.2 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.14\.2 | 1\.4\.2 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.14\.1 | 1\.4\.2 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.14\.0 | 1\.4\.2 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.13\.1 | 1\.4\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.13\.0 | 1\.4\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.12\.3 | 1\.4\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.12\.2 | 1\.4\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.12\.1 | 1\.4\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.12\.0 | 1\.4\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.11\.4 | 1\.3\.2 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.11\.3 | 1\.3\.2 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.11\.2 | 1\.3\.2 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.11\.1 | 1\.3\.2 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.11\.0 | 1\.3\.2 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.10\.1 | 1\.3\.2 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.10\.0 | 1\.3\.2 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.9\.1 | 1\.3\.2 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.9\.0 | 1\.3\.2 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.8\.3 | 1\.3\.1 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.8\.2 | 1\.3\.1 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.8\.1 | 1\.3\.1 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.8\.0 | 1\.3\.1 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.7\.1 | 1\.3\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.7\.0 | 1\.3\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.6\.1 | 1\.2\.1 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.6\.0 | 1\.2\.1 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, flink\-client | 
+| emr\-5\.5\.4 | 1\.2\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, flink\-client | 
+| emr\-5\.5\.3 | 1\.2\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, flink\-client | 
+| emr\-5\.5\.2 | 1\.2\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, flink\-client | 
+| emr\-5\.5\.1 | 1\.2\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, flink\-client | 
+| emr\-5\.5\.0 | 1\.2\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, flink\-client | 
+| emr\-5\.4\.1 | 1\.2\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, flink\-client | 
+| emr\-5\.4\.0 | 1\.2\.0 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, flink\-client | 
+| emr\-5\.3\.2 | 1\.1\.4 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, flink\-client | 
+| emr\-5\.3\.1 | 1\.1\.4 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, flink\-client | 
+| emr\-5\.3\.0 | 1\.1\.4 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, flink\-client | 
+| emr\-5\.2\.3 | 1\.1\.3 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, flink\-client | 
+| emr\-5\.2\.2 | 1\.1\.3 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, flink\-client | 
+| emr\-5\.2\.1 | 1\.1\.3 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, flink\-client | 
+| emr\-5\.2\.0 | 1\.1\.3 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, flink\-client | 
+| emr\-5\.1\.1 | 1\.1\.3 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, flink\-client | 
+| emr\-5\.1\.0 | 1\.1\.3 | emrfs, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, flink\-client | 

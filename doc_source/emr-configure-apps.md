@@ -93,4 +93,5 @@ The following settings do not belong to a configuration file but are used by Ama
 **Topics**
 + [Configure applications when you create a cluster](emr-configure-apps-create-cluster.md)
 + [Reconfigure an instance group in a running cluster](emr-configure-apps-running-cluster.md)
++ [Mask sensitive data](configuring-sensitive-data-annotations.md)
 + [Configure applications to use a specific Java Virtual Machine](configuring-java8.md)

@@ -1,7 +1,7 @@
 # Requirements for the EMRFS S3\-optimized committer<a name="emr-spark-committer-reqs"></a>
 
 The EMRFS S3\-optimized committer is used when the following conditions are met:
-+ You run Spark jobs that use Spark SQL, DataFrames, or Datasets to write Parquet files\.
++ You run Spark jobs that use Spark SQL, DataFrames, or Datasets to write files to Amazon S3\. Starting with Amazon EMR 6\.4\.0, this committer can be used for all common formats including parquet, ORC, and text\-based formats \(including CSV and JSON\)\. For release versions prior to Amazon EMR 6\.4\.0, only the Parquet format is supported\.
 + Multipart uploads are enabled in Amazon EMR\. This is the default\. For more information, see [The EMRFS S3\-optimized committer and multipart uploads](emr-spark-committer-multipart.md)\. 
 + Spark's built\-in Parquet support is used\. Built\-in Parquet support is used in the following circumstances:
   + `spark.sql.hive.convertMetastoreParquet` set to `true`\. This is the default setting\.
@@ -9,7 +9,7 @@ The EMRFS S3\-optimized committer is used when the following conditions are met:
   + When jobs write to non\-partitioned Hive metastore Parquet tables\. Spark's built\-in Parquet support does not support partitioned Hive tables, which is a known limitation\. For more information, see [Hive metastore Parquet table conversion](https://spark.apache.org/docs/latest/sql-data-sources-parquet.html#hive-metastore-parquet-table-conversion) in the Apache Spark SQL, DataFrames and Datasets Guide\.
 + Spark job operations that write to a default partition location—for example, `${table_location}/k1=v1/k2=v2/`—use the committer\. The committer is not used if a job operation writes to a custom partition location—for example, if a custom partition location is set using the `ALTER TABLE SQL` command\.
 + The following values for Spark must be used:
-  + The `spark.sql.parquet.fs.optimized.committer.optimization-enabled` property must be set to `true`\. This is the default setting with Amazon EMR 5\.20\.0 and later\. With Amazon EMR 5\.19\.0, the default value is `false`\. For information about configuring this value, see [Enabling the EMRFS S3\-optimized committer for Amazon EMR 5\.19\.0](emr-spark-committer-enable.md)\.
+  + The `spark.sql.parquet.fs.optimized.committer.optimization-enabled` property must be set to `true`\. This is the default setting with Amazon EMR 5\.20\.0 and later\. With Amazon EMR 5\.19\.0, the default value is `false`\. For information about configuring this value, see [Enable the EMRFS S3\-optimized committer for Amazon EMR 5\.19\.0](emr-spark-committer-enable.md)\.
   + `spark.sql.hive.convertMetastoreParquet` must be set to `true` if writing to non\-partitioned Hive metastore tables\. This is the default setting\.
   + `spark.sql.parquet.output.committer.class` must be set to `com.amazon.emr.committer.EmrOptimizedSparkSqlParquetOutputCommitter`\. This is the default setting\.
   + `spark.sql.sources.commitProtocolClass` must be set to `org.apache.spark.sql.execution.datasources.SQLEmrOptimizedCommitProtocol` or `org.apache.spark.sql.execution.datasources.SQLHadoopMapReduceCommitProtocol`\. `org.apache.spark.sql.execution.datasources.SQLEmrOptimizedCommitProtocol` is the default setting for the EMR 5\.x series version 5\.30\.0 and higher, and for the EMR 6\.x series version 6\.2\.0 and higher\. `org.apache.spark.sql.execution.datasources.SQLHadoopMapReduceCommitProtocol` is the default setting for previous EMR versions\.
@@ -22,7 +22,6 @@ The `partitionOverwriteMode` write option was introduced in Spark 2\.4\.0\. For 
 The committer is not used under the following circumstances:
 + When writing to HDFS
 + When using the S3A file system
-+ When using an output format other than Parquet, such as ORC or text
 + When using MapReduce or Spark's RDD API
 
 The following examples demonstrate implementations written in Scala that do not use the EMRFS S3\-optimized committer in whole \(the first example\) and in part \(the second example\)\.

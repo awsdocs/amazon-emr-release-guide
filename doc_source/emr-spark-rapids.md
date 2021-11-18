@@ -1,4 +1,4 @@
-# Using the Nvidia Spark\-RAPIDS Accelerator for Spark<a name="emr-spark-rapids"></a>
+# Use the Nvidia Spark\-RAPIDS Accelerator for Spark<a name="emr-spark-rapids"></a>
 
 With Amazon EMR release version 6\.2\.0 and later, you can use Nvidia's [RAPIDS](https://nvidia.github.io/spark-rapids/) Accelerator for Apache Spark plugin to accelerate Spark using EC2 graphics processing unit \(GPU\) instance types\. Rapids Accelerator will GPU\-accelerate your Apache Spark 3\.0 data science pipelines without code changes and speed up data processing and model training, while substantially lowering infrastructure costs\. 
 

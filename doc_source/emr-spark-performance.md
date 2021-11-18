@@ -1,4 +1,4 @@
-# Optimizing Spark performance<a name="emr-spark-performance"></a>
+# Optimize Spark performance<a name="emr-spark-performance"></a>
 
 Amazon EMR provides multiple performance optimization features for Spark\. This topic explains each optimization feature in detail\.
 

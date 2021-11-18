@@ -6,18 +6,18 @@ If you upgrade from an earlier version of Amazon EMR to Amazon EMR release versi
 
 The following table lists the version of Phoenix included in the latest release of Amazon EMR 6\.x series, along with the components that Amazon EMR installs with Phoenix\.
 
-For the version of components installed with Phoenix in this release, see [Release 6\.3\.0 Component Versions](emr-release-6x.md#emr-630-release)\.
+For the version of components installed with Phoenix in this release, see [Release 6\.4\.0 Component Versions](emr-640-release.md)\.
 
 
-**Phoenix version information for emr\-6\.3\.0**  
+**Phoenix version information for emr\-6\.4\.0**  
 
 | Amazon EMR Release Label | Phoenix Version | Components Installed With Phoenix | 
 | --- | --- | --- | 
-| emr\-6\.3\.0 | Phoenix 5\.0\.0 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-mapred, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hbase\-hmaster, hbase\-client, hbase\-region\-server, phoenix\-library, phoenix\-query\-server, zookeeper\-client, zookeeper\-server | 
+| emr\-6\.4\.0 | Phoenix 5\.1\.2 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-mapred, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hbase\-hmaster, hbase\-client, hbase\-region\-server, phoenix\-library, phoenix\-query\-server, zookeeper\-client, zookeeper\-server | 
 
 The following table lists the version of Phoenix included in the latest release of Amazon EMR 5\.x series, along with the components that Amazon EMR installs with Phoenix\.
 
-For the version of components installed with Phoenix in this release, see [Release 5\.33\.0 Component Versions](emr-release-5x.md#emr-5330-release)\.
+For the version of components installed with Phoenix in this release, see [Release 5\.33\.0 Component Versions](emr-5330-release.md)\.
 
 
 **Phoenix version information for emr\-5\.33\.0**  

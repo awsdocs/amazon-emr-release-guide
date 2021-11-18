@@ -2,7 +2,7 @@
 
 The following procedure creates a cluster with [Spark](https://aws.amazon.com/big-data/what-is-spark/) installed using **Quick Options** in the EMR console\.
 
-You can alternatively use **Advanced Options** to further customize your cluster setup, or to submit steps to programmatically install applications and then run custom applications\. With either cluster creation option, you can choose to use AWS Glue as your Spark SQL metastore\. See [Using the AWS Glue Data Catalog as the metastore for Spark SQL](emr-spark-glue.md) for more information\.
+You can alternatively use **Advanced Options** to further customize your cluster setup, or to submit steps to programmatically install applications and then run custom applications\. With either cluster creation option, you can choose to use AWS Glue as your Spark SQL metastore\. See [Use the AWS Glue Data Catalog as the metastore for Spark SQL](emr-spark-glue.md) for more information\.
 
 **To launch a cluster with Spark installed**
 

@@ -54,7 +54,7 @@ For example, given the JSON classification for the primary cluster as shown earl
 }
 ```
 
-### Synchronizing the read replica when you add data<a name="w173aac27c29c13c10"></a>
+### Synchronizing the read replica when you add data<a name="w196aac26c29c13c10"></a>
 
 Because the read\-replica uses HBase StoreFiles and metadata that the primary cluster writes to Amazon S3, the read\-replica is only as current as the Amazon S3 data store\. The following guidance can help minimize the lag time between the primary cluster and the read\-replica when you write data\.
 + Bulk load data on the primary cluster whenever possible\. For more information, see [Bulk loading](http://hbase.apache.org/0.94/book/arch.bulk.load.html) in Apache HBase documentation\.
@@ -139,7 +139,7 @@ hbase cli> split 'hbase:storefile'
 
 ## Operational considerations<a name="emr-hbase-s3-performance"></a>
 
-HBase region servers use BlockCache to store data reads in memory and BucketCache to store data reads on local disk\. In addition, region servers use MemStore to store data writes in\-memory, and use write\-ahead logs to store data writes in HDFS before the data is written to HBase StoreFiles in Amazon S3\. The read performance of your cluster relates to how often a record can be retrieved from the in\-memory or on\-disk caches\. A cache miss results in the record being read from the StoreFile in Amazon S3, which has significantly higher latency and higher standard deviation than reading from HDFS\. In addition, the maximum request rates for Amazon S3 are lower than what can be achieved from the local cache, so caching data may be important for read\-heavy workloads\. For more information about Amazon S3 performance, see [Performance optimization](https://docs.aws.amazon.com/AmazonS3/latest/dev/PerformanceOptimization.html) in the *Amazon Simple Storage Service Developer Guide*\.
+HBase region servers use BlockCache to store data reads in memory and BucketCache to store data reads on local disk\. In addition, region servers use MemStore to store data writes in\-memory, and use write\-ahead logs to store data writes in HDFS before the data is written to HBase StoreFiles in Amazon S3\. The read performance of your cluster relates to how often a record can be retrieved from the in\-memory or on\-disk caches\. A cache miss results in the record being read from the StoreFile in Amazon S3, which has significantly higher latency and higher standard deviation than reading from HDFS\. In addition, the maximum request rates for Amazon S3 are lower than what can be achieved from the local cache, so caching data may be important for read\-heavy workloads\. For more information about Amazon S3 performance, see [Performance optimization](https://docs.aws.amazon.com/AmazonS3/latest/dev/PerformanceOptimization.html) in the *Amazon Simple Storage Service User Guide*\.
 
 To improve performance, we recommend that you cache as much of your dataset as possible in EC2 instance storage\. Because the BucketCache uses the region server's EC2 instance storage, you can choose an EC2 instance type with a sufficient instance store and add Amazon EBS storage to accommodate the required cache size\. You can also increase the BucketCache size on attached instance stores and EBS volumes using the `hbase.bucketcache.size` property\. The default setting is 8,192 MB\.
 

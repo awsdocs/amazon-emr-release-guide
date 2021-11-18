@@ -7,7 +7,7 @@ The bucket used in these examples is available to clients that can access US Eas
 
  By default, the Spark shell creates its own [SparkContext](https://spark.apache.org/docs/1.3.1/api/scala/index.html#org.apache.spark.SparkContext) object called `sc`\. You can use this context if it is required within the REPL\. sqlContext is also available in the shell and it is a [HiveContext](https://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.sql.hive.HiveContext)\. 
 
-**Example Using the Spark shell to count the occurrences of a string in a file stored in Amazon S3**  
+**Example Use the Spark shell to count the occurrences of a string in a file stored in Amazon S3**  
 This example uses `sc` to read a textFile in Amazon S3\.  
 
 ```
@@ -27,7 +27,7 @@ scala> linesWithCartoonNetwork
 res2: Long = 9
 ```
 
-**Example Using the Python\-based Spark shell to count the occurrences of a string in a file stored in Amazon S3**  
+**Example Use the Python\-based Spark shell to count the occurrences of a string in a file stored in Amazon S3**  
 Spark also includes a Python\-based shell, `pyspark`, that you can use to prototype Spark programs written in Python\. Just as with `spark-shell`, invoke `pyspark` on the master node; it also has the same [SparkContext](https://spark.apache.org/docs/latest/api/python/reference/api/pyspark.SparkContext.html#pyspark.SparkContext) object\.   
 
 ```

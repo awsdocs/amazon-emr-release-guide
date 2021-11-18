@@ -43,7 +43,7 @@ The script referenced in the following example uses `pip` to install paramiko, n
 sudo python3 -m pip install boto3 paramiko nltk scipy scikit-learn pandas
 ```
 
-After you create the script, upload it to a location in Amazon S3, for example, `s3://mybucket/install-my-jupyter-libraries.sh`\. For more information, see [Uploading objects](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/upload-objects.html) in the *Amazon Simple Storage Service Console User Guide* so that you can use it in your bootstrap action or in your Python program\.
+After you create the script, upload it to a location in Amazon S3, for example, `s3://mybucket/install-my-jupyter-libraries.sh`\. For more information, see [Uploading objects](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/upload-objects.html) in the *Amazon Simple Storage Service User Guide* so that you can use it in your bootstrap action or in your Python program\.
 
 **To specify a bootstrap action that installs libraries on all nodes when you create a cluster using the AWS CLI**
 
