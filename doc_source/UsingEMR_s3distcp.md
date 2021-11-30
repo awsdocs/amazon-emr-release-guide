@@ -55,7 +55,7 @@ For more information on using Amazon EMR commands in the AWS CLI, see the [AWS C
 
   The following example copies daemon logs from Amazon S3 to `hdfs:///output`\. In the following command:
   + `--cluster-id` specifies the cluster
-  + `Jar` is the location of the S3DistCp JAR file 
+  + `Jar` is the location of the S3DistCp JAR file\. For an example of how to run a command on a cluster using command\-runner\.jar, see [Submit a custom JAR step to run a script or command](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-commandrunner.html#emr-commandrunner-examples)\.
   + `Args` is a comma\-separated list of the option name\-value pairs to pass in to S3DistCp\. For a complete list of the available options, see [S3DistCp options](#UsingEMR_s3distcp.options)\. 
 
   To add an S3DistCp copy step to a running cluster, put the following in a JSON file saved in Amazon S3 or your local file system as `myStep.json` for this example\. Replace *j\-3GYXXXXXX9IOK* with your cluster ID and replace *mybucket* with your Amazon S3 bucket name\.
