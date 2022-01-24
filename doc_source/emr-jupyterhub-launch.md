@@ -13,7 +13,7 @@ Use the following procedure to create a cluster with JupyterHub installed using 
 1. Choose **Create cluster**, **Go to advanced options**\.
 
 1. Under **Software Configuration**:
-   + For **Release**, select emr\-5\.33\.0, and choose JupyterHub\.
+   + For **Release**, select emr\-5\.34\.0, and choose JupyterHub\.
    + If you use Spark, to use the AWS Glue Data Catalog as the metastore for Spark SQL, select **Use for Spark table metadata**\. For more information, see [Use the AWS Glue Data Catalog as the metastore for Spark SQL](emr-spark-glue.md)\.
    + For **Edit software settings** choose **Enter configuration** and specify values, or choose **Load JSON from S3** and specify a JSON configuration file\. For more information, see [Configuring JupyterHub](emr-jupyterhub-configure.md)\.
 
@@ -33,7 +33,7 @@ To launch a cluster with JupyterHub, use the `aws emr create-cluster` command an
 Linux line continuation characters \(\\\) are included for readability\. They can be removed or used in Linux commands\. For Windows, remove them or replace with a caret \(^\)\.
 
 ```
-aws emr create-cluster --name="MyJupyterHubCluster" --release-label emr-5.33.0 \
+aws emr create-cluster --name="MyJupyterHubCluster" --release-label emr-5.34.0 \
 --applications Name=JupyterHub --log-uri s3://MyBucket/MyJupyterClusterLogs \
 --use-default-roles --instance-type m5.xlarge --instance-count 2 --ec2-attributes KeyName=MyKeyPair
 ```

@@ -121,12 +121,12 @@ val hudiOptions = Map[String,String](
 )
 
 // Write the DataFrame as a Hudi dataset
-inputDF.write
-  .format("org.apache.hudi")
-  .option(DataSourceWriteOptions.OPERATION_OPT_KEY, DataSourceWriteOptions.INSERT_OPERATION_OPT_VAL)
-  .options(hudiOptions)
-  .mode(SaveMode.Overwrite)
-  .save("s3://DOC-EXAMPLE-BUCKET/myhudidataset/")
+(inputDF.write
+    .format("org.apache.hudi")
+    .option(DataSourceWriteOptions.OPERATION_OPT_KEY, DataSourceWriteOptions.INSERT_OPERATION_OPT_VAL)
+    .options(hudiOptions)
+    .mode(SaveMode.Overwrite)
+    .save("s3://DOC-EXAMPLE-BUCKET/myhudidataset/"))
 ```
 
 ------
@@ -159,11 +159,11 @@ hudiOptions = {
 }
 
 # Write a DataFrame as a Hudi dataset
-inputDF.write
-.format('org.apache.hudi')
-.option('hoodie.datasource.write.operation', 'insert')
-.options(**hudiOptions)
-.mode('overwrite')
+inputDF.write \
+.format('org.apache.hudi') \
+.option('hoodie.datasource.write.operation', 'insert') \
+.options(**hudiOptions) \
+.mode('overwrite') \
 .save('s3://DOC-EXAMPLE-BUCKET/myhudidataset/')
 ```
 
@@ -210,27 +210,29 @@ The following example demonstrates how to upsert data by writing a DataFrame\. U
 // Create a new DataFrame from the first row of inputDF with a different creation_date value
 val updateDF = inputDF.limit(1).withColumn("creation_date", lit("new_value"))
 
-updateDF.write
-  .format("org.apache.hudi")
-  .option(DataSourceWriteOptions.OPERATION_OPT_KEY, DataSourceWriteOptions.UPSERT_OPERATION_OPT_VAL)
-  .options(hudiOptions)
-  .mode(SaveMode.Append)
-  .save("s3://DOC-EXAMPLE-BUCKET/myhudidataset/")
+(updateDF.write
+    .format("org.apache.hudi")
+    .option(DataSourceWriteOptions.OPERATION_OPT_KEY, DataSourceWriteOptions.UPSERT_OPERATION_OPT_VAL)
+    .options(hudiOptions)
+    .mode(SaveMode.Append)
+    .save("s3://DOC-EXAMPLE-BUCKET/myhudidataset/"))
 ```
 
 ------
 #### [ PySpark ]
 
 ```
+from pyspark.sql.functions import lit
+
 # Create a new DataFrame from the first row of inputDF with a different creation_date value
 updateDF = inputDF.limit(1).withColumn('creation_date', lit('new_value'))
 
-updateDF.write
-.format('org.apache.hudi')
-.option('hoodie.datasource.write.operation', 'upsert')
-.options(**hudiOptions)
-.mode('append')
-.save('s3://DOC-EXAMPLE-BUCKET/myhudidataset/')
+updateDF.write \
+    .format('org.apache.hudi') \
+    .option('hoodie.datasource.write.operation', 'upsert') \
+    .options(**hudiOptions) \
+    .mode('append') \
+    .save('s3://DOC-EXAMPLE-BUCKET/myhudidataset/')
 ```
 
 ------
@@ -243,25 +245,25 @@ To hard delete a record, you can upsert an empty payload\. In this case, the `PA
 #### [ Scala ]
 
 ```
-updateDF.write
-  .format("org.apache.hudi")
-  .option(DataSourceWriteOptions.OPERATION_OPT_KEY, DataSourceWriteOptions.UPSERT_OPERATION_OPT_VAL)
-  .option(DataSourceWriteOptions.PAYLOAD_CLASS_OPT_KEY, "org.apache.hudi.common.model.EmptyHoodieRecordPayload")
-  .mode(SaveMode.Append)
-  .save("s3://DOC-EXAMPLE-BUCKET/myhudidataset/")
+(updateDF.write
+    .format("org.apache.hudi")
+    .option(DataSourceWriteOptions.OPERATION_OPT_KEY, DataSourceWriteOptions.UPSERT_OPERATION_OPT_VAL)
+    .option(DataSourceWriteOptions.PAYLOAD_CLASS_OPT_KEY, "org.apache.hudi.common.model.EmptyHoodieRecordPayload")
+    .mode(SaveMode.Append)
+    .save("s3://DOC-EXAMPLE-BUCKET/myhudidataset/"))
 ```
 
 ------
 #### [ PySpark ]
 
 ```
-updateDF.write
-.format('org.apache.hudi')
-.option('hoodie.datasource.write.operation', 'upsert')
-.option('hoodie.datasource.write.payload.class', 'org.apache.hudi.common.model.EmptyHoodieRecordPayload')
-.options(**hudiOptions)
-.mode('append')
-.save('s3://DOC-EXAMPLE-BUCKET/myhudidataset/')
+updateDF.write \
+    .format('org.apache.hudi') \
+    .option('hoodie.datasource.write.operation', 'upsert') \
+    .option('hoodie.datasource.write.payload.class', 'org.apache.hudi.common.model.EmptyHoodieRecordPayload') \
+    .options(**hudiOptions) \
+    .mode('append') \
+    .save('s3://DOC-EXAMPLE-BUCKET/myhudidataset/')
 ```
 
 ------
@@ -276,9 +278,9 @@ To retrieve data at the present point in time, Hudi performs snapshot queries by
 #### [ Scala ]
 
 ```
-val snapshotQueryDF = spark.read
-.format("org.apache.hudi")
-.load("s3://DOC-EXAMPLE-BUCKET/myhudidataset" + "/*/*")
+(val snapshotQueryDF = spark.read
+    .format("org.apache.hudi")
+    .load("s3://DOC-EXAMPLE-BUCKET/myhudidataset" + "/*/*"))
 
 snapshotQueryDF.show()
 ```
@@ -287,8 +289,8 @@ snapshotQueryDF.show()
 #### [ PySpark  ]
 
 ```
-snapshotQueryDF = spark.read
-    .format('org.apache.hudi')
+snapshotQueryDF = spark.read \
+    .format('org.apache.hudi') \
     .load('s3://DOC-EXAMPLE-BUCKET/myhudidataset' + '/*/*')
     
 snapshotQueryDF.show()
@@ -309,11 +311,11 @@ Presto does not support incremental queries\.
 #### [ Scala ]
 
 ```
-val incQueryDF = spark.read
-     .format("org.apache.hudi")
-     .option(DataSourceReadOptions.QUERY_TYPE_OPT_KEY, DataSourceReadOptions.QUERY_TYPE_INCREMENTAL_OPT_VAL)
-     .option(DataSourceReadOptions.BEGIN_INSTANTTIME_OPT_KEY, <beginInstantTime>)
-     .load("s3://DOC-EXAMPLE-BUCKET/myhudidataset" );
+(val incQueryDF = spark.read
+    .format("org.apache.hudi")
+    .option(DataSourceReadOptions.QUERY_TYPE_OPT_KEY, DataSourceReadOptions.QUERY_TYPE_INCREMENTAL_OPT_VAL)
+    .option(DataSourceReadOptions.BEGIN_INSTANTTIME_OPT_KEY, <beginInstantTime>)
+    .load("s3://DOC-EXAMPLE-BUCKET/myhudidataset" ))
      
 incQueryDF.show()
 ```
@@ -327,9 +329,9 @@ readOptions = {
   'hoodie.datasource.read.begin.instanttime': <beginInstantTime>,
 }
 
-incQueryDF = spark.read
-    .format('org.apache.hudi')
-    .options(**readOptions)
+incQueryDF = spark.read \
+    .format('org.apache.hudi') \
+    .options(**readOptions) \
     .load('s3://DOC-EXAMPLE-BUCKET/myhudidataset')
     
 incQueryDF.show()

@@ -4,33 +4,108 @@ Release notes for all Amazon EMR release versions are available below\. For comp
 
 Subscribe to the RSS feed for Amazon EMR release notes at [https://docs.aws.amazon.com/emr/latest/ReleaseGuide/amazon-emr-release-notes.rss](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/amazon-emr-release-notes.rss) to receive updates when a new Amazon EMR release version is available\.
 
-## Release 5\.33\.0<a name="emr-5330-whatsnew"></a>
+## Release 6\.4\.0<a name="emr-640-whatsnew"></a>
 
-The following release notes include information for Amazon EMR release version 5\.33\.0\. Changes are relative to 5\.32\.0\.
+The following release notes include information for Amazon EMR release version 6\.4\.0\. Changes are relative to 6\.3\.0\.
 
-Initial release date: April 19, 2021
+Initial release date: Sept 20, 2021
 
-Last updated date: August 9, 2021
+**Supported applications**
++ AWS SDK for Java version 1\.12\.31
++ CloudWatch Sink version 2\.2\.0
++ DynamoDB Connector version 4\.16\.0
++ EMRFS version 2\.47\.0
++ Amazon EMR Goodies version 3\.2\.0
++ Amazon EMR Kinesis Connector version 3\.5\.0
++ Amazon EMR Record Server version 2\.1\.0
++ Amazon EMR Scripts version 2\.5\.0
++ Flink version 1\.13\.1
++ Ganglia version 3\.7\.2
++ AWS Glue Hive Metastore Client version 3\.3\.0
++ Hadoop version 3\.2\.1\-amzn\-4
++ HBase version 2\.4\.4\-amzn\-0
++ HBase\-operator\-tools 1\.1\.0
++ HCatalog version 3\.1\.2\-amzn\-5
++ Hive version 3\.1\.2\-amzn\-5
++ Hudi version 0\.8\.0\-amzn\-0
++ Hue version 4\.9\.0
++ Java JDK version Corretto\-8\.302\.08\.1 \(build 1\.8\.0\_302\-b08\)
++ JupyterHub version 1\.4\.1
++ Livy version 0\.7\.1\-incubating
++ MXNet version 1\.8\.0
++ Oozie version 5\.2\.1
++ Phoenix version 5\.1\.2
++ Pig version 0\.17\.0
++ Presto version 0\.254\.1\-amzn\-0
++ Trino version 359
++ Apache Ranger KMS \(multi\-master transparent encryption\) version 2\.0\.0
++ ranger\-plugins 2\.0\.1\-amzn\-0
++ ranger\-s3\-plugin 1\.2\.0
++ SageMaker Spark SDK version 1\.4\.1
++ Scala version 2\.12\.10 \(OpenJDK 64\-Bit Server VM, Java 1\.8\.0\_282\)
++ Spark version 3\.1\.2\-amzn\-0
++ spark\-rapids 0\.4\.1
++ Sqoop version 1\.4\.7
++ TensorFlow version 2\.4\.1
++ tez version 0\.9\.2
++ Zeppelin version 0\.9\.0
++ Zookeeper version 3\.5\.7
++ Connectors and drivers: DynamoDB Connector 4\.16\.0
 
-**Upgrades**
-+ Upgraded Amazon Glue connector to version 1\.15\.0
-+ Upgraded to version 1\.11\.970
-+ Upgraded EMRFS to version 2\.46\.0
-+ Upgraded EMR Goodies to version 2\.14\.0
-+ Upgraded EMR Record Server to version 1\.9\.0
-+ Upgraded EMR S3 Dist CP to version 2\.18\.0
-+ Upgraded EMR Secret Agent to version 1\.8\.0
-+ Upgraded Flink to version 1\.12\.1
-+ Upgraded Hadoop to version 2\.10\.1\-amzn\-1
-+ Upgraded Hive to version 2\.3\.7\-amzn\-4
-+ Upgraded Hudi to version 0\.7\.0
-+ Upgraded Hue to version 4\.9\.0
-+ Upgraded OpenCV to version 4\.5\.0
-+ Upgraded Presto to version 0\.245\.1\-amzn\-0
-+ Upgraded R to version 4\.0\.2
-+ Upgraded Spark to version 2\.4\.7\-amzn\-1
-+ Upgraded TensorFlow to version 2\.4\.1
-+ Upgraded Zeppelin to version 0\.9\.0
+**New features**
++ On Apache Ranger\-enabled Amazon EMR clusters, you can use Apache Spark SQL to insert data into or update the Apache Hive metastore tables using `INSERT INTO`, `INSERT OVERWRITE`, and `ALTER TABLE`\. When using ALTER TABLE with Spark SQL, a partition location must be the child directory of a table location\. Amazon EMR does not currently support inserting data into a partition where the partition location is different from the table location\.
++ PrestoSQL has been [renamed to Trino\.](https://trino.io/blog/2020/12/27/announcing-trino.html) 
++ Hive: Execution of simple SELECT queries with LIMIT clause are accelerated by stopping the query execution as soon as the number of records mentioned in LIMIT clause is fetched\. Simple SELECT queries are queries that do not have GROUP BY / ORDER by clause or queries that do not have a reducer stage\. For example, `SELECT * from <TABLE> WHERE <Condition> LIMIT <Number>`\. 
+
+**Hudi Concurrency Control**
++ Hudi now supports Optimistic Concurrency Control \(OCC\), which can be leveraged with write operations like UPSERT and INSERT to allow changes from multiple writers to the same Hudi table\. This is file\-level OCC, so any two commits \(or writers\) can write to the same table, if their changes do not conflict\. For more information, see the [Hudi concurrency control](https://hudi.apache.org/docs/concurrency_control/)\. 
++ Amazon EMR clusters have Zookeeper installed, which can be leveraged as the lock provider for OCC\. To make it easier to use this feature, Amazon EMR clusters have the following properties pre\-configured:
+
+  ```
+  hoodie.write.lock.provider=org.apache.hudi.client.transaction.lock.ZookeeperBasedLockProvider
+  hoodie.write.lock.zookeeper.url=<EMR Zookeeper URL>
+  hoodie.write.lock.zookeeper.port=<EMR Zookeeper Port>
+  hoodie.write.lock.zookeeper.base_path=/hudi
+  ```
+
+  To enable OCC, you need to configure the following properties either with their Hudi job options or at the cluster\-level using the Amazon EMR configurations API:
+
+  ```
+  hoodie.write.concurrency.mode=optimistic_concurrency_control
+  hoodie.cleaner.policy.failed.writes=LAZY (Performs cleaning of failed writes lazily instead of inline with every write)
+  hoodie.write.lock.zookeeper.lock_key=<Key to uniquely identify the Hudi table> (Table Name is a good option)
+  ```
+
+**Hudi Monitoring: Amazon CloudWatch integration to report Hudi Metrics**
++ Amazon EMR supports publishing Hudi Metrics to Amazon CloudWatch\. It is enabled by setting the following required configurations:
+
+  ```
+  hoodie.metrics.on=true
+  hoodie.metrics.reporter.type=CLOUDWATCH
+  ```
++ The following are optional Hudi configurations that you can change:    
+[\[See the AWS documentation website for more details\]](http://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-whatsnew-history.html)
+
+**Amazon EMR Hudi configurations support and improvements**
++ Customers can now leverage EMR Configurations API and Reconfiguration feature to configure Hudi configurations at cluster level\. A new file based configuration support has been introduced via /etc/hudi/conf/hudi\-defaults\.conf along the lines of other applications like Spark, Hive etc\. EMR configures few defaults to improve user experience:
+
+  — `hoodie.datasource.hive_sync.jdbcurl ` is configured to the cluster Hive server URL and no longer needs to be specified\. This is particularly useful when running a job in Spark cluster mode, where you previously had to specify the Amazon EMR master IP\. 
+
+  — HBase specific configurations, which are useful for using HBase index with Hudi\.
+
+  — Zookeeper lock provider specific configuration, as discussed under concurrency control, which makes it easier to use Optimistic Concurrency Control \(OCC\)\.
++ Additional changes have been introduced to reduce the number of configurations that you need to pass, and to infer automatically where possible:
+
+  — The `partitionBy ` keyword can be used to specify the partition column\. 
+
+  — When enabling Hive Sync, it is no longer mandatory to pass `HIVE_TABLE_OPT_KEY, HIVE_PARTITION_FIELDS_OPT_KEY, HIVE_PARTITION_EXTRACTOR_CLASS_OPT_KEY`\. Those values can be inferred from the Hudi table name and partition field\. 
+
+  — `KEYGENERATOR_CLASS_OPT_KEY` is not mandatory to pass, and can be inferred from simpler cases of `SimpleKeyGenerator` and `ComplexKeyGenerator`\. 
+
+**Hudi Caveats**
++ Hudi does not support vectorized execution in Hive for Merge on Read \(MoR\) and Bootstrap tables\. For example, `count(*)` fails with Hudi realtime table when `hive.vectorized.execution.enabled` is set to true\. As a workaround, you can disable vectorized reading by setting `hive.vectorized.execution.enabled` to `false`\. 
++ Multi\-writer support is not compatible with the Hudi bootstrap feature\.
++ Flink Streamer and Flink SQL are experimental features in this release\. These features are not recommended for use in production deployments\.
 
 **Changes, enhancements, and resolved issues**
 + **Configuring a cluster to fix Apache YARN Timeline Server version 1 and 1\.5 performance issues**
@@ -61,64 +136,16 @@ Last updated date: August 9, 2021
   }
   ]
   ```
-+ Amazon EMR version 5\.33\.1 fixed issues with Managed Scaling unable to complete or causing application failures\.
-+ Spark runtime is now faster when fetching partition locations from Hive Metastore for Spark insert queries\.
-+ Upgraded component versions\. For a list of component versions, see [About Amazon EMR Releases](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html) in this guide\.
-+ Installed the AWS Java SDK Bundle on each new cluster\. This is a single jar containing all service SDKs and their dependencies, instead of individual component jars\. For more information, see [Java SDK Bundled Dependency](http://aws.amazon.com/blogs/developer/java-sdk-bundle/)\.
-+ Fixed Managed Scaling issues in earlier Amazon EMR releases and made improvements so application failure rates are significantly reduced\.
-
-**New features**
-+ Amazon EMR supports Amazon S3 Access Points, a feature of Amazon S3 that allows you to easily manage access for shared data lakes\. Using your Amazon S3 Access Point alias, you can simplify your data access at scale on Amazon EMR\. You can use Amazon S3 Access Points with all versions of Amazon EMR at no additional cost in all AWS regions where Amazon EMR is available\. To learn more about Amazon S3 Access Points and Access Point aliases, see [Using a bucket\-style alias for your access point](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-alias.html) in the *Amazon S3 User Guide*\.
-+ Amazon EMR\-5\.33 supports new Amazon EC2 instance types: c5a, c5ad, c6gn, c6gd, m6gd, d3, d3en, m5zn, r5b, r6gd\. See [Supported Instance Types](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-supported-instance-types.html)\.
++ WebHDFS and HttpFS server are disabled by default\. You can re\-enable WebHDFS using the Hadoop configuration, `dfs.webhdfs.enabled`\. HttpFS server can be started by using `sudo systemctl start hadoop-httpfs`\.
++ HTTPS is now enabled by default for Amazon Linux repositories\. If you are using an Amazon S3 VPCE policy to restrict access to specific buckets, you must add the new Amazon Linux bucket ARN `arn:aws:s3:::amazonlinux-2-repos-$region/*` to your policy \(replace `$region` with the region where the endpoint is\)\. For more information, see this topic in the AWS discussion forums\. [Announcement: Amazon Linux 2 now supports the ability to use HTTPS while connecting to package repositories ](https://forums.aws.amazon.com/ann.jspa?annID=8528)\. 
++ Hive: Write query performance is improved by enabling the use of a scratch directory on HDFS for the last job\. The temporary data for final job is written to HDFS instead of Amazon S3 and performance is improved because the data is moved from HDFS to the final table location \(Amazon S3\) instead of between Amazon S3 devices\.
++ Hive: Query compilation time improvement up to 2\.5x with Glue metastore Partition Pruning\.
++ By default, when built\-in UDFs are passed by Hive to the Hive Metastore Server, only a subset of those built\-in UDFs are passed to the Glue Metastore since Glue supports only limited expression operators\. If you set `hive.glue.partition.pruning.client=true`, then all partition pruning happens on the client side\. If the you set `hive.glue.partition.pruning.server=true`, then all partition pruning happens on the server side\. 
 
 **Known issues**
-+ **Lower "Max open files" limit on older AL2\.** Amazon EMR releases: emr\-5\.30\.x, emr\-5\.31\.0, emr\-5\.32\.0, emr\-6\.0\.0, emr\-6\.1\.0, and emr\-6\.2\.0 are based on older versions ofAmazon Linux 2 \(AL2\), which have a lower ulimit setting for "Max open files" when EMR clusters are created with the default AMI\. The lower open file limit causes a "Too many open files" error when submitting Spark job\. In the impacted EMR releases, the Amazon EMR default AMI has a default ulimit setting of 4096 for "Max open files," which is lower than the 65536 file limit in the latestAmazon Linux 2 AMI\. The lower ulimit setting for "Max open files" causes Spark job failure when the Spark driver and executor try to open more than 4096 files\. To fix the issue, Amazon EMR has a bootstrap action \(BA\) script that adjusts the ulimit setting at cluster creation\. Amazon EMR releases 6\.3\.0 and 5\.33\.0 will include a permanent fix with a higher "Max open files" setting\.
-
-  The following workaround for this issue lets you to explicitly set the instance\-controller ulimit to a maximum of 65536 files\.
-
-**Explicitly set a ulimit from the command line**
-
-  1. Edit `/etc/systemd/system/instance-controller.service` to add the following parameters to Service section\.
-
-     `LimitNOFILE=65536`
-
-     `LimitNPROC=65536`
-
-  1. Restart InstanceController
-
-     `$ sudo systemctl daemon-reload`
-
-     `$ sudo systemctl restart instance-controller`
-
-  **Set a ulimit using bootstrap action \(BA\)**
-
-  You can also use a bootstrap action \(BA\) script to configure the instance\-controller ulimit to 65536 files at cluster creation\.
-
-  ```
-  #!/bin/bash
-  for user in hadoop spark hive; do
-  sudo tee /etc/security/limits.d/$user.conf << EOF
-  $user - nofile 65536
-  $user - nproc 65536
-  EOF
-  done
-  for proc in instancecontroller logpusher; do
-  sudo mkdir -p /etc/systemd/system/$proc.service.d/
-  sudo tee /etc/systemd/system/$proc.service.d/override.conf << EOF
-  [Service]
-  LimitNOFILE=65536
-  LimitNPROC=65536
-  EOF
-  pid=$(pgrep -f aws157.$proc.Main)
-  sudo prlimit --pid $pid --nofile=65535:65535 --nproc=65535:65535
-  done
-  sudo systemctl daemon-reload
-  ```
-+ 
-**Important**  
-Amazon EMR clusters that are running Amazon Linux or Amazon Linux 2 AMIs \(Amazon Linux Machine Images\) use default Amazon Linux behavior, and do not automatically download and install important and critical kernel updates that require a reboot\. This is the same behavior as other Amazon EC2 instances running the default Amazon Linux AMI\. If new Amazon Linux software updates that require a reboot \(such as, kernel, NVIDIA, and CUDA updates\) become available after an Amazon EMR version is released, Amazon EMR cluster instances running the default AMI do not automatically download and install those updates\. To get kernel updates, you can [customize your Amazon EMR AMI](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-custom-ami.html) to [use the latest Amazon Linux AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html)\.
-+ Console support to create a security configuration that specifies the AWS Ranger integration option is currently not supported in the GovCloud Region\. Security configuration can be done using the CLI\. See [Create the EMR Security Configuration](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-ranger-security-config.html) in the *Amazon EMR Management Guide*\.
-+ Scoped managed policies: To align with AWS best practices, Amazon EMR has introduced v2 EMR\-scoped default managed policies as replacements for policies that will be deprecated\. See [Amazon EMR Managed Policies](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-iam-policies.html)\.
++ Hue queries do not work in Amazon EMR 6\.4\.0 because Apache Hadoop HttpFS server is disabled by default\. To use Hue on Amazon EMR 6\.4\.0, either manually start HttpFS server on the Amazon EMR master node using `sudo systemctl start hadoop-httpfs`, or [use an Amazon EMR step](https://docs.aws.amazon.com/emr/latest/ManagementGuide/add-step-cli.html)\.
++ The Amazon EMR Notebooks feature used with Livy user impersonation does not work because HttpFS is disabled by default\. In this case, the EMR notebook cannot connect to the cluster that has Livy impersonation enabled\. The workaround is to start HttpFS server before connecting the EMR notebook to the cluster using `sudo systemctl start hadoop-httpfs`\.
++ In Amazon EMR version 6\.4\.0, Phoenix does not support the Phoenix connectors component\.
 
 ## Release 5\.32\.0<a name="emr-5320-whatsnew"></a>
 
@@ -160,6 +187,7 @@ Initial release date: Jan 8, 2021
 + Scoped managed policies: To align with AWS best practices, Amazon EMR has introduced v2 EMR\-scoped default managed policies as replacements for policies that will be deprecated\. See [Amazon EMR Managed Policies](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-iam-policies.html)\.
 
 **Known issues**
++ For Amazon EMR 6\.3\.0 and 6\.2\.0 private subnet clusters, you cannot access the Ganglia web UI\. You will get an "access denied \(403\)" error\. Other web UIs, such as Spark, Hue, JupyterHub, Zeppelin, Livy, and Tez are working normally\. Ganglia web UI access on public subnet clusters are also working normally\. To resolve this issue, restart httpd service on the master node with `sudo systemctl restart httpd`\. This issue is fixed in Amazon EMR 6\.4\.0\.
 + **Lower "Max open files" limit on older AL2\.** Amazon EMR releases: emr\-5\.30\.x, emr\-5\.31\.0, emr\-5\.32\.0, emr\-6\.0\.0, emr\-6\.1\.0, and emr\-6\.2\.0 are based on older versions ofAmazon Linux 2 \(AL2\), which have a lower ulimit setting for "Max open files" when EMR clusters are created with the default AMI\. The lower open file limit causes a "Too many open files" error when submitting Spark job\. In the impacted EMR releases, the Amazon EMR default AMI has a default ulimit setting of 4096 for "Max open files," which is lower than the 65536 file limit in the latestAmazon Linux 2 AMI\. The lower ulimit setting for "Max open files" causes Spark job failure when the Spark driver and executor try to open more than 4096 files\. To fix the issue, Amazon EMR has a bootstrap action \(BA\) script that adjusts the ulimit setting at cluster creation\. Amazon EMR releases 6\.3\.0 and 5\.33\.0 will include a permanent fix with a higher "Max open files" setting\.
 
   The following workaround for this issue lets you to explicitly set the instance\-controller ulimit to a maximum of 65536 files\.
@@ -2071,21 +2099,21 @@ The following applications and components have been upgraded in this release to 
   + Historical data for dead Spark executors is not available\.
   + Application history is not available for clusters that use a security configuration to enable in\-flight encryption\.
 
-## Release 5\.7\.0<a name="w197aac12c15c93"></a>
+## Release 5\.7\.0<a name="w173aac12c17c93"></a>
 
 The following release notes include information for the Amazon EMR 5\.7\.0 release\. Changes are relative to the Amazon EMR 5\.6\.0 release\.
 
 Release date: July 13, 2017
 
-### Upgrades<a name="w197aac12c15c93b6"></a>
+### Upgrades<a name="w173aac12c17c93b6"></a>
 + Flink 1\.3\.0
 + Phoenix 4\.11\.0
 + Zeppelin 0\.7\.2
 
-### New features<a name="w197aac12c15c93b8"></a>
+### New features<a name="w173aac12c17c93b8"></a>
 + Added the ability to specify a custom Amazon Linux AMI when you create a cluster\. For more information, see [Using a custom AMI](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-custom-ami.html)\.
 
-### Changes, enhancements, and resolved issues<a name="w197aac12c15c93c10"></a>
+### Changes, enhancements, and resolved issues<a name="w173aac12c17c93c10"></a>
 + **HBase**
   + Added capability to configure HBase read\-replica clusters\. See [Using a read\-replica cluster\.](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-hbase-s3.html#emr-hbase-s3-read-replica)
   + Multiple bug fixes and enhancements
@@ -2093,19 +2121,19 @@ Release date: July 13, 2017
 + **YARN** \- added ability to configure `container-log4j.properties`
 + **Sqoop** \- backported [SQOOP\-2880](https://issues.apache.org/jira/browse/SQOOP-2880), which introduces an argument that allows you to set the Sqoop temporary directory\.
 
-## Release 5\.6\.0<a name="w197aac12c15c95"></a>
+## Release 5\.6\.0<a name="w173aac12c17c95"></a>
 
 The following release notes include information for the Amazon EMR 5\.6\.0 release\. Changes are relative to the Amazon EMR 5\.5\.0 release\.
 
 Release date: June 5, 2017
 
-### Upgrades<a name="w197aac12c15c95b6"></a>
+### Upgrades<a name="w173aac12c17c95b6"></a>
 + Flink 1\.2\.1
 + HBase 1\.3\.1
 + Mahout 0\.13\.0\. This is the first version of Mahout to support Spark 2\.x in Amazon EMR version 5\.0 and later\.
 + Spark 2\.1\.1
 
-### Changes, enhancements, and resolved issues<a name="w197aac12c15c95b8"></a>
+### Changes, enhancements, and resolved issues<a name="w173aac12c17c95b8"></a>
 + **Presto**
   + Added the ability to enable SSL/TLS secured communication between Presto nodes by enabling in\-transit encryption using a security configuration\. For more information, see [In\-transit data encryption](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-data-encryption-options.html#emr-encryption-intransit)\.
   + Backported [Presto 7661](https://github.com/prestodb/presto/pull/7661/commits), which adds the `VERBOSE` option to the `EXPLAIN ANALYZE` statement to report more detailed, low level statistics about a query plan\.
@@ -2137,19 +2165,19 @@ Initial release date: January 22, 2018
 ### Changes, enhancements, and resolved issues<a name="emr-551-enhancements"></a>
 + Updated the Amazon Linux kernel of the defaultAmazon Linux AMI for Amazon EMR to address vulnerabilities associated with speculative execution \(CVE\-2017\-5715, CVE\-2017\-5753, and CVE\-2017\-5754\)\. For more information, see [https://aws.amazon.com/security/security-bulletins/AWS-2018-013/](https://aws.amazon.com/security/security-bulletins/AWS-2018-013/)\.
 
-## Release 5\.5\.0<a name="w197aac12c15d103"></a>
+## Release 5\.5\.0<a name="w173aac12c17d103"></a>
 
 The following release notes include information for the Amazon EMR 5\.5\.0 release\. Changes are relative to the Amazon EMR 5\.4\.0 release\.
 
 Release date: April 26, 2017
 
-### Upgrades<a name="w197aac12c15d103b6"></a>
+### Upgrades<a name="w173aac12c17d103b6"></a>
 + Hue 3\.12
 + Presto 0\.170
 + Zeppelin 0\.7\.1
 + ZooKeeper 3\.4\.10
 
-### Changes, enhancements, and resolved issues<a name="w197aac12c15d103b8"></a>
+### Changes, enhancements, and resolved issues<a name="w173aac12c17d103b8"></a>
 + **Spark**
   + Backported Spark Patch [\(SPARK\-20115\) fix DAGScheduler to recompute all the lost shuffle blocks when external shuffle service is unavailable](https://issues.apache.org/jira/browse/SPARK-20115) to version 2\.1\.0 of Spark, which is included in this release\.
 + **Flink**
@@ -2165,13 +2193,13 @@ Release date: April 26, 2017
   + Amazon EMR releases are now based on Amazon Linux 2017\.03\. For more information, see [Amazon Linux AMI 2017\.03 release notes](https://aws.amazon.com/amazon-linux-ami/2017.03-release-notes/)\.
   + Removed Python 2\.6 from the Amazon EMR base Linux image\. Python 2\.7 and 3\.4 are installed by default\. You can install Python 2\.6 manually if necessary\.
 
-## Release 5\.4\.0<a name="w197aac12c15d105"></a>
+## Release 5\.4\.0<a name="w173aac12c17d105"></a>
 
 The following release notes include information for the Amazon EMR 5\.4\.0 release\. Changes are relative to the Amazon EMR 5\.3\.0 release\.
 
 Release date: March 08, 2017
 
-### Upgrades<a name="w197aac12c15d105b6"></a>
+### Upgrades<a name="w173aac12c17d105b6"></a>
 
 The following upgrades are available in this release:
 + Upgraded to Flink 1\.2\.0
@@ -2182,7 +2210,7 @@ If you upgrade from an earlier version of Amazon EMR to Amazon EMR version 5\.4\
 + Upgraded to Presto 0\.166
 + Upgraded to Zeppelin 0\.7\.0
 
-### Changes and enhancements<a name="w197aac12c15d105b8"></a>
+### Changes and enhancements<a name="w173aac12c17d105b8"></a>
 
 The following are changes made to Amazon EMR releases for release label emr\-5\.4\.0:
 + Added support for r4 instances\. See [Amazon EC2 instance types](https://aws.amazon.com/ec2/instance-types/)\.
@@ -2195,13 +2223,13 @@ Release date: February 7, 2017
 
 Minor changes to backport Zeppelin patches and update the default AMI for Amazon EMR\.
 
-## Release 5\.3\.0<a name="w197aac12c15d109"></a>
+## Release 5\.3\.0<a name="w173aac12c17d109"></a>
 
 The following release notes include information for the Amazon EMR 5\.3\.0 release\. Changes are relative to the Amazon EMR 5\.2\.1 release\.
 
 Release date: January 26, 2017
 
-### Upgrades<a name="w197aac12c15d109b6"></a>
+### Upgrades<a name="w173aac12c17d109b6"></a>
 
 The following upgrades are available in this release:
 + Upgraded to Hive 2\.1\.1
@@ -2210,34 +2238,34 @@ The following upgrades are available in this release:
 + Upgraded to Oozie 4\.3\.0
 + Upgraded to Flink 1\.1\.4
 
-### Changes and enhancements<a name="w197aac12c15d109b8"></a>
+### Changes and enhancements<a name="w173aac12c17d109b8"></a>
 
 The following are changes made to Amazon EMR releases for release label emr\-5\.3\.0:
 + Added a patch to Hue that allows you to use the `interpreters_shown_on_wheel` setting to configure what interpreters to show first on the Notebook selection wheel, regardless of their ordering in the `hue.ini` file\.
 + Added the `hive-parquet-logging` configuration classification, which you can use to configure values in Hive's `parquet-logging.properties` file\.
 
-## Release 5\.2\.2<a name="w197aac12c15d111"></a>
+## Release 5\.2\.2<a name="w173aac12c17d111"></a>
 
 The following release notes include information for the Amazon EMR 5\.2\.2 release\. Changes are relative to the Amazon EMR 5\.2\.1 release\.
 
 Release date: May 2, 2017
 
-### Known issues resolved from the previous releases<a name="w197aac12c15d111b6"></a>
+### Known issues resolved from the previous releases<a name="w173aac12c17d111b6"></a>
 + Backported [SPARK\-194459](https://issues.apache.org/jira/browse/SPARK-19459), which addresses an issue where reading from an ORC table with char/varchar columns can fail\.
 
-## Release 5\.2\.1<a name="w197aac12c15d113"></a>
+## Release 5\.2\.1<a name="w173aac12c17d113"></a>
 
 The following release notes include information for the Amazon EMR 5\.2\.1 release\. Changes are relative to the Amazon EMR 5\.2\.0 release\.
 
 Release date: December 29, 2016
 
-### Upgrades<a name="w197aac12c15d113b6"></a>
+### Upgrades<a name="w173aac12c17d113b6"></a>
 
 The following upgrades are available in this release:
 + Upgraded to Presto 0\.157\.1\. For more information, see [Presto release notes](https://prestodb.io/docs/current/release/release-0.157.1.html) in the Presto documentation\. 
 + Upgraded to Zookeeper 3\.4\.9\. For more information, see [ZooKeeper release notes](https://zookeeper.apache.org/doc/r3.4.9/releasenotes.html) in the Apache ZooKeeper documentation\.
 
-### Changes and enhancements<a name="w197aac12c15d113b8"></a>
+### Changes and enhancements<a name="w173aac12c17d113b8"></a>
 
 The following are changes made to Amazon EMR releases for release label emr\-5\.2\.1:
 + Added support for the Amazon EC2 m4\.16xlarge instance type in Amazon EMR version 4\.8\.3 and later, excluding 5\.0\.0, 5\.0\.3, and 5\.2\.0\.
@@ -2245,59 +2273,59 @@ The following are changes made to Amazon EMR releases for release label emr\-5\.
 + The location of Flink and YARN configuration paths are now set by default in `/etc/default/flink` that you don't need to set the environment variables `FLINK_CONF_DIR` and `HADOOP_CONF_DIR` when running the `flink` or `yarn-session.sh` driver scripts to launch Flink jobs\.
 + Added support for FlinkKinesisConsumer class\.
 
-### Known issues resolved from the previous releases<a name="w197aac12c15d113c10"></a>
+### Known issues resolved from the previous releases<a name="w173aac12c17d113c10"></a>
 + Fixed an issue in Hadoop where the ReplicationMonitor thread could get stuck for a long time because of a race between replication and deletion of the same file in a large cluster\.
 + Fixed an issue where ControlledJob\#toString failed with a null pointer exception \(NPE\) when job status was not successfully updated\.
 
-## Release 5\.2\.0<a name="w197aac12c15d115"></a>
+## Release 5\.2\.0<a name="w173aac12c17d115"></a>
 
 The following release notes include information for the Amazon EMR 5\.2\.0 release\. Changes are relative to the Amazon EMR 5\.1\.0 release\.
 
 Release date: November 21, 2016
 
-### Changes and enhancements<a name="w197aac12c15d115b6"></a>
+### Changes and enhancements<a name="w173aac12c17d115b6"></a>
 
 The following changes and enhancements are available in this release:
 + Added Amazon S3 storage mode for HBase\.
 +  Enables you to specify an Amazon S3 location for the HBase rootdir\. For more information, see [HBase on Amazon S3](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-hbase-s3.html)\.
 
-### Upgrades<a name="w197aac12c15d115b8"></a>
+### Upgrades<a name="w173aac12c17d115b8"></a>
 
 The following upgrades are available in this release:
 + Upgraded to Spark 2\.0\.2
 
-### Known issues resolved from the previous releases<a name="w197aac12c15d115c10"></a>
+### Known issues resolved from the previous releases<a name="w173aac12c17d115c10"></a>
 + Fixed an issue with /mnt being constrained to 2 TB on EBS\-only instance types\.
 + Fixed an issue with instance\-controller and logpusher logs being output to their corresponding \.out files instead of to their normal log4j\-configured \.log files, which rotate hourly\. The \.out files don't rotate, so this would eventually fill up the /emr partition\. This issue only affects hardware virtual machine \(HVM\) instance types\.
 
-## Release 5\.1\.0<a name="w197aac12c15d117"></a>
+## Release 5\.1\.0<a name="w173aac12c17d117"></a>
 
 The following release notes include information for the Amazon EMR 5\.1\.0 release\. Changes are relative to the Amazon EMR 5\.0\.0 release\.
 
 Release date: November 03, 2016
 
-### Changes and enhancements<a name="w197aac12c15d117b6"></a>
+### Changes and enhancements<a name="w173aac12c17d117b6"></a>
 
 The following changes and enhancements are available in this release:
 + Added support for Flink 1\.1\.3\.
 + Presto has been added as an option in the notebook section of Hue\.
 
-### Upgrades<a name="w197aac12c15d117b8"></a>
+### Upgrades<a name="w173aac12c17d117b8"></a>
 
 The following upgrades are available in this release:
 + Upgraded to HBase 1\.2\.3
 + Upgraded to Zeppelin 0\.6\.2
 
-### Known issues resolved from the previous releases<a name="w197aac12c15d117c10"></a>
+### Known issues resolved from the previous releases<a name="w173aac12c17d117c10"></a>
 + Fixed an issue with Tez queries on Amazon S3 with ORC files did not perform as well as earlier Amazon EMR 4\.x versions\.
 
-## Release 5\.0\.3<a name="w197aac12c15d119"></a>
+## Release 5\.0\.3<a name="w173aac12c17d119"></a>
 
 The following release notes include information for the Amazon EMR 5\.0\.3 release\. Changes are relative to the Amazon EMR 5\.0\.0 release\.
 
 Release date: October 24, 2016
 
-### Upgrades<a name="w197aac12c15d119b6"></a>
+### Upgrades<a name="w173aac12c17d119b6"></a>
 
 The following upgrades are available in this release:
 + Upgraded to Hadoop 2\.7\.3
@@ -2305,11 +2333,11 @@ The following upgrades are available in this release:
 + Upgraded to Spark 2\.0\.1
 + Amazon EMR releases are now based on Amazon Linux 2016\.09\. For more information, see [https://aws.amazon.com/amazon-linux-ami/2016.09-release-notes/](https://aws.amazon.com/amazon-linux-ami/2016.09-release-notes/)\.
 
-## Release 5\.0\.0<a name="w197aac12c15d121"></a>
+## Release 5\.0\.0<a name="w173aac12c17d121"></a>
 
  Release date: July 27, 2016
 
-### Upgrades<a name="w197aac12c15d121b4"></a>
+### Upgrades<a name="w173aac12c17d121b4"></a>
 
 The following upgrades are available in this release:
 + Upgraded to Hive 2\.1
@@ -2320,7 +2348,7 @@ The following upgrades are available in this release:
 + Upgraded to Tez 0\.8\.4
 + Upgraded to Zeppelin 0\.6\.1
 
-### Changes and enhancements<a name="w197aac12c15d121b6"></a>
+### Changes and enhancements<a name="w173aac12c17d121b6"></a>
 
 The following are changes made to Amazon EMR releases for release label emr\-5\.0\.0 or greater:
 + Amazon EMR supports the latest open\-source versions of Hive \(version 2\.1\) and Pig \(version 0\.16\.0\)\. If you have used Hive or Pig on Amazon EMR in the past, this may affect some use cases\. For more information, see [Hive](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-hive.html) and [Pig](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-pig.html)\.
@@ -2362,7 +2390,7 @@ Initial release date: January 22, 2018
 ### Changes, enhancements, and resolved issues<a name="emr-493-enhancements"></a>
 + Updated the Amazon Linux kernel of the defaultAmazon Linux AMI for Amazon EMR to address vulnerabilities associated with speculative execution \(CVE\-2017\-5715, CVE\-2017\-5753, and CVE\-2017\-5754\)\. For more information, see [https://aws.amazon.com/security/security-bulletins/AWS-2018-013/](https://aws.amazon.com/security/security-bulletins/AWS-2018-013/)\.
 
-## Release 4\.9\.2<a name="w197aac12c15d129"></a>
+## Release 4\.9\.2<a name="w173aac12c17d129"></a>
 
 The following release notes include information for the Amazon EMR 4\.9\.2 release\. Changes are relative to the Amazon EMR 4\.9\.1 release\.
 
@@ -2370,23 +2398,23 @@ Release date: July 13, 2017
 
 Minor changes, bug fixes, and enhancements were made in this release\.
 
-## Release 4\.9\.1<a name="w197aac12c15d131"></a>
+## Release 4\.9\.1<a name="w173aac12c17d131"></a>
 
 The following release notes include information for the Amazon EMR 4\.9\.1 release\. Changes are relative to the Amazon EMR 4\.8\.4 release\.
 
 Release date: April 10, 2017
 
-### Known issues resolved from the previous releases<a name="w197aac12c15d131b6"></a>
+### Known issues resolved from the previous releases<a name="w173aac12c17d131b6"></a>
 + Backports of [HIVE\-9976](https://issues.apache.org/jira/browse/HIVE-9976) and [HIVE\-10106](https://issues.apache.org/jira/browse/HIVE-10106)
 + Fixed an issue in YARN where a large number of nodes \(greater than 2,000\) and containers \(greater than 5,000\) would cause an out of memory error, for example: `"Exception in thread 'main' java.lang.OutOfMemoryError"`\.
 
-### Changes and enhancements<a name="w197aac12c15d131b8"></a>
+### Changes and enhancements<a name="w173aac12c17d131b8"></a>
 
 The following are changes made to Amazon EMR releases for release label emr\-4\.9\.1:
 + Amazon EMR releases are now based on Amazon Linux 2017\.03\. For more information, see [https://aws.amazon.com/amazon-linux-ami/2017.03-release-notes/](https://aws.amazon.com/amazon-linux-ami/2017.03-release-notes/)\.
 + Removed Python 2\.6 from the Amazon EMR base Linux image\. You can install Python 2\.6 manually if necessary\.
 
-## Release 4\.8\.4<a name="w197aac12c15d133"></a>
+## Release 4\.8\.4<a name="w173aac12c17d133"></a>
 
 The following release notes include information for the Amazon EMR 4\.8\.4 release\. Changes are relative to the Amazon EMR 4\.8\.3 release\.
 
@@ -2394,47 +2422,47 @@ Release date: Feb 7, 2017
 
 Minor changes, bug fixes, and enhancements were made in this release\.
 
-## Release 4\.8\.3<a name="w197aac12c15d135"></a>
+## Release 4\.8\.3<a name="w173aac12c17d135"></a>
 
 The following release notes include information for the Amazon EMR 4\.8\.3 release\. Changes are relative to the Amazon EMR 4\.8\.2 release\.
 
 Release date: December 29, 2016
 
-### Upgrades<a name="w197aac12c15d135b6"></a>
+### Upgrades<a name="w173aac12c17d135b6"></a>
 
 The following upgrades are available in this release:
 + Upgraded to Presto 0\.157\.1\. For more information, see [Presto release notes](https://prestodb.io/docs/current/release/release-0.157.1.html) in the Presto documentation\.
 + Upgraded to Spark 1\.6\.3\. For more information, see [Spark release notes](http://spark.apache.org/releases/spark-release-1-6-3.html) in the Apache Spark documentation\.
 + Upgraded to ZooKeeper 3\.4\.9\. For more information, see [ZooKeeper release notes](https://zookeeper.apache.org/doc/r3.4.9/releasenotes.html) in the Apache ZooKeeper documentation\.
 
-### Changes and enhancements<a name="w197aac12c15d135b8"></a>
+### Changes and enhancements<a name="w173aac12c17d135b8"></a>
 
 The following are changes made to Amazon EMR releases for release label emr\-4\.8\.3:
 + Added support for the Amazon EC2 m4\.16xlarge instance type in Amazon EMR version 4\.8\.3 and later, excluding 5\.0\.0, 5\.0\.3, and 5\.2\.0\.
 + Amazon EMR releases are now based on Amazon Linux 2016\.09\. For more information, see [https://aws.amazon.com/amazon-linux-ami/2016.09-release-notes/](https://aws.amazon.com/amazon-linux-ami/2016.09-release-notes/)\.
 
-### Known issues resolved from the previous releases<a name="w197aac12c15d135c10"></a>
+### Known issues resolved from the previous releases<a name="w173aac12c17d135c10"></a>
 + Fixed an issue in Hadoop where the ReplicationMonitor thread could get stuck for a long time because of a race between replication and deletion of the same file in a large cluster\.
 + Fixed an issue where ControlledJob\#toString failed with a null pointer exception \(NPE\) when job status was not successfully updated\.
 
-## Release 4\.8\.2<a name="w197aac12c15d137"></a>
+## Release 4\.8\.2<a name="w173aac12c17d137"></a>
 
 The following release notes include information for the Amazon EMR 4\.8\.2 release\. Changes are relative to the Amazon EMR 4\.8\.0 release\.
 
 Release date: October 24, 2016
 
-### Upgrades<a name="w197aac12c15d137b6"></a>
+### Upgrades<a name="w173aac12c17d137b6"></a>
 
 The following upgrades are available in this release:
 + Upgraded to Hadoop 2\.7\.3
 + Upgraded to Presto 0\.152\.3, which includes support for the Presto web interface\. You can access the Presto web interface on the Presto coordinator using port 8889\. For more information about the Presto web interface, see [Web interface](https://prestodb.io/docs/current/admin/web-interface.html) in the Presto documentation\.
 + Amazon EMR releases are now based on Amazon Linux 2016\.09\. For more information, see [https://aws.amazon.com/amazon-linux-ami/2016.09-release-notes/](https://aws.amazon.com/amazon-linux-ami/2016.09-release-notes/)\.
 
-## Release 4\.8\.0<a name="w197aac12c15d139"></a>
+## Release 4\.8\.0<a name="w173aac12c17d139"></a>
 
 Release date: September 7, 2016
 
-### Upgrades<a name="w197aac12c15d139b4"></a>
+### Upgrades<a name="w173aac12c17d139b4"></a>
 
 The following upgrades are available in this release:
 + Upgraded to HBase 1\.2\.2
@@ -2442,7 +2470,7 @@ The following upgrades are available in this release:
 + Upgraded to Tez 0\.8\.4
 + Upgraded to Zeppelin\-Sandbox 0\.6\.1
 
-### Changes and enhancements<a name="w197aac12c15d139b6"></a>
+### Changes and enhancements<a name="w173aac12c17d139b6"></a>
 
 The following are changes made to Amazon EMR releases for release label emr\-4\.8\.0:
 + Fixed an issue in YARN where the ApplicationMaster would attempt to clean up containers that no longer exist because their instances have been terminated\.
@@ -2451,13 +2479,13 @@ The following are changes made to Amazon EMR releases for release label emr\-4\.
 + Backported patches: [HIVE\-8948](https://issues.apache.org/jira/browse/HIVE-8948), [HIVE\-12679](https://issues.apache.org/jira/browse/HIVE-12679), [HIVE\-13405](https://issues.apache.org/jira/browse/HIVE-13405), [PHOENIX\-3116](https://issues.apache.org/jira/browse/PHOENIX-3116), [HADOOP\-12689](https://issues.apache.org/jira/browse/HADOOP-12689)
 + Added support for security configurations, which allow you to create and apply encryption options more easily\. For more information, see [Data encryption](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-data-encryption.html)\.
 
-## Release 4\.7\.2<a name="w197aac12c15d141"></a>
+## Release 4\.7\.2<a name="w173aac12c17d141"></a>
 
 The following release notes include information for Amazon EMR 4\.7\.2\.
 
 Release date: July 15, 2016
 
-### Features<a name="w197aac12c15d141b6"></a>
+### Features<a name="w173aac12c17d141b6"></a>
 
 The following features are available in this release:
 + Upgraded to Mahout 0\.12\.2
@@ -2467,26 +2495,26 @@ The following features are available in this release:
 + EMRFS now allows users to configure a custom DynamoDB endpoint for their Consistent View metadata using the `fs.s3.consistent.dynamodb.endpoint` property in `emrfs-site.xml`\.
 + Added a script in `/usr/bin` called `spark-example`, which wraps `/usr/lib/spark/spark/bin/run-example` so you can run examples directly\. For instance, to run the SparkPi example that comes with the Spark distribution, you can run `spark-example SparkPi 100` from the command line or using `command-runner.jar` as a step in the API\.
 
-### Known issues resolved from previous releases<a name="w197aac12c15d141b8"></a>
+### Known issues resolved from previous releases<a name="w173aac12c17d141b8"></a>
 + Fixed an issue where Oozie had the `spark-assembly.jar` was not in the correct location when Spark was also installed, which resulted in failure to launch Spark applications with Oozie\.
 + Fixed an issue with Spark Log4j\-based logging in YARN containers\.
 
-## Release 4\.7\.1<a name="w197aac12c15d143"></a>
+## Release 4\.7\.1<a name="w173aac12c17d143"></a>
 
 Release date: June 10, 2016
 
-### Known issues resolved from previous releases<a name="w197aac12c15d143b4"></a>
+### Known issues resolved from previous releases<a name="w173aac12c17d143b4"></a>
 + Fixed an issue that extended the startup time of clusters launched in a VPC with private subnets\. The bug only impacted clusters launched with the Amazon EMR 4\.7\.0 release\. 
 + Fixed an issue that improperly handled listing of files in Amazon EMR for clusters launched with the Amazon EMR 4\.7\.0 release\.
 
-## Release 4\.7\.0<a name="w197aac12c15d145"></a>
+## Release 4\.7\.0<a name="w173aac12c17d145"></a>
 
 **Important**  
 Amazon EMR 4\.7\.0 is deprecated\. Use Amazon EMR 4\.7\.1 or later instead\.
 
 Release date: June 2, 2016
 
-### Features<a name="w197aac12c15d145b6"></a>
+### Features<a name="w173aac12c17d145b6"></a>
 
 The following features are available in this release:
 + Added Apache Phoenix 4\.7\.0
@@ -2497,15 +2525,15 @@ The following features are available in this release:
 + Upgraded the AWS SDK for Java to 1\.10\.75
 + The final flag was removed from the `mapreduce.cluster.local.dir` property in `mapred-site.xml` to allow users to run Pig in local mode\.
 
-### Amazon Redshift JDBC drivers available on cluster<a name="w197aac12c15d145b8"></a>
+### Amazon Redshift JDBC drivers available on cluster<a name="w173aac12c17d145b8"></a>
 
 Amazon Redshift JDBC drivers are now included at `/usr/share/aws/redshift/jdbc`\. `/usr/share/aws/redshift/jdbc/RedshiftJDBC41.jar` is the JDBC 4\.1\-compatible Amazon Redshift driver and `/usr/share/aws/redshift/jdbc/RedshiftJDBC4.jar` is the JDBC 4\.0\-compatible Amazon Redshift driver\. For more information, see [Configure a JDBC connection](https://docs.aws.amazon.com/redshift/latest/mgmt/configure-jdbc-connection.html) in the *Amazon Redshift Cluster Management Guide*\.
 
-### Java 8<a name="w197aac12c15d145c10"></a>
+### Java 8<a name="w173aac12c17d145c10"></a>
 
 Except for Presto, OpenJDK 1\.7 is the default JDK used for all applications\. However, both OpenJDK 1\.7 and 1\.8 are installed\. For information about how to set `JAVA_HOME` for applications, see [Configuring applications to use Java 8](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html#configuring-java8)\.
 
-### Known issues resolved from previous releases<a name="w197aac12c15d145c12"></a>
+### Known issues resolved from previous releases<a name="w173aac12c17d145c12"></a>
 + Fixed a kernel issue that significantly affected performance on Throughput Optimized HDD \(st1\) EBS volumes for Amazon EMR in emr\-4\.6\.0\.
 + Fixed an issue where a cluster would fail if any HDFS encryption zone were specified without choosing Hadoop as an application\.
 + Changed the default HDFS write policy from `RoundRobin` to `AvailableSpaceVolumeChoosingPolicy`\. Some volumes were not properly utilized with the RoundRobin configuration, which resulted in failed core nodes and an unreliable HDFS\.
@@ -2518,11 +2546,11 @@ Except for Presto, OpenJDK 1\.7 is the default JDK used for all applications\. H
 + Backported a [commit](https://github.com/cloudera/hue/commit/c3c89f085e7a29c9fac7de016d881142d90af3eb) from Hue 3\.9\.0 \(no JIRA exists\) to fix an issue with the HBase browser sample\. 
 + Backported [HIVE\-9073](https://issues.apache.org/jira/browse/HIVE-9073)\.
 
-## Release 4\.6\.0<a name="w197aac12c15d147"></a>
+## Release 4\.6\.0<a name="w173aac12c17d147"></a>
 
 Release date: April 21, 2016
 
-### Features<a name="w197aac12c15d147b4"></a>
+### Features<a name="w173aac12c17d147b4"></a>
 
 The following features are available in this release:
 + Added HBase 1\.2\.0
@@ -2530,19 +2558,19 @@ The following features are available in this release:
 + Upgraded to Presto\-Sandbox 0\.143
 + Amazon EMR releases are now based on Amazon Linux 2016\.03\.0\. For more information, see [https://aws.amazon.com/amazon-linux-ami/2016.03-release-notes/](https://aws.amazon.com/amazon-linux-ami/2016.03-release-notes/)\.
 
-### Issue affecting Throughput Optimized HDD \(st1\) EBS volume types<a name="w197aac12c15d147b6"></a>
+### Issue affecting Throughput Optimized HDD \(st1\) EBS volume types<a name="w173aac12c17d147b6"></a>
 
 An issue in the Linux kernel versions 4\.2 and above significantly affects performance on Throughput Optimized HDD \(st1\) EBS volumes for EMR\. This release \(emr\-4\.6\.0\) uses kernel version 4\.4\.5 and hence is impacted\. Therefore, we recommend not using emr\-4\.6\.0 if you want to use st1 EBS volumes\. You can use emr\-4\.5\.0 or prior Amazon EMR releases with st1 without impact\. In addition, we provide the fix with future releases\.
 
-### Python defaults<a name="w197aac12c15d147b8"></a>
+### Python defaults<a name="w173aac12c17d147b8"></a>
 
 Python 3\.4 is now installed by default, but Python 2\.7 remains the system default\. You may configure Python 3\.4 as the system default using either a bootstrap action; you can use the configuration API to set PYSPARK\_PYTHON export to `/usr/bin/python3.4` in the `spark-env` classification to affect the Python version used by PySpark\.
 
-### Java 8<a name="w197aac12c15d147c10"></a>
+### Java 8<a name="w173aac12c17d147c10"></a>
 
 Except for Presto, OpenJDK 1\.7 is the default JDK used for all applications\. However, both OpenJDK 1\.7 and 1\.8 are installed\. For information about how to set `JAVA_HOME` for applications, see [Configuring applications to use Java 8](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html#configuring-java8)\.
 
-### Known issues resolved from previous releases<a name="w197aac12c15d147c12"></a>
+### Known issues resolved from previous releases<a name="w173aac12c17d147c12"></a>
 + Fixed an issue where application provisioning would sometimes randomly fail due to a generated password\.
 + Previously, `mysqld` was installed on all nodes\. Now, it is only installed on the master instance and only if the chosen application includes `mysql-server` as a component\. Currently, the following applications include the `mysql-server` component: HCatalog, Hive, Hue, Presto\-Sandbox, and Sqoop\-Sandbox\.
 + Changed `yarn.scheduler.maximum-allocation-vcores` to 80 from the default of 32, which fixes an issue introduced in emr\-4\.4\.0 that mainly occurs with Spark while using the `maximizeResourceAllocation` option in a cluster whose core instance type is one of a few large instance types that have the YARN vcores set higher than 32; namely c4\.8xlarge, cc2\.8xlarge, hs1\.8xlarge, i2\.8xlarge, m2\.4xlarge, r3\.8xlarge, d2\.8xlarge, or m4\.10xlarge were affected by this issue\.
@@ -2550,11 +2578,11 @@ Except for Presto, OpenJDK 1\.7 is the default JDK used for all applications\. H
 + Fixed an issue with exception handling for client\-side encryption multipart uploads\.
 + Added an option to allow users to change the Amazon S3 storage class\. By default this setting is `STANDARD`\. The `emrfs-site` configuration classification setting is `fs.s3.storageClass` and the possible values are `STANDARD`, `STANDARD_IA`, and `REDUCED_REDUNDANCY`\. For more information about storage classes, see [Storage classes](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html) in the Amazon Simple Storage Service User Guide\. 
 
-## Release 4\.5\.0<a name="w197aac12c15d149"></a>
+## Release 4\.5\.0<a name="w173aac12c17d149"></a>
 
 Release date: April 4, 2016
 
-### Features<a name="w197aac12c15d149b4"></a>
+### Features<a name="w173aac12c17d149b4"></a>
 
 The following features are available in this release:
 + Upgraded to Spark 1\.6\.1
@@ -2562,16 +2590,16 @@ The following features are available in this release:
 + Upgraded to Presto 0\.140
 + Added AWS KMS support for Amazon S3 server\-side encryption\.
 
-### Known issues resolved from previous releases<a name="w197aac12c15d149b6"></a>
+### Known issues resolved from previous releases<a name="w173aac12c17d149b6"></a>
 + Fixed an issue where MySQL and Apache servers would not start after a node was rebooted\. 
 + Fixed an issue where IMPORT did not work correctly with non\-partitioned tables stored in Amazon S3
 + Fixed an issue with Presto where it requires the staging directory to be `/mnt/tmp` rather than `/tmp` when writing to Hive tables\.
 
-## Release 4\.4\.0<a name="w197aac12c15d151"></a>
+## Release 4\.4\.0<a name="w173aac12c17d151"></a>
 
 Release date: March 14, 2016
 
-### Features<a name="w197aac12c15d151b4"></a>
+### Features<a name="w173aac12c17d151b4"></a>
 
 The following features are available in this release:
 + Added HCatalog 1\.0\.0
@@ -2582,7 +2610,7 @@ The following features are available in this release:
 + Enabled `dynamicResourceAllocation` by default\.
 + Added a table of all configuration classifications for the release\. For more information, see the Configuration Classifications table in [Configuring applications](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html)\.
 
-### Known issues resolved from previous releases<a name="w197aac12c15d151b6"></a>
+### Known issues resolved from previous releases<a name="w173aac12c17d151b6"></a>
 + Fixed an issue where the `maximizeResourceAllocation` setting would not reserve enough memory for YARN ApplicationMaster daemons\.
 + Fixed an issue encountered with a custom DNS\. If any entries in `resolve.conf` precede the custom entries provided, then the custom entries are not resolvable\. This behavior was affected by clusters in a VPC where the default VPC name server is inserted as the top entry in `resolve.conf`\.
 + Fixed an issue where the default Python moved to version 2\.7 and boto was not installed for that version\.
@@ -2594,18 +2622,18 @@ The following features are available in this release:
 + Changed the behavior in EMRFS such that it does not use instruction files except for cases where client\-side encryption is enabled\. If you want to delete instruction files while using client\-side encryption, you can set the emrfs\-site\.xml property, `fs.s3.cse.cryptoStorageMode.deleteInstructionFiles.enabled`, to true\. 
 + Changed YARN log aggregation to retain logs at the aggregation destination for two days\. The default destination is your cluster's HDFS storage\. If you want to change this duration, change the value of `yarn.log-aggregation.retain-seconds` using the `yarn-site` configuration classification when you create your cluster\. As always, you can save your application logs to Amazon S3 using the `log-uri` parameter when you create your cluster\.
 
-### Patches applied<a name="w197aac12c15d151b8"></a>
+### Patches applied<a name="w173aac12c17d151b8"></a>
 
 The following patches from open source projects were included in this release:
 + [HIVE\-9655](https://issues.apache.org/jira/browse/HIVE-9655)
 + [HIVE\-9183](https://issues.apache.org/jira/browse/HIVE-9183)
 + [HADOOP\-12810](https://issues.apache.org/jira/browse/HADOOP-12810)
 
-## Release 4\.3\.0<a name="w197aac12c15d153"></a>
+## Release 4\.3\.0<a name="w173aac12c17d153"></a>
 
 Release date: January 19, 2016
 
-### Features<a name="w197aac12c15d153b4"></a>
+### Features<a name="w173aac12c17d153b4"></a>
 
 The following features are available in this release:
 + Upgraded to Hadoop 2\.7\.1
@@ -2619,7 +2647,7 @@ Amazon EMR made some changes to `spark.dynamicAllocation.enabled` when it is set
 + The `spark.default.parallelism` setting is now set at twice the number of CPU cores available for YARN containers\. In previous releases, this was half that value\.
 + The calculations for the memory overhead reserved for Spark YARN processes was adjusted to be more accurate, resulting in a small increase in the total amount of memory available to Spark \(that is, `spark.executor.memory`\)\.
 
-### Known issues resolved from the previous releases<a name="w197aac12c15d153b6"></a>
+### Known issues resolved from the previous releases<a name="w173aac12c17d153b6"></a>
 + YARN log aggregation is now enabled by default\.
 + Fixed an issue where logs would not be pushed to a cluster's Amazon S3 logs bucket when YARN log aggregation was enabled\.
 + YARN container sizes now have a new minimum of 32 across all node types\.
@@ -2632,7 +2660,7 @@ Amazon EMR made some changes to `spark.dynamicAllocation.enabled` when it is set
 + Fixed an issue where large clusters would not provision properly when Hue, Oozie, and Ganglia are installed\.
 + Fixed an issue in s3\-dist\-cp where it would return a zero exit code even if it failed with an error\.
 
-### Patches applied<a name="w197aac12c15d153b8"></a>
+### Patches applied<a name="w173aac12c17d153b8"></a>
 
 The following patches from open source projects were included in this release:
 + [OOZIE\-2402](https://issues.apache.org/jira/browse/OOZIE-2402)
@@ -2643,11 +2671,11 @@ The following patches from open source projects were included in this release:
 + [HIVE\-12715](https://issues.apache.org/jira/browse/HIVE-12715)
 + [HIVE\-10685](https://issues.apache.org/jira/browse/HIVE-10685)
 
-## Release 4\.2\.0<a name="w197aac12c15d155"></a>
+## Release 4\.2\.0<a name="w173aac12c17d155"></a>
 
 Release date: November 18, 2015
 
-### Features<a name="w197aac12c15d155b4"></a>
+### Features<a name="w173aac12c17d155b4"></a>
 
 The following features are available in this release:
 + Added Ganglia support
@@ -2657,7 +2685,7 @@ The following features are available in this release:
 + Upgraded Zeppelin to 0\.5\.5
 + Upgraded the AWS SDK for Java to 1\.10\.27
 
-### Known issues resolved from the previous releases<a name="w197aac12c15d155b6"></a>
+### Known issues resolved from the previous releases<a name="w173aac12c17d155b6"></a>
 + Fixed an issue with the EMRFS CLI where it did not use the default metadata table name\.
 + Fixed an issue encountered when using ORC\-backed tables in Amazon S3\.
 + Fixed an issue encountered with a Python version mismatch in the Spark configuration\.

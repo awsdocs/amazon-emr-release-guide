@@ -4,34 +4,34 @@
 
 Hudi is integrated with [Apache Spark](https://aws.amazon.com/emr/features/spark/), [Apache Hive](https://hive.apache.org/), and [Presto](https://prestodb.github.io)\. In Amazon EMR release versions 6\.1\.0 and later, Hudi is also integrated with [Trino \(PrestoSQL\)](https://trino.io/)\. 
 
-With Amazon EMR release version 5\.28\.0 and later, EMR installs Hudi components by default when Spark, Hive, or Presto are installed\. You can use Spark or the Hudi DeltaStreamer utility to create or update Hudi datasets\. You can use Hive, Spark, or Presto to query a Hudi dataset interactively or build data processing pipelines using *incremental pull*\. Incremental pull refers to the ability to pull only the data that changed between two actions\.
+With Amazon EMR release version 5\.28\.0 and later, EMR installs Hudi components by default when Spark, Hive, Presto, or Flink are installed\. You can use Spark or the Hudi DeltaStreamer utility to create or update Hudi datasets\. You can use Hive, Spark, Presto, or Flink to query a Hudi dataset interactively or build data processing pipelines using *incremental pull*\. Incremental pull refers to the ability to pull only the data that changed between two actions\.
 
 These features make Hudi suitable for the following use cases:
 + Working with streaming data from sensors and other Internet of Things \(IoT\) devices that require specific data insertion and update events\.
 + Complying with data privacy regulations in applications where users might choose to be forgotten or modify their consent for how their data can be used\.
 + Implementing a [change data capture \(CDC\) system](https://en.wikipedia.org/wiki/Change_data_capture) that allows you to apply changes to a dataset over time\.
 
-The following table lists the version of Hudi included in the latest release of Amazon EMR 6\.x series, along with the components that Amazon EMR installs with Hudi\.
+The following table lists the version of Hudi included in the latest release of the Amazon EMR 6\.x series, along with the components that Amazon EMR installs with Hudi\.
 
-For the version of components installed with Hudi in this release, see [Release 6\.4\.0 Component Versions](emr-640-release.md)\.
-
-
-**Hudi version information for emr\-6\.4\.0**  
-
-| Amazon EMR Release Label | Hudi Version | Components Installed With Hudi | 
-| --- | --- | --- | 
-| emr\-6\.4\.0 | Hudi 0\.8\.0\-amzn\-0 | Not available\. | 
-
-The following table lists the version of Hudi included in the latest release of Amazon EMR 5\.x series, along with the components that Amazon EMR installs with Hudi\.
-
-For the version of components installed with Hudi in this release, see [Release 5\.33\.0 Component Versions](emr-5330-release.md)\.
+For the version of components installed with Hudi in this release, see [Release 6\.5\.0 Component Versions](emr-650-release.md)\.
 
 
-**Hudi version information for emr\-5\.33\.0**  
+**Hudi version information for emr\-6\.5\.0**  
 
 | Amazon EMR Release Label | Hudi Version | Components Installed With Hudi | 
 | --- | --- | --- | 
-| emr\-5\.33\.0 | Hudi 0\.7\.0\-amzn\-1 | Not available\. | 
+| emr\-6\.5\.0 | Hudi 0\.9\.0\-amzn\-1 | Not available\. | 
+
+The following table lists the version of Hudi included in the latest release of the Amazon EMR 5\.x series, along with the components that Amazon EMR installs with Hudi\.
+
+For the version of components installed with Hudi in this release, see [Release 5\.34\.0 Component Versions](emr-5340-release.md)\.
+
+
+**Hudi version information for emr\-5\.34\.0**  
+
+| Amazon EMR Release Label | Hudi Version | Components Installed With Hudi | 
+| --- | --- | --- | 
+| emr\-5\.34\.0 | Hudi 0\.9\.0\-amzn\-0 | Not available\. | 
 
 **Topics**
 + [How Hudi works](emr-hudi-how-it-works.md)

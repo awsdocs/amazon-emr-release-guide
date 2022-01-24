@@ -29,6 +29,7 @@ For a comprehensive history of application versions for each release of Amazon E
 | Hive | 2\.3\.4 | 2\.3\.4 | 2\.3\.4 | 2\.3\.4 | 
 | Hudi |  \-  |  \-  |  \-  |  \-  | 
 | Hue | 4\.3\.0 | 4\.3\.0 | 4\.3\.0 | 4\.3\.0 | 
+| Iceberg |  \-  |  \-  |  \-  |  \-  | 
 | JupyterEnterpriseGateway |  \-  |  \-  |  \-  |  \-  | 
 | JupyterHub | 0\.9\.4 | 0\.9\.4 | 0\.9\.4 | 0\.9\.4 | 
 | Livy | 0\.5\.0 | 0\.5\.0 | 0\.5\.0 | 0\.5\.0 | 
@@ -38,12 +39,11 @@ For a comprehensive history of application versions for each release of Amazon E
 | Phoenix | 4\.14\.0 | 4\.14\.0 | 4\.14\.0 | 4\.14\.0 | 
 | Pig | 0\.17\.0 | 0\.17\.0 | 0\.17\.0 | 0\.17\.0 | 
 | Presto | 0\.215 | 0\.215 | 0\.215 | 0\.214 | 
-| PrestoSQL |  \-  |  \-  |  \-  |  \-  | 
 | Spark | 2\.4\.0 | 2\.4\.0 | 2\.4\.0 | 2\.4\.0 | 
 | Sqoop | 1\.4\.7 | 1\.4\.7 | 1\.4\.7 | 1\.4\.7 | 
 | TensorFlow | 1\.12\.0 | 1\.12\.0 | 1\.12\.0 | 1\.12\.0 | 
 | Tez | 0\.9\.1 | 0\.9\.1 | 0\.9\.1 | 0\.9\.1 | 
-| Trino |  \-  |  \-  |  \-  |  \-  | 
+| Trino \(PrestoSQL\) |  \-  |  \-  |  \-  |  \-  | 
 | Zeppelin | 0\.8\.0 | 0\.8\.0 | 0\.8\.0 | 0\.8\.0 | 
 | ZooKeeper | 3\.4\.13 | 3\.4\.13 | 3\.4\.13 | 3\.4\.13 | 
 

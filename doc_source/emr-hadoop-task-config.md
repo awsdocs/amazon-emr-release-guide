@@ -25,7 +25,7 @@ When you use the `create-cluster` command or `modify-instance-groups` command fr
 Linux line continuation characters \(\\\) are included for readability\. They can be removed or used in Linux commands\. For Windows, remove them or replace with a caret \(^\)\.
 
 ```
-aws emr create-cluster --release-label emr-5.33.0 --instance-type m5.xlarge \
+aws emr create-cluster --release-label emr-5.34.0 --instance-type m5.xlarge \
 --instance-count 3 --applications Name=Hadoop --configurations https://s3.amazonaws.com/mybucket/myfolder/myConfig.json \
 --use-default-roles
 ```

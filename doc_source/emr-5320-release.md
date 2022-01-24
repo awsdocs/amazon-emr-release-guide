@@ -29,6 +29,7 @@ For a comprehensive history of application versions for each release of Amazon E
 | Hive | 2\.3\.7 | 2\.3\.7 | 2\.3\.7 | 2\.3\.6 | 
 | Hudi | 0\.6\.0\-amzn\-0 | 0\.6\.0\-amzn\-0 | 0\.6\.0\-amzn\-0 | 0\.5\.2\-incubating | 
 | Hue | 4\.8\.0 | 4\.7\.1 | 4\.7\.1 | 4\.6\.0 | 
+| Iceberg |  \-  |  \-  |  \-  |  \-  | 
 | JupyterEnterpriseGateway | 2\.1\.0 |  \-  |  \-  |  \-  | 
 | JupyterHub | 1\.1\.0 | 1\.1\.0 | 1\.1\.0 | 1\.1\.0 | 
 | Livy | 0\.7\.0 | 0\.7\.0 | 0\.7\.0 | 0\.7\.0 | 
@@ -38,12 +39,11 @@ For a comprehensive history of application versions for each release of Amazon E
 | Phoenix | 4\.14\.3 | 4\.14\.3 | 4\.14\.3 | 4\.14\.3 | 
 | Pig | 0\.17\.0 | 0\.17\.0 | 0\.17\.0 | 0\.17\.0 | 
 | Presto | 0\.240\.1 | 0\.238\.3 | 0\.238\.3 | 0\.232 | 
-| PrestoSQL |  \-  |  \-  |  \-  |  \-  | 
 | Spark | 2\.4\.7 | 2\.4\.6 | 2\.4\.6 | 2\.4\.5 | 
 | Sqoop | 1\.4\.7 | 1\.4\.7 | 1\.4\.7 | 1\.4\.7 | 
 | TensorFlow | 2\.3\.1 | 2\.1\.0 | 2\.1\.0 | 1\.14\.0 | 
 | Tez | 0\.9\.2 | 0\.9\.2 | 0\.9\.2 | 0\.9\.2 | 
-| Trino |  \-  |  \-  |  \-  |  \-  | 
+| Trino \(PrestoSQL\) |  \-  |  \-  |  \-  |  \-  | 
 | Zeppelin | 0\.8\.2 | 0\.8\.2 | 0\.8\.2 | 0\.8\.2 | 
 | ZooKeeper | 3\.4\.14 | 3\.4\.14 | 3\.4\.14 | 3\.4\.14 | 
 
@@ -87,6 +87,7 @@ Initial release date: Jan 8, 2021
 + Scoped managed policies: To align with AWS best practices, Amazon EMR has introduced v2 EMR\-scoped default managed policies as replacements for policies that will be deprecated\. See [Amazon EMR Managed Policies](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-iam-policies.html)\.
 
 **Known issues**
++ For Amazon EMR 6\.3\.0 and 6\.2\.0 private subnet clusters, you cannot access the Ganglia web UI\. You will get an "access denied \(403\)" error\. Other web UIs, such as Spark, Hue, JupyterHub, Zeppelin, Livy, and Tez are working normally\. Ganglia web UI access on public subnet clusters are also working normally\. To resolve this issue, restart httpd service on the master node with `sudo systemctl restart httpd`\. This issue is fixed in Amazon EMR 6\.4\.0\.
 + **Lower "Max open files" limit on older AL2\.** Amazon EMR releases: emr\-5\.30\.x, emr\-5\.31\.0, emr\-5\.32\.0, emr\-6\.0\.0, emr\-6\.1\.0, and emr\-6\.2\.0 are based on older versions ofAmazon Linux 2 \(AL2\), which have a lower ulimit setting for "Max open files" when EMR clusters are created with the default AMI\. The lower open file limit causes a "Too many open files" error when submitting Spark job\. In the impacted EMR releases, the Amazon EMR default AMI has a default ulimit setting of 4096 for "Max open files," which is lower than the 65536 file limit in the latestAmazon Linux 2 AMI\. The lower ulimit setting for "Max open files" causes Spark job failure when the Spark driver and executor try to open more than 4096 files\. To fix the issue, Amazon EMR has a bootstrap action \(BA\) script that adjusts the ulimit setting at cluster creation\. Amazon EMR releases 6\.3\.0 and 5\.33\.0 will include a permanent fix with a higher "Max open files" setting\.
 
   The following workaround for this issue lets you to explicitly set the instance\-controller ulimit to a maximum of 65536 files\.

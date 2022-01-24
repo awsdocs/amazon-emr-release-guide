@@ -20,7 +20,7 @@ Install Tez by choosing that application when you create the cluster\.<a name="e
 Linux line continuation characters \(\\\) are included for readability\. They can be removed or used in Linux commands\. For Windows, remove them or replace with a caret \(^\)\.
 
   ```
-  aws emr create-cluster --name "Cluster with Tez" --release-label emr-5.33.0 \
+  aws emr create-cluster --name "Cluster with Tez" --release-label emr-5.34.0 \
   --applications Name=Tez --ec2-attributes KeyName=myKey \
   --instance-type m5.xlarge --instance-count 3 --use-default-roles
   ```

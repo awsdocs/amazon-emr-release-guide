@@ -13,27 +13,27 @@ To view a machine learning example using Spark on Amazon EMR, see the [Large\-sc
 **Important**  
 Apache Spark version 2\.3\.1, available beginning with Amazon EMR release version 5\.16\.0, addresses [CVE\-2018\-8024](https://nvd.nist.gov/vuln/detail/CVE-2018-8024) and [CVE\-2018\-1334](https://nvd.nist.gov/vuln/detail/CVE-2018-1334)\. We recommend that you migrate earlier versions of Spark to Spark version 2\.3\.1 or later\.
 
-The following table lists the version of Spark included in the latest release of Amazon EMR 6\.x series, along with the components that Amazon EMR installs with Spark\.
+The following table lists the version of Spark included in the latest release of the Amazon EMR 6\.x series, along with the components that Amazon EMR installs with Spark\.
 
-For the version of components installed with Spark in this release, see [Release 6\.4\.0 Component Versions](emr-640-release.md)\.
-
-
-**Spark version information for emr\-6\.4\.0**  
-
-| Amazon EMR Release Label | Spark Version | Components Installed With Spark | 
-| --- | --- | --- | 
-| emr\-6\.4\.0 | Spark 3\.1\.2 | aws\-sagemaker\-spark\-sdk, emrfs, emr\-goodies, emr\-ddb, emr\-s3\-select, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hudi, hudi\-spark, livy\-server, nginx, r, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave | 
-
-The following table lists the version of Spark included in the latest release of Amazon EMR 5\.x series, along with the components that Amazon EMR installs with Spark\.
-
-For the version of components installed with Spark in this release, see [Release 5\.33\.0 Component Versions](emr-5330-release.md)\.
+For the version of components installed with Spark in this release, see [Release 6\.5\.0 Component Versions](emr-650-release.md)\.
 
 
-**Spark version information for emr\-5\.33\.0**  
+**Spark version information for emr\-6\.5\.0**  
 
 | Amazon EMR Release Label | Spark Version | Components Installed With Spark | 
 | --- | --- | --- | 
-| emr\-5\.33\.0 | Spark 2\.4\.7 | aws\-sagemaker\-spark\-sdk, emrfs, emr\-goodies, emr\-ddb, emr\-s3\-select, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hudi, hudi\-spark, livy\-server, nginx, r, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave | 
+| emr\-6\.5\.0 | Spark 3\.1\.2 | aws\-sagemaker\-spark\-sdk, emrfs, emr\-goodies, emr\-ddb, emr\-s3\-select, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hudi, hudi\-spark, iceberg, livy\-server, nginx, r, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave | 
+
+The following table lists the version of Spark included in the latest release of the Amazon EMR 5\.x series, along with the components that Amazon EMR installs with Spark\.
+
+For the version of components installed with Spark in this release, see [Release 5\.34\.0 Component Versions](emr-5340-release.md)\.
+
+
+**Spark version information for emr\-5\.34\.0**  
+
+| Amazon EMR Release Label | Spark Version | Components Installed With Spark | 
+| --- | --- | --- | 
+| emr\-5\.34\.0 | Spark 2\.4\.8 | aws\-sagemaker\-spark\-sdk, emrfs, emr\-goodies, emr\-ddb, emr\-s3\-select, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hudi, hudi\-spark, livy\-server, nginx, r, spark\-client, spark\-history\-server, spark\-on\-yarn, spark\-yarn\-slave | 
 
 **Topics**
 + [Create a cluster with Spark](emr-spark-launch.md)

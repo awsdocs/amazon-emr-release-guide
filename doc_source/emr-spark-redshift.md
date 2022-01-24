@@ -6,7 +6,7 @@ The connector is based on the `spark-redshift` open\-source connector, which you
 
 To get started with this connector and learn about the supported parameters, please refer to the [README file](https://github.com/spark-redshift-community/spark-redshift/blob/master/README.md) on the `spark-redshift` Github repository\. The repository also includes a [tutorial](https://github.com/spark-redshift-community/spark-redshift/blob/master/tutorial/SparkRedshiftTutorial.scala) for those new to Amazon Redshift\.
 
-Amazon EMR always reviews open\-source code when importing it into your cluster\. Due to security concerns, we don’t support the following authentication methods from Spark to Amazon S3: 
+Amazon EMR always reviews open\-source code when importing it into your cluster\. Due to security concerns, we don't support the following authentication methods from Spark to Amazon S3: 
 + Setting AWS access keys in the `hadoop-env` configuration classification
 + Encoding AWS access keys in the `tempdir` URI
 

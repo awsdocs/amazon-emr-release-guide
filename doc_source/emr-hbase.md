@@ -9,30 +9,30 @@ With HBase on Amazon EMR, you can also back up your HBase data directly to Amazo
 + **HBase read\-replicas** \- Amazon EMR version 5\.7\.0 and later with HBase on Amazon S3 supports read\-replica clusters\. A read\-replica cluster provides read\-only access to a primary cluster's store files and metadata for read\-only operations\. For more information, see [Using a read\-replica cluster](emr-hbase-s3.md#emr-hbase-s3-read-replica)\.
 + **HBase Snapshots** \- As an alternative to HBase on Amazon S3, with EMR version 4\.0 and later you can create snapshots of your HBase data directly to Amazon S3 and then recover data using the snapshots\. For more information, see [Using HBase snapshots](emr-hbase-snapshot.md)\.
 
-The following table lists the version of HBase included in the latest release of Amazon EMR 6\.x series, along with the components that Amazon EMR installs with HBase\.
+The following table lists the version of HBase included in the latest release of the Amazon EMR 6\.x series, along with the components that Amazon EMR installs with HBase\.
 
-For the version of components installed with HBase in this release, see [Release 6\.4\.0 Component Versions](emr-640-release.md)\.
+For the version of components installed with HBase in this release, see [Release 6\.5\.0 Component Versions](emr-650-release.md)\.
 
 
-**HBase version information for emr\-6\.4\.0**  
+**HBase version information for emr\-6\.5\.0**  
 
 | Amazon EMR Release Label | HBase Version | Components Installed With HBase | 
 | --- | --- | --- | 
-| emr\-6\.4\.0 | HBase 2\.4\.4 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-mapred, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hbase\-hmaster, hbase\-client, hbase\-region\-server, hbase\-rest\-server, hbase\-thrift\-server, zookeeper\-client, zookeeper\-server | 
+| emr\-6\.5\.0 | HBase 2\.4\.4 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-mapred, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hbase\-hmaster, hbase\-client, hbase\-region\-server, hbase\-rest\-server, hbase\-thrift\-server, zookeeper\-client, zookeeper\-server | 
 
 **Note**  
 Apache HBase HBCK2 is a separate operational tool for repairing HBase regions and system tables\. In Amazon EMR version 6\.1\.0 and later, the hbase\-hbck2\.jar is provided in `/usr/lib/hbase-operator-tools/` on the master node\. For more information about how to build and use the tool, see [HBase HBCK2](https://github.com/apache/hbase-operator-tools/tree/master/hbase-hbck2)\. 
 
-The following table lists the version of HBase included in the latest release of Amazon EMR 5\.x series, along with the components that Amazon EMR installs with HBase\.
+The following table lists the version of HBase included in the latest release of the Amazon EMR 5\.x series, along with the components that Amazon EMR installs with HBase\.
 
-For the version of components installed with HBase in this release, see [Release 5\.33\.0 Component Versions](emr-5330-release.md)\.
+For the version of components installed with HBase in this release, see [Release 5\.34\.0 Component Versions](emr-5340-release.md)\.
 
 
-**HBase version information for emr\-5\.33\.0**  
+**HBase version information for emr\-5\.34\.0**  
 
 | Amazon EMR Release Label | HBase Version | Components Installed With HBase | 
 | --- | --- | --- | 
-| emr\-5\.33\.0 | HBase 1\.4\.13 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-mapred, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hbase\-hmaster, hbase\-client, hbase\-region\-server, hbase\-rest\-server, hbase\-thrift\-server, zookeeper\-client, zookeeper\-server | 
+| emr\-5\.34\.0 | HBase 1\.4\.13 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, hadoop\-client, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-mapred, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hbase\-hmaster, hbase\-client, hbase\-region\-server, hbase\-rest\-server, hbase\-thrift\-server, zookeeper\-client, zookeeper\-server | 
 
 **Topics**
 + [Creating a cluster with HBase](emr-hbase-create.md)

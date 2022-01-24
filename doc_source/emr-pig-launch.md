@@ -48,7 +48,7 @@ When you launch a cluster using the AWS CLI, use the `--applications` parameter 
    aws emr create-cluster \
    --name "Test cluster" \
    --log-uri s3://DOC-EXAMPLE-BUCKET/ \
-   --release-label emr-5.33.0 \
+   --release-label emr-5.34.0 \
    --applications Name=Pig \
    --use-default-roles \
    --ec2-attributes KeyName=myKey \

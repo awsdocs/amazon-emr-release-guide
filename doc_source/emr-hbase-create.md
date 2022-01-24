@@ -25,7 +25,7 @@ For quick steps to launch clusters with the console, see [Getting started with A
 Use the following command to create a cluster with HBase installed:
 
 ```
-aws emr create-cluster --name "Test cluster" --release-label emr-5.33.0 \
+aws emr create-cluster --name "Test cluster" --release-label emr-5.34.0 \
 --applications Name=HBase --use-default-roles --ec2-attributes KeyName=myKey \
 --instance-type m5.xlarge --instance-count 3
 ```

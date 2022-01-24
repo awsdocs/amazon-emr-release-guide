@@ -54,7 +54,7 @@ After you create the script, upload it to a location in Amazon S3, for example, 
 Linux line continuation characters \(\\\) are included for readability\. They can be removed or used in Linux commands\. For Windows, remove them or replace with a caret \(^\)\.
 
    ```
-   aws emr create-cluster --name="MyJupyterHubCluster" --release-label emr-5.33.0 \
+   aws emr create-cluster --name="MyJupyterHubCluster" --release-label emr-5.34.0 \
    --applications Name=JupyterHub --log-uri s3://MyBucket/MyJupyterClusterLogs \
    --use-default-roles --instance-type m5.xlarge --instance-count 2 --ec2-attributes KeyName=MyKeyPair \
    --bootstrap-actions Path=s3://mybucket/install-my-jupyter-libraries.sh,Name=InstallJupyterLibs

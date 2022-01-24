@@ -18,7 +18,7 @@ Clusters can be launched using the AWS Management Console, AWS CLI, or an AWS SD
 + Create the cluster with the following command:
 
   ```
-  aws emr create-cluster --release-label emr-5.33.0 \
+  aws emr create-cluster --release-label emr-5.34.0 \
   --applications Name=Flink \
   --configurations file://./configurations.json \
   --region us-east-1 \

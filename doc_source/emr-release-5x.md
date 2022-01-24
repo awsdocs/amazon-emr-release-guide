@@ -2,7 +2,7 @@
 
 This section contains application versions, release notes, component versions, and configuration classifications available in each Amazon EMR 5\.x release version\.
 
-When you launch a cluster, you can choose from multiple release versions of Amazon EMR\. This allows you to test and use application versions that fit your compatibility requirements\. You specify the release version using the *release label*\. Release labels are in the form `emr-x.x.x. For example, emr-5.33.0.`
+When you launch a cluster, you can choose from multiple release versions of Amazon EMR\. This allows you to test and use application versions that fit your compatibility requirements\. You specify the release version using the *release label*\. Release labels are in the form `emr-x.x.x. For example, emr-5.34.0.`
 
 New Amazon EMR release versions are made available in different Regions over a period of several days, beginning with the first Region on the initial release date\. The latest release version may not be available in your Region during this period\.
 
@@ -10,6 +10,7 @@ For a comprehensive table of application versions in every Amazon EMR 5\.x relea
 
 **Topics**
 + [Application versions in Amazon EMR 5\.x releases](emr-release-app-versions-5.x.md)
++ [Amazon EMR release 5\.34\.0](emr-5340-release.md)
 + [Amazon EMR release 5\.33\.1](emr-5331-release.md)
 + [Amazon EMR release 5\.33\.0](emr-5330-release.md)
 + [Amazon EMR release 5\.32\.1](emr-5321-release.md)

@@ -29,6 +29,7 @@ For a comprehensive history of application versions for each release of Amazon E
 | Hive | 2\.3\.7 | 2\.3\.7 | 2\.3\.7 | 2\.3\.7 | 
 | Hudi | 0\.7\.0\-amzn\-1 | 0\.7\.0\-amzn\-1 | 0\.6\.0\-amzn\-0 | 0\.6\.0\-amzn\-0 | 
 | Hue | 4\.9\.0 | 4\.9\.0 | 4\.8\.0 | 4\.8\.0 | 
+| Iceberg |  \-  |  \-  |  \-  |  \-  | 
 | JupyterEnterpriseGateway | 2\.1\.0 | 2\.1\.0 | 2\.1\.0 | 2\.1\.0 | 
 | JupyterHub | 1\.1\.0 | 1\.1\.0 | 1\.1\.0 | 1\.1\.0 | 
 | Livy | 0\.7\.0 | 0\.7\.0 | 0\.7\.0 | 0\.7\.0 | 
@@ -38,18 +39,130 @@ For a comprehensive history of application versions for each release of Amazon E
 | Phoenix | 4\.14\.3 | 4\.14\.3 | 4\.14\.3 | 4\.14\.3 | 
 | Pig | 0\.17\.0 | 0\.17\.0 | 0\.17\.0 | 0\.17\.0 | 
 | Presto | 0\.245\.1 | 0\.245\.1 | 0\.240\.1 | 0\.240\.1 | 
-| PrestoSQL |  \-  |  \-  |  \-  |  \-  | 
 | Spark | 2\.4\.7 | 2\.4\.7 | 2\.4\.7 | 2\.4\.7 | 
 | Sqoop | 1\.4\.7 | 1\.4\.7 | 1\.4\.7 | 1\.4\.7 | 
 | TensorFlow | 2\.4\.1 | 2\.4\.1 | 2\.3\.1 | 2\.3\.1 | 
 | Tez | 0\.9\.2 | 0\.9\.2 | 0\.9\.2 | 0\.9\.2 | 
-| Trino |  \-  |  \-  |  \-  |  \-  | 
+| Trino \(PrestoSQL\) |  \-  |  \-  |  \-  |  \-  | 
 | Zeppelin | 0\.9\.0 | 0\.9\.0 | 0\.8\.2 | 0\.8\.2 | 
 | ZooKeeper | 3\.4\.14 | 3\.4\.14 | 3\.4\.14 | 3\.4\.14 | 
 
 ## Release notes<a name="emr-5331-relnotes"></a>
 
-This is a patch release to fix issues with Managed Scaling unable to complete or causing application failures\. All applications and components are the same as the previous Amazon EMR release version\.
+The following release notes include information for Amazon EMR release version 5\.33\.0\. Changes are relative to 5\.32\.0\.
+
+Initial release date: April 19, 2021
+
+Last updated date: August 9, 2021
+
+**Upgrades**
++ Upgraded Amazon Glue connector to version 1\.15\.0
++ Upgraded to version 1\.11\.970
++ Upgraded EMRFS to version 2\.46\.0
++ Upgraded EMR Goodies to version 2\.14\.0
++ Upgraded EMR Record Server to version 1\.9\.0
++ Upgraded EMR S3 Dist CP to version 2\.18\.0
++ Upgraded EMR Secret Agent to version 1\.8\.0
++ Upgraded Flink to version 1\.12\.1
++ Upgraded Hadoop to version 2\.10\.1\-amzn\-1
++ Upgraded Hive to version 2\.3\.7\-amzn\-4
++ Upgraded Hudi to version 0\.7\.0
++ Upgraded Hue to version 4\.9\.0
++ Upgraded OpenCV to version 4\.5\.0
++ Upgraded Presto to version 0\.245\.1\-amzn\-0
++ Upgraded R to version 4\.0\.2
++ Upgraded Spark to version 2\.4\.7\-amzn\-1
++ Upgraded TensorFlow to version 2\.4\.1
++ Upgraded Zeppelin to version 0\.9\.0
+
+**Changes, enhancements, and resolved issues**
++ **Configuring a cluster to fix Apache YARN Timeline Server version 1 and 1\.5 performance issues**
+
+  Apache YARN Timeline Server version 1 and 1\.5 can cause performance issues with very active, large EMR clusters, particularly with `yarn.resourcemanager.system-metrics-publisher.enabled=true`, which is the default setting in EMR\. An open source YARN Timeline Server v2 solves the performance issue related to YARN Timeline Server scalability\.
+
+  Other workarounds for this issue include:
+  + Configuring yarn\.resourcemanager\.system\-metrics\-publisher\.enabled=false in yarn\-site\.xml\.
+  + Enabling the fix for this issue when creating a cluster, as described below\.
+
+  The following Amazon EMR release versions contain a fix for this YARN Timeline Server performance issue\.
+
+  EMR 5\.30\.2, 5\.31\.1, 5\.32\.1, 5\.33\.1, 5\.34\.x, 6\.0\.1, 6\.1\.1, 6\.2\.1, 6\.3\.1, 6\.4\.x
+
+  To enable the fix on any of the above specified Amazon EMR releases, set these properties to `true` in a configurations JSON file that is passed in using the [`aws emr create-cluster` command parameter](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps-create-cluster.html): `--configurations file://./configurations.json`\. Or enable the fix using the [reconfiguration console UI](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps-running-cluster.html)\.
+
+  Example of the configurations\.json file contents:
+
+  ```
+  [
+  {
+  "Classification": "yarn-site",
+  "Properties": {
+  "yarn.resourcemanager.system-metrics-publisher.timeline-server-v1.enable-batch": "true",
+  "yarn.resourcemanager.system-metrics-publisher.enabled": "true"
+  },
+  "Configurations": []
+  }
+  ]
+  ```
++ Amazon EMR version 5\.33\.1 fixed issues with Managed Scaling unable to complete or causing application failures\.
++ Spark runtime is now faster when fetching partition locations from Hive Metastore for Spark insert queries\.
++ Upgraded component versions\. For a list of component versions, see [About Amazon EMR Releases](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-release-components.html) in this guide\.
++ Installed the AWS Java SDK Bundle on each new cluster\. This is a single jar containing all service SDKs and their dependencies, instead of individual component jars\. For more information, see [Java SDK Bundled Dependency](http://aws.amazon.com/blogs/developer/java-sdk-bundle/)\.
++ Fixed Managed Scaling issues in earlier Amazon EMR releases and made improvements so application failure rates are significantly reduced\.
+
+**New features**
++ Amazon EMR supports Amazon S3 Access Points, a feature of Amazon S3 that allows you to easily manage access for shared data lakes\. Using your Amazon S3 Access Point alias, you can simplify your data access at scale on Amazon EMR\. You can use Amazon S3 Access Points with all versions of Amazon EMR at no additional cost in all AWS regions where Amazon EMR is available\. To learn more about Amazon S3 Access Points and Access Point aliases, see [Using a bucket\-style alias for your access point](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-alias.html) in the *Amazon S3 User Guide*\.
++ Amazon EMR\-5\.33 supports new Amazon EC2 instance types: c5a, c5ad, c6gn, c6gd, m6gd, d3, d3en, m5zn, r5b, r6gd\. See [Supported Instance Types](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-supported-instance-types.html)\.
+
+**Known issues**
++ **Lower "Max open files" limit on older AL2\.** Amazon EMR releases: emr\-5\.30\.x, emr\-5\.31\.0, emr\-5\.32\.0, emr\-6\.0\.0, emr\-6\.1\.0, and emr\-6\.2\.0 are based on older versions ofAmazon Linux 2 \(AL2\), which have a lower ulimit setting for "Max open files" when EMR clusters are created with the default AMI\. The lower open file limit causes a "Too many open files" error when submitting Spark job\. In the impacted EMR releases, the Amazon EMR default AMI has a default ulimit setting of 4096 for "Max open files," which is lower than the 65536 file limit in the latestAmazon Linux 2 AMI\. The lower ulimit setting for "Max open files" causes Spark job failure when the Spark driver and executor try to open more than 4096 files\. To fix the issue, Amazon EMR has a bootstrap action \(BA\) script that adjusts the ulimit setting at cluster creation\. Amazon EMR releases 6\.3\.0 and 5\.33\.0 will include a permanent fix with a higher "Max open files" setting\.
+
+  The following workaround for this issue lets you to explicitly set the instance\-controller ulimit to a maximum of 65536 files\.
+
+**Explicitly set a ulimit from the command line**
+
+  1. Edit `/etc/systemd/system/instance-controller.service` to add the following parameters to Service section\.
+
+     `LimitNOFILE=65536`
+
+     `LimitNPROC=65536`
+
+  1. Restart InstanceController
+
+     `$ sudo systemctl daemon-reload`
+
+     `$ sudo systemctl restart instance-controller`
+
+  **Set a ulimit using bootstrap action \(BA\)**
+
+  You can also use a bootstrap action \(BA\) script to configure the instance\-controller ulimit to 65536 files at cluster creation\.
+
+  ```
+  #!/bin/bash
+  for user in hadoop spark hive; do
+  sudo tee /etc/security/limits.d/$user.conf << EOF
+  $user - nofile 65536
+  $user - nproc 65536
+  EOF
+  done
+  for proc in instancecontroller logpusher; do
+  sudo mkdir -p /etc/systemd/system/$proc.service.d/
+  sudo tee /etc/systemd/system/$proc.service.d/override.conf << EOF
+  [Service]
+  LimitNOFILE=65536
+  LimitNPROC=65536
+  EOF
+  pid=$(pgrep -f aws157.$proc.Main)
+  sudo prlimit --pid $pid --nofile=65535:65535 --nproc=65535:65535
+  done
+  sudo systemctl daemon-reload
+  ```
++ For Amazon EMR 6\.3\.0 and 6\.2\.0 private subnet clusters, you cannot access the Ganglia web UI\. You will get an "access denied \(403\)" error\. Other web UIs, such as Spark, Hue, JupyterHub, Zeppelin, Livy, and Tez are working normally\. Ganglia web UI access on public subnet clusters are also working normally\. To resolve this issue, restart httpd service on the master node with `sudo systemctl restart httpd`\. This issue is fixed in Amazon EMR 6\.4\.0\.
++ 
+**Important**  
+Amazon EMR clusters that are running Amazon Linux or Amazon Linux 2 AMIs \(Amazon Linux Machine Images\) use default Amazon Linux behavior, and do not automatically download and install important and critical kernel updates that require a reboot\. This is the same behavior as other Amazon EC2 instances running the default Amazon Linux AMI\. If new Amazon Linux software updates that require a reboot \(such as, kernel, NVIDIA, and CUDA updates\) become available after an Amazon EMR version is released, Amazon EMR cluster instances running the default AMI do not automatically download and install those updates\. To get kernel updates, you can [customize your Amazon EMR AMI](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-custom-ami.html) to [use the latest Amazon Linux AMI](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html)\.
++ Console support to create a security configuration that specifies the AWS Ranger integration option is currently not supported in the GovCloud Region\. Security configuration can be done using the CLI\. See [Create the EMR Security Configuration](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-ranger-security-config.html) in the *Amazon EMR Management Guide*\.
++ Scoped managed policies: To align with AWS best practices, Amazon EMR has introduced v2 EMR\-scoped default managed policies as replacements for policies that will be deprecated\. See [Amazon EMR Managed Policies](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-managed-iam-policies.html)\.
 
 ## Component versions<a name="emr-5331-components"></a>
 

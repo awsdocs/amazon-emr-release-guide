@@ -19,15 +19,22 @@ The `partitionOverwriteMode` write option was introduced in Spark 2\.4\.0\. For 
 
 ## When the EMRFS S3\-optimized committer is not used<a name="emr-spark-committer-reqs-anti"></a>
 
-The committer is not used under the following circumstances:
-+ When writing to HDFS
-+ When using the S3A file system
-+ When using MapReduce or Spark's RDD API
+Generally, the EMRFS S3\-optimized committer is not used in the following situations\.
 
-The following examples demonstrate implementations written in Scala that do not use the EMRFS S3\-optimized committer in whole \(the first example\) and in part \(the second example\)\.
+
+****  
+
+| Situation | Why the committer is not used | 
+| --- | --- | 
+| When you write to HDFS | The committer only supports writing to Amazon S3 using EMRFS\. | 
+| When you use the S3A file system | The committer only supports EMRFS\. | 
+| When you use MapReduce or Spark's RDD API | The committer only supports using SparkSQL, DataFrame, or Dataset APIs\. | 
+
+The following Scala examples demonstrate some additional situations that prevent the EMRFS S3\-optimized committer from being used in whole \(the first example\) and in part \(the second example\)\.
 
 **Example –Dynamic partition overwrite mode**  
-In the following Scala code, the committer is not used because `partitionOverwriteMode` is set to `dynamic`, dynamic partition columns are specified by `partitionBy`, and the write mode is set to `overwrite`\.  
+The following Scala example instructs Spark to use a different commit algorithm, which prevents use of the EMRFS S3\-optimized committer altogether\. The code sets the `partitionOverwriteMode` property to `dynamic` to overwrite only those partitions to which you're writing data\. Then, dynamic partition columns are specified by `partitionBy`, and the write mode is set to `overwrite`\.   
+You must configure all three settings to avoid using the EMRFS S3\-optimized committer\. When you do so, Spark executes a different commit algorithm that uses Spark's staging directory, which is a temporary directory created under the output location that starts with `.spark-staging`\. The algorithm sequentially renames partition directories, which can negatively impact performance\.  
 
 ```
 val dataset = spark.range(0, 10)
@@ -36,9 +43,8 @@ val dataset = spark.range(0, 10)
 dataset.write.mode("overwrite")
   .option("partitionOverwriteMode", "dynamic")
   .partitionBy("dt")
-  .parquet("s3://bucket/output")
+  .parquet("s3://EXAMPLE-DOC-BUCKET/output")
 ```
-In this example, instead of using the EMRFS S3\-optimized committer or any configured output committer, Spark executes a different commit algorithm that uses Spark's staging directory, which is a temporary directory created under the output location that starts with `.spark-staging`\. The algorithm results in sequential renames of partition directories, which may negatively impact performance\.  
 The algorithm in Spark 2\.4\.0 follows these steps:  
 
 1. Task attempts write their output to partition directories under Spark's staging directory—for example, `${outputLocation}/spark-staging-${jobID}/k1=v1/k2=v2/`\.

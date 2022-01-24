@@ -10,7 +10,8 @@ If S3DistCp is unable to copy some or all of the specified files, the cluster st
 
 **Important**  
 S3DistCp does not support Amazon S3 bucket names that contain the underscore character\.  
-S3DistCp does not support concatenation for Parquet files\. Use PySpark instead\. For more information, see [Concatenating parquet files in Amazon EMR](https://aws.amazon.com/premiumsupport/knowledge-center/emr-concatenate-parquet-files/)\.
+S3DistCp does not support concatenation for Parquet files\. Use PySpark instead\. For more information, see [Concatenating parquet files in Amazon EMR](https://aws.amazon.com/premiumsupport/knowledge-center/emr-concatenate-parquet-files/)\.  
+To avoid copy errors when using S3DistCP to copy a single file \(instead of a directory\) from S3 to HDFS, use Amazon EMR version 5\.33\.0 or later, or Amazon EMR version 6\.3\.0 or later\.
 
 ## S3DistCp options<a name="UsingEMR_s3distcp.options"></a>
 

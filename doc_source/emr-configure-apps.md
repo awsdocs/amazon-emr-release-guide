@@ -5,7 +5,7 @@ To override the default configurations for an application, you can supply a conf
 **Warning**  
 Amazon EMR Describe and List API operations will emit custom and configurable settings, which are used as a part of Amazon EMR job flows, in plaintext\. We recommend not to insert sensitive information, such as passwords, in these settings\.
 
-The configuration classifications that are available vary by Amazon EMR release version\. For a list of configuration classifications that are available for each release version of Amazon EMR, see [About Amazon EMR Releases](emr-release-components.md)\.
+The configuration classifications that are available vary by Amazon EMR release version\. For a list of configuration classifications that are supported in a particular release version, refer to the page for that release version under [About Amazon EMR Releases](emr-release-components.md)\.
 
 The following is example JSON file for a list of configurations\.
 

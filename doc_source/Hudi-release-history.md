@@ -7,19 +7,21 @@ The following table lists the version of Hudi included in each release version o
 
 | Amazon EMR Release label | Hudi Version | Components installed with Hudi | 
 | --- | --- | --- | 
+| emr\-6\.5\.0 | 0\.9\.0\-amzn\-1 | Not available\. | 
 | emr\-6\.4\.0 | 0\.8\.0\-amzn\-0 | Not available\. | 
 | emr\-6\.3\.1 | 0\.7\.0\-amzn\-0 | Not available\. | 
 | emr\-6\.3\.0 | 0\.7\.0\-amzn\-0 | Not available\. | 
-| emr\-5\.33\.1 | 0\.7\.0\-amzn\-1 | Not available\. | 
-| emr\-5\.33\.0 | 0\.7\.0\-amzn\-1 | Not available\. | 
-| emr\-5\.32\.1 | 0\.6\.0\-amzn\-0 | Not available\. | 
-| emr\-5\.32\.0 | 0\.6\.0\-amzn\-0 | Not available\. | 
 | emr\-6\.2\.1 | 0\.6\.0\-amzn\-1 | Not available\. | 
 | emr\-6\.2\.0 | 0\.6\.0\-amzn\-1 | Not available\. | 
 | emr\-6\.1\.1 | 0\.5\.2\-incubating\-amzn\-2 | Not available\. | 
 | emr\-6\.1\.0 | 0\.5\.2\-incubating\-amzn\-2 | Not available\. | 
 | emr\-6\.0\.1 | 0\.5\.0\-incubating\-amzn\-1 | Not available\. | 
 | emr\-6\.0\.0 | 0\.5\.0\-incubating\-amzn\-1 | Not available\. | 
+| emr\-5\.34\.0 | 0\.9\.0\-amzn\-0 | Not available\. | 
+| emr\-5\.33\.1 | 0\.7\.0\-amzn\-1 | Not available\. | 
+| emr\-5\.33\.0 | 0\.7\.0\-amzn\-1 | Not available\. | 
+| emr\-5\.32\.1 | 0\.6\.0\-amzn\-0 | Not available\. | 
+| emr\-5\.32\.0 | 0\.6\.0\-amzn\-0 | Not available\. | 
 | emr\-5\.31\.1 | 0\.6\.0\-amzn\-0 | Not available\. | 
 | emr\-5\.31\.0 | 0\.6\.0\-amzn\-0 | Not available\. | 
 | emr\-5\.30\.2 | 0\.5\.2\-incubating | Not available\. | 

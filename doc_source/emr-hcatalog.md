@@ -4,27 +4,27 @@ HCatalog is a tool that allows you to access Hive metastore tables within Pig, S
 
 HCatalog on Amazon EMR release version 5\.8\.0 and later supports using AWS Glue Data Catalog as the metastore for Hive\. For more information, see [Using AWS Glue Data Catalog as the metastore for Hive](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-hive-metastore-glue.html)\.
 
-The following table lists the version of HCatalog included in the latest release of Amazon EMR 6\.x series, along with the components that Amazon EMR installs with HCatalog\.
+The following table lists the version of HCatalog included in the latest release of the Amazon EMR 6\.x series, along with the components that Amazon EMR installs with HCatalog\.
 
-For the version of components installed with HCatalog in this release, see [Release 6\.4\.0 Component Versions](emr-640-release.md)\.
-
-
-**HCatalog version information for emr\-6\.4\.0**  
-
-| Amazon EMR Release Label | HCatalog Version | Components Installed With HCatalog | 
-| --- | --- | --- | 
-| emr\-6\.4\.0 | HCatalog 3\.1\.2 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hcatalog\-client, hcatalog\-server, hcatalog\-webhcat\-server, hive\-client, mariadb\-server | 
-
-The following table lists the version of HCatalog included in the latest release of Amazon EMR 5\.x series, along with the components that Amazon EMR installs with HCatalog\.
-
-For the version of components installed with HCatalog in this release, see [Release 5\.33\.0 Component Versions](emr-5330-release.md)\.
+For the version of components installed with HCatalog in this release, see [Release 6\.5\.0 Component Versions](emr-650-release.md)\.
 
 
-**HCatalog version information for emr\-5\.33\.0**  
+**HCatalog version information for emr\-6\.5\.0**  
 
 | Amazon EMR Release Label | HCatalog Version | Components Installed With HCatalog | 
 | --- | --- | --- | 
-| emr\-5\.33\.0 | HCatalog 2\.3\.7 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hcatalog\-client, hcatalog\-server, hcatalog\-webhcat\-server, hive\-client, mariadb\-server | 
+| emr\-6\.5\.0 | HCatalog 3\.1\.2 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hcatalog\-client, hcatalog\-server, hcatalog\-webhcat\-server, hive\-client, mariadb\-server | 
+
+The following table lists the version of HCatalog included in the latest release of the Amazon EMR 5\.x series, along with the components that Amazon EMR installs with HCatalog\.
+
+For the version of components installed with HCatalog in this release, see [Release 5\.34\.0 Component Versions](emr-5340-release.md)\.
+
+
+**HCatalog version information for emr\-5\.34\.0**  
+
+| Amazon EMR Release Label | HCatalog Version | Components Installed With HCatalog | 
+| --- | --- | --- | 
+| emr\-5\.34\.0 | HCatalog 2\.3\.8 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hcatalog\-client, hcatalog\-server, hcatalog\-webhcat\-server, hive\-client, mariadb\-server | 
 
 **Topics**
 + [Creating a cluster with HCatalog](emr-hcatalog-create-cluster.md)

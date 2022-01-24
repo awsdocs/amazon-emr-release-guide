@@ -36,7 +36,9 @@ Before you install and work with SQL Workbench/J, download the driver package an
 
    1. For **Library**, click the **Select the JAR file\(s\)** icon\.
 
-   1. Browse to the location containing the extracted drivers, select the following JAR files and click **Open**\.
+   1. Navigate to the location containing the extracted drivers\. Select the drivers that are included in the JDBC driver package version that you downloaded, and click **Open**\.
+
+      For example, your JDBC driver package may include the following JARs\.
 
       ```
       hive_metastore.jar

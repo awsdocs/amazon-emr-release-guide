@@ -6,27 +6,27 @@ Hive extends the SQL paradigm by including serialization formats\. You can also 
 
 For more information about Hive, see [http://hive\.apache\.org/](http://hive.apache.org/)\.
 
-The following table lists the version of Hive included in the latest release of Amazon EMR 6\.x series, along with the components that Amazon EMR installs with Hive\.
+The following table lists the version of Hive included in the latest release of the Amazon EMR 6\.x series, along with the components that Amazon EMR installs with Hive\.
 
-For the version of components installed with Hive in this release, see [Release 6\.4\.0 Component Versions](emr-640-release.md)\.
-
-
-**Hive version information for emr\-6\.4\.0**  
-
-| Amazon EMR Release Label | Hive Version | Components Installed With Hive | 
-| --- | --- | --- | 
-| emr\-6\.4\.0 | Hive 3\.1\.2 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, emr\-s3\-select, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hive\-client, hive\-hbase, hcatalog\-server, hive\-server2, hudi, mariadb\-server, tez\-on\-yarn, zookeeper\-client, zookeeper\-server | 
-
-The following table lists the version of Hive included in the latest release of Amazon EMR 5\.x series, along with the components that Amazon EMR installs with Hive\.
-
-For the version of components installed with Hive in this release, see [Release 5\.33\.0 Component Versions](emr-5330-release.md)\.
+For the version of components installed with Hive in this release, see [Release 6\.5\.0 Component Versions](emr-650-release.md)\.
 
 
-**Hive version information for emr\-5\.33\.0**  
+**Hive version information for emr\-6\.5\.0**  
 
 | Amazon EMR Release Label | Hive Version | Components Installed With Hive | 
 | --- | --- | --- | 
-| emr\-5\.33\.0 | Hive 2\.3\.7 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, emr\-s3\-select, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hive\-client, hive\-hbase, hcatalog\-server, hive\-server2, hudi, mariadb\-server, tez\-on\-yarn | 
+| emr\-6\.5\.0 | Hive 3\.1\.2 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, emr\-s3\-select, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hive\-client, hive\-hbase, hcatalog\-server, hive\-server2, hudi, mariadb\-server, tez\-on\-yarn, zookeeper\-client, zookeeper\-server | 
+
+The following table lists the version of Hive included in the latest release of the Amazon EMR 5\.x series, along with the components that Amazon EMR installs with Hive\.
+
+For the version of components installed with Hive in this release, see [Release 5\.34\.0 Component Versions](emr-5340-release.md)\.
+
+
+**Hive version information for emr\-5\.34\.0**  
+
+| Amazon EMR Release Label | Hive Version | Components Installed With Hive | 
+| --- | --- | --- | 
+| emr\-5\.34\.0 | Hive 2\.3\.8 | emrfs, emr\-ddb, emr\-goodies, emr\-kinesis, emr\-s3\-dist\-cp, emr\-s3\-select, hadoop\-client, hadoop\-mapred, hadoop\-hdfs\-datanode, hadoop\-hdfs\-library, hadoop\-hdfs\-namenode, hadoop\-httpfs\-server, hadoop\-kms\-server, hadoop\-yarn\-nodemanager, hadoop\-yarn\-resourcemanager, hadoop\-yarn\-timeline\-server, hive\-client, hive\-hbase, hcatalog\-server, hive\-server2, hudi, mariadb\-server, tez\-on\-yarn | 
 
 Beginning with Amazon EMR 5\.18\.0, you can use the Amazon EMR artifact repository to build your job code against the exact versions of libraries and dependencies that are available with specific Amazon EMR release versions\. For more information, see [Checking dependencies using the Amazon EMR artifact repository](emr-artifact-repository.md)\.
 
