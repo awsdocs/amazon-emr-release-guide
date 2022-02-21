@@ -23,7 +23,7 @@ spark\-shell:
 
 ```
 spark-shell \
---conf "spark.sql.extensions=org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions"\
+--conf "spark.sql.extensions=org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions" \
 --conf "spark.sql.catalog.spark_catalog=org.apache.iceberg.spark.SparkSessionCatalog" \
 --conf "spark.sql.catalog.spark_catalog.type=hive" \
 --conf "spark.sql.catalog.spark_catalog.warehouse=s3://>bucket</>prefix</"
@@ -33,7 +33,7 @@ spark\-submit:
 
 ```
 spark-submit \
---conf "spark.sql.extensions=org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions"\
+--conf "spark.sql.extensions=org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions" \
 --conf "spark.sql.catalog.spark_catalog=org.apache.iceberg.spark.SparkSessionCatalog" \
 --conf "spark.sql.catalog.spark_catalog.type=hive" \
 --conf "spark.sql.catalog.spark_catalog.warehouse=s3://<bucket>/<prefix>/"
